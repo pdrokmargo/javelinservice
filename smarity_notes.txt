@@ -1,0 +1,2 @@
+- It must be replaced driver "token" by "passport" in config/auth.php line 45
+- It must be replaced model "App\User::class" by "App\Models\User::class" in config/auth.php line 70
