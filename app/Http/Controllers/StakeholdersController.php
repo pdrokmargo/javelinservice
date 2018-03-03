@@ -65,17 +65,18 @@ class StakeholdersController extends Controller
             
             $data = json_decode($request->data,true);
                        
-            $geoLocation=\App\Models\Geolocation::where('country_id', $data['country_id'])
+            $geoLocation = \App\Models\Geolocation::where('country_id', $data['country_id'])
             ->where('department_id', $data['department_id'])
             ->where('city_id', $data['city_id'])
             ->first();  
+
 
             $customer = $data["customer"];
             $supplier = $data["supplier"];
             // $sales_representatives = $data["sales_representatives"];
             // $employees = $data["employees"];
             $comercial_stakeholders_info = $data["comercial_stakeholders_info"];            
-            $data['geolocation_id']=$geoLocation->id;            
+            $data['geolocation_id'] = $geoLocation->id;
             $id = \App\Models\StakeholdersInfo::create($data)->id;
             
             if ($data['person_type_id']==39)/*persona juridica*/ {

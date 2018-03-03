@@ -24,6 +24,7 @@ class ViewActionsTableSeeder extends Seeder
             /*11*/['view_id' => 11, 'actions' => '[{"action":"Crear", "status":false}, {"action":"Leer", "status":false}, {"action":"Actualizar", "status":false}, {"action":"Eliminar", "status":false}]'],
             /*12*/['view_id' => 12, 'actions' => '[{"action":"Crear", "status":false}, {"action":"Leer", "status":false}, {"action":"Actualizar", "status":false}, {"action":"Eliminar", "status":false}]'],
             /*13*/['view_id' => 13, 'actions' => '[{"action":"Crear", "status":false}, {"action":"Leer", "status":false}, {"action":"Actualizar", "status":false}, {"action":"Eliminar", "status":false}]'],
+            /*14*/['view_id' => 14, 'actions' => '[{"action":"Crear", "status":false}, {"action":"Leer", "status":false}, {"action":"Actualizar", "status":false}, {"action":"Eliminar", "status":false}]'],
         ]);
     }
 }
