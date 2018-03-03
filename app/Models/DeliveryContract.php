@@ -16,4 +16,8 @@ class DeliveryContract extends Model
         'state'
     ];
     protected $hidden = [];
+
+    public function DeliveryPoints() {
+        return $this->hasOne('App\Models\DeliveryPoint', 'id','delivery_contract_id');
+    }
 }
