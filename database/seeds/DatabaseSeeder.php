@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
          $this->call(CollectionsValuesTableSeeder::class);
          $this->call(UsersTableSeeder::class);
          $this->call(UserProfilesTableSeeder::class);
+         $this->call(UsersPrivilegesTableSeeder::class);
          $this->call(ViewsTableSeeder::class);
          $this->call(ViewActionsTableSeeder::class);
          $this->call(PrivilegesTableSeeder::class);
@@ -23,5 +24,7 @@ class DatabaseSeeder extends Seeder
          $this->call(GeolocationsTableSeeder::class);
          $this->call(NotificationsTableSeeder::class);
          $this->call(StakeholdersInfoTableSeeder::class);
+         $this->call(CompaniesTableSeeder::class);
+         
     }
 }

@@ -18,7 +18,8 @@ class UsersTableSeeder extends Seeder
                 'username' => 'pdrokmargo', 
                 'email' => 'pdro_kmargo@hotmail.com', 
                 'password' => bcrypt('123456'), 
-                'user_profile_id' => '1'
+                'user_profile_id' => '1',
+                'company_default_id' => '1'
             ],
         ]);
     }

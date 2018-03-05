@@ -39,6 +39,9 @@ class CollectionsTableSeeder extends Seeder
             /*25*/['name'=>'ROUTES_ADMINISTRATION',    'description' => 'vias de administración',       'syscollection' => true],
             /*26*/['name'=>'STORAGE_CONDITION',    'description' => 'condiciones de almacenamiento',       'syscollection' => true],
             /*27*/['name'=>'PAYMENT_CONDITION',    'description' => 'condiciones de pago',       'syscollection' => true],
+            /*28*/['name'=>'IPS_NETWORK',    'description' => 'Red Adscrita',       'syscollection' => true],
+            /*29*/['name'=>'POPULATION_TYPE',    'description' => 'Tipo de Población',       'syscollection' => true],
+            /*30*/['name'=>'DELIVERY_POINTS_GROUPS',    'description' => 'Grupos de Puntos de Dispensación',       'syscollection' => true],
 
         ]);
         

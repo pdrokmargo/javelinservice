@@ -14,12 +14,19 @@ class CreateDeliveryPointsTable extends Migration
     public function up()
     {
         Schema::create('delivery_points', function (Blueprint $table) {
-            $table->increments('id');
+            $table->uuid('id')->unique();
             $table->integer('warehouse_id');
             $table->string('name');
-            $table->string('delivery_point_token')->unique();
             $table->string('description');
-            $table->string('delivery_contract_id');//It defines if the contract is per capita, or per events or both at the same time.
+            $table->integer('delivery_point_group_id');
+            $table->json('delivery_contracts');
+            /*json array:
+                uuid: delivery_contract_id
+                boolean: event
+                boolean: capita
+                boolean: pgp
+            */
+            $table->boolean('installed');
             $table->boolean('state');
         });
     }

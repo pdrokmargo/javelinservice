@@ -13,7 +13,7 @@ class CompaniesTableSeeder extends Seeder
     {
         DB::table('companies')->insert([
             [//default company
-                'name' => 'Google Colombia Limitada', 
+                'name' => 'Medicamentos y Equipos S.A.S.', 
                 'nit' => '900214217', 
                 'description' => 'Empresas dedicada a la creación de iniciativas tecnológicas', 
                 'address' => 'Calle 99 # 99 - 99', 

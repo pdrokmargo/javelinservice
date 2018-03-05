@@ -117,6 +117,17 @@ class CollectionsValuesTableSeeder extends Seeder
             // CUSTOMERS_CLASS
             /*68*/["collection_id" => 15, "parent_id" => 0, "code" => "clase 1", "value" => "Clase 1"],
 
+            // IPS_NETWORK
+            /*69*/["collection_id" => 28, "parent_id" => 0, "code" => "hospitalnazareth", "value" => "Hospital Nazareth"],
+            /*70*/["collection_id" => 28, "parent_id" => 0, "code" => "hospitalbarranquilla", "value" => "Hospital Barranquilla"],
+            /*71*/["collection_id" => 28, "parent_id" => 0, "code" => "hospitaluniversitario", "value" => "Hospital Universitario"],
+
+            // POPULATION_TYPE
+            /*72*/["collection_id" => 29, "parent_id" => 0, "code" => "subsidiado", "value" => "Subsidiado"],
+            /*73*/["collection_id" => 29, "parent_id" => 0, "code" => "contributivo", "value" => "Contributivo"],
+
+            // DELIVERY_POINTS_GROUPS
+            /*74*/["collection_id" => 30, "parent_id" => 0, "code" => "zonaatlantico", "value" => "Zona Atlántico"],
             
         ]);
     }
