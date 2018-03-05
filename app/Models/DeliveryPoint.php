@@ -12,8 +12,10 @@ class DeliveryPoint extends Model
         'warehouse_id',
         'name',
         'description',
-        'delivery_contract_id',
-        'state'
+        'state',
+        'installed',
+        'delivery_point_group_id',
+        'delivery_contracts'
     ];
     protected $hidden = [];
     
