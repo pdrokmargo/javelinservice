@@ -16,4 +16,5 @@ class DeliveryPoint extends Model
         'state'
     ];
     protected $hidden = [];
+    
 }

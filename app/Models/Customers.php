@@ -33,7 +33,6 @@ class Customers extends Model
         'debt_contact',
         'shipping_points'
     ];
-    // protected $hidden = [];
 
     public function stakeholderInfo() {
         return $this->hasOne('App\Models\StakeholdersInfo', 'id','stakeholder_info_id');
