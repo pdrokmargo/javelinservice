@@ -19,7 +19,9 @@ class DeliveryContractsTableSeeder extends Seeder
                 'description' => '', 
                 'population_type_id' => 73, 
                 'fee_collecting' => false, 
-                'event' => '{"contract_number" : "123456-4", 
+                'event' => '
+                {
+                    "contract_number" : "123456-4", 
                     "contract_start_date" : "01/01/2018", 
                     "contract_expiration_date" : "31/12/2018", 
                     "budget" : "400000000", 
@@ -28,18 +30,29 @@ class DeliveryContractsTableSeeder extends Seeder
                     "auth" : "true", 
                     "auth_length" : 6,
                     "auth_char_type" : 75, 
-                    "delivery_points" : {
-                        ["delivery_point_id": "b225b683-98c1-4e3d-be21-3230122ff718", 
-                        "products": {["product_id": "54f09b52-16ac-45ba-a748-2eee493cca86",  "fare": 2600]}
-                        ]
-                    }
+                    "delivery_points": 
+                    [
+                        {
+                            "delivery_point_id": "b225b683-98c1-4e3d-be21-3230122ff718", 
+                            "products": [
+                                {
+                                    "product_id": "54f09b52-16ac-45ba-a748-2eee493cca86",
+                                    "fare": 2600
+                                }
+                            ]
+                        }
+                    ]
                 }',
                 'capita' => '{}',
                 'pgp' => '{}',
                 'pharmadrug_control' => false,
                 'pharmadrug_monopoly' => false,
                 'cooled_products' => false,
-                'ips' => '{["ips_id" : 69], ["ips_id" : 70], ["ips_id" : 71] }',
+                'ips' => '[
+                    {"ips_id" : 69}, 
+                    {"ips_id" : 70}, 
+                    {"ips_id" : 71 }
+                ]',
                 'conditional_alerts' => '{}',
                 'state' => true,
             ],

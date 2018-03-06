@@ -26,15 +26,23 @@ class CustomersTableSeeder extends Seeder
                 'credit_limit_blocking' => true, 
                 'late_payment_blocking' => true, 
                 'days_grace' => 2, 
-                'debt_contact' => '{"name_debt_contact":"Juana Pérez", "phone_debt_contact":"1234", "email_debt_contact":"juana@gmail.com"}',
-                'shipping_points' => '{"name":"Carrera 46", 
+                'debt_contact' => '
+                {
+                    "name_debt_contact":"Juana Pérez", 
+                    "phone_debt_contact":"1234", 
+                    "email_debt_contact":"juana@gmail.com"
+                }',
+                'shipping_points' => '
+                {
+                    "name":"Carrera 46", 
                     "address":"Carrera 46 # 25 - 25", 
-                    "contact_person":"Camila Suárez", 
-                    "geolocations_id":1, 
-                    "neighborhood":"Alto Prado", 
+                    "contact_person":"Camila Suárez",
+                    "geolocations_id":1,
+                    "neighborhood":"Alto Prado",
                     "phone_number1":"65432",
-                    "phone_number2":"23456"
-                    "email":"recepcoj@fsdfd.com"}'
+                    "phone_number2":"23456",
+                    "email":"recepcoj@fsdfd.com"
+                }'
             ],
          
         ]);
