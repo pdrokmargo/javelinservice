@@ -60,8 +60,7 @@ class DeliveryPointsController extends Controller
      */
     public function show($id)
     {
-        $data = \App\Models\DeliveryPoint::find($id);
-        
+        $data = \App\Models\DeliveryPoint::find($id);        
         return response()->json([ "data" => $data ], 200);
     }
 
