@@ -57,17 +57,17 @@ class CollectionsValuesTableSeeder extends Seeder
             /*27*/['collection_id' => '13', 'parent_id' => 0, 'code' => 'titulo', 'value' => 'Titulo'],
             /*28*/['collection_id' => '13', 'parent_id' => 0, 'code' => 'detalle', 'value' => 'Detalle'],
 
-            //COSTS_CENTRE_TYPES
-            /*29*/['collection_id' => '22', 'parent_id' => 0, 'code' => 'caja', 'value' => 'Caja'],
+            //PACKAGING_UNIT
+            /*29*/['collection_id' => '22', 'parent_id' => 0, 'code' => 'caja', 'value' => 'Caja (Cj)'],
 
             //PRODUCT_TYPE
             /*30*/['collection_id' => '24', 'parent_id' => 0, 'code' => 'medicamento', 'value' => 'Medicamento'],
             /*31*/['collection_id' => '24', 'parent_id' => 0, 'code' => 'otro', 'value' => 'Otro'],
 
             /*PHARMACEUTICAL_FORM*/
-            /*32*/['collection_id' => '23', 'parent_id' => 0, 'code' => 'tableta', 'value' => 'Tableta'],
-            /*33*/['collection_id' => '23', 'parent_id' => 0, 'code' => 'pastillas', 'value' => 'Pastillas'],
-            /*34*/['collection_id' => '23', 'parent_id' => 0, 'code' => 'capsulas', 'value' => 'Capsulas'],
+            /*32*/['collection_id' => '23', 'parent_id' => 0, 'code' => 'sobre', 'value' => 'Sobre'],
+            /*33*/['collection_id' => '23', 'parent_id' => 0, 'code' => 'capsulas', 'value' => 'Cápsulas'],
+            /*34*/['collection_id' => '23', 'parent_id' => 0, 'code' => 'frasco', 'value' => 'Frasco'],
             /*ROUTES_ADMINISTRATION*/
             /*35*/['collection_id' => '25', 'parent_id' => 0, 'code' => 'oral', 'value' => 'Oral'],
             /*36*/['collection_id' => '25', 'parent_id' => 0, 'code' => 'intravenosa', 'value' => 'Intravenosa'],
@@ -128,6 +128,58 @@ class CollectionsValuesTableSeeder extends Seeder
 
             // DELIVERY_POINTS_GROUPS
             /*74*/["collection_id" => 30, "parent_id" => 0, "code" => "zonaatlantico", "value" => "Zona Atlántico"],
+
+            // AUTH_CHAR_TYPE
+            /*75*/["collection_id" => 31, "parent_id" => 0, "code" => "numerico", "value" => "Numérico"],
+            /*76*/["collection_id" => 31, "parent_id" => 0, "code" => "alfabetico", "value" => "Alfabetico"],
+            /*77*/["collection_id" => 31, "parent_id" => 0, "code" => "alfanumerico", "value" => "Alfanumérico"],
+
+            // continue: PACKAGING_UNIT
+            /*78*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'bolsa', 'value' => 'Bolsa (Bj)'],
+            /*79*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'paquete', 'value' => 'Paquete (Pqte)'],
+
+            /* continue: ROUTES_ADMINISTRATION*/
+            /*80*/['collection_id' => 25, 'parent_id' => 0, 'code' => 'sublingual', 'value' => 'Sublingual'],
+            /*81*/['collection_id' => 25, 'parent_id' => 0, 'code' => 'rectal', 'value' => 'Rectal'],
+            /*82*/['collection_id' => 25, 'parent_id' => 0, 'code' => 'instramuscular', 'value' => 'Instramuscular'],   
+            /*83*/['collection_id' => 25, 'parent_id' => 0, 'code' => 'subcutanea', 'value' => 'Subcutánea'],   
+            /*84*/['collection_id' => 25, 'parent_id' => 0, 'code' => 'intradermica', 'value' => 'Intradérmica'],   
+            /*85*/['collection_id' => 25, 'parent_id' => 0, 'code' => 'inhalador', 'value' => 'Inhalador'],   
+            /*86*/['collection_id' => 25, 'parent_id' => 0, 'code' => 'topico', 'value' => 'Tópico'],   
+            /*87*/['collection_id' => 25, 'parent_id' => 0, 'code' => 'vaginal', 'value' => 'Vaginal'],   
+            /*88*/['collection_id' => 25, 'parent_id' => 0, 'code' => 'ocular', 'value' => 'Ocular'],   
+            /*89*/['collection_id' => 25, 'parent_id' => 0, 'code' => 'nasal', 'value' => 'Nasal'],  
+            
+            /* continue: PHARMACEUTICAL_FORM*/
+            /*90*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'tableta', 'value' => 'Sobre'],
+            /*91*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'tabletaprolongada', 'value' => 'Tableta de acción prolongada'],
+            /*92*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'grageas', 'value' => 'Grageas'],
+            /*93*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'supositorios', 'value' => 'Supositorios'],
+            /*94*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'ovulos', 'value' => 'Óvulos'],
+            /*95*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'crema', 'value' => 'Crema'],
+            /*96*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'unguento', 'value' => 'Ungüento'],
+            /*97*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'ampolla', 'value' => 'Ampolla'],
+            /*98*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'jarabe', 'value' => 'Jarabe'],
+            /*99*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'gota', 'value' => 'Gota'],
+            /*100*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'aerosol', 'value' => 'Aerosol'],
+
+            /* MEASUREMENT_UNIT*/
+            /*101*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'und', 'value' => 'Unidad (und)'],
+            /*102*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'kg', 'value' => 'Kilogramo (kg)'],
+            /*103*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'g', 'value' => 'Gramo (g)'],
+            /*104*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'mg', 'value' => 'Miligramo (mg)'],
+            /*105*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'mcg', 'value' => 'Microgramo (mcg)'],
+            /*106*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'lt', 'value' => 'Litro (lt)'],
+            /*107*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'dl', 'value' => 'Decilitro (dl)'],
+            /*108*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'ml', 'value' => 'Mililitro (ml)'],
+            /*109*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'cc', 'value' => 'Centímetro cúbico (cc)'],
+            /*110*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'm', 'value' => 'Metro (m)'],
+            /*111*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'cm', 'value' => 'Centímetro (cm)'],
+            /*112*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'mm', 'value' => 'Milímetro (mm)'],
+            /*113*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'ui', 'value' => 'U.I.'],
+            
+            /* continue: STORAGE_CONDITION*/
+            /*114*/['collection_id' => 26, 'parent_id' => 0, 'code' => 'norequiere_refrigeración', 'value' => 'No requiere Refrigeración'],
             
         ]);
     }

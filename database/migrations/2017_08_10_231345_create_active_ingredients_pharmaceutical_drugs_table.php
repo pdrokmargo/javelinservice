@@ -15,7 +15,7 @@ class CreateActiveIngredientsPharmaceuticalDrugsTable extends Migration
     {
         Schema::create('active_ingredients_pharmaceutical_drugs', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('active_ingredient_id');
+            $table->uuid('active_ingredient_id');
             $table->uuid('pharmaceutical_drug_id');
         });
     }

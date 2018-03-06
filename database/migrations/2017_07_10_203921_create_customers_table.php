@@ -66,7 +66,7 @@ class CreateCustomersTable extends Migration
                 string:email_debt_contact
             */
             
-            $table->json('shipping_points');//
+            $table->json('shipping_points')->nullable();//
             /*json structure:array
                 string:name
                 string:address

@@ -42,6 +42,6 @@ class Product extends Model
 		'covered_period',
 		'replacment_time',
 		'state',
-		'pharmaceutical_drugs'
+		'pharmaceutical_drug_id'
         ];
 }

@@ -17,18 +17,17 @@ class CreateProductsTable extends Migration
             $table->uuid('id');
             $table->string('code')->nullable();
             $table->string('name');
-
             $table->string('sku')->nullable();
             $table->string('description');
             $table->string('comercial_name');
             $table->integer('units');
             $table->date('lifetime');
             $table->integer('delivery_fraction');
-            $table->integer('barcode');
-            $table->integer('cum_code');
+            $table->integer('barcode')->nullable();
+            $table->string('cum_code');
             $table->double('regulated_price')->nullable();
             $table->double('cost')->nullable();
-            $table->integer('content_unit_id'); //Unidades de Contenido: Can be mg, ml, etc.
+            $table->integer('content_unit_id'); //collection packaging_unit
 
             $table->boolean('batch_control');
             $table->boolean('serials_control');
@@ -42,17 +41,15 @@ class CreateProductsTable extends Migration
             
             
             $table->uuid('sanitary_registration_holder_id');
-            $table->integer('sanitary_registration');
+            $table->string('sanitary_registration');
             $table->date('validity_sanitary_registration');
             $table->integer('product_profile_id');
             $table->integer('security_time');
             $table->integer('covered_period');
             $table->integer('replacment_time');
             $table->boolean('state')->default(false);
-            $table->json('pharmaceutical_drugs')->nullable();
-            /*json structure:array
-                pharmaceutical_drugs_structure
-            */
+            $table->uuid('pharmaceutical_drug_id');
+
             $table->primary('id');
         });
     }

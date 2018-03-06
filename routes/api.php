@@ -64,4 +64,5 @@ Route::middleware('auth:api')->group(function () {
     Route::resource('pharmaceuticaldrug','PharmaceuticalDrugsController');
     Route::resource('delivery-contracts','DeliveryContractsController');
     Route::resource('delivery-points','DeliveryPointsController');
+    
 });

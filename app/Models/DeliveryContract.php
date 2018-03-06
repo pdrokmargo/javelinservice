@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class DeliveryContract extends Model
 {
+    use \App\Uuids;
     public $timestamps = false;
     protected $table = 'delivery_contracts';
+    public $incrementing = false;
     protected $fillable = [
         'name',
         'population_type_id',
@@ -24,7 +26,4 @@ class DeliveryContract extends Model
     ];
     protected $hidden = [];
 
-    public function DeliveryPoints() {
-        return $this->hasOne('App\Models\DeliveryPoint', 'id','delivery_contract_id');
-    }
 }
