@@ -33,7 +33,7 @@ class CollectionsTableSeeder extends Seeder
             /*19*/['name'=>'BANK_ACCOUNT_TYPE',    'description' => 'Tipo de cuentas bancarias',       'syscollection' => true],
             /*20*/['name'=>'UNITS_TYPE',    'description' => 'Tipo de unidades',       'syscollection' => true],
             /*21*/['name'=>'MEASUREMENT_UNIT',    'description' => 'Unidad de medida',       'syscollection' => true],
-            /*22*/['name'=>'CONTENT_UNIT',    'description' => 'Unidad de contenido',       'syscollection' => true],
+            /*22*/['name'=>'PACKAGING_UNIT',    'description' => 'Unidad de contenido',       'syscollection' => true],
             /*23*/['name'=>'PHARMACEUTICAL_FORM',    'description' => 'Forma farmacéutica',       'syscollection' => true],
             /*24*/['name'=>'PRODUCT_TYPE',    'description' => 'Tipo de producto',       'syscollection' => true],
             /*25*/['name'=>'ROUTES_ADMINISTRATION',    'description' => 'vias de administración',       'syscollection' => true],
@@ -42,6 +42,7 @@ class CollectionsTableSeeder extends Seeder
             /*28*/['name'=>'IPS_NETWORK',    'description' => 'Red Adscrita',       'syscollection' => true],
             /*29*/['name'=>'POPULATION_TYPE',    'description' => 'Tipo de Población',       'syscollection' => true],
             /*30*/['name'=>'DELIVERY_POINTS_GROUPS',    'description' => 'Grupos de Puntos de Dispensación',       'syscollection' => true],
+            /*31*/['name'=>'PREAUTH_CHAR_TYPE',    'description' => 'Tipo de Caracteres de Autorización',       'syscollection' => true],
 
         ]);
         

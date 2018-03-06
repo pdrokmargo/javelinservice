@@ -23,7 +23,6 @@ class PharmaceuticalDrug extends Model
 			'is_monopoly',
 			'is_pos',
 			'storage_condition_id',
-			'active_principle',
 			'state'
     ];
     protected $hidden = [];

@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Warehouse extends Model
 {
+    use \App\Uuids;
     protected $table = 'warehouses';
     public $timestamps = false;
+    public $incrementing = false;
     public $with = array('geolocation');
     protected $fillable = [
         'warehouse_type_id',

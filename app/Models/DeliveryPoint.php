@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class DeliveryPoint extends Model
 {
+    use \App\Uuids;
     public $timestamps = false;
     protected $table = 'delivery_points';
+    public $incrementing = false;
     protected $fillable = [
         'warehouse_id',
         'name',

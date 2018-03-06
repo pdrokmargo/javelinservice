@@ -14,7 +14,7 @@ class CreateDeliveryPointsTable extends Migration
     public function up()
     {
         Schema::create('delivery_points', function (Blueprint $table) {
-            $table->uuid('id')->unique();
+            $table->uuid('id');
             $table->integer('warehouse_id');
             $table->string('name');
             $table->string('description');
@@ -28,6 +28,8 @@ class CreateDeliveryPointsTable extends Migration
             */
             $table->boolean('installed');
             $table->boolean('state');
+
+            $table->primary('id');
         });
     }
 

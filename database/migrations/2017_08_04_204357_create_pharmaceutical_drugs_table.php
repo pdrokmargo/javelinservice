@@ -20,12 +20,10 @@ class CreatePharmaceuticalDrugsTable extends Migration
             $table->double('concentration');            
             $table->integer('dosage_form_id'); //Formas Farmacéuticas: Can be pills (Pastillas), tablets (tabletas), capsules (capsulas)
             $table->integer('routes_administration_id'); //Vías de Administración: Routes of Can be oral, intravenous (intravenosa)
-            $table->string('ATC');
             $table->boolean('is_controlled');
             $table->boolean('is_monopoly');
             $table->boolean('is_pos');
             $table->integer('storage_condition_id'); //Condiciones de Almacenamiento: Routes of Can be refrigerado, etc.
-            $table->text('active_principle')->nullable();
             $table->boolean('state')->default(true);
             $table->primary('id');
         });

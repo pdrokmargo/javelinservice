@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWarehousesTable extends Migration
+class CreateActiveIngredientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreateWarehousesTable extends Migration
      */
     public function up()
     {
-        Schema::create('warehouses', function (Blueprint $table) {
+        Schema::create('active_ingredients', function (Blueprint $table) {
             $table->uuid('id');
-            $table->integer('warehouse_type_id');//It defines if the warehouse is a delivery point, main warehouse, and so on.
-            $table->integer('company_id');
             $table->string('name');
-            $table->string('description');
-            $table->integer('geolocation_id');
-            $table->boolean('state');
+            $table->integer('measurement_unit_id');
 
             $table->primary('id');
+
         });
     }
 
@@ -33,6 +30,6 @@ class CreateWarehousesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('warehouses');
+        Schema::dropIfExists('active_ingredients');
     }
 }
