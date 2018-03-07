@@ -180,6 +180,13 @@ class CollectionsValuesTableSeeder extends Seeder
             
             /* continue: STORAGE_CONDITION*/
             /*114*/['collection_id' => 26, 'parent_id' => 0, 'code' => 'norequiere_refrigeración', 'value' => 'No requiere Refrigeración'],
+
+            /* PAYMENT_METHOD */
+            /*114*/['collection_id' => 32, 'parent_id' => 0, 'code' => 'efectivo', 'value' => 'Efectivo'],
+            /*115*/['collection_id' => 32, 'parent_id' => 0, 'code' => 'cheque', 'value' => 'Cheque'],
+            /*116*/['collection_id' => 32, 'parent_id' => 0, 'code' => 'pse', 'value' => 'Pago PSE'],
+            /*117*/['collection_id' => 32, 'parent_id' => 0, 'code' => 'transferencia', 'value' => 'Transferencia Electrónica'],
+            /*118*/['collection_id' => 32, 'parent_id' => 0, 'code' => 'otros', 'value' => 'Otros'],
             
         ]);
     }

@@ -14,28 +14,28 @@ class DeliveryPointsController extends Controller
      */
     public function index(Request $request)
     {
-        $search = isset($request->search) ? $request->search : '';
-        $filter = isset($request->filter) ? $request->filter : '';
-        $ordername = isset($request->ordername) ? $request->ordername : 'ID';
+        $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';    		
+        $ordername = isset($request->ordername) ? $request->ordername : 'id';
         $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
-        $sign = isset($request->sign) ? $request->sign : '';
+        $page = $request->page;
 
-        if($sign == '1') {
-            $sign = 'LIKE';
-            $search = $search.'%';
-        } else if($sign == '2') {
-            $sign = '=';
-        }
+        $query = new \App\Models\DeliveryPoint();
 
-        if(!empty($filter)){
-            $data = \App\Models\DeliveryPoint::where($filter,$sign,$search)
-                ->orderBy($ordername, $ordertype)
-                ->paginate(30);
+        if ($search!='') {
+            $query = $query->whereRaw("lower(name) like ? or lower(description) like ? or (case when state=true then 'activo' else 'inactivo' end) like ? or (case when installed=true then 'instalado' else 'no instalado' end) like ?", array($search, $search, $search, $search))
+            ->orderBy($ordername, $ordertype);
         }else{
-            $data = \App\Models\DeliveryPoint::orderBy($ordername, $ordertype)
-                ->paginate(30);
-        }
-        return response()->json([ "data" => $data ], 200);
+            $query=$query->orderBy($ordername, $ordertype);
+        } 
+
+        $data=[];  
+        if ($page) {
+          $data=$query->paginate(30);
+        }else{
+          $data=$query->get();
+        } 
+
+        return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
     }
 
 

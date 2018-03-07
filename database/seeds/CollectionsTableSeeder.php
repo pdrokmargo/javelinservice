@@ -43,6 +43,7 @@ class CollectionsTableSeeder extends Seeder
             /*29*/['name'=>'POPULATION_TYPE',    'description' => 'Tipo de Población',       'syscollection' => true],
             /*30*/['name'=>'DELIVERY_POINTS_GROUPS',    'description' => 'Grupos de Puntos de Dispensación',       'syscollection' => true],
             /*31*/['name'=>'PREAUTH_CHAR_TYPE',    'description' => 'Tipo de Caracteres de Autorización',       'syscollection' => true],
+            /*32*/['name'=>'PAYMENT_METHOD',    'description' => 'Método de pago',       'syscollection' => true],
 
         ]);
         

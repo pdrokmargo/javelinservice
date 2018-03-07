@@ -15,7 +15,7 @@ class CreateDeliveryPointsTable extends Migration
     {
         Schema::create('delivery_points', function (Blueprint $table) {
             $table->uuid('id');
-            $table->integer('warehouse_id');
+            $table->uuid('warehouse_id');
             $table->string('name');
             $table->string('description');
             $table->integer('delivery_point_group_id');
