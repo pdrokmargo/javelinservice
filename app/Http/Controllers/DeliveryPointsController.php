@@ -48,6 +48,7 @@ class DeliveryPointsController extends Controller
     public function store(Request $request)
     {
         $data = json_decode($request->data, true);
+        $data['delivery_contracts'] = json_decode($request->data['delivery_contracts'], true);
         \App\Models\DeliveryPoint::create($data);
         return response()->json([ "store" => true ], 200);
     }
