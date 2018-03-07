@@ -10,7 +10,7 @@ class DeliveryPoint extends Model
     public $timestamps = false;
     protected $table = 'delivery_points';
     protected $casts = ['delivery_contracts'=>'json'];
-    public $with = array('warehouse');
+    public $with = array('warehouses');
     public $incrementing = false;
     protected $fillable = [
         'warehouse_id',
