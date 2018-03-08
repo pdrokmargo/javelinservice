@@ -40,11 +40,13 @@ class DeliveryPointsController extends Controller
 
         foreach ($data as $value)
         {
+            return response()->json(['status'=>'success', "message"=>'', "data" => $value->delivery_contracts ], 200);
+            
             if(isset($value->delivery_contracts)){
                 foreach ($value->delivery_contracts as $dc)
                 {
                     
-                    $contracts = \App\Models\DeliveryContract::where('id', $dc->delivery_point_id)->get();
+                    $contracts = \App\Models\DeliveryContract::where('id', $dc->delivery_contract_id)->get();
                     $dc->delivery_contract_name = $contracts->name;
                     
                 } 
