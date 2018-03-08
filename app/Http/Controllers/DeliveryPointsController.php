@@ -45,7 +45,7 @@ class DeliveryPointsController extends Controller
             if(!empty($value->delivery_contracts)){
                 foreach ($value->delivery_contracts as $dc)
                 {
-                    
+                    $dc = json_decode($dc, true);
                     $contracts = \App\Models\DeliveryContract::where('id', $dc['delivery_contract_id'])->get();
                     $dc['delivery_contract_name'] = $contracts->name;
                     
