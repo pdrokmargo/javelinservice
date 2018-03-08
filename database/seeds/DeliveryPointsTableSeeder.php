@@ -21,11 +21,8 @@ class DeliveryPointsTableSeeder extends Seeder
                 'installed' => false,
                 'delivery_point_group_id' => 74, 
                 'delivery_contracts' => '
-                {
-                    "delivery_contract_id":"011ecb81-6fa2-47ad-9fd0-e9d77a936536", 
-                    "event":true, 
-                    "capita":true, 
-                    "pgp":false
+                { 
+                    [{"delivery_contract_name":"Nueva EPS Evento y Cápita"}]
                 }' 
             ],
         ]);
