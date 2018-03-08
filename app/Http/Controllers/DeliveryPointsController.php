@@ -42,7 +42,7 @@ class DeliveryPointsController extends Controller
         {
             // return response()->json(['status'=>'success', "message"=>'', "data" => $value->delivery_contracts ], 200);
             
-            if(!empty($value->delivery_contracts)){
+            if(!empty($value['delivery_contracts'])){
                 foreach ($value['delivery_contracts'] as $dc)
                 {
                     $dc = json_decode($dc, true);
