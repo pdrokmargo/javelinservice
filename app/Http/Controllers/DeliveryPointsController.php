@@ -30,9 +30,9 @@ class DeliveryPointsController extends Controller
 
         $data = [];  
         if ($page) {
-          $data = $query->with('delivery_point_group')->paginate(30);
+          $data = $query->paginate(30);
         }else{
-          $data = $query->with('delivery_point_group')->get();
+          $data = $query->get();
         } 
 
         return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
