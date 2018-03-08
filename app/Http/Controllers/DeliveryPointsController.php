@@ -28,12 +28,24 @@ class DeliveryPointsController extends Controller
             $query=$query->orderBy($ordername, $ordertype);
         } 
 
+        
+
+
         $data = [];  
         if ($page) {
           $data = $query->paginate(30);
         }else{
           $data = $query->get();
         } 
+
+        foreach ($data as $value)
+        {
+            foreach ($data->delivery_contracts as $dc)
+            {
+                $contracts = \App\Models\DeliveryContract::where('id', $dc->delivery_point_id)->get();
+                $dc->delivery_contract_name = $contracts->name;
+            }    
+        }
 
         return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
     }
@@ -51,12 +63,12 @@ class DeliveryPointsController extends Controller
         \App\Models\DeliveryPoint::create($data);
         return response()->json([ "store" => true ], 200);
     }
-
     /**
      * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+
      */
     public function show($id)
     {
