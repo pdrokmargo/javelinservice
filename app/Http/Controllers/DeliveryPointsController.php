@@ -28,11 +28,11 @@ class DeliveryPointsController extends Controller
             $query=$query->orderBy($ordername, $ordertype);
         } 
 
-        $data=[];  
+        $data = [];  
         if ($page) {
-          $data=$query->paginate(30);
+          $data = $query->with('delivery_point_group')->paginate(30);
         }else{
-          $data=$query->get();
+          $data = $query->with('delivery_point_group')->get();
         } 
 
         return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);

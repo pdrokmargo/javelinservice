@@ -25,5 +25,10 @@ class DeliveryPoint extends Model
     public function warehouses()
 	{
 		 return $this->belongsTo('App\Models\Warehouse', 'warehouse_id'); 
-	}
+    }
+    
+    public function delivery_point_group()
+   	{
+   		return $this->belongsTo('App\Models\CollectionsValues', 'delivery_point_group_id'); 
+   	}
 }
