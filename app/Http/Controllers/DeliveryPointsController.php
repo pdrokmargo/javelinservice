@@ -40,7 +40,7 @@ class DeliveryPointsController extends Controller
 
         foreach ($data as $value)
         {
-            foreach ($data->delivery_contracts as $dc)
+            foreach ($value->delivery_contracts as $dc)
             {
                 $contracts = \App\Models\DeliveryContract::where('id', $dc->delivery_point_id)->get();
                 $dc->delivery_contract_name = $contracts->name;
