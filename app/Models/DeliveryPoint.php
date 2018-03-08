@@ -22,6 +22,22 @@ class DeliveryPoint extends Model
         'delivery_contracts'
     ];
     protected $hidden = [];
+    protected $appends = array('delivery_contract_name');
+    
+    public function getDeliveryContractNameAttribute()
+    {
+        if(!empty($this->delivery_contracts)){
+            foreach ($this->delivery_contracts as $dc)
+            {
+                $contracts = \App\Models\DeliveryContract::find($dc['delivery_contract_id']);    
+            //     $dc['delivery_contract_name'] = $contracts->name;//('delivery_contract_name', '');
+            //     // $dc->delivery_contract_name = $contracts->name;
+            //    // $dc = json_decode($dc, true);
+                
+                
+            } 
+       return $contracts->name
+    }
     public function warehouses()
 	{
 		 return $this->belongsTo('App\Models\Warehouse', 'warehouse_id'); 
