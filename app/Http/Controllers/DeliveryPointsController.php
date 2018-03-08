@@ -44,7 +44,7 @@ class DeliveryPointsController extends Controller
                 foreach ($value['delivery_contracts'] as $dc)
                 {
                     $contracts = \App\Models\DeliveryContract::find($dc['delivery_contract_id']);    
-                    $dc['delivery_contract_name'] = $contracts->name;
+                    $dc->delivery_contract_name = $contracts->name;
                 } 
             }
         }
