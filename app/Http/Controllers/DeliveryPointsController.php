@@ -43,11 +43,11 @@ class DeliveryPointsController extends Controller
             // return response()->json(['status'=>'success', "message"=>'', "data" => $value->delivery_contracts ], 200);
             
             if(!empty($value->delivery_contracts)){
-                foreach ($value->delivery_contracts as $dc)
+                foreach ($value['delivery_contracts'] as $dc)
                 {
                     $dc = json_decode($dc, true);
                     $contracts = \App\Models\DeliveryContract::where('id', $dc['delivery_contract_id'])->get();
-                    return response()->json(['status'=>'success', "message"=>'', "data" => $value['delivery_contracts'] ], 200);
+                    // return response()->json(['status'=>'success', "message"=>'', "data" => $value['delivery_contracts'] ], 200);
                     $dc['delivery_contract_name'] = $contracts['name'];
                     
                 } 
