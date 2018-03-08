@@ -45,7 +45,8 @@ class DeliveryPointsController extends Controller
             if(!empty($value['delivery_contracts'])){
                 foreach ($value['delivery_contracts'] as $dc)
                 {
-                    $contracts = \App\Models\DeliveryContract::where('id', $dc['delivery_contract_id'])->first();
+                    $contracts = \App\Models\DeliveryContract::find($dc['delivery_contract_id']);        
+                    //$contracts = \App\Models\DeliveryContract::where('id', $dc['delivery_contract_id'])->first();
                     $dc['delivery_contract_name'] = $contracts['name'];
                 } 
             }else{
