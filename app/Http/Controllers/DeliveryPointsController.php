@@ -38,28 +38,15 @@ class DeliveryPointsController extends Controller
           $data = $query->get();
         } 
 
-        // foreach ($data as $value)
-        // {
-        //     // return response()->json(['status'=>'success', "message"=>'', "data" => $value->delivery_contracts ], 200);
-            
-        //     if(!empty($value['delivery_contracts'])){
-        //         foreach ($value['delivery_contracts'] as $dc)
-        //         {
-        //             $contracts = \App\Models\DeliveryContract::find($dc['delivery_contract_id']);    
-        //             //return response()->json(['status'=>'success', "message"=>'', "data" => $dc['delivery_contract_id'], "data2" => $contracts->name ], 200);    
-        //             //$contracts = \App\Models\DeliveryContract::where('id', $dc['delivery_contract_id'])->first();
-        //             //$dc = json_encode($dc);
-        //             $dc['delivery_contract_name'] = $contracts->name;//('delivery_contract_name', '');
-        //             // $dc->delivery_contract_name = $contracts->name;
-        //            // $dc = json_decode($dc, true);
-                    
-                    
-        //         } 
-        //     }else{
-
-        //     }
-               
-        // }
+        foreach ($data as $value)
+        {
+            if(!empty($value['delivery_contracts'])){
+                foreach ($value['delivery_contracts'] as $dc)
+                {
+                    $contracts = \App\Models\DeliveryContract::find($dc['delivery_contract_id']);    
+                    $dc['delivery_contract_name'] = $contracts->name;//('delivery_contract_name', '');
+                } 
+        }
 
         return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
     }
