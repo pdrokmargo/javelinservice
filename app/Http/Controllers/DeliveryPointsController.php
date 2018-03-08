@@ -78,7 +78,7 @@ class DeliveryPointsController extends Controller
         $data_old = \App\Models\DeliveryPoint::find($id);
         $data_old->fill($data_new);
         $data_old->save();
-        return response()->json([ "update" => true], 200);
+        return response()->json([ "update" => $data_old], 200);
     }
 
     /**
