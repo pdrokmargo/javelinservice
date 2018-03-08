@@ -36,7 +36,8 @@ class DeliveryPoint extends Model
                 
                 
             } 
-       return $contracts->name
+       return $contracts->name;
+         }
     }
     public function warehouses()
 	{
