@@ -46,7 +46,7 @@ class DeliveryPointsController extends Controller
                 foreach ($value['delivery_contracts'] as $dc)
                 {
                     $contracts = \App\Models\DeliveryContract::find($dc['delivery_contract_id']);    
-                    return response()->json(['status'=>'success', "message"=>'', "data" => $dc['delivery_contract_id'], "data2" => $contracts ], 200);    
+                    return response()->json(['status'=>'success', "message"=>'', "data" => $dc['delivery_contract_id'], "data2" => $contracts->name ], 200);    
                     //$contracts = \App\Models\DeliveryContract::where('id', $dc['delivery_contract_id'])->first();
                     $dc['delivery_contract_name'] = $contracts['name'];
                     
