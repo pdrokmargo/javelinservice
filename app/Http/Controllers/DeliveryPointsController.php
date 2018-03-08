@@ -49,7 +49,7 @@ class DeliveryPointsController extends Controller
                     //return response()->json(['status'=>'success', "message"=>'', "data" => $dc['delivery_contract_id'], "data2" => $contracts->name ], 200);    
                     //$contracts = \App\Models\DeliveryContract::where('id', $dc['delivery_contract_id'])->first();
                     $dc = json_encode($dc);
-                    $dc["delivery_contract_name"] = $contracts->name;
+                    $dc->delivery_contract_name = $contracts->name;
                     $dc = json_decode($dc, true);
                     
                     
