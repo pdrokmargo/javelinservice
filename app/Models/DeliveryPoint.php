@@ -22,12 +22,6 @@ class DeliveryPoint extends Model
         'delivery_contracts'
     ];
     protected $hidden = [];
-    protected $appends = array('delivery_contract_name');
-    
-    public function getDeliveryContractNameAttribute()
-    {
-       return $this->from == Auth::user()->id ? 1 : 0;
-    }
     public function warehouses()
 	{
 		 return $this->belongsTo('App\Models\Warehouse', 'warehouse_id'); 

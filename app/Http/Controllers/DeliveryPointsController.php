@@ -52,6 +52,7 @@ class DeliveryPointsController extends Controller
                     $dc['delivery_contract_name'] = $contracts->name;//('delivery_contract_name', '');
                     // $dc->delivery_contract_name = $contracts->name;
                    // $dc = json_decode($dc, true);
+                   
                     
                     
                 } 
