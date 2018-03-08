@@ -40,9 +40,9 @@ class DeliveryPointsController extends Controller
 
         foreach ($data as $value)
         {
-            return response()->json(['status'=>'success', "message"=>'', "data" => $value->delivery_contracts ], 200);
+            // return response()->json(['status'=>'success', "message"=>'', "data" => $value->delivery_contracts ], 200);
             
-            if(isset($value->delivery_contracts)){
+            if(empty($value->delivery_contracts)){
                 foreach ($value->delivery_contracts as $dc)
                 {
                     
