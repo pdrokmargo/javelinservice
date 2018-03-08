@@ -17,6 +17,8 @@ class CreateActiveIngredientsPharmaceuticalDrugsTable extends Migration
             $table->increments('id');
             $table->uuid('active_ingredient_id');
             $table->uuid('pharmaceutical_drug_id');
+            $table->integer('measurement_unit_id');
+            $table->double('concentration'); 
         });
     }
 
