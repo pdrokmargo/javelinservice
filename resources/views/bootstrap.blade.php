@@ -1,10 +1,9 @@
-<!-- version 12.0.0.0 -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta charset="utf-8" />
-    <title>Angular Admin Web App</title>
+    <title>Javelin</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -31,7 +30,7 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"/>
 
     <base href="/">
-  <link href="/css/main.b3e0691dd0102c5fdc56.css" rel="stylesheet"></head>
+  <link href="/css/main.6d8c6892c0b7a30c1189.css" rel="stylesheet"></head>
 
   <body id="body">
 
@@ -42,6 +41,6 @@
 
 
     
-<script type="text/javascript" src="/js/polyfills.b3e0691dd0102c5fdc56.js"></script><script type="text/javascript" src="/js/vendor.b3e0691dd0102c5fdc56.js"></script><script type="text/javascript" src="/js/main.b3e0691dd0102c5fdc56.js"></script></body>
+<script type="text/javascript" src="/js/polyfills.6d8c6892c0b7a30c1189.js"></script><script type="text/javascript" src="/js/vendor.6d8c6892c0b7a30c1189.js"></script><script type="text/javascript" src="/js/main.6d8c6892c0b7a30c1189.js"></script></body>
 
 </html>
