@@ -14,8 +14,7 @@ class ActiveIngredientsTableSeeder extends Seeder
         DB::table('active_ingredients')->insert([
             [ 
                 'id' => '708bf446-fd91-4578-ae22-756ca5522ce1', 
-                'name' => 'Acetaminofen',
-                'measurement_unit_id' => 101
+                'name' => 'Acetaminofen'
             ],
         ]);
     }

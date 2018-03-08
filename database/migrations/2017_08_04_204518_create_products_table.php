@@ -24,8 +24,7 @@ class CreateProductsTable extends Migration
             $table->date('lifetime');
             $table->integer('delivery_fraction');
             $table->integer('barcode')->nullable();
-            $table->string('cum_code');
-            $table->double('regulated_price')->nullable();
+            $table->string('cums');
             $table->double('cost')->nullable();
             $table->integer('content_unit_id'); //collection packaging_unit
 
@@ -33,7 +32,6 @@ class CreateProductsTable extends Migration
             $table->boolean('serials_control');
             $table->boolean('institutional_use');
             $table->boolean('comercial');
-            $table->boolean('is_regulated')->default(false);
 
             $table->uuid('manufacturer_id');
             $table->uuid('supplier_id');
@@ -49,6 +47,9 @@ class CreateProductsTable extends Migration
             $table->integer('replacment_time');
             $table->boolean('state')->default(false);
             $table->uuid('pharmaceutical_drug_id');
+
+            //Timestamps
+            $table->timestamps()->useCurrent();
 
             $table->primary('id');
         });

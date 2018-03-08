@@ -16,15 +16,18 @@ class CreatePharmaceuticalDrugsTable extends Migration
         Schema::create('pharmaceutical_drugs', function (Blueprint $table) {
             $table->uuid('id');
             $table->string('name');
-            $table->string('code')->nullable();
-            $table->double('concentration');            
+            $table->string('code')->nullable();           
+            $table->string('atc');  
             $table->integer('dosage_form_id'); //Formas Farmacéuticas: Can be pills (Pastillas), tablets (tabletas), capsules (capsulas)
             $table->integer('routes_administration_id'); //Vías de Administración: Routes of Can be oral, intravenous (intravenosa)
             $table->boolean('is_controlled');
             $table->boolean('is_monopoly');
             $table->boolean('is_pos');
+            $table->boolean('is_regulated')->default(false);
+            $table->double('regulated_price')->nullable();
             $table->integer('storage_condition_id'); //Condiciones de Almacenamiento: Routes of Can be refrigerado, etc.
             $table->boolean('state')->default(true);
+            
             $table->primary('id');
         });
     }

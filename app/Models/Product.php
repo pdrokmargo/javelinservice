@@ -7,10 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
 	use \App\Uuids;
-    public $timestamps = false;
+    //public $timestamps = false;
     protected $table = 'products';    
     public $incrementing = false; 
-    protected $casts = ['pharmaceutical_drugs'=>'json'];
     protected $fillable = [
 		'id',
 		'code',
@@ -22,15 +21,13 @@ class Product extends Model
 		'lifetime',
 		'delivery_fraction',
 		'barcode',
-		'cum_code',
-		'regulated_price',
+		'cums',
 		'cost',
 		'content_unit_id',
 		'batch_control',
 		'serials_control',
 		'institutional_use',
 		'comercial',
-		'is_regulated',
 		'manufacturer_id',
 		'supplier_id',
 		'importer_id',

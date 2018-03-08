@@ -16,7 +16,6 @@ class CreateActiveIngredientsTable extends Migration
         Schema::create('active_ingredients', function (Blueprint $table) {
             $table->uuid('id');
             $table->string('name');
-            $table->integer('measurement_unit_id');
 
             $table->primary('id');
 
