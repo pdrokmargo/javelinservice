@@ -10,7 +10,7 @@ class DeliveryPoint extends Model
     public $timestamps = false;
     protected $table = 'delivery_points';
     protected $casts = ['delivery_contracts'=>'json'];
-    public $with = array('warehouses', 'delivery_point_group');
+    public $with = array('warehouses', 'delivery_points_groups');
     public $incrementing = false;
     protected $fillable = [
         'warehouse_id',
@@ -27,7 +27,7 @@ class DeliveryPoint extends Model
 		 return $this->belongsTo('App\Models\Warehouse', 'warehouse_id'); 
     }
     
-    public function delivery_point_group()
+    public function delivery_points_groups()
    	{
    		return $this->belongsTo('App\Models\CollectionsValues', 'delivery_point_group_id'); 
    	}
