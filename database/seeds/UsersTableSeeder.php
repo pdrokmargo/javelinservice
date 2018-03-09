@@ -21,6 +21,15 @@ class UsersTableSeeder extends Seeder
                 'user_profile_id' => '1',
                 'company_default_id' => '1'
             ],
+            [
+                'firstname' => 'Oscar', 
+                'lastname' => 'Lechuga', 
+                'username' => 'oscar.lechuga', 
+                'email' => 'oscar@myecolombia.com.co',
+                'password' => bcrypt('111111'), 
+                'user_profile_id' => '6',
+                'company_default_id' => '1'
+            ]
         ]);
     }
 }

@@ -16,7 +16,8 @@ class UserProfilesTableSeeder extends Seeder
             ['up_description' => 'Admin', 'up_state' => true],
             ['up_description' => 'Empleado', 'up_state' => true],
             ['up_description' => 'Cliente', 'up_state' => true],
-            ['up_description' => 'Proveedor', 'up_state' => true]
+            ['up_description' => 'Proveedor', 'up_state' => true],
+            ['up_description' => 'Regente', 'up_state' => true]
         ]);
     }
 }

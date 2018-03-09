@@ -22,8 +22,12 @@ class DeliveryPointsTableSeeder extends Seeder
                 'delivery_point_group_id' => 74, 
                 'delivery_contracts' => '
                 { 
-                    [{"delivery_contract_name":"Nueva EPS Evento y Cápita"}]
-                }' 
+                    [{"delivery_contract_id":"011ecb81-6fa2-47ad-9fd0-e9d77a936536"}]
+                }' ,
+                'users' => '
+                { 
+                    [{"user_id":"1a4318ab-b672-438e-a244-69ca14a81fb5"}]
+                }'
             ],
         ]);
     }

@@ -23,35 +23,33 @@ class DeliveryPoint extends Model
         'delivery_contracts'
     ];
     protected $hidden = [];
-    protected $appends = array('delivery_contracts_full');
-    
-    public function getDeliveryContractsFullAttribute()
+    protected $appends = array('assigned_contracts', 'assigned_users');
+    public function getAssignedContractsAttribute()
     {
         $contracts = array();
         if(!empty($this->delivery_contracts)){
             foreach ($this->delivery_contracts as $dc)
             {
-                //$contracts_ids = array_add($contracts_ids, 'delivery_contract_id', $dc['delivery_contract_id']);
                 $contract = \App\Models\DeliveryContract::find($dc['delivery_contract_id']);  
-                if(!$dc['event'])  {
-                    $contract->event = null;
-                }
-                if(!$dc['capita'])  {
-                    $contract->capita = null;
-                }
-                if(!$dc['pgp'])  {
-                    $contract->pgp = null;
-                }
+                if(!$dc['event'])  {$contract->event = null;}else{$contract->event = $contract->event->toArray();}
+                if(!$dc['capita'])  {$contract->capita = null;}else{$contract->capita = $contract->event->toArray();}
+                if(!$dc['pgp'])  {$contract->pgp = null;}else{$contract->pgp = $contract->event->toArray();}
                 $contracts = array_add($contracts, 'contracts', $contract);
-
-            //     $dc['delivery_contract_name'] = $contracts->name;//('delivery_contract_name', '');
-            //     // $dc->delivery_contract_name = $contracts->name;
-            //    // $dc = json_decode($dc, true);
-                
-                
             } 
          }
          return $contracts;
+    }
+    public function getAssignedUsersAttribute()
+    {
+        $users = array();
+        if(!empty($this->users)){
+            foreach ($this->users as $u)
+            {
+                $user = \App\Models\User::find($u['user_id']);  
+                $users = array_add($users, 'users', $user);
+            } 
+         }
+         return $users;
     }
     public function warehouses()
 	{

@@ -21,10 +21,14 @@ class CreateDeliveryPointsTable extends Migration
             $table->integer('delivery_point_group_id');
             $table->json('delivery_contracts');
             /*json array:
-                string: delivery_contract_name
+                uuid: delivery_contract_id
                 boolean: event
                 boolean: capita
                 boolean: pgp
+            */
+            $table->json('users');//Sólo de tipo regentes
+            /*json array:
+                uuid: user_id
             */
             $table->boolean('installed');
             $table->boolean('state');
