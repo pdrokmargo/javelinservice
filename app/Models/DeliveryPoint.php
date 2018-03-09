@@ -39,7 +39,7 @@ class DeliveryPoint extends Model
                 
             } 
          }
-         return DB::table('delivery_contracts')
+         return Illuminate\Support\Facades\DB::table('delivery_contracts')
          ->whereIn('id', $contracts_ids)
          ->get();
     }
