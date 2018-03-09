@@ -42,15 +42,15 @@ class DeliveryPoint extends Model
     }
     public function getAssignedUsersAttribute()
     {
-        $users = array();
+        $usrs = array();
         if(!empty($this->users)){
             foreach ($this->users as $u)
             {
                 $user = \App\Models\User::find($u['user_id']);  
-                $users = array_add($users, 'users', $user);
+                $usrs = array_add($usrs, 'users', $user);
             } 
          }
-         return $users;
+         return $usrs;
     }
     public function warehouses()
 	{
