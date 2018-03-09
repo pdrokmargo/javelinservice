@@ -22,6 +22,9 @@ class CreateDeliveryPointsTable extends Migration
             $table->json('delivery_contracts');
             /*json array:
                 string: delivery_contract_name
+                boolean: event
+                boolean: capita
+                boolean: pgp
             */
             $table->boolean('installed');
             $table->boolean('state');
