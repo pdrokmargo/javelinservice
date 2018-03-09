@@ -26,7 +26,8 @@ class CreateProductsTable extends Migration
             $table->integer('barcode')->nullable();
             $table->string('cums');
             $table->double('cost')->nullable();
-            $table->integer('content_unit_id'); //collection packaging_unit
+            $table->integer('packaging_unit_id'); //collection packaging_unit
+            $table->integer('content_unit_id'); //collection content_unit
 
             $table->boolean('batch_control');
             $table->boolean('serials_control');
@@ -49,7 +50,7 @@ class CreateProductsTable extends Migration
             $table->uuid('pharmaceutical_drug_id');
 
             //Timestamps
-            $table->timestamps()->useCurrent();
+            $table->timestamps();
 
             $table->primary('id');
         });

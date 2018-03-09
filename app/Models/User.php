@@ -13,6 +13,8 @@ class User extends Authenticatable
 
     protected $table = 'users';
     protected $appends = array('usercompany');
+    public $incrementing = false;
+
     //Allows to login by using email or username.
     public function findForPassport($username)
     {

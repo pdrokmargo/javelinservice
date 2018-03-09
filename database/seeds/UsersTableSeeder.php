@@ -13,6 +13,7 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
+                'id' => '7ddc0553-0b27-49f1-a1b7-445777a72d0e',
                 'firstname' => 'Pedro', 
                 'lastname' => 'Camargo Cotes', 
                 'username' => 'pdrokmargo', 
@@ -22,6 +23,7 @@ class UsersTableSeeder extends Seeder
                 'company_default_id' => '1'
             ],
             [
+                'id' => '1a4318ab-b672-438e-a244-69ca14a81fb5',
                 'firstname' => 'Oscar', 
                 'lastname' => 'Lechuga', 
                 'username' => 'oscar.lechuga', 

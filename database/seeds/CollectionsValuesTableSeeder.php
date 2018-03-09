@@ -182,11 +182,15 @@ class CollectionsValuesTableSeeder extends Seeder
             /*114*/['collection_id' => 26, 'parent_id' => 0, 'code' => 'norequiere_refrigeración', 'value' => 'No requiere Refrigeración'],
 
             /* PAYMENT_METHOD */
-            /*114*/['collection_id' => 32, 'parent_id' => 0, 'code' => 'efectivo', 'value' => 'Efectivo'],
-            /*115*/['collection_id' => 32, 'parent_id' => 0, 'code' => 'cheque', 'value' => 'Cheque'],
-            /*116*/['collection_id' => 32, 'parent_id' => 0, 'code' => 'pse', 'value' => 'Pago PSE'],
-            /*117*/['collection_id' => 32, 'parent_id' => 0, 'code' => 'transferencia', 'value' => 'Transferencia Electrónica'],
-            /*118*/['collection_id' => 32, 'parent_id' => 0, 'code' => 'otros', 'value' => 'Otros'],
+            /*115*/['collection_id' => 32, 'parent_id' => 0, 'code' => 'efectivo', 'value' => 'Efectivo'],
+            /*116*/['collection_id' => 32, 'parent_id' => 0, 'code' => 'cheque', 'value' => 'Cheque'],
+            /*117*/['collection_id' => 32, 'parent_id' => 0, 'code' => 'pse', 'value' => 'Pago PSE'],
+            /*118*/['collection_id' => 32, 'parent_id' => 0, 'code' => 'transferencia', 'value' => 'Transferencia Electrónica'],
+            /*119*/['collection_id' => 32, 'parent_id' => 0, 'code' => 'otros', 'value' => 'Otros'],
+
+            /* CONTENT_UNIT */ 
+            /*120*/['collection_id' => 33, 'parent_id' => 0, 'code' => 'blister', 'value' => 'Blister'],
+           
             
         ]);
     }
