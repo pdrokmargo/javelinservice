@@ -27,12 +27,23 @@ class DeliveryPoint extends Model
     
     public function getDeliveryContractsFullAttribute()
     {
-        $contracts_ids = array();
+        $contracts = array();
         if(!empty($this->delivery_contracts)){
             foreach ($this->delivery_contracts as $dc)
             {
-                $contracts_ids = array_add($contracts_ids, 'delivery_contract_id', $dc['delivery_contract_id']);
-                //$contracts = \App\Models\DeliveryContract::find($dc['delivery_contract_id']);    
+                //$contracts_ids = array_add($contracts_ids, 'delivery_contract_id', $dc['delivery_contract_id']);
+                $contract = \App\Models\DeliveryContract::find($dc['delivery_contract_id']);  
+                if(!$dc['event'])  {
+                    $contract->event = null;
+                }
+                if(!$dc['capita'])  {
+                    $contract->capita = null;
+                }
+                if(!$dc['pgp'])  {
+                    $contract->pgp = null;
+                }
+                $contracts = array_add($contracts, 'contracts', $contract);
+
             //     $dc['delivery_contract_name'] = $contracts->name;//('delivery_contract_name', '');
             //     // $dc->delivery_contract_name = $contracts->name;
             //    // $dc = json_decode($dc, true);
@@ -40,9 +51,7 @@ class DeliveryPoint extends Model
                 
             } 
          }
-         return DB::table('delivery_contracts')
-         ->whereIn('id', $contracts_ids)
-         ->get();
+         return $contracts;
     }
     public function warehouses()
 	{
