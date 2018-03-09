@@ -10,7 +10,7 @@ class DeliveryPoint extends Model
     use \App\Uuids;
     public $timestamps = false;
     protected $table = 'delivery_points';
-    protected $casts = ['delivery_contracts'=>'json'];
+    protected $casts = ['delivery_contracts'=>'json', 'users' => 'json'];
     public $with = array('warehouses', 'delivery_points_groups');
     public $incrementing = false;
     protected $fillable = [
