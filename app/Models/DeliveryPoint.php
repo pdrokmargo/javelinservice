@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class DeliveryPoint extends Model
 {
@@ -39,7 +40,7 @@ class DeliveryPoint extends Model
                 
             } 
          }
-         return Illuminate\Support\Facades\DB::table('delivery_contracts')
+         return DB::table('delivery_contracts')
          ->whereIn('id', $contracts_ids)
          ->get();
     }
