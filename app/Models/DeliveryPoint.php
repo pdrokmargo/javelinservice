@@ -20,7 +20,8 @@ class DeliveryPoint extends Model
         'state',
         'installed',
         'delivery_point_group_id',
-        'delivery_contracts'
+        'delivery_contracts',
+        'users'
     ];
     protected $hidden = [];
     protected $appends = array('assigned_contracts', 'assigned_users');
