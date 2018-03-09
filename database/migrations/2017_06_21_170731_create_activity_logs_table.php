@@ -15,7 +15,7 @@ class CreateActivityLogsTable extends Migration
     {
         Schema::create('activity_logs', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->uuid('user_id');
             $table->integer('view_id');
             $table->integer('action');
             $table->string('description');

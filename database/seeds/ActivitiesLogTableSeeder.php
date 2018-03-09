@@ -14,7 +14,7 @@ class ActivitiesLogTableSeeder extends Seeder
          DB::table('activity_logs')->insert([
             /*01*/
             [ 
-                'user_id' => 1, 
+                'user_id' => '7ddc0553-0b27-49f1-a1b7-445777a72d0e', 
                 'view_id' => 4, 
                 'action' => 1, 
                 'description' => 'Prueba', 

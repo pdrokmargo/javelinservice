@@ -15,7 +15,7 @@ class CreateUsersPrivilegesTable extends Migration
     {
         Schema::create('users_privileges', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->uuid('user_id');
             $table->integer('user_profile_id');
             $table->integer('company_id');
 

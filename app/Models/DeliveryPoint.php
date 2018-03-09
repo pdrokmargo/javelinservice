@@ -44,10 +44,10 @@ class DeliveryPoint extends Model
     {
         $usrs = array();
         if(!empty($this->users)){
-            foreach ($this->users as $user)
+            foreach ($this->users as $us)
             {
-                $usr = \App\Models\User::find($user['user_id']);  
-                $usrs = array_add($usrs, 'usrs', $usr);
+                $usr = \App\Models\User::find($us['user_id']);  
+                $usrs = array_add($usrs, 'usrs', $us);
             } 
          }
          return $usrs;
