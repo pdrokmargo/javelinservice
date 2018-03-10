@@ -49,7 +49,7 @@ class DeliveryPoint extends Model
             foreach ($this->users as $us)
             {
                 $usr = \App\Models\User::find($us['user_id']);  
-                $usrs[] = $us;
+                $usrs[] = $usr;
             } 
          }
          return $usrs;
