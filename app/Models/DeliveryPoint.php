@@ -37,7 +37,8 @@ class DeliveryPoint extends Model
                 //if(!$dc['capita'])  {$contract->capita = null;}else{$contract->capita = json_decode($contract->capita, true);}
                 //if(!$dc['pgp'])  {$contract->pgp = null;}else{$contract->pgp = json_decode($contract->pgp, true);}
                 
-                array_add($contracts, 'contracts', $contract);
+                array_add($contracts, $contract);
+                
             } 
          }
          return $contracts;
@@ -49,7 +50,7 @@ class DeliveryPoint extends Model
             foreach ($this->users as $us)
             {
                 $usr = \App\Models\User::find($us['user_id']);  
-                $usrs = array_add($usrs, 'usrs', $us);
+                $usrs = array_add($usrs, $us);
             } 
          }
          return $usrs;
