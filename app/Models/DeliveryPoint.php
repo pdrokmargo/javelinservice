@@ -28,7 +28,18 @@ class DeliveryPoint extends Model
     public function getAssignedContractsAttribute()
     {
         $contracts = array();
-       
+        if(!empty($this->delivery_contracts)){
+            foreach ($this->delivery_contracts as $dc)
+            {
+                $contract = \App\Models\DeliveryContract::find($dc['delivery_contract_id']);  
+
+                //if(!$dc['event']){$contract->event = null;}else{$contract->event = json_decode($contract->event, true);}
+                //if(!$dc['capita'])  {$contract->capita = null;}else{$contract->capita = json_decode($contract->capita, true);}
+                //if(!$dc['pgp'])  {$contract->pgp = null;}else{$contract->pgp = json_decode($contract->pgp, true);}
+                
+                array_add($contracts, 'contracts', $contract);
+            } 
+         }
          return $this->delivery_contracts;
     }
     public function getAssignedUsersAttribute()
