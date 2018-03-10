@@ -28,7 +28,7 @@ class DeliveryPoint extends Model
     public function getAssignedContractsAttribute()
     {
         $contracts = array();
-        
+       
          return $this->delivery_contracts;
     }
     public function getAssignedUsersAttribute()
@@ -38,7 +38,7 @@ class DeliveryPoint extends Model
             foreach ($this->users as $us)
             {
                 $usr = \App\Models\User::find($us['user_id']);  
-                $usrs = array_add($usrs, $us);
+                $usrs = array_add($usrs, 'usrs', $us);
             } 
          }
          return $usrs;
