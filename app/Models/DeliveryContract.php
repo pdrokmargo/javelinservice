@@ -19,9 +19,11 @@ class DeliveryContract extends Model
         'validity',
         'level_care_id',
         'state',
-        'pharmadrug_monopoly',
+        
+        //These fields have been deleted.
+        /*'pharmadrug_monopoly',
         'pharmadrug_control',
-        'cooled_products',
+        'cooled_products',*/
         'event'
     ];
     protected $hidden = [];

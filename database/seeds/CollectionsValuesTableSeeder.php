@@ -190,6 +190,23 @@ class CollectionsValuesTableSeeder extends Seeder
 
             /* CONTENT_UNIT */ 
             /*120*/['collection_id' => 33, 'parent_id' => 0, 'code' => 'blister', 'value' => 'Blister'],
+
+            /* CONTENT_UNIT */ 
+            /*121*/['collection_id' => 34, 'parent_id' => 0, 'code' => 'abuelo', 'value' => 'Abuelo (a)'],
+            /*122*/['collection_id' => 34, 'parent_id' => 0, 'code' => 'beneficiario', 'value' => 'Beneficiario'],
+            /*123*/['collection_id' => 34, 'parent_id' => 0, 'code' => 'bisnieto', 'value' => 'Bisnieto (a)'],
+            /*124*/['collection_id' => 34, 'parent_id' => 0, 'code' => 'companero', 'value' => 'Compañero (a)'],
+            /*125*/['collection_id' => 34, 'parent_id' => 0, 'code' => 'conyuge', 'value' => 'Conyuge'],
+            /*126*/['collection_id' => 34, 'parent_id' => 0, 'code' => 'cotizante', 'value' => 'Cotizante'],
+            /*127*/['collection_id' => 34, 'parent_id' => 0, 'code' => 'hermano', 'value' => 'Hermano (a)'],
+            /*128*/['collection_id' => 34, 'parent_id' => 0, 'code' => 'hijoadoptivo', 'value' => 'Hijo adoptivo (a)'],
+            /*129*/['collection_id' => 34, 'parent_id' => 0, 'code' => 'madre', 'value' => 'Madre'],
+            /*130*/['collection_id' => 34, 'parent_id' => 0, 'code' => 'madreadoptiva', 'value' => 'Madre Adoptiva (a)'],
+            /*131*/['collection_id' => 34, 'parent_id' => 0, 'code' => 'menorsinidentificacion', 'value' => 'Menor sin identificación'],
+            /*132*/['collection_id' => 34, 'parent_id' => 0, 'code' => 'nieto', 'value' => 'Nieto (a)'],
+            /*133*/['collection_id' => 34, 'parent_id' => 0, 'code' => 'otros', 'value' => 'Otros'],    
+            /*134*/['collection_id' => 34, 'parent_id' => 0, 'code' => 'padre', 'value' => 'Padre'],
+            /*135*/['collection_id' => 34, 'parent_id' => 0, 'code' => 'padreadoptivo', 'value' => 'Padre Adoptivo'],
            
             
         ]);

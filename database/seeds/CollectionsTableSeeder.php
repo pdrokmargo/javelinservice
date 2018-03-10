@@ -45,9 +45,14 @@ class CollectionsTableSeeder extends Seeder
             /*31*/['name'=>'PREAUTH_CHAR_TYPE',    'description' => 'Tipo de Caracteres de Autorización',       'syscollection' => true],
             /*32*/['name'=>'PAYMENT_METHOD',    'description' => 'Método de pago',       'syscollection' => true],
             /*33*/['name'=>'CONTENT_UNIT',    'description' => 'Unidad de contenido',       'syscollection' => true],
-
+            /*34*/['name'=>'AFFILIATE_TYPE',    'description' => 'Tipo de afiliado',       'syscollection' => true],
+            /*35*/['name'=>'AFFILIATE_CONDITION',    'description' => 'Condición del usuario',       'syscollection' => true],
+            /*36*/['name'=>'PUBLIC_HEALTH_CONDITION',    'description' => 'Condición salud pública',       'syscollection' => true],
+            /*37*/['name'=>'AFFILIATE_REGIME',    'description' => 'Régimen afiliado',       'syscollection' => true],
         ]);
         
     }
 }
+
+
 

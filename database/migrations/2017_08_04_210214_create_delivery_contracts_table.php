@@ -65,9 +65,13 @@ class CreateDeliveryContractsTable extends Migration
             //             uuid:delivery_point_id
             //             json Array:products
             //                 uuid: product_id
-            $table->boolean('pharmadrug_control');
+
+            //These fields have been deleted.
+            /*$table->boolean('pharmadrug_control');
             $table->boolean('pharmadrug_monopoly');
-            $table->boolean('cooled_products');
+            $table->boolean('cooled_products');*/
+
+
             $table->json('ips'); //It comes from ID:28 IPS_NETWORK collections values 
             /*json structure: array
                 integer: ips_id

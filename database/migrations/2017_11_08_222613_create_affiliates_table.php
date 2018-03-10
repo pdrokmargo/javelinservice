@@ -17,25 +17,27 @@ class CreateAffiliatesTable extends Migration
             $table->uuid('id');
             $table->integer('document_type_id');
             $table->integer('document_number');
-            $table->string('eps');
+            $table->uuid('delivery_contract_id');
             $table->integer('affiliate_regime_id');//pending to relate
             $table->string('firstname');
-            $table->string('middlename')->default('');
-            $table->string('lastname');
-            $table->integer('gender_id');//pending to relate
-            $table->integer('affiliate_type_id');//pending to relate
+            $table->string('middlename');
+            $table->string('lastname1');
+            $table->string('lastname2');
+            $table->integer('gender_id');// to GENDER in collection_values
+            $table->integer('affiliate_type_id');//to GENDER in collection_values
             $table->date('birthday');
             $table->string('address');
-            $table->integer('phone_number');
-            $table->integer('mobile_number');
+            $table->json('phone_numbers');
+            $table->json('mobile_numbers');
             $table->string('attendant_name');
             $table->integer('attendant_phone_number');
             $table->integer('attendant_mobile_number');
             $table->integer('geolocation_id');
-            $table->integer('affiliate_condition_id');//penging to relate
-            $table->integer('public_health_condition_id');//pending to relate
-
+            $table->integer('affiliate_condition_id');//to AFFILIATE_CONDITION in collection_values
+            $table->integer('public_health_condition_id');//to PUBLIC_HEALTH_CONDITION in collection_values
+            $table->integer('affiliate_level');
             $table->boolean('state');
+            
             $table->primary('id');
         });
     }
