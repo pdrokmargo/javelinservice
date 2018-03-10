@@ -40,7 +40,7 @@ class DeliveryPoint extends Model
                 array_add($contracts, 'contracts', $contract);
             } 
          }
-         return $contracts;
+         return $contract;
     }
     public function getAssignedUsersAttribute()
     {
