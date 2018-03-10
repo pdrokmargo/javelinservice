@@ -38,18 +38,6 @@ class DeliveryPointsController extends Controller
           $data = $query->get();
         } 
 
-        // foreach ($data as $value)
-        // {
-        //     if(!empty($value['delivery_contracts'])){
-        //         foreach ($value['delivery_contracts'] as $dc)
-        //         {
-        //             $contracts = \App\Models\DeliveryContract::find($dc['delivery_contract_id']);    
-        //             $dc['delivery_contract_name'] = $contracts->name;
-        //         } 
-        //     }
-        //     $value->save();
-        // }
-
         return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
     }
 
