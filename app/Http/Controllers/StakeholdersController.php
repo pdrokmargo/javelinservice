@@ -44,19 +44,23 @@ class StakeholdersController extends Controller
             }
 
             
-            
-            if ($search!='') {
+            if ($search!='') 
+            {
                 $query = $query->whereRaw("lower(firstname) like ? or lower(middlename) like ? or lower(lastname) like ? or lower(businessname) like ? or document_number like ?", array($search, $search, $search, $search, $search))
                 ->orderBy($ordername, $ordertype);
-            }else{
+            }
+            else
+            {
                 $query=$query->orderBy($ordername, $ordertype);
             } 
 
             $data=[];  
             if ($page) {
-              $data=$query->paginate(30);
-            }else{
-              $data=$query->get();
+                $data=$query->paginate(30);
+            }
+            else
+            {
+                $data=$query->get();
             }  
             
             return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
