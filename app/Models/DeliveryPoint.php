@@ -27,20 +27,20 @@ class DeliveryPoint extends Model
     protected $appends = array('assigned_contracts', 'assigned_users');
     public function getAssignedContractsAttribute()
     {
-        $contracts = array();
+        $contracts = [];
         if(!empty($this->delivery_contracts)){
             foreach ($this->delivery_contracts as $dc)
             {
                 $contract = \App\Models\DeliveryContract::find($dc['delivery_contract_id']);  
 
-                //if(!$dc['event']){$contract->event = null;}else{$contract->event = json_decode($contract->event, true);}
-                //if(!$dc['capita'])  {$contract->capita = null;}else{$contract->capita = json_decode($contract->capita, true);}
-                //if(!$dc['pgp'])  {$contract->pgp = null;}else{$contract->pgp = json_decode($contract->pgp, true);}
+                if(!$dc['event']){$contract->event = null;}else{$contract->event = json_decode($contract->event, true);}
+                if(!$dc['capita'])  {$contract->capita = null;}else{$contract->capita = json_decode($contract->capita, true);}
+                if(!$dc['pgp'])  {$contract->pgp = null;}else{$contract->pgp = json_decode($contract->pgp, true);}
                 
-                array_add($contracts, 'contracts', $contract);
+                $contracts[] = $contract;
             } 
          }
-         return $contract;
+         return $contracts;
     }
     public function getAssignedUsersAttribute()
     {
