@@ -41,7 +41,7 @@ class DeliveryPoint extends Model
                 
             } 
          }
-         return $contracts;
+         return $this->delivery_contracts;
     }
     public function getAssignedUsersAttribute()
     {
