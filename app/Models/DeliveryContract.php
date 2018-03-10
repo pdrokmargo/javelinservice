@@ -10,20 +10,19 @@ class DeliveryContract extends Model
     public $timestamps = false;
     protected $table = 'delivery_contracts';
     public $incrementing = false;
+    protected $casts = [ 'event' => 'json', 'capita' => 'json', 'pgp' => 'json', 'ips' => 'json', 'conditional_alerts' => 'json' ];
     protected $fillable = [
+        'customer_id',
         'name',
-        'population_type_id',
         'description',
-        'contract_type_id',
-        'value',
-        'validity',
-        'level_care_id',
-        'state',
-        //These fields have been deleted.
-        /*'pharmadrug_monopoly',
-        'pharmadrug_control',
-        'cooled_products',*/
-        'event'
+        'population_type_id',
+        'fee_collecting',
+        'event',
+        'capita',
+        'pgp',
+        'ips',
+        'conditional_alerts',
+        'state'
     ];
     protected $hidden = [];
 
