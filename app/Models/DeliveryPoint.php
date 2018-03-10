@@ -31,7 +31,7 @@ class DeliveryPoint extends Model
         if(!empty($this->delivery_contracts)){
             foreach ($this->delivery_contracts as $dc)
             {
-                $contract = \App\Models\DeliveryContract::find($dc['delivery_contract_id']);  
+                $contract = \App\Models\DeliveryContract::find($dc->delivery_contract_id);  
 
                 //if(!$dc['event']){$contract->event = null;}else{$contract->event = json_decode($contract->event, true);}
                 //if(!$dc['capita'])  {$contract->capita = null;}else{$contract->capita = json_decode($contract->capita, true);}
@@ -40,7 +40,7 @@ class DeliveryPoint extends Model
                 array_add($contracts, 'contracts', $contract);
             } 
          }
-         return $this->delivery_contracts;
+         return $contracts;
     }
     public function getAssignedUsersAttribute()
     {
