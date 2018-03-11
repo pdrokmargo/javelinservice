@@ -1,0 +1,2 @@
+webpackJsonp([12],{1421:function(e,o,u){"use strict";Object.defineProperty(o,"__esModule",{value:!0}),u.d(o,"WarehouseModule",function(){return M});var a=u(6),n=u(2),r=u(29),t=u(38),d=u(283),i=u(193),l=u(606),s=u(607),c=u(598),f=[{path:"",component:i.a}],M=function(){function WarehouseModule(){}return WarehouseModule=a.a([u.i(n.NgModule)({imports:[r.CommonModule,t.g.forChild(f),d.a,c.a.forRoot()],declarations:[i.a,l.a,s.a]})],WarehouseModule)}()}});
+//# sourceMappingURL=12.fffbfb402a68a372c28e.chunk.js.map
