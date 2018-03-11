@@ -23,34 +23,66 @@ class StakeholdersController extends Controller
             $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
             $page = $request->page;
 
-            if(isset($request->customer))
-            {
-                $query = DB::table('stakeholders_info as i')
-                ->join('customers as cu','i.id','=','cu.stakeholder_info_id')
-                ->join('geolocations as g', 'i.geolocation_id', '=', 'g.id')
-                ->join('collections_values as c', 'g.country_id', '=', 'c.id')
-                ->join('collections_values as d', 'g.department_id', '=', 'd.id')
-                ->join('collections_values as cy', 'g.city_id', '=', 'cy.id')
-                ->select(DB::raw("i.id, i.document_number, concat(i.firstname,' ', i.middlename, ' ', i.lastname) as name, concat(c.value, ', ', d.value, ', ', cy.value) as geolocation, i.businessname, i.document_type_id, i.status"));
-            }
-            else
-            {
-                $query = DB::table('stakeholders_info as i')
-                ->join('geolocations as g', 'i.geolocation_id', '=', 'g.id')
-                ->join('collections_values as c', 'g.country_id', '=', 'c.id')
-                ->join('collections_values as d', 'g.department_id', '=', 'd.id')
-                ->join('collections_values as cy', 'g.city_id', '=', 'cy.id')
-                ->select(DB::raw("i.id, i.document_number, concat(i.firstname,' ', i.middlename, ' ', i.lastname) as name, concat(c.value, ', ', d.value, ', ', cy.value) as geolocation, i.businessname, i.document_type_id, i.status"));
-            }
+            
+            $query = DB::table('stakeholders_info as i')
+            ->join('geolocations as g', 'i.geolocation_id', '=', 'g.id')
+            ->join('collections_values as c', 'g.country_id', '=', 'c.id')
+            ->join('collections_values as d', 'g.department_id', '=', 'd.id')
+            ->join('collections_values as cy', 'g.city_id', '=', 'cy.id')
+            ->select(DB::raw("i.id, i.document_number, concat(i.firstname,' ', i.middlename, ' ', i.lastname) as name, concat(c.value, ', ', d.value, ', ', cy.value) as geolocation, i.businessname, i.document_type_id, i.status"));
+            
 
             
-            if ($search!='') 
-            {
+            
+            if ($search!='') {
                 $query = $query->whereRaw("lower(firstname) like ? or lower(middlename) like ? or lower(lastname) like ? or lower(businessname) like ? or document_number like ?", array($search, $search, $search, $search, $search))
                 ->orderBy($ordername, $ordertype);
+            }else{
+                $query=$query->orderBy($ordername, $ordertype);
+            } 
+
+            $data=[];  
+            if ($page) {
+                $data=$query->paginate(30);
             }
             else
             {
+                $data=$query->get();
+            }  
+            
+            return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
+            
+        } catch (Exception $e) {
+            return 'Error:'.$e->getMessage();
+        }
+       
+    }
+
+    public function customers(Request $request)
+    {
+        try {
+            
+            $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';          
+            $ordername = isset($request->ordername) ? $request->ordername : 'i.id';
+            $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
+            $page = $request->page;
+
+            
+            $query = DB::table('stakeholders_info as i')
+            ->join('geolocations as g', 'i.geolocation_id', '=', 'g.id')
+            ->join('geolocations as g', 'i.geolocation_id', '=', 'g.id')
+            ->join('collections_values as c', 'g.country_id', '=', 'c.id')
+            ->join('collections_values as d', 'g.department_id', '=', 'd.id')
+            ->join('collections_values as cy', 'g.city_id', '=', 'cy.id')
+            ->select(DB::raw("i.id, i.document_number, concat(i.firstname,' ', i.middlename, ' ', i.lastname) as name, concat(c.value, ', ', d.value, ', ', cy.value) as geolocation, i.businessname, i.document_type_id, i.status"));
+            
+
+            
+            
+            if ($search!='') {
+                $query = $query->whereRaw("lower(firstname) like ? or lower(middlename) like ? or lower(lastname) like ? or lower(businessname) like ? or document_number like ?", array($search, $search, $search, $search, $search))
+                ->orderBy($ordername, $ordertype);
+            }else{
                 $query=$query->orderBy($ordername, $ordertype);
             } 
 

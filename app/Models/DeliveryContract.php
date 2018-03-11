@@ -10,7 +10,13 @@ class DeliveryContract extends Model
     public $timestamps = false;
     protected $table = 'delivery_contracts';
     public $incrementing = false;
-    protected $casts = [ 'event' => 'json', 'capita' => 'json', 'pgp' => 'json', 'ips' => 'json', 'conditional_alerts' => 'json' ];
+    protected $casts = [ 
+        'event' => 'json', 
+        'capita' => 'json', 
+        'pgp' => 'json', 
+        'ips' => 'json', 
+        'conditional_alerts' => 'json' 
+    ];
     protected $fillable = [
         'customer_id',
         'name',
