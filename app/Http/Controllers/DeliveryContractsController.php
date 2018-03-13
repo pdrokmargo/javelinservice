@@ -20,12 +20,17 @@ class DeliveryContractsController extends Controller
         $page = $request->page;
 
         $query = new \App\Models\DeliveryContract();
-        
+
         if ($search!='') {
-            $query = $query->whereRaw("lower(name) like ? or lower(description) like ? or (case when state=true then 'activo' else 'inactivo' end) like ? or (case when installed=true then 'instalado' else 'no instalado' end) like ?", array($search, $search, $search, $search))->orderBy($ordername, $ordertype);
+            $query = $query->whereRaw("lower(name) like ? or lower(description) like ? or (case when state=true then 'activo' else 'inactivo' end) like ? or (case when installed=true then 'instalado' else 'no instalado' end) like ?", array($search, $search, $search, $search))
+            ->orderBy($ordername, $ordertype);
         }else{
-             $query=$query->orderBy($ordername, $ordertype);
+            $query=$query->orderBy($ordername, $ordertype);
         } 
+
+        
+
+
         $data = [];  
         if ($page) {
           $data = $query->paginate(30);

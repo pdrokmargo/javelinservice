@@ -13,10 +13,12 @@ class DeliveryContract extends Model
     public $with = array('customers', 'delivery_points_groups');
     public $incrementing = false;
     protected $fillable = [
+        'customer_id',
         'name',
-        'population_type_id',
         'description',
         'contract_type_id',
+        'population_type_id',
+        'fee_collecting',
         'value',
         'validity',
         'level_care_id',
@@ -28,7 +30,8 @@ class DeliveryContract extends Model
         'capita',
         'pgp',
         'ips',
-        'conditional_alerts'
+        'conditional_alerts',
+        'state'
     ];
     protected $hidden = [];
 
