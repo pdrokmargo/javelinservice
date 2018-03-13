@@ -28,7 +28,7 @@ class CollectionsValuesTableSeeder extends Seeder
                 /*10*/['collection_id' => '4', 'parent_id' => 7,'code' => 'bolivar', 'value' => 'Bolívar'],
             //Cities, Towns, etc
                 /*11*/['collection_id' => '5', 'parent_id' => 8, 'code' => 'barranquilla', 'value' => 'Barranquilla'],
-            //Document Types
+            //TYPES_OF_DOCUMENTS
                 /*12*/['collection_id' => '6', 'parent_id' => 0, 'code' => 'CC', 'value' => 'Cédula de ciudadanía'],
                 /*13*/['collection_id' => '6', 'parent_id' => 0, 'code' => 'CE', 'value' => 'Cédula de extranjería'],
                 /*14*/['collection_id' => '6', 'parent_id' => 0, 'code' => 'NIT', 'value' => 'NIT'],
@@ -191,7 +191,7 @@ class CollectionsValuesTableSeeder extends Seeder
             /* CONTENT_UNIT */ 
             /*120*/['collection_id' => 33, 'parent_id' => 0, 'code' => 'blister', 'value' => 'Blister'],
 
-            /* CONTENT_UNIT */ 
+            /* AFFILIATE_TYPE */ 
             /*121*/['collection_id' => 34, 'parent_id' => 0, 'code' => 'abuelo', 'value' => 'Abuelo (a)'],
             /*122*/['collection_id' => 34, 'parent_id' => 0, 'code' => 'beneficiario', 'value' => 'Beneficiario'],
             /*123*/['collection_id' => 34, 'parent_id' => 0, 'code' => 'bisnieto', 'value' => 'Bisnieto (a)'],
@@ -207,8 +207,56 @@ class CollectionsValuesTableSeeder extends Seeder
             /*133*/['collection_id' => 34, 'parent_id' => 0, 'code' => 'otros', 'value' => 'Otros'],    
             /*134*/['collection_id' => 34, 'parent_id' => 0, 'code' => 'padre', 'value' => 'Padre'],
             /*135*/['collection_id' => 34, 'parent_id' => 0, 'code' => 'padreadoptivo', 'value' => 'Padre Adoptivo'],
+
+            // PAYMENT_CONDITION
+            /*136*/["collection_id" => 27, "parent_id" => 0, "code" => "180 dias", "value" => "180 Días"],
+
+            // SUPPLIERS_CLASS    
+            /*137*/["collection_id" => 14, "parent_id" => 0, "code" => "proveedores_nacionales", "value" => "Proveedores nacionales"],
+            /*138*/["collection_id" => 14, "parent_id" => 0, "code" => "entidades_financieras", "value" => "Entidades Financieras"],
+            /*139*/["collection_id" => 14, "parent_id" => 0, "code" => "proveedores_suscripciones", "value" => "Proveedor de Suscripciones"],
+            /*140*/["collection_id" => 14, "parent_id" => 0, "code" => "asesores_juridicos", "value" => "Asesores Jurídicos"],
+            /*141*/["collection_id" => 14, "parent_id" => 0, "code" => "honorarios", "value" => "Honorarios"],
+            /*142*/["collection_id" => 14, "parent_id" => 0, "code" => "servicios_mantenimiento", "value" => "Servicios de Mantenimiento"],
+            /*143*/["collection_id" => 14, "parent_id" => 0, "code" => "inmobiliaria_arrendamientos", "value" => "Inmobiliaria y Arrendamientos"],
+            /*144*/["collection_id" => 14, "parent_id" => 0, "code" => "contratistas", "value" => "Contratistas"],
+            /*145*/["collection_id" => 14, "parent_id" => 0, "code" => "transportes_fletes_acarreos", "value" => "Transportes, Fletes y Acarreos"],
+            /*146*/["collection_id" => 14, "parent_id" => 0, "code" => "servicios_publicos", "value" => "Servicios Públicos"],
+            /*147*/["collection_id" => 14, "parent_id" => 0, "code" => "aseguradoras", "value" => "Aseguradoras"],
+            /*148*/["collection_id" => 14, "parent_id" => 0, "code" => "agencias_viaje_aerolineas", "value" => "Agencias de viaje aerolíneas"],
+            /*149*/["collection_id" => 14, "parent_id" => 0, "code" => "servicios_aduaneros", "value" => "Servicios aduaneros"],
+            /*150*/["collection_id" => 14, "parent_id" => 0, "code" => "papeleria_aseo_cafeteria", "value" => "Papelería, aseo y cafetería"],
+            /*151*/["collection_id" => 14, "parent_id" => 0, "code" => "subcontratista_dispensacion", "value" => "Subcontratista dispensación"],
+            /*152*/["collection_id" => 14, "parent_id" => 0, "code" => "servicios_temporales", "value" => "Servicios temporales"],
+            /*153*/["collection_id" => 14, "parent_id" => 0, "code" => "otros_costos_gastos_pagar", "value" => "Otros costos y gastos por pagar"],
            
-            
+            /* PAYMENT_METHOD */
+            /*154*/['collection_id' => 32, 'parent_id' => 0, 'code' => 'fiducia', 'value' => 'Fiducia'],
+
+            /*AFFILIATE_CONDITION*/
+            /*155*/['collection_id' => 35, 'parent_id' => 0, 'code' => 'alto_costo', 'value' => 'Alto costo'],
+            /*156*/['collection_id' => 35, 'parent_id' => 0, 'code' => 'derecho_peticion', 'value' => 'Derecho de petición'],
+            /*157*/['collection_id' => 35, 'parent_id' => 0, 'code' => 'condicion_ninguno', 'value' => 'Ninguno'],
+            /*158*/['collection_id' => 35, 'parent_id' => 0, 'code' => 'seguimientos_eps', 'value' => 'Seguimiento EPS'],
+            /*159*/['collection_id' => 35, 'parent_id' => 0, 'code' => 'tutela', 'value' => 'Tutela'],
+
+            /*PUBLIC_HEALTH_CONDITION*/
+            /*160*/['collection_id' => 36, 'parent_id' => 0, 'code' => 'adultos', 'value' => 'Adultos (promoción y prevención)'],
+            /*161*/['collection_id' => 36, 'parent_id' => 0, 'code' => 'diabetico', 'value' => 'Diabético'],
+            /*162*/['collection_id' => 36, 'parent_id' => 0, 'code' => 'diabetico_hipertenso', 'value' => 'Diabético - Hipertenso'],
+            /*163*/['collection_id' => 36, 'parent_id' => 0, 'code' => 'gestante', 'value' => 'Gestante'],
+            /*164*/['collection_id' => 36, 'parent_id' => 0, 'code' => 'hipertenso', 'value' => 'Hipertenso'],
+            /*165*/['collection_id' => 36, 'parent_id' => 0, 'code' => 'condicion_publica_ninguno', 'value' => 'Ninguno'],
+            /*166*/['collection_id' => 36, 'parent_id' => 0, 'code' => 'ninos', 'value' => 'Niños (promoción y prevención)'],
+            /*167*/['collection_id' => 36, 'parent_id' => 0, 'code' => 'paciente_medicamento_control', 'value' => 'Paciente con medicamentos de control'],
+            /*168*/['collection_id' => 36, 'parent_id' => 0, 'code' => 'planificacion_familiar', 'value' => 'Planificación familiar'],
+            /*169*/['collection_id' => 36, 'parent_id' => 0, 'code' => 'traslado_regimen', 'value' => 'Traslado de régimen'],
+            /*170*/['collection_id' => 36, 'parent_id' => 0, 'code' => 'trasplantado', 'value' => 'Trasplantado'],
+
+            /* CONTRACTS_PAYMENT_METHOD */
+            /*171*/['collection_id' => 37, 'parent_id' => 0, 'code' => 'evento', 'value' => 'Evento'],
+            /*172*/['collection_id' => 37, 'parent_id' => 0, 'code' => 'capita', 'value' => 'Cápita'],
+            /*173*/['collection_id' => 37, 'parent_id' => 0, 'code' => 'pgp', 'value' => 'PGP'],
         ]);
     }
 }

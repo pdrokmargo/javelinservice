@@ -16,10 +16,24 @@ class CreateDeliveryContractsTable extends Migration
         Schema::create('delivery_contracts', function (Blueprint $table) {
             $table->uuid('id');
             $table->uuid('customer_id'); // A customer stakeholder only
+            $table->integer('company_id');
             $table->string('name');
             $table->string('description');
             $table->integer('population_type_id'); //Tipo de Población: Subsidiado, Contributivo
             $table->boolean('fee_collecting');
+            $table->json('delivery_points');
+            // json array
+            //      uuid: delivery_point_id
+            //      boolean: event
+            //      boolean: capita
+            //      boolean: pgp
+            $table->json('pharmadrugs');
+            // json array
+            //      uuid: pharmaceutical_drug_id
+            //      boolean: event
+            //      decimal: fare
+            //      boolean: capita
+            //      boolean: pgp
             $table->json('event');//If it is different than null, there is an event contract
             // json structure:event_contract
             //         string:contract_number
@@ -31,11 +45,6 @@ class CreateDeliveryContractsTable extends Migration
             //         boolean:auth
             //         integer:auth_length
             //         string:auth_char_type //Options: numérico, alfabético y alfanumérico from collections auth_char_type
-            //         json array: delivery_points
-            //             uuid:delivery_point_id
-            //             json array: products
-            //                 uuid:product_id
-            //                 double:fare
             $table->json('capita');//If it is different than null, there is a capita contract
             // json structure:capita_contract
             //         string:contract_number
@@ -44,15 +53,14 @@ class CreateDeliveryContractsTable extends Migration
             //         integer:percent_alert
             //         integer:percent_unable
             //         integer:affiliates_total_qty -> read only
-            //         json:affiliates_qty_history_record
+            //         json array:affiliates_qty_history_record
+            //             integer:geolocation_id
             //             integer:affiliates_number
             //             date:date
-            //         json array: delivery_points
-            //             uuid:delivery_point_id
-            //             integer:affiliates_qty
-            //             double:capita_value
-            //             json array: products
-            //                 uuid:product_id
+            //         json array:detailed_capita
+            //             integer:geolocation_id
+            //             integer:affiliates_number
+            //             decimal:capita_fare
             $table->json('pgp');//If it is different than null, there is a pgp contract
             // json structure:pgp_contract
             //         string:contract_number
@@ -61,17 +69,6 @@ class CreateDeliveryContractsTable extends Migration
             //         double:budget
             //         integer:percent_alert
             //         integer:percent_unable
-            //         json array: Delivery Points
-            //             uuid:delivery_point_id
-            //             json Array:products
-            //                 uuid: product_id
-
-            //These fields have been deleted.
-            /*$table->boolean('pharmadrug_control');
-            $table->boolean('pharmadrug_monopoly');
-            $table->boolean('cooled_products');*/
-
-
             $table->json('ips'); //It comes from ID:28 IPS_NETWORK collections values 
             /*json structure: array
                 integer: ips_id

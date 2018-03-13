@@ -18,7 +18,7 @@ class CreateAffiliatesTable extends Migration
             $table->integer('document_type_id');
             $table->integer('document_number');
             $table->uuid('delivery_contract_id');
-            $table->integer('affiliate_regime_id');//pending to relate
+            $table->integer('ips_network_id'); // to IPS_NETWORK in collection values
             $table->string('firstname');
             $table->string('middlename');
             $table->string('lastname1');
@@ -27,8 +27,8 @@ class CreateAffiliatesTable extends Migration
             $table->integer('affiliate_type_id');//to GENDER in collection_values
             $table->date('birthday');
             $table->string('address');
-            $table->json('phone_numbers');
-            $table->json('mobile_numbers');
+            $table->string('phone_number');
+            $table->string('mobile_number');
             $table->string('attendant_name');
             $table->integer('attendant_phone_number');
             $table->integer('attendant_mobile_number');
@@ -37,6 +37,8 @@ class CreateAffiliatesTable extends Migration
             $table->integer('public_health_condition_id');//to PUBLIC_HEALTH_CONDITION in collection_values
             $table->integer('affiliate_level');
             $table->boolean('state');
+            $table->integer('company_id');
+
             
             $table->primary('id');
         });

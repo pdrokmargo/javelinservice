@@ -27,7 +27,7 @@ class CreateCustomersTable extends Migration
             $table->decimal('global_discount');
             $table->integer('debt_type_id'); 
             $table->integer('payment_condition_id');    
-            $table->integer('discount_early_payment_id')->nullable();
+            $table->decomal('discount_early_payment')->nullable();
             $table->integer('days_early_payment');
             $table->decimal('credit_limit');
             $table->boolean('credit_limit_blocking');
@@ -46,7 +46,7 @@ class CreateCustomersTable extends Migration
                 integer:resolution_number
                 date:issue_date
                 date:expiration_date
-                json_array:products[ids every product]
+                json_array:pharmaceutical_drugs[ids every pharmadrug]
                 integer:shipping_point_id
                 boolean:state
             */
@@ -55,7 +55,7 @@ class CreateCustomersTable extends Migration
                 integer:resolution_number
                 date:issue_date
                 date:expiration_date
-                json_array:products[ids every product]
+                json_array:pharmaceutical_drugs[ids every pharmadrug]
                 integer:shipping_point_id
                 boolean:state
             */

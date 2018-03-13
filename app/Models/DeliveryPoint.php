@@ -21,6 +21,7 @@ class DeliveryPoint extends Model
         'installed',
         'delivery_point_group_id',
         'delivery_contracts',
+        'company_id',
         'users'
     ];
     protected $hidden = [];

@@ -48,7 +48,7 @@ class CollectionsTableSeeder extends Seeder
             /*34*/['name'=>'AFFILIATE_TYPE',    'description' => 'Tipo de afiliado',       'syscollection' => true],
             /*35*/['name'=>'AFFILIATE_CONDITION',    'description' => 'Condición del usuario',       'syscollection' => true],
             /*36*/['name'=>'PUBLIC_HEALTH_CONDITION',    'description' => 'Condición salud pública',       'syscollection' => true],
-            /*37*/['name'=>'AFFILIATE_REGIME',    'description' => 'Régimen afiliado',       'syscollection' => true],
+            /*37*/['name'=>'CONTRACTS_PAYMENT_METHOD',    'description' => 'Modalidad de pago de contratos',       'syscollection' => true],
         ]);
         
     }

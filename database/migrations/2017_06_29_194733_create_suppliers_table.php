@@ -19,13 +19,13 @@ class CreateSuppliersTable extends Migration
             $table->integer('supplier_class_id');
             $table->decimal('global_discount');
             $table->integer('payment_condition_id');
-            $table->boolean('purchase_order');
-            $table->decimal('credit_limit', 12, 2);
-            $table->integer('days_early_payment');
-            $table->integer('discount_early_payment_id')->nullable();
+            $table->boolean('purchase_order')->default(false);
+            $table->decimal('credit_limit', 12, 2)->nullable();
+            $table->integer('days_early_payment')->nullable();
+            $table->decimal('discount_early_payment')->nullable();
             $table->integer('payment_method_id');
-            $table->integer('days_grace');
-            $table->json('bank_accounts');//array banks accounts
+            $table->integer('days_grace')->nullable();
+            $table->json('bank_accounts')->nullable();//array banks accounts
             /*json structure:array
                 integer:bank_account_id
             */

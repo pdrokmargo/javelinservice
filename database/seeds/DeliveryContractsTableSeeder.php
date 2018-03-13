@@ -36,7 +36,7 @@ class DeliveryContractsTableSeeder extends Seeder
                             "delivery_point_id": "b225b683-98c1-4e3d-be21-3230122ff718", 
                             "products": [
                                 {
-                                    "product_id": "54f09b52-16ac-45ba-a748-2eee493cca86",
+                                    "pharmadrug_id": "54f09b52-16ac-45ba-a748-2eee493cca86",
                                     "fare": 2600
                                 }
                             ]
