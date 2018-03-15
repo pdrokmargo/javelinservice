@@ -252,11 +252,6 @@ class CollectionsValuesTableSeeder extends Seeder
             /*168*/['collection_id' => 36, 'parent_id' => 0, 'code' => 'planificacion_familiar', 'value' => 'Planificación familiar'],
             /*169*/['collection_id' => 36, 'parent_id' => 0, 'code' => 'traslado_regimen', 'value' => 'Traslado de régimen'],
             /*170*/['collection_id' => 36, 'parent_id' => 0, 'code' => 'trasplantado', 'value' => 'Trasplantado'],
-
-            /* CONTRACTS_PAYMENT_METHOD */
-            /*171*/['collection_id' => 37, 'parent_id' => 0, 'code' => 'evento', 'value' => 'Evento'],
-            /*172*/['collection_id' => 37, 'parent_id' => 0, 'code' => 'capita', 'value' => 'Cápita'],
-            /*173*/['collection_id' => 37, 'parent_id' => 0, 'code' => 'pgp', 'value' => 'PGP'],
         ]);
     }
 }
