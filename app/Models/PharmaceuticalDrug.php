@@ -15,13 +15,14 @@ class PharmaceuticalDrug extends Model
     		'id',
 			'name',
 			'code',
-			'concentration',
+			'atc',
 			'dosage_form_id',
 			'routes_administration_id',
-			'ATC',
 			'is_controlled',
 			'is_monopoly',
 			'is_pos',
+			'is_regulated',
+			'regulated_price',
 			'storage_condition_id',
 			'state'
     ];

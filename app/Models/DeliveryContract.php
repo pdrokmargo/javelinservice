@@ -37,7 +37,7 @@ class DeliveryContract extends Model
 
     public function customers()
 	{
-		 return $this->belongsTo('App\Models\Warehouse', 'customer_id'); 
+		 return $this->belongsTo('App\Models\Customers', 'customer_id'); 
     }
     
     public function population_types()
