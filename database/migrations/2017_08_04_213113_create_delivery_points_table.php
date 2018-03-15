@@ -31,7 +31,7 @@ class CreateDeliveryPointsTable extends Migration
             /*json array:
                 uuid: user_id
             */
-            $table->boolean('installed');
+            $table->boolean('installed')->default(false);
             $table->boolean('state');
 
             $table->primary('id');
