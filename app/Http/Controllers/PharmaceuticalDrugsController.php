@@ -25,7 +25,7 @@ class PharmaceuticalDrugsController extends Controller
             $query = DB::table('pharmaceutical_drugs as pd')
             ->join('collections_values as df', 'df.id', '=', 'pd.dosage_form_id')
             ->join('collections_values as ra', 'ra.id', '=', 'pd.routes_administration_id')
-            ->select(DB::raw('pd.id, pd.name, pd.concentration, ra.value as routes_administration, df.value as dosage_form, pd.state, pd.is_pos'));
+            ->select(DB::raw('pd.id, pd.name, ra.value as routes_administration, df.value as dosage_form, pd.state, pd.is_pos'));
 
             if ($search!='') {
                 $query=$query->whereRaw("(lower(pd.name) like ? or pd.code like ? or (case when pd.state=true then 'activo' else 'inactivo' end) like ?)", array($search, $search, $search))
