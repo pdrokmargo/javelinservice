@@ -46,7 +46,7 @@ class ActiveIngredientsController extends Controller
     public function store(Request $request)
     {
         $data = json_decode($request->data, true);
-        \App\Models\AcitveIntegrations::create($data);
+        \App\Models\ActiveIngredient::create($data);
         return response()->json([ "store" => true ], 200);
     }
 
@@ -58,7 +58,7 @@ class ActiveIngredientsController extends Controller
      */
     public function show($id)
     {
-        $data = \App\Models\ActiveIntegrations::find($id);        
+        $data = \App\Models\ActiveIngredient::find($id);        
         return response()->json([ "data" => $data ], 200);
     }
   
@@ -73,7 +73,7 @@ class ActiveIngredientsController extends Controller
     public function update(Request $request, $id)
     {
         $data_new = json_decode($request->data,true);
-        $data_old = \App\Models\ActiveIntegrations::find($id);
+        $data_old = \App\Models\ActiveIngredient::find($id);
         $data_old->fill($data_new);
         $data_old->save();
         return response()->json([ "update" => true], 200);
@@ -87,7 +87,7 @@ class ActiveIngredientsController extends Controller
      */
     public function destroy($id)
     {
-        $data = \App\Models\ActiveIntegrations::find($id);
+        $data = \App\Models\ActiveIngredient::find($id);
         $data->state = false;
         $data->save();
         return response()->json([ "destroy" => true], 200);
