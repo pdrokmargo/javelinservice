@@ -84,7 +84,7 @@ class PharmaceuticalDrugsController extends Controller
     public function show($id)
     {
         $pd = \App\Models\PharmaceuticalDrug::find($id);
-        $ai = \App\Models\ActiveIngredientsPharmaceuticalDrugs::where('pharmaceutical_drug_id',$pd->id);
+        $ai = \App\Models\ActiveIngredientsPharmaceuticalDrugs::where('pharmaceutical_drug_id',$id)->append(['measurement_unit','pharmaceutical_drug']);
         $data = [
             "model" => $pd,
             "active_ingredients" => $ai

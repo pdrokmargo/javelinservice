@@ -46,9 +46,7 @@ class ActiveIngredientsController extends Controller
     public function store(Request $request)
     {
         $data = json_decode($request->data, true);
-        $id = \App\Models\ActiveIngredient::create($data)->append(['measurement_unit','pharmaceutical_drug']);
-        
-
+        $id = \App\Models\ActiveIngredient::create($data);
         return response()->json([ "store" => true ], 200);
     }
 
@@ -60,7 +58,8 @@ class ActiveIngredientsController extends Controller
      */
     public function show($id)
     {
-        $data = \App\Models\ActiveIngredient::find($id);        
+        $data = \App\Models\ActiveIngredient::find($id);
+
         return response()->json([ "data" => $data ], 200);
     }
   
