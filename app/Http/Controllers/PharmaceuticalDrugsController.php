@@ -59,11 +59,10 @@ class PharmaceuticalDrugsController extends Controller
     {   
         try{
             $data = json_decode($request->data, true);
-            $pharmaceuticalDrug = \App\Models\PharmaceuticalDrug::create($data);            
+            \App\Models\PharmaceuticalDrug::create($data);            
             return response()->json([
                 'status'=>'success', 
-                "message"=>'El medicamento se ha registrado satisfactoriamente.', 
-                "data" => $pharmaceuticalDrug 
+                "message"=>'El medicamento se ha registrado satisfactoriamente.'
             ], 200);
         } catch (Exception $e) {
             return 'Error: ' . $e->getMessage();
