@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\ActiveIngredients;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class DeliveryPointsController extends Controller
+class ActiveIngredientsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,11 +19,10 @@ class DeliveryPointsController extends Controller
         $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
         $page = $request->page;
 
-        $query = new \App\Models\DeliveryPoint();
+        $query = new \App\Models\ActiveIngredient();
 
         if ($search!='') {
-            $query = $query->whereRaw("lower(name) like ? or lower(description) like ? or (case when state=true then 'activo' else 'inactivo' end) like ? or (case when installed=true then 'instalado' else 'no instalado' end) like ?", array($search, $search, $search, $search))
-            ->orderBy($ordername, $ordertype);
+            $query = $query->whereRaw("lower(name) like ?", array($search))->orderBy($ordername, $ordertype);
         }else{
             $query=$query->orderBy($ordername, $ordertype);
         } 
@@ -38,7 +37,6 @@ class DeliveryPointsController extends Controller
         return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
     }
 
-
     /**
      * Store a newly created resource in storage.
      *
@@ -48,34 +46,34 @@ class DeliveryPointsController extends Controller
     public function store(Request $request)
     {
         $data = json_decode($request->data, true);
-        \App\Models\DeliveryPoint::create($data);
+        \App\Models\ActiveIngredient::create($data);
         return response()->json([ "store" => true ], 200);
     }
+
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param integre id
      * @return \Illuminate\Http\Response
-
      */
     public function show($id)
     {
-        $data = \App\Models\DeliveryPoint::find($id)->append(['assigned_contracts','assigned_users']);        
+        $data = \App\Models\ActiveIngredient::find($id);        
         return response()->json([ "data" => $data ], 200);
     }
-
+  
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param integre id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $data_new = json_decode($request->data,true);
-        $data_old = \App\Models\DeliveryPoint::find($id);
+        $data_old = \App\Models\ActiveIngredient::find($id);
         $data_old->fill($data_new);
         $data_old->save();
         return response()->json([ "update" => true], 200);
@@ -84,17 +82,14 @@ class DeliveryPointsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param integre id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $data = \App\Models\DeliveryPoint::find($id);
+        $data = \App\Models\ActiveIngredient::find($id);
         $data->state = false;
         $data->save();
         return response()->json([ "destroy" => true], 200);
-    }
-    public function createProperty($name, $value){
-        $this->{$name} = $value;
     }
 }
