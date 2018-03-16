@@ -59,7 +59,7 @@ class PharmaceuticalDrugsController extends Controller
     {   
         try{
             $data = json_decode($request->data, true);
-            \App\Models\PharmaceuticalDrug::create($data["drug"]);  
+            $id = \App\Models\PharmaceuticalDrug::create($data["drug"])->id;  
             
             foreach ($data["active_ingredients"] as $i) {
                 $i["active_ingredients"] = $id;
