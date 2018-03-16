@@ -46,11 +46,8 @@ class ActiveIngredientsController extends Controller
     public function store(Request $request)
     {
         $data = json_decode($request->data, true);
-        $id = \App\Models\ActiveIngredient::create($data["drug"]);
-        foreach ($i as $data["active_ingredients"]) {
-            $i["active_ingredients"] = $id;
-            \App\Models\ActiveIngredientsPharmaceuticalDrugs::create($i);
-        }
+        $id = \App\Models\ActiveIngredient::create($data);
+        
 
         return response()->json([ "store" => true ], 200);
     }

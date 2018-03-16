@@ -59,7 +59,11 @@ class PharmaceuticalDrugsController extends Controller
     {   
         try{
             $data = json_decode($request->data, true);
-            \App\Models\PharmaceuticalDrug::create($data);            
+            \App\Models\PharmaceuticalDrug::create($data["drug"]);  
+            foreach ($i as $data["active_ingredients"]) {
+                $i["active_ingredients"] = $id;
+                \App\Models\ActiveIngredientsPharmaceuticalDrugs::create($i);
+            }          
             return response()->json([
                 'status'=>'success', 
                 "message"=>'El medicamento se ha registrado satisfactoriamente.'
