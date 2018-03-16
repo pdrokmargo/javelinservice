@@ -12,7 +12,7 @@ class ActiveIngredientsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function indexindex(Request $request)
+    public function index(Request $request)
     {
         $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';    		
         $ordername = isset($request->ordername) ? $request->ordername : 'id';
