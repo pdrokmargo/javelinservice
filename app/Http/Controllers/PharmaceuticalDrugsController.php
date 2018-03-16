@@ -59,7 +59,6 @@ class PharmaceuticalDrugsController extends Controller
     {   
         try{
             $data = json_decode($request->data, true);
-            return response()->json([ "store" => $data ], 200);
             \App\Models\PharmaceuticalDrug::create($data);            
             return response()->json([
                 'status'=>'success', 
