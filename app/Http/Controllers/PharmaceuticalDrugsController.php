@@ -109,11 +109,22 @@ class PharmaceuticalDrugsController extends Controller
         try{
             $data_new = json_decode($request->data,true);
             $data_old = \App\Models\PharmaceuticalDrug::find($id);
-            $data_old->fill($data_new);
+            $data_old->fill($data_new["drug"]);
             $data_old->save();
-            return response()->json(['status'=>'success', 
-                                          "message"=>'El medicamento se ha actualizado satisfactoriamente.', 
-                                          "data" => $data_old ], 200);
+
+            \App\Models\ActiveIngredientsPharmaceuticalDrugs::where('pharmaceutical_drug_id',$id)->delete();
+            
+            foreach ($data_new["active_ingredients"] as $i) {
+                $i["pharmaceutical_drug_id"] = $id;
+                $i["active_ingredient_id"] = $i["id"];
+                \App\Models\ActiveIngredientsPharmaceuticalDrugs::create($i);
+            }
+
+            return response()->json([
+                'status'=>'success', 
+                "message"=>'El medicamento se ha actualizado satisfactoriamente.', 
+                "data" => $data_old 
+            ], 200);
         } catch (Exception $e) {
             return 'Error: ' . $e->getMessage();
         }
