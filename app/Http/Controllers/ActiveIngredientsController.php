@@ -19,7 +19,7 @@ class ActiveIngredientsController extends Controller
         $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
         $page = $request->page;
 
-        $query = new \App\Models\DeliveryPoint();
+        $query = new \App\Models\ActiveIngredients();
 
         if ($search!='') {
             $query = $query->whereRaw("lower(name) like ?", array($search))->orderBy($ordername, $ordertype);
