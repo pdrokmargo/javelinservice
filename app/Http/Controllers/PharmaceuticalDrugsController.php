@@ -83,8 +83,13 @@ class PharmaceuticalDrugsController extends Controller
      */
     public function show($id)
     {
-        $data = \App\Models\PharmaceuticalDrug::find($id);
-       
+        $pd = \App\Models\PharmaceuticalDrug::find($id);
+        $ai = ActiveIngredientsPharmaceuticalDrugs::where('pharmaceutical_drug_id',$pd->id);
+        $data = [
+            "model" => $pd,
+            "active_ingredients" => $ai
+        ];
+
         return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
     }
 
