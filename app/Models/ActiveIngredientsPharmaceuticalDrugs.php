@@ -9,7 +9,7 @@ class ActiveIngredientsPharmaceuticalDrugs extends Model
     public $timestamps = false;
     protected $table = 'active_ingredients_pharmaceutical_drugs';    
     public $incrementing = false;
-    protected $appends = array('measurement_unit','pharmaceutical_drug');
+    protected $appends = array('measurement_unit','active_ingredient');
     protected $fillable = [
         'active_ingredient_id',
         'pharmaceutical_drug_id',
@@ -22,8 +22,8 @@ class ActiveIngredientsPharmaceuticalDrugs extends Model
         return \App\Models\CollectionsValues::find($this->measurement_unit_id);
     }
 
-    public function getPharmaceuticalDrugAttribute()
+    public function getActiveIngredientAttribute()
     {
-        return \App\Models\PharmaceuticalDrug::find($this->pharmaceutical_drug_id);
+        return \App\Models\ActiveIngredient::find($this->active_ingredient_id);
     }
 }
