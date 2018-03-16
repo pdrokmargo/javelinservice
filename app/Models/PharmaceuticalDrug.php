@@ -9,7 +9,6 @@ class PharmaceuticalDrug extends Model
 	use \App\Uuids;
     public $timestamps = false;
     protected $table = 'pharmaceutical_drugs'; 
-    public $with = array('dosage_form');
     public $incrementing = false;
     protected $fillable = [
 		'id',

@@ -151,7 +151,7 @@ class CollectionsValuesTableSeeder extends Seeder
             /*89*/['collection_id' => 25, 'parent_id' => 0, 'code' => 'nasal', 'value' => 'Nasal'],  
             
             /* continue: PHARMACEUTICAL_FORM*/
-            /*90*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'tableta', 'value' => 'Sobre'],
+            /*90*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'tableta', 'value' => 'Tableta'],
             /*91*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'tabletaprolongada', 'value' => 'Tableta de acción prolongada'],
             /*92*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'grageas', 'value' => 'Grageas'],
             /*93*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'supositorios', 'value' => 'Supositorios'],
