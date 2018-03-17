@@ -20,6 +20,7 @@ class IpsNetworkController extends Controller
 
         $c = \App\Models\Collections::where('name','IPS_NETWORK')->first();
         $id = $c->id;
+        return $id;
         $query = new \App\Models\CollectionsValues();
         $query->where('collection_id','=', $id);
         if ($search!='') {
