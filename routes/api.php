@@ -65,5 +65,5 @@ Route::middleware('auth:api')->group(function () {
     Route::resource('delivery-contracts','DeliveryContractsController');
     Route::resource('delivery-points','DeliveryPointsController');
     Route::resource('active-ingredients','ActiveIngredientsController');
-    
+    Route::resource('ips-network','IpsNetworkController');    
 });

@@ -29,7 +29,8 @@ class DeliveryPoint extends Model
     public function getAssignedContractsAttribute()
     {
         $contracts = [];
-        if(!empty($this->delivery_contracts)){
+        if(!empty($this->delivery_contracts))
+        {
             foreach ($this->delivery_contracts as $dc)
             {
                 $contract = \App\Models\DeliveryContract::select(['id','name','event','capita','pgp'])->find($dc['delivery_contract_id']);
