@@ -18,9 +18,10 @@ class IpsNetworkController extends Controller
         $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
         $page = $request->page;
 
-        $id = \App\Models\Collections::where('name','IPS_NETWORK')->first()->id;
+        $c = \App\Models\Collections::where('name','IPS_NETWORK')->first();
+        $id = $c->id;
         $query = new \App\Models\CollectionsValues();
-        $query->where('collection_id', $id);
+        $query->where('collection_id','=', $id);
         if ($search!='') {
             $query = $query->whereRaw("lower(code) like ? or lower(value) like ?", array($search, $search))->orderBy($ordername, $ordertype);
         }else{
