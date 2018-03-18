@@ -40,6 +40,7 @@ Route::middleware('auth:api')->group(function () {
     Route::resource('view', 'ViewController');
     Route::post('collections','CollectionsController@Collections');
     Route::resource('stakeholders','StakeholdersController');
+    Route::get('stakeholders-customers','StakeholdersController@customers');
     Route::get('departamentos','CollectionsController@departamentos');
     Route::get('ciudades','CollectionsController@ciudades');
     Route::resource('sales_representatives','SalesRepresentativesController');
