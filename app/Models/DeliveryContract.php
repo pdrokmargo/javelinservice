@@ -14,16 +14,11 @@ class DeliveryContract extends Model
     public $incrementing = false;
     protected $fillable = [
         'customer_id',
+        'company_id',
         'name',
         'description',
-        'contract_type_id',
         'population_type_id',
         'fee_collecting',
-        'value',
-        'validity',
-        'level_care_id',
-        'state',
-        'company_id',
         'delivery_points',
         'pharmadrugs',
         'event',
