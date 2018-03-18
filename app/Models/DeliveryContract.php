@@ -9,7 +9,15 @@ class DeliveryContract extends Model
     use \App\Uuids;
     public $timestamps = false;
     protected $table = 'delivery_contracts';
-    protected $casts = ['delivery_points'=>'json', 'pharmadrugs' => 'json', 'event' => 'json', 'capita' => 'json', 'pgp' => 'json', 'ips' => 'json', 'conditional_alerts' => 'json'];
+    protected $casts = [
+        'delivery_points'=>'json', 
+        'pharmadrugs' => 'json', 
+        'event' => 'json', 
+        'capita' => 'json', 
+        'pgp' => 'json', 
+        'ips' => 'json', 
+        'conditional_alerts' => 'json'
+    ];
     public $with = array('customers', 'population_types');
     public $incrementing = false;
     protected $fillable = [
@@ -18,7 +26,6 @@ class DeliveryContract extends Model
         'name',
         'description',
         'population_type_id',
-        'fee_collecting',
         'delivery_points',
         'pharmadrugs',
         'event',
