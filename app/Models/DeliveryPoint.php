@@ -36,8 +36,8 @@ class DeliveryPoint extends Model
                 $contract = \App\Models\DeliveryContract::select(['id','name','event','capita','pgp'])->find($dc['delivery_contract_id']);
 
                 if(!$dc['event']){ $contract->event = null; }
-                if(!$dc['capita']){$contract->capita = null;}
-                if(!$dc['pgp'])  {$contract->pgp = null;}
+                if(!$dc['capita']){ $contract->capita = []; }
+                if(!$dc['pgp']){ $contract->pgp = null; }
                 
                 $contracts[] = $contract;
             } 
