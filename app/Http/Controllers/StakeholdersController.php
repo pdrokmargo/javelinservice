@@ -58,7 +58,7 @@ class StakeholdersController extends Controller
        
     }
 
-    public function customers(Request $request)
+    public function costumers(Request $request)
     {
         try {
             
