@@ -51,12 +51,13 @@ class DeliveryContractsController extends Controller
     public function store(Request $request)
     {
         $data = json_decode($request->data, true);
-        $data["capita"]["detailed_capita"] = [];
-        foreach ($data["capita"]["detailed_capita"] as $key) {
+        $json = json_decode($data["capita"],true);
+        $json["affiliates_qty_history_record"] = [];
+        foreach ($json["detailed_capita"] as $key) {
             $key["date"] = dete();
-            $data["capita"]["affiliates_qty_history_record"][] = $key;
+            $json["affiliates_qty_history_record"][] = $key;
         }
-
+        $data["capita"] = json_encode($json);
         \App\Models\DeliveryContract::create($data);
         return response()->json([ "store" => true ], 200);
     }
