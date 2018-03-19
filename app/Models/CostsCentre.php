@@ -15,7 +15,8 @@ class CostsCentre extends Model
 							'costcentretype_id',
 							'root',
 							'operation_cost_centre_id',
-							'costcentregroup_id',							
+							'costcentregroup_id',
+			   				'company_id',	
 							'state'];
 
     public function costcentretype()
