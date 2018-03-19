@@ -1,0 +1,2 @@
+webpackJsonp([14],{1449:function(a,e,o){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),o.d(e,"PharmaceuticalDrugModule",function(){return M});var u=o(5),r=o(2),t=o(32),c=o(21),n=o(288),i=o(193),l=o(603),d=o(610),m=o(611),f=o(22),g=[{path:"",component:i.a}],M=function(){function PharmaceuticalDrugModule(){}return PharmaceuticalDrugModule=u.a([o.i(r.NgModule)({imports:[t.CommonModule,c.g.forChild(g),n.a,l.a.forRoot(),f.g,f.b,f.a],declarations:[i.a,d.a,m.a]})],PharmaceuticalDrugModule)}()}});
+//# sourceMappingURL=14.0eed53bc9d64a69378dd.chunk.js.map
