@@ -41,8 +41,10 @@ Route::middleware('auth:api')->group(function () {
     Route::post('collections','CollectionsController@Collections');
     Route::resource('stakeholders','StakeholdersController');
     Route::get('stakeholders-custumers','StakeholdersController@custumers');
+
     Route::get('departamentos','CollectionsController@departamentos');
     Route::get('ciudades','CollectionsController@ciudades');
+    
     Route::resource('sales_representatives','SalesRepresentativesController');
     Route::resource('warehouse','WarehouseController');
     Route::get('privilege/{link}', function(Request $request, $link){
