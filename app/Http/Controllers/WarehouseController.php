@@ -69,7 +69,7 @@ class WarehouseController extends Controller
             $result=\App\Models\Warehouse::create(array(
                 'warehouse_type_id' => $data['warehouse_type_id'],
                 'name' => $data['name'],
-                'description' => $data['description'],
+                'description' => isset($data['description']) ? $data['description'] : '',
                 'state' => $data['state'],
                 'geolocation_id' => $geoLocation->id,
                 'company_id' => $company_id
