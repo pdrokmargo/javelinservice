@@ -51,7 +51,7 @@ class DeliveryContractsController extends Controller
     public function store(Request $request)
     {
         $data = json_decode($request->data, true);
-        
+        $data["capita"]["detailed_capita"] = [];
         foreach ($data["capita"]["detailed_capita"] as $key) {
             $key["date"] = dete();
             $data["capita"]["affiliates_qty_history_record"][] = $key;
