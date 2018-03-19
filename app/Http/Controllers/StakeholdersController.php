@@ -14,7 +14,7 @@ class StakeholdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+   public function index(Request $request)
     {
         try {
             
@@ -29,13 +29,13 @@ class StakeholdersController extends Controller
             ->join('collections_values as c', 'g.country_id', '=', 'c.id')
             ->join('collections_values as d', 'g.department_id', '=', 'd.id')
             ->join('collections_values as cy', 'g.city_id', '=', 'cy.id')
-            ->select(DB::raw("i.id, i.document_number, concat(i.firstname,' ', i.middlename, ' ', i.lastname) as name, concat(c.value, ', ', d.value, ', ', cy.value) as geolocation, i.businessname, i.document_type_id, i.status"));
+            ->select(DB::raw("i.id, i.document_number, concat(i.firstname,' ', i.middlename, ' ', i.lastname) as name, concat(c.value, ', ', d.value, ', ', cy.value) as geolocation, i.businessname, i.legalname,i.document_type_id, i.status"));
             
 
             
             
             if ($search!='') {
-                $query = $query->whereRaw("lower(firstname) like ? or lower(middlename) like ? or lower(lastname) like ? or lower(businessname) like ? or document_number like ?", array($search, $search, $search, $search, $search))
+                $query = $query->whereRaw("lower(firstname) like ? or lower(middlename) like ? or lower(lastname) like ? or lower(legalname) like ? or lower(businessname) like ? or document_number like ?", array($search, $search, $search, $search, $search, $search))
                 ->orderBy($ordername, $ordertype);
             }else{
                 $query=$query->orderBy($ordername, $ordertype);
