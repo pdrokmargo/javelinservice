@@ -52,10 +52,9 @@ class DeliveryContractsController extends Controller
     {
         $data = json_decode($request->data, true);
         $json = json_decode($data["capita"],true);
-        return $json;
         $json["affiliates_qty_history_record"] = [];
         foreach ($json["detailed_capita"] as $key) {
-            $key["date"] = dete();
+            $key["date"] = date('Y-m-d H:i:s');
             $json["affiliates_qty_history_record"][] = $key;
         }
         $data["capita"] = json_encode($json);
