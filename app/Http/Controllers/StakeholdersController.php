@@ -355,59 +355,121 @@ class StakeholdersController extends Controller
             DB::rollback();
             return 'Error: ' . $e->getMessage();
         }     
-        // $data = json_decode($request->data, true);
-        // /**/
-        // $stakeholders = json_decode($data["stakeholders"],true);
-
-        // $stakeholders_info = $stakeholders["stakeholders_info"];
-        // $customers = $stakeholders["customers"];
-        // $suppliers = $stakeholders["suppliers"];
-        // $sales_representatives = $stakeholders["sales_representatives"];
-        // $employees = $stakeholders["employees"];
-        // $comercial_stakeholders_info = $stakeholders["comercial_stakeholders_info"];
-
-        // $stakeholders_info_old = \App\Models\StakeholdersInfo::find($id);
-        
-        // $stakeholders_info_old->fill($stakeholders_info);
-        // $stakeholders_info_old->save();
-
-        // if($customers["stakeholders_info"]){
-        //     $customers["stakeholder_info_id"] = $id;
-        //     \App\Models\Customers::create($customers);
-        // }else{
-        //     if(isset($customers["id"]))
-        //         \App\Models\Customers::where('id',$customers["id"])->delete();
+               
+    }
+    
+     public function update_stake_holder(Request $request)
+    {
+        DB::beginTransaction(); 
+        try {
             
-        // }
+            $data = json_decode($request->data,true);
+            $geoLocation=\App\Models\Geolocation::where('country_id', $data['country_id'])
+            ->where('department_id', $data['department_id'])
+            ->where('city_id', $data['city_id'])
+            ->first();  
+            print_r($request->data);
 
-        // if($suppliers["stakeholders_info"]){
-        //     $suppliers["stakeholder_info_id"] = $id;
-        //     \App\Models\Supplier::create($suppliers);
-        // }else{
-        //     if(isset($suppliers["id"]))
-        //         \App\Models\Supplier::where('id',$suppliers["id"])->delete();
-        // }
-        // if($sales_representatives["stakeholders_info"]) {
-        //     $sales_representatives["stakeholder_info_id"] = $id;
-        //     \App\Models\SalesRepresentatives::create($sales_representatives);
-        // }else{
-        //     if(isset($sales_representatives["id"]))
-        //         \App\Models\SalesRepresentatives::where('id',$sales_representatives["id"])->delete();
+            exit();
+            $customer = $data["customer"];
+            $suppliers = $data["supplier"];
+            // $sales_representatives = $data["sales_representatives"];
+            // $employees = $data["employees"];
+            $id = $data['id'];
+            $comercial_stakeholders_info = $data["comercial_stakeholders_info"];
+            $stakeholders=\App\Models\StakeholdersInfo::find($id);
             
-        // }
-        // if($employees["stakeholders_info"]) {
-        //     $employees["stakeholder_info_id"] = $id;
-        //     \App\Models\Employee::create($employees);
-        // } else {
-        //     if(isset($employees["id"]))
-        //         \App\Models\Employee::where('id',$employees["id"])->delete();
+            $data['geolocation_id']=$geoLocation->id;
+            $stakeholders->fill($data);
+            $stakeholders->save();
+
+            if ($data['person_type_id']==39) {
+                 $comercial=\App\Models\ComercialStakeholdersInfo::where('stakeholder_info_id', $id)->first(); 
+
+                 if ($comercial) {
+                      $comercial->fill($comercial_stakeholders_info);
+                      $comercial->save();
+                 }else{ 
+                    $comercial_stakeholders_info['stakeholder_info_id']=$id;
+                     \App\Models\ComercialStakeholdersInfo::create($comercial_stakeholders_info);
+                }
+            }           
+
+            if ($data['is_customer']) {
+                $customer_old = \App\Models\Customers::where('stakeholder_info_id', $id)->first(); 
+                if ($customer_old) {
+                    $customer_old->fill($customer);
+                    $customer_old->save();
+                }else{
+                    $customer['stakeholder_info_id']=$id;
+                    \App\Models\Customers::create($customer);
+                }
+            }
             
-        // }
-        // $comercial_stakeholders_info_old = \App\Models\ComercialStakeholdersInfo::find($comercial_stakeholders_info["id"]);
-        // $comercial_stakeholders_info_old->fill($comercial_stakeholders_info);
-        // $comercial_stakeholders_info_old->save();
-        // $this->CreateLog($request->user()->id, 'stakeholders', 2,'');
-        // return response()->json([ "update" => true], 200);
+            if ($data['is_employee']) {
+                $employee_old=\App\Models\Employee::where('stakeholder_info_id', $id)->first(); 
+                if (!$employee_old) {
+                    \App\Models\Employee::create(array(
+                    'stakeholder_info_id'=>$id
+                    ));
+                }
+                
+            }
+           
+            if ($data['is_supplier']) {
+                $suplier_old = \App\Models\Supplier::where('stakeholder_info_id', $id)->first();
+                if (!$suplier_old) {
+                   \App\Models\Supplier::create(array(
+                    'stakeholder_info_id'=>$id
+                    )); 
+                }                
+            }            
+
+            if ($data['is_seller']) {
+                $seller = \App\Models\SalesRepresentatives::where('stakeholder_info_id', $id)->first();
+                if (!$seller) {
+                   \App\Models\SalesRepresentatives::create(array(
+                    'stakeholder_info_id'=>$id
+                    ));
+                }
+            }
+
+            if ($data['is_maker']) {
+                $maker = \App\Models\Maker::where('stakeholder_info_id', $id)->first();
+                if (!$maker) {
+                    \App\Models\Maker::create(array(
+                        'stakeholder_info_id'=>$id
+                    ));
+                }
+            }
+
+            if ($data['is_importer']) {
+                $importer = \App\Models\Importer::where('stakeholder_info_id', $id)->first();
+                if (!$importer) {
+                  \App\Models\Importer::create(array(
+                      'stakeholder_info_id'=>$id
+                  ));                
+                }
+            }
+
+            if ($data['is_holder_sanitary']) {
+                $health_holder = \App\Models\HealthRecordHolder::where('stakeholder_info_id', $id)->first();
+                if (!$health_holder) {
+                    \App\Models\HealthRecordHolder::create(array(
+                    'stakeholder_info_id'=>$id
+                    ));
+                }               
+            }
+
+            DB::commit();
+
+            return response()->json(["status"=>"success",  
+                                    "message" => "El registro se ha actualizado satisfactoriamente.", "data" => $id ], 200 ); 
+            
+        } catch (Exception $e) {
+            DB::rollback();
+            return 'Error: ' . $e->getMessage();
+        }     
         
     }
 
