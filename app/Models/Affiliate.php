@@ -21,7 +21,7 @@ class Affiliate extends Model
         'lastname1',
         'lastname2',
         'gender_id',
-        'affiliate_type_id',
+        'affiliate_type',
         'birthday',
         'address',
         'phone_number',

@@ -25,7 +25,7 @@ class CreateAffiliatesTable extends Migration
             $table->string('lastname1');
             $table->string('lastname2');
             $table->integer('gender_id');// to GENDER in collection_values
-            $table->integer('affiliate_type_id');//to GENDER in collection_values
+            $table->integer('affiliate_type');//to GENDER in collection_values
             $table->date('birthday');
             $table->string('address');
             $table->string('phone_number');
