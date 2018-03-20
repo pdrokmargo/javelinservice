@@ -69,4 +69,5 @@ Route::middleware('auth:api')->group(function () {
     Route::resource('delivery-points','DeliveryPointsController');
     Route::resource('active-ingredients','ActiveIngredientsController');
     Route::resource('ips-network','IpsNetworkController');    
+    Route::post('update_stake_holder','StakeholdersController@update_stake_holder');
 });
