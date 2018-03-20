@@ -378,7 +378,7 @@ class StakeholdersController extends Controller
             ->first();  
             
             $customer = $data["customer"];
-            $suppliers = $data["supplier"];
+            $supplier = $data["supplier"];
             // $sales_representatives = $data["sales_representatives"];
             // $employees = $data["employees"];
             $id = $data['id'];
