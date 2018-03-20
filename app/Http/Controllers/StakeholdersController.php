@@ -358,7 +358,15 @@ class StakeholdersController extends Controller
                
     }
     
-     public function update_stake_holder(Request $request)
+     
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update_stake_holder(Request $request)
     {
         DB::beginTransaction(); 
         try {
@@ -416,11 +424,14 @@ class StakeholdersController extends Controller
            
             if ($data['is_supplier']) {
                 $suplier_old = \App\Models\Supplier::where('stakeholder_info_id', $id)->first();
-                if (!$suplier_old) {
-                   \App\Models\Supplier::create(array(
-                    'stakeholder_info_id'=>$id
-                    )); 
-                }                
+                if ($suplier_old) {
+                    $suplier_old->fill($supplier);
+                    $suplier_old->save();
+                }else{
+                    $supplier['stakeholder_info_id']=$id;
+                    \App\Models\Supplier::create($supplier);
+                }
+                             
             }            
 
             if ($data['is_seller']) {
