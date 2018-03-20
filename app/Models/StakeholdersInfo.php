@@ -33,7 +33,11 @@ class StakeholdersInfo extends Model
     protected $hidden = [];
 
     public function getFullNameAttribute() {
-        return $this->firstname . ($this->middlename!=null && $this->middlename!='' ? ' ' . $this->middlename : '') . ' ' . $this->lastname;
+        if($this->person_type_id==38){
+            return $this->firstname . ($this->middlename!=null && $this->middlename!='' ? ' ' . $this->middlename : '') . ' ' . $this->lastname;
+        }else{
+            return $this->legalname;
+        }
     }
 
     public function geolocation()
