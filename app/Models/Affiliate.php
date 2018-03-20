@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Affiliate extends Model
 {
+    use \App\Uuids;
+
     public $timestamps = false;
     protected $table = 'affiliates';
     protected $fillable = [
