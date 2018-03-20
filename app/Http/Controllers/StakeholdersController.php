@@ -368,9 +368,7 @@ class StakeholdersController extends Controller
             ->where('department_id', $data['department_id'])
             ->where('city_id', $data['city_id'])
             ->first();  
-            print_r($request->data);
-
-            exit();
+            
             $customer = $data["customer"];
             $suppliers = $data["supplier"];
             // $sales_representatives = $data["sales_representatives"];
