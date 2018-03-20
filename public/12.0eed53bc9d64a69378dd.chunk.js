@@ -1,2 +1,0 @@
-webpackJsonp([12],{1453:function(e,o,n){"use strict";Object.defineProperty(o,"__esModule",{value:!0}),n.d(o,"UsersModule",function(){return M});var r=n(5),t=n(2),u=n(32),s=n(21),a=n(288),d=n(195),i=n(603),l=n(614),c=n(615),f=[{path:"",component:d.a}],M=function(){function UsersModule(){}return UsersModule=r.a([n.i(t.NgModule)({imports:[u.CommonModule,s.g.forChild(f),a.a,i.a.forRoot()],declarations:[d.a,l.a,c.a]})],UsersModule)}()}});
-//# sourceMappingURL=12.0eed53bc9d64a69378dd.chunk.js.map
