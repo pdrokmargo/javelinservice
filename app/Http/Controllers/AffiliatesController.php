@@ -71,7 +71,8 @@ class AffiliatesController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = \App\Models\Affiliate::find($id);        
+        return response()->json([ "data" => $data ], 200);
     }
 
     /**
