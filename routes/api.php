@@ -71,4 +71,5 @@ Route::middleware('auth:api')->group(function () {
     Route::resource('ips-network','IpsNetworkController');    
     Route::resource('affiliates','AffiliatesController');    
     Route::post('update_stake_holder','StakeholdersController@update_stake_holder');
+    Route::get('search_stake_holder/{option}','StakeholdersController@search_stake_holder');
 });
