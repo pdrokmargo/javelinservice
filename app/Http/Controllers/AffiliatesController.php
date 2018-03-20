@@ -59,7 +59,7 @@ class AffiliatesController extends Controller
     public function store(Request $request)
     {
         $data = json_decode($request->data, true);
-        \App\Models\Affiliates::create($data);
+        \App\Models\Affiliate::create($data);
         return response()->json([ "store" => true ], 200);
     }
 
@@ -84,7 +84,7 @@ class AffiliatesController extends Controller
     public function update(Request $request, $id)
     {
         $data_new = json_decode($request->data,true);
-        $data_old = \App\Models\Affiliates::find($id);
+        $data_old = \App\Models\Affiliate::find($id);
         $data_old->fill($data_new);
         $data_old->save();
         return response()->json([ "update" => true], 200);
