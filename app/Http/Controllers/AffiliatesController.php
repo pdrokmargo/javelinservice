@@ -11,7 +11,7 @@ class AffiliatesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function indexindex(Request $request)
+    public function index(Request $request)
     {
         try {
 
