@@ -26,7 +26,8 @@ class ViewsTableSeeder extends Seeder
     /*12*/['view_parent_id' => 1, 'have_child' => false, 'title' => 'Productos',                 'link' => 'product',             'icon' => '',           'description' => '', 'load_children' => '', 'show_menu'=>true],
     /*13*/['view_parent_id' => 1, 'have_child' => false, 'title' => 'Medicamentos',              'link' => 'pharmaceutical-drug', 'icon' => '',           'description' => '', 'load_children' => '', 'show_menu'=>true],
     /*14*/['view_parent_id' => 1, 'have_child' => false, 'title' => 'Contratos de dispensación', 'link' => 'delivery-contracts',  'icon' => '',           'description' => '', 'load_children' => '', 'show_menu'=>true],
-    /*15*/['view_parent_id' => 1, 'have_child' => false, 'title' => 'Puntos de dispensación',    'link' => 'delivery-points',     'icon' => '',           'description' => '', 'load_children' => '', 'show_menu'=>true]
+    /*15*/['view_parent_id' => 1, 'have_child' => false, 'title' => 'Puntos de dispensación',    'link' => 'delivery-points',     'icon' => '',           'description' => '', 'load_children' => '', 'show_menu'=>true],
+    /*16*/['view_parent_id' => 1, 'have_child' => false, 'title' => 'Afiliados',                 'link' => 'affiliates',          'icon' => '',           'description' => '', 'load_children' => '', 'show_menu'=>true]
         
     ]);
     }

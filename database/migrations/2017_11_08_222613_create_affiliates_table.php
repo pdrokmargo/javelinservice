@@ -19,6 +19,7 @@ class CreateAffiliatesTable extends Migration
             $table->integer('document_number');
             $table->uuid('delivery_contract_id');
             $table->integer('ips_network_id'); // to IPS_NETWORK in collection values
+            $table->integer('contracts_payment_method_id');
             $table->string('firstname');
             $table->string('middlename');
             $table->string('lastname1');
@@ -32,14 +33,11 @@ class CreateAffiliatesTable extends Migration
             $table->string('attendant_name');
             $table->integer('attendant_phone_number');
             $table->integer('attendant_mobile_number');
-            $table->integer('geolocation_id');
+            $table->json('geolocation');
             $table->integer('affiliate_condition_id');//to AFFILIATE_CONDITION in collection_values
             $table->integer('public_health_condition_id');//to PUBLIC_HEALTH_CONDITION in collection_values
             $table->integer('affiliate_level');
-            $table->boolean('state');
-            $table->integer('company_id');
-
-            
+            $table->boolean('state');           
             $table->primary('id');
         });
     }
@@ -50,6 +48,7 @@ class CreateAffiliatesTable extends Migration
      * @return void
      */
     public function down()
+
     {
         Schema::dropIfExists('affiliates');
     }
