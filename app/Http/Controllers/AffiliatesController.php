@@ -48,15 +48,6 @@ class AffiliatesController extends Controller
             return 'Error:'.$e->getMessage();
         } 
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -66,7 +57,9 @@ class AffiliatesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = json_decode($request->data, true);
+        \App\Models\Affiliates::create($data);
+        return response()->json([ "store" => true ], 200);
     }
 
     /**
@@ -81,17 +74,6 @@ class AffiliatesController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -100,7 +82,11 @@ class AffiliatesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data_new = json_decode($request->data,true);
+        $data_old = \App\Models\Affiliates::find($id);
+        $data_old->fill($data_new);
+        $data_old->save();
+        return response()->json([ "update" => true], 200);
     }
 
     /**
