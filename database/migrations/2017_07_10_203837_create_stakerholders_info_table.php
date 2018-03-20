@@ -18,6 +18,7 @@ class CreateStakerholdersInfoTable extends Migration
             $table->string('firstname')->default('');
             $table->string('middlename')->default('');
             $table->string('lastname')->default('');
+            $table->string('second_surname')->default('');
             $table->string('businessname')->default('');
             $table->string('legalname')->default('');
             $table->integer('document_type_id');
