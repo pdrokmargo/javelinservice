@@ -100,6 +100,76 @@ class StakeholdersController extends Controller
         }
        
     }
+    
+     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function search_stake_holder(Request $request, $option)
+    {
+        try {
+            
+            $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';          
+            $ordername = isset($request->ordername) ? $request->ordername : 'i.id';
+            $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
+            $page = $request->page;
+            $option = $request->option ;
+            $table = '';
+
+            switch ($option) {
+                case '1':
+                    $table='customers';
+                    break;
+                case '2':
+                    $table='suppliers';
+                    break;
+                case '3':
+                    $table='employees';
+                    break;
+                case '4':
+                    $table='makers';
+                    break;
+                 case '5':
+                    $table='importers';
+                    break;
+                 case '6':
+                    $table='health_record_holders';
+                    break;       
+            }
+            
+            $query = DB::table('stakeholders_info as i')
+            ->join('geolocations as g', 'i.geolocation_id', '=', 'g.id')
+            ->join('collections_values as c', 'g.country_id', '=', 'c.id')
+            ->join('collections_values as d', 'g.department_id', '=', 'd.id')
+            ->join('collections_values as cy', 'g.city_id', '=', 'cy.id')
+            ->join($table . ' as x', 'i.id', '=', 'x.stakeholder_info_id')
+            ->select(DB::raw("i.id, i.document_number, concat(i.firstname,' ', i.middlename, ' ', i.lastname) as name, concat(c.value, ', ', d.value, ', ', cy.value) as geolocation, i.businessname, i.legalname,i.document_type_id, i.status, person_type_id, x.id as x_id"));
+                       
+            
+            if ($search!='') {
+                $query = $query->whereRaw("lower(firstname) like ? or lower(middlename) like ? or lower(lastname) like ? or lower(legalname) like ? or lower(businessname) like ? or document_number like ?", array($search, $search, $search, $search, $search, $search))
+                ->orderBy($ordername, $ordertype);
+            }else{
+                $query=$query->orderBy($ordername, $ordertype);
+            } 
+
+            $data=[];  
+            if ($page) {
+                $data=$query->paginate(30);
+            }
+            else
+            {
+                $data=$query->get();
+            }  
+            
+            return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
+            
+        } catch (Exception $e) {
+            return 'Error:'.$e->getMessage();
+        }
+       
+    }
 
     /**
      * Store a newly created resource in storage.
