@@ -16,6 +16,7 @@ class StakeholdersInfo extends Model
         'firstname',
         'middlename',
         'lastname',
+        'second_surname',
         'businessname',
         'legalname',
         'document_type_id',
