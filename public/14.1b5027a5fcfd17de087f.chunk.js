@@ -1,2 +1,0 @@
-webpackJsonp([14],{1452:function(e,o,t){"use strict";Object.defineProperty(o,"__esModule",{value:!0}),t.d(o,"StakeholdersModule",function(){return h});var a=t(5),n=t(2),r=t(32),d=t(21),u=t(288),l=t(194),i=t(603),s=t(612),c=t(613),f=t(22),M=[{path:"",component:l.a}],h=function(){function StakeholdersModule(){}return StakeholdersModule=a.a([t.i(n.NgModule)({imports:[r.CommonModule,d.g.forChild(M),u.a,i.a.forRoot(),f.g],declarations:[l.a,s.a,c.a]})],StakeholdersModule)}()}});
-//# sourceMappingURL=14.1b5027a5fcfd17de087f.chunk.js.map
