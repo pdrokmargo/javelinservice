@@ -40,8 +40,11 @@ Route::middleware('auth:api')->group(function () {
     Route::resource('view', 'ViewController');
     Route::post('collections','CollectionsController@Collections');
     Route::resource('stakeholders','StakeholdersController');
+    Route::get('stakeholders-custumers','StakeholdersController@custumers');
+
     Route::get('departamentos','CollectionsController@departamentos');
     Route::get('ciudades','CollectionsController@ciudades');
+    
     Route::resource('sales_representatives','SalesRepresentativesController');
     Route::resource('warehouse','WarehouseController');
     Route::get('privilege/{link}', function(Request $request, $link){
@@ -65,5 +68,8 @@ Route::middleware('auth:api')->group(function () {
     Route::resource('delivery-contracts','DeliveryContractsController');
     Route::resource('delivery-points','DeliveryPointsController');
     Route::resource('active-ingredients','ActiveIngredientsController');
-    
+    Route::resource('ips-network','IpsNetworkController');    
+    Route::resource('affiliates','AffiliatesController');    
+    Route::post('update_stake_holder','StakeholdersController@update_stake_holder');
+    Route::get('search_stake_holder/{option}','StakeholdersController@search_stake_holder');
 });

@@ -9,6 +9,7 @@ class Collections extends Model
     public $timestamps = false;
     protected $table = 'collections';
     protected $fillable = [
+        'name',
         'description',
         'syscollection'
     ];

@@ -20,7 +20,6 @@ class CreateDeliveryContractsTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->integer('population_type_id'); //Tipo de Población: Subsidiado, Contributivo
-            $table->boolean('fee_collecting');
             $table->json('delivery_points');
             // json array
             //      uuid: delivery_point_id
