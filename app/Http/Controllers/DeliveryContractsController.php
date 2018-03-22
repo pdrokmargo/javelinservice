@@ -102,7 +102,7 @@ class DeliveryContractsController extends Controller
 
         $data_old->fill($data_new);
         $data_old->save();
-        return response()->json([ "update" => true], 200);
+        return response()->json([ "update" => true, "status" => "success"], 200);
     }
 
     /**
