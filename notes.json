@@ -1,0 +1,11 @@
+{
+    "name":"Medicamento de Prueba",
+    "atc":"IIUFD6",
+    "dosage_form_id":90,
+    "routes_administration_id":35,
+    "is_controlled":"false",
+    "is_monopoly":"false",
+    "is_pos": "true",
+    "is_regulated":"false",
+    "storage_condition_id":114
+}

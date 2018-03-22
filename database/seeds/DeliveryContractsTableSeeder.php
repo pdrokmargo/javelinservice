@@ -11,7 +11,7 @@ class DeliveryContractsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('delivery_contracts')->insert([
+        /*DB::table('delivery_contracts')->insert([
             [
                 'id' => '011ecb81-6fa2-47ad-9fd0-e9d77a936536', 
                 'customer_id' => '0deae636-66a2-4401-b784-6f7a2889dace', 
@@ -49,6 +49,6 @@ class DeliveryContractsTableSeeder extends Seeder
                 'conditional_alerts' => '{}',
                 'state' => true,
             ],
-        ]);
+        ]);*/
     }
 }

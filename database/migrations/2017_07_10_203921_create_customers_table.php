@@ -27,7 +27,7 @@ class CreateCustomersTable extends Migration
             $table->decimal('global_discount');
             $table->integer('debt_type_id'); 
             $table->integer('payment_condition_id');    
-            $table->decomal('discount_early_payment')->nullable();
+            $table->decimal('discount_early_payment')->nullable();
             $table->integer('days_early_payment');
             $table->decimal('credit_limit');
             $table->boolean('credit_limit_blocking');
