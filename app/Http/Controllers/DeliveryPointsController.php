@@ -49,8 +49,6 @@ class DeliveryPointsController extends Controller
     public function store(Request $request)
     {
         $data = json_decode($request->data, true);
-        $user = Auth::user();
-        $data->company_id = $user->company_default_id;
         \App\Models\DeliveryPoint::create($data);
         return response()->json([ "store" => true ], 200);
     }
