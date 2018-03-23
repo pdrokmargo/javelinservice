@@ -16,7 +16,7 @@ class CreateDeliveryContractsTable extends Migration
         Schema::create('delivery_contracts', function (Blueprint $table) {
             $table->uuid('id');
             $table->uuid('customer_id'); // A customer stakeholder only
-            $table->integer('company_id');
+            $table->integer('company_id')->default(0);
             $table->string('name');
             $table->string('description');
             $table->integer('population_type_id'); //Tipo de Población: Subsidiado, Contributivo

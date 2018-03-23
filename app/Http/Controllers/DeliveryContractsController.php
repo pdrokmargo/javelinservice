@@ -75,7 +75,7 @@ class DeliveryContractsController extends Controller
 
         }
 
-        return response()->json([ "store" => true ], 200);
+        return response()->json([ "store" => true, 'status' => 'success', 'messge' => 'Registro guardado correctamente' ], 200);
     }
 
     /**
