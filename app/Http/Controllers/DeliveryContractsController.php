@@ -53,13 +53,29 @@ class DeliveryContractsController extends Controller
         $data = json_decode($request->data, true);
         $json = json_decode($data["capita"],true);
         $json["affiliates_qty_history_record"] = [];
+        if(empty($json["detailed_capita"])){
+            $json["detailed_capita"] = [];
+        }
         foreach ($json["detailed_capita"] as $key) {
             $key["date"] = date('Y-m-d H:i:s');
             $json["affiliates_qty_history_record"][] = $key;
         }
         $data["capita"] = json_encode($json);
-        \App\Models\DeliveryContract::create($data);
-        return response()->json([ "store" => true ], 200);
+        $contract = \App\Models\DeliveryContract::create($data);
+
+        $points = $contract->delivery_points;
+        foreach ($points as $p) {
+            $_point = \App\Models\DeliveryPoint::find($p["id"]);
+            if($_point){
+                $_contracts = $_point->delivery_contracts;
+                $_contracts[] = $contract;
+                $_point->delivery_contracts = $_contracts;
+                $_point->save();
+            }
+
+        }
+
+        return response()->json([ "store" => true, 'status' => 'success', 'messge' => 'Registro guardado correctamente' ], 200);
     }
 
     /**
