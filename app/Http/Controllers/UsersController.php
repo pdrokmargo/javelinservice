@@ -77,9 +77,10 @@ class UsersController extends Controller
         }
     }
 
-    public function indexType(Request $request, type)
+    public function indexType(Request $request, $type)
     {
         try {
+            
             if(isset($request->all))
             {
                 $data = \App\Models\User::all();
@@ -99,8 +100,8 @@ class UsersController extends Controller
             ->leftJoin('user_profiles as up', 'uc.user_profile_id', '=', 'up.id')
             ->select(DB::raw('u.id, u.firstname, u.lastname, u.username, u.email, u.password, u.status, u.last_access, u.url_profile_photo, u.company_default_id, up.up_description as user_profile, c.name as company'));
 
-            if(type != 'all') {
-                $query = $query->whereRaw('up.type = ?',[type]);
+            if($type != 'all') {
+                $query = $query->whereRaw('up.type = ?',[$type]);
             }
 
             if ($search!='') {
