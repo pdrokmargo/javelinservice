@@ -146,11 +146,10 @@ class UsersController extends Controller
                             'email' => $data['email'],
                             'password' => $data['password'],
                             'status' => $data['status'],
-                            'company_default_id' => $data['usercompanies'][0]['company_id'],
-                            ))->id;
+                            'company_default_id' => $data['usersprivileges'][0]['company_id'] ))->id;
             
             //guardamos las empresas
-            foreach ($data['usercompanies'] as $key => $item) {
+            foreach ($data['usersprivileges'] as $key => $item) {
                \App\Models\UsersPrivileges::create(
                     array(
                         'user_id' => $id,
