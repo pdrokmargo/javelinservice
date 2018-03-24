@@ -98,7 +98,6 @@ class CollectionsValuesTableSeeder extends Seeder
             /*56*/["collection_id" => 18, "parent_id" => 0, "code" => "bancoomeva_s.a.", "value" => "BANCOOMEVA S.A."],
             /*57*/["collection_id" => 18, "parent_id" => 0, "code" => "citibank", "value" => "CITIBANK"],
             /*58*/["collection_id" => 18, "parent_id" => 0, "code" => "helm_bank_s.a.", "value" => "HELM BANK S.A."],
-            /*58*/["collection_id" => 18, "parent_id" => 0, "code" => "helm_bank_s.a.", "value" => "HELM BANK S.A."],
 
             /*bank_account_type*/
             /*59*/["collection_id" => 19, "parent_id" => 0, "code" => "ahorro", "value" => "AHORRO"],
