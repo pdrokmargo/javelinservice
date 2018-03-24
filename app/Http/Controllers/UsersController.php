@@ -100,7 +100,7 @@ class UsersController extends Controller
             ->select(DB::raw('u.id, u.firstname, u.lastname, u.username, u.email, u.password, u.status, u.last_access, u.url_profile_photo, u.company_default_id, up.up_description as user_profile, c.name as company'));
 
             if(type != 'all') {
-                $query = $query->whereRaw('type = ?',[type])
+                $query = $query->whereRaw('up.type = ?',[type])
             }
 
             if ($search!='') {
