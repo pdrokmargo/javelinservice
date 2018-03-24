@@ -77,6 +77,56 @@ class UsersController extends Controller
         }
     }
 
+    public function indexType(Request $request, type)
+    {
+        try {
+            if(isset($request->all))
+            {
+                $data = \App\Models\User::all();
+                return response()->json([ "data" => $data ], 200);
+            }
+
+            $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';
+            $ordername = isset($request->ordername) ? $request->ordername : 'u.id';
+            $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
+            $page = $request->page;
+
+            $query = DB::table('users as u')
+            ->leftJoin('users_privileges as uc', function($join){
+              $join->on('u.company_default_id', '=', 'uc.company_id');
+              $join->on('u.id', '=', 'uc.user_id');
+            })->leftJoin('companies as c', 'c.id', '=', 'u.company_default_id')
+            ->leftJoin('user_profiles as up', 'uc.user_profile_id', '=', 'up.id')
+            ->select(DB::raw('u.id, u.firstname, u.lastname, u.username, u.email, u.password, u.status, u.last_access, u.url_profile_photo, u.company_default_id, up.up_description as user_profile, c.name as company'));
+
+            if(type != 'all') {
+                $query = $query->whereRaw('type = ?',[type])
+            }
+
+            if ($search!='') {
+                $query=$query->whereRaw("concat(lower(u.firstname), ' ', lower(u.lastname)) like ? or lower(u.username) like ? or 
+                    lower(up.up_description) like ? or lower(c.name) like ? 
+                    or (case when u.status=true then 'activo' else 'inactivo' end) like ?", array($search, $search, $search, $search))->orderBy($ordername, $ordertype);
+            }else{
+                $query=$query->orderBy($ordername, $ordertype);
+            } 
+
+            $data=[];  
+            if ($page) {
+              $data=$query->paginate(30);
+            }else{
+              $data=$query->get();
+            }  
+
+            return response()->json(['status'=>'success', 
+                                        "message"=>'', 
+                                        "data" => $data ], 200);
+
+        } catch (Exception $e) {
+            return 'Error:'.$e->getMessage();
+        }
+    }
+
     /**
      * Store a newly created resource in storage.
      *
