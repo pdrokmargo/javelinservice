@@ -43,8 +43,10 @@ class DeliveryPoint extends Model
                 /*if(!$dc['event']){ $contract->event = null; }
                 if(!$dc['capita']){ $contract->capita = null; }
                 if(!$dc['pgp']){ $contract->pgp = null; }*/
+                if($contract){
+                    $contracts[] = $contract;
+                }
                 
-                $contracts[] = $contract;
             } 
          }
          return $contracts;
