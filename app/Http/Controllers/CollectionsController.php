@@ -12,8 +12,10 @@ class CollectionsController extends Controller
         $rs = [];
         foreach ($data as $key => $value) {
             $arr = \App\Models\Collections::where('name',$value)->first();
-            $arr->load('values');
-            $rs[$value] = $arr["values"];
+            if($arr){
+                $arr->load('values');
+                $rs[$value] = $arr["values"];
+            }
         }
         return response()->json($rs,200);
     }
