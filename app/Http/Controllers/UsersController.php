@@ -146,7 +146,9 @@ class UsersController extends Controller
                             'email' => $data['email'],
                             'password' => $data['password'],
                             'status' => $data['status'],
-                            'company_default_id' => $data['usersprivileges'][0]['company_id'] ))->id;
+                            'company_default_id' => $data['usersprivileges'][0]['company_id'],
+                            'user_profile_id' => 0
+                            ))->id;
             
             //guardamos las empresas
             foreach ($data['usersprivileges'] as $key => $item) {
@@ -154,7 +156,7 @@ class UsersController extends Controller
                     array(
                         'user_id' => $id,
                         'company_id' => $item['company_id'],
-                        'user_profile_id' => $item['user_profile_id']    
+                        'user_profile_id' => $item['user_profile_id']
                     )
                 );    
             }     
