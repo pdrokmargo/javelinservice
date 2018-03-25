@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, Notifiable,\App\Uuids;
+    use HasApiTokens, Notifiable, \App\Uuids;
 
     protected $table = 'users';
     protected $appends = array('usercompany');

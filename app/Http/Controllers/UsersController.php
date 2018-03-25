@@ -165,11 +165,14 @@ class UsersController extends Controller
                 );    
             }     
             
-            $this->CreateLog($request->user()->id, 'user', 1,'');
+            //$this->CreateLog($request->user()->id, 'user', 1,'');
 
             DB::commit();
-            return response()->json(["status"=>"success",  
-                                    "message" => "El usuario se ha registrado satisfactoriamente.", "data" => $id ], 200 );    
+            return response()->json([
+                "status"=>"success",  
+                "message" => "El usuario se ha registrado satisfactoriamente.", 
+                "data" => $id 
+            ], 200 );    
 
         } catch (Exception $e) {
             DB::rollback();
