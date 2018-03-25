@@ -164,9 +164,7 @@ class UsersController extends Controller
                     ]
                 );    
             }     
-            
             //$this->CreateLog($request->user()->id, 'user', 1,'');
-
             DB::commit();
             return response()->json([
                 "status"=>"success",  
