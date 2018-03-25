@@ -112,7 +112,8 @@ class WarehouseController extends Controller
     {
         try {
 
-            $data_new = json_decode($request->data,true);
+            $data = json_decode($request->data,true);
+
             $geoLocation = \App\Models\Geolocation::where('country_id', $data['country_id'])
                 ->where('department_id', $data['department_id'])
                 ->where('city_id', $data['city_id'])
@@ -129,7 +130,11 @@ class WarehouseController extends Controller
             ));
             $data_old->save();
             //$this->CreateLog($request->user()->id, 'warehouse', 2,'');
-            return response()->json(['status'=>'success', "message"=>'La bodega fue actualizada satisfactoriamente.', "data" => true ], 200);      
+            return response()->json([
+                'status'=>'success', 
+                "message"=>'La bodega fue actualizada satisfactoriamente.', 
+                "data" => true 
+            ], 200);      
 
 
         } catch (Exception $e) {
