@@ -9,27 +9,29 @@ class Company extends Model
     public $timestamps = false;
     protected $table = 'companies';
     public $with = array('geolocation');
-    protected $fillable = ['name',
-							'description',
-							'address',
-							'phone_number',
-							'email',
-							'tax_regime_id',
-							'big_contributor',
-							'selfholder',
-							'economic_activity',
-							'website',
-							'state',
-							'geolocation_id',
-							'nit',
-							'selfholder_resolution',
-							'big_contributor_resolution',
-							'withholding_income_sales_id',
-							'withholding_income_purchases_id',
-							'withholding_vat_sales_id',
-							'withholding_vat_purchases_id',
-							'withholding_ica_sales_id',
-							'withholding_ica_purchases_id'];
+    protected $fillable = [
+		'name',
+		'description',
+		'address',
+		'phone_number',
+		'email',
+		'tax_regime_id',
+		'big_contributor',
+		'selfholder',
+		'economic_activity',
+		'website',
+		'state',
+		'geolocation_id',
+		'nit',
+		'selfholder_resolution',
+		'big_contributor_resolution',
+		'withholding_income_sales_id',
+		'withholding_income_purchases_id',
+		'withholding_vat_sales_id',
+		'withholding_vat_purchases_id',
+		'withholding_ica_sales_id',
+		'withholding_ica_purchases_id'
+	];
 
 	public function geolocation()
 	{
