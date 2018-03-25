@@ -153,11 +153,7 @@ class UsersController extends Controller
             //guardamos las empresas
             foreach ($data['usersprivileges'] as $key => $item) {
                \App\Models\UsersPrivileges::create(
-                    array(
-                        'user_id' => $id,
-                        'company_id' => $item['company_id'],
-                        'user_profile_id' => $item['user_profile_id']
-                    )
+                    array( 'user_id' => $id, 'company_id' => $item['company_id'], 'user_profile_id' => $item['user_profile_id'] )
                 );    
             }     
             
