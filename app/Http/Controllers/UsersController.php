@@ -140,7 +140,7 @@ class UsersController extends Controller
             $data = json_decode($request->data,true);
             $data["password"] = bcrypt($data["password"]);
             $id = \App\Models\User::create(array(
-                'user_profile_id' => 0            
+                'user_profile_id' => 0,        
                 'firstname' => $data['firstname'],
                 'lastname' => $data['lastname'], 
                 'username' => $data['username'],
