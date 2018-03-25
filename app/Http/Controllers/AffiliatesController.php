@@ -60,7 +60,7 @@ class AffiliatesController extends Controller
     {
         $data = json_decode($request->data, true);
         \App\Models\Affiliate::create($data);
-        return response()->json([ "store" => true ], 200);
+        return response()->json([ "store" => true, "message" => "Registro almacenado correctamente" ], 200);
     }
 
     /**
