@@ -60,6 +60,7 @@ class DeliveryContractsController extends Controller
             $key["date"] = date('Y-m-d H:i:s');
             $json["affiliates_qty_history_record"][] = $key;
         }
+        $data["company_id"] = $request->user()->company_default_id;
         $data["capita"] = json_encode($json);
         $contract = \App\Models\DeliveryContract::create($data);
 
