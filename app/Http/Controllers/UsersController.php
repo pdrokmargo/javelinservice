@@ -139,7 +139,8 @@ class UsersController extends Controller
 
             $data = json_decode($request->data,true);
             $data["password"] = bcrypt($data["password"]);
-            $id = \App\Models\User::create(array(
+            $id = \App\Models\User::create([
+                
                 'user_profile_id' => 0,        
                 'firstname' => $data['firstname'],
                 'lastname' => $data['lastname'], 
@@ -147,12 +148,20 @@ class UsersController extends Controller
                 'email' => $data['email'],
                 'password' => $data['password'],
                 'status' => $data['status'],
-                'company_default_id' => $data['usersprivileges'][0]['company_id']))->id;
+                'company_default_id' => $data['usersprivileges'][0]['company_id']
+
+            ])->id;
+
+            
             
             //guardamos las empresas
-            foreach ($data['usersprivileges'] as $key => $item) {
+            foreach ($data['usersprivileges'] as $item) {
                \App\Models\UsersPrivileges::create(
-                    array( 'user_id' => $id, 'company_id' => $item['company_id'], 'user_profile_id' => $item['user_profile_id'] )
+                    [ 
+                        'user_id' => $id, 
+                        'company_id' => $item['company_id'], 
+                        'user_profile_id' => $item['user_profile_id'] 
+                    ]
                 );    
             }     
             
