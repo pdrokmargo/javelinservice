@@ -334,7 +334,7 @@ class StakeholdersController extends Controller
             $suppliers = $data["supplier"];
             $comercial_stakeholders_info = $data["comercial_stakeholders_info"];
             $stakeholders = \App\Models\StakeholdersInfo::find($id);
-            if($geoLocation){
+            if($geoLocation) {
                 $data['geolocation_id'] = $geoLocation->id;
                 $stakeholders->fill($data);
                 $stakeholders->save();
