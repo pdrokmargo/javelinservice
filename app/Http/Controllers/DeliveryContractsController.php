@@ -64,11 +64,11 @@ class DeliveryContractsController extends Controller
         $data["capita"] = json_encode($json);
         $contract = \App\Models\DeliveryContract::create($data);
 
-        $points = json_decode($contract->delivery_points, true);
+        $points = $contract->delivery_points;
         foreach ($points as $p) {
             $_point = \App\Models\DeliveryPoint::find($p["id"]);
             if($_point){
-                $_contracts = $_point->delivery_contracts;
+                $_contracts = json_decode($_point->delivery_contracts, true);
                 $_contracts[] = $contract;
                 $_point->delivery_contracts = $_contracts;
                 $_point->save();
