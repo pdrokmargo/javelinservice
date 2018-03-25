@@ -102,6 +102,8 @@ class UsersController extends Controller
 
             $query = $query->whereRaw('up.up_description = ?',[$type]);
 
+            
+
             if ($search!='') {
                 $query=$query->whereRaw("concat(lower(u.firstname), ' ', lower(u.lastname)) like ? or lower(u.username) like ? or 
                     lower(up.up_description) like ? or lower(c.name) like ? 
@@ -116,6 +118,8 @@ class UsersController extends Controller
             }else{
               $data=$query->get();
             }  
+
+            return $query->toSql();
 
             return response()->json(['status'=>'success', 
                                         "message"=>'', 
