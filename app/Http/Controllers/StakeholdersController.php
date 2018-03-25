@@ -194,8 +194,11 @@ class StakeholdersController extends Controller
             $supplier = $data["supplier"];
             // $sales_representatives = $data["sales_representatives"];
             // $employees = $data["employees"];
-            $comercial_stakeholders_info = $data["comercial_stakeholders_info"];            
-            $data['geolocation_id'] = $geoLocation->id;
+            $comercial_stakeholders_info = $data["comercial_stakeholders_info"];    
+            if($geoLocation){
+                $data['geolocation_id'] = $geoLocation->id;
+            }
+            
             $id = \App\Models\StakeholdersInfo::create($data)->id;
             
             if ($data['person_type_id']==39)/*persona juridica*/ {
@@ -322,19 +325,19 @@ class StakeholdersController extends Controller
         try {
             
             $data = json_decode($request->data,true);
-            $geoLocation=\App\Models\Geolocation::where('country_id', $data['country_id'])
-            ->where('department_id', $data['department_id'])
-            ->where('city_id', $data['city_id'])
-            ->first();  
+            $geoLocation = \App\Models\Geolocation::where('country_id', $data['country_id'])
+                ->where('department_id', $data['department_id'])
+                ->where('city_id', $data['city_id'])
+                ->first();  
 
             $customer = $data["customer"];
             $suppliers = $data["supplier"];
-            // $sales_representatives = $data["sales_representatives"];
-            // $employees = $data["employees"];
             $comercial_stakeholders_info = $data["comercial_stakeholders_info"];
             $stakeholders=\App\Models\StakeholdersInfo::find($id);
+            if($geoLocation){
+                $data['geolocation_id'] = $geoLocation->id;
+            }
             
-            $data['geolocation_id']=$geoLocation->id;
             $stakeholders->fill($data);
             $stakeholders->save();
 
