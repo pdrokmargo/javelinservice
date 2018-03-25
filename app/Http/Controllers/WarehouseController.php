@@ -61,11 +61,14 @@ class WarehouseController extends Controller
         try {
 
             $data = json_decode($request->data, true);
+
             $geoLocation=\App\Models\Geolocation::where('country_id', $data['country_id'])
             ->where('department_id', $data['department_id'])
             ->where('city_id', $data['city_id'])
             ->first();
+
             $company_id = $request->user()->company_default_id;
+
             $result=\App\Models\Warehouse::create(array(
                 'warehouse_type_id' => $data['warehouse_type_id'],
                 'name' => $data['name'],
@@ -75,7 +78,7 @@ class WarehouseController extends Controller
                 'company_id' => $company_id
             ));
 
-            $this->CreateLog($request->user()->id, 'warehouse', 1,'');
+            //$this->CreateLog($request->user()->id, 'warehouse', 1,'');
             return response()->json(['status'=>'success', 
                                       "message"=>'La bodega se ha registrado satisfactoriamente.', 
                                       "data" => $result ], 200);
