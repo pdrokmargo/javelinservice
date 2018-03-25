@@ -64,7 +64,7 @@ class DeliveryContractsController extends Controller
         $data["capita"] = json_encode($json);
         $contract = \App\Models\DeliveryContract::create($data);
 
-        $points = $contract->delivery_points;
+        $points = json_decode($contract->delivery_points, true);
         foreach ($points as $p) {
             $_point = \App\Models\DeliveryPoint::find($p["id"]);
             if($_point){
