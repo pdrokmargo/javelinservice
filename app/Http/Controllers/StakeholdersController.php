@@ -333,13 +333,14 @@ class StakeholdersController extends Controller
             $customer = $data["customer"];
             $suppliers = $data["supplier"];
             $comercial_stakeholders_info = $data["comercial_stakeholders_info"];
-            $stakeholders=\App\Models\StakeholdersInfo::find($id);
+            $stakeholders = \App\Models\StakeholdersInfo::find($id);
             if($geoLocation){
                 $data['geolocation_id'] = $geoLocation->id;
+                $stakeholders->fill($data);
+                $stakeholders->save();
             }
             
-            $stakeholders->fill($data);
-            $stakeholders->save();
+            
 
             if ($data['person_type_id']==39) {
                  $comercial=\App\Models\ComercialStakeholdersInfo::where('stakeholder_info_id', $id)->first(); 
