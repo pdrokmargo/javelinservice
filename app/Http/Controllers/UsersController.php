@@ -97,8 +97,9 @@ class UsersController extends Controller
               $join->on('u.id', '=', 'uc.user_id');
             })->leftJoin('companies as c', 'c.id', '=', 'u.company_default_id')
             ->leftJoin('user_profiles as up', 'uc.user_profile_id', '=', 'up.id')
-            ->select(DB::raw('u.id, u.firstname, u.lastname, u.username, u.email, u.password, u.status, u.last_access, u.url_profile_photo, u.company_default_id, up.up_description as user_profile, c.name as company'))
-            ->where('up.up_description',$type);
+            ->select(DB::raw('u.id, u.firstname, u.lastname, u.username, u.email, u.password, u.status, u.last_access, u.url_profile_photo, u.company_default_id, up.up_description as user_profile, c.name as company'));
+
+            $query=$query->whereRaw('lower(up.up_description) like ?',[$type]);
 
             if ($search!='') {
                 $query=$query->whereRaw("concat(lower(u.firstname), ' ', lower(u.lastname)) like ? or lower(u.username) like ? or 
