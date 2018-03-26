@@ -67,6 +67,7 @@ class DeliveryContractsController extends Controller
             $data['capita'] = '{}';
         }
 
+        $data['description'] = $data['description'] ? $data['description'] : '';
         $data['event'] = $data['event'] ? $data['event'] : '{}';
         $data['pgp'] = $data['pgp'] ? $data['pgp'] : '{}';
         
