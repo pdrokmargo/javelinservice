@@ -77,7 +77,7 @@ class DeliveryContractsController extends Controller
         foreach ($points as $p) {
             $_point = \App\Models\DeliveryPoint::find($p["id"]);
             if($_point){
-                $_contracts = json_decode($_point->delivery_contracts,true);                
+                $_contracts = is_array($_point->delivery_contracts) ? $_point->delivery_contracts : [];                
                 $_contracts[] = $contract;
                 $_point->delivery_contracts = $_contracts;
                 $_point->save();
