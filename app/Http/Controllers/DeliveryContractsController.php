@@ -51,17 +51,26 @@ class DeliveryContractsController extends Controller
     public function store(Request $request)
     {
         $data = json_decode($request->data, true);
-        $json = json_decode($data["capita"],true);
-        $json["affiliates_qty_history_record"] = [];
-        if(empty($json["detailed_capita"])){
-            $json["detailed_capita"] = [];
+
+        if(!empty($data['capita'])){
+            $json = json_decode($data["capita"],true);
+            $json["affiliates_qty_history_record"] = [];
+            if(empty($json["detailed_capita"])){
+                $json["detailed_capita"] = [];
+            }
+            foreach ($json["detailed_capita"] as $key) {
+                $key["date"] = date('Y-m-d H:i:s');
+                $json["affiliates_qty_history_record"][] = $key;
+            }
+            $data["capita"] = json_encode($json);
+        }else{
+            $data['capita'] = '{}';
         }
-        foreach ($json["detailed_capita"] as $key) {
-            $key["date"] = date('Y-m-d H:i:s');
-            $json["affiliates_qty_history_record"][] = $key;
-        }
+
+        $data['capita'] = $data['capita'] ? $data['capita'] : '{}';
+        $data['pgp'] = $data['pgp'] ? $data['pgp'] : '{}';
+        
         $data["company_id"] = $request->user()->company_default_id;
-        $data["capita"] = json_encode($json);
         $contract = \App\Models\DeliveryContract::create($data);
 
         $points = $contract->delivery_points;
@@ -76,7 +85,11 @@ class DeliveryContractsController extends Controller
 
         }
 
-        return response()->json([ "store" => true, 'status' => 'success', 'message' => 'Registro guardado correctamente' ], 200);
+        return response()->json([ 
+            "store" => true, 
+            'status' => 'success', 
+            'message' => 'Registro guardado correctamente' 
+        ], 200);
     }
 
     /**
