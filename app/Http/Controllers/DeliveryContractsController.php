@@ -118,16 +118,23 @@ class DeliveryContractsController extends Controller
         $data_new = json_decode($request->data,true);
         $data_old = \App\Models\DeliveryContract::find($id);
 
-        $json = json_decode($data_new["capita"],true);
-        $json["affiliates_qty_history_record"] = [];
-        if(!empty($json["detailed_capita"]))
-        {
+        if(!empty($data_new['capita'])){
+            $json = json_decode($data_new["capita"],true);
+            $json["affiliates_qty_history_record"] = [];
+            if(empty($json["detailed_capita"])){
+                $json["detailed_capita"] = [];
+            }
             foreach ($json["detailed_capita"] as $key) {
                 $key["date"] = date('Y-m-d H:i:s');
                 $json["affiliates_qty_history_record"][] = $key;
             }
             $data_new["capita"] = json_encode($json);
+        }else{
+            $data_new['capita'] = '{}';
         }
+
+        $data_new['event'] = $data_new['event'] ? $data_new['event'] : '{}';
+        $data_new['pgp'] = $data_new['pgp'] ? $data_new['pgp'] : '{}';
         
 
         $data_old->fill($data_new);
