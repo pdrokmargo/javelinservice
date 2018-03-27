@@ -27,6 +27,7 @@ class ContractPoint extends Model
 
     public function delivery_points()
     {
-        return $this->hasMany('App\Models\DeliveryPoint');
+        return $this->belongsTo('App\Models\DeliveryPoint', 'id', 'delivery_contracts_id');
+        //return $this->hasMany('App\Models\DeliveryPoint');
     }
 }
