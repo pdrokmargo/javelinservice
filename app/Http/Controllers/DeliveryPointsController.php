@@ -53,7 +53,7 @@ class DeliveryPointsController extends Controller
         \App\Models\DeliveryPoint::create($data);
         return response()->json([ 
             "store" => true,
-            "message" => "Registro guardado correctamenet" 
+            "message" => "Registro guardado correctamente" 
         ], 200);
     }
     /**
