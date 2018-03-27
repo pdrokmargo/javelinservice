@@ -21,16 +21,18 @@ class DeliveryPointsTableSeeder extends Seeder
                 'installed' => false,
                 'delivery_point_group_id' => 74, 
                 'company_id' => 1,
-                'delivery_contracts' => '                 
-                    [
-                        {"delivery_contract_id":"011ecb81-6fa2-47ad-9fd0-e9d77a936536", "event":true, "capita":false, "pgp":false}
-                    ]
+                'delivery_contracts' => '[
+                    {
+                        "delivery_contract_id":"011ecb81-6fa2-47ad-9fd0-e9d77a936536", 
+                        "event":true, 
+                        "capita":false, 
+                        "pgp":false
+                    }
+                ]
                 ' ,
-                'users' => '
-                    [
-                        {"user_id":"1a4318ab-b672-438e-a244-69ca14a81fb5"}
-                    ]
-                '
+                'users' => '[
+                    {"user_id":"1a4318ab-b672-438e-a244-69ca14a81fb5"}
+                ]'
             ],
         ]);
     }
