@@ -76,14 +76,22 @@ class DeliveryContractsController extends Controller
 
         $points = $contract->delivery_points;
         foreach ($points as $p) {
-            $_point = \App\Models\DeliveryPoint::find($p["id"]);
-            if($_point){
+            \App\Models\ContractPoint::create([
+                "delivery_contracts_id" => $contract->id,
+                "delivery_points_id" => $p["id"],
+                "config" => json_encode([
+                    "event" => $p["event"],
+                    "capita" => $p["capita"],
+                    "pgp" => $p["pgp"]
+                ])
+            ]);
+            //$_point = \App\Models\DeliveryPoint::find($p["id"]);
+            /*if($_point){
                 $_contracts = is_array($_point->delivery_contracts) ? $_point->delivery_contracts : [];                
                 $_contracts[] = $contract;
                 $_point->delivery_contracts = $_contracts;
-                $_point->save();
-            }
-
+                $_point->save(); 
+            }*/
         }
 
         return response()->json([ 
