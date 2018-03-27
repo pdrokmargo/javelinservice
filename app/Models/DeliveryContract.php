@@ -49,6 +49,6 @@ class DeliveryContract extends Model
     
     public function contract_point()
    	{
-   		return $this->belongsTo('App\Models\ContractPoint', 'id'); 
+   		return $this->belongsTo('App\Models\ContractPoint', 'delivery_contracts_id', 'id'); 
    	}
 }
