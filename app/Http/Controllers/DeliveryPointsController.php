@@ -51,7 +51,10 @@ class DeliveryPointsController extends Controller
         $data = json_decode($request->data, true);
         $data["company_id"] = $request->user()->company_default_id;
         \App\Models\DeliveryPoint::create($data);
-        return response()->json([ "store" => true ], 200);
+        return response()->json([ 
+            "store" => true,
+            "message" => "Registro guardado correctamenet" 
+        ], 200);
     }
     /**
      * Display the specified resource.
