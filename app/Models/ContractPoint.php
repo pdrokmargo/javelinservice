@@ -22,11 +22,11 @@ class ContractPoint extends Model
 
     public function delivery_ontracts()
     {
-        return $this->hasOne('App\Models\DeliveryContract','delivery_contracts_id', 'id');
+        return $this->hasOne('App\Models\DeliveryContract','id','delivery_contracts_id');
     }
 
     public function delivery_points()
     {
-        return $this->hasOne('App\Models\DeliveryPoint','delivery_points_id', 'id');
+        return $this->hasOne('App\Models\DeliveryPoint','id', 'delivery_points_id');
     }
 }
