@@ -85,13 +85,6 @@ class DeliveryContractsController extends Controller
                     "pgp" => $p["pgp"]
                 ])
             ]);
-            //$_point = \App\Models\DeliveryPoint::find($p["id"]);
-            /*if($_point){
-                $_contracts = is_array($_point->delivery_contracts) ? $_point->delivery_contracts : [];                
-                $_contracts[] = $contract;
-                $_point->delivery_contracts = $_contracts;
-                $_point->save(); 
-            }*/
         }
 
         return response()->json([ 
@@ -145,10 +138,30 @@ class DeliveryContractsController extends Controller
         $data_new['event'] = $data_new['event'] ? $data_new['event'] : '{}';
         $data_new['pgp'] = $data_new['pgp'] ? $data_new['pgp'] : '{}';
         
-
         $data_old->fill($data_new);
         $data_old->save();
-        return response()->json([ "update" => true, "status" => "success", "message" => "Registro Actualizado correctamente"], 200);
+
+        $points = $data_old->delivery_points;
+        
+        \App\Models\ContractPoint::where('delivery_contracts_id', '=', $contract->id)->destroy();
+
+        foreach ($points as $p) {
+            \App\Models\ContractPoint::create([
+                "delivery_contracts_id" => $contract->id,
+                "delivery_points_id" => $p["id"],
+                "config" => json_encode([
+                    "event" => $p["event"],
+                    "capita" => $p["capita"],
+                    "pgp" => $p["pgp"]
+                ])
+            ]);
+        }
+
+        return response()->json([ 
+            "update" => true, 
+            "status" => "success", 
+            "message" => "Registro Actualizado correctamente"
+        ], 200);
     }
 
     /**
