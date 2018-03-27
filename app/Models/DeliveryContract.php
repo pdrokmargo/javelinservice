@@ -18,7 +18,7 @@ class DeliveryContract extends Model
         'ips' => 'json', 
         'conditional_alerts' => 'json'
     ];
-    public $with = array('customers', 'population_types');
+    public $with = array('customers', 'population_types', 'contract_point');
     public $incrementing = false;
     protected $fillable = [
         'customer_id',
@@ -45,6 +45,10 @@ class DeliveryContract extends Model
     public function population_types()
    	{
    		return $this->belongsTo('App\Models\CollectionsValues', 'population_type_id'); 
+    }
+    
+    public function contract_point()
+   	{
+   		return $this->belongsTo('App\Models\ContractPoint', 'id'); 
    	}
-
 }
