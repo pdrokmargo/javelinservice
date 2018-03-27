@@ -31,7 +31,7 @@ class DeliveryPoint extends Model
         $contracts = [];
         if(!empty($this->delivery_contracts))
         {
-            if(!is_array($this->delivery_contracts || [])){
+            if(!is_array($this->delivery_contracts)){
                 $this->delivery_contracts = [];
             }
             
