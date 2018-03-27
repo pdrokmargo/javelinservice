@@ -31,18 +31,13 @@ class DeliveryPoint extends Model
         $contracts = [];
         if(!empty($this->delivery_contracts))
         {
-            if(!is_array($this->delivery_contracts)){
+            if(!is_array($this->delivery_contracts || [])){
                 $this->delivery_contracts = [];
             }
             
             foreach ($this->delivery_contracts as $dc)
             {
-                
                 $contract = \App\Models\DeliveryContract::select(['id','name','event','capita','pgp'])->find($dc['id']);
-
-                /*if(!$dc['event']){ $contract->event = null; }
-                if(!$dc['capita']){ $contract->capita = null; }
-                if(!$dc['pgp']){ $contract->pgp = null; }*/
                 if($contract){
                     $contracts[] = $contract;
                 }
