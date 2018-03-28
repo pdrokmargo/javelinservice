@@ -52,6 +52,7 @@ class IpsNetworkController extends Controller
         $data = json_decode($request->data, true);
         $data["collection_id"] = $id;
         $data["parent_id"] = 0;
+        $data["value"] = $data["name"];
         \App\Models\CollectionsValues::create($data);
         return response()->json([ "store" => true ], 200);
     }
