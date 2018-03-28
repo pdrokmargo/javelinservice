@@ -142,7 +142,7 @@ class DeliveryContractsController extends Controller
         $data_old->fill($data_new);
         $data_old->save();
 
-        $points = $data_new->delivery_points;        
+        $points = $data_new['delivery_points'];        
         \App\Models\ContractPoint::where('delivery_contracts_id', '=', $data_old->id)->delete();
 
         foreach ($points as $p) {
