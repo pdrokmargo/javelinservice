@@ -8,6 +8,9 @@ class ContractPoint extends Model
 {
     use \App\Uuids;
     public $timestamps = false;
+    protected $casts = [
+        'config' => 'json'
+    ];
     protected $table = 'contract_points';
     protected $fillable = [
         'delivery_contracts_id',
@@ -16,9 +19,7 @@ class ContractPoint extends Model
     ];
     protected $hidden = [];
 
-    protected $casts = [
-        'config' => 'json'
-    ];
+    
 
     public function delivery_contracts()
     {
