@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Validator;
 use App\ActiveIngredients;
 use Illuminate\Http\Request;
 
@@ -45,6 +46,15 @@ class ActiveIngredientsController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|unique:active_ingredients',
+        ]);
+        if ($validator->fails()) {
+            return response()->json([ 
+                "store" => false, 
+                "message" => "El nombre del ingrediente ya se encuentra registrodo"
+            ], 400);
+        }
         $data = json_decode($request->data, true);
         $id = \App\Models\ActiveIngredient::create($data);
         return response()->json([ "store" => true ], 200);

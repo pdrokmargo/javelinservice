@@ -93,7 +93,11 @@ class PharmaceuticalDrugsController extends Controller
             "active_ingredients" => $ai
         ];
 
-        return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
+        return response()->json([
+            'status'=>'success', 
+            "message"=>'', 
+            "data" => $data 
+        ], 200);
     }
 
 
