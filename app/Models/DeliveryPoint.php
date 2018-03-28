@@ -66,5 +66,11 @@ class DeliveryPoint extends Model
     public function delivery_points_groups()
    	{
    		return $this->belongsTo('App\Models\CollectionsValues', 'delivery_point_group_id'); 
+    }
+       
+    public function contract_point()
+   	{
+   		return $this->hasMany('App\Models\ContractPoint', 'delivery_points_id');
    	}
+
 }

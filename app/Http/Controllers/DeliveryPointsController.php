@@ -65,7 +65,7 @@ class DeliveryPointsController extends Controller
      */
     public function show($id)
     {
-        $data = \App\Models\DeliveryPoint::find($id)->append(['assigned_contracts','assigned_users']);        
+        $data = \App\Models\DeliveryPoint::with(['contract_point.delivery_contracts'])->where('id', $id)->append(['assigned_contracts','assigned_users'])->first();        
         return response()->json([ "data" => $data ], 200);
     }
 
