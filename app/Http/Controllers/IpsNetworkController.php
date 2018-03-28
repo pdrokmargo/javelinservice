@@ -51,6 +51,7 @@ class IpsNetworkController extends Controller
         $id = \App\Models\Collections::where('name','IPS_NETWORK')->first()->id;
         $data = json_decode($request->data, true);
         $data["collection_id"] = $id;
+        $data["parent_id"] = 0;
         \App\Models\CollectionsValues::create($data);
         return response()->json([ "store" => true ], 200);
     }
