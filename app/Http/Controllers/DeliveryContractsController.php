@@ -150,9 +150,9 @@ class DeliveryContractsController extends Controller
                 "delivery_contracts_id" => $data_old->id,
                 "delivery_points_id" => $p["id"],
                 "config" => json_encode([
-                    "event" => $p["event"],
-                    "capita" => $p["capita"],
-                    "pgp" => $p["pgp"]
+                    "event" => $p["event"] || false,
+                    "capita" => $p["capita"] || false,
+                    "pgp" => $p["pgp"] || false
                 ])
             ]);
         }
