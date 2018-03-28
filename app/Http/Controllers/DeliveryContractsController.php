@@ -144,11 +144,11 @@ class DeliveryContractsController extends Controller
 
         $points = $data_old->delivery_points;
         
-        \App\Models\ContractPoint::where('delivery_contracts_id', '=', $contract->id)->destroy();
+        \App\Models\ContractPoint::where('delivery_contracts_id', '=', $data_old->id)->destroy();
 
         foreach ($points as $p) {
             \App\Models\ContractPoint::create([
-                "delivery_contracts_id" => $contract->id,
+                "delivery_contracts_id" => $data_old->id,
                 "delivery_points_id" => $p["id"],
                 "config" => json_encode([
                     "event" => $p["event"],
