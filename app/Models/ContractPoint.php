@@ -20,7 +20,7 @@ class ContractPoint extends Model
         'config' => 'json'
     ];
 
-    public function delivery_ontracts()
+    public function delivery_contracts()
     {
         return $this->hasMany('App\Models\DeliveryContract', 'delivery_contracts_id', 'id');
     }
