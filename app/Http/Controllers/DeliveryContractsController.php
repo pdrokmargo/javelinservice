@@ -102,8 +102,8 @@ class DeliveryContractsController extends Controller
      */
     public function show($id)
     {
-        $data = \App\Models\DeliveryContract::find($id);
-        $data = $data->with('contract_point');
+        $data = \App\Models\DeliveryContract::with(['contract_point'])->where('id',$id)->first();
+        
         
         return response()->json([ "data" => $data ], 200);
     }
