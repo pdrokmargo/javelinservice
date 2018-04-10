@@ -18,7 +18,7 @@ class CreateDeliveryPointsTable extends Migration
             $table->uuid('warehouse_id');
             $table->integer('company_id')->default(0);
             $table->string('name');
-            $table->string('description');
+            $table->string('description')->default('');
             $table->integer('delivery_point_group_id');
             $table->json('delivery_contracts');
             /*json array:
