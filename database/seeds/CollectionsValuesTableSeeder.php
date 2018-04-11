@@ -62,7 +62,7 @@ class CollectionsValuesTableSeeder extends Seeder
 
             //PRODUCT_TYPE
             /*30*/['collection_id' => '24', 'parent_id' => 0, 'code' => 'medicamento', 'value' => 'Medicamento'],
-            /*31*/['collection_id' => '24', 'parent_id' => 0, 'code' => 'otro', 'value' => 'Otro'],
+            /*31*/['collection_id' => '24', 'parent_id' => 0, 'code' => 'bienes en general', 'value' => 'Bienes en general'],
 
             /*PHARMACEUTICAL_FORM*/
             /*32*/['collection_id' => '23', 'parent_id' => 0, 'code' => 'sobre', 'value' => 'Sobre'],
@@ -251,6 +251,9 @@ class CollectionsValuesTableSeeder extends Seeder
             /*168*/['collection_id' => 36, 'parent_id' => 0, 'code' => 'planificacion_familiar', 'value' => 'Planificación familiar'],
             /*169*/['collection_id' => 36, 'parent_id' => 0, 'code' => 'traslado_regimen', 'value' => 'Traslado de régimen'],
             /*170*/['collection_id' => 36, 'parent_id' => 0, 'code' => 'trasplantado', 'value' => 'Trasplantado'],
+
+            //PRODUCT_TYPE
+            /*171*/['collection_id' => 24, 'parent_id' => 0, 'code' => 'servicios', 'value' => 'Servicios'],
         ]);
     }
 }
