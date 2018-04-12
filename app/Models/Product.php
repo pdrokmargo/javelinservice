@@ -40,5 +40,27 @@ class Product extends Model
 		'replacment_time',
 		'state',
 		'pharmaceutical_drug_id'
-        ];
+	];
+
+	
+	
+	public function sanitary_registration_holder()
+	{
+		 return $this->belongsTo('App\Models\StakeholdersInfo', 'sanitary_registration_holder_id'); 
+	}
+	
+	public function supplier()
+	{
+		 return $this->belongsTo('App\Models\StakeholdersInfo', 'supplier_id'); 
+	}
+	
+	public function manufacturer()
+	{
+		 return $this->belongsTo('App\Models\StakeholdersInfo', 'manufacturer_id'); 
+	}
+	
+	public function importer()
+	{
+		 return $this->belongsTo('App\Models\StakeholdersInfo', 'importer_id'); 
+    }
 }
