@@ -76,7 +76,6 @@ class ProductsController extends Controller
     public function show($id)
     {
         $data = \App\Models\Product::with(['sanitary_registration_holder', 'supplier', 'manufacturer', 'importer'])->where('id',$id)->first();
-        
         return response()->json([ "data" => $data ], 200);
     }
 
