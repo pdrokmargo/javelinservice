@@ -22,11 +22,10 @@ class PharmaceuticalDrugsController extends Controller
             $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
             $page = $request->page;
             
-            $query = \App\Models\PharmaceuticalDrug
-            ::join('collections_values as df', 'df.id', '=', 'pharmaceutical_drugs.dosage_form_id')
-            ->join('collections_values as ra', 'ra.id', '=', 'pharmaceutical_drugs.routes_administration_id')
-            ->select(DB::raw('pharmaceutical_drugs.id, pharmaceutical_drugs.name, ra.value as routes_administration, df.value as dosage_form, pharmaceutical_drugs.state, pharmaceutical_drugs.is_pos'))
-            ->pluck(['concentration']);
+            $query = \App\Models\PharmaceuticalDrug::from('pharmaceutical_drugs as pd')
+            ->join('collections_values as df', 'df.id', '=', 'pd.dosage_form_id')
+            ->join('collections_values as ra', 'ra.id', '=', 'pd.routes_administration_id')
+            ->select(DB::raw('pd.id, pd.name, ra.value as routes_administration, df.value as dosage_form, pd.state, pd.is_pos'));
 
             /*$query = DB::table('pharmaceutical_drugs as pd')
             ->join('collections_values as df', 'df.id', '=', 'pd.dosage_form_id')
@@ -34,7 +33,7 @@ class PharmaceuticalDrugsController extends Controller
             ->select(DB::raw('pd.id, pd.name, ra.value as routes_administration, df.value as dosage_form, pd.state, pd.is_pos'));*/
 
             if ($search!='') {
-                $query=$query->whereRaw("(lower(pharmaceutical_drugs.name) like ? or pharmaceutical_drugs.code like ? or (case when pharmaceutical_drugs.state=true then 'activo' else 'inactivo' end) like ?)", array($search, $search, $search))
+                $query=$query->whereRaw("(lower(pd.name) like ? or pd.code like ? or (case when pd.state=true then 'activo' else 'inactivo' end) like ?)", array($search, $search, $search))
                 ->orderBy($ordername, $ordertype);
             }else{
                 $query=$query->orderBy($ordername, $ordertype);
