@@ -26,7 +26,7 @@ class PharmaceuticalDrugsController extends Controller
             ::join('collections_values as df', 'df.id', '=', 'pharmaceutical_drugs.dosage_form_id')
             ->join('collections_values as ra', 'ra.id', '=', 'pharmaceutical_drugs.routes_administration_id')
             ->select(DB::raw('pharmaceutical_drugs.id, pharmaceutical_drugs.name, ra.value as routes_administration, df.value as dosage_form, pharmaceutical_drugs.state, pharmaceutical_drugs.is_pos'))
-            ->concentration;
+            ->appends(['concentration']);
 
             /*$query = DB::table('pharmaceutical_drugs as pd')
             ->join('collections_values as df', 'df.id', '=', 'pd.dosage_form_id')
