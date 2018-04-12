@@ -22,8 +22,8 @@ class PharmaceuticalDrugsController extends Controller
             $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
             $page = $request->page;
             
-            $query = \App\Models\PharmaceuticalDrug()
-            ->join('collections_values as df', 'df.id', '=', 'pharmaceutical_drugs.dosage_form_id')
+            $query = \App\Models\PharmaceuticalDrug
+            ::join('collections_values as df', 'df.id', '=', 'pharmaceutical_drugs.dosage_form_id')
             ->join('collections_values as ra', 'ra.id', '=', 'pharmaceutical_drugs.routes_administration_id')
             ->select(DB::raw('pharmaceutical_drugs.id, pharmaceutical_drugs.name, ra.value as routes_administration, df.value as dosage_form, pharmaceutical_drugs.state, pharmaceutical_drugs.is_pos, pharmaceutical_drugs.concentration'));
 
