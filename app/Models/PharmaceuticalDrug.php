@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class PharmaceuticalDrug extends Model
 {
 	use \App\Uuids;
+
     public $timestamps = false;
     protected $table = 'pharmaceutical_drugs'; 
-    public $incrementing = false;
+	public $incrementing = false;
+	protected $appends = ['concentration'];
     protected $fillable = [
 		'id',
 		'name',
@@ -27,8 +29,23 @@ class PharmaceuticalDrug extends Model
     ];
 	protected $hidden = [];
 
-   	public function dosage_form()
-   	{
-   		return $this->belongsTo('App\Models\CollectionsValues', 'dosage_form_id'); 
-   	}
+
+	public function dosage_form()
+	{
+		return $this->belongsTo('App\Models\CollectionsValues', 'dosage_form_id'); 
+	}
+	
+	
+
+    public function getConcentrationAttribute()
+    {
+		$concentration = 0;
+		$arrConcentration = \App\Models\ActiveIngredientsPharmaceuticalDrugs::where('pharmaceutical_drug_id',$this->id)->get();
+		foreach ($arrConcentration as $c) {
+			$_c = 0;
+			$concentration = $concentration + (float)$c->concentration;
+		}
+        return $concentration;
+    }
+
 }
