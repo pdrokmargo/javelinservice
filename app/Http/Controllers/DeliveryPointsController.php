@@ -23,10 +23,10 @@ class DeliveryPointsController extends Controller
         $query = new \App\Models\DeliveryPoint();
 
         if ($search!='') {
-            $query = $query->whereRaw("lower(name) like ? or lower(description) like ? or (case when state=true then 'activo' else 'inactivo' end) like ? or (case when installed=true then 'instalado' else 'no instalado' end) like ?", array($search, $search, $search, $search))
+            $query = $query->whereRaw("company_id = ? and (lower(name) like ? or lower(description) like ? or (case when state=true then 'activo' else 'inactivo' end) like ? or (case when installed=true then 'instalado' else 'no instalado' end) like ?)", array($request->user()->company_default_id,$search, $search, $search, $search))
             ->orderBy($ordername, $ordertype);
         }else{
-            $query=$query->orderBy($ordername, $ordertype);
+            $query=$query->where('company_id',$request->user()->company_default_id)->orderBy($ordername, $ordertype);
         } 
 
         $data = [];  

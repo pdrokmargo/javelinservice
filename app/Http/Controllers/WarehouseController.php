@@ -29,7 +29,7 @@ class WarehouseController extends Controller
             ->select(DB::raw('w.id, w.name, c.value as city, w.state'));
 
             if ($search!='') {
-                $query = $query->whereRaw("w.company_id=? and (w.name like ? or c.value like ? or (case when w.state=true then 'activa' else 'inactiva' end) like ?)", array($company_id, $search, $search, $search))
+                $query = $query->whereRaw("w.company_id = ? and (w.name like ? or c.value like ? or (case when w.state=true then 'activa' else 'inactiva' end) like ?)", array($company_id, $search, $search, $search))
                 ->orderBy($ordername, $ordertype);
             }else{
                 $query=$query->where('w.company_id', $company_id)->orderBy($ordername, $ordertype);
