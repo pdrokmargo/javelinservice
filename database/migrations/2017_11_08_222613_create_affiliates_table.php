@@ -38,6 +38,7 @@ class CreateAffiliatesTable extends Migration
             $table->integer('public_health_condition_id');//to PUBLIC_HEALTH_CONDITION in collection_values
             $table->integer('affiliate_level');
             $table->boolean('state');           
+            $table->boolean('delete');   
             $table->primary('id');
         });
     }

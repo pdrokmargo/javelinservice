@@ -33,7 +33,8 @@ class Affiliate extends Model
         'affiliate_condition_id',
         'public_health_condition_id',
         'affiliate_level',
-        'state'
+        'state',
+        'delete'
     ];
     protected $hidden = [];
 }
