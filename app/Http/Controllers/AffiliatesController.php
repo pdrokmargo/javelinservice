@@ -58,9 +58,26 @@ class AffiliatesController extends Controller
      */
     public function store(Request $request)
     {
-        $data = json_decode($request->data, true);
-        \App\Models\Affiliate::create($data);
-        return response()->json([ "store" => true, "message" => "Registro almacenado correctamente" ], 200);
+        DB::beginTransaction(); 
+        try
+        {
+            $data = json_decode($request->data, true);
+            \App\Models\Affiliate::create($data);
+            DB::commit();
+            $this->CreateLog($request->user()->id, 'affiliates', 1,'');
+            return response()->json([ 
+                "store" => true, 
+                "message" => "Registro almacenado correctamente" 
+            ], 200);
+        } 
+        catch (Exception $e) 
+        { 
+            DB::rollback();
+            return response()->json([ 
+                "store" => false, 
+                "message" => "Error al intentar almacenar el nuevo registro" 
+            ], 400);
+        }
     }
 
     /**
@@ -84,11 +101,28 @@ class AffiliatesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data_new = json_decode($request->data,true);
-        $data_old = \App\Models\Affiliate::find($id);
-        $data_old->fill($data_new);
-        $data_old->save();
-        return response()->json([ "update" => true], 200);
+        DB::beginTransaction();
+        try
+        {
+            $data_new = json_decode($request->data,true);
+            $data_old = \App\Models\Affiliate::find($id);
+            $data_old->fill($data_new);
+            $data_old->save();
+            DB::commit();
+            $this->CreateLog($request->user()->id, 'affiliates', 2,'');
+            return response()->json([ 
+                "update" => true, 
+                "message" => "Registro actualizado correctamente" 
+            ], 200);
+        } 
+        catch (Exception $e) 
+        { 
+            DB::rollback();
+            return response()->json([ 
+                "store" => false, 
+                "message" => "Error al intentar actualizar el registro" 
+            ], 400);
+        }
     }
 
     /**
@@ -99,6 +133,26 @@ class AffiliatesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::beginTransaction();
+        try
+        {
+            $data = \App\Models\Affiliate::find($id);
+            $data->state = false;
+            $data->save();    
+            DB::commit();
+            $this->CreateLog($request->user()->id, 'affiliates', 3,'');
+            return response()->json([ 
+                "delete" => true, 
+                "message" => "Registro eliminado correctamente" 
+            ], 200);
+        } 
+        catch (Exception $e) 
+        { 
+            DB::rollback();
+            return response()->json([ 
+                "delete" => false, 
+                "message" => "Error al intentar eliminar el registro" 
+            ], 400);
+        }
     }
 }
