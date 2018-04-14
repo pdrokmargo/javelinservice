@@ -33,7 +33,8 @@ class DeliveryContract extends Model
         'pgp',
         'ips',
         'conditional_alerts',
-        'state'
+        'state',
+        'delete'
     ];
     protected $hidden = [];
 

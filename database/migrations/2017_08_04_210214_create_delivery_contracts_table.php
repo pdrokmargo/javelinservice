@@ -78,6 +78,7 @@ class CreateDeliveryContractsTable extends Migration
                 string: description
             */
             $table->boolean('state');
+            $table->boolean('delete')->default(false);
             
             $table->primary('id');
         });
