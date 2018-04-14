@@ -15,24 +15,22 @@ class OperationsCentreController extends Controller
 	*/
     public function index(Request $request)
     {
-    	try {
-
-    		  $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';
-	        $ordername = isset($request->ordername) ? $request->ordername : 'o.id';
-	        $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
-          $page = $request->page;
-	        $company_id = $request->user()->company_default_id;
-
-         $query = DB::table('operationscentres as o')
-                  ->join('geolocations as g', 'o.geolocation_id', '=', 'g.id')
-                  ->join('collections_values as c', 'g.city_id', '=', 'c.id')
-                  ->join('collections_values as cg', 'o.operationscentregroup_id', '=', 'cg.id')
-                  ->select(DB::raw('o.id, o.code, o.name, c.value as city, cg.value as group, o.state'));
+        try 
+        {
+            $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';
+            $ordername = isset($request->ordername) ? $request->ordername : 'o.id';
+            $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
+            $page = $request->page;
+            $company_id = $request->user()->company_default_id;
+            $query = DB::table('operationscentres as o')
+                    ->join('geolocations as g', 'o.geolocation_id', '=', 'g.id')
+                    ->join('collections_values as c', 'g.city_id', '=', 'c.id')
+                    ->join('collections_values as cg', 'o.operationscentregroup_id', '=', 'cg.id')
+                    ->select(DB::raw('o.id, o.code, o.name, c.value as city, cg.value as group, o.state'));
          if ($search!='') {
-            $query=$query->whereRaw("company_id = ? and (lower(o.name) like ? or code like ? or lower(description) like ? or (case when state=true then 'activo' else 'inactivo' end) like ? or phone_number like ?)", array($company_id, $search, $search, $search, $search, $search))
-            ->orderBy($ordername, $ordertype);
+            $query=$query->whereRaw("delete = false and company_id = ? and (lower(o.name) like ? or code like ? or lower(description) like ? or (case when state=true then 'activo' else 'inactivo' end) like ? or phone_number like ?)", array($company_id, $search, $search, $search, $search, $search))->orderBy($ordername, $ordertype);
          }else{
-            $query=$query->where('company_id', $company_id)->orderBy($ordername, $ordertype);
+            $query=$query->where('delete', false)->where('company_id', $company_id)->orderBy($ordername, $ordertype);
          }        	
 
           $data=[];  

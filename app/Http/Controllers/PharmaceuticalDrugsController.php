@@ -22,12 +22,12 @@ class PharmaceuticalDrugsController extends Controller
             $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
             $page = $request->page;
             
-            $query = \App\Models\PharmaceuticalDrug::from('pharmaceutical_drugs as pd')
+            $query = \App\Models\PharmaceuticalDrug::from('pharmaceutical_drugs as pd')->width(['concentration'])
             ->join('collections_values as df', 'df.id', '=', 'pd.dosage_form_id')
             ->join('collections_values as ra', 'ra.id', '=', 'pd.routes_administration_id')
             ->select(DB::raw('pd.id, pd.name, ra.value as routes_administration, df.value as dosage_form, pd.state, pd.is_pos'));
 
-            $query = $query->append(['concentration']);
+            //$query = $query->append(['concentration']);
 
             /*$query = DB::table('pharmaceutical_drugs as pd')
             ->join('collections_values as df', 'df.id', '=', 'pd.dosage_form_id')
