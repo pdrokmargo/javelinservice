@@ -42,10 +42,12 @@ class PharmaceuticalDrug extends Model
     {
 		$concentration = 0;
 		$arrConcentration = \App\Models\ActiveIngredientsPharmaceuticalDrugs::where('pharmaceutical_drug_id',$this->id)->get();
-		foreach ($arrConcentration as $c) {
-			$_c = 0;
-			$concentration = $concentration + (float)$c->concentration;
-		}
+		if($arrConcentration){
+			foreach ($arrConcentration as $c) {
+				$_c = 0;
+				$concentration = $concentration + (float)$c->concentration;
+			}
+		}		
         return $concentration;
     }
 
