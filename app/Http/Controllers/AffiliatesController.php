@@ -63,8 +63,8 @@ class AffiliatesController extends Controller
         {
             $data = json_decode($request->data, true);
             \App\Models\Affiliate::create($data);
-            DB::commit();
             $this->CreateLog($request->user()->id, 'affiliates', 1,'');
+            DB::commit();
             return response()->json([ 
                 "store" => true, 
                 "message" => "Registro almacenado correctamente" 

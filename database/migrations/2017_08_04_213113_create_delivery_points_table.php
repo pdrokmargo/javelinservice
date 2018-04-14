@@ -33,6 +33,7 @@ class CreateDeliveryPointsTable extends Migration
             */
             $table->boolean('installed')->default(false);
             $table->boolean('state');
+            $table->boolean('delete')->default(false);
 
             $table->primary('id');
         });

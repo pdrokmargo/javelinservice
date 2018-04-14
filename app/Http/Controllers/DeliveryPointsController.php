@@ -23,10 +23,10 @@ class DeliveryPointsController extends Controller
         $query = new \App\Models\DeliveryPoint();
 
         if ($search!='') {
-            $query = $query->whereRaw("company_id = ? and (lower(name) like ? or lower(description) like ? or (case when state=true then 'activo' else 'inactivo' end) like ? or (case when installed=true then 'instalado' else 'no instalado' end) like ?)", array($request->user()->company_default_id,$search, $search, $search, $search))
+            $query = $query->whereRaw("delete = false and company_id = ? and (lower(name) like ? or lower(description) like ? or (case when state=true then 'activo' else 'inactivo' end) like ? or (case when installed=true then 'instalado' else 'no instalado' end) like ?)", array($request->user()->company_default_id,$search, $search, $search, $search))
             ->orderBy($ordername, $ordertype);
         }else{
-            $query=$query->where('company_id',$request->user()->company_default_id)->orderBy($ordername, $ordertype);
+            $query=$query->where('delete',false)->where('company_id',$request->user()->company_default_id)->orderBy($ordername, $ordertype);
         } 
 
         $data = [];  
@@ -48,13 +48,29 @@ class DeliveryPointsController extends Controller
      */
     public function store(Request $request)
     {
-        $data = json_decode($request->data, true);
-        $data["company_id"] = $request->user()->company_default_id;
-        \App\Models\DeliveryPoint::create($data);
-        return response()->json([ 
-            "store" => true,
-            "message" => "Registro guardado correctamente" 
-        ], 200);
+        DB::beginTransaction(); 
+        try
+        {
+            $data = json_decode($request->data, true);
+            $data["company_id"] = $request->user()->company_default_id;
+            \App\Models\DeliveryPoint::create($data);
+            $this->CreateLog($request->user()->id, 'delivery-points', 1,'');
+            DB::commit();
+            return response()->json([ 
+                "store" => true, 
+                "message" => "Registro almacenado correctamente" 
+            ], 200);
+        }
+        catch (Exception $e) 
+        { 
+            DB::rollback();
+            return response()->json([ 
+                "store" => false, 
+                "message" => "Error al intentar almacenar el nuevo registro" 
+            ], 400);
+        }
+
+        
     }
     /**
      * Display the specified resource.
@@ -80,14 +96,29 @@ class DeliveryPointsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data_new = json_decode($request->data,true);
-        $data_old = \App\Models\DeliveryPoint::find($id);
-        $data_old->fill($data_new);
-        $data_old->save();
-        return response()->json([ 
-            "update" => true,
-            "message" => "Registro actualizado correctamente"
-        ], 200);
+        DB::beginTransaction();
+        try
+        {
+            $data_new = json_decode($request->data,true);
+            $data_old = \App\Models\DeliveryPoint::find($id);
+            $data_old->fill($data_new);
+            $data_old->save();
+            DB::commit();
+            $this->CreateLog($request->user()->id, 'delivery-points', 2,'');
+            return response()->json([ 
+                "update" => true, 
+                "message" => "Registro actualizado correctamente" 
+            ], 200);
+        } 
+        catch (Exception $e) 
+        { 
+            DB::rollback();
+            return response()->json([ 
+                "store" => false, 
+                "message" => "Error al intentar actualizar el registro" 
+            ], 400);
+        }
+        
     }
 
     /**
@@ -98,10 +129,28 @@ class DeliveryPointsController extends Controller
      */
     public function destroy($id)
     {
-        $data = \App\Models\DeliveryPoint::find($id);
-        $data->state = false;
-        $data->save();
-        return response()->json([ "destroy" => true], 200);
+        DB::beginTransaction();
+        try
+        {
+            $data = \App\Models\DeliveryPoint::find($id);
+            $data->delete = false;
+            $data->save();
+            DB::commit();
+            $this->CreateLog($request->user()->id, 'delivery-points', 3,'');
+            return response()->json([ 
+                "delete" => true, 
+                "message" => "Registro eliminado correctamente" 
+            ], 200);
+        } 
+        catch (Exception $e) 
+        { 
+            DB::rollback();
+            return response()->json([ 
+                "delete" => false, 
+                "message" => "Error al intentar eliminar el registro" 
+            ], 400);
+        }
+
     }
     public function createProperty($name, $value){
         $this->{$name} = $value;
