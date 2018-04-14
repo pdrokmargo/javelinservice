@@ -10,15 +10,17 @@ class OperationsCentre extends Model
     protected $table = 'operationscentres';
     public $with = array('operationscentregroup', 'geolocation', 'company');
     protected $fillable = [
-    						'name',
-    						'code',	
-							'description',
-                            'operationscentregroup_id',
-							'address',
-							'phone_number',
-							'geolocation_id',
-							'company_id',
-							'state'];
+		'name',
+		'code',	
+		'description',
+		'operationscentregroup_id',
+		'address',
+		'phone_number',
+		'geolocation_id',
+		'company_id',
+		'state',
+		'delete'
+	];
 
 
     public function operationscentregroup()

@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->integer('company_default_id')->default(0);
             $table->integer('user_profile_id');
             $table->boolean('status')->default(true);
+            $table->boolean('delete')->default(false);
             $table->date('last_access')->nullable();
             $table->string('url_profile_photo')->nullable();
             $table->rememberToken();

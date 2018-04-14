@@ -23,7 +23,8 @@ class CreateOperationscentresTable extends Migration
             $table->string('phone_number');
             $table->integer('geolocation_id');
             $table->integer('company_id');
-            $table->boolean('state');
+            $table->boolean('state')->default(true);
+            $table->boolean('delete')->default(false);
 
             //$table->foreign('geolocation_id')->references('id')->on('geolocations');
             //$table->foreign('company_id')->references('id')->on('companies');
