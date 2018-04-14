@@ -38,7 +38,8 @@ class User extends Authenticatable
         'password',
         'status',
         'company_default_id',
-        'user_profile_id'
+        'user_profile_id',
+        'delete'
     ];
 
 

@@ -36,7 +36,7 @@ class UsersController extends Controller
         try {
             if(isset($request->all))
             {
-                $data = \App\Models\User::all();
+                $data = \App\Models\User::where('company_default_id', $request->user()->company_default_id)->get();
                 return response()->json([ "data" => $data ], 200);
             }
 
@@ -46,19 +46,19 @@ class UsersController extends Controller
             $page = $request->page;
 
             $query = DB::table('users as u')
-            ->leftJoin('users_privileges as uc', function($join){
-              $join->on('u.company_default_id', '=', 'uc.company_id');
-              $join->on('u.id', '=', 'uc.user_id');
-            })->leftJoin('companies as c', 'c.id', '=', 'u.company_default_id')
-            ->leftJoin('user_profiles as up', 'uc.user_profile_id', '=', 'up.id')
-            ->select(DB::raw('u.id, u.firstname, u.lastname, u.username, u.email, u.password, u.status, u.last_access, u.url_profile_photo, u.company_default_id, up.up_description as user_profile, c.name as company'));
+                ->leftJoin('users_privileges as uc', function($join){
+                    $join->on('u.company_default_id', '=', 'uc.company_id');
+                    $join->on('u.id', '=', 'uc.user_id');
+                })->leftJoin('companies as c', 'c.id', '=', 'u.company_default_id')
+                ->leftJoin('user_profiles as up', 'uc.user_profile_id', '=', 'up.id')
+                ->select(DB::raw('u.id, u.firstname, u.lastname, u.username, u.email, u.password, u.status, u.last_access, u.url_profile_photo, u.company_default_id, up.up_description as user_profile, c.name as company'));
 
             if ($search!='') {
-                $query=$query->whereRaw("concat(lower(u.firstname), ' ', lower(u.lastname)) like ? or lower(u.username) like ? or 
+                $query=$query->whereRaw("delete = false and concat(lower(u.firstname), ' ', lower(u.lastname)) like ? or lower(u.username) like ? or 
                     lower(up.up_description) like ? or lower(c.name) like ? 
                     or (case when u.status=true then 'activo' else 'inactivo' end) like ?", array($search, $search, $search, $search))->orderBy($ordername, $ordertype);
             }else{
-                $query=$query->orderBy($ordername, $ordertype);
+                $query=$query->where('delete', false)->orderBy($ordername, $ordertype);
             } 
 
             $data=[];  
@@ -68,9 +68,11 @@ class UsersController extends Controller
               $data=$query->get();
             }  
 
-            return response()->json(['status'=>'success', 
-                                        "message"=>'', 
-                                        "data" => $data ], 200);
+            return response()->json([
+                'status'=>'success',
+                "message"=>'',
+                "data" => $data 
+            ], 200);
 
         } catch (Exception $e) {
             return 'Error:'.$e->getMessage();
@@ -165,17 +167,20 @@ class UsersController extends Controller
                     ]
                 );    
             }     
-            //$this->CreateLog($request->user()->id, 'user', 1,'');
+            $this->CreateLog($request->user()->id, 'users', 1,'');
             DB::commit();
             return response()->json([
-                "status"=>"success",  
-                "message" => "El usuario se ha registrado satisfactoriamente.", 
+                "store"=>true,  
+                "message" => "Registro eliminado correctamente",
                 "data" => $id 
             ], 200 );    
 
         } catch (Exception $e) {
             DB::rollback();
-            return 'Error: ' . $e->getMessage();
+            return response()->json([ 
+                "store" => false, 
+                "message" => "Error al intentar eliminar el registro" 
+            ], 400);
         }        
     }
 
@@ -231,12 +236,17 @@ class UsersController extends Controller
             $this->CreateLog($request->user()->id, 'users', 2,'');
 
             DB::commit();
-            return response()->json(["status"=>"success",  
-                                    "message" => "El usuario se ha actualizado satisfactoriamente.", "data" => \App\Models\User::find($id)->load('usersprivileges')], 200 );  
+            return response()->json([
+                "update" => true,
+                "message" => "Registro actualizado correctamente" 
+            ], 200 );  
 
        } catch (Exception $e) {
             DB::rollback();
-            return 'Error: ' . $e->getMessage();
+            return response()->json([
+                "update" => false,
+                "message" => "Error al intentar actualizar el registro" 
+            ], 400 );  
        }
     }
 
@@ -249,10 +259,13 @@ class UsersController extends Controller
     public function destroy($id)
     {
         $user = \App\Models\User::find($id);
-        $user->delete();
-        $this->CreateLog($request->user()->id, 'users', 3 ,json_encode($user));
-        return response()->json(["status"=>"success",  
-                                    "message" => "El usuario se ha eliminado satisfactoriamente.", "data" => true ], 200);
+        $user->delete = tidy_get_error_buffer;
+        $this->CreateLog($request->user()->id, 'users', 3 ,'');
+        return response()->json([
+            "status"=>"success",
+            "message" => "El usuario se ha eliminado satisfactoriamente.", 
+            "data" => true 
+        ], 200);
     }
 
     public function chenge_company(Request $request, $id)
