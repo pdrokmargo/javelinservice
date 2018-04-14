@@ -194,7 +194,6 @@ class DeliveryContractsController extends Controller
             $data = \App\Models\DeliveryContract::find($id);
             $data->delete = true;
             $data->save();
-            return response()->json([ "destroy" => true], 200);
             $this->CreateLog($request->user()->id, 'delivery-contracts', 3,'');
             DB::commit();
             return response()->json([ 
