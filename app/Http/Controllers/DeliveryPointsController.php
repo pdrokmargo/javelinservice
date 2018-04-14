@@ -134,7 +134,7 @@ class DeliveryPointsController extends Controller
         try
         {
             $data = \App\Models\DeliveryPoint::find($id);
-            $data->delete = false;
+            $data->delete = true;
             $data->save();
             DB::commit();
             $this->CreateLog($request->user()->id, 'delivery-points', 3,'');
