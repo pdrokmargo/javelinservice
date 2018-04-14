@@ -24,10 +24,10 @@ class ProductsController extends Controller
 
             $query = new \App\Models\Product();
             if ($search!='') {
-                $query = $query->whereRaw("code like ? or lower(products.name) like ? or lower(description) like ? lower(comercial_name) like ? or (case when state=true then 'activo' else 'inactivo' end) like ?", array($search, $search, $search, $search, $search))
+                $query = $query->whereRaw("delete = false and code like ? or lower(products.name) like ? or lower(description) like ? lower(comercial_name) like ? or (case when state=true then 'activo' else 'inactivo' end) like ?", array($search, $search, $search, $search, $search))
                 ->orderBy($ordername, $ordertype);
             }else{
-                $query=$query->orderBy($ordername, $ordertype);
+                $query=$query->where('delete', false)->orderBy($ordername, $ordertype);
             } 
 
             $data=[];  
@@ -53,17 +53,25 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        try{
-            
+        DB::beginTransaction();
+        try
+        {
             $data = json_decode($request->data, true);
-            // $data['code'] = \App\Functions\Functions::GUID();
             $product=\App\Models\Product::create($data);
-        
-            return response()->json(['status'=>'success', 
-                                  "message"=>'El producto se ha registrado satisfactoriamente.', 
-                                  "data" => $product ], 200);
-        } catch (Exception $e) {
-            return 'Error: ' . $e->getMessage();
+            $this->CreateLog($request->user()->id, 'product', 1,'');
+            DB::commit();
+            return response()->json([ 
+                "store" => true, 
+                "message" => "Registro almacenado correctamente" 
+            ], 200);
+        }
+        catch (Exception $e) 
+        { 
+            DB::rollback();
+            return response()->json([ 
+                "store" => false, 
+                "message" => "Error al intentar almacenar el nuevo registro" 
+            ], 400);
         }
     }
 
@@ -89,11 +97,28 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data_new = json_decode($request->data,true);
-        $data_old = \App\Models\Product::find($id);
-        $data_old->fill($data_new);
-        $data_old->save();
-        return response()->json([ "update" => true], 200);
+        DB::beginTransaction();
+        try
+        {
+            $data_new = json_decode($request->data,true);
+            $data_old = \App\Models\Product::find($id);
+            $data_old->fill($data_new);
+            $data_old->save();
+            $this->CreateLog($request->user()->id, 'product', 2,'');
+            DB::commit();
+            return response()->json([ 
+                "update" => true, 
+                "message" => "Registro actualizado correctamente" 
+            ], 200);
+        }
+        catch (Exception $e) 
+        {
+            DB::rollback();
+            return response()->json([ 
+                "update" => false, 
+                "message" => "Error al intentar actualizar el registro" 
+            ], 400);
+        }  
     }
 
     /**
@@ -102,11 +127,28 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $data = \App\Models\Product::find($id);
-        $data->state = false;
-        $data->save();
-        return response()->json([ "destroy" => true], 200);
+        DB::beginTransaction();
+        try
+        {
+            $data = \App\Models\Product::find($id);
+            $data->delete = true;
+            $data->save();
+            $this->CreateLog($request->user()->id, 'product', 3,'');
+            DB::commit();
+            return response()->json([ 
+                "delete" => true, 
+                "message" => "Registro eliminado correctamente" 
+            ], 200);
+        }
+        catch (Exception $e) 
+        {
+            DB::rollback();
+            return response()->json([ 
+                "delete" => false, 
+                "message" => "Error al intentar eliminar el registro" 
+            ], 400);
+        }        
     }
 }

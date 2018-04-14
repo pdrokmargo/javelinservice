@@ -174,7 +174,7 @@ class DeliveryContractsController extends Controller
         { 
             DB::rollback();
             return response()->json([ 
-                "store" => false, 
+                "update" => false, 
                 "message" => "Error al intentar actualizar el registro" 
             ], 400);
         }

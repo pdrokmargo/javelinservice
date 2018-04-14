@@ -25,7 +25,8 @@ class PharmaceuticalDrug extends Model
 		'is_regulated',
 		'regulated_price',
 		'storage_condition_id',
-		'state'
+		'state',
+		'delete'
     ];
 	protected $hidden = [];
 

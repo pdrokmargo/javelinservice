@@ -108,8 +108,8 @@ class AffiliatesController extends Controller
             $data_old = \App\Models\Affiliate::find($id);
             $data_old->fill($data_new);
             $data_old->save();
-            DB::commit();
             $this->CreateLog($request->user()->id, 'affiliates', 2,'');
+            DB::commit();
             return response()->json([ 
                 "update" => true, 
                 "message" => "Registro actualizado correctamente" 
@@ -119,7 +119,7 @@ class AffiliatesController extends Controller
         { 
             DB::rollback();
             return response()->json([ 
-                "store" => false, 
+                "update" => false, 
                 "message" => "Error al intentar actualizar el registro" 
             ], 400);
         }
@@ -139,11 +139,11 @@ class AffiliatesController extends Controller
             $data = \App\Models\Affiliate::find($id);
             $data->delete = true;
             $data->save();    
-            DB::commit();
             $this->CreateLog($request->user()->id, 'affiliates', 3,'');
-            return response()->json([ 
-                "delete" => true, 
-                "message" => "Registro eliminado correctamente" 
+            DB::commit();
+            return response()->json([
+                "delete" => true,
+                "message" => "Registro eliminado correctamente"
             ], 200);
         } 
         catch (Exception $e) 

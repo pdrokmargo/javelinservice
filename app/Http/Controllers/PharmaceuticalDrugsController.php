@@ -35,10 +35,10 @@ class PharmaceuticalDrugsController extends Controller
             ->select(DB::raw('pd.id, pd.name, ra.value as routes_administration, df.value as dosage_form, pd.state, pd.is_pos'));*/
 
             if ($search!='') {
-                $query=$query->whereRaw("(lower(pd.name) like ? or pd.code like ? or (case when pd.state=true then 'activo' else 'inactivo' end) like ?)", array($search, $search, $search))
+                $query=$query->whereRaw("delete = false and (lower(pd.name) like ? or pd.code like ? or (case when pd.state=true then 'activo' else 'inactivo' end) like ?)", array($search, $search, $search))
                 ->orderBy($ordername, $ordertype);
             }else{
-                $query=$query->orderBy($ordername, $ordertype);
+                $query=$query->where('delete', false)->orderBy($ordername, $ordertype);
             }          
 
             $data=[];  
@@ -64,21 +64,30 @@ class PharmaceuticalDrugsController extends Controller
      */
     public function store(Request $request)
     {   
-        try{
+        DB::beginTransaction();
+        try
+        {
             $data = json_decode($request->data, true);
             $id = \App\Models\PharmaceuticalDrug::create($data["drug"])->id;  
-            
             foreach ($data["active_ingredients"] as $i) {
                 $i["pharmaceutical_drug_id"] = $id;
                 $i["active_ingredient_id"] = $i["id"];
                 \App\Models\ActiveIngredientsPharmaceuticalDrugs::create($i);
-            }          
+            }
+            $this->CreateLog($request->user()->id, 'pharmaceutical-drug', 1,'');
+            DB::commit();
             return response()->json([
-                'status'=>'success', 
-                "message"=>'El medicamento se ha registrado satisfactoriamente.'
+                "store" => true, 
+                "message" => "Registro almacenado correctamente" 
             ], 200);
-        } catch (Exception $e) {
-            return 'Error: ' . $e->getMessage();
+        }
+        catch (Exception $e) 
+        { 
+            DB::rollback();
+            return response()->json([ 
+                "store" => false, 
+                "message" => "Error al intentar almacenar el nuevo registro" 
+            ], 400);
         }
     }
 
@@ -117,7 +126,9 @@ class PharmaceuticalDrugsController extends Controller
      */
     public function update(Request $request, $id)
     { 
-        try{
+        DB::beginTransaction();
+        try
+        {
             $data_new = json_decode($request->data,true);
             $data_old = \App\Models\PharmaceuticalDrug::find($id);
             $data_old->fill($data_new["drug"]);
@@ -131,13 +142,20 @@ class PharmaceuticalDrugsController extends Controller
                 \App\Models\ActiveIngredientsPharmaceuticalDrugs::create($i);
             }
 
+            $this->CreateLog($request->user()->id, 'pharmaceutical-drug', 2,'');
+            DB::commit();
             return response()->json([
-                'status'=>'success', 
-                "message"=>'El medicamento se ha actualizado satisfactoriamente.', 
-                "data" => $data_old 
+                "update" => true, 
+                "message" => "Registro actualizado correctamente" 
             ], 200);
-        } catch (Exception $e) {
-            return 'Error: ' . $e->getMessage();
+        } 
+        catch (Exception $e) 
+        {
+            DB::rollback();
+            return response()->json([ 
+                "update" => false, 
+                "message" => "Error al intentar actualizar el registro" 
+            ], 400);
         }
     }
 
@@ -147,11 +165,28 @@ class PharmaceuticalDrugsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $data = \App\Models\PharmaceuticalDrug::find($id);
-        $data->state = false;
-        $data->save();
-        return response()->json([ "destroy" => true], 200);
+        DB::beginTransaction();
+        try
+        {
+            $data = \App\Models\PharmaceuticalDrug::find($id);
+            $data->delete = true;
+            $data->save();
+            DB::commit();
+            $this->CreateLog($request->user()->id, 'pharmaceutical-drug', 3,'');
+            return response()->json([ 
+                "delete" => true, 
+                "message" => "Registro eliminado correctamente" 
+            ], 200);
+        } 
+        catch (Exception $e) 
+        { 
+            DB::rollback();
+            return response()->json([ 
+                "delete" => false, 
+                "message" => "Error al intentar eliminar el registro" 
+            ], 400);
+        }
     }
 }

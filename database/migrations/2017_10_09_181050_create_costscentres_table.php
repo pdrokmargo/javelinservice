@@ -30,7 +30,8 @@ class CreateCostscentresTable extends Migration
 
             $table->integer('company_id');
 
-            $table->boolean('state');
+            $table->boolean('state')->default(true);
+            $table->boolean('delete')->default(false);
             
             //$table->foreign('costcentregroup_id')->references('id')->on('collections_values');            
             //$table->foreign('$table->integer('costcentretype_id');')->references('id')->on('collections_values');

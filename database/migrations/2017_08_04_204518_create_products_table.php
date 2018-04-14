@@ -46,7 +46,8 @@ class CreateProductsTable extends Migration
             $table->integer('security_time');
             $table->integer('covered_period');
             $table->integer('replacment_time');
-            $table->boolean('state')->default(false);
+            $table->boolean('state')->default(true);
+            $table->boolean('delete')->default(false);
             $table->uuid('pharmaceutical_drug_id');
 
             //Timestamps

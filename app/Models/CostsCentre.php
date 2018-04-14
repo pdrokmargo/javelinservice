@@ -9,15 +9,18 @@ class CostsCentre extends Model
     public $timestamps = false;
     protected $table = 'costscentres';
     public $with = array('costcentretype','costcentregroup');
-    protected $fillable = [	'name',
-							'code',
-							'description',
-							'costcentretype_id',
-							'root',
-							'operation_cost_centre_id',
-							'costcentregroup_id',
-			   				'company_id',	
-							'state'];
+    protected $fillable = [	
+		'name',
+		'code',
+		'description',
+		'costcentretype_id',
+		'root',
+		'operation_cost_centre_id',
+		'costcentregroup_id',
+		'company_id',	
+		'state',
+		'delete'
+	];
 
     public function costcentretype()
 	{
