@@ -47,7 +47,9 @@ class PharmaceuticalDrug extends Model
 				$_c = 0;
 				$concentration = $concentration + (float)$c->concentration;
 			}
-		}		
+		}else{
+			$arrConcentration = [];
+		}
         return $concentration;
     }
 

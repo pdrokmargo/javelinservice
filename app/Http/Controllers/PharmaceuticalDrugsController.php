@@ -27,7 +27,7 @@ class PharmaceuticalDrugsController extends Controller
             ->join('collections_values as ra', 'ra.id', '=', 'pd.routes_administration_id')
             ->select(DB::raw('pd.id, pd.name, ra.value as routes_administration, df.value as dosage_form, pd.state, pd.is_pos'));
             
-            $query = $query->append(['concentration']);            
+            //$query = $query->append(['concentration']);            
 
             /*
             $query = DB::table('pharmaceutical_drugs as pd')
