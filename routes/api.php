@@ -32,7 +32,7 @@ Route::middleware('auth:api')->group(function () {
     });
 
     Route::resource('users', 'UsersController');
-    Route::post('users/search/by/{column}', 'UsersController@searchBy');
+    Route::get('users/search/by/{column}/{data}', 'UsersController@searchBy');
     Route::get('users/bytype/{type}', 'UsersController@indexType');
     Route::put('users/change/password/{username}', 'UsersController@change_password');
     Route::put('users/chenge_company/{id}', 'UsersController@chenge_company');

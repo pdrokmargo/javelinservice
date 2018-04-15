@@ -288,13 +288,12 @@ class UsersController extends Controller
       }
     }
 
-    public function searchBy(Request $request, $column)
+    public function searchBy($column, $data)
     {
-        $data = json_decode($request->data, true);
-        $data = \App\Models\User::where($column, $data["data"])->get();
+        $data = \App\Models\User::where($column, $data)->get();
         return response()->json([
             "data" => $data
-        ],200);
+        ]);
     }
     
 }
