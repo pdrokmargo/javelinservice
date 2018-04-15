@@ -293,7 +293,7 @@ class UsersController extends Controller
         $data = \App\Models\User::where($column, $data)->get();
         return response()->json([
             "data" => $data
-        ]);
+        ],200);
     }
     
 }
