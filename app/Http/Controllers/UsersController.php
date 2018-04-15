@@ -277,12 +277,23 @@ class UsersController extends Controller
         $user->company_default_id = $data['company_id'];
         $user->save();
 
-        return response()->json(["status"=>"success",  
-                                  "message" => "La usuario ha cambiado su empresa satisfactoriamente.", "data" => $user ], 200);
+        return response()->json([
+            "status" => "success",
+            "message" => "La usuario ha cambiado su empresa satisfactoriamente.", 
+            "data" => $user 
+        ], 200);
 
       } catch (Exception $e) {
         return 'Error: ' . $e->getMessage();
       }
+    }
+
+    public function searchBy($column, $data)
+    {
+        $data = \App\Models\User::where($column, $data)->get();
+        return response()->json([
+            "data" => $data
+        ]);
     }
     
 }

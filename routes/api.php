@@ -30,12 +30,15 @@ Route::middleware('auth:api')->group(function () {
                                   "message"=>'El centro de costo se ha registrado satisfactoriamente.', 
                                   "data" => $request->user()->load('usersprivileges') ], 200);
     });
+
     Route::resource('users', 'UsersController');
+    Route::get('users/search/by/{column}/{data}', 'UsersController@searchBy');
     Route::get('users/bytype/{type}', 'UsersController@indexType');
-    
-    Route::resource('notification', 'NotificationsController');
     Route::put('users/change/password/{username}', 'UsersController@change_password');
     Route::put('users/chenge_company/{id}', 'UsersController@chenge_company');
+
+
+    Route::resource('notification', 'NotificationsController');
     Route::resource('userprofile', 'UserProfilesController');
     Route::resource('configurations', 'ConfigurationsController');
     Route::resource('audit', 'AuditController');
