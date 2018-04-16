@@ -56,7 +56,10 @@ class ActiveIngredientsController extends Controller
         }
         
         $id = \App\Models\ActiveIngredient::create($data);
-        return response()->json([ "store" => true ], 200);
+        return response()->json([ 
+            "store" => true,
+            "message" => "Registro almacenado correctamente" 
+        ], 200);
     }
 
     /**
