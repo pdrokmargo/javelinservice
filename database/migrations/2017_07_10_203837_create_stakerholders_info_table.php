@@ -31,6 +31,7 @@ class CreateStakerholdersInfoTable extends Migration
             $table->string('phone_number');
             $table->string('email');
             $table->boolean('status')->default(true);
+            $table->boolean('delete')->default(false);
             $table->primary('id');
         });
     }

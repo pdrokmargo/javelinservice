@@ -28,7 +28,8 @@ class StakeholdersInfo extends Model
         'address',
         'phone_number',
         'email',
-        'status'
+        'status',
+        'delete'
     ];
     protected $hidden = [];
 

@@ -46,13 +46,11 @@ class ActiveIngredientsController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|unique:active_ingredients',
-        ]);
-        if ($validator->fails()) {
+        $exist = \App\Models\ActiveIngredient::where('name',$data["name"])->first();
+        if($exist){
             return response()->json([ 
                 "store" => false, 
-                "message" => "El nombre del ingrediente ya se encuentra registrodo"
+                "message" => "El nombre del ingrediente ya se encuentra registrodo",
             ], 400);
         }
         $data = json_decode($request->data, true);

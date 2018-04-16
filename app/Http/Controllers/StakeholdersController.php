@@ -261,15 +261,20 @@ class StakeholdersController extends Controller
                     'stakeholder_info_id'=>$id
                 ));
             }
-
+            $this->CreateLog($request->user()->id, 'stakeholders', 1,'');
             DB::commit();
 
-            return response()->json(["status"=>"success",  
-                                    "message" => "El registro se ha guardado satisfactoriamente.", "data" => $id ], 200 ); 
+            return response()->json([ 
+                "store" => true, 
+                "message" => "Registro almacenado correctamente" 
+            ], 200);
             
         } catch (Exception $e) {
             DB::rollback();
-            return 'Error: ' . $e->getMessage();
+            return response()->json([ 
+                "store" => false, 
+                "message" => "Error al intentar almacenar el nuevo registro" 
+            ], 400);
         }       
     }
 
@@ -419,15 +424,19 @@ class StakeholdersController extends Controller
                     ));
                 }               
             }
-
+            $this->CreateLog($request->user()->id, 'stakeholders', 2,'');
             DB::commit();
-
-            return response()->json(["status"=>"success",  
-                                    "message" => "El registro se ha actualizado satisfactoriamente.", "data" => $id ], 200 ); 
+            return response()->json([ 
+                "update" => true, 
+                "message" => "Registro actualizado correctamente" 
+            ], 200);
             
         } catch (Exception $e) {
             DB::rollback();
-            return 'Error: ' . $e->getMessage();
+            return response()->json([ 
+                "update" => false, 
+                "message" => "Error al intentar actualizar el registro" 
+            ], 400);
         }     
                
     }
@@ -564,9 +573,26 @@ class StakeholdersController extends Controller
      */
     public function destroy($id)
     {
-        $user = \App\Models\StakeholdersInfo::find($id);
-        $this->CreateLog($request->user()->id, 'stakeholders', 3,json_encode($user));
-        $user->delete();
-        return response()->json([ "destroy" => true], 200);
+        DB::beginTransaction();
+        try
+        {
+            $user = \App\Models\StakeholdersInfo::find($id);
+            $data->delete = true;
+            $data->save();    
+            $this->CreateLog($request->user()->id, 'stakeholders', 3,'');
+            DB::commit();
+            return response()->json([
+                "delete" => true,
+                "message" => "Registro eliminado correctamente"
+            ], 200);
+        } 
+        catch (Exception $e) 
+        { 
+            DB::rollback();
+            return response()->json([ 
+                "delete" => false, 
+                "message" => "Error al intentar eliminar el registro" 
+            ], 400);
+        }
     }
 }
