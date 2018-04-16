@@ -46,6 +46,7 @@ class ActiveIngredientsController extends Controller
      */
     public function store(Request $request)
     {
+        $data = json_decode($request->data, true);
         $exist = \App\Models\ActiveIngredient::where('name',$data["name"])->first();
         if($exist){
             return response()->json([ 
@@ -53,7 +54,7 @@ class ActiveIngredientsController extends Controller
                 "message" => "El nombre del ingrediente ya se encuentra registrodo",
             ], 400);
         }
-        $data = json_decode($request->data, true);
+        
         $id = \App\Models\ActiveIngredient::create($data);
         return response()->json([ "store" => true ], 200);
     }
