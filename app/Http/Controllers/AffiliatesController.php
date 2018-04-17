@@ -27,9 +27,9 @@ class AffiliatesController extends Controller
             ->select(DB::raw("a.id, (a.firstname || ' ' || a.middlename || ' ' || a.lastname1 || ' ' || a.lastname2) as name, dc.name as contract, cv.value as contracts_payment_method, a.state"));
 
             if ($search != '') {
-                $query = $query->whereRaw("delete = false and (lower(a.firstname) || ' ' || lower(a.middlename) || ' ' || lower(a.lastname1) || ' ' || lower(a.lastname2)) like ? or lower(dc.name) like ? or lower(cv.value) like ?", array($search, $search, $search))->orderBy($ordername, $ordertype);
+                $query = $query->whereRaw("a.delete = false and (lower(a.firstname) || ' ' || lower(a.middlename) || ' ' || lower(a.lastname1) || ' ' || lower(a.lastname2)) like ? or lower(dc.name) like ? or lower(cv.value) like ?", array($search, $search, $search))->orderBy($ordername, $ordertype);
             } else {
-                $query = $query->where('delete',false)->orderBy($ordername, $ordertype);
+                $query = $query->where('a.delete',false)->orderBy($ordername, $ordertype);
             }          
 
             $data=[];  
