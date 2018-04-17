@@ -39,7 +39,7 @@ class Product extends Model
 		'covered_period',
 		'replacment_time',
 		'state',
-		'pharmaceutical_drug_id',
+		'pharmaceutical_drug',
 		'delete'
 	];
 
