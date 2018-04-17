@@ -28,17 +28,13 @@ class CreateProductsTable extends Migration
             $table->double('cost')->nullable();
             $table->integer('packaging_unit_id'); //collection packaging_unit
             $table->integer('content_unit_id'); //collection content_unit
-
             $table->boolean('batch_control');
             $table->boolean('serials_control');
             $table->boolean('institutional_use');
             $table->boolean('comercial');
-
             $table->uuid('manufacturer_id');
             $table->uuid('supplier_id');
             $table->uuid('importer_id');
-            
-            
             $table->uuid('sanitary_registration_holder_id');
             $table->string('sanitary_registration');
             $table->date('validity_sanitary_registration');
@@ -48,11 +44,8 @@ class CreateProductsTable extends Migration
             $table->integer('replacment_time');
             $table->boolean('state')->default(true);
             $table->boolean('delete')->default(false);
-            $table->uuid('pharmaceutical_drug_id');
-
-            //Timestamps
+            $table->json('pharmaceutical_drug');
             $table->timestamps();
-
             $table->primary('id');
         });
     }

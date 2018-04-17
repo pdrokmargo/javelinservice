@@ -58,6 +58,7 @@ class ProductsController extends Controller
         try
         {
             $data = json_decode($request->data, true);
+            $data['pharmaceutical_drug'] = json_encode($data['pharmaceutical_drug']);
             $product=\App\Models\Product::create($data);
             $this->CreateLog($request->user()->id, 'product', 1,'');
             DB::commit();
@@ -102,6 +103,7 @@ class ProductsController extends Controller
         try
         {
             $data_new = json_decode($request->data,true);
+            $data_new['pharmaceutical_drug'] = json_encode($data_new['pharmaceutical_drug']);
             $data_old = \App\Models\Product::find($id);
             $data_old->fill($data_new);
             $data_old->save();
