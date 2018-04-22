@@ -16,7 +16,8 @@ class CreateUserProfilesTable extends Migration
         Schema::create('user_profiles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('up_description');
-            $table->boolean('up_state');
+            $table->boolean('up_state')->defaut(true);
+            $table->boolean('delete')->defaut(false);
         });
     }
 

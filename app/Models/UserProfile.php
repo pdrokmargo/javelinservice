@@ -11,7 +11,8 @@ class UserProfile extends Model
     public $with = array('privileges');
     protected $fillable = [
         'up_description',
-        'up_state'
+        'up_state',
+        'delete'
     ];
     protected $hidden = [];
     public function privileges() {

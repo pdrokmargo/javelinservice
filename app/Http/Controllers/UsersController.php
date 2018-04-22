@@ -54,11 +54,11 @@ class UsersController extends Controller
                 ->select(DB::raw('u.id, u.firstname, u.lastname, u.username, u.email, u.password, u.status, u.last_access, u.url_profile_photo, u.company_default_id, up.up_description as user_profile, c.name as company'));
 
             if ($search!='') {
-                $query=$query->whereRaw("delete = false and concat(lower(u.firstname), ' ', lower(u.lastname)) like ? or lower(u.username) like ? or 
+                $query=$query->whereRaw("u.delete = false and concat(lower(u.firstname), ' ', lower(u.lastname)) like ? or lower(u.username) like ? or 
                     lower(up.up_description) like ? or lower(c.name) like ? 
                     or (case when u.status=true then 'activo' else 'inactivo' end) like ?", array($search, $search, $search, $search))->orderBy($ordername, $ordertype);
             }else{
-                $query=$query->where('delete', false)->orderBy($ordername, $ordertype);
+                $query=$query->where('u.delete', false)->orderBy($ordername, $ordertype);
             } 
 
             $data=[];  

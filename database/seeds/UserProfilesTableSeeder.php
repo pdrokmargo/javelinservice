@@ -12,12 +12,12 @@ class UserProfilesTableSeeder extends Seeder
     public function run()
     {
         DB::table('user_profiles')->insert([
-            ['up_description' => 'Super Admin', 'up_state' => true],
-            ['up_description' => 'Admin', 'up_state' => true],
-            ['up_description' => 'Empleado', 'up_state' => true],
-            ['up_description' => 'Cliente', 'up_state' => true],
-            ['up_description' => 'Proveedor', 'up_state' => true],
-            ['up_description' => 'Regente', 'up_state' => true]
+            ['up_description' => 'Super Admin', 'up_state' => true, 'delete' => false],
+            ['up_description' => 'Admin',       'up_state' => true, 'delete' => false],
+            ['up_description' => 'Empleado',    'up_state' => true, 'delete' => false],
+            ['up_description' => 'Cliente',     'up_state' => true, 'delete' => false],
+            ['up_description' => 'Proveedor',   'up_state' => true, 'delete' => false],
+            ['up_description' => 'Regente',     'up_state' => true, 'delete' => false]
         ]);
     }
 }

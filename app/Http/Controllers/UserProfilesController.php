@@ -23,10 +23,10 @@ class UserProfilesController extends Controller
 
             $query = new \App\Models\UserProfile();
             if ($search!='') {
-                $query = $query->whereRaw("up_description like ? or (case when up_state=true then 'activo' else 'inactivo' end) like ?", array($search, $search))
+                $query = $query->whereRaw("delete = false and up_description like ? or (case when up_state=true then 'activo' else 'inactivo' end) like ?", array($search, $search))
                 ->orderBy($ordername, $ordertype);
             }else{
-                $query=$query->orderBy($ordername, $ordertype);
+                $query=$query->where('delete', false)->orderBy($ordername, $ordertype);
             } 
 
             $data=[];  
@@ -71,11 +71,17 @@ class UserProfilesController extends Controller
             $this->CreateLog($request->user()->id, 'user-profiles', 1,'');
 
             DB::commit();
-            return response()->json(["status"=>"success", "message"=>'El perfil de usuario fue guardado satisfactoriamente!', "data" => true ], 200);
+            return response()->json([ 
+                "store" => true, 
+                "message" => "Registro almacenado correctamente" 
+            ], 200);
 
         } catch (Exception $e) {
             DB::rollback();
-            return 'Error:'.$e->getMessage();
+            return response()->json([ 
+                "store" => false, 
+                "message" => "Error al intentar almacenar el nuevo registro" 
+            ], 400);
         }
     }
 
@@ -138,13 +144,19 @@ class UserProfilesController extends Controller
                 ));
             } 
 
-            $this->CreateLog($request->user()->id, 'user-profiles', 3,'');
+            $this->CreateLog($request->user()->id, 'user-profiles', 2,'');
             DB::commit();
-            return response()->json(["status"=>"success", "message"=>'El perfil de usuario fue actualizado satisfactoriamente!', "data" => true ], 200);
+            return response()->json([ 
+                "update" => true, 
+                "message" => "Registro actualizado correctamente" 
+            ], 200);
 
         } catch (Exception $e) {
             DB::rollback();
-            return 'Error:'.$e->getMessage();
+            return response()->json([ 
+                "update" => false, 
+                "message" => "Error al intentar actualizar el registro" 
+            ], 400);
         }
     }
 
@@ -154,12 +166,28 @@ class UserProfilesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $data = \App\Models\UserProfile::find($id);
-        $data->up_state = false;
-        $data->save();
-        $this->CreateLog($request->user()->id, 'userprofiles', 3,json_encode($data));
-        return response()->json([ 'destroy' => true ], 200);
+        DB::beginTransaction();
+        try
+        {
+            $data = \App\Models\UserProfile::find($id);
+            $data->delete = false;
+            $data->save();
+            $this->CreateLog($request->user()->id, 'userprofiles', 3,json_encode($data));
+            DB::commit();
+            return response()->json([
+                "delete" => true,
+                "message" => "Registro eliminado correctamente"
+            ], 200);
+        } 
+        catch (Exception $e) 
+        { 
+            DB::rollback();
+            return response()->json([ 
+                "delete" => false, 
+                "message" => "Error al intentar eliminar el registro" 
+            ], 400);
+        }
     }
 }
