@@ -45,7 +45,7 @@ class PharmaceuticalDrug extends Model
 		if($arrConcentration){
 			
 			$type = \App\Models\CollectionsValues::find( $arrConcentration[0]["measurement_unit_id"]);
-			$type = $type->value;
+			$type = $type->code;
 
 			foreach ($arrConcentration as $c) {
 				$_c = 0;
