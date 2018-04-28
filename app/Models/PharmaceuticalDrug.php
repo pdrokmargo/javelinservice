@@ -43,6 +43,9 @@ class PharmaceuticalDrug extends Model
 		$concentration = 0;
 		$arrConcentration = \App\Models\ActiveIngredientsPharmaceuticalDrugs::where('pharmaceutical_drug_id',$this->id)->get();
 		if($arrConcentration){
+			
+			$type = \App\Models\CollectionsValues::where('collection_id', $arrConcentration[0]["measurement_unit_id"])->name;
+
 			foreach ($arrConcentration as $c) {
 				$_c = 0;
 				$concentration = $concentration + (float)$c->concentration;
@@ -50,7 +53,7 @@ class PharmaceuticalDrug extends Model
 		}else{
 			$arrConcentration = [];
 		}
-        return $concentration;
+        return $concentration.' '.$type;
     }
 
 }
