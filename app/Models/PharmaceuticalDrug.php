@@ -54,7 +54,7 @@ class PharmaceuticalDrug extends Model
 		}else{
 			$arrConcentration = [];
 		}
-        return $concentration.' '.$type;
+        return $concentration.' '.$arrConcentration[0]["measurement_unit_id"];
     }
 
 }
