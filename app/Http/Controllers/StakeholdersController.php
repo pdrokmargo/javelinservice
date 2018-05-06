@@ -181,32 +181,23 @@ class StakeholdersController extends Controller
     {   
         DB::beginTransaction(); 
         try {
-            
             $data = json_decode($request->data,true);
-                       
-            $geoLocation = \App\Models\Geolocation::where('country_id', $data['country_id'])
-            ->where('department_id', $data['department_id'])
-            ->where('city_id', $data['city_id'])
-            ->first();  
-
-
+            $stakeholders_info = $data["stakeholders_info"];
+            $comercial_stakeholders_info = $data["comercial_stakeholders_info"];
             $customer = $data["customer"];
+            $employee = $data["employee"];
             $supplier = $data["supplier"];
-            // $sales_representatives = $data["sales_representatives"];
-            // $employees = $data["employees"];
-            $comercial_stakeholders_info = $data["comercial_stakeholders_info"];    
-            if($geoLocation){
-                $data['geolocation_id'] = $geoLocation->id;
-            }
-            
-            $id = \App\Models\StakeholdersInfo::create($data)->id;
-            
-            if ($data['person_type_id']==39)/*persona juridica*/ {
-                $comercial_stakeholders_info['stakeholder_info_id']=$id;
-                 \App\Models\ComercialStakeholdersInfo::create($comercial_stakeholders_info);
-            }           
-
-            if ($data['is_customer']) {
+            $profile = $data["profile"];
+            $stakeholder_info_id = \App\Models\StakeholdersInfo::create($stakeholders_info)->id;
+            if ($stakeholders_info['person_type_id'] == 39) { $comercial_stakeholders_info['stakeholder_info_id'] = $stakeholder_info_id; \App\Models\ComercialStakeholdersInfo::create($comercial_stakeholders_info); }           
+            if ($profile['is_supplier']) { $supplier['stakeholder_info_id'] = $stakeholder_info_id; \App\Models\Supplier::create($supplier); }
+            if ($profile['is_employee']) { \App\Models\Employee::create([ 'stakeholder_info_id' => $stakeholder_info_id ]); }
+            if ($profile['is_seller']) { \App\Models\SalesRepresentatives::create(['stakeholder_info_id' => $stakeholder_info_id ]); }
+            if ($profile['is_maker']) { \App\Models\Maker::create(['stakeholder_info_id' => $stakeholder_info_id ]); }
+            if ($profile['is_importer']) { \App\Models\Importer::create([ 'stakeholder_info_id' => $stakeholder_info_id ]); }
+            if ($profile['is_holder_sanitary']) { \App\Models\HealthRecordHolder::create(['stakeholder_info_id' => $stakeholder_info_id ]); }
+            if ($profile['is_customer']) 
+            {
                 $destinationPath = public_path().'/customer_documents'; 
                 if (count($customer['institutional_sale_contract'])>0) {
                     foreach ($customer['institutional_sale_contract'] as $key => $item) {
@@ -221,60 +212,17 @@ class StakeholdersController extends Controller
                             }
                         } 
                     }                    
-                } 
-                             
-                $customer['stakeholder_info_id']=$id;                
+                }
+                
+                $customer['stakeholder_info_id'] = $stakeholder_info_id;                
                 \App\Models\Customers::create($customer);
-            }
-            
-            if ($data['is_employee']) {
-                \App\Models\Employee::create(array(
-                    'stakeholder_info_id'=>$id
-                ));
-            }
-           
-            if ($data['is_supplier']) {
-                $supplier['stakeholder_info_id']=$id;
-                \App\Models\Supplier::create($supplier); 
-            }            
-
-            if ($data['is_seller']) {
-                \App\Models\SalesRepresentatives::create(array(
-                    'stakeholder_info_id'=>$id
-                ));
-            }
-
-            if ($data['is_maker']) {
-                \App\Models\Maker::create(array(
-                    'stakeholder_info_id'=>$id
-                ));
-            }
-
-            if ($data['is_importer']) {
-                \App\Models\Importer::create(array(
-                    'stakeholder_info_id'=>$id
-                ));
-            }
-
-            if ($data['is_holder_sanitary']) {
-                \App\Models\HealthRecordHolder::create(array(
-                    'stakeholder_info_id'=>$id
-                ));
             }
             $this->CreateLog($request->user()->id, 'stakeholders', 1,'');
             DB::commit();
-
-            return response()->json([ 
-                "store" => true, 
-                "message" => "Registro almacenado correctamente" 
-            ], 200);
-            
+            return response()->json([  "store" => true,  "message" => "Registro almacenado correctamente"  ], 200);
         } catch (Exception $e) {
             DB::rollback();
-            return response()->json([ 
-                "store" => false, 
-                "message" => "Error al intentar almacenar el nuevo registro" 
-            ], 400);
+            return response()->json([  "store" => false,  "message" => "Error al intentar almacenar el nuevo registro"  ], 400);
         }       
     }
 

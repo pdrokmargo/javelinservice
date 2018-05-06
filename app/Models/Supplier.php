@@ -11,21 +11,23 @@ class Supplier extends Model
     public $timestamps = false;
     public $with = array('stakeholderInfo');
     public $incrementing = false;
-    protected $casts = ['bank_accounts'=>'json', 'sales_contact'=>'json'];
+    protected $casts = [
+        'bank_accounts'=>'json', 
+        'sales_contact'=>'json'
+    ];
     protected $fillable = [
-        'id',
         'stakeholder_info_id',
+
         'supplier_class_id',
+        'credit_limit',
         'global_discount',
         'payment_condition_id',
-        'purchase_order',
-        'credit_limit',
         'days_early_payment',
-        'discount_early_payment_id',
-        'payment_method_id',
         'days_grace',
+        'payment_method_id',
+        'purchase_order',
         'bank_accounts',
-        'sales_contact',
+        'sales_contact'
     ];
     protected $hidden = [];
    

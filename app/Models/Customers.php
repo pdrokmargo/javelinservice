@@ -10,28 +10,34 @@ class Customers extends Model
     public $timestamps = false;
     protected $table = 'customers';
     public $with = array('stakeholderInfo');
-    protected $casts = ['purchases_contact'=>'json', 'institutional_sale_contract'=>'json', 'controlled_resolution'=>'json', 'monopoly_resolution'=>'json', 'debt_contact'=>'json', 'shipping_points'=>'json'];
+    protected $casts = [
+        'purchases_contact'=>'json', 
+        'institutional_sale_contract'=>'json', 
+        'controlled_resolution'=>'json', 
+        'monopoly_resolution'=>'json', 
+        'debt_contact'=>'json', 
+        'shipping_points'=>'json'
+    ];
     public $incrementing = false;  
     protected $fillable = [
-        'id',
         'stakeholder_info_id',
+
         'customer_class_id',
-        'sales_representative_id',
-        'purchases_contact',
-        'global_discount',
         'debt_type_id',
-        'payment_condition_id',
-        'discount_early_payment_id',
-        'days_early_payment',
         'credit_limit',
+        'sales_representative_id',
+        'global_discount',
+        'payment_condition_id',
         'credit_limit_blocking',
-        'late_payment_blocking',
+        'days_early_payment',
         'days_grace',
+        'purchases_contact',
+        'debt_contact',
+        'shipping_points',
         'institutional_sale_contract',
         'controlled_resolution',
         'monopoly_resolution',
-        'debt_contact',
-        'shipping_points'
+        'late_payment_blocking',
     ];
 
     public function stakeholderInfo() {

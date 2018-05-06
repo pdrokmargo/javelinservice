@@ -171,7 +171,7 @@ class UsersController extends Controller
             DB::commit();
             return response()->json([
                 "store"=>true,  
-                "message" => "Registro eliminado correctamente",
+                "message" => "Registro creado correctamente",
                 "data" => $id 
             ], 200 );    
 
@@ -179,7 +179,7 @@ class UsersController extends Controller
             DB::rollback();
             return response()->json([ 
                 "store" => false, 
-                "message" => "Error al intentar eliminar el registro" 
+                "message" => "Error al intentar crear el registro" 
             ], 400);
         }        
     }
