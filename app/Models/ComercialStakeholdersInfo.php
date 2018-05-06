@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class ComercialStakeholdersInfo extends Model
 {
+    use \App\Uuids;
+    
     public $timestamps = false;
     protected $table = 'comercial_stakeholders_info';
     protected $casts = ['codes' => 'json'];

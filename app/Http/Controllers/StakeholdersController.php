@@ -178,9 +178,10 @@ class StakeholdersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
+    {
         DB::beginTransaction(); 
         try {
+
             $data = json_decode($request->data,true);
             $stakeholders_info = $data["stakeholders_info"];
             $comercial_stakeholders_info = $data["comercial_stakeholders_info"];
@@ -220,6 +221,7 @@ class StakeholdersController extends Controller
             $this->CreateLog($request->user()->id, 'stakeholders', 1,'');
             DB::commit();
             return response()->json([  "store" => true,  "message" => "Registro almacenado correctamente"  ], 200);
+            
         } catch (Exception $e) {
             DB::rollback();
             return response()->json([  "store" => false,  "message" => "Error al intentar almacenar el nuevo registro"  ], 400);
