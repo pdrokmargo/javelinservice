@@ -188,7 +188,15 @@ class StakeholdersController extends Controller
             $customer = $data["customer"];
             $employee = $data["employee"];
             $supplier = $data["supplier"];
-            $profile = $data["profile"];
+            $profile = [
+                "is_supplier" => isset($data["profile"]["is_supplier"]) ? $data["profile"]["is_supplier"] : false,
+                "is_employee" => isset($data["profile"]["is_employee"]) ? $data["profile"]["is_employee"] : false,
+                "is_seller" => isset($data["profile"]["is_seller"]) ? $data["profile"]["is_seller"] : false,
+                "is_maker" => isset($data["profile"]["is_maker"]) ? $data["profile"]["is_maker"] : false,
+                "is_importer" => isset($data["profile"]["is_importer"]) ? $data["profile"]["is_importer"] : false,
+                "is_customer" => isset($data["profile"]["is_customer"]) ? $data["profile"]["is_customer"] : false
+            ];
+
             $stakeholder_info_id = \App\Models\StakeholdersInfo::create($stakeholders_info)->id;
             if ($stakeholders_info['person_type_id'] == 39) { $comercial_stakeholders_info['stakeholder_info_id'] = $stakeholder_info_id; \App\Models\ComercialStakeholdersInfo::create($comercial_stakeholders_info); }           
             if ($profile['is_supplier']) { $supplier['stakeholder_info_id'] = $stakeholder_info_id; \App\Models\Supplier::create($supplier); }
@@ -221,7 +229,7 @@ class StakeholdersController extends Controller
             $this->CreateLog($request->user()->id, 'stakeholders', 1,'');
             DB::commit();
             return response()->json([  "store" => true,  "message" => "Registro almacenado correctamente"  ], 200);
-            
+
         } catch (Exception $e) {
             DB::rollback();
             return response()->json([  "store" => false,  "message" => "Error al intentar almacenar el nuevo registro"  ], 400);
