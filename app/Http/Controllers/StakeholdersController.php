@@ -275,7 +275,8 @@ class StakeholdersController extends Controller
                 "comercial_stakeholders_info"   => $comercial_stakeholders_info,
                 "customer"                      => $customer,
                 "employee"                      => $employee,
-                "supplier"                      => $supplier
+                "supplier"                      => $supplier,
+                "profile"                       => $profile
             ]
          ], 200);
        
