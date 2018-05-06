@@ -26,13 +26,13 @@ class CreateCustomersTable extends Migration
             */
             $table->decimal('global_discount');
             $table->integer('debt_type_id'); 
-            $table->integer('payment_condition_id');    
+            $table->integer('payment_condition_id')->nullable();    
             $table->decimal('discount_early_payment')->nullable();
             $table->integer('days_early_payment');
             $table->decimal('credit_limit');
             $table->boolean('credit_limit_blocking');
             $table->boolean('late_payment_blocking');
-            $table->integer('days_grace');
+            $table->integer('days_grace')->nullable();
             $table->json('institutional_sale_contract')->nullable();
             /*json structure
                 integer:contract_number
