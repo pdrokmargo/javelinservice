@@ -35,8 +35,7 @@ class StakeholdersController extends Controller
             "));
             
             if ($search!='') {
-                $query = $query->whereRaw("(lower(firstname) like ? or lower(middlename) like ? or lower(lastname) like ? or lower(legalname) like ? or lower(businessname) like ? or document_number like ?)", array($search, $search, $search, $search, $search, $search))
-                ->orderBy($ordername, $ordertype);
+                $query = $query->whereRaw("(lower(firstname) like ? or lower(middlename) like ? or lower(lastname) like ? or lower(legalname) like ? or lower(businessname) like ? or document_number like ?)", array($search, $search, $search, $search, $search, $search))->orderBy($ordername, $ordertype);
             }else{
                 $query=$query->orderBy($ordername, $ordertype);
             } 
@@ -246,33 +245,39 @@ class StakeholdersController extends Controller
     public function show($id)
     {
         
-        $data = \App\Models\StakeholdersInfo::with('geolocation')->find($id)->toArray();
-        
-        $customers = \App\Models\Customers::where('stakeholder_info_id',$id)->first();
-        $suppliers = \App\Models\Supplier::where('stakeholder_info_id',$id)->first();
-        $sales_representatives = \App\Models\SalesRepresentatives::where('stakeholder_info_id',$id)->first();
-        $employees = \App\Models\Employee::where('stakeholder_info_id',$id)->first();
-        $comercial_stakeholders_info = \App\Models\ComercialStakeholdersInfo::where('stakeholder_info_id',$id)->first();
-        $maker = \App\Models\Maker::where('stakeholder_info_id',$id)->first();
-        $importer = \App\Models\Importer::where('stakeholder_info_id',$id)->first();
-        $health_holder = \App\Models\HealthRecordHolder::where('stakeholder_info_id',$id)->first();
+        $stakeholders_info              = \App\Models\StakeholdersInfo::find($id);
+        $comercial_stakeholders_info    = \App\Models\ComercialStakeholdersInfo::where('stakeholder_info_id',$id)->first();
+        $customer                       = \App\Models\Customers::where('stakeholder_info_id',$id)->first();       
+        $employee                       = \App\Models\Employee::where('stakeholder_info_id',$id)->first();
+        $supplier                       = \App\Models\Supplier::where('stakeholder_info_id',$id)->first();
 
-        $data['is_customer']=  $customers ? true : false;
-        $data['is_supplier']=  $suppliers ? true : false;
-        $data['is_seller']= $sales_representatives ? true : false;
-        $data['is_employee']=$employees ? true : false;
-        $data['is_maker']=$maker ? true : false;
-        $data['is_importer']=$importer ? true : false;
-        $data['is_holder_sanitary']=$health_holder ? true : false;
-        $data['comercial_stakeholders_info']=$comercial_stakeholders_info;
-        $data['customer']=$customers;
-        $data['supplier']=$suppliers;
-        $data['employee']=$employees;
-        $data['sales_representative']=$sales_representatives;
-        $data['maker']=$maker;
-        $data['importer']=$importer;
-        $data['health_record_holder']=$health_holder;
-        return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
+        $is_seller                      = \App\Models\SalesRepresentatives::where('stakeholder_info_id',$id)->first();
+        $maker                          = \App\Models\Maker::where('stakeholder_info_id',$id)->first();
+        $importer                       = \App\Models\Importer::where('stakeholder_info_id',$id)->first();
+        $health_holder                  = \App\Models\HealthRecordHolder::where('stakeholder_info_id',$id)->first();
+
+        $profile = [
+            "is_customer"           => $customer        ? true : false,
+            "is_supplier"           => $supplier        ? true : false,
+            "is_seller"             => $is_seller       ? true : false,
+            "is_employee"           => $employee        ? true : false,
+            "is_maker"              => $maker           ? true : false,
+            "is_importer"           => $importer        ? true : false,
+            "is_holder_sanitary"    => $health_holder   ? true : false,
+            
+        ];
+
+        return response()->json([
+            'status' => 'success', 
+            "message"=>'', 
+            "data" => [
+                "stakeholders_info"             => $stakeholders_info,
+                "comercial_stakeholders_info"   => $comercial_stakeholders_info,
+                "customer"                      => $customer,
+                "employee"                      => $employee,
+                "supplier"                      => $supplier
+            ]
+         ], 200);
        
     }
 
