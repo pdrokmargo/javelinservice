@@ -267,7 +267,7 @@ class StakeholdersController extends Controller
         ];
 
         $department_id = \App\Models\CollectionsValues::where('id', $stakeholders_info["geolocation_id"])->first()->parent_id;
-        $$country_id   = \App\Models\CollectionsValues::where('id', $department_id)->first()->parent_id;
+        $country_id   = \App\Models\CollectionsValues::where('id', $department_id)->first()->parent_id;
 
         return response()->json([
             'status' => 'success', 
