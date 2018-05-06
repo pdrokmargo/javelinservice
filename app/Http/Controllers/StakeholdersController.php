@@ -264,8 +264,10 @@ class StakeholdersController extends Controller
             "is_maker"              => $maker           ? true : false,
             "is_importer"           => $importer        ? true : false,
             "is_holder_sanitary"    => $health_holder   ? true : false,
-            
         ];
+
+        $department_id = \App\Models\CollectionsValues::where('id', $stakeholders_info["geolocation_id"])->parent_id;
+        $$country_id   = \App\Models\CollectionsValues::where('id', $department_id)->parent_id;
 
         return response()->json([
             'status' => 'success', 
@@ -277,7 +279,9 @@ class StakeholdersController extends Controller
                 "employee"                      => $employee,
                 "supplier"                      => $supplier,
                 "profile"                       => $profile
-            ]
+            ],
+            "country_id"    => $country_id,
+            "department_id" => $department_id
          ], 200);
        
     }
