@@ -194,7 +194,8 @@ class StakeholdersController extends Controller
                 "is_seller" => isset($data["profile"]["is_seller"]) ? $data["profile"]["is_seller"] : false,
                 "is_maker" => isset($data["profile"]["is_maker"]) ? $data["profile"]["is_maker"] : false,
                 "is_importer" => isset($data["profile"]["is_importer"]) ? $data["profile"]["is_importer"] : false,
-                "is_customer" => isset($data["profile"]["is_customer"]) ? $data["profile"]["is_customer"] : false
+                "is_customer" => isset($data["profile"]["is_customer"]) ? $data["profile"]["is_customer"] : false,
+                "is_holder_sanitary" => isset($data["profile"]["is_holder_sanitary"]) ? $data["profile"]["is_holder_sanitary"] : false
             ];
 
             $stakeholder_info_id = \App\Models\StakeholdersInfo::create($stakeholders_info)->id;
