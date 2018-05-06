@@ -266,8 +266,8 @@ class StakeholdersController extends Controller
             "is_holder_sanitary"    => $health_holder   ? true : false,
         ];
 
-        $department_id = \App\Models\CollectionsValues::where('id', $stakeholders_info["geolocation_id"])->parent_id;
-        $$country_id   = \App\Models\CollectionsValues::where('id', $department_id)->parent_id;
+        $department_id = \App\Models\CollectionsValues::where('id', $stakeholders_info["geolocation_id"])->first()->parent_id;
+        $$country_id   = \App\Models\CollectionsValues::where('id', $department_id)->first()->parent_id;
 
         return response()->json([
             'status' => 'success', 
