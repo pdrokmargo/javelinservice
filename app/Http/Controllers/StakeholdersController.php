@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use DB;
 use Webpatser\Uuid\Uuid;
-use Illuminate\Support\Facades\Storage;
+use DB;
+
 
 class StakeholdersController extends Controller
 {
@@ -317,8 +318,6 @@ class StakeholdersController extends Controller
             $stakeholders_info_old = \App\Models\StakeholdersInfo::find($id);
             if($stakeholders_info_old)
             {
-                return response()->json($request, 200);
- 
                 $stakeholders_info_old->fill($stakeholders_info);
                 $stakeholders_info_old->save();
 
