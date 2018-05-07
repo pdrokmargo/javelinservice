@@ -366,7 +366,7 @@ class StakeholdersController extends Controller
                     }
                     if (!$profile['is_holder_sanitary']) 
                     { 
-                        $holder_sanitary = \App\Models\HealthRecordHolder::where('stakeholder_info_id', id)->first();
+                        $holder_sanitary = \App\Models\HealthRecordHolder::where('stakeholder_info_id', $id)->first();
                         if($holder_sanitary)
                             $holder_sanitary->delete();
                     }
