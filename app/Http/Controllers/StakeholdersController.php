@@ -317,7 +317,7 @@ class StakeholdersController extends Controller
             $stakeholders_info_old = \App\Models\StakeholdersInfo::find($id);
             if($stakeholders_info_old)
             {
-                return response()->json($data, 200);
+                return response()->json($request, 200);
  
                 $stakeholders_info_old->fill($stakeholders_info);
                 $stakeholders_info_old->save();
