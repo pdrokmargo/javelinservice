@@ -55,6 +55,7 @@ class OperationsCentreController extends Controller
 	*/
     public function store(Request $request)
     {
+        DB::beginTransaction(); 
         try {
         
         $data = json_decode($request->data, true);
@@ -87,12 +88,17 @@ class OperationsCentreController extends Controller
         $openrationCentres->save();
         
         $this->CreateLog($request->user()->id, 'operations-centres', 1,'');
-
-        return response()->json(['status'=>'success', 
-        						  "message"=>'El centro de costo de operaciones se ha registrado satisfactoriamente.', 
-        						  "data" => $openrationCentres ], 200);
+        DB::commit();
+        return response()->json([ 
+            "store" => true, 
+            "message" => "Registro almacenado correctamente" 
+        ], 200);
         } catch (Exception $e) {
-        	return 'Error: ' . $e->getMessage();
+        	DB::rollback();
+            return response()->json([ 
+                "store" => false, 
+                "message" => "Error al intentar almacenar el nuevo registro" 
+            ], 400);
         }
     }
 
@@ -117,6 +123,7 @@ class OperationsCentreController extends Controller
 	*/
     public function update(Request $request, $id)
     {
+        DB::beginTransaction();
         try {
           	
             $data = json_decode($request->data, true);
@@ -136,15 +143,20 @@ class OperationsCentreController extends Controller
                 'company_id' => $data['company_id'],
                 'state' => $data['state']
             ));
+            $data_old->save();
 
-		        $data_old->save();
-
+            DB::commit();
             $this->CreateLog($request->user()->id, 'operations-centres', 2,'');
-
-    		    return response()->json(['status'=>'success', "message"=>'El centro de costo de operaciones fue actualizado satisfactoriamente.', "data" => true ], 200);      
-
+            return response()->json([ 
+                "update" => true, 
+                "message" => "Registro actualizado correctamente" 
+            ], 200);  
         } catch (Exception $e) {
-        		return 'Error: ' . $e->getMessage();
+        	DB::rollback();
+            return response()->json([ 
+                "update" => false, 
+                "message" => "Error al intentar actualizar el registro" 
+            ], 400);
         }  
     }
 
@@ -156,19 +168,29 @@ class OperationsCentreController extends Controller
      */
     public function destroy($id)
     {
+        DB::beginTransaction();
         try {
         	
         	$data = \App\Models\OperationsCentre::find($id);
 	        $this->CreateLog($request->user()->id, 'company', 3,json_encode($data));
-	        $data->state = false;
+	        $data->delete = true;
 	        $data->save();
 
-          $this->CreateLog($request->user()->id, 'operations-centres', 3,'');
+          
 
-	        return response()->json(['status'=>'success', "message"=>'', "data" => true ], 200);
+          DB::commit();
+          $this->CreateLog($request->user()->id, 'operations-centres', 3,'');
+          return response()->json([ 
+              "delete" => true, 
+              "message" => "Registro eliminado correctamente" 
+          ], 200);
 
         } catch (Exception $e) {
-        	return 'Error: ' . $e->getMessage();
+        	DB::rollback();
+            return response()->json([ 
+                "delete" => false, 
+                "message" => "Error al intentar eliminar el registro" 
+            ], 400);
         }
     }
 }
