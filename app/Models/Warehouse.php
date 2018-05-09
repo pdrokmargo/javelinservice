@@ -18,7 +18,8 @@ class Warehouse extends Model
         'description',
         'state',
         'geolocation_id',
-        'company_id'
+        'company_id',
+        'delete'
     ];
     protected $hidden = [];
 

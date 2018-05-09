@@ -20,7 +20,8 @@ class CreateWarehousesTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->integer('geolocation_id');
-            $table->boolean('state');
+            $table->boolean('state')->default(true);
+            $table->boolean('delete')->default(false);
 
             $table->primary('id');
         });

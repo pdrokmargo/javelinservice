@@ -29,10 +29,10 @@ class WarehouseController extends Controller
             ->select(DB::raw('w.id, w.name, c.value as city, w.state'));
 
             if ($search!='') {
-                $query = $query->whereRaw("w.company_id = ? and (w.name like ? or c.value like ? or (case when w.state=true then 'activa' else 'inactiva' end) like ?)", array($company_id, $search, $search, $search))
+                $query = $query->where('w.delete', false)->whereRaw("w.company_id = ? and (w.name like ? or c.value like ? or (case when w.state=true then 'activa' else 'inactiva' end) like ?)", array($company_id, $search, $search, $search))
                 ->orderBy($ordername, $ordertype);
             }else{
-                $query=$query->where('w.company_id', $company_id)->orderBy($ordername, $ordertype);
+                $query=$query->where('w.delete', false)->where('w.company_id', $company_id)->orderBy($ordername, $ordertype);
             } 
 
             $data=[];  
@@ -58,6 +58,8 @@ class WarehouseController extends Controller
      */
     public function store(Request $request)
     {
+        DB::beginTransaction(); 
+
         try {
 
             $data = json_decode($request->data, true);
@@ -78,15 +80,19 @@ class WarehouseController extends Controller
                 'company_id' => $company_id
             ));
 
-            //$this->CreateLog($request->user()->id, 'warehouse', 1,'');
-            return response()->json([
-                'status'=>'success', 
-                "message"=>'La bodega se ha registrado satisfactoriamente.', 
-                "data" => $result 
+            $this->CreateLog($request->user()->id, 'warehouse', 1,'');
+            DB::commit();
+            return response()->json([ 
+                "store" => true, 
+                "message" => "Registro almacenado correctamente" 
             ], 200);
             
         } catch (Exception $e) {
-            return 'Error: ' . $e->getMessage();
+            DB::rollback();
+            return response()->json([ 
+                "store" => false, 
+                "message" => "Error al intentar almacenar el nuevo registro" 
+            ], 400);
         }
     }
 
@@ -116,6 +122,7 @@ class WarehouseController extends Controller
      */
     public function update(Request $request, $id)
     {
+        DB::beginTransaction();
         try {
 
             $data = json_decode($request->data,true);
@@ -135,16 +142,20 @@ class WarehouseController extends Controller
                     'company_id' => $data['company_id']
             ));
             $data_old->save();
-            //$this->CreateLog($request->user()->id, 'warehouse', 2,'');
-            return response()->json([
-                'status'=>'success', 
-                "message"=>'La bodega fue actualizada satisfactoriamente.', 
-                "data" => true 
-            ], 200);      
+            DB::commit();
+            $this->CreateLog($request->user()->id, 'warehouse', 2,'');
+            return response()->json([ 
+                "update" => true, 
+                "message" => "Registro actualizado correctamente" 
+            ], 200);     
 
 
         } catch (Exception $e) {
-            return 'Error: ' . $e->getMessage();
+            DB::rollback();
+            return response()->json([ 
+                "update" => false, 
+                "message" => "Error al intentar actualizar el registro" 
+            ], 400);
         }
     }
 
@@ -156,10 +167,28 @@ class WarehouseController extends Controller
      */
     public function destroy($id)
     {
-        $data = \App\Models\Warehouse::find($id);
-        $this->CreateLog($request->user()->id, 'warehouse', 3,json_encode($data));
-        $data->state = false;
-        $data->save();
-        return response()->json([ "destroy" => true], 200);
+        DB::beginTransaction();
+        try
+        {
+            $data = \App\Models\Warehouse::find($id);
+            $this->CreateLog($request->user()->id, 'warehouse', 3,json_encode($data));
+            $data->delete = true;
+            $data->save();
+            
+            DB::commit();
+            $this->CreateLog($request->user()->id, 'delivery-points', 3,'');
+            return response()->json([ 
+                "delete" => true, 
+                "message" => "Registro eliminado correctamente" 
+            ], 200);
+        } 
+        catch (Exception $e) 
+        { 
+            DB::rollback();
+            return response()->json([ 
+                "delete" => false, 
+                "message" => "Error al intentar eliminar el registro" 
+            ], 400);
+        }
     }
 }
