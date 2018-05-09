@@ -337,63 +337,86 @@ class StakeholdersController extends Controller
                     if (!$profile['is_supplier'])
                     {
                         $supplier = \App\Models\Supplier::where('stakeholder_info_id', $id)->first();
-                        if($supplier)
+                        if($supplier) {
                             $supplier->delete();
+                        }
                     }else{
                         $supplier = \App\Models\Supplier::where('stakeholder_info_id', $id)->first();
-                        if(!$supplier)
+                        if(!$supplier) {
                             $supplier['stakeholder_info_id'] = $id; 
                             \App\Models\Supplier::create($supplier); 
+                        }
+                            
                     }
                     if (!$profile['is_employee']) 
                     { 
                         $employee = \App\Models\Employee::where('stakeholder_info_id', $id)->first();
-                        if($employee)
+                        if($employee) {
                             $employee->delete();
+                        }
+                            
                     } else {
                         $employee = \App\Models\Employee::where('stakeholder_info_id', $id)->first();
-                        if(!$employee)
+                        if(!$employee) {
                             \App\Models\Employee::create([ 'stakeholder_info_id' => $id ]);
+                        }
+                            
                     }
                     if (!$profile['is_seller']) 
                     { 
                         $seller = \App\Models\SalesRepresentatives::where('stakeholder_info_id', $id)->first();
-                        if($seller)
+                        if($seller) {
                             $seller->delete();
+                        }
                     } else {
                         $seller = \App\Models\SalesRepresentatives::where('stakeholder_info_id', $id)->first();
-                        if(!$seller)
+                        if(!$seller) {
                             \App\Models\SalesRepresentatives::create(['stakeholder_info_id' => $id ]);
+                        }
+                            
                     }
                     if (!$profile['is_maker']) 
                     { 
                         $maker = \App\Models\Maker::where('stakeholder_info_id', $id)->first();
-                        if($maker) 
+                        if($maker) {
                             $maker->delete();
+                        }
+                            
                     } else {
                         $maker = \App\Models\Maker::where('stakeholder_info_id', $id)->first();
-                        if(!$maker)
+                        if(!$maker) {
                             \App\Models\Maker::create(['stakeholder_info_id' => $id ]);
+                        }
+                            
                     }
                     if (!$profile['is_importer']) 
                     { 
                         $importer = \App\Models\Importer::where('stakeholder_info_id', $id)->first(); 
-                        if($importer)
+                        if($importer) {
                             $importer->delete();
+                        }
+
+                            
                     } else {
                         $importer = \App\Models\Importer::where('stakeholder_info_id', $id)->first(); 
-                        if(!$importer)
+                        if(!$importer) {
                             \App\Models\Importer::create([ 'stakeholder_info_id' => $id ]);
+                        }
+                            
                     }
                     if (!$profile['is_holder_sanitary']) 
                     { 
                         $holder_sanitary = \App\Models\HealthRecordHolder::where('stakeholder_info_id', $id)->first();
-                        if($holder_sanitary)
+                        if($holder_sanitary) {
                             $holder_sanitary->delete();
+                        }
+                            
                     } else {
                         $holder_sanitary = \App\Models\HealthRecordHolder::where('stakeholder_info_id', $id)->first();
-                        if(!$holder_sanitary)
+                        if(!$holder_sanitary) {
                             \App\Models\HealthRecordHolder::create(['stakeholder_info_id' => $id ]);
+                        }
+                            
                     }
                     if($profile['is_customer'])
                     {

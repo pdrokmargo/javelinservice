@@ -25,10 +25,6 @@ class CreateOperationscentresTable extends Migration
             $table->integer('company_id');
             $table->boolean('state')->default(true);
             $table->boolean('delete')->default(false);
-
-            //$table->foreign('geolocation_id')->references('id')->on('geolocations');
-            //$table->foreign('company_id')->references('id')->on('companies');
-            //$table->foreign('operationscentregroup_id')->references('id')->on('collections_values');
         });
     }
 
