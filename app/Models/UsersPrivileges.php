@@ -9,7 +9,11 @@ class UsersPrivileges extends Model
     public $timestamps = false;
     protected $table = 'users_privileges';
     public $with = array('company', 'userprofile');
-    protected $fillable = ['user_id', 'company_id', 'user_profile_id'];
+    protected $fillable = [
+		'user_id', 
+		'company_id', 
+		'user_profile_id'
+	];
 
 	public function company()
 	{

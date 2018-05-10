@@ -58,10 +58,10 @@ class User extends Authenticatable
     }
 
     public function usersprivileges() {
-        return $this->hasMany('App\Models\UsersPrivileges', 'user_id');
+        return $this->hasMany('App\Models\UsersPrivileges', 'id', 'user_id');
     }
 
     public function notifications() {
-        return $this->hasMany('App\Models\Notification', 'user_id');
+        return $this->hasMany('App\Models\Notification', 'id', 'user_id');
     }
 }
