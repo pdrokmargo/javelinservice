@@ -330,8 +330,10 @@ class StakeholdersController extends Controller
                     } 
                     else 
                     {
-                        $comercial_stakeholders_info['stakeholder_info_id'] = $id;
-                        \App\Models\ComercialStakeholdersInfo::create($comercial_stakeholders_info);
+                        if($comercial_stakeholders_info) {
+                            $comercial_stakeholders_info['stakeholder_info_id'] = $id;
+                            \App\Models\ComercialStakeholdersInfo::create($comercial_stakeholders_info);
+                        }
                     }
                     if (!$profile['is_supplier'])
                     {
