@@ -306,13 +306,13 @@ class StakeholdersController extends Controller
             $employee = $data["employee"];
             $supplier = $data["supplier"];
             $profile = [
-                "is_supplier"           => isset($data["profile"]["is_supplier"]) ? $data["profile"]["is_supplier"] : false,
-                "is_employee"           => isset($data["profile"]["is_employee"]) ? $data["profile"]["is_employee"] : false,
-                "is_seller"             => isset($data["profile"]["is_seller"]) ? $data["profile"]["is_seller"] : false,
-                "is_maker"              => isset($data["profile"]["is_maker"]) ? $data["profile"]["is_maker"] : false,
-                "is_importer"           => isset($data["profile"]["is_importer"]) ? $data["profile"]["is_importer"] : false,
-                "is_customer"           => isset($data["profile"]["is_customer"]) ? $data["profile"]["is_customer"] : false,
-                "is_holder_sanitary"    => isset($data["profile"]["is_holder_sanitary"]) ? $data["profile"]["is_holder_sanitary"] : false
+                "is_supplier"           => isset($data["profile"]["is_supplier"])           ? $data["profile"]["is_supplier"]           : false,
+                "is_employee"           => isset($data["profile"]["is_employee"])           ? $data["profile"]["is_employee"]           : false,
+                "is_seller"             => isset($data["profile"]["is_seller"])             ? $data["profile"]["is_seller"]             : false,
+                "is_maker"              => isset($data["profile"]["is_maker"])              ? $data["profile"]["is_maker"]              : false,
+                "is_importer"           => isset($data["profile"]["is_importer"])           ? $data["profile"]["is_importer"]           : false,
+                "is_customer"           => isset($data["profile"]["is_customer"])           ? $data["profile"]["is_customer"]           : false,
+                "is_holder_sanitary"    => isset($data["profile"]["is_holder_sanitary"])    ? $data["profile"]["is_holder_sanitary"]    : false
             ];
 
             $stakeholders_info_old = \App\Models\StakeholdersInfo::find($id);
@@ -321,8 +321,7 @@ class StakeholdersController extends Controller
                 $stakeholders_info_old->fill($stakeholders_info);
                 $stakeholders_info_old->save();
 
-                if($stakeholders_info_old->person_type_id == 39)
-                {
+                
                     $comercial_stakeholders_info_old = \App\Models\ComercialStakeholdersInfo::where('stakeholder_info_id',$id)->first();
                     if($comercial_stakeholders_info_old)
                     {
@@ -337,28 +336,36 @@ class StakeholdersController extends Controller
                     if (!$profile['is_supplier'])
                     {
                         \App\Models\Supplier::where('stakeholder_info_id', $id)->delete();
-                    }else{
+                    }
+                    else
+                    {
                         $supplier['stakeholder_info_id'] = $id; 
                         \App\Models\Supplier::firstOrCreate($supplier, ['stakeholder_info_id' => $id]); 
                             
                     }
-                    if (!$profile['is_employee']) { 
+                    if (!$profile['is_employee']) 
+                    { 
                         \App\Models\Employee::where('stakeholder_info_id', $id)->delete();
-                    } else {
+                    } 
+                    else 
+                    {
                         \App\Models\Employee::firstOrCreate([ 'stakeholder_info_id' => $id ],[ 'stakeholder_info_id' => $id ]);
-                            
                     }
                     if (!$profile['is_seller']) 
                     { 
                         \App\Models\SalesRepresentatives::where('stakeholder_info_id', $id)->delete();
-                    } else {
+                    } 
+                    else 
+                    {
                         \App\Models\SalesRepresentatives::firstOrCreate(['stakeholder_info_id' => $id ], ['stakeholder_info_id' => $id ]);
                             
                     }
                     if (!$profile['is_maker']) 
                     {
                         \App\Models\Maker::where('stakeholder_info_id', $id)->delete();    
-                    } else {
+                    } 
+                    else 
+                    {
                         \App\Models\Maker::firstOrCreate(['stakeholder_info_id' => $id ], ['stakeholder_info_id' => $id ]);
                     }
                     if (!$profile['is_importer']) 
@@ -407,11 +414,10 @@ class StakeholdersController extends Controller
                         if($customer_old)
                             $customer_old->delete();
                     }
-                }
+                
 
                 $this->CreateLog($request->user()->id, 'stakeholders', 2,'');
                 DB::commit();
-
                 return response()->json([ 
                     "update" => true, 
                     "message" => "Registro actualizado correctamente" 
@@ -435,130 +441,6 @@ class StakeholdersController extends Controller
                
     }
     
-     
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update_stake_holder(Request $request)
-    {
-        DB::beginTransaction(); 
-        try {
-            
-            $data = json_decode($request->data,true);
-            $geoLocation=\App\Models\Geolocation::where('country_id', $data['country_id'])
-            ->where('department_id', $data['department_id'])
-            ->where('city_id', $data['city_id'])
-            ->first();  
-            
-            $customer = $data["customer"];
-            $supplier = $data["supplier"];
-            // $sales_representatives = $data["sales_representatives"];
-            // $employees = $data["employees"];
-            $id = $data['id'];
-            $comercial_stakeholders_info = $data["comercial_stakeholders_info"];
-            $stakeholders=\App\Models\StakeholdersInfo::find($id);
-            
-            $data['geolocation_id']=$geoLocation->id;
-            $stakeholders->fill($data);
-            $stakeholders->save();
-
-            if ($data['person_type_id']==39) {
-                 $comercial=\App\Models\ComercialStakeholdersInfo::where('stakeholder_info_id', $id)->first(); 
-
-                 if ($comercial) {
-                      $comercial->fill($comercial_stakeholders_info);
-                      $comercial->save();
-                 }else{ 
-                    $comercial_stakeholders_info['stakeholder_info_id']=$id;
-                     \App\Models\ComercialStakeholdersInfo::create($comercial_stakeholders_info);
-                }
-            }           
-
-            if ($data['is_customer']) {
-                $customer_old = \App\Models\Customers::where('stakeholder_info_id', $id)->first(); 
-                if ($customer_old) {
-                    $customer_old->fill($customer);
-                    $customer_old->save();
-                }else{
-                    $customer['stakeholder_info_id']=$id;
-                    \App\Models\Customers::create($customer);
-                }
-            }
-            
-            if ($data['is_employee']) {
-                $employee_old=\App\Models\Employee::where('stakeholder_info_id', $id)->first(); 
-                if (!$employee_old) {
-                    \App\Models\Employee::create(array(
-                    'stakeholder_info_id'=>$id
-                    ));
-                }
-                
-            }
-           
-            if ($data['is_supplier']) {
-                $suplier_old = \App\Models\Supplier::where('stakeholder_info_id', $id)->first();
-                if ($suplier_old) {
-                    $suplier_old->fill($supplier);
-                    $suplier_old->save();
-                }else{
-                    $supplier['stakeholder_info_id']=$id;
-                    \App\Models\Supplier::create($supplier);
-                }
-                             
-            }            
-
-            if ($data['is_seller']) {
-                $seller = \App\Models\SalesRepresentatives::where('stakeholder_info_id', $id)->first();
-                if (!$seller) {
-                   \App\Models\SalesRepresentatives::create(array(
-                    'stakeholder_info_id'=>$id
-                    ));
-                }
-            }
-
-            if ($data['is_maker']) {
-                $maker = \App\Models\Maker::where('stakeholder_info_id', $id)->first();
-                if (!$maker) {
-                    \App\Models\Maker::create(array(
-                        'stakeholder_info_id'=>$id
-                    ));
-                }
-            }
-
-            if ($data['is_importer']) {
-                $importer = \App\Models\Importer::where('stakeholder_info_id', $id)->first();
-                if (!$importer) {
-                  \App\Models\Importer::create(array(
-                      'stakeholder_info_id'=>$id
-                  ));                
-                }
-            }
-
-            if ($data['is_holder_sanitary']) {
-                $health_holder = \App\Models\HealthRecordHolder::where('stakeholder_info_id', $id)->first();
-                if (!$health_holder) {
-                    \App\Models\HealthRecordHolder::create(array(
-                    'stakeholder_info_id'=>$id
-                    ));
-                }               
-            }
-
-            DB::commit();
-
-            return response()->json(["status"=>"success",  
-                                    "message" => "El registro se ha actualizado satisfactoriamente.", "data" => $id ], 200 ); 
-            
-        } catch (Exception $e) {
-            DB::rollback();
-            return 'Error: ' . $e->getMessage();
-        }     
-        
-    }
-
     /**
      * Remove the specified resource from storage.
      *
