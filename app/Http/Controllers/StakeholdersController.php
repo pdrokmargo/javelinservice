@@ -306,13 +306,13 @@ class StakeholdersController extends Controller
             $employee = $data["employee"];
             $supplier = $data["supplier"];
             $profile = [
-                "is_supplier" => isset($data["profile"]["is_supplier"]) ? $data["profile"]["is_supplier"] : false,
-                "is_employee" => isset($data["profile"]["is_employee"]) ? $data["profile"]["is_employee"] : false,
-                "is_seller" => isset($data["profile"]["is_seller"]) ? $data["profile"]["is_seller"] : false,
-                "is_maker" => isset($data["profile"]["is_maker"]) ? $data["profile"]["is_maker"] : false,
-                "is_importer" => isset($data["profile"]["is_importer"]) ? $data["profile"]["is_importer"] : false,
-                "is_customer" => isset($data["profile"]["is_customer"]) ? $data["profile"]["is_customer"] : false,
-                "is_holder_sanitary" => isset($data["profile"]["is_holder_sanitary"]) ? $data["profile"]["is_holder_sanitary"] : false
+                "is_supplier"           => isset($data["profile"]["is_supplier"]) ? $data["profile"]["is_supplier"] : false,
+                "is_employee"           => isset($data["profile"]["is_employee"]) ? $data["profile"]["is_employee"] : false,
+                "is_seller"             => isset($data["profile"]["is_seller"]) ? $data["profile"]["is_seller"] : false,
+                "is_maker"              => isset($data["profile"]["is_maker"]) ? $data["profile"]["is_maker"] : false,
+                "is_importer"           => isset($data["profile"]["is_importer"]) ? $data["profile"]["is_importer"] : false,
+                "is_customer"           => isset($data["profile"]["is_customer"]) ? $data["profile"]["is_customer"] : false,
+                "is_holder_sanitary"    => isset($data["profile"]["is_holder_sanitary"]) ? $data["profile"]["is_holder_sanitary"] : false
             ];
 
             $stakeholders_info_old = \App\Models\StakeholdersInfo::find($id);
@@ -336,86 +336,42 @@ class StakeholdersController extends Controller
                     }
                     if (!$profile['is_supplier'])
                     {
-                        $supplier = \App\Models\Supplier::where('stakeholder_info_id', $id)->first();
-                        if($supplier) {
-                            $supplier->delete();
-                        }
+                        \App\Models\Supplier::where('stakeholder_info_id', $id)->delete();
                     }else{
-                        $supplier = \App\Models\Supplier::where('stakeholder_info_id', $id)->first();
-                        if(!$supplier) {
-                            $supplier['stakeholder_info_id'] = $id; 
-                            \App\Models\Supplier::create($supplier); 
-                        }
+                        $supplier['stakeholder_info_id'] = $id; 
+                        \App\Models\Supplier::firstOrCreate($supplier, ['stakeholder_info_id' => $id]); 
                             
                     }
-                    if (!$profile['is_employee']) 
-                    { 
-                        $employee = \App\Models\Employee::where('stakeholder_info_id', $id)->first();
-                        if($employee) {
-                            $employee->delete();
-                        }
-                            
+                    if (!$profile['is_employee']) { 
+                        \App\Models\Employee::where('stakeholder_info_id', $id)->delete();
                     } else {
-                        $employee = \App\Models\Employee::where('stakeholder_info_id', $id)->first();
-                        if(!$employee) {
-                            \App\Models\Employee::create([ 'stakeholder_info_id' => $id ]);
-                        }
+                        \App\Models\Employee::firstOrCreate([ 'stakeholder_info_id' => $id ],[ 'stakeholder_info_id' => $id ]);
                             
                     }
                     if (!$profile['is_seller']) 
                     { 
-                        $seller = \App\Models\SalesRepresentatives::where('stakeholder_info_id', $id)->first();
-                        if($seller) {
-                            $seller->delete();
-                        }
+                        \App\Models\SalesRepresentatives::where('stakeholder_info_id', $id)->delete();
                     } else {
-                        $seller = \App\Models\SalesRepresentatives::where('stakeholder_info_id', $id)->first();
-                        if(!$seller) {
-                            \App\Models\SalesRepresentatives::create(['stakeholder_info_id' => $id ]);
-                        }
+                        \App\Models\SalesRepresentatives::firstOrCreate(['stakeholder_info_id' => $id ], ['stakeholder_info_id' => $id ]);
                             
                     }
                     if (!$profile['is_maker']) 
-                    { 
-                        $maker = \App\Models\Maker::where('stakeholder_info_id', $id)->first();
-                        if($maker) {
-                            $maker->delete();
-                        }
-                            
+                    {
+                        \App\Models\Maker::where('stakeholder_info_id', $id)->delete();    
                     } else {
-                        $maker = \App\Models\Maker::where('stakeholder_info_id', $id)->first();
-                        if(!$maker) {
-                            \App\Models\Maker::create(['stakeholder_info_id' => $id ]);
-                        }
-                            
+                        \App\Models\Maker::firstOrCreate(['stakeholder_info_id' => $id ], ['stakeholder_info_id' => $id ]);
                     }
                     if (!$profile['is_importer']) 
                     { 
-                        $importer = \App\Models\Importer::where('stakeholder_info_id', $id)->first(); 
-                        if($importer) {
-                            $importer->delete();
-                        }
-
-                            
+                        \App\Models\Importer::where('stakeholder_info_id', $id)->delete();
                     } else {
-                        $importer = \App\Models\Importer::where('stakeholder_info_id', $id)->first(); 
-                        if(!$importer) {
-                            \App\Models\Importer::create([ 'stakeholder_info_id' => $id ]);
-                        }
-                            
+                        \App\Models\Importer::firstOrCreate([ 'stakeholder_info_id' => $id ], [ 'stakeholder_info_id' => $id ]);
                     }
                     if (!$profile['is_holder_sanitary']) 
                     { 
-                        $holder_sanitary = \App\Models\HealthRecordHolder::where('stakeholder_info_id', $id)->first();
-                        if($holder_sanitary) {
-                            $holder_sanitary->delete();
-                        }
-                            
+                        \App\Models\HealthRecordHolder::where('stakeholder_info_id', $id)->delete();
                     } else {
-                        $holder_sanitary = \App\Models\HealthRecordHolder::where('stakeholder_info_id', $id)->first();
-                        if(!$holder_sanitary) {
-                            \App\Models\HealthRecordHolder::create(['stakeholder_info_id' => $id ]);
-                        }
+                        \App\Models\HealthRecordHolder::firstOrCreate(['stakeholder_info_id' => $id ], ['stakeholder_info_id' => $id ]);
                             
                     }
                     if($profile['is_customer'])
@@ -440,9 +396,8 @@ class StakeholdersController extends Controller
                         }
                         
                         $customer_old = \App\Models\Customers::where('stakeholder_info_id', $id)->first();
-                        if($customer_old)
-                            $customer_old->fill($customer);
-                            $customer_old->save();
+                        $customer_old->fill($customer);
+                        $customer_old->save();
                     }
                     else
                     {

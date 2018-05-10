@@ -10,13 +10,14 @@ class Privilege extends Model
     public $timestamps = false;
     public $with = array('views');
     protected $casts = ['actions' => 'json'];
-    // protected $appends = array('actions');
+    //protected $appends = array('actions');
     protected $fillable = [
         'view_id',
         'user_profile_id',        
         'actions'
     ];
     protected $hidden = [];
+    
     public function views() {
         return $this->belongsTo('App\Models\View', 'view_id');
     }
