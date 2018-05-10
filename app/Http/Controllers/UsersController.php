@@ -144,7 +144,7 @@ class UsersController extends Controller
             $data["password"] = bcrypt($data["password"]);
             $id = \App\Models\User::create([
                 
-                'user_profile_id' => 0,        
+                'user_profile_id' => $data['usersprivileges'][0]['user_profile_id'],        
                 'firstname' => $data['firstname'],
                 'lastname' => $data['lastname'], 
                 'username' => $data['username'],
