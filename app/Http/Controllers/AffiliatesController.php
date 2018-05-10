@@ -23,7 +23,7 @@ class AffiliatesController extends Controller
             
             $query = DB::table('affiliates as a')
             ->join('delivery_contracts as dc', 'dc.id', '=', 'a.delivery_contract_id')
-            ->join('collections_values as cv', 'cv.id', '=', 'a.contracts_payment_method_id')
+            //->leftJoin('collections_values as cv', 'cv.id', '=', 'a.contracts_payment_method_id')
             ->select(DB::raw("a.id, (a.firstname || ' ' || a.middlename || ' ' || a.lastname1 || ' ' || a.lastname2) as name, dc.name as contract, cv.value as contracts_payment_method, a.state"));
 
             if ($search != '') {
@@ -32,7 +32,6 @@ class AffiliatesController extends Controller
                 $query = $query->where('a.delete', false)->orderBy($ordername, $ordertype);
             }    
             
-            return $query->toSql();
 
             $data=[];  
             if ($page) {
