@@ -32,7 +32,7 @@ class AffiliatesController extends Controller
                 $query = $query->where('a.delete', false)->orderBy($ordername, $ordertype);
             }    
             
-            return $request->toSql();
+            return $query->toSql();
 
             $data=[];  
             if ($page) {
