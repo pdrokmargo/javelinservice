@@ -29,8 +29,10 @@ class AffiliatesController extends Controller
             if ($search != '') {
                 $query = $query->whereRaw("a.delete = false and (lower(a.firstname) || ' ' || lower(a.middlename) || ' ' || lower(a.lastname1) || ' ' || lower(a.lastname2)) like ? or lower(dc.name) like ? or lower(cv.value) like ?", array($search, $search, $search))->orderBy($ordername, $ordertype);
             } else {
-                $query = $query->where('a.delete',false)->orderBy($ordername, $ordertype);
-            }          
+                $query = $query->where('a.delete', false)->orderBy($ordername, $ordertype);
+            }    
+            
+            return $request->getSql();
 
             $data=[];  
             if ($page) {

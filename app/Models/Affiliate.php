@@ -15,7 +15,7 @@ class Affiliate extends Model
         'document_number',
         'delivery_contract_id',
         'ips_network_id',
-        'contracts_payment_method_id',
+        //'contracts_payment_method_id',
         'firstname',
         'middlename',
         'lastname1',
