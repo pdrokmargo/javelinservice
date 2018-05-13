@@ -229,7 +229,10 @@ class StakeholdersController extends Controller
             }
             $this->CreateLog($request->user()->id, 'stakeholders', 1,'');
             DB::commit();
-            return response()->json([  "store" => true,  "message" => "Registro almacenado correctamente"  ], 200);
+            return response()->json([ 
+                "store" => true,  
+                "message" => "Registro creado correctamentee"  
+            ], 200);
 
         } catch (Exception $e) {
             DB::rollback();

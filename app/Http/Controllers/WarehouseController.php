@@ -84,7 +84,7 @@ class WarehouseController extends Controller
             DB::commit();
             return response()->json([ 
                 "store" => true, 
-                "message" => "Registro almacenado correctamente" 
+                "message" => "Registro creado correctamente" 
             ], 200);
             
         } catch (Exception $e) {
