@@ -15,7 +15,6 @@ class CreateComercialStakeholdersInfoTable extends Migration
     {
         Schema::create('comercial_stakeholders_info', function (Blueprint $table) {
             $table->uuid('id');            
-            $table->integer('tax_regime_id');
             $table->boolean('big_contributor')->defaukt(false);
             $table->boolean('retention_for_rent')->default(false);
             $table->uuid('stakeholder_info_id'); 

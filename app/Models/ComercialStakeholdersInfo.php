@@ -12,7 +12,6 @@ class ComercialStakeholdersInfo extends Model
     protected $table = 'comercial_stakeholders_info';
     protected $casts = ['codes' => 'json'];
     protected $fillable = [
-        'tax_regime_id',
         'retention_for_rent',
         'big_contributor',
         'codes',
