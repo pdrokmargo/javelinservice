@@ -306,7 +306,6 @@ class StakeholdersController extends Controller
             $stakeholders_info = $data["stakeholders_info"];
             $comercial_stakeholders_info = $data["comercial_stakeholders_info"];
             $comercial_stakeholders_info["tax_regime_id"] = 0;
-            $comercial_stakeholders_info["big_contributor"] = false;
             $customer = $data["customer"];
             $employee = $data["employee"];
             $supplier = $data["supplier"];
