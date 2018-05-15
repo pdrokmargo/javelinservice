@@ -26,14 +26,13 @@ class CreateProductsTable extends Migration
             $table->integer('barcode')->nullable();
             $table->string('cums');
             $table->double('cost')->nullable();
-            $table->integer('packaging_unit_id'); //collection packaging_unit
             $table->integer('content_unit_id'); //collection content_unit
             $table->boolean('batch_control');
             $table->boolean('serials_control');
             $table->boolean('institutional_use');
             $table->boolean('comercial');
-            $table->uuid('manufacturer_id');
-            $table->uuid('supplier_id');
+            $table->uuid('manufacturer_id')->nullable();
+            $table->uuid('supplier_id')->nullable();
             $table->uuid('importer_id');
             $table->uuid('sanitary_registration_holder_id');
             $table->string('sanitary_registration');

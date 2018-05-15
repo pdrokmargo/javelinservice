@@ -139,18 +139,41 @@ class StakeholdersController extends Controller
                     break;       
             }
             
-            $query = DB::table('stakeholders_info as i')
+            /*$query = DB::table('stakeholders_info as i')
             ->join('geolocations as g', 'i.geolocation_id', '=', 'g.id')
             ->join('collections_values as c', 'g.country_id', '=', 'c.id')
             ->join('collections_values as d', 'g.department_id', '=', 'd.id')
             ->join('collections_values as cy', 'g.city_id', '=', 'cy.id')
             ->join($table . ' as x', 'i.id', '=', 'x.stakeholder_info_id')
-            ->select(DB::raw("i.id, i.document_number, concat(i.firstname,' ', i.middlename, ' ', i.lastname) as name, concat(c.value, ', ', d.value, ', ', cy.value) as geolocation, i.businessname, i.legalname,i.document_type_id, i.status, person_type_id, x.id as x_id"));
-                       
+            ->select(DB::raw("i.id, i.document_number, concat(i.firstname,' ', i.middlename, ' ', i.lastname) as name, concat(c.value, ', ', d.value, ', ', cy.value) as geolocation, i.businessname, i.document_type_id, i.status"));
+                        
+            $query = $query->whereRaw("document_type_id = 14");
+
+            if ($search!='') {
+                $query = $query->whereRaw("lower(firstname) like ? or lower(middlename) like ? or lower(lastname) like ? or lower(businessname) like ? or document_number like ?", array($search, $search, $search, $search, $search))
+                ->orderBy($ordername, $ordertype);
+            }else{
+                $query=$query->orderBy($ordername, $ordertype);
+            }*/
+            $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';          
+            $ordername = isset($request->ordername) ? $request->ordername : 'i.id';
+            $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
+            $page = $request->page;
+            
+            $query = DB::table('stakeholders_info as i')
+            ->join($table . ' as x', 'i.id', '=', 'x.stakeholder_info_id')
+            ->select(DB::raw("
+                i.id, 
+                concat(i.firstname,' ', i.middlename, ' ', i.lastname) as name,
+                i.person_type_id,
+                i.document_number,
+                i.businessname,
+                geolocation(geolocation_id),
+                i.status
+            "));
             
             if ($search!='') {
-                $query = $query->whereRaw("i.status=true and lower(firstname) like ? or lower(middlename) like ? or lower(lastname) like ? or lower(legalname) like ? or lower(businessname) like ? or document_number like ?", array($search, $search, $search, $search, $search, $search))
-                ->orderBy($ordername, $ordertype);
+                $query = $query->whereRaw("(lower(firstname) like ? or lower(middlename) like ? or lower(lastname) like ? or lower(legalname) like ? or lower(businessname) like ? or document_number like ?)", array($search, $search, $search, $search, $search, $search))->orderBy($ordername, $ordertype);
             }else{
                 $query=$query->orderBy($ordername, $ordertype);
             } 
