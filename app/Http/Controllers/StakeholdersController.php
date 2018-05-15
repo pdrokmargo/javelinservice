@@ -155,10 +155,6 @@ class StakeholdersController extends Controller
             }else{
                 $query=$query->orderBy($ordername, $ordertype);
             }*/
-            $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';          
-            $ordername = isset($request->ordername) ? $request->ordername : 'i.id';
-            $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
-            $page = $request->page;
             
             $query = DB::table('stakeholders_info as i')
             ->join($table . ' as x', 'i.id', '=', 'x.stakeholder_info_id')
