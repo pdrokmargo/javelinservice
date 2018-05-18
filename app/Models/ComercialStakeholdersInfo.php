@@ -15,7 +15,8 @@ class ComercialStakeholdersInfo extends Model
         'retention_for_rent',
         'big_contributor',
         'codes',
-        'stakeholder_info_id'
+        'stakeholder_info_id',
+        'tax_regime_id'
     ];
     protected $hidden = [];
 }

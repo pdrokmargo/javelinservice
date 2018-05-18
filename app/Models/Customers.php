@@ -21,7 +21,6 @@ class Customers extends Model
     public $incrementing = false;  
     protected $fillable = [
         'stakeholder_info_id',
-
         'customer_class_id',
         'debt_type_id',
         'credit_limit',

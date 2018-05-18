@@ -24,14 +24,14 @@ class CreateCustomersTable extends Migration
                 string:phone_purchases_contact
                 string:email_purchases_contact
             */
-            $table->decimal('global_discount');
+            $table->decimal('global_discount')->default(0);
             $table->integer('debt_type_id'); 
             $table->integer('payment_condition_id')->nullable();    
             $table->decimal('discount_early_payment')->nullable();
-            $table->integer('days_early_payment');
+            $table->integer('days_early_payment')->nullable();
             $table->decimal('credit_limit');
-            $table->boolean('credit_limit_blocking');
-            $table->boolean('late_payment_blocking');
+            $table->boolean('credit_limit_blocking')->nullable();
+            $table->boolean('late_payment_blocking')->nullable();
             $table->integer('days_grace')->nullable();
             $table->json('institutional_sale_contract')->nullable();
             /*json structure

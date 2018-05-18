@@ -17,7 +17,7 @@ class CreateSuppliersTable extends Migration
             $table->uuid('id');
             $table->uuid('stakeholder_info_id'); 
             $table->integer('supplier_class_id');
-            $table->decimal('global_discount');
+            $table->decimal('global_discount')->default(0);
             $table->integer('payment_condition_id');
             $table->boolean('purchase_order')->default(false);
             $table->decimal('credit_limit', 12, 2)->nullable();
