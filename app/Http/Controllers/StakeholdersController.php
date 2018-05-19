@@ -433,7 +433,7 @@ class StakeholdersController extends Controller
                             $customer_old->save();
                         } else {
                             $customer["stakeholder_info_id"] = $id;
-                            \App\Models\Customer::create($customer);
+                            \App\Models\Customers::create($customer);
                         }
                         
                     }
