@@ -365,7 +365,7 @@ class StakeholdersController extends Controller
                     else
                     {
                         $supplier['stakeholder_info_id'] = $id; 
-                        \App\Models\Supplier::firstOrCreate($supplier, ['stakeholder_info_id' => $id]); 
+                        \App\Models\Supplier::firstOrCreate([ 'stakeholder_info_id' => $id ], $supplier); 
                             
                     }
                     if (!$profile['is_employee']) 
@@ -374,7 +374,7 @@ class StakeholdersController extends Controller
                     } 
                     else 
                     {
-                        \App\Models\Employee::firstOrCreate([ 'stakeholder_info_id' => $id ],[ 'stakeholder_info_id' => $id ]);
+                        \App\Models\Employee::firstOrCreate([ 'stakeholder_info_id' => $id ], [ 'stakeholder_info_id' => $id ]);
                     }
                     if (!$profile['is_seller']) 
                     { 

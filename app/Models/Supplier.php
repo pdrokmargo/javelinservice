@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Supplier extends Model
 {
     use \App\Uuids;
+    
     protected $table = 'suppliers';
     public $timestamps = false;
     public $with = array('stakeholderInfo');
@@ -17,7 +18,6 @@ class Supplier extends Model
     ];
     protected $fillable = [
         'stakeholder_info_id',
-
         'supplier_class_id',
         'credit_limit',
         'global_discount',
