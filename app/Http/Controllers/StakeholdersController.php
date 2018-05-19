@@ -227,7 +227,7 @@ class StakeholdersController extends Controller
             if ($profile['is_holder_sanitary']) { \App\Models\HealthRecordHolder::create(['stakeholder_info_id' => $stakeholder_info_id ]); }
             if ($profile['is_customer']) 
             {
-                $destinationPath = public_path().'/customer_documents'; 
+                /*$destinationPath = public_path().'/customer_documents'; 
                 if (count($customer['institutional_sale_contract'])>0) {
                     foreach ($customer['institutional_sale_contract'] as $key => $item) {
                         $fileTemp = $item['contract_number'].'_file';
@@ -241,7 +241,7 @@ class StakeholdersController extends Controller
                             }
                         } 
                     }                    
-                }
+                }*/
                 
                 $customer['stakeholder_info_id'] = $stakeholder_info_id;                
                 \App\Models\Customers::create($customer);
@@ -408,7 +408,7 @@ class StakeholdersController extends Controller
                     }
                     if($profile['is_customer'])
                     {
-                        $destinationPath = public_path().'/customer_documents'; 
+                        /*$destinationPath = public_path().'/customer_documents'; 
                         if (count($customer['institutional_sale_contract']) > 0) {
                             
                             Storage::delete($customer['institutional_sale_contract']);
@@ -425,7 +425,7 @@ class StakeholdersController extends Controller
                                     }
                                 } 
                             }                    
-                        }
+                        }*/
                         
                         $customer_old = \App\Models\Customers::where('stakeholder_info_id', $id)->first();
                         $customer_old->fill($customer);
