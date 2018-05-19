@@ -428,8 +428,14 @@ class StakeholdersController extends Controller
                         }*/
                         
                         $customer_old = \App\Models\Customers::where('stakeholder_info_id', $id)->first();
-                        $customer_old->fill($customer);
-                        $customer_old->save();
+                        if($customer_old){
+                            $customer_old->fill($customer);
+                            $customer_old->save();
+                        } else {
+                            $customer["stakeholder_info_id"] = $id;
+                            \App\Models\Customer::create($customer);
+                        }
+                        
                     }
                     else
                     {
