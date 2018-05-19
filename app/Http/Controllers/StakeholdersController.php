@@ -324,7 +324,7 @@ class StakeholdersController extends Controller
             $data = json_decode($request->data,true);
             $stakeholders_info = $data["stakeholders_info"];
             $comercial_stakeholders_info = $data["comercial_stakeholders_info"];
-            $comercial_stakeholders_info["tax_regime_id"] = 0;
+            
             $customer = $data["customer"];
             $employee = $data["employee"];
             $supplier = $data["supplier"];
