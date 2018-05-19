@@ -16,7 +16,8 @@ class ComercialStakeholdersInfo extends Model
         'big_contributor',
         'codes',
         'stakeholder_info_id',
-        'tax_regime_id'
+        'tax_regime_id',
+        'constitution_date'
     ];
     protected $hidden = [];
 }
