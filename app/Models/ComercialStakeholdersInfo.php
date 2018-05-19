@@ -10,7 +10,9 @@ class ComercialStakeholdersInfo extends Model
     
     public $timestamps = false;
     protected $table = 'comercial_stakeholders_info';
-    protected $casts = ['codes' => 'json'];
+    protected $casts = [
+        'codes' => 'json'
+    ];
     protected $fillable = [
         'retention_for_rent',
         'big_contributor',
