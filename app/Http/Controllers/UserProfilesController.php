@@ -175,7 +175,6 @@ class UserProfilesController extends Controller
             $data->delete = false;
             $data->save();
 
-            return $request->user();
 
             $this->CreateLog($request->user()->id, 'userprofiles', 3, json_encode($data));
             
