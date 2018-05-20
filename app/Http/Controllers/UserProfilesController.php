@@ -172,6 +172,7 @@ class UserProfilesController extends Controller
         try
         {
             $data = \App\Models\UserProfile::find($id);
+            return $data;
             $data->delete = false;
             $data->save();
             $this->CreateLog($request->user()->id, 'userprofiles', 3,json_encode($data));
