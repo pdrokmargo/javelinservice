@@ -18,7 +18,7 @@ class CreateCustomersTable extends Migration
             $table->uuid('stakeholder_info_id'); 
             $table->integer('customer_class_id')->nullable();
             $table->uuid('sales_representative_id');
-            $table->json('purchases_contact');
+            $table->json('purchases_contact')->nullable();
             /*json structure
                 string:name_purchases_contact
                 string:phone_purchases_contact
