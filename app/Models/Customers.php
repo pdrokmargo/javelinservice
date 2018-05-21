@@ -11,12 +11,12 @@ class Customers extends Model
     protected $table = 'customers';
     public $with = array('stakeholderInfo');
     protected $casts = [
-        'purchases_contact'=>'json', 
-        'institutional_sale_contract'=>'json', 
-        'controlled_resolution'=>'json', 
-        'monopoly_resolution'=>'json', 
-        'debt_contact'=>'json', 
-        'shipping_points'=>'json'
+        'purchases_contact'             => 'json', 
+        'institutional_sale_contract'   => 'json', 
+        'controlled_resolution'         => 'json', 
+        'monopoly_resolution'           => 'json', 
+        'debt_contact'                  => 'json', 
+        'shipping_points'               => 'json'
     ];
     public $incrementing = false;  
     protected $fillable = [
