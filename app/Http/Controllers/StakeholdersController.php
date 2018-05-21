@@ -271,8 +271,6 @@ class StakeholdersController extends Controller
         $stakeholders_info              = \App\Models\StakeholdersInfo::find($id);
         $comercial_stakeholders_info    = \App\Models\ComercialStakeholdersInfo::where('stakeholder_info_id',$id)->first();
         $customer                       = \App\Models\Customers::where('stakeholder_info_id',$id)->first();  
-
-        return $customer;
         $employee                       = \App\Models\Employee::where('stakeholder_info_id',$id)->first();
         $supplier                       = \App\Models\Supplier::where('stakeholder_info_id',$id)->first();
 
