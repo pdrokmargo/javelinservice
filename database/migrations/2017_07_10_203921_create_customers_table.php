@@ -59,7 +59,7 @@ class CreateCustomersTable extends Migration
                 integer:shipping_point_id
                 boolean:state
             */
-            $table->json('debt_contact');
+            $table->json('debt_contact')->nullable();;
             /*json structure
                 string:name_debt_contact
                 string:phone_debt_contact

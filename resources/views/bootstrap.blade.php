@@ -30,7 +30,7 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"/>
 
     <base href="/">
-  <link href="/css/main.c0c99d6cd2e0d4729570.css" rel="stylesheet"></head>
+  <link href="/css/main.1298306958df12cfdc70.css" rel="stylesheet"></head>
 
   <body id="body">
 
@@ -41,6 +41,6 @@
 
 
     
-<script type="text/javascript" src="/js/polyfills.c0c99d6cd2e0d4729570.js"></script><script type="text/javascript" src="/js/vendor.c0c99d6cd2e0d4729570.js"></script><script type="text/javascript" src="/js/main.c0c99d6cd2e0d4729570.js"></script></body>
+<script type="text/javascript" src="/js/polyfills.1298306958df12cfdc70.js"></script><script type="text/javascript" src="/js/vendor.1298306958df12cfdc70.js"></script><script type="text/javascript" src="/js/main.1298306958df12cfdc70.js"></script></body>
 
 </html>
