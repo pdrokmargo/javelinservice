@@ -33,7 +33,8 @@ class StakeholdersController extends Controller
                 i.document_number,
                 i.businessname,
                 geolocation(geolocation_id),
-                i.status
+                i.status,
+                i.legalname
             "));
             
             if ($search!='') {
