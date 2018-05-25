@@ -34,7 +34,8 @@ class StakeholdersController extends Controller
                 i.businessname,
                 geolocation(geolocation_id),
                 i.status,
-                i.legalname
+                i.legalname,
+                i.legalname as businessname,
             "));
             
             if ($search!='') {
@@ -165,6 +166,7 @@ class StakeholdersController extends Controller
                 i.person_type_id,
                 i.document_number,
                 i.legalname,
+                i.legalname as businessname,
                 geolocation(geolocation_id),
                 i.status
             "));
