@@ -138,6 +138,9 @@ class StakeholdersController extends Controller
                  case '6':
                     $table='health_record_holders';
                     break;       
+                case 'undefined':
+                    $table='customers';
+                    break;
             }
             
             /*$query = DB::table('stakeholders_info as i')
