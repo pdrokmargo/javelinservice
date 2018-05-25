@@ -137,9 +137,6 @@ class StakeholdersController extends Controller
                     break;
                  case '6':
                     $table='health_record_holders';
-                    break;       
-                case 'undefined':
-                    $table='customers';
                     break;
             }
             
