@@ -165,6 +165,7 @@ class StakeholdersController extends Controller
                 i.person_type_id,
                 i.document_number,
                 i.businessname,
+                i.legalname,
                 geolocation(geolocation_id),
                 i.status
             "));
