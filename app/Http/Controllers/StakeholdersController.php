@@ -164,7 +164,6 @@ class StakeholdersController extends Controller
                 concat(i.firstname,' ', i.middlename, ' ', i.lastname) as name,
                 i.person_type_id,
                 i.document_number,
-                i.businessname,
                 i.legalname,
                 geolocation(geolocation_id),
                 i.status
