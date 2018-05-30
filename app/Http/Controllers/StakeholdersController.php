@@ -21,7 +21,7 @@ class StakeholdersController extends Controller
         try {
             
             $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';          
-            $ordername = isset($request->ordername) ? $request->ordername : 'id';
+            $ordername = isset($request->ordername) ? $request->ordername : 'i.id';
             $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
             $page = $request->page;
             
@@ -41,7 +41,7 @@ class StakeholdersController extends Controller
             if ($search!='') {
                 $query = $query->whereRaw("(lower(firstname) like ? or lower(middlename) like ? or lower(lastname) like ? or lower(legalname) like ? or lower(businessname) like ? or document_number like ?)", array($search, $search, $search, $search, $search, $search))->orderBy($ordername, $ordertype);
             }else{
-                $query=$query->orderBy($ordername, $ordertype);
+                $query=$query->orderBy("$ordername", "$ordertype");
             } 
 
             $data=[];  
