@@ -25,7 +25,7 @@ class StakeholdersController extends Controller
             $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
             $page = $request->page;
             
-            $query = DB::table('\'stakeholders_info\' as \'i\'')
+            $query = DB::table('stakeholders_info AS i')
             ->select(DB::raw("
                 i.id as id, 
                 concat(i.firstname,' ', i.middlename, ' ', i.lastname) as name,
