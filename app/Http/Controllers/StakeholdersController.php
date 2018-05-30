@@ -27,7 +27,7 @@ class StakeholdersController extends Controller
             
             $query = DB::table('stakeholders_info as i')
             ->select(DB::raw("
-                i.id, 
+                i.id as id, 
                 concat(i.firstname,' ', i.middlename, ' ', i.lastname) as name,
                 i.person_type_id,
                 i.document_number,
