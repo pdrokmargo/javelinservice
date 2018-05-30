@@ -25,7 +25,7 @@ class StakeholdersController extends Controller
             $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
             $page = $request->page;
             
-            $query = DB::table('stakeholders_info as i')
+            $query = DB::table('\'stakeholders_info\' as \'i\'')
             ->select(DB::raw("
                 i.id as id, 
                 concat(i.firstname,' ', i.middlename, ' ', i.lastname) as name,
@@ -41,7 +41,7 @@ class StakeholdersController extends Controller
             if ($search!='') {
                 $query = $query->whereRaw("(lower(firstname) like ? or lower(middlename) like ? or lower(lastname) like ? or lower(legalname) like ? or lower(businessname) like ? or document_number like ?)", array($search, $search, $search, $search, $search, $search))->orderBy($ordername, $ordertype);
             }else{
-                //$query=$query->orderBy($ordername, $ordertype);
+                $query=$query->orderBy($ordername, $ordertype);
             } 
 
             $data=[];  
