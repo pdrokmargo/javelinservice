@@ -21,7 +21,7 @@ class StakeholdersController extends Controller
         try {
             
             $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';          
-            $ordername = isset($request->ordername) ? $request->ordername : 'i.id';
+            $ordername = isset($request->ordername) ? $request->ordername : 'id';
             $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
             $page = $request->page;
             
