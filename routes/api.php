@@ -18,8 +18,6 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-
 Route::middleware('auth:api')->group(function () {
     Route::get('/login', function (Request $request) {
         // return $request->user()->load('usercompany.userprofile.privileges.views');
