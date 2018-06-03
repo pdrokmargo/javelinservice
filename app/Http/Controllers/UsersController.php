@@ -211,17 +211,17 @@ class UsersController extends Controller
         DB::beginTransaction(); 
         try {
             $data = json_decode($request->data, true);    
+            $_user = $data["user"];
             $user = \App\Models\User::find($id);
-            
-            $user = $data["user"];
-            $userprofile = $data["userprofiles"];
-            $user->firstname = $user['firstname'];
-            $user->lastname = $user['lastname']; 
-            $user->username = $user['username'];
-            $user->email = $user['email'];
-            $user->status = $user['status'];
-            $user->company_default_id = $user['company_default_id'];
-            $user->user_profile_id = $user['user_profile_id'];
+
+            $userprofile = $_data["userprofiles"];
+            $user->firstname = $_user['firstname'];
+            $user->lastname = $_user['lastname']; 
+            $user->username = $_user['username'];
+            $user->email = $_user['email'];
+            $user->status = $_user['status'];
+            $user->company_default_id = $_user['company_default_id'];
+            $user->user_profile_id = $_user['user_profile_id'];
             $user->save();
 
             DB::table('users_privileges')->where('user_id', $id)->delete();
