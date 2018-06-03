@@ -182,7 +182,7 @@ class UsersController extends Controller
     {
         $user = \App\Models\User::find($id);
         $userprofiles = DB::table('users_privileges as up')
-                            ->select('up.company_id,up.user_profile_id, c.name as company_name,u.up_description as user_profile_description')
+                            ->select('up.company_id', 'up.user_profile_id', 'c.name as company_name','u.up_description as user_profile_description')
                             ->join('companies as c','c.id','=','up.company_id')
                             ->join('user_profiles as u','u.id','=','up.user_profile_id')
                             ->where('up.user_id',$id)
