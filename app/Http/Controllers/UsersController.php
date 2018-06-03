@@ -180,8 +180,22 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $user = \App\Models\User::with('usersprivileges')->find($id);        
-        return response()->json(['status'=>'success', "message"=>'', "data" => $user ], 200
+        $user = \App\Models\User::find($id);
+        $userprofiles = DB::table('users_privileges as up')
+                            ->select('up.company_id,up.user_profile_id, c.name as company_name,u.up_description as user_profile_description')
+                            ->join('companies as c','c.id','=','up.company_id')
+                            ->join('user_profiles as u','u.id','=','up.user_profile_id')
+                            ->where('up.user_id',$id)
+                            ->get();
+        
+        return response()->json([
+            'status'=>'success', 
+            "message"=>'', 
+            "data" => [
+                "user" => $user,
+                "userprofiles" => $userprofiles
+            ] 
+        ], 200
         );
     }
 
