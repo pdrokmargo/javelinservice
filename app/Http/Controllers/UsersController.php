@@ -215,16 +215,13 @@ class UsersController extends Controller
             
             $user = $data["user"];
             $userprofile = $data["userprofiles"];
-
-            $user->fill([
-                'firstname' => $user['firstname'],
-                'lastname' => $user['lastname'], 
-                'username' => $user['username'],
-                'email' => $user['email'],
-                'status' => $user['status'],
-                'company_default_id' => $user['company_default_id'],
-                'user_profile_id' => $user['user_profile_id'],
-            ]);
+            $user->firstname = $user['firstname'];
+            $user->lastname = $user['lastname']; 
+            $user->username = $user['username'];
+            $user->email = $user['email'];
+            $user->status = $user['status'];
+            $user->company_default_id = $user['company_default_id'];
+            $user->user_profile_id = $user['user_profile_id'];
             $user->save();
 
             DB::table('users_privileges')->where('user_id', $id)->delete();
