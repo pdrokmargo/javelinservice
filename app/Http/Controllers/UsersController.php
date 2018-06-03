@@ -217,12 +217,13 @@ class UsersController extends Controller
             $userprofile = $data["userprofiles"];
 
             $user->fill([
-                'firstname' => $data['firstname'],
-                'lastname' => $data['lastname'], 
-                'username' => $data['username'],
-                'email' => $data['email'],
-                'status' => $data['status'],
-                'company_default_id' => $data['company_default_id'],
+                'firstname' => $user['firstname'],
+                'lastname' => $user['lastname'], 
+                'username' => $user['username'],
+                'email' => $user['email'],
+                'status' => $user['status'],
+                'company_default_id' => $user['company_default_id'],
+                'user_profile_id' => $user['user_profile_id'],
             ]);
             $user->save();
 
