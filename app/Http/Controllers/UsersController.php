@@ -208,31 +208,29 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-       DB::beginTransaction(); 
-       try {
-           
+        DB::beginTransaction(); 
+        try {
+            $data = json_decode($request->data, true);    
             $user = \App\Models\User::find($id);
-            $data = json_decode($request->data, true);            
-            $user->fill(array(
-                            'firstname' => $data['firstname'],
-                            'lastname' => $data['lastname'], 
-                            'username' => $data['username'],
-                            'email' => $data['email'],                            
-                            'status' => $data['status'],
-                            'company_default_id' => $data['company_default_id'],
-                            ));
+            
+            $user = $data["user"];
+            $userprofile = $data["userprofiles"];
+
+            $user->fill([
+                'firstname' => $data['firstname'],
+                'lastname' => $data['lastname'], 
+                'username' => $data['username'],
+                'email' => $data['email'],
+                'status' => $data['status'],
+                'company_default_id' => $data['company_default_id'],
+            ]);
             $user->save();
 
             DB::table('users_privileges')->where('user_id', $id)->delete();
 
-            foreach ($data['usersprivileges'] as $key => $item) {
-               \App\Models\UsersPrivileges::create(
-                    array(
-                        'user_id' => $id,
-                        'company_id' => $item['company_id'],
-                        'user_profile_id' => $item['user_profile_id']    
-                    )
-                );    
+            foreach ($userprofile as $item) {
+                $item['user_id'] = $id;
+                \App\Models\UsersPrivileges::create($item);    
             }                   
                 
             $this->CreateLog($request->user()->id, 'users', 2,'');
@@ -261,7 +259,7 @@ class UsersController extends Controller
     public function destroy($id)
     {
         $user = \App\Models\User::find($id);
-        $user->delete = tidy_get_error_buffer;
+        $user->delete = true;
         $this->CreateLog($request->user()->id, 'users', 3 ,'');
         return response()->json([
             "status"=>"success",
