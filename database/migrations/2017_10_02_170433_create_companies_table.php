@@ -19,7 +19,7 @@ class CreateCompaniesTable extends Migration
             $table->string('nit');
             $table->string('description');
             $table->string('address');
-            $table->integer('phone_number');
+            $table->string('phone_number');
             $table->string('email');
             $table->integer('tax_regime_id');
             $table->boolean('big_contributor');
@@ -28,8 +28,6 @@ class CreateCompaniesTable extends Migration
             $table->string('website');
             $table->boolean('state');
             $table->string('big_contributor_resolution')->nullable();
-            //$table->string('selfholder_resolution')->nullable();       
-
             $table->integer('geolocation_id');
             $table->integer('withholding_income_sales_id')->default(-1);//Acepta autorretenedor
             $table->integer('withholding_income_purchases_id')->default(-1);
@@ -37,15 +35,7 @@ class CreateCompaniesTable extends Migration
             $table->integer('withholding_vat_purchases_id')->default(-1);
             $table->integer('withholding_ica_sales_id')->default(-1);//Acepta autorretenedor
             $table->integer('withholding_ica_purchases_id')->default(-1);
-            
-            //$table->foreign('geolocation_id')->references('id')->on('geolocations');
-            //$table->foreign('tax_regime_id')->references('id')->on('collections_values');
-            //$table->foreign('withholding_income_sales_id')->references('id')->on('collections_values');
-            //$table->foreign('withholding_income_purchases_id')->references('id')->on('collections_values');
-            //$table->foreign('withholding_vat_sales_id')->references('id')->on('collections_values');
-            //$table->foreign('withholding_vat_purchases_id')->references('id')->on('collections_values');
-            //$table->foreign('withholding_ica_sales_id')->references('id')->on('collections_values');
-            //$table->foreign('withholding_ica_purchases_id')->references('id')->on('collections_values');
+            $table->boolean('delete')->default(false);
         });
     }
 
