@@ -17,12 +17,14 @@ class CreateSuppliersTable extends Migration
             $table->uuid('id');
             $table->uuid('stakeholder_info_id'); 
             $table->integer('supplier_class_id');
-            $table->decimal('global_discount')->default(0);
+            $table->decimal('global_discount',12,2)->default(0);
             $table->integer('payment_condition_id');
             $table->boolean('purchase_order')->default(false);
+
             $table->decimal('credit_limit', 12, 2)->nullable();
+            
             $table->integer('days_early_payment')->nullable();
-            $table->decimal('discount_early_payment')->nullable();
+            $table->decimal('discount_early_payment',12,2)->nullable();
             $table->integer('payment_method_id');
             $table->integer('days_grace')->nullable();
             $table->json('bank_accounts')->nullable();//array banks accounts
