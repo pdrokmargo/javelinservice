@@ -368,7 +368,9 @@ class StakeholdersController extends Controller
                     else
                     {
                         $supplier['stakeholder_info_id'] = $id; 
-                        \App\Models\Supplier::firstOrCreate([ 'stakeholder_info_id' => $id ], $supplier); 
+                        $s = \App\Models\Supplier::firstOrCreate([ 'stakeholder_info_id' => $id ], $supplier); 
+                        $s->fill($supplier);
+                        $s->save();
                             
                     }
                     if (!$profile['is_employee']) 
