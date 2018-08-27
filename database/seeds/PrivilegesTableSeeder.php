@@ -28,6 +28,20 @@ class PrivilegesTableSeeder extends Seeder
             ['view_id' => 14, 'user_profile_id' => 1,'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
             ['view_id' => 15, 'user_profile_id' => 1,'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
             ['view_id' => 16, 'user_profile_id' => 1,'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
+            ['view_id' => 17, 'user_profile_id' => 1,'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
+            ['view_id' => 18, 'user_profile_id' => 1,'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
+            ['view_id' => 19, 'user_profile_id' => 1,'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
+            ['view_id' => 20, 'user_profile_id' => 1,'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
+            ['view_id' => 21, 'user_profile_id' => 1,'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
+            ['view_id' => 22, 'user_profile_id' => 1,'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
+            ['view_id' => 23, 'user_profile_id' => 1,'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
+            ['view_id' => 24, 'user_profile_id' => 1,'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
+            ['view_id' => 25, 'user_profile_id' => 1,'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
+            ['view_id' => 26, 'user_profile_id' => 1,'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
+            ['view_id' => 27, 'user_profile_id' => 1,'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
+            ['view_id' => 28, 'user_profile_id' => 1,'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
+            ['view_id' => 29, 'user_profile_id' => 1,'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
+            ['view_id' => 30, 'user_profile_id' => 1,'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
         ]);
     }
 }
