@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('comercial_name');
             $table->integer('units');
             $table->date('lifetime');
+            $table->double('average_unit_cost')->nullable();
             $table->integer('delivery_fraction');
             $table->integer('barcode')->nullable();
             $table->string('cums');

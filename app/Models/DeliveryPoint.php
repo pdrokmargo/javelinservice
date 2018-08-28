@@ -19,6 +19,7 @@ class DeliveryPoint extends Model
         'description',
         'state',
         'installed',
+        'token',
         'delivery_point_group_id',
         'delivery_contracts',
         'company_id',

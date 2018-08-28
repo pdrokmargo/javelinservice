@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+
 use DB;
 
 class DeliveryPointsController extends Controller
@@ -54,6 +56,7 @@ class DeliveryPointsController extends Controller
         {
             $data = json_decode($request->data, true);
             $data["company_id"] = $request->user()->company_default_id;
+            $data["token"] = Str::random(8);
             \App\Models\DeliveryPoint::create($data);
             $this->CreateLog($request->user()->id, 'delivery-points', 1,'');
             DB::commit();
