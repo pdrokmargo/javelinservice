@@ -19,6 +19,7 @@ class CreateDeliveryPointsTable extends Migration
             $table->integer('company_id')->default(0);
             $table->string('name');
             $table->string('description')->default('');
+            $table->string('token')->nullable();
             $table->integer('delivery_point_group_id');
             $table->json('delivery_contracts');
             /*json array:
