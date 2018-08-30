@@ -11,7 +11,7 @@ class SuppliersQuotesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('suppliers-quotes')->insert([
+        DB::table('suppliers_quotes')->insert([
             [
                 'id' => 'c27f8113a627-4fe9-afbd', 
                 'supplier_id' => '6930f51c-adf2-4629-9959-9ed9dc1bc62a', 
