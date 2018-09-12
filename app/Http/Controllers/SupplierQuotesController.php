@@ -19,12 +19,12 @@ class SupplierQuotesController extends Controller
             $query = DB::table('suppliers_quotes as s')
             ->select(DB::raw('s.id, s.supplier_id, s.created_at, s.status'));
 
-            /*if ($search!='') {
-                $query = $query->where('s.delete', false)->whereRaw("s.id = ? and (s.supplier_id like ? or c.value like ? or (case when w.state=true then 'activa' else 'inactiva' end) like ?)", array($company_id, $search, $search, $search))
+            if ($search!='') {
+                $query = $query->where('s.delete', false)->whereRaw("s.id = ? and (s.supplier_id like ?  or (case when s.status=true then 'activa' else 'inactiva' end) like ?)", array($company_id, $search, $search, $search))
                 ->orderBy($ordername, $ordertype);
             }else{
-                $query=$query->where('w.delete', false)->where('w.company_id', $company_id)->orderBy($ordername, $ordertype);
-            } */
+                $query=$query->where('s.delete', false)->where('s.id', $id)->orderBy($ordername, $ordertype);
+            }
 
             $data=[];  
             if ($page) {
