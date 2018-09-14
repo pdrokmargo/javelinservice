@@ -10,23 +10,23 @@ class SupplierQuotesController extends Controller
     public function index(Request $request)
     {
 
-        $data =  \App\Models\SupplierQuotes::all();
-        return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
-        /*try {
-          
-            $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';
-            $ordername = isset($request->ordername) ? $request->ordername : 's.id';
+        /*$data =  \App\Models\SupplierQuotes::all();
+        return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);*/
+        try {
+
+           $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';           
+            $ordername = isset($request->ordername) ? $request->ordername : 'id';
             $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
             $page = $request->page;
-            $company_id = $request->user()->company_default_id;
+            $sign = isset($request->sign) ? $request->sign : '';
 
-            $query = DB::table('suppliers_quotes as s')->select(DB::raw('s.id, s.supplier_id, s.created_at, s.status'));
-
+            $query = new \App\Models\SupplierQuotes();
             if ($search!='') {
-                $query = $query->where('s.delete', false)->whereRaw("s.id = ? and (s.supplier_id like ?  or (case when s.status=true then 'activa' else 'inactiva' end) like ?)", array($company_id, $search, $search, $search))->orderBy($ordername, $ordertype);
+                $query = $query->whereRaw("delete = false and code like ? or lower(supplier_quotes.id) like ? or lower(notes) like ? lower(created_at) like ? or (case when status=true then 'activo' else 'inactivo' end) like ?", array($search, $search, $search, $search, $search))
+                ->orderBy($ordername, $ordertype);
             }else{
-                $query=$query->where('s.delete', false)->where('s.id', $id)->orderBy($ordername, $ordertype);
-            }
+                $query=$query->where('delete', false)->orderBy($ordername, $ordertype);
+            } 
 
             $data=[];  
             if ($page) {
@@ -37,8 +37,8 @@ class SupplierQuotesController extends Controller
             
             return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
 
-      } catch (Exception $e) {
-          return 'Error:'.$e->getMessage();
-      } */
+        } catch (Exception $e) {
+            return 'Error:'.$e->getMessage();
+        }
     }
 }
