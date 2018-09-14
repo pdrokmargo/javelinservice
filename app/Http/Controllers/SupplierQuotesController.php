@@ -10,7 +10,7 @@ class SupplierQuotesController extends Controller
     public function index(Request $request)
     {
 
-        $data =  \App\Models\Supplier::all();
+        $data =  \App\Models\SupplierQuotes::all();
         return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
         /*try {
           
