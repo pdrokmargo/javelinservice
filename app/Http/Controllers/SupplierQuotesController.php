@@ -22,7 +22,7 @@ class SupplierQuotesController extends Controller
 
             $query = new \App\Models\SupplierQuotes();
             if ($search!='') {
-                $query = $query->whereRaw("status = false and code like ? or lower(supplier_quotes.id) like ? or lower(notes) like ? lower(created_at) like ? or (case when status=true then 'activo' else 'inactivo' end) like ?", array($search, $search, $search, $search, $search))
+                $query = $query->whereRaw("status = true and code like ? or lower(supplier_quotes.id) like ? or lower(notes) like ? lower(created_at) like ? or (case when status=true then 'activo' else 'inactivo' end) like ?", array($search, $search, $search, $search, $search))
                 ->orderBy($ordername, $ordertype);
             }else{
                 $query=$query->where('status', false)->orderBy($ordername, $ordertype);
