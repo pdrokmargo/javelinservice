@@ -9,7 +9,10 @@ class SupplierQuotesController extends Controller
 {
     public function index(Request $request)
     {
-        try {
+
+        $data =  \App\Models\Supplier::all();
+        return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
+        /*try {
           
             $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';
             $ordername = isset($request->ordername) ? $request->ordername : 's.id';
@@ -36,6 +39,6 @@ class SupplierQuotesController extends Controller
 
       } catch (Exception $e) {
           return 'Error:'.$e->getMessage();
-      } 
+      } */
     }
 }
