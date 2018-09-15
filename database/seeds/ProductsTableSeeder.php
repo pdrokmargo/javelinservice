@@ -25,7 +25,7 @@ class ProductsTableSeeder extends Seeder
                 'barcode' => 1234567890,
                 'cums' => 'DFDFDF-01',
                 'cost' => 100,
-                'packaging_unit_id' => 29,
+                /*'packaging_unit_id' => 29,*/
                 'content_unit_id' => 120,
                 'batch_control' => true,
                 'serials_control' => false,
@@ -41,7 +41,7 @@ class ProductsTableSeeder extends Seeder
                 'security_time' => 10,
                 'covered_period' => 20,
                 'replacment_time' => 30,
-                'pharmaceutical_drug_id' => '222eb1a2-3704-4c27-b01d-7888e828b812',
+                'pharmaceutical_drug' => '[{"pharmaceutical_drug_id":"222eb1a2-3704-4c27-b01d-7888e828b812"}]',
                 'state' => true,
 
                 
