@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class SupplierQuotesController extends Controller
 {
