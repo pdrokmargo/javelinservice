@@ -27,6 +27,6 @@ class SupplierQuotes extends Model
     protected $hidden = [];
    
     public function stakeholderInfo() {
-        return $this->hasOne('App\Models\StakeholdersInfo', 'supplier_id');
+        return $this->hasOne('App\Models\StakeholdersInfo', 'id','supplier_id');
     }
 }
