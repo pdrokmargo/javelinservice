@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use Illuminate\Support\Facades\Response;
+use \App\Models\SupplierQuotes;
 
 
 class SupplierQuotesController extends Controller
@@ -19,7 +19,7 @@ class SupplierQuotesController extends Controller
             $page = $request->page;
             $sign = isset($request->sign) ? $request->sign : '';
 
-            $query = new \App\Models\SupplierQuotes();
+            $query = new SupplierQuotes();
             /*if ($search!='') {
                 $query = $query->whereRaw("status = true and code like ? or (case when status=true then 'activo' else 'inactivo' end) like ?", array($search, $search, $search, $search, $search))
                 ->orderBy($ordername, $ordertype);
@@ -70,7 +70,7 @@ class SupplierQuotesController extends Controller
 
     public function show($id)
 	{
-	    $data = \App\Models\SupplierQuotes::find($id);
+	    $data = SupplierQuotes::find($id);
 	    return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
 	}
 }
