@@ -74,4 +74,10 @@ class SupplierQuotesController extends Controller
 
         
     }
+
+    public function show($id)
+	{
+	    $data = \App\Models\SupplierQuotes::find($id);
+	    return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
+	}
 }
