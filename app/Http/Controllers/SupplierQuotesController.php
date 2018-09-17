@@ -50,29 +50,20 @@ class SupplierQuotesController extends Controller
     public function store(Request $request)
     {
         DB::beginTransaction(); 
-        try
-        {
-            $data = json_decode($request->data, true);
-            $data["id"] = $request->user()->default_id;
-            $data["token"] = Str::random(8);
-            \App\Models\SupplierQuotes::create($data);
-            $this->CreateLog($request->user()->id, 'suppliers-quotes', 1,'');
-            DB::commit();
-            return response()->json([ 
-                "store" => true, 
-                "message" => "Registro creado correctamente" 
-            ], 200);
-        }
-        catch (Exception $e) 
-        { 
+        try {
+
+            $response = Response::json([
+                'data' => $request,
+            ], 201);
+    
+            return $response;
+        } catch (Exception $e) {
             DB::rollback();
             return response()->json([ 
                 "store" => false, 
-                "message" => "Error al intentar almacenar el nuevo registro" 
+                "message" => "Error al intentar crear el registro" 
             ], 400);
-        }
-
-        
+        }     
     }
 
     public function show($id)
