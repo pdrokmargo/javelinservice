@@ -9,9 +9,6 @@ class SupplierQuotesController extends Controller
 {
     public function index(Request $request)
     {
-
-        /*$data =  \App\Models\SupplierQuotes::all();
-        return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);*/
         try {
 
            $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';           
@@ -40,5 +37,39 @@ class SupplierQuotesController extends Controller
         } catch (Exception $e) {
             return 'Error:'.$e->getMessage();
         }
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        DB::beginTransaction(); 
+        try
+        {
+            $data = json_decode($request->data, true);
+            $data["id"] = $request->user()->default_id;
+            $data["token"] = Str::random(8);
+            \App\Models\SupplierQuotes::create($data);
+            $this->CreateLog($request->user()->id, 'suppliers-quotes', 1,'');
+            DB::commit();
+            return response()->json([ 
+                "store" => true, 
+                "message" => "Registro creado correctamente" 
+            ], 200);
+        }
+        catch (Exception $e) 
+        { 
+            DB::rollback();
+            return response()->json([ 
+                "store" => false, 
+                "message" => "Error al intentar almacenar el nuevo registro" 
+            ], 400);
+        }
+
+        
     }
 }
