@@ -52,11 +52,13 @@ class SupplierQuotesController extends Controller
         DB::beginTransaction(); 
         try {
 
-            $response = Response::json([
-                'data' => $request,
-            ], 201);
-    
-            return $response;
+            $data = json_decode($request->data, true);
+            SupplierQuotes::create($data);
+            DB::commit();
+            return response()->json([ 
+                "store" => true, 
+                "message" => "Registro creado correctamente" 
+            ], 200);
         } catch (Exception $e) {
             DB::rollback();
             return response()->json([ 
