@@ -52,7 +52,7 @@ class SupplierQuotesController extends Controller
         DB::beginTransaction(); 
         try {
 
-            $data = json_decode($request->data, true);
+            $data = $request->data;
             $supplier_quote = \App\Models\SupplierQuotes::create($data);
             $this->CreateLog($request->user()->id, 'supplier_quotes', 1,'');
             DB::commit();
