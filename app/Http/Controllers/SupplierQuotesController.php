@@ -62,9 +62,9 @@ class SupplierQuotesController extends Controller
                 'notes' => isset($data['notes']) ? $data['notes'] : '',
                 'status' => $data['status']
             ));*/
-            $quote = new \App\Models\SupplierQuotes;
-            $quote->create($request->all());
-            $this->CreateLog($request->user()->id, 'quotes', 1,'');
+            $supplier_quotes = new \App\Models\SupplierQuotes;
+            $supplier_quotes->create($request->all());
+            $this->CreateLog($request->user()->id, 'supplier_quotes', 1,'');
             DB::commit();
             return response()->json([ 
                 "store" => true, 
