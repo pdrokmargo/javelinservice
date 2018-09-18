@@ -54,9 +54,9 @@ class SupplierQuotesController extends Controller
             
             $data = json_decode($request->data, true);
             $supplier_quote = \App\Models\SupplierQuotes::create(array(
-                'created_at' => $data['created_at'],
-                'expire_at' => $data['expire_at'],
                 'supplier_id' => $data['supplier_id'],
+                'created_at' => $data['created_at'],
+                'expire_at' => $data['expire_at'],                
                 'payment_condition_id' => $data['payment_condition_id'],
                 'products' => $data['products'],
                 'notes' => isset($data['notes']) ? $data['notes'] : '',
