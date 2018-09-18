@@ -51,7 +51,7 @@ class SupplierQuotesController extends Controller
     {
         DB::beginTransaction(); 
         try {
-            dd($request);
+            dd($request->data);
             $data = json_decode($request->data, true);
             
             $supplier_quote = \App\Models\SupplierQuotes::create(array(
