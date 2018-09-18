@@ -19,7 +19,7 @@ class SupplierQuotesController extends Controller
             $page = $request->page;
             $sign = isset($request->sign) ? $request->sign : '';
 
-            $query = new SupplierQuotes();
+            $query = new \App\Models\SupplierQuotes();
             /*if ($search!='') {
                 $query = $query->whereRaw("status = true and code like ? or (case when status=true then 'activo' else 'inactivo' end) like ?", array($search, $search, $search, $search, $search))
                 ->orderBy($ordername, $ordertype);
