@@ -53,7 +53,7 @@ class SupplierQuotesController extends Controller
         try {
 
             $data = json_decode($request->data, true);
-            SupplierQuotes::create($data);
+            App\Models\SupplierQuotes::create($data);
             DB::commit();
             return response()->json([ 
                 "store" => true, 
