@@ -54,6 +54,7 @@ class SupplierQuotesController extends Controller
 
             $data = json_decode($request->data, true);
             $supplier_quote = \App\Models\SupplierQuotes::create($data);
+            $this->CreateLog($request->user()->id, 'supplier_quotes', 1,'');
             DB::commit();
             return response()->json([ 
                 "store" => true, 
