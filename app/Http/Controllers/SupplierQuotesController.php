@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use \App\Models\SupplierQuotes;
 
 
 class SupplierQuotesController extends Controller
@@ -53,7 +52,7 @@ class SupplierQuotesController extends Controller
         try {
 
             $data = json_decode($request->data, true);
-            App\Models\SupplierQuotes::create($data);
+            $supplier_quote = \App\Models\SupplierQuotes::create($data);
             DB::commit();
             return response()->json([ 
                 "store" => true, 
