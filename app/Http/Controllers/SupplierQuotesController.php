@@ -64,7 +64,7 @@ class SupplierQuotesController extends Controller
             ));*/
             $quote = new \App\Models\SupplierQuotes;
             $quote->create($request->all());
-            $this->CreateLog($request->user()->id, 'supplier_quotes', 1,'');
+            $this->CreateLog($request->user()->id, 'quotes', 1,'');
             DB::commit();
             return response()->json([ 
                 "store" => true, 
