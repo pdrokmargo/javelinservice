@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
@@ -60,7 +61,7 @@ class ProductsController extends Controller
             $data = json_decode($request->data, true);
             $data['pharmaceutical_drug'] = json_encode($data['pharmaceutical_drug']);
             $product=\App\Models\Product::create($data);
-            $this->CreateLog($request->user()->id, 'product', 1,'');
+            $this->CreateLog(Auth::id(), 'product', 1,'');
             DB::commit();
             return response()->json([ 
                 "store" => true, 
