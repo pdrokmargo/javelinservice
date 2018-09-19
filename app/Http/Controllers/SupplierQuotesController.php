@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 
 class SupplierQuotesController extends Controller
@@ -54,7 +55,7 @@ class SupplierQuotesController extends Controller
             
             $data = json_decode($request->data, true);
             $supplier_quotes=\App\Models\SupplierQuotes::create($data);
-            $this->CreateLog($request->user()->id, 'suppliers_quotes', 1,'');
+            $this->CreateLog(Auth::id(), 'suppliers_quotes', 1,'');
             DB::commit();
             return response()->json([ 
                 "store" => true, 
