@@ -52,7 +52,7 @@ class SupplierQuotesController extends Controller
         DB::beginTransaction(); 
         try {
             
-            /*$data = json_decode($request->data, true);
+            $data = json_decode($request->data, true);
             $supplier_quote = \App\Models\SupplierQuotes::create(array(
                 'supplier_id' => $data['supplier_id'],
                 'created_at' => $data['created_at'],
@@ -61,9 +61,9 @@ class SupplierQuotesController extends Controller
                 'products' => $data['products'],
                 'notes' => isset($data['notes']) ? $data['notes'] : '',
                 'status' => $data['status']
-            ));*/
-            $supplier_quotes = new \App\Models\SupplierQuotes;
-            $supplier_quotes->create($request->all());
+            ));
+            /*$supplier_quotes = new \App\Models\SupplierQuotes;
+            $supplier_quotes->create($request->all());*/
             /*$this->CreateLog($request->user()->id, 'suppliers_quotes', 1,'');*/
             DB::commit();
             return response()->json([ 
