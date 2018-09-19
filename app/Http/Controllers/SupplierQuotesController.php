@@ -53,18 +53,7 @@ class SupplierQuotesController extends Controller
         try {
             
             $data = json_decode($request->data, true);
-            $supplier_quote = \App\Models\SupplierQuotes::create(array(
-                'supplier_id' => $data['supplier_id'],
-                'created_at' => $data['created_at'],
-                'expire_at' => $data['expire_at'],                
-                'payment_condition_id' => $data['payment_condition_id'],
-                'products' => $data['products'],
-                'notes' => isset($data['notes']) ? $data['notes'] : '',
-                'status' => $data['status']
-            ));
-            /*$supplier_quotes = new \App\Models\SupplierQuotes;
-            $supplier_quotes->create($request->all());*/
-            /*$this->CreateLog($request->user()->id, 'suppliers_quotes', 1,'');*/
+            $supplier_quotes=\App\Models\SupplierQuotes::create($data);
             DB::commit();
             return response()->json([ 
                 "store" => true, 
