@@ -81,7 +81,7 @@ class SupplierQuotesController extends Controller
         DB::beginTransaction();
         try
         {
-            $data = \App\Models\SuppliersQuotes::find($id);
+            $data = \App\Models\SupplierQuotes::find($id);
             $data->delete = true;
             $data->save();
             /*$this->CreateLog($request->user()->id, 'suppliers-quotes', 3,'');*/
