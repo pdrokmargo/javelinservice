@@ -74,5 +74,30 @@ class SupplierQuotesController extends Controller
 	{
 	    $data = SupplierQuotes::find($id);
 	    return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
-	}
+    }
+    
+    public function destroy(Request $request, $id)
+    {
+        DB::beginTransaction();
+        try
+        {
+            $data = \App\Models\SuppliersQuotes::find($id);
+            $data->delete = true;
+            $data->save();
+            /*$this->CreateLog($request->user()->id, 'suppliers-quotes', 3,'');*/
+            DB::commit();
+            return response()->json([ 
+                "delete" => true, 
+                "message" => "Registro eliminado correctamente" 
+            ], 200);
+        }
+        catch (Exception $e) 
+        {
+            DB::rollback();
+            return response()->json([ 
+                "delete" => false, 
+                "message" => "Error al intentar eliminar el registro" 
+            ], 400);
+        }        
+    }
 }
