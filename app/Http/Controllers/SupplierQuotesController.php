@@ -82,8 +82,7 @@ class SupplierQuotesController extends Controller
         try
         {
             $data = \App\Models\SupplierQuotes::find($id);
-            $data->delete = true;
-            $data->save();
+            $data->delete();
             /*$this->CreateLog($request->user()->id, 'suppliers-quotes', 3,'');*/
             DB::commit();
             return response()->json([ 
