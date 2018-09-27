@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 use Illuminate\Support\Facades\Auth;
+use \App\Models\SupplierQuotes;
 
 
 class SupplierQuotesController extends Controller
@@ -20,7 +21,7 @@ class SupplierQuotesController extends Controller
             $page = $request->page;
             $sign = isset($request->sign) ? $request->sign : '';
 
-            $query = new \App\Models\SupplierQuotes();
+            $query = new SupplierQuotes();
             /*if ($search!='') {
                 $query = $query->whereRaw("status = true and code like ? or (case when status=true then 'activo' else 'inactivo' end) like ?", array($search, $search, $search, $search, $search))
                 ->orderBy($ordername, $ordertype);
@@ -54,7 +55,7 @@ class SupplierQuotesController extends Controller
         try {
             
             $data = json_decode($request->data, true);
-            $supplier_quotes=\App\Models\SupplierQuotes::create($data);
+            $supplier_quotes=SupplierQuotes::create($data);
             /*$this->CreateLog(Auth::id(), 'suppliers_quotes', 1,'');*/
             DB::commit();
             return response()->json([ 
@@ -81,7 +82,7 @@ class SupplierQuotesController extends Controller
         DB::beginTransaction();
         try
         {
-            $data = \App\Models\SupplierQuotes::find($id);
+            $data = SupplierQuotes::find($id);
             $data->delete();
             /*$this->CreateLog($request->user()->id, 'suppliers-quotes', 3,'');*/
             DB::commit();
