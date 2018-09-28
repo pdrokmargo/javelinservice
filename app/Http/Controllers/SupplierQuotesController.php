@@ -56,7 +56,7 @@ class SupplierQuotesController extends Controller
             
             $data = json_decode($request->data, true);
             $supplier_quotes=SupplierQuotes::create($data);
-            /*$this->CreateLog(Auth::id(), 'suppliers_quotes', 1,'');*/
+            $this->CreateLog(Auth::id(), 'suppliers-quotes', 1,'');
             DB::commit();
             return response()->json([ 
                 "store" => true, 
@@ -75,6 +75,32 @@ class SupplierQuotesController extends Controller
 	{
 	    $data = SupplierQuotes::find($id);
 	    return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
+    }
+
+    public function update(Request $request, $id)
+    {
+        DB::beginTransaction();
+        try
+        {
+            $data_new = json_decode($request->data,true);
+            $data_old = SupplierQuotes::find($id);
+            $data_old->fill($data_new);
+            $data_old->save();
+            $this->CreateLog($request->user()->id, 'suppliers-quotes', 2,'');
+            DB::commit();
+            return response()->json([ 
+                "update" => true, 
+                "message" => "Registro actualizado correctamente" 
+            ], 200);
+        }
+        catch (Exception $e) 
+        {
+            DB::rollback();
+            return response()->json([ 
+                "update" => false, 
+                "message" => "Error al intentar actualizar el registro" 
+            ], 400);
+        }  
     }
     
     public function destroy(Request $request, $id)
