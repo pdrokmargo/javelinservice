@@ -24,9 +24,9 @@ class SupplierQuotesController extends Controller
             $query = new SupplierQuotes();
             if ($search!='') {
                 $query = $query->whereRaw("status = true " )
-                    ->with(["stakeholderInfo"=>function($query)use($search){
+                    /*->with(["stakeholderInfo"=>function($query)use($search){
                     $query->where("firstname", $search);
-                }])
+                }])*/
                 ->orderBy($ordername, $ordertype);
             }else{
                 $query=$query->where('status', false)->orderBy($ordername, $ordertype);
