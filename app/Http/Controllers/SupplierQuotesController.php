@@ -22,12 +22,12 @@ class SupplierQuotesController extends Controller
             $sign = isset($request->sign) ? $request->sign : '';
 
             $query = new SupplierQuotes();
-            /*if ($search!='') {
-                $query = $query->whereRaw("status = true and code like ? or (case when status=true then 'activo' else 'inactivo' end) like ?", array($search, $search, $search, $search, $search))
+            if ($search!='') {
+                $query = $query->whereRaw("status = true and code like ? or (case when status=true then 'activo' else 'inactivo' end) like ?", array($search, $search))
                 ->orderBy($ordername, $ordertype);
             }else{
                 $query=$query->where('status', false)->orderBy($ordername, $ordertype);
-            } */
+            }
 
             $data=[];  
             if ($page) {
