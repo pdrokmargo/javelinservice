@@ -23,7 +23,9 @@ class SupplierQuotesController extends Controller
 
             $query = new SupplierQuotes();
             if ($search!='') {
-                $query = $query->whereRaw("status = true and code like ? or (case when status=true then 'activo' else 'inactivo' end) like ?", array($search, $search))
+                $query = $query->whereRaw("status = true")->with(["stakeholderInfo"=>function($query)use($search){
+                    $query->where("firstname", $search);
+                }])
                 ->orderBy($ordername, $ordertype);
             }else{
                 $query=$query->where('status', false)->orderBy($ordername, $ordertype);
@@ -110,7 +112,7 @@ class SupplierQuotesController extends Controller
         {
             $data = SupplierQuotes::find($id);
             $data->delete();
-            /*$this->CreateLog($request->user()->id, 'suppliers-quotes', 3,'');*/
+            $this->CreateLog($request->user()->id, 'suppliers-quotes', 3,'');
             DB::commit();
             return response()->json([ 
                 "delete" => true, 
