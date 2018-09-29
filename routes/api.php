@@ -50,6 +50,7 @@ Route::middleware('auth:api')->group(function () {
     
     Route::resource('sales_representatives','SalesRepresentativesController');
     Route::resource('warehouse','WarehouseController');
+    Route::get('warehouse-select','WarehouseController@select');
     Route::get('privilege/{link}', function(Request $request, $link){
         $user_profile_id = $request->user()->usercompany->user_profile_id;
         $view_id = \App\Models\View::where('link',$link)->first()->id;
