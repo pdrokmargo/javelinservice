@@ -31,7 +31,7 @@ class SupplierQuotesController extends Controller
             }else{
                 $query=$query->where('status', false)->orderBy($ordername, $ordertype);
             }
-
+            $sql=$query->toSql();
             $data=[];  
             if ($page) {
               $data=$query->paginate(30);
@@ -39,7 +39,7 @@ class SupplierQuotesController extends Controller
               $data=$query->get();
             }  
             
-            return response()->json(['status'=>'success', "message"=>'', "data" => $data, "sql" => $query->toSql() ], 200);
+            return response()->json(['status'=>'success', "message"=>'', "data" => $data, "sql"=>$sql ], 200);
 
         } catch (Exception $e) {
             return 'Error:'.$e->getMessage();
