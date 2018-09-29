@@ -39,7 +39,7 @@ class SupplierQuotesController extends Controller
               $data=$query->get();
             }  
             
-            return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
+            return response()->json(['status'=>'success', "message"=>'', "data" => $data, "sql" => $query->toSql ], 200);
 
         } catch (Exception $e) {
             return 'Error:'.$e->getMessage();
