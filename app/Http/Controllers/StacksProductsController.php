@@ -19,6 +19,8 @@ class StacksProductsController extends Controller
 
         $to = date_format(new DateTime($data['to']),'Y-m-d');
         $from = date_format(new DateTime($data['from']),'Y-m-d');
+
+        return $from;
         
         $data = new \App\Models\StocksProducts::where('expiration_date','>=',$from)
         ->where('expiration_date','<=',$to)
