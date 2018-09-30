@@ -78,7 +78,7 @@ Route::middleware('auth:api')->group(function () {
     Route::post('update_stake_holder/{id}','StakeholdersController@update');
     Route::get('search_stake_holder/{option}','StakeholdersController@search_stake_holder');
 
-    Router::post('stocks-products','StacksProductsController@index');
+    Route::post('stocks-products','StacksProductsController@index');
 });
 
 
