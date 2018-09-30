@@ -19,7 +19,7 @@ class StacksProductsController extends Controller
         $to = date($data['to']);
         $from = date($data['from']);
         
-        $data = new \App\Models\StocksProducts::whereBetween('expiration_date',[$to, $from])
+        $data = new \App\Models\StocksProducts::whereBetween('expiration_date',array($from, $to))
         ->where('warehouse_id', $data['warehouse_id'])
         ->with(['products' => function($query){
             $query->select('sku','name','units','delivery_fraction')
