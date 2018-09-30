@@ -15,11 +15,9 @@ class StocksProductsController extends Controller
      */
     public function index(Request $request)
     {
-        $from = $request->from;
-        $to = $reques->to;
-        $warehouse_id = $request->warehouse_id;
-        $data = new \App\Models\StocksProducts::whereBetween('expiration_date',[$from, $to])
-        ->where('warehouse_id', $warehouse_id)
+        $data = json_decode($request->data, true);
+        $data = new \App\Models\StocksProducts::whereBetween('expiration_date',[$data['from'], $data['to']])
+        ->where('warehouse_id', $data['warehouse_id'])
         ->with(['products' => function($query){
             $query->select('sku','name','units','delivery_fraction')
         }])->get();
