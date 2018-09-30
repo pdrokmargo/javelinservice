@@ -16,8 +16,8 @@ class StacksProductsController extends Controller
     public function index(Request $request)
     {
         $data = json_decode($request->data, true);
-        $to = date_format(date($data['to']),'Y-m-d');
-        $from = date_format(date($data['from']),'Y-m-d');
+        $to = date($data['to']);
+        $from = date($data['from']);
         
         $data = new \App\Models\StocksProducts::whereBetween('expiration_date',[$to, $from])
         ->where('warehouse_id', $data['warehouse_id'])
