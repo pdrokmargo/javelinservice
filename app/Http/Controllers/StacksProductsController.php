@@ -6,7 +6,7 @@ use Validator;
 use App\ActiveIngredients;
 use Illuminate\Http\Request;
 
-class StocksProductsController extends Controller
+class StacksProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
