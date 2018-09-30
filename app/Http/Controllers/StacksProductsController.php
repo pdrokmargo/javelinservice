@@ -17,8 +17,8 @@ class StacksProductsController extends Controller
     {
         $data = json_decode($request->data, true);
 
-        $to = date_format(new DateTime($data['to']),'Y-m-d');
-        $from = date_format(new DateTime($data['from']),'Y-m-d');
+        $to = date_format(new \DateTime($data['to']),'Y-m-d');
+        $from = date_format(new \DateTime($data['from']),'Y-m-d');
 
         return $from;
         
