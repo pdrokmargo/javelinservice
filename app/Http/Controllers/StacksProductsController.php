@@ -20,9 +20,16 @@ class StacksProductsController extends Controller
         $to = date_format(new \DateTime($data['to']),'Y-m-d');
         $from = date_format(new \DateTime($data['from']),'Y-m-d');
 
-        return $from;
-        
-        
+        $data = new \App\Models\StocksProducts::where('expiration_date','>=',$from)
+        ->where('expiration_date','<=',$to)
+        ->where('warehouse_id', $data['warehouse_id'])
+        ->with(['products' => function($query){
+            $query->select('sku','name','units','delivery_fraction')
+        }])->get();
+
+        return response()->json([
+            "data" => $data 
+        ], 200);
     }
 
     
