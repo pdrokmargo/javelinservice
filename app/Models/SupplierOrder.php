@@ -36,6 +36,6 @@ class SupplierOrder extends Model
 
     public function warehouses()
 	{
-		 return $this->belongsTo('App\Models\Warehouse', 'warehouse_id'); 
+		 return $this->hasOne('App\Models\Warehouse', 'id', 'warehouse_id'); 
     }
 }
