@@ -51,7 +51,7 @@ class SupplierOrderController extends Controller
         try {
             
             $data = json_decode($request->data, true);
-            $supplier_quotes=SupplierOrder::create($data);
+            $supplier_orders=SupplierOrder::create($data);
             $this->CreateLog(Auth::id(), 'suppliers-orders', 1,'');
             DB::commit();
             return response()->json([ 
@@ -65,6 +65,62 @@ class SupplierOrderController extends Controller
                 "message" => "Error al intentar crear el registro" 
             ], 400);
         }     
+    }
+
+    public function show($id)
+	{
+	    $data = SupplierOrder::find($id);
+	    return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
+    }
+
+    public function update(Request $request, $id)
+    {
+        DB::beginTransaction();
+        try
+        {
+            $data_new = json_decode($request->data,true);
+            $data_old = SupplierOrder::find($id);
+            $data_old->fill($data_new);
+            $data_old->save();
+            $this->CreateLog($request->user()->id, 'suppliers-orders', 2,'');
+            DB::commit();
+            return response()->json([ 
+                "update" => true, 
+                "message" => "Registro actualizado correctamente" 
+            ], 200);
+        }
+        catch (Exception $e) 
+        {
+            DB::rollback();
+            return response()->json([ 
+                "update" => false, 
+                "message" => "Error al intentar actualizar el registro" 
+            ], 400);
+        }  
+    }
+    
+    public function destroy(Request $request, $id)
+    {
+        DB::beginTransaction();
+        try
+        {
+            $data = SupplierOrder::find($id);
+            $data->delete();
+            $this->CreateLog($request->user()->id, 'suppliers-orders', 3,'');
+            DB::commit();
+            return response()->json([ 
+                "delete" => true, 
+                "message" => "Registro eliminado correctamente" 
+            ], 200);
+        }
+        catch (Exception $e) 
+        {
+            DB::rollback();
+            return response()->json([ 
+                "delete" => false, 
+                "message" => "Error al intentar eliminar el registro" 
+            ], 400);
+        }        
     }
 }
 
