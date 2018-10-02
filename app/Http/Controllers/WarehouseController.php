@@ -49,6 +49,16 @@ class WarehouseController extends Controller
       } 
     }
 
+    public function select(Request $request)
+    {
+        try {
+            $data = \App\Models\Warehouse::select(['id', 'name'])->get();
+            return response()->json(["data" => $data ], 200);
+      } catch (Exception $e) {
+          return 'Error:'.$e->getMessage();
+      } 
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -95,6 +105,8 @@ class WarehouseController extends Controller
             ], 400);
         }
     }
+
+    
 
     /**
      * Display the specified resource.
