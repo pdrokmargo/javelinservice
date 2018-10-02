@@ -44,5 +44,27 @@ class SupplierOrderController extends Controller
             return 'Error:'.$e->getMessage();
         }
     }
+
+    public function store(Request $request)
+    {
+        DB::beginTransaction(); 
+        try {
+            
+            $data = json_decode($request->data, true);
+            $supplier_quotes=SupplierOrder::create($data);
+            $this->CreateLog(Auth::id(), 'suppliers-orders', 1,'');
+            DB::commit();
+            return response()->json([ 
+                "store" => true, 
+                "message" => "Registro creado correctamente" 
+            ], 200);
+        } catch (Exception $e) {
+            DB::rollback();
+            return response()->json([ 
+                "store" => false, 
+                "message" => "Error al intentar crear el registro" 
+            ], 400);
+        }     
+    }
 }
 
