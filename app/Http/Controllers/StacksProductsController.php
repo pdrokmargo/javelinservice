@@ -20,7 +20,7 @@ class StacksProductsController extends Controller
         /*$to = new DateTime($data['to']);
         $from = new DateTime($data['from']);*/
 
-        $rs = new \App\Models\StocksProducts::all();
+        $rs = \App\Models\StocksProducts::all();
         /*where('expiration_date','>=',$from)
         ->where('expiration_date','<=',$to)
         ->where('warehouse_id', $data['warehouse_id'])
