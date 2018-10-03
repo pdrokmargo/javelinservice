@@ -23,9 +23,7 @@ class StacksProductsController extends Controller
         $rs = \App\Models\StocksProducts::/*where('expiration_date','>=',$from)
         ->where('expiration_date','<=',$to)
         ->where('warehouse_id', $data['warehouse_id'])
-        ->*/with(['products' => function($query) {
-            $query->select('sku');
-        }])->get();
+        ->*/with(['products'])->get();
 
         return response()->json([
             "data" => $rs 
