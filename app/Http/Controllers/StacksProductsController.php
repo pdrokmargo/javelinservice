@@ -31,7 +31,9 @@ class StacksProductsController extends Controller
         }])->get();
 
         return response()->json([
-            "data" => $rs 
+            "data" => $rs,
+            "to" => $to,
+            "from" => $from
         ], 200);
     }
 
