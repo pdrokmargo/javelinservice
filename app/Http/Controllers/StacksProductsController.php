@@ -17,8 +17,11 @@ class StacksProductsController extends Controller
     {
         $data = json_decode($request->data, true);
 
-        $to = new \DateTime($data['to'])->format('d/m/Y');
-        $from = new \DateTime($data['from'])->format('d/m/Y');
+        $to = new \DateTime($data['to']);
+        $to = $to->format('d/m/Y');
+
+        $from = new \DateTime($data['from']);
+        $from = $from->format('d/m/Y');
 
         $rs = \App\Models\StocksProducts::where('expiration_date','>=',$from)
         ->where('expiration_date','<=',$to)
