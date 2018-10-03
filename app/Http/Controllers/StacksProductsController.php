@@ -24,7 +24,7 @@ class StacksProductsController extends Controller
         ->where('expiration_date','<=',$to)
         ->where('warehouse_id', $data['warehouse_id'])
         ->*/with(['products' => function($query) {
-            $query->select('id');
+            $query->select('id', 'code', 'name', 'sku');
         }])->get();
 
         return response()->json([
