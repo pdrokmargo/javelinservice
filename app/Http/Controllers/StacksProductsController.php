@@ -17,13 +17,13 @@ class StacksProductsController extends Controller
     {
         $data = json_decode($request->data, true);
 
-        $to = new \DateTime($data['to']);
-        $from = new \DateTime($data['from']);
+        $to = new \DateTime($data['to'])->format('d/m/Y');
+        $from = new \DateTime($data['from'])->format('d/m/Y');
 
-        $rs = \App\Models\StocksProducts::/*where('expiration_date','>=',$from)
+        $rs = \App\Models\StocksProducts::where('expiration_date','>=',$from)
         ->where('expiration_date','<=',$to)
         ->where('warehouse_id', $data['warehouse_id'])
-        ->*/with(['products' => function($query) {
+        ->with(['products' => function($query) {
             $query->select('id', 'code', 'name', 'sku');
         }])->get();
 
