@@ -28,7 +28,7 @@ class StacksProductsController extends Controller
         ->where('warehouse_id', $data['warehouse_id'])
         ->with(['products' => function($query) {
             $query->select('id', 'code', 'name', 'sku');
-        }])->get();
+        }])->toSql();
 
         return response()->json([
             "data" => $rs,
