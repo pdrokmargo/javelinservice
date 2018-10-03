@@ -21,7 +21,7 @@ class StocksProducts extends Model
     ];
 
     public function products() {
-      return $this->hasOne('App\Models\Products', 'id','expiration_date');
+      return $this->hasOne('App\Models\Products', 'expiration_date');
   }
 
 }
