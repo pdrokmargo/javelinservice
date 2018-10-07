@@ -6,7 +6,7 @@ use Validator;
 use App\ActiveIngredients;
 use Illuminate\Http\Request;
 
-class StacksProductsController extends Controller
+class StocksProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class StacksProductsController extends Controller
         ->where('expiration_date','<=',$to)
         ->where('warehouse_id', $data['warehouse_id'])
         ->with(['products' => function($query) {
-            $query->select('id', 'code', 'name', 'sku');
+            $query->select('id', 'code', 'name', 'sku', 'description');
         }])->get();
 
         return response()->json([
