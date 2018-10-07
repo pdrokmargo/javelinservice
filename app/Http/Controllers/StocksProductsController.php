@@ -23,8 +23,9 @@ class StocksProductsController extends Controller
         $from = new \DateTime($data['from']);
         $from = $from->format('d/m/Y');
 
-        $rs = \App\Models\StocksProducts::where('expiration_date','>=',$from)
-        ->where('expiration_date','<=',$to)
+        $rs = \App\Models\StocksProducts::
+        //where('expiration_date','>=',$from)
+        //->where('expiration_date','<=',$to)
         ->where('warehouse_id', $data['warehouse_id'])
         ->with(['products' => function($query) {
             $query->select('id', 'code', 'name', 'sku', 'description');
