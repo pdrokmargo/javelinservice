@@ -28,7 +28,7 @@ class StocksProductsController extends Controller
         //->where('expiration_date','<=',$to)
         ->where('warehouse_id', $data['warehouse_id'])
         ->with(['products' => function($query) {
-            $query->select('id', 'code', 'name', 'sku', 'description');
+            $query->select('id', 'code', 'name', 'sku', 'description','units');
         }])->get();
 
         return response()->json([
