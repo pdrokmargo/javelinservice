@@ -169,12 +169,11 @@ class UserProfilesController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        return $id;
-        
         DB::beginTransaction();
         try
         {
             $data = \App\Models\UserProfile::find($id);
+            return json_encode($data);
             $data->delete = true;
             $data->save();
 
