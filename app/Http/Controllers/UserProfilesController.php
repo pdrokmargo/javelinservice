@@ -173,7 +173,7 @@ class UserProfilesController extends Controller
         try
         {
             $data = \App\Models\UserProfile::find($id);
-            $data->delete = false;
+            $data->delete = true;
             $data->save();
 
 
