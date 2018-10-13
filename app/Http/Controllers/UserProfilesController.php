@@ -169,22 +169,14 @@ class UserProfilesController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        echo "<br>1";
         DB::beginTransaction();
-        echo "<br>2";
         try
         {
-            echo "<br>3";
             $data = \App\Models\UserProfile::find($id);
-            echo "<br>4";
             $data->delete = true;
-            echo "<br>5";
             $data->save();
-            echo "<br>6";
-            $this->CreateLog($request->user()->id, 'userprofiles', 3 , json_encode($data));
-            echo "<br>7";
+            $this->CreateLog($request->user()->id, 'user-profiles', 3 , json_encode($data));
             DB::commit();
-            echo "<br>8";
             return response()->json([
                 "delete" => true,
                 "message" => "Registro eliminado correctamente"
