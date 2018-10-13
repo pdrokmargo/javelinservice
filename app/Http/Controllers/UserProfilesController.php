@@ -173,7 +173,10 @@ class UserProfilesController extends Controller
         try
         {
             $data = \App\Models\UserProfile::find($id);
-            $data['delete'] = true;
+            return response()->json([
+                "delete" => $data
+            ], 200);
+            $data->delete = true;
             $data->save();
             $this->CreateLog($request->user()->id, 'userprofiles', 3, json_encode($data));
             DB::commit();
