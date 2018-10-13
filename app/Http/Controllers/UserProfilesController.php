@@ -173,12 +173,9 @@ class UserProfilesController extends Controller
         try
         {
             $data = \App\Models\UserProfile::find($id);
-            return json_encode($data);
             $data->delete = true;
             $data->save();
-
             $this->CreateLog($request->user()->id, 'userprofiles', 3, json_encode($data));
-            
             DB::commit();
             return response()->json([
                 "delete" => true,
@@ -187,6 +184,7 @@ class UserProfilesController extends Controller
         } 
         catch (Exception $e) 
         { 
+            echo $e;
             DB::rollback();
             return response()->json([ 
                 "delete" => false, 
