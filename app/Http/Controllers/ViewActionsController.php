@@ -52,7 +52,7 @@ class ViewActionsController extends Controller
                                 $log.="9-";
                                 $poss++;
                                 $log.="10-";
-                                $this->order($item,$data,$menu,$poss, $log);
+                                $menu = $this->order($item,$data,$menu,$poss, $log);
                             }else {
                                 $log.="11-";
                                 $menu[] = $view;
