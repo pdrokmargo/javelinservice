@@ -59,17 +59,10 @@ class ViewActionsController extends Controller
                 $item = $data[$poss];
                 $poss++; 
                 $this->order($item,$data,$menu,$poss);
-            } else {
-                return $menu;
             }
-
-            return [
-                "a" => count($menu) < count($data),
-                "b" => $menu,
-                "c" => $data,
-                "d" => count($menu),
-                "e" => count($data)
-            ];
+            
+            return $menu;
+            
                         
         } catch (Exception $e) {
             echo $e;
