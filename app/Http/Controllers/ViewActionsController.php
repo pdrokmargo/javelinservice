@@ -72,12 +72,13 @@ class ViewActionsController extends Controller
                 $menu = $this->order($item,$data,$menu,$poss);
                 $log.="[ menu: ".json_encode($menu)."]";
                 $log.="16-";
-            } 
+            } else {
             $log.="17-";
             return [
                 "a" => $menu,
                 "b" => $log
             ];
+        }
                  
                         
         } catch (Exception $e) {
