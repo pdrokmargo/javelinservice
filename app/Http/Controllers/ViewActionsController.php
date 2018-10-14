@@ -31,7 +31,7 @@ class ViewActionsController extends Controller
     	}
     }
 
-    private function order($item = null, $data, $menu, $poss,$log = ''){
+    private function order($item, $data, $menu, $poss,$log = ''){
         try {
             $log.="1-";
             if($item == null) { $item = $data[$poss]; $poss++; }
@@ -71,12 +71,14 @@ class ViewActionsController extends Controller
                 $poss++; 
                 $log.="15-";
                 $this->order($item,$data,$menu,$poss);
+            } else {
+                return [
+                    "a" => $menu,
+                    "b" => $log
+                ];
             }
             
-            return [
-                "a" => $menu,
-                "b" => $log
-            ];
+            
                         
         } catch (Exception $e) {
             echo $e;
