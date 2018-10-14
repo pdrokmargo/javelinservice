@@ -48,7 +48,6 @@ class ViewActionsController extends Controller
                             $log.="7-";
                             if($view->views['have_child']) {
                                 $log.="8-";
-                                $item = $view;
                                 $log.="9-";
                                 $poss++;
                                 $log.="10-";
@@ -72,12 +71,12 @@ class ViewActionsController extends Controller
                 $log.="15-";
                 $menu = $this->order($item,$data,$menu,$poss);
 
-            } 
+            } else if(count($menu) == count($data)){
                 return [
                     "a" => $menu,
                     "b" => $log
                 ];
-                
+            }     
                         
         } catch (Exception $e) {
             echo $e;
