@@ -51,8 +51,8 @@ class ViewActionsController extends Controller
             }
 
             if(count($menu) < count($data)){
-                $poss++;
-                $item = $data[$poss]; 
+                $item = $data[$poss];
+                $poss++; 
                 $this->order($item,$data,$menu,$poss);
             }
             
