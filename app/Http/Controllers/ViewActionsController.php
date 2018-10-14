@@ -31,19 +31,28 @@ class ViewActionsController extends Controller
     	}
     }
 
-    private function order($item = null, $data, $menu, $poss){
+    private function order($item = null, $data, $menu, $poss,$log = ''){
         try {
+            $log.="1-";
             if($item == null) { $item = $data[$poss]; $poss++; }
-
+            $log.="2-";
             if(!in_array($item, $menu)) {
+                $log.="3-";
                 $menu[] = $item;
+                $log.="4-";
                 if($item->views['have_child']) {
+                    $log.="1-";
                     foreach ($data as $view) {
+                        $log.="6-";
                         if($item->views["id"] == $view->views['view_parent_id']) {
+                            $log.="7-";
                             if($view->views['have_child']) {
+                                $log.="8-";
                                 $item = $view;
+                                $log.="9-";
                                 $poss++;
-                                $this->order($item,$data,$menu,$poss);
+                                $log.="10-";
+                                $this->order($item,$data,$menu,$poss, $log);
                             }else {
                                 $menu[] = $view;
                             }                        
@@ -51,13 +60,17 @@ class ViewActionsController extends Controller
                     }                
                 }
             }
+
             if(count($menu) < count($data)) {
                 $item = $data[$poss];
                 $poss++; 
                 $this->order($item,$data,$menu,$poss);
             }
             
-            return $menu;
+            return [
+                "a" => $menu,
+                "b" => $log
+            ];
                         
         } catch (Exception $e) {
             echo $e;
