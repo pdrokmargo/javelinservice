@@ -16,17 +16,18 @@ class ViewActionsController extends Controller
     {
     	try {
     		
-            $data = \App\Models\ViewActions::all();  
+            $data = \App\Models\ViewActions::all();
             $menu = [];  
-            $menu = $this->order(null, $data, $menu);     
+            $menu = $this->order(null, $data, $menu);   
+
         	return response()->json(['status'=>'success', "message"=>'', "data" => $menu ], 200);
 
     	} catch (Exception $e) {
-    		return 'Error:'.$e->getMessage();
+    		echo $e;
     	}
     }
 
-    private function order($item = null, $data, $menu = []){
+    private function order($item = null, $data, $menu){
         if($item == null) { $item = $data[0]; }
         $menu[] = $item;
         if($item->views->have_child) {
