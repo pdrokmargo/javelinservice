@@ -24,7 +24,7 @@ class ViewActionsController extends Controller
                 'status'=>'success', 
                 "message"=>'', 
                 "data" => $menu,
-                "__data" => $data
+                "_-_data" => $data
             ], 200);
 
     	} catch (Exception $e) {
@@ -53,14 +53,14 @@ class ViewActionsController extends Controller
                 }
             }
 
-            if(count($menu) < count($data)){
+            if(count($menu) < count($data)) {
                 $item = $data[$poss];
                 $poss++; 
                 $this->order($item,$data,$menu,$poss);
+            } else {
+                return $menu;
             }
-            
-
-            return $menu;
+                        
         } catch (Exception $e) {
             echo $e;
         }
