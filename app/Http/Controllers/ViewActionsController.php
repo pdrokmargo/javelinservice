@@ -19,7 +19,7 @@ class ViewActionsController extends Controller
             $data = \App\Models\ViewActions::all();  
             $menu = [];  
             $menu = $this->order(null, $data, $menu);     
-        	return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
+        	return response()->json(['status'=>'success', "message"=>'', "data" => $menu ], 200);
 
     	} catch (Exception $e) {
     		return 'Error:'.$e->getMessage();
