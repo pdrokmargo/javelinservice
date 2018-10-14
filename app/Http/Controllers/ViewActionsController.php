@@ -72,12 +72,12 @@ class ViewActionsController extends Controller
                 $log.="15-";
                 $menu = $this->order($item,$data,$menu,$poss);
 
-            } else {
+            }
                 return [
                     "a" => $menu,
                     "b" => $log
                 ];
-            }
+            
             
             
                         
