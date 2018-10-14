@@ -20,7 +20,11 @@ class ViewActionsController extends Controller
             $menu = [];  
             $menu = $this->order(null, $data, $menu);   
 
-        	return response()->json(['status'=>'success', "message"=>'', "data" => $menu ], 200);
+        	return response()->json([
+                'status'=>'success', 
+                "message"=>'', 
+                "data" => $menu 
+            ], 200);
 
     	} catch (Exception $e) {
     		echo $e;
@@ -29,8 +33,6 @@ class ViewActionsController extends Controller
 
     private function order($item = null, $data, $menu){
         try {
-
-            
             if($item == null) { $item = $data[0]; }
             $menu[] = $item;
             if($item->views->have_child) {
