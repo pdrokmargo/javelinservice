@@ -33,10 +33,19 @@ class ViewActionsController extends Controller
 
     private function order($item = null, $data, $menu){
         try {
-            if($item == null) { $item = $data[0]; }
+            $poss = 0;
+            if($item == null) { $item = $data[$poss]; $poss++; }
             $menu[] = $item;
             if($item->views['have_child']) {
-                $menu = $this->order($item,$data,$menu);
+                foreach ($data as $view) {
+                    if($item->views["id"] == $view->views['view_parent_id']) {
+                        if($view->views['have_child']) {
+                            $this->order($view,$data,$menu);
+                        }else {
+                            $menu[] = $view;
+                        }                        
+                    }
+                }                
             }
             return $menu;
         } catch (Exception $e) {
