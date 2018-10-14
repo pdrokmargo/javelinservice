@@ -48,13 +48,14 @@ class ViewActionsController extends Controller
                         }
                     }                
                 }
-            } else {
-                if(count($menu) < count($data)){
-                    $poss++;
-                    $item = $data[$poss]; 
-                    $this->order($view,$data,$menu,$poss);
-                }
             }
+            
+            if(count($menu) < count($data)){
+                $poss++;
+                $item = $data[$poss]; 
+                $this->order($view,$data,$menu,$poss);
+            }
+            
 
             return $menu;
         } catch (Exception $e) {
