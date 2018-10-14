@@ -6,14 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 use Illuminate\Support\Facades\Auth;
+use \App\Models\SupplierOrder;
 
-class ProductsController extends Controller
+class SupplierOrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
         try {
@@ -24,14 +20,17 @@ class ProductsController extends Controller
             $page = $request->page;
             $sign = isset($request->sign) ? $request->sign : '';
 
-            $query = new \App\Models\Product();
+            $query = new SupplierOrder();
             if ($search!='') {
-                $query = $query->whereRaw("delete = false and code like ? or lower(products.name) like ? or lower(description) like ? lower(comercial_name) like ? or (case when state=true then 'activo' else 'inactivo' end) like ?", array($search, $search, $search, $search, $search))
+                $query = $query->whereRaw("status = true" )
+                    ->with(["stakeholderInfo"=>function($query)use($search){
+                    $query->where("firstname", $search);
+                }])
                 ->orderBy($ordername, $ordertype);
             }else{
-                $query=$query->where('delete', false)->orderBy($ordername, $ordertype);
-            } 
-
+                $query=$query->where('status', true)->orderBy($ordername, $ordertype);
+            }
+            $sql=$query->toSql();
             $data=[];  
             if ($page) {
               $data=$query->paginate(30);
@@ -39,76 +38,51 @@ class ProductsController extends Controller
               $data=$query->get();
             }  
             
-            return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
+            return response()->json(['status'=>'success', "message"=>'', "data" => $data, "sql"=>$sql ], 200);
 
         } catch (Exception $e) {
             return 'Error:'.$e->getMessage();
         }
     }
 
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        DB::beginTransaction();
-        try
-        {
+        DB::beginTransaction(); 
+        try {
+            
             $data = json_decode($request->data, true);
-            $data['pharmaceutical_drug'] = json_encode($data['pharmaceutical_drug']);
-            $product=\App\Models\Product::create($data);
-            $this->CreateLog(Auth::id(), 'product', 1,'');
+            $supplier_orders=SupplierOrder::create($data);
+            $this->CreateLog(Auth::id(), 'suppliers-orders', 1,'');
             DB::commit();
             return response()->json([ 
                 "store" => true, 
                 "message" => "Registro creado correctamente" 
             ], 200);
-        }
-        catch (Exception $e) 
-        { 
+        } catch (Exception $e) {
             DB::rollback();
             return response()->json([ 
                 "store" => false, 
-                "message" => "Error al intentar almacenar el nuevo registro" 
+                "message" => "Error al intentar crear el registro" 
             ], 400);
-        }
+        }     
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
-    {
-        $data = \App\Models\Product::with(['sanitary_registration_holder', 'supplier', 'manufacturer', 'importer'])->where('id',$id)->first();
-        return response()->json([ "data" => $data ], 200);
+	{
+	    $data = SupplierOrder::find($id);
+	    return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
     }
 
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         DB::beginTransaction();
         try
         {
             $data_new = json_decode($request->data,true);
-            $data_new['pharmaceutical_drug'] = json_encode($data_new['pharmaceutical_drug']);
-            $data_old = \App\Models\Product::find($id);
+            $data_old = SupplierOrder::find($id);
             $data_old->fill($data_new);
             $data_old->save();
-            $this->CreateLog($request->user()->id, 'product', 2,'');
+            $this->CreateLog($request->user()->id, 'suppliers-orders', 2,'');
             DB::commit();
             return response()->json([ 
                 "update" => true, 
@@ -124,22 +98,15 @@ class ProductsController extends Controller
             ], 400);
         }  
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy(Request $request, $id)
     {
         DB::beginTransaction();
         try
         {
-            $data = \App\Models\Product::find($id);
-            $data->delete = true;
-            $data->save();
-            $this->CreateLog($request->user()->id, 'product', 3,'');
+            $data = SupplierOrder::find($id);
+            $data->delete();
+            $this->CreateLog($request->user()->id, 'suppliers-orders', 3,'');
             DB::commit();
             return response()->json([ 
                 "delete" => true, 
@@ -156,3 +123,4 @@ class ProductsController extends Controller
         }        
     }
 }
+

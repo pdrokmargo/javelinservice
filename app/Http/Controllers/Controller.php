@@ -15,13 +15,16 @@ class Controller extends BaseController
     {
         $view_id = \App\Models\View::where('link',$view)->first()->id;
         $user = \App\Models\User::find($user_id);
+
         $log = new \App\Models\ActivityLog();
+
         $log->view_id = $view_id;
         $log->user_id = $user_id;
         $log->action = $action;
         $log->description = $description;
         $log->company_id = $user->company_default_id;
         $log->created_at = date('Ymd');
+        
         $log->save();
     }
 }

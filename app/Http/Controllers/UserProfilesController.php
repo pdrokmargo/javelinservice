@@ -59,13 +59,14 @@ class UserProfilesController extends Controller
             $privileges = $data["privileges"];           
             $id = \App\Models\UserProfile::create(array(
                 'up_description'=>$data['up_description'],
-                'up_state'=>$data['up_state']
+                'up_state'=>$data['up_state'],
+                'delete' => false
             ))->id;
             foreach ($privileges as $p) {                
                 \App\Models\Privilege::create(array(
                     'view_id'=>$p['view_id'],
                     'user_profile_id'=>$id,        
-                    'actions'=>$p['actions']
+                    'actions'=>$p['actions'],
                 ));
             }
             $this->CreateLog($request->user()->id, 'user-profiles', 1,'');
@@ -172,12 +173,9 @@ class UserProfilesController extends Controller
         try
         {
             $data = \App\Models\UserProfile::find($id);
-            $data->delete = false;
+            $data->delete = true;
             $data->save();
-
-
-            $this->CreateLog($request->user()->id, 'userprofiles', 3, json_encode($data));
-            
+            $this->CreateLog($request->user()->id, 'user-profiles', 3 , '');
             DB::commit();
             return response()->json([
                 "delete" => true,

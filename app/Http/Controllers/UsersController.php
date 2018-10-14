@@ -256,10 +256,11 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $user = \App\Models\User::find($id);
         $user->delete = true;
+        $user->save();
         $this->CreateLog($request->user()->id, 'users', 3 ,'');
         return response()->json([
             "status"=>"success",

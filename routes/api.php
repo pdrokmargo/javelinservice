@@ -50,6 +50,7 @@ Route::middleware('auth:api')->group(function () {
     
     Route::resource('sales_representatives','SalesRepresentativesController');
     Route::resource('warehouse','WarehouseController');
+    Route::get('warehouse-select','WarehouseController@select');
     Route::get('privilege/{link}', function(Request $request, $link){
         $user_profile_id = $request->user()->usercompany->user_profile_id;
         $view_id = \App\Models\View::where('link',$link)->first()->id;
@@ -66,6 +67,8 @@ Route::middleware('auth:api')->group(function () {
     Route::resource('maker','MakerController');
     Route::resource('importer','ImporterController');
     Route::resource('supplier','SupplierController');
+    Route::resource('suppliers-quotes','SupplierQuotesController');
+    Route::resource('suppliers-orders','SupplierOrderController');
     Route::resource('healthrecordholder','HealthRecordHolderController');
     Route::resource('pharmaceuticaldrug','PharmaceuticalDrugsController');
     Route::resource('delivery-contracts','DeliveryContractsController');
@@ -75,6 +78,8 @@ Route::middleware('auth:api')->group(function () {
     Route::resource('affiliates','AffiliatesController');    
     Route::post('update_stake_holder/{id}','StakeholdersController@update');
     Route::get('search_stake_holder/{option}','StakeholdersController@search_stake_holder');
+
+    Route::post('stocks-products','StocksProductsController@index');
 });
 
 
