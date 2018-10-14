@@ -31,7 +31,7 @@ class ViewActionsController extends Controller
     	}
     }
 
-    private function order($item = null, $data, $menu, $poo){
+    private function order($item = null, $data, $menu, $poss){
         try {
             if($item == null) { $item = $data[$poss]; $poss++; }
             $menu[] = $item;
