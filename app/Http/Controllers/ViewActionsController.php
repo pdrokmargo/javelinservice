@@ -42,7 +42,9 @@ class ViewActionsController extends Controller
                     foreach ($data as $view) {
                         if($item->views["id"] == $view->views['view_parent_id']) {
                             if($view->views['have_child']) {
-                                $this->order($view,$data,$menu,$poss);
+                                $item = $view;
+                                $poss++;
+                                $this->order($item,$data,$menu,$poss);
                             }else {
                                 $menu[] = $view;
                             }                        
