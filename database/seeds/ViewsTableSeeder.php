@@ -39,6 +39,7 @@ class ViewsTableSeeder extends Seeder
     ['view_parent_id' => 5, 'have_child' => false, 'title' => 'Salidas',   'link' => '#',           'icon' => '',           'description' => '', 'load_children' => '', 'show_menu' => true ],
     ['view_parent_id' => 5, 'have_child' => false, 'title' => 'Ajustes de inventario',   'link' => 'inventory-adjustments',           'icon' => '',           'description' => '', 'load_children' => '', 'show_menu' => true ],
     ['view_parent_id' => 5, 'have_child' => false, 'title' => 'Auditoría de inventario',   'link' => 'inventory-audit',           'icon' => '',           'description' => '', 'load_children' => '', 'show_menu' => true ],
+    ['view_parent_id' => 5, 'have_child' => false, 'title' => 'Existencias',   'link' => 'stocks',           'icon' => '',           'description' => '', 'load_children' => '', 'show_menu' => true ],
 
     /* 06 */    
     ['view_parent_id' => 6, 'have_child' => false, 'title' => 'Cotización a proveedores', 'link' => 'suppliers-quotes',          'icon' => '',           'description' => '', 'load_children' => '', 'show_menu' => true ],
