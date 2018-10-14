@@ -23,8 +23,7 @@ class ViewActionsController extends Controller
         	return response()->json([
                 'status'=>'success', 
                 "message"=>'', 
-                "data" => $menu,
-                "__data" => $data
+                "data" => $menu
             ], 200);
 
     	} catch (Exception $e) {
