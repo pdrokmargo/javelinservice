@@ -53,10 +53,9 @@ class ViewActionsController extends Controller
                 $item = $data[$poss];
                 $poss++; 
                 $menu = $this->order($item,$data,$menu,$poss);
-                return $menu;
-            } else {
+            } 
             return $menu;
-        }
+        
                  
                         
         } catch (Exception $e) {
