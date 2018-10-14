@@ -53,7 +53,13 @@ class ViewActionsController extends Controller
                 }
             }
 
-            return count($menu) < count($data);
+            return [
+                "a" => count($menu) < count($data),
+                "b" => $menu,
+                "c" => $data,
+                "d" => count($menu),
+                "e" => count($data)
+            ];
 
             if(count($menu) < count($data)) {
                 $item = $data[$poss];
