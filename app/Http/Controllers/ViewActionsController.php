@@ -31,53 +31,31 @@ class ViewActionsController extends Controller
     	}
     }
 
-    public function order($item, $data, $menu, $poss,$log = ''){
+    public function order($item, $data, $menu, $poss){
         try {
-            $log.="1-";
             if($item == null) { $item = $data[$poss]; $poss++; }
-            $log.="2-";
             if(!in_array($item, $menu)) {
-                $log.="3-";
                 $menu[] = $item;
-                $log.="4-";
                 if($item->views['have_child']) {
-                    $log.="5-";
                     foreach ($data as $view) {
-                        $log.="6-";
                         if($item->views["id"] == $view->views['view_parent_id']) {
-                            $log.="7-";
                             if($view->views['have_child']) {
-                                $log.="8-";
-                                $log.="9-";
                                 $poss++;
-                                $log.="10-";
-                                $menu = $this->order($item,$data,$menu,$poss, $log);
+                                $menu = $this->order($item,$data,$menu,$poss);
                             }else {
-                                $log.="11-";
                                 $menu[] = $view;
                             }                        
                         }
                     }                
                 }
             }
-            $log.="12-";
             if(count($menu) < count($data)) {
-                $log.="13-";
                 $item = $data[$poss];
-                $log.="-".$poss."-";
-                $log.="-".json_encode($item)."-";
-                $log.="14-";
                 $poss++; 
-                $log.="15-";
+                return $menu;
                 $menu = $this->order($item,$data,$menu,$poss);
-                $log.="[ menu: ".json_encode($menu)."]";
-                $log.="16-";
             } else {
-            $log.="17-";
-            return [
-                "a" => $menu,
-                "b" => $log
-            ];
+            return $menu;
         }
                  
                         
