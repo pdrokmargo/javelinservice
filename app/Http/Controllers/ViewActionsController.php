@@ -34,22 +34,28 @@ class ViewActionsController extends Controller
     private function order($item = null, $data, $menu, $poss){
         try {
             if($item == null) { $item = $data[$poss]; $poss++; }
-            $menu[] = $item;
-            if($item->views['have_child']) {
-                $poss++;
-                foreach ($data as $view) {
-                    if($item->views["id"] == $view->views['view_parent_id']) {
-                        if($view->views['have_child']) {
-                            $this->order($view,$data,$menu,$poss);
-                        }else {
-                            $menu[] = $view;
-                        }                        
-                    }
-                }                
+            if(!in_array($item, $menu)) {
+                $menu[] = $item;
+                if($item->views['have_child']) {
+                    $poss++;
+                    foreach ($data as $view) {
+                        if($item->views["id"] == $view->views['view_parent_id']) {
+                            if($view->views['have_child']) {
+                                $this->order($view,$data,$menu,$poss);
+                            }else {
+                                $menu[] = $view;
+                            }                        
+                        }
+                    }                
+                }
             } else {
-                $item = $data[$poss]; $poss++;
-                $this->order($view,$data,$menu,$poss);
+                if(count($menu) < count($data)){
+                    $poss++;
+                    $item = $data[$poss]; 
+                    $this->order($view,$data,$menu,$poss);
+                }
             }
+            
             return $menu;
         } catch (Exception $e) {
             echo $e;
