@@ -36,7 +36,7 @@ class ViewActionsController extends Controller
             if($item == null) { $item = $data[0]; }
             $menu[] = $item;
             return $item;
-            if($item->views->have_child) {
+            if($item->views['have_child']) {
                 $menu = $this->order($item,$data,$menu);
             }
             return $menu;
