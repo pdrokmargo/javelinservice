@@ -18,7 +18,7 @@ class ViewActionsController extends Controller
     		
             $data = \App\Models\ViewActions::all();
             $menu = [];  
-            $menu = $this->order(null, $data, $menu);   
+            $menu = $this->order(null, $data, $menu,0);   
 
         	return response()->json([
                 'status'=>'success', 
@@ -31,21 +31,24 @@ class ViewActionsController extends Controller
     	}
     }
 
-    private function order($item = null, $data, $menu){
+    private function order($item = null, $data, $menu, $poo){
         try {
-            $poss = 0;
             if($item == null) { $item = $data[$poss]; $poss++; }
             $menu[] = $item;
             if($item->views['have_child']) {
+                $poss++;
                 foreach ($data as $view) {
                     if($item->views["id"] == $view->views['view_parent_id']) {
                         if($view->views['have_child']) {
-                            $this->order($view,$data,$menu);
+                            $this->order($view,$data,$menu,$poss);
                         }else {
                             $menu[] = $view;
                         }                        
                     }
                 }                
+            } else {
+                $item = $data[$poss]; $poss++;
+                $this->order($view,$data,$menu,$poss);
             }
             return $menu;
         } catch (Exception $e) {
