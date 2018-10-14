@@ -41,7 +41,7 @@ class ViewActionsController extends Controller
                 $menu[] = $item;
                 $log.="4-";
                 if($item->views['have_child']) {
-                    $log.="1-";
+                    $log.="5-";
                     foreach ($data as $view) {
                         $log.="6-";
                         if($item->views["id"] == $view->views['view_parent_id']) {
@@ -54,16 +54,20 @@ class ViewActionsController extends Controller
                                 $log.="10-";
                                 $this->order($item,$data,$menu,$poss, $log);
                             }else {
+                                $log.="11-";
                                 $menu[] = $view;
                             }                        
                         }
                     }                
                 }
             }
-
+            $log.="12-";
             if(count($menu) < count($data)) {
+                $log.="13-";
                 $item = $data[$poss];
+                $log.="14-";
                 $poss++; 
+                $log.="15-";
                 $this->order($item,$data,$menu,$poss);
             }
             
