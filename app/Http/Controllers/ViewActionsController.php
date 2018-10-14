@@ -29,7 +29,7 @@ class ViewActionsController extends Controller
     private function order($item = null, $data, $menu = []){
         if($item == null) { $item = $data[0]; }
         $menu[] = $item;
-        if($item->have_child) {
+        if($item->views->have_child) {
             $menu = $this->order($item,$data,$menu);
         }
         return $menu;
