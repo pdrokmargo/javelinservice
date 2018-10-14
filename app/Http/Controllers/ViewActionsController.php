@@ -65,7 +65,7 @@ class ViewActionsController extends Controller
             if(count($menu) < count($data)) {
                 $log.="13-";
                 $item = $data[$poss];
-                $log.="-".$pos."-";
+                $log.="-".$poss."-";
                 $log.="-".json_encode($item)."-";
                 $log.="14-";
                 $poss++; 
