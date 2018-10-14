@@ -70,7 +70,8 @@ class ViewActionsController extends Controller
                 $log.="14-";
                 $poss++; 
                 $log.="15-";
-                $this->order($item,$data,$menu,$poss);
+                $menu = $this->order($item,$data,$menu,$poss);
+
             } else {
                 return [
                     "a" => $menu,
