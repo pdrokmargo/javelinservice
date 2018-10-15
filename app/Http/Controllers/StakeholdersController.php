@@ -357,11 +357,17 @@ class StakeholdersController extends Controller
                     else 
                     {
                         if($comercial_stakeholders_info) {
-                            $comercial_stakeholders_info['stakeholder_info_id'] = $id;
-                            if(!in_array('big_contributor',$comercial_stakeholders_info)){
-                                $comercial_stakeholders_info['big_contributor'] = false;
-                            }          
-                            \App\Models\ComercialStakeholdersInfo::create($comercial_stakeholders_info);
+                            if(!empty($comercial_stakeholders_info['codes']) || in_array('tax_regime_id',$comercial_stakeholders_info)){
+                                $comercial_stakeholders_info['stakeholder_info_id'] = $id;
+                                if(!in_array('stakeholder_info_id',$comercial_stakeholders_info)){
+                                    $comercial_stakeholders_info['big_contributor'] = false;
+                                }  
+                                if(!in_array('tax_regime_id',$comercial_stakeholders_info)){
+                                    $comercial_stakeholders_info['tax_regime_id'] = false;
+                                } 
+                                \App\Models\ComercialStakeholdersInfo::create($comercial_stakeholders_info);
+                            }
+                            
                         }
                     }
                     if (!$profile['is_supplier'])
