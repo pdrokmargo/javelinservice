@@ -20,11 +20,11 @@ class SuppliersTableSeeder extends Seeder
                 'payment_condition_id' => 62,
                 'purchase_order' => true,
                 'credit_limit' => 300000000,
-                'days_early_payment' => 5,
+                'days_early_payment' => null,
                 'payment_method_id' => 117,
                 'days_grace' => 2,
-                'bank_accounts' => '[{"bank_account_id":1}]',
-                'sales_contact' => '{"name_sales_contact":"Vendedor Prov", "phone_sales_contact":"789585", "email_sales_contact":"email@proveedor.com"}'
+                'bank_accounts' => '[{ "bank": 40, "bank_account_type": 59, "account_number": "cuenta 001", "owner": "Cuenta 001", "name_sales_representative": "nombre", "phone_sales_representative": "123", "email_sales_representative": "nombre@email.com ", "bank_name": "BANCO AGRARIO", "bank_account_type_name": "AHORRO" }]',
+                'sales_contact' => '{ "name_sales_contact": "Vendedor Prov", "phone_sales_contact": "789585", "email_sales_contact": "email@proveedor.com", "name": "aaaa", "phone": "123", "email": "email@correo.com" }'
             ],
         ]);
     }
