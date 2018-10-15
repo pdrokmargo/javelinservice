@@ -77,7 +77,7 @@ class StakeholdersInfoTableSeeder extends Seeder
 
             [//supplier
                 'id' => 'dc9b5e0c-06a6-4170-8ef0-74bbffec6a02'/*Uuid::generate()->string*/, 
-                'firstname' => '', 
+                'firstname' => 'Data test', 
                 'middlename' => '', 
                 'lastname' => '', 
                 'businessname' => 'Proveedor de med de prueba', 
@@ -89,6 +89,8 @@ class StakeholdersInfoTableSeeder extends Seeder
                 'phone_number' => '23561478', 
                 'email' => 'supplier@myecolombia.com.co',
                 'person_type_id' => 39,
+                'domiciled' => true,
+                'rut' => true
             ],
 
             [//importer
