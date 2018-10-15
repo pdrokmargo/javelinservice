@@ -48,7 +48,7 @@ class StakeholdersInfoTableSeeder extends Seeder
                 'firstname' => 'Johan', 
                 'middlename' => '', 
                 'lastname' => 'Sanabria', 
-                'businessname' => '', 
+                'businessname' => 'Traveling Inc.', 
                 'legalname' => '',
                 'document_type_id' => 12, 
                 'document_number' => '1045963789', 
