@@ -358,6 +358,9 @@ class StakeholdersController extends Controller
                     {
                         if($comercial_stakeholders_info) {
                             $comercial_stakeholders_info['stakeholder_info_id'] = $id;
+                            if(!in_array('big_contributor',$comercial_stakeholders_info)){
+                                $comercial_stakeholders_info['big_contributor'] = false;
+                            }          
                             \App\Models\ComercialStakeholdersInfo::create($comercial_stakeholders_info);
                         }
                     }
