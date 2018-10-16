@@ -18,7 +18,7 @@ class StakeholdersInfoTableSeeder extends Seeder
                 'firstname' => 'Pedro', 
                 'middlename' => 'Jose', 
                 'lastname' => 'Camargo Cotes', 
-                'businessname' => '', 
+                'businessname' => 'Traxport inc.', 
                 'legalname' => '',
                 'document_type_id' => 12, 
                 'document_number' => '11431204', 
