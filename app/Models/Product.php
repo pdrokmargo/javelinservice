@@ -44,8 +44,10 @@ class Product extends Model
 	];
 
 	protected $casts = [
-        'pharmaceutical_drug' => 'json',
-    ];
+        'pharmaceutical_drug' => 'array',
+	];
+	
+	protected $with = array('pharmaceutical_drug');
 	
 	public function sanitary_registration_holder()
 	{
