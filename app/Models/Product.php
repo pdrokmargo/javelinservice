@@ -44,7 +44,7 @@ class Product extends Model
 	];
 
 	protected $casts = [
-        'pharmaceutical_drug' => 'json',
+        'pharmaceutical_drug' => 'array',
 	];
 
 	protected $with = array('getPharmaceuticalDrugAttribute');
