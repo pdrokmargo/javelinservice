@@ -49,8 +49,8 @@ class Product extends Model
 
 	protected $with = array('pharmaceutical_drug_obj');
 
-	public function pharmaceutical_drug_obj(){
-		$item = json_decode($this->pharmaceutical_drug);
+	public function getPharmaceuticalDrugAttribute(){
+		$item = json_decode($this->attributes['pharmaceutical_drug']);
 		$drugs = App\PharmaceuticalDrug::find($item["id"]);
 		return $drugs;
 	}
