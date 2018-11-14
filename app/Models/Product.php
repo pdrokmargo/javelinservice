@@ -51,7 +51,7 @@ class Product extends Model
 
 	public function pharmaceutical_drug_obj(){
 		$items = json_decode($this->attributes['pharmaceutical_drug']);
-		$instance = new Product();
+		$instance = new PharmaceuticalDrug();
     return $instance->newCollection(array_map(function($item) use($instance) {
         return $instance->newFromBuilder($item);
     }, $items));
