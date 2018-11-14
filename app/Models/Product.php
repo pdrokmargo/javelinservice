@@ -49,12 +49,12 @@ class Product extends Model
 
 	// protected $with = array('getPharmaceuticalDrugAttribute');
 
-	public function getPharmaceuticalDrugAttribute(){
-		$item = json_encode($this->attributes['pharmaceutical_drug']);
-		$item = $item[0];
-		// $drugs = \App\Models\PharmaceuticalDrug::find($item[0]['id']);
-		return $item['id'];
-	}
+	// public function getPharmaceuticalDrugAttribute(){
+	// 	$item = json_encode($this->attributes['pharmaceutical_drug']);
+	// 	$item = $item[0];
+	// 	// $drugs = \App\Models\PharmaceuticalDrug::find($item[0]['id']);
+	// 	return $item['id'];
+	// }
 	
 	public function sanitary_registration_holder()
 	{
