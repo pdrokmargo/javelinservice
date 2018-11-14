@@ -47,7 +47,7 @@ class Product extends Model
         'pharmaceutical_drug' => 'array',
 	];
 
-	protected $with = array('getPharmaceuticalDrugAttribute');
+	// protected $with = array('getPharmaceuticalDrugAttribute');
 
 	public function getPharmaceuticalDrugAttribute(){
 		$item = json_decode($this->attributes['pharmaceutical_drug']);
