@@ -50,8 +50,8 @@ class Product extends Model
 	// protected $with = array('getPharmaceuticalDrugAttribute');
 
 	public function getPharmaceuticalDrugAttribute(){
-		$drugs = \App\Models\PharmaceuticalDrug::find($this->attributes['pharmaceutical_drug'][0]['id']);
-		return $drugs;
+		// $drugs = \App\Models\PharmaceuticalDrug::find($this->attributes['pharmaceutical_drug'][0]['id']);
+		return $this->attributes['pharmaceutical_drug'][0];
 	}
 	
 	public function sanitary_registration_holder()
