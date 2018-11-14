@@ -43,7 +43,9 @@ class Product extends Model
 		'delete'
 	];
 
-	
+	protected $casts = [
+        'pharmaceutical_drug' => 'json',
+    ];
 	
 	public function sanitary_registration_holder()
 	{

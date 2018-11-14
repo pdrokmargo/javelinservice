@@ -48,6 +48,9 @@ class CollectionsTableSeeder extends Seeder
             /*34*/['name'=>'AFFILIATE_TYPE',    'description' => 'Tipo de afiliado',       'syscollection' => true],
             /*35*/['name'=>'AFFILIATE_CONDITION',    'description' => 'Condición del usuario',       'syscollection' => true],
             /*36*/['name'=>'PUBLIC_HEALTH_CONDITION',    'description' => 'Condición salud pública',       'syscollection' => true],
+            /*36*/['name'=>'INVENTORY_MOVEMENT_TYPE',    'description' => 'Tipo de movimiento de inventario',       'syscollection' => true],
+            /*37*/['name'=>'INVENTORY_ENTRY_TYPE',    'description' => 'Tipo de entrada de inventario',       'syscollection' => true],
+            /*38*/['name'=>'INVENTORY_OUT_TYPE',    'description' => 'Tipo de salida de inventario',       'syscollection' => true],
         ]);
         
     }

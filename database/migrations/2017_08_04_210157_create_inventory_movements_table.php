@@ -13,7 +13,15 @@ class CreateInventoryMovementsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('inventory_movements', function (Blueprint $table) {
+            $table->uuid('id');
+            $table->integer('operationcentre_id');
+            $table->date('date');
+            $table->integer('entry_type_id'); //Collection Values
+            $table->integer('output_type_id'); //Collection values
+            $table->timestamps();
+            $table->primary('id');
+        });
     }
 
     /**
@@ -23,6 +31,6 @@ class CreateInventoryMovementsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('inventory_movements');
     }
 }
