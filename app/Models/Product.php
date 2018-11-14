@@ -47,8 +47,6 @@ class Product extends Model
         'pharmaceutical_drug' => 'array',
 	];
 	
-	protected $with = array('pharmaceutical_drug');
-	
 	public function sanitary_registration_holder()
 	{
 		 return $this->belongsTo('App\Models\StakeholdersInfo', 'sanitary_registration_holder_id'); 
