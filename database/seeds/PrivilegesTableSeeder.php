@@ -42,6 +42,7 @@ class PrivilegesTableSeeder extends Seeder
             ['view_id' => 28, 'user_profile_id' => 1,'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
             ['view_id' => 29, 'user_profile_id' => 1,'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
             ['view_id' => 30, 'user_profile_id' => 1,'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
+            ['view_id' => 31, 'user_profile_id' => 1,'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
         ]);
     }
 }
