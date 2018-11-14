@@ -50,11 +50,9 @@ class Product extends Model
 	protected $with = array('pharmaceutical_drug_obj');
 
 	public function pharmaceutical_drug_obj(){
-		$items = json_decode($this->attributes['pharmaceutical_drug']);
-		$instance = new PharmaceuticalDrug();
-    return $instance->newCollection(array_map(function($item) use($instance) {
-        return $instance->newFromBuilder($item);
-    }, $items));
+		$item = json_decode($this->attributes['pharmaceutical_drug']);
+		$drugs = App\PharmaceuticalDrug::find($item["id"]);
+		return $drugs;
 	}
 	
 	public function sanitary_registration_holder()
