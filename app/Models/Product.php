@@ -43,9 +43,9 @@ class Product extends Model
 		'delete'
 	];
 
-	protected $casts = [
-        'pharmaceutical_drug' => 'array',
-	];
+	// protected $casts = [
+    //     'pharmaceutical_drug' => 'array',
+	// ];
 
 	protected $with = array('getPharmaceuticalDrugAttribute');
 
