@@ -43,11 +43,11 @@ class Product extends Model
 		'delete'
 	];
 
-	// protected $casts = [
-    //     'pharmaceutical_drug' => 'array',
-	// ];
+	protected $casts = [
+        'pharmaceutical_drug' => 'json',
+	];
 
-	protected $with = array('pharmaceutical_drug');
+	protected $with = array('getPharmaceuticalDrugAttribute');
 
 	public function getPharmaceuticalDrugAttribute(){
 		$item = json_decode($this->attributes['pharmaceutical_drug']);
