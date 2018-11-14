@@ -25,7 +25,7 @@ class ProductsTableSeeder extends Seeder
                 'barcode' => 1234567890,
                 'cums' => 'DFDFDF-01',
                 'cost' => 100,
-                'average_unit_cost' => null
+                'average_unit_cost' => null,
                 'content_unit_id' => 120,
                 'batch_control' => true,
                 'serials_control' => false,
