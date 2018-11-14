@@ -51,7 +51,7 @@ class Product extends Model
 
 	public function getPharmaceuticalDrugAttribute(){
 		$item = json_decode($this->attributes['pharmaceutical_drug'][0]);
-		$drugs = \App\Models\PharmaceuticalDrug::find($item['id']);
+		$drugs = \App\Models\PharmaceuticalDrug::find($item["id"]);
 		return $drugs;
 	}
 	
