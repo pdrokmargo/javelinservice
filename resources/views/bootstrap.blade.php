@@ -3,12 +3,11 @@
   <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta charset="utf-8" />
-    <title>Javelin</title>
+    <title>Javelin - IPS Medicamentos y Equipos Colombia S.A.S.</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- google fonts -->
     <script type="text/javascript">
@@ -27,10 +26,9 @@
 
     <link rel="stylesheet" href="vendors/loader.css" rel="stylesheet" >
     <link rel="stylesheet" href="vendors/material-design-icons/iconfont/material-icons.css" rel="stylesheet" >
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"/>
 
-    <base href="/">
-  <link href="/css/main.758288d23eccffe96c45.css" rel="stylesheet"></head>
+    <base href="">
+  </head>
 
   <body id="body">
 
@@ -38,9 +36,5 @@
       <div id="loader-container"></div>
     </app-root>
 
-
-
-    
-<script type="text/javascript" src="/js/polyfills.758288d23eccffe96c45.js"></script><script type="text/javascript" src="/js/vendor.758288d23eccffe96c45.js"></script><script type="text/javascript" src="/js/main.758288d23eccffe96c45.js"></script></body>
-
+  </body>
 </html>
