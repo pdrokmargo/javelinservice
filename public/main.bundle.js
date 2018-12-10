@@ -553,7 +553,7 @@ var AuthenticationService = /** @class */ (function () {
         this.http = http;
         var currentUser = JSON.parse(localStorage.getItem("currentUser"));
         // this.urlBase = 'http://localhost/javelinservice/public/';
-        this.urlBase = 'https://javelinservice.herokuapp.com';
+        this.urlBase = 'https://javelinservice.herokuapp.com/';
         if (localStorage.getItem('currentUser') != null) {
             this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Headers */]({
                 "Accept": "application/json",
