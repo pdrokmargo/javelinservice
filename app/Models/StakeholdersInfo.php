@@ -12,6 +12,7 @@ class StakeholdersInfo extends Model
     protected $appends = array('fullname');
     public $incrementing = false;
     protected $fillable = [ 
+        'id',
         'person_type_id',
         'rut',
         'document_type_id',
@@ -42,52 +43,5 @@ class StakeholdersInfo extends Model
     public function geolocation()
     {
          return $this->belongsTo('App\Models\Geolocation', 'geolocation_id'); 
-    }
-
-    // public function getComercialStakeholdersInfoAttribute()
-    // {
-    //     return \App\Models\ComercialStakeholdersInfo::where('stakeholder_info_id', $this->id)->first(); 
-    // }
-
-    // public function getCustomerAttribute()
-    // {
-    //     return \App\Models\Customers::where('stakeholder_info_id', $this->id)->first(); 
-    // }
-
-    // public function getSupplierAttribute()
-    // {
-    //     return \App\Models\Supplier::where('stakeholder_info_id', $this->id)->first(); 
-    // }
-
-    // public function getEmployeeAttribute()
-    // {
-    //     return \App\Models\Employee::where('stakeholder_info_id', $this->id)->first(); 
-    // }
-
-    // public function getSalesRepresentativeAttribute()
-    // {
-    //     return \App\Models\SalesRepresentatives::where('stakeholder_info_id', $this->id)->first(); 
-    // }
-
-    // public function getIsCustomerAttribute()
-    // {
-    //     return $this->customer ? true : false;
-    // }
-
-    // public function getIsSupplierAttribute()
-    // {
-    //     return $this->supplier ? true : false;
-    // }
-
-    // public function getIsSellerAttribute()
-    // {
-    //     return $this->sales_representative ? true : false;
-    // }
-
-    // public function getIsEmployeeAttribute()
-    // {
-    //     return $this->employee ? true : false;
-    // }
-
-   
+    }  
 }

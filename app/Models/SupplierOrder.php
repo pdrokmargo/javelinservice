@@ -10,7 +10,7 @@ class SupplierOrder extends Model
     
     protected $table = 'suppliers_orders';
     public $timestamps = false;
-    public $with = array('warehouses', 'stakeholderInfo');
+    public $with = array('warehouse', 'stakeholderInfo', 'supplierInfo', 'buyer');
     public $incrementing = false;
     protected $casts = [
         'products'=>'json'
@@ -34,8 +34,15 @@ class SupplierOrder extends Model
         return $this->hasOne('App\Models\StakeholdersInfo', 'id','supplier_id');
     }
 
-    public function warehouses()
+    public function warehouse()
 	{
 		 return $this->belongsTo('App\Models\Warehouse', 'warehouse_id'); 
+    }
+    public function supplierInfo() {
+        return $this->hasOne('App\Models\Supplier', 'stakeholder_info_id','supplier_id');
+    }
+    public function buyer()
+	{
+		 return $this->belongsTo('App\Models\StakeholdersInfo', 'buyer_employee_id'); 
     }
 }

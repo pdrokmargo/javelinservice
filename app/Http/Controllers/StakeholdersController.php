@@ -119,6 +119,7 @@ class StakeholdersController extends Controller
             $page = $request->page;
             $option = $request->option ;
             $table = '';
+            $stakeholders_params = '';
 
             switch ($option) {
                 case '1':
@@ -126,6 +127,7 @@ class StakeholdersController extends Controller
                     break;
                 case '2':
                     $table='suppliers';
+                    $stakeholders_params =  'x.sales_contact, x.payment_condition_id,';
                     break;
                 case '3':
                     $table='employees';
@@ -141,6 +143,20 @@ class StakeholdersController extends Controller
                     break;
             }
             
+            $query = DB::table('stakeholders_info as i')
+            ->join($table . ' as x', 'i.id', '=', 'x.stakeholder_info_id')
+            ->select(DB::raw("
+                i.id, 
+                concat(i.firstname,' ', i.middlename, ' ', i.lastname) as name,
+                i.person_type_id,
+                i.document_number,
+                i.legalname,
+                i.legalname as businessname,
+                geolocation(geolocation_id),".
+                $stakeholders_params
+                ."i.status
+            "));
+
             /*$query = DB::table('stakeholders_info as i')
             ->join('geolocations as g', 'i.geolocation_id', '=', 'g.id')
             ->join('collections_values as c', 'g.country_id', '=', 'c.id')
@@ -158,18 +174,6 @@ class StakeholdersController extends Controller
                 $query=$query->orderBy($ordername, $ordertype);
             }*/
             
-            $query = DB::table('stakeholders_info as i')
-            ->join($table . ' as x', 'i.id', '=', 'x.stakeholder_info_id')
-            ->select(DB::raw("
-                i.id, 
-                concat(i.firstname,' ', i.middlename, ' ', i.lastname) as name,
-                i.person_type_id,
-                i.document_number,
-                i.legalname,
-                i.legalname as businessname,
-                geolocation(geolocation_id),
-                i.status
-            "));
             
             if ($search!='') {
                 $query = $query->whereRaw("(lower(firstname) like ? or lower(middlename) like ? or lower(lastname) like ? or lower(legalname) like ? or lower(businessname) like ? or document_number like ?)", array($search, $search, $search, $search, $search, $search))->orderBy($ordername, $ordertype);
@@ -179,7 +183,7 @@ class StakeholdersController extends Controller
 
             $data=[];  
             if ($page) {
-                $data=$query->paginate(30);
+                $data=$query->paginate(15);
             }
             else
             {

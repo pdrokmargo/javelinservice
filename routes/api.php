@@ -79,7 +79,10 @@ Route::middleware('auth:api')->group(function () {
     Route::post('update_stake_holder/{id}','StakeholdersController@update');
     Route::get('search_stake_holder/{option}','StakeholdersController@search_stake_holder');
 
-    Route::post('stocks-products','StocksProductsController@index');
+    //Inventory
+    Route::resource('stocks-products','StocksProductsController');
+    Route::resource('inventory-movements','InventoryMovementsController');
+    Route::resource('inventory-adjustments','InventoryAdjustmentsController');
 });
 
 

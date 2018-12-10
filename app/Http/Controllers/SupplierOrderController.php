@@ -70,7 +70,7 @@ class SupplierOrderController extends Controller
     public function show($id)
 	{
 	    $data = SupplierOrder::find($id);
-	    return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
+	    return response()->json(["status"=>"success", "message"=>"", "data" =>$data ], 200);
     }
 
     public function update(Request $request, $id)

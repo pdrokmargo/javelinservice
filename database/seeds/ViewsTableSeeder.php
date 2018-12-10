@@ -32,8 +32,8 @@ class ViewsTableSeeder extends Seeder
     /* 03 */
           ['view_parent_id' => 3, 'have_child' => false,    'title' => 'Medicamentos',              'link' => 'pharmaceutical-drug',    'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ],
     /* 05 */
-    ['view_parent_id' => 5, 'have_child' => false, 'title' => 'Ingresos',   'link' => '#',           'icon' => '',           'description' => '', 'load_children' => '', 'show_menu' => true ],
-    ['view_parent_id' => 5, 'have_child' => false, 'title' => 'Salidas',   'link' => '#',           'icon' => '',           'description' => '', 'load_children' => '', 'show_menu' => true ],
+    ['view_parent_id' => 5, 'have_child' => false, 'title' => 'Ingresos',   'link' => 'inventory-movement-entry',           'icon' => '',           'description' => '', 'load_children' => '', 'show_menu' => true ],
+    ['view_parent_id' => 5, 'have_child' => false, 'title' => 'Salidas',   'link' => 'inventory-movement-out',           'icon' => '',           'description' => '', 'load_children' => '', 'show_menu' => true ],
     ['view_parent_id' => 5, 'have_child' => false, 'title' => 'Ajustes de inventario',   'link' => 'inventory-adjustments',           'icon' => '',           'description' => '', 'load_children' => '', 'show_menu' => true ],
     ['view_parent_id' => 5, 'have_child' => false, 'title' => 'Auditoría de inventario',   'link' => 'inventory-audit',           'icon' => '',           'description' => '', 'load_children' => '', 'show_menu' => true ],
     ['view_parent_id' => 5, 'have_child' => false, 'title' => 'Existencias',   'link' => 'stocks',           'icon' => '',           'description' => '', 'load_children' => '', 'show_menu' => true ],

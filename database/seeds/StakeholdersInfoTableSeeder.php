@@ -29,21 +29,6 @@ class StakeholdersInfoTableSeeder extends Seeder
                 'person_type_id' => 38,
             ],
             [
-                'id' => '415df760-a1a8-4631-827b-73376dfb53e4'/*Uuid::generate()->string*/, 
-                'firstname' => '', 
-                'middlename' => '', 
-                'lastname' => '', 
-                'businessname' => 'Nueva EPS', 
-                'legalname' => 'Nueva EPS',
-                'document_type_id' => 14, 
-                'document_number' => '90000000', 
-                'geolocation_id' => 11, 
-                'address' => 'Calle 34 # 43 - 43', 
-                'phone_number' => '49861', 
-                'email' => 'nueva@hotmail.com',
-                'person_type_id' => 39,
-            ],
-            [
                 'id' => 'cccf1643-f51d-4689-931c-737a102009a0'/*Uuid::generate()->string*/, 
                 'firstname' => 'Johan', 
                 'middlename' => '', 
@@ -89,8 +74,6 @@ class StakeholdersInfoTableSeeder extends Seeder
                 'phone_number' => '23561478', 
                 'email' => 'supplier@myecolombia.com.co',
                 'person_type_id' => 39,
-                'domiciled' => true,
-                'rut' => true
             ],
 
             [//importer

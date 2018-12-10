@@ -19,8 +19,11 @@ class CreateStocksProductsTable extends Migration
             $table->uuid('product_id');
             $table->string('expiration_date');
             $table->string('batch');
+            $table->string('location');
             $table->integer('set_stock');
             $table->integer('fraction_stock');
+            $table->double('set_cost');
+            $table->double('fraction_cost');
             $table->primary('id');
         });
     }

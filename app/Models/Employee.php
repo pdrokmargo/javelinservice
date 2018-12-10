@@ -14,8 +14,7 @@ class Employee extends Model
     	'id',
     	'stakeholder_info_id'
    	];
-    // protected $hidden = [
-    //     'stakeholder_info_id'
-    // ];
+    
+    
    	
 }

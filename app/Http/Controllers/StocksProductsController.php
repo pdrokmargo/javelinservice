@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Validator;
-use App\ActiveIngredients;
 use Illuminate\Http\Request;
 
 class StocksProductsController extends Controller
@@ -15,25 +14,27 @@ class StocksProductsController extends Controller
      */
     public function index(Request $request)
     {
-        $data = json_decode($request->data, true);
+        try {
+          
+            $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';
+            $ordername = isset($request->ordername) ? $request->ordername : 'warehouse_id';
+            $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
+            $page = $request->page;
+            
+            // $company_id = $request->user()->company_default_id;
+            if(!isset($request->warehouse) || $request->warehouse == ''){
+                $stocks = \App\Models\StocksProducts::whereRaw('set_stock > 0 or fraction_stock > 0')->orderBy($ordername, $ordertype)->paginate(15);     
+            }else{
+                $stocks = \App\Models\StocksProducts::whereRaw('warehouse_id = ? and (set_stock > 0 or fraction_stock > 0)', $request->warehouse)->orderBy($ordername, $ordertype)->paginate(15); 
+            }
+            
 
-        /*$to = new \DateTime($data['to']);
-        $to = $to->format('d/m/Y');
+            
+            return response()->json(['status'=>'success', "message"=>'', "data" => $stocks ], 200);
 
-        $from = new \DateTime($data['from']);
-        $from = $from->format('d/m/Y');*/
-
-        $rs = \App\Models\StocksProducts::
-        //where('expiration_date','>=',$from)
-        //->where('expiration_date','<=',$to)->
-        where('warehouse_id', $data['warehouse_id'])
-        ->with(['products' => function($query) {
-            $query->select('id', 'code', 'name', 'sku', 'description','units');
-        }])->get();
-
-        return response()->json([
-            "data" => $rs
-        ], 200);
+        } catch (Exception $e) {
+            return 'Error:'.$e->getMessage();
+        } 
     }
 
     

@@ -10,7 +10,7 @@ class SupplierQuotes extends Model
     
     protected $table = 'suppliers_quotes';
     public $timestamps = false;
-    public $with = array('stakeholderInfo');
+    public $with = array('stakeholderInfo', 'supplierInfo');
     public $incrementing = false;
     protected $casts = [
         'products'=>'json'
@@ -28,5 +28,9 @@ class SupplierQuotes extends Model
    
     public function stakeholderInfo() {
         return $this->hasOne('App\Models\StakeholdersInfo', 'id','supplier_id');
+    }
+
+    public function supplierInfo() {
+        return $this->hasOne('App\Models\Supplier', 'stakeholder_info_id','supplier_id');
     }
 }

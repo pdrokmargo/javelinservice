@@ -254,6 +254,31 @@ class CollectionsValuesTableSeeder extends Seeder
 
             //PRODUCT_TYPE
             /*171*/['collection_id' => 24, 'parent_id' => 0, 'code' => 'servicios', 'value' => 'Servicios'],
+
+            //PRODUCT_TYPE
+            /*172*/['collection_id' => 37, 'parent_id' => 0, 'code' => 'entrada', 'value' => 'Entrada'],
+            /*173*/['collection_id' => 37, 'parent_id' => 0, 'code' => 'salida', 'value' => 'Salida'],
+
+            //ENTRY_TYPE_MOVEMENT
+            /*174*/['collection_id' => 38, 'parent_id' => 0, 'code' => 'entrada_compra', 'value' => 'Entrada por Compra'],
+            /*175*/['collection_id' => 38, 'parent_id' => 0, 'code' => 'entrada_ajuste', 'value' => 'Entrada por Ajuste'],
+            /*176*/['collection_id' => 38, 'parent_id' => 0, 'code' => 'entrada_transferencia', 'value' => 'Entrada por Transferencia'],
+            /*177*/['collection_id' => 38, 'parent_id' => 0, 'code' => 'entrada_obsequio', 'value' => 'Entrada por Obsequio'],
+            /*178*/['collection_id' => 38, 'parent_id' => 0, 'code' => 'entrada_donacion', 'value' => 'Entrada por Donación'],
+            /*179*/['collection_id' => 38, 'parent_id' => 0, 'code' => 'entrada_devolucion', 'value' => 'Entrada por Devolución de Clientes'],
+            
+            //OUT_TYPE_MOVEMENT
+            /*180*/['collection_id' => 39, 'parent_id' => 0, 'code' => 'salida_venta', 'value' => 'Salida por Venta'],
+            /*181*/['collection_id' => 39, 'parent_id' => 0, 'code' => 'salida_ajuste', 'value' => 'Salida por Ajuste'],
+            /*182*/['collection_id' => 39, 'parent_id' => 0, 'code' => 'salida_transferencia', 'value' => 'Salida por Transferencia'],
+            /*183*/['collection_id' => 39, 'parent_id' => 0, 'code' => 'salida_vencimiento', 'value' => 'Salida por Vencimiento'],
+            /*184*/['collection_id' => 39, 'parent_id' => 0, 'code' => 'salida_averia', 'value' => 'Salida por Avería'],
+            /*185*/['collection_id' => 39, 'parent_id' => 0, 'code' => 'salida_consumo', 'value' => 'Salida por Consumo Interno'],
+            /*186*/['collection_id' => 39, 'parent_id' => 0, 'code' => 'salida_devolucion', 'value' => 'Salida por Devolución a Proveedores'],
+
+            //INVENTORY_ADJUSTMENT_TYPE
+            /*187*/['collection_id' => 40, 'parent_id' => 0, 'code' => 'ajuste_lote', 'value' => 'Lote'],
+            /*188*/['collection_id' => 40, 'parent_id' => 0, 'code' => 'ajuste_ubicacion', 'value' => 'Ubicación']
         ]);
     }
 }

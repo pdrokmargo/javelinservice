@@ -15,6 +15,9 @@ class CreateSuppliersOrdersTable extends Migration
     {
         Schema::create('suppliers_orders', function (Blueprint $table) {
             $table->uuid('id');
+            $table->uuid('consecutive_id');
+            $table->integer('consecutive');
+            
             $table->date('created_at');
             $table->date('expire_at');
             $table->date('estimate_delivery');

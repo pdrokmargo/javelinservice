@@ -43,24 +43,42 @@ class Product extends Model
 		'delete'
 	];
 
+
 	protected $casts = [
-        'pharmaceutical_drug' => 'array',
+		'pharmaceutical_drug' => 'array'
 	];
 
-	// protected $with = array('getPharmaceuticalDrugAttribute');
+	protected $appends = ['display_name', 'averageunitcost'];
 
-	// public function getPharmaceuticalDrugAttribute(){
-	// 	$item = json_encode($this->attributes['pharmaceutical_drug']);
-	// 	$item = $item[0];
-	// 	// $drugs = \App\Models\PharmaceuticalDrug::find($item[0]['id']);
-	// 	return $item['id'];
-	// }
 	
+	public function getDisplayNameAttribute()
+	{
+		if($this->comercial){
+			return $this->comercial_name;
+		}else{
+			$item = json_encode($this->pharmaceutical_drug);
+			$item = $item[0];
+			return $this->item["name"];
+		}
+	}
+
+	public function getAverageunitcostAttribute()
+	{
+		$entry_movements = \App\Models\InventoryMovementDetail::where('purchase_price', '<>', 0)->where('product_id', "{$this->id}")->get();
+		$sum_purchase_price = 0;
+		foreach ($entry_movements as $e){
+			$sum_purchase_price += $e->purchase_price*$e->units;
+		}
+		$sum_units = $entry_movements->sum('units');
+		return (int)(($sum_purchase_price)/$sum_units);
+	}
+
 	public function sanitary_registration_holder()
 	{
 		 return $this->belongsTo('App\Models\StakeholdersInfo', 'sanitary_registration_holder_id'); 
 	}
-	
+
+
 	public function supplier()
 	{
 		 return $this->belongsTo('App\Models\StakeholdersInfo', 'supplier_id'); 

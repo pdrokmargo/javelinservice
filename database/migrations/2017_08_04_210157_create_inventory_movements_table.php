@@ -15,10 +15,17 @@ class CreateInventoryMovementsTable extends Migration
     {
         Schema::create('inventory_movements', function (Blueprint $table) {
             $table->uuid('id');
-            $table->integer('operationcentre_id');
+            $table->uuid('consecutive_id');
+            $table->integer('consecutive');
+
+            $table->integer('operationcentre_id')->nullable();
+            $table->uuid('warehouse_id');
+            $table->integer('company_id');
             $table->date('date');
-            $table->integer('entry_type_id'); //Collection Values
-            $table->integer('output_type_id'); //Collection values
+            // $table->integer('inventory_movement_type_id'); //Collection Values
+            $table->integer('inventory_movement_entry_out_type_id'); //Collection Values
+            $table->uuid('counterpart_transfer_id')->nullable(); //Defines source where items comes or goes.
+            $table->string('observations');
             $table->timestamps();
             $table->primary('id');
         });
