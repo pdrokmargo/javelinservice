@@ -96,7 +96,8 @@ class CustomersQuotesController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = CustomerQuote::find($id);
+	    return response()->json(["status"=>"success", "message"=>"", "data" =>$data ], 200);
     }
 
     /**
@@ -119,7 +120,28 @@ class CustomersQuotesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::beginTransaction();
+        try
+        {
+            $data_new = json_decode($request->data,true);
+            $data_old = CustomerQuotes::find($id);
+            $data_old->fill($data_new);
+            $data_old->save();
+            $this->CreateLog($request->user()->id, 'customers-quotes', 2,'');
+            DB::commit();
+            return response()->json([ 
+                "update" => true, 
+                "message" => "Registro actualizado correctamente" 
+            ], 200);
+        }
+        catch (Exception $e) 
+        {
+            DB::rollback();
+            return response()->json([ 
+                "update" => false, 
+                "message" => "Error al intentar actualizar el registro" 
+            ], 400);
+        }  
     }
 
     /**
@@ -128,8 +150,27 @@ class CustomersQuotesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        DB::beginTransaction();
+        try
+        {
+            $data = CustomerQuote::find($id);
+            $data->delete();
+            $this->CreateLog($request->user()->id, 'customers-quotes', 3,'');
+            DB::commit();
+            return response()->json([ 
+                "delete" => true, 
+                "message" => "Registro eliminado correctamente" 
+            ], 200);
+        }
+        catch (Exception $e) 
+        {
+            DB::rollback();
+            return response()->json([ 
+                "delete" => false, 
+                "message" => "Error al intentar eliminar el registro" 
+            ], 400);
+        }
     }
 }
