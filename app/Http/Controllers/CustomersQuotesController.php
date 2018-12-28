@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use DB;
+use Illuminate\Support\Facades\Auth;
+use \App\Models\CustomerQuote;
 
 class CustomersQuotesController extends Controller
 {
@@ -21,7 +25,7 @@ class CustomersQuotesController extends Controller
             $page = $request->page;
             $sign = isset($request->sign) ? $request->sign : '';
 
-            $query = new \App\Models\CustomerQuote();
+            $query = new CustomerQuote();
             if ($search!='') {
                 $query = $query->whereRaw("status = true" )
                     ->with(["stakeholderInfo"=>function($query)use($search){
@@ -64,7 +68,24 @@ class CustomersQuotesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::beginTransaction(); 
+        try {
+            
+            $data = json_decode($request->data, true);
+            $customer_quotes=CustomerQuote::create($data);
+            $this->CreateLog(Auth::id(), 'customers-quotes', 1,'');
+            DB::commit();
+            return response()->json([ 
+                "store" => true, 
+                "message" => "Registro creado correctamente" 
+            ], 200);
+        } catch (Exception $e) {
+            DB::rollback();
+            return response()->json([ 
+                "store" => false, 
+                "message" => "Error al intentar crear el registro" 
+            ], 400);
+        }     
     }
 
     /**
