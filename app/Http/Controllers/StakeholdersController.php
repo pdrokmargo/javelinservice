@@ -152,7 +152,7 @@ class StakeholdersController extends Controller
                 i.document_number,
                 i.legalname,
                 i.legalname as businessname,
-                geolocation(geolocation_id),".
+                geolocation,".
                 $stakeholders_params
                 ."i.status
             "));
