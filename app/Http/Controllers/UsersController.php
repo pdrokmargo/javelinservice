@@ -261,7 +261,7 @@ class UsersController extends Controller
         $user = \App\Models\User::find($id);
         $user->delete = true;
         $user->save();
-        $this->CreateLog($request->user()->id, 'users', 3 ,'');
+        // $this->CreateLog($request->user()->id, 'users', 3 ,'');
         return response()->json([
             "status"=>"success",
             "message" => "El usuario se ha eliminado satisfactoriamente.", 

@@ -104,7 +104,7 @@ class InventoryMovementsController extends Controller
                         if($inventory_movement['inventory_movement_entry_out_type_id'] >= 174 and $inventory_movement['inventory_movement_entry_out_type_id'] <= 179){//Entry
                             $stock_result->fraction_stock += $detail['units'];
                         }elseif($inventory_movement['inventory_movement_entry_out_type_id'] >= 180 and $inventory_movement['inventory_movement_entry_out_type_id'] <= 186){//Out
-                            if($stock_result->fraction_stock - $detail['units'] > 0){
+                            if($stock_result->fraction_stock - $detail['units'] >= 0){
                                 $stock_result->fraction_stock -= $detail['units'];
                             }else{
                                 $overflowUnits = true;

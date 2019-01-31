@@ -140,7 +140,7 @@ class DeliveryPointsController extends Controller
             $data->delete = true;
             $data->save();
             DB::commit();
-            $this->CreateLog($request->user()->id, 'delivery-points', 3,'');
+            // $this->CreateLog($request->user()->id, 'delivery-points', 3,'');
             return response()->json([ 
                 "delete" => true, 
                 "message" => "Registro eliminado correctamente" 

@@ -172,14 +172,14 @@ class OperationsCentreController extends Controller
         try {
         	
         	$data = \App\Models\OperationsCentre::find($id);
-	        $this->CreateLog($request->user()->id, 'company', 3,json_encode($data));
+	        // $this->CreateLog($request->user()->id, 'company', 3,json_encode($data));
 	        $data->delete = true;
 	        $data->save();
 
           
 
           DB::commit();
-          $this->CreateLog($request->user()->id, 'operations-centres', 3,'');
+        //   $this->CreateLog($request->user()->id, 'operations-centres', 3,'');
           return response()->json([ 
               "delete" => true, 
               "message" => "Registro eliminado correctamente" 

@@ -198,10 +198,11 @@ class CostsCentreController extends Controller
         try 
         {
             $data = \App\Models\CostsCentre::find($id);
-            $this->CreateLog($request->user()->id, 'company', 3,json_encode($data));
+            // $this->CreateLog($request->user()->id, 'company', 3,json_encode($data));
+            $data->delete = true;
             $data->state = false;
             $data->save();
-            $this->CreateLog($request->user()->id, 'costs-centres', 3,'');
+            // $this->CreateLog($request->user()->id, 'costs-centres', 3,'');
             DB::commit();
             return response()->json([ 
                 "delete" => true, 
