@@ -18,7 +18,7 @@ class CreateInventoryMovementsDetailsTable extends Migration
             $table->uuid('inventory_movements_id');
             $table->uuid('product_id');
             $table->integer('units');
-            $table->boolean('fraction');
+            $table->boolean('fraction')->default(false);
             $table->string('batch')->nullable();
             $table->string('location')->nullable();
             $table->string('expiration_date')->nullable();
