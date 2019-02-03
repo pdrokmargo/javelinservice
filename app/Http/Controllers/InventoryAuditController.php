@@ -66,7 +66,11 @@ class InventoryAuditController extends Controller
             ];
 
             $inventory_audit_id = InventoryAudit::create($InventoryAudit)->id;
+
+            return $inventory_audit_id;
+
             $InventoryAuditDetail = [];
+
             foreach ($data->details as $key => $value) {
                 $InventoryAuditDetail[] = [
                     'inventory_audit_id'        => $inventory_audit_id,
