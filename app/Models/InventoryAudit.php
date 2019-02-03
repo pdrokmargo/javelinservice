@@ -32,6 +32,6 @@ class InventoryAudit extends Model
     }
     
     public function details() {
-        return $this->hasMany('App\Models\InventoryAuditDetail', 'id', 'inventory_audit_id'); 
+        return $this->hasMany('App\Models\InventoryAuditDetail', 'inventory_audit_id', 'id'); 
     }
 }
