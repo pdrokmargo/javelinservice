@@ -11,6 +11,7 @@ class UserProfile extends Model
     public $with = array('privileges');
 
     protected $fillable = [
+        'up_code',
         'up_description',
         'up_state',
         'delete'
