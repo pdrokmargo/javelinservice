@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \App\Moldels\InventoryAudit;
+use \App\Models\InventoryAudit;
 
 class InventoryAuditController extends Controller
 {
