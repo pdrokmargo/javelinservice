@@ -30,4 +30,5 @@ class InventoryAudit extends Model
     public function status() {
         return $this->belongsTo('App\Models\CollectionsValues', 'audit_state_id'); 
     }
+    
 }
