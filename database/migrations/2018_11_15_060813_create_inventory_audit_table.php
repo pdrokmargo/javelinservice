@@ -15,7 +15,6 @@ class CreateInventoryAuditTable extends Migration
     {
         Schema::create('inventory_audit', function (Blueprint $table) {
             $table->uuid('id');
-            $table->integer('inventory_adjustment_type_id');//From Collections
             $table->uuid('warehouse_id');
             $table->uuid('user_id');
             $table->string('description');
