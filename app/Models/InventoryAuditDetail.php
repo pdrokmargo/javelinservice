@@ -15,4 +15,6 @@ class InventoryAuditDetail extends Model
         'physical_set_stock',
         'physical_fraction_stock',
     ];
+
+    //jesus
 }
