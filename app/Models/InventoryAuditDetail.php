@@ -18,7 +18,7 @@ class InventoryAuditDetail extends Model
     ];
 
     public function stock() {
-        return $this->hasMany('App\Models\StocksProducts', 'stock_product_id'); 
+        return $this->belongsTo('App\Models\StocksProducts', 'stock_product_id'); 
     }
 
 }
