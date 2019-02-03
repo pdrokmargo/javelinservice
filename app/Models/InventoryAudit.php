@@ -10,7 +10,6 @@ class InventoryAudit extends Model
     protected $table = 'inventory_audit';
     public $incrementing = false;
     protected $fillable = [
-        'inventory_adjustment_type_id',
         'warehouse_id',
         'user_id',
         'description',

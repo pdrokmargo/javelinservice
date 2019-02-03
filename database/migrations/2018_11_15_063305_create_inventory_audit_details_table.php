@@ -19,6 +19,7 @@ class CreateInventoryAuditDetailsTable extends Migration
             $table->uuid('stock_product_id');
             $table->integer('physical_set_stock');
             $table->integer('physical_fraction_stock');
+
             $table->timestamps();
             $table->primary('id');
         });
