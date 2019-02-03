@@ -101,10 +101,10 @@ class InventoryAuditController extends Controller
      */
     public function show($id)
     {
-        $InventoryAuditDetail = InventoryAuditDetail::find($id);
+        $InventoryAudit = InventoryAudit::with(['details'])->find($id);
 	    return response()->json([
             "status"    => "success", 
-            "data"      =>$InventoryAuditDetail 
+            "data"      => $InventoryAudit 
         ], 200);
     }
 

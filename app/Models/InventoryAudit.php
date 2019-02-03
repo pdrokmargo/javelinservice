@@ -31,4 +31,7 @@ class InventoryAudit extends Model
         return $this->belongsTo('App\Models\CollectionsValues', 'audit_state_id'); 
     }
     
+    public function details() {
+        return $this->hasMany('App\Models\inventory_audit_details', 'inventory_audit_id','id'); 
+    }
 }
