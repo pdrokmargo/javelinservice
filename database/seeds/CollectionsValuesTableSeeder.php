@@ -278,7 +278,14 @@ class CollectionsValuesTableSeeder extends Seeder
 
             //INVENTORY_ADJUSTMENT_TYPE
             /*187*/['collection_id' => 40, 'parent_id' => 0, 'code' => 'ajuste_lote', 'value' => 'Lote'],
-            /*188*/['collection_id' => 40, 'parent_id' => 0, 'code' => 'ajuste_ubicacion', 'value' => 'Ubicación']
+            /*188*/['collection_id' => 40, 'parent_id' => 0, 'code' => 'ajuste_ubicacion', 'value' => 'Ubicación'],
+
+            //AUDIT_STATE
+            /*189*/['collection_id' => 41, 'parent_id' => 0, 'code' => 'auditoria_inv_no_iniciada', 'value' => 'No iniciada'],
+            /*190*/['collection_id' => 41, 'parent_id' => 0, 'code' => 'auditoria_inv_en_curso', 'value' => 'En curso'],
+            /*191*/['collection_id' => 41, 'parent_id' => 0, 'code' => 'auditoria_inv_cancelada', 'value' => 'Cancelada'],
+            /*192*/['collection_id' => 41, 'parent_id' => 0, 'code' => 'auditoria_inv_finalizada', 'value' => 'Finalizada'],
+            /*193*/['collection_id' => 41, 'parent_id' => 0, 'code' => 'auditoria_inv_finalizada_ajustes', 'value' => 'Finalizada con ajustes'],
         ]);
     }
 }

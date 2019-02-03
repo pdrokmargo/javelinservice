@@ -52,6 +52,7 @@ class CollectionsTableSeeder extends Seeder
             /*38*/['name'=>'INVENTORY_ENTRY_TYPE',    'description' => 'Tipo de entrada de inventario',       'syscollection' => true],
             /*39*/['name'=>'INVENTORY_OUT_TYPE',    'description' => 'Tipo de salida de inventario',       'syscollection' => true],
             /*40*/['name'=>'INVENTORY_ADJUSTMENT_TYPE',    'description' => 'Tipo de salida de inventario',       'syscollection' => true],
+            /*40*/['name'=>'AUDIT_STATE',    'description' => 'Estado de auditoría de inventario',       'syscollection' => true],
         ]);
         
     }
