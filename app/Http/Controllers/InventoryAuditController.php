@@ -67,29 +67,24 @@ class InventoryAuditController extends Controller
 
             $inventory_audit_id = InventoryAudit::create($InventoryAudit)->id;
 
-            $InventoryAuditDetail = [];
 
             foreach ($data->details as $key => $value) {
-                $InventoryAuditDetail[] = [
+                $InventoryAuditDetail = [
                     'inventory_audit_id'        => $inventory_audit_id,
                     'stock_product_id'          => $value->id,
                     'physical_set_stock'        => $value->set_stock,
                     'physical_fraction_stock'   => $value->fraction_stock
                 ];
+                InventoryAuditDetail::create($InventoryAuditDetail);
             }
 
-            return response()->json([
-                "inventory_audit_id" => $inventory_audit_id,
-                "InventoryAuditDetail" => $InventoryAuditDetail
+            
+
+            DB::commit();
+            return response()->json([ 
+                "store" => true, 
+                "message" => "Registro almacenado" 
             ], 200);
-
-            //InventoryAuditDetail::create($InventoryAuditDetail);
-
-            // DB::commit();
-            // return response()->json([ 
-            //     "store" => true, 
-            //     "message" => "Registro almacenado" 
-            // ], 200);
         } catch (Exception $e) {
             DB::rollback();
             return response()->json([ 
