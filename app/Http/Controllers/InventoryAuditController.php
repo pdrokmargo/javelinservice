@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Moldels\InventoryAudit;
 
 class InventoryAuditController extends Controller
 {
@@ -11,9 +12,24 @@ class InventoryAuditController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        try {
+            $search     = isset($request->search) ? '%'.strtolower($request->search).'%' : '';
+            $ordername  = isset($request->ordername) ? $request->ordername : 'id';
+            $ordertype  = isset($request->ordertype) ? $request->ordertype : 'DESC';
+            $page       = isset($request->page) ? $request->page : 1;
+            
+            $data = InventoryAudit::orderBy($ordername, $ordertype)->paginate(15); 
+
+            return response()->json([
+                'status'=>'success',
+                "data" => $data 
+            ], 200);
+
+      } catch (Exception $e) {
+          return 'Error:'.$e->getMessage();
+      } 
     }
 
     /**

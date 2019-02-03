@@ -84,6 +84,7 @@ Route::middleware('auth:api')->group(function () {
     Route::resource('stocks-products','StocksProductsController');
     Route::resource('inventory-movements','InventoryMovementsController');
     Route::resource('inventory-adjustments','InventoryAdjustmentsController');
+    Route::resource('inventory-audit','InventoryAuditController');
 });
 
 
