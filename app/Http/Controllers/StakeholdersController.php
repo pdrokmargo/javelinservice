@@ -26,13 +26,15 @@ class StakeholdersController extends Controller
             $page = $request->page;
             
             $query = DB::table('stakeholders_info AS i')
+            ->join('geolocations as g', 'i.geolocation_id', '=', 'g.id')
+            ->join('collections_values as c', 'g.city_id', '=', 'c.id')
             ->select(DB::raw("
                 i.id as id, 
                 concat(i.firstname,' ', i.middlename, ' ', i.lastname) as name,
                 i.person_type_id,
                 i.document_number,
                 i.businessname,
-                geolocation(geolocation_id),
+                c.value as geolocation,
                 i.status,
                 i.legalname,
                 i.legalname as businessname
@@ -145,6 +147,8 @@ class StakeholdersController extends Controller
             
             $query = DB::table('stakeholders_info as i')
             ->join($table . ' as x', 'i.id', '=', 'x.stakeholder_info_id')
+            ->join('geolocations as g', 'i.geolocation_id', '=', 'g.id')
+            ->join('collections_values as c', 'g.city_id', '=', 'c.id')
             ->select(DB::raw("
                 i.id, 
                 concat(i.firstname,' ', i.middlename, ' ', i.lastname) as name,
@@ -152,7 +156,7 @@ class StakeholdersController extends Controller
                 i.document_number,
                 i.legalname,
                 i.legalname as businessname,
-                geolocation(geolocation_id),".
+                c.value as geolocation,".
                 $stakeholders_params
                 ."i.status
             "));
