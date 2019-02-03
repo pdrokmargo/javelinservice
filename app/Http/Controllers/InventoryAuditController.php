@@ -61,7 +61,7 @@ class InventoryAuditController extends Controller
                 'user_id'           => $data->user_id,
                 'description'       => '',
                 'blinded_qty'       => $data->blinded_qty,
-                'date'              => $date->date,
+                'date'              => $data->date,
                 'audit_state_id'    => 189
             ];
 
