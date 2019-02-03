@@ -60,7 +60,7 @@ class InventoryAuditController extends Controller
                 'warehouse_id'      => $data->warehouse_id,
                 'user_id'           => $data->user_id,
                 'description'       => '',
-                'blinded_qty'       => $data->blinded_qty ? 1 :0,
+                'blinded_qty'       => $data->blinded_qty,
                 'date'              => $data->date,
                 'audit_state_id'    => 189
             ];
@@ -78,13 +78,18 @@ class InventoryAuditController extends Controller
                 ];
             }
 
-            InventoryAuditDetail::create($InventoryAuditDetail);
-
-            DB::commit();
-            return response()->json([ 
-                "store" => true, 
-                "message" => "Registro almacenado" 
+            return response()->json([
+                "inventory_audit_id" => $inventory_audit_id,
+                "InventoryAuditDetail" => $InventoryAuditDetail
             ], 200);
+
+            //InventoryAuditDetail::create($InventoryAuditDetail);
+
+            // DB::commit();
+            // return response()->json([ 
+            //     "store" => true, 
+            //     "message" => "Registro almacenado" 
+            // ], 200);
         } catch (Exception $e) {
             DB::rollback();
             return response()->json([ 
