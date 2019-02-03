@@ -70,9 +70,9 @@ class InventoryAuditController extends Controller
             foreach ($data->details as $key => $value) {
                 $InventoryAuditDetail[] = [
                     'inventory_audit_id'        => $inventory_audit_id,
-                    'stock_product_id'          => $value["id"],
-                    'physical_set_stock'        => $value["set_stock"],
-                    'physical_fraction_stock'   => $value["fraction_stock"]
+                    'stock_product_id'          => $value->id,
+                    'physical_set_stock'        => $value->set_stock,
+                    'physical_fraction_stock'   => $value->fraction_stock
                 ];
             }
 
