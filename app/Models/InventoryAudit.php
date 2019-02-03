@@ -8,6 +8,7 @@ class InventoryAudit extends Model
 {
     use \App\Uuids;
     protected $table = 'inventory_audit';
+    protected $with =array('warehouse', 'user', 'status');
     public $incrementing = false;
     protected $fillable = [
         'warehouse_id',
@@ -17,4 +18,16 @@ class InventoryAudit extends Model
         'date',
         'audit_state_id'
     ];
+
+    public function warehouse() {
+        return $this->belongsTo('App\Models\Warehouse', 'warehouse_id'); 
+    }
+
+    public function user() {
+        return $this->belongsTo('App\Models\Warehouse', 'user_id'); 
+    }
+
+    public function status() {
+        return $this->belongsTo('App\Models\CollectionsValues', 'audit_state_id'); 
+    }
 }

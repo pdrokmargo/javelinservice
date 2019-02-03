@@ -78,8 +78,6 @@ class InventoryAuditController extends Controller
                 InventoryAuditDetail::create($InventoryAuditDetail);
             }
 
-            
-
             DB::commit();
             return response()->json([ 
                 "store" => true, 
