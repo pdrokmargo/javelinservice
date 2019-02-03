@@ -26,7 +26,7 @@ class StakeholdersController extends Controller
             $page = $request->page;
             
             $query = DB::table('stakeholders_info AS i')
-            ->join('geolocations as g', 'i.geolocation_id', '=', 'g.id')
+            ->join('geolocations as g', 'i.geolocation_id', '=', 'g.city_id')
             ->join('collections_values as c', 'g.city_id', '=', 'c.id')
             ->select(DB::raw("
                 i.id as id, 
