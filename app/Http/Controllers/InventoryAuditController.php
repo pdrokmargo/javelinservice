@@ -242,6 +242,36 @@ class InventoryAuditController extends Controller
         } 
     }
 
+    public function auditar(Request $request, $id) {
+        DB::beginTransaction();
+        try {
+            $InventoryAudit = InventoryAudit::find($id);
+            if($InventoryAudit) {
+
+                $InventoryAudit->audit_state_id = 191;
+                $InventoryAudit->save();
+
+                DB::commit();
+
+                return response()->json([
+                    "auditada" => true, 
+                    "message" => "Auditada",
+                ], 200);
+            }
+            return response()->json([
+                "auditada" => false, 
+                "message" => "Registro no encontrado" 
+            ], 200);
+
+        } catch (Exception $e) {
+            DB::rollback();
+            return response()->json([
+                "auditada" => false, 
+                "message" => "Error al intentar Auditar"
+            ], 400);
+        } 
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -250,6 +280,6 @@ class InventoryAuditController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
 }
