@@ -33,7 +33,7 @@ class CreateSuppliersQuotesTable extends Migration
             //      double: discount (%)
             //      double: subtotal
             //      
-            $table->string('notes');
+            $table->string('notes')->nullable();
             $table->boolean('status');
             $table->primary('id');
         });

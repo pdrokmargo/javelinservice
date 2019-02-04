@@ -9,7 +9,7 @@ class StakeholdersInfo extends Model
     use \App\Uuids;
     public $timestamps = false;
     protected $table = 'stakeholders_info';
-    protected $appends = array('fullname');
+    protected $appends = ['fullname'];
     public $incrementing = false;
     protected $fillable = [ 
         'id',

@@ -58,6 +58,15 @@ class SupplierQuotesController extends Controller
         try {
             
             $data = json_decode($request->data, true);
+
+            //Consecutive assignment
+            $supplier_quotes['document'] = \App\Models\Consecutive::where('document_name', 'supplier_quotes')->first();
+            $data['consecutive_id'] = $supplier_quotes['document']['id'];
+            $data['consecutive'] = \App\Models\SupplierQuotes::where('consecutive_id', $data['consecutive_id'])->max('consecutive') + 1;
+            if($data['consecutive'] == null){
+                $data['consecutive'] = 1;
+            }
+
             $supplier_quotes=SupplierQuotes::create($data);
             // $this->CreateLog(Auth::id(), 'suppliers-quotes', 1,'');
             DB::commit();
