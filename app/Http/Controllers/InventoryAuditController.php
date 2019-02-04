@@ -149,7 +149,7 @@ class InventoryAuditController extends Controller
                 $InventoryAuditDetail = InventoryAuditDetail::where('inventory_audit_id',$id)->delete();
                 foreach ($data->details as $key => $value) {
                     $InventoryAuditDetail = [
-                        'inventory_audit_id'        => $inventory_audit_id,
+                        'inventory_audit_id'        => $id,
                         'stock_product_id'          => $value->id,
                         'physical_set_stock'        => $value->physical_set_stock,
                         'physical_fraction_stock'   => $value->physical_fraction_stock,
