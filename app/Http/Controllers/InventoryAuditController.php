@@ -190,13 +190,13 @@ class InventoryAuditController extends Controller
                 $InventoryAudit->audit_state_id = 191;
                 $InventoryAudit->save();
 
+                DB::commit();
+
                 return response()->json([
                     "cancel" => true, 
                     "message" => "Auditoria cancelada" ,
-                    "InventoryAudit" => $InventoryAudit
                 ], 200);
             }
-
             return response()->json([
                 "cancel" => false, 
                 "message" => "Registro no encontrado" 
