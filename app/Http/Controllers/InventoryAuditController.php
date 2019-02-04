@@ -56,7 +56,6 @@ class InventoryAuditController extends Controller
         try {
             $data = json_decode($request->data);
             $InventoryAudit = [
-                'inventory_adjustment_type_id' => '',
                 'warehouse_id'      => $data->warehouse_id,
                 'user_id'           => $data->user_id,
                 'description'       => '',
@@ -72,8 +71,10 @@ class InventoryAuditController extends Controller
                 $InventoryAuditDetail = [
                     'inventory_audit_id'        => $inventory_audit_id,
                     'stock_product_id'          => $value->id,
-                    'physical_set_stock'        => $value->set_stock,
-                    'physical_fraction_stock'   => $value->fraction_stock
+                    'physical_set_stock'        => 0,
+                    'physical_fraction_stock'   => 0,
+                    'system_set_stock'          => $value->set_stock,
+                    'system_fraction_stock'     => $value->fraction_stock
                 ];
                 InventoryAuditDetail::create($InventoryAuditDetail);
             }
@@ -83,6 +84,7 @@ class InventoryAuditController extends Controller
                 "store" => true, 
                 "message" => "Registro almacenado" 
             ], 200);
+
         } catch (Exception $e) {
             DB::rollback();
             return response()->json([ 
@@ -128,7 +130,54 @@ class InventoryAuditController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::beginTransaction();
+        try {
+            $InventoryAudit = InventoryAudit::find($id);
+            if($InventoryAudit) {
+                $data = json_decode($request->data);
+                $_InventoryAudit = [
+                    'inventory_adjustment_type_id' => '',
+                    'warehouse_id'      => $data->warehouse_id,
+                    'user_id'           => $data->user_id,
+                    'description'       => '',
+                    'blinded_qty'       => $data->blinded_qty,
+                    'date'              => $data->date,
+                    'audit_state_id'    => 189
+                ];
+                $InventoryAudit->fill($_InventoryAudit);
+                $InventoryAudit->save();
+                $InventoryAuditDetail = InventoryAuditDetail::where('inventory_audit_id',$id)->delete();
+                foreach ($data->details as $key => $value) {
+                    $InventoryAuditDetail = [
+                        'inventory_audit_id'        => $inventory_audit_id,
+                        'stock_product_id'          => $value->id,
+                        'physical_set_stock'        => $value->physical_set_stock,
+                        'physical_fraction_stock'   => $value->physical_fraction_stock,
+                        'system_set_stock'          => $value->set_stock,
+                        'system_fraction_stock'     => $value->fraction_stock
+                    ];
+                    InventoryAuditDetail::create($InventoryAuditDetail);
+                }
+
+                DB::commit();
+                return response()->json([
+                    "update" => true,
+                    "message" => "Registro actualizado correctamente" 
+                ], 200); 
+            }
+
+            return response()->json([
+                "update" => false, 
+                "message" => "Registro no encontrado" 
+            ], 200);
+
+        } catch (Exception $e) {
+            DB::rollback();
+            return response()->json([
+                "update" => false, 
+                "message" => "Error al intentar actualizar el registro" 
+            ], 400);
+        } 
     }
 
     /**
