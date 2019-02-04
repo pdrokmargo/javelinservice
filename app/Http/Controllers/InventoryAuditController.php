@@ -61,7 +61,7 @@ class InventoryAuditController extends Controller
                 'description'       => '',
                 'blinded_qty'       => $data->blinded_qty,
                 'date'              => $data->date,
-                'audit_state_id'    => 189
+                'audit_state_id'    => $data->audit_state_id
             ];
 
             $inventory_audit_id = InventoryAudit::create($InventoryAudit)->id;
@@ -151,8 +151,8 @@ class InventoryAuditController extends Controller
                     $InventoryAuditDetail = [
                         'inventory_audit_id'        => $id,
                         'stock_product_id'          => $value->id,
-                        'physical_set_stock'        => $value->physical_set_stock,
-                        'physical_fraction_stock'   => $value->physical_fraction_stock,
+                        'physical_set_stock'        => isset($value->physical_set_stock) ? $value->physical_set_stock : 0,
+                        'physical_fraction_stock'   => isset($value->physical_fraction_stock) ? $value->physical_fraction_stock : 0,
                         'system_set_stock'          => $value->set_stock,
                         'system_fraction_stock'     => $value->fraction_stock
                     ];
