@@ -187,7 +187,7 @@ class InventoryAuditController extends Controller
             $InventoryAudit = InventoryAudit::find($id);
             if($InventoryAudit) {
 
-                $InventoryAudit->audit_state_id = 191;
+                $InventoryAudit->audit_state_id = 192;
                 $InventoryAudit->save();
 
                 DB::commit();
