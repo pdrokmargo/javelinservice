@@ -82,7 +82,8 @@ class InventoryAuditController extends Controller
             DB::commit();
             return response()->json([ 
                 "store" => true, 
-                "message" => "Registro almacenado" 
+                "message" => "Registro almacenado",
+                "id"    => $inventory_audit_id
             ], 200);
 
         } catch (Exception $e) {
