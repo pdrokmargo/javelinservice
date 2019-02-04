@@ -248,17 +248,32 @@ class InventoryAuditController extends Controller
         try {
             $InventoryAudit = InventoryAudit::find($id);
             if($InventoryAudit) {
-
-                $InventoryAudit->audit_state_id = 194;
+                $data = json_decode($request->data);
+                $_InventoryAudit = [
+                    'audit_state_id'    => $data->audit_state_id
+                ];
+                $InventoryAudit->fill($_InventoryAudit);
                 $InventoryAudit->save();
+                $InventoryAuditDetail = InventoryAuditDetail::where('inventory_audit_id',$id)->delete();
+                foreach ($data->details as $key => $value) {
+                    $InventoryAuditDetail = [
+                        'inventory_audit_id'        => $id,
+                        'stock_product_id'          => $value->id,
+                        'physical_set_stock'        => isset($value->physical_set_stock) ? $value->physical_set_stock : 0,
+                        'physical_fraction_stock'   => isset($value->physical_fraction_stock) ? $value->physical_fraction_stock : 0,
+                        'system_set_stock'          => $value->set_stock,
+                        'system_fraction_stock'     => $value->fraction_stock
+                    ];
+                    InventoryAuditDetail::create($InventoryAuditDetail);
+                }
 
                 DB::commit();
-
                 return response()->json([
-                    "auditada" => true, 
-                    "message" => "Auditada",
-                ], 200);
+                    "auditada" => true,
+                    "message" => "Auditoria completada" 
+                ], 200); 
             }
+
             return response()->json([
                 "auditada" => false, 
                 "message" => "Registro no encontrado" 
@@ -268,7 +283,7 @@ class InventoryAuditController extends Controller
             DB::rollback();
             return response()->json([
                 "auditada" => false, 
-                "message" => "Error al intentar Auditar"
+                "message" => "Error al intentar auditar" 
             ], 400);
         } 
     }
