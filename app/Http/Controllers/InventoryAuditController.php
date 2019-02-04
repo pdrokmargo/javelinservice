@@ -180,6 +180,35 @@ class InventoryAuditController extends Controller
         } 
     }
 
+    public function cancel(Request $request, $id)
+    {
+        DB::beginTransaction();
+        try {
+            $InventoryAudit = InventoryAudit::find($id);
+            if($InventoryAudit) {
+                $InventoryAudit->audit_state_id = 191;
+                $InventoryAudit->save();
+                
+                return response()->json([
+                    "cancel" => true, 
+                    "message" => "Auditoria cancelada" 
+                ], 200);
+            }
+
+            return response()->json([
+                "cancel" => false, 
+                "message" => "Registro no encontrado" 
+            ], 200);
+
+        } catch (Exception $e) {
+            DB::rollback();
+            return response()->json([
+                "update" => false, 
+                "message" => "Error al intentar cancelar la auditoria"
+            ], 400);
+        } 
+    }
+
     /**
      * Remove the specified resource from storage.
      *
