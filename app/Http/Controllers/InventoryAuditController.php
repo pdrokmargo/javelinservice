@@ -218,17 +218,21 @@ class InventoryAuditController extends Controller
         try {
             $InventoryAudit = InventoryAudit::find($id);
             if($InventoryAudit) {
-
-                $InventoryAudit->audit_state_id = $audit_state_id;
+                $data = json_decode($request->data);
+                $_InventoryAudit = [
+                    'description'       => $data->description,
+                    'audit_state_id'    => $audit_state_id
+                ];
+                $InventoryAudit->fill($_InventoryAudit);
                 $InventoryAudit->save();
 
                 DB::commit();
-
                 return response()->json([
-                    "finalize" => true, 
-                    "message" => "Auditoria finalizada correctamente" ,
-                ], 200);
+                    "finalize" => true,
+                    "message" => "Auditoria finalizada correctamente" 
+                ], 200); 
             }
+
             return response()->json([
                 "finalize" => false, 
                 "message" => "Registro no encontrado" 
@@ -238,7 +242,7 @@ class InventoryAuditController extends Controller
             DB::rollback();
             return response()->json([
                 "finalize" => false, 
-                "message" => "Error al intentar finalizar la auditoria"
+                "message" => "Error al intentar finalizar la auditoria" 
             ], 400);
         } 
     }
