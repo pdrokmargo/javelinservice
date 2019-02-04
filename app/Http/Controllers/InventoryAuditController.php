@@ -142,7 +142,7 @@ class InventoryAuditController extends Controller
                     'description'       => '',
                     'blinded_qty'       => $data->blinded_qty,
                     'date'              => $data->date,
-                    'audit_state_id'    => 189
+                    'audit_state_id'    => $data->audit_state_id
                 ];
                 $InventoryAudit->fill($_InventoryAudit);
                 $InventoryAudit->save();
