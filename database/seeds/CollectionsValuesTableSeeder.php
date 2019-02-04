@@ -283,6 +283,7 @@ class CollectionsValuesTableSeeder extends Seeder
             //AUDIT_STATE
             /*189*/['collection_id' => 41, 'parent_id' => 0, 'code' => 'auditoria_inv_no_iniciada', 'value' => 'No iniciada'],
             /*190*/['collection_id' => 41, 'parent_id' => 0, 'code' => 'auditoria_inv_en_curso', 'value' => 'En curso'],
+            /*190*/['collection_id' => 41, 'parent_id' => 0, 'code' => 'auditoria_inv_auditada', 'value' => 'Auditada'],
             /*191*/['collection_id' => 41, 'parent_id' => 0, 'code' => 'auditoria_inv_cancelada', 'value' => 'Cancelada'],
             /*192*/['collection_id' => 41, 'parent_id' => 0, 'code' => 'auditoria_inv_finalizada', 'value' => 'Finalizada'],
             /*193*/['collection_id' => 41, 'parent_id' => 0, 'code' => 'auditoria_inv_finalizada_ajustes', 'value' => 'Finalizada con ajustes'],

@@ -20,6 +20,7 @@ class CreateInventoryAdjustmentsTable extends Migration
             $table->string('current_adjustment_value');
             $table->string('new_adjustment_value');
             $table->date('adjustment_date')->nullable();
+            $table->string('notes')->nullable();
             $table->timestamps();
             $table->primary('id');
         });
