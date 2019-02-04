@@ -86,7 +86,7 @@ Route::middleware('auth:api')->group(function () {
     Route::resource('inventory-adjustments','InventoryAdjustmentsController');
     Route::resource('inventory-audit','InventoryAuditController');
     Route::put('inventory-audit/cancel/{id}','InventoryAuditController@cancel');
-    Route::put('inventory-audit/finalize/{id}/audit_state_id','InventoryAuditController@finalize');
+    Route::put('inventory-audit/finalize/{id}/{audit_state_id}','InventoryAuditController@finalize');
 });
 
 
