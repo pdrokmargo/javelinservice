@@ -8,6 +8,7 @@ class InventoryAuditDetail extends Model
 {
     use \App\Uuids;
     protected $table = 'inventory_audit_details';
+    protected $with =array('stock');
     public $incrementing = false;
     protected $fillable = [
         'inventory_audit_id',
@@ -18,5 +19,8 @@ class InventoryAuditDetail extends Model
         'system_fraction_stock',
     ];
 
-    //jesus
+    public function stock() {
+        return $this->belongsTo('App\Models\StocksProducts', 'stock_product_id'); 
+    }
+
 }
