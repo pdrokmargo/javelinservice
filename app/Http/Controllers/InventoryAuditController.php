@@ -224,19 +224,19 @@ class InventoryAuditController extends Controller
                 DB::commit();
 
                 return response()->json([
-                    "cancel" => true, 
+                    "finalize" => true, 
                     "message" => "Auditoria finalizada correctamente" ,
                 ], 200);
             }
             return response()->json([
-                "cancel" => false, 
+                "finalize" => false, 
                 "message" => "Registro no encontrado" 
             ], 200);
 
         } catch (Exception $e) {
             DB::rollback();
             return response()->json([
-                "update" => false, 
+                "finalize" => false, 
                 "message" => "Error al intentar finalizar la auditoria"
             ], 400);
         } 
