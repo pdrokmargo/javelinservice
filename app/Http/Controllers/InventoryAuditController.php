@@ -186,12 +186,14 @@ class InventoryAuditController extends Controller
         try {
             $InventoryAudit = InventoryAudit::find($id);
             if($InventoryAudit) {
+
                 $InventoryAudit->audit_state_id = 191;
                 $InventoryAudit->save();
-                
+
                 return response()->json([
                     "cancel" => true, 
-                    "message" => "Auditoria cancelada" 
+                    "message" => "Auditoria cancelada" ,
+                    "InventoryAudit" => $InventoryAudit
                 ], 200);
             }
 
