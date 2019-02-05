@@ -226,7 +226,17 @@ class InventoryAuditController extends Controller
                 $InventoryAudit->fill($_InventoryAudit);
                 $InventoryAudit->save();
 
+                /* Aquí debes llamar el detalle para luego insertar usando la línea de abajo */
+                /* 175 Entrada por ajuste, 181 salida por ajuste    */
+                // $inventory_audit_details = \App\Models\InventoryAuditDetail::where('inventory_audit_id', $id);
+                // foreach($inventory_audit_details as $id){
+
+                // }
+                // app(\App\Http\Controllers\InventoryMovementsController::class)->getPrintReport();
+
                 DB::commit();
+
+
                 return response()->json([
                     "finalize" => true,
                     "message" => "Auditoria finalizada correctamente" 
