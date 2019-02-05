@@ -220,7 +220,7 @@ class InventoryAuditController extends Controller
             if($InventoryAudit) {
                 $data = json_decode($request->data);
                 $_InventoryAudit = [
-                    'description'       => $data->description,
+                    'description'       => isset($data->description) ? $data->description : '',
                     'audit_state_id'    => $audit_state_id
                 ];
                 $InventoryAudit->fill($_InventoryAudit);

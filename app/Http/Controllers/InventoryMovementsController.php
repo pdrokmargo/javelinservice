@@ -64,14 +64,21 @@ class InventoryMovementsController extends Controller
             
             $inventory_movement = json_decode($request->data, true);
             $inventory_movement_details = $inventory_movement['details'];
+            
             $inventory_movement['company_id'] = $request->user()->company_default_id;
             $inventory_movement['user_id'] = $request->user()->id;
             if(isset($inventory_movement['observations']) == false){
                 $inventory_movement['observations'] = '';
             }
-            if($inventory_movement['inventory_movement_entry_out_type_id'] >= 174 and $inventory_movement['inventory_movement_entry_out_type_id'] <= 179){//Entry
+            if(
+                $inventory_movement['inventory_movement_entry_out_type_id'] >= 174 and 
+                $inventory_movement['inventory_movement_entry_out_type_id'] <= 179
+            ){//Entry
                 $inventory_movement['document'] = \App\Models\Consecutive::where('document_name', 'inventory_movement_entry')->first();
-            }elseif($inventory_movement['inventory_movement_entry_out_type_id'] >= 180 and $inventory_movement['inventory_movement_entry_out_type_id'] <= 186){//Out
+            } else if(
+                $inventory_movement['inventory_movement_entry_out_type_id'] >= 180 and 
+                $inventory_movement['inventory_movement_entry_out_type_id'] <= 186
+            ){//Out
                 $inventory_movement['document'] = \App\Models\Consecutive::where('document_name', 'inventory_movement_out')->first();
             }
             $inventory_movement['consecutive_id'] = $inventory_movement['document']['id'];

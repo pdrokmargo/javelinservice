@@ -13,14 +13,14 @@ class InventoryMovement extends Model
     protected $appends = ['total'];
     public $incrementing = false;
     protected $fillable = [
-        'consecutive_id',
-        'consecutive',
-        'warehouse_id',
-            'company_id',
-            'date',
-            'inventory_movement_entry_out_type_id',
-            'counterpart_transfer_id',
-            'observations'
+          'consecutive_id',
+          'consecutive',
+          'warehouse_id',
+          'company_id',
+          'date',
+          'inventory_movement_entry_out_type_id',
+          'counterpart_transfer_id',
+          'observations'
     ];
     public function getTotalAttribute()
     {
