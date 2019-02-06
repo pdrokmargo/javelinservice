@@ -70,6 +70,7 @@ class Product extends Model
 			$sum_purchase_price += $e->purchase_price*$e->units;
 		}
 		$sum_units = $entry_movements->sum('units');
+		$sum_units = is_numeric($sum_units) ? $sum_units : 0;
 		return (int)(($sum_purchase_price)/$sum_units);
 	}
 
