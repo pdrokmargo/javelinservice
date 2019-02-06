@@ -71,7 +71,7 @@ class Product extends Model
 		}
 		$sum_units = $entry_movements->sum('units');
 		$sum_units = is_numeric($sum_units) ? $sum_units : 0;
-		return (int)(($sum_purchase_price)/$sum_units);
+		return $sum_units == 0 ? 0 :(int)(($sum_purchase_price)/$sum_units);
 	}
 
 	public function sanitary_registration_holder()
