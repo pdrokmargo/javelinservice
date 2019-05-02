@@ -10,17 +10,19 @@ class SupplierOrder extends Model
     
     protected $table = 'suppliers_orders';
     public $timestamps = false;
-    public $with = array('warehouse', 'stakeholderInfo', 'supplierInfo', 'buyer');
+    public $with = array('warehouse', 'stakeholderInfo', 'supplierInfo', 'buyer', 'document');
     public $incrementing = false;
     protected $casts = [
         'products'=>'json'
     ];
-    protected $fillable = [        
+    protected $fillable = [
+        'consecutive_id',
+        'consecutive', 
+        'supplier_id',       
         'created_at',
         'expire_at',
         'estimate_delivery',
         'buyer_employee_id',
-        'supplier_id',
         'operationcentre_id',
         'warehouse_id',
         'payment_condition_id',
@@ -44,5 +46,9 @@ class SupplierOrder extends Model
     public function buyer()
 	{
 		 return $this->belongsTo('App\Models\StakeholdersInfo', 'buyer_employee_id'); 
+    }
+    public function document()
+    {
+         return $this->belongsTo('App\Models\Consecutive', 'consecutive_id'); 
     }
 }

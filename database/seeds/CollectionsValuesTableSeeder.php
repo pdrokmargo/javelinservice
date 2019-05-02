@@ -287,6 +287,10 @@ class CollectionsValuesTableSeeder extends Seeder
             /*192*/['collection_id' => 41, 'parent_id' => 0, 'code' => 'auditoria_inv_finalizada', 'value' => 'Finalizada'],
             /*193*/['collection_id' => 41, 'parent_id' => 0, 'code' => 'auditoria_inv_finalizada_ajustes', 'value' => 'Finalizada con ajustes'],
             /*194*/['collection_id' => 41, 'parent_id' => 0, 'code' => 'auditoria_inv_auditada', 'value' => 'Auditada'],
+
+            //SCHEDULED_DELIVERIES_TYPE
+            /*195*/['collection_id' => 42, 'parent_id' => 0, 'code' => 'entrega_futura', 'value' => 'Entrega futura'],
+            /*196*/['collection_id' => 42, 'parent_id' => 0, 'code' => 'pendiente', 'value' => 'Pendiente'],
         ]);
     }
 }

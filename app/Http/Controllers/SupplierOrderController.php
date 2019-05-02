@@ -51,8 +51,19 @@ class SupplierOrderController extends Controller
         try {
             
             $data = json_decode($request->data, true);
+
+            //Consecutive assignment
+            $supplier_orders['document'] = \App\Models\Consecutive::where('document_name', 'supplier_orders')->first();
+            $data['consecutive_id'] = $supplier_quotes['document']['id'];
+            $data['consecutive'] = \App\Models\SupplierOrder::where('consecutive_id', $data['consecutive_id'])->max('consecutive') + 1;
+            if($data['consecutive'] == null){
+                $data['consecutive'] = 1;
+            }
+
+
+
             $supplier_orders=SupplierOrder::create($data);
-            $this->CreateLog(Auth::id(), 'suppliers-orders', 1,'');
+            // $this->CreateLog(Auth::id(), 'suppliers-orders', 1,'');
             DB::commit();
             return response()->json([ 
                 "store" => true, 
