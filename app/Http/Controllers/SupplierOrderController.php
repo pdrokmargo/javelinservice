@@ -54,7 +54,7 @@ class SupplierOrderController extends Controller
 
             //Consecutive assignment
             $supplier_orders['document'] = \App\Models\Consecutive::where('document_name', 'supplier_orders')->first();
-            $data['consecutive_id'] = $supplier_quotes['document']['id'];
+            $data['consecutive_id'] = $supplier_orders['document']['id'];
             $data['consecutive'] = \App\Models\SupplierOrder::where('consecutive_id', $data['consecutive_id'])->max('consecutive') + 1;
             if($data['consecutive'] == null){
                 $data['consecutive'] = 1;
