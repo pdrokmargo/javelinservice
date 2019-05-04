@@ -24,7 +24,12 @@ class SupplierQuotesController extends Controller
 
             $query = new SupplierQuotes();
             if ($search!='') {
-                $supplierFilter = ' and '.$supplierFilter;
+                if( strpos( $supplierFilter, 'supplier_id' ) !== false) {
+                    $supplierFilter = ' and '.$supplierFilter;
+                }else{
+                    $supplierFilter = '';
+                }
+                
                 $query = $query->whereRaw("status = true".$supplierFilter)
                     ->with(["stakeholderInfo"=>function($query)use($search){
                     $query->where("firstname", $search);
