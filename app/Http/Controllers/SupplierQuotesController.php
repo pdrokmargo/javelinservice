@@ -23,12 +23,14 @@ class SupplierQuotesController extends Controller
             $sign = isset($request->sign) ? $request->sign : '';
 
             $query = new SupplierQuotes();
+
+            if( strpos( $supplierFilter, 'supplier_id' ) !== false) {
+                $supplierFilter = ' and '.$supplierFilter;
+            }else{
+                $supplierFilter = '';
+            }
             if ($search!='') {
-                if( strpos( $supplierFilter, 'supplier_id' ) !== false) {
-                    $supplierFilter = ' and '.$supplierFilter;
-                }else{
-                    $supplierFilter = '';
-                }
+                
                 
                 $query = $query->whereRaw("status = true".$supplierFilter)
                     ->with(["stakeholderInfo"=>function($query)use($search){
@@ -36,7 +38,7 @@ class SupplierQuotesController extends Controller
                 }])
                 ->orderBy($ordername, $ordertype);
             }else{
-                $query=$query->where('status', true)->whereRaw($supplierFilter)->orderBy($ordername, $ordertype);
+                $query=$query->whereRaw("status = true".$supplierFilter)->orderBy($ordername, $ordertype);
             }
             $sql=$query->toSql();
             $data=[];  
