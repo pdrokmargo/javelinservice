@@ -18,18 +18,20 @@ class SupplierQuotesController extends Controller
            $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';           
             $ordername = isset($request->ordername) ? $request->ordername : 'id';
             $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
+            $supplierFilter = isset($request->supplier) ? "supplier_id = ".$request->supplier : "";
             $page = $request->page;
             $sign = isset($request->sign) ? $request->sign : '';
 
             $query = new SupplierQuotes();
             if ($search!='') {
-                $query = $query->whereRaw("status = true" )
+                $supplierFilter = ' and '.$supplierFilter;
+                $query = $query->whereRaw("status = true".$supplierFilter)
                     ->with(["stakeholderInfo"=>function($query)use($search){
                     $query->where("firstname", $search);
                 }])
                 ->orderBy($ordername, $ordertype);
             }else{
-                $query=$query->where('status', true)->orderBy($ordername, $ordertype);
+                $query=$query->where('status', true)->whereRaw($supplierFilter)->orderBy($ordername, $ordertype);
             }
             $sql=$query->toSql();
             $data=[];  
