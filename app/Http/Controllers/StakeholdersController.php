@@ -155,6 +155,7 @@ class StakeholdersController extends Controller
                 i.person_type_id,
                 i.document_number,
                 i.legalname,
+                i.fullname,
                 i.legalname as businessname,
                 c.value as geolocation,".
                 $stakeholders_params
