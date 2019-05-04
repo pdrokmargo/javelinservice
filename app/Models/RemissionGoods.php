@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CustomerQuote extends Model
+class RemissionGoods extends Model
 {
     use \App\Uuids;
     
-    protected $table = 'customers_quotes';
+    protected $table = 'remission_goods';
     public $timestamps = false;
     public $with = array('stakeholderInfo', 'customerInfo', 'document');
     public $incrementing = false;

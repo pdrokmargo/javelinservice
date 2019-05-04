@@ -107,7 +107,7 @@ class SupplierQuotesController extends Controller
             $data_old = SupplierQuotes::find($id);
             $data_old->fill($data_new);
             $data_old->save();
-            $this->CreateLog($request->user()->id, 'suppliers-quotes', 2,'');
+            // $this->CreateLog($request->user()->id, 'suppliers-quotes', 2,'');
             DB::commit();
             return response()->json([ 
                 "update" => true, 

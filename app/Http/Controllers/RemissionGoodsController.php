@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use DB;
-use Illuminate\Support\Facades\Auth;
-use \App\Models\CustomerQuote;
+use \App\Models\RemissionGoods;
 
-class CustomersQuotesController extends Controller
+class RemissionGoodsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,36 +15,19 @@ class CustomersQuotesController extends Controller
     public function index(Request $request)
     {
         try {
-
-           $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';           
+            $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';
             $ordername = isset($request->ordername) ? $request->ordername : 'id';
             $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
             $page = $request->page;
-            $sign = isset($request->sign) ? $request->sign : '';
-
-            $query = new CustomerQuote();
-            if ($search!='') {
-                $query = $query->whereRaw("status = true" )
-                    ->with(["stakeholderInfo"=>function($query)use($search){
-                    $query->where("firstname", $search);
-                }])
-                ->orderBy($ordername, $ordertype);
-            }else{
-                $query=$query->where('status', true)->orderBy($ordername, $ordertype);
-            }
-            $sql=$query->toSql();
-            $data=[];  
-            if ($page) {
-              $data=$query->paginate(15);
-            }else{
-              $data=$query->get();
-            }  
             
-            return response()->json(['status'=>'success', "message"=>'', "data" => $data, "sql"=>$sql ], 200);
+            // $company_id = $request->user()->company_default_id;
+            $remission_goods = \App\Models\RemissionGoods::orderBy($ordername, $ordertype)->paginate(15); 
 
-        } catch (Exception $e) {
-            return 'Error:'.$e->getMessage();
-        }
+            return response()->json(['status'=>'success', "message"=>'', "data" => $remission_goods ], 200);
+
+      } catch (Exception $e) {
+          return 'Error:'.$e->getMessage();
+      } 
     }
 
     /**
@@ -71,31 +51,21 @@ class CustomersQuotesController extends Controller
         DB::beginTransaction(); 
         try {
             
-            $data = json_decode($request->data, true);
-
-            //Consecutive assignment
-            $customer_quotes['document'] = \App\Models\Consecutive::where('document_name', 'customers_quotes')->first();
-            $data['consecutive_id'] = $customer_quotes['document']['id'];
-            $data['consecutive'] = \App\Models\CustomerQuote::where('consecutive_id', $data['consecutive_id'])->max('consecutive') + 1;
-            if($data['consecutive'] == null){
-                $data['consecutive'] = 1;
-            }
-
-
-            $customer_quotes=CustomerQuote::create($data);
-            // $this->CreateLog(Auth::id(), 'customers-quotes', 1,'');
+            $remission_goods = json_decode($request->data, true);
+            $remission_goods = \App\Models\RemissionGoods::create($remission_goods);
             DB::commit();
             return response()->json([ 
                 "store" => true, 
-                "message" => "Registro creado correctamente" 
+                "message" => "Registro almacenado" 
             ], 200);
+            
         } catch (Exception $e) {
             DB::rollback();
             return response()->json([ 
                 "store" => false, 
-                "message" => "Error al intentar crear el registro" 
+                "message" => "Error al intentar almacenar el nuevo registro" 
             ], 400);
-        }     
+        }
     }
 
     /**
@@ -106,8 +76,8 @@ class CustomersQuotesController extends Controller
      */
     public function show($id)
     {
-        $data = CustomerQuote::find($id);
-	    return response()->json(["status"=>"success", "message"=>"", "data" =>$data ], 200);
+        $remission_goods = \App\Models\RemissionGoods::find($id);
+	    return response()->json(["status"=>"success", "message"=>"", "data" =>$remission_goods ], 200);
     }
 
     /**
@@ -131,27 +101,35 @@ class CustomersQuotesController extends Controller
     public function update(Request $request, $id)
     {
         DB::beginTransaction();
-        try
-        {
-            $data_new = json_decode($request->data,true);
-            $data_old = CustomerQuotes::find($id);
-            $data_old->fill($data_new);
-            $data_old->save();
-            // $this->CreateLog($request->user()->id, 'customers-quotes', 2,'');
+        try {
+
+            $remission_goods = json_decode($request->data,true);
+            
+            //Consecutive assignment
+            $remissiong_goods['document'] = \App\Models\Consecutive::where('document_name', 'remission_goods')->first();
+            $data['consecutive_id'] = $remissiong_goods['document']['id'];
+            $data['consecutive'] = \App\Models\RemissionGoods::where('consecutive_id', $data['consecutive_id'])->max('consecutive') + 1;
+            if($data['consecutive'] == null){
+                $data['consecutive'] = 1;
+            }
+
+            \App\Models\RemissionGoods::findOrFail($id)->update($remission_goods);
+
             DB::commit();
+            // $this->CreateLog($request->user()->id, 'inventory movement', 2,'');
             return response()->json([ 
                 "update" => true, 
                 "message" => "Registro actualizado correctamente" 
-            ], 200);
-        }
-        catch (Exception $e) 
-        {
+            ], 200);     
+
+
+        } catch (Exception $e) {
             DB::rollback();
             return response()->json([ 
                 "update" => false, 
                 "message" => "Error al intentar actualizar el registro" 
             ], 400);
-        }  
+        }
     }
 
     /**
@@ -160,13 +138,13 @@ class CustomersQuotesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy($id)
     {
         DB::beginTransaction();
         try
         {
-            $data = CustomerQuote::find($id);
-            $data->delete();
+            $remission_goods = RemissionGoods::find($id);
+            $remission_goods->delete();
             // $this->CreateLog($request->user()->id, 'customers-quotes', 3,'');
             DB::commit();
             return response()->json([ 

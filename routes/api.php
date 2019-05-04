@@ -88,6 +88,12 @@ Route::middleware('auth:api')->group(function () {
     Route::put('inventory-audit/cancel/{id}','InventoryAuditController@cancel');
     Route::put('inventory-audit/finalize/{id}/{audit_state_id}','InventoryAuditController@finalize');
     Route::put('inventory-audit/auditar/{id}','InventoryAuditController@auditar');
+
+    //Sales
+    Route::resource('customers-quotes','CustomersQuotesController');
+    Route::resource('remission-goods','RemissionGoodsController');
+    Route::resource('billing','BillingController');
+
 });
 
 

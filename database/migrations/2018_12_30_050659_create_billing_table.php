@@ -32,7 +32,7 @@ class CreateBillingTable extends Migration
             //      double: unit_price
             //      double: discount (%)
             //      double: subtotal
-            //      
+            //       
             $table->string('notes');
             $table->boolean('status');
             $table->primary('id');
