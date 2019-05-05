@@ -126,11 +126,11 @@ class StakeholdersController extends Controller
             switch ($option) {
                 case '1':
                     $table='customers';
-                    $stakeholders_params =  'x.sales_contact, x.payment_condition_id, x.global_discount, ';
+                    $stakeholders_params =  'x.purchases_contact, x.payment_condition_id, x.global_discount, ';
                     break;
                 case '2':
                     $table='suppliers';
-                    $stakeholders_params =  'x.purchases_contact, x.payment_condition_id, x.global_discount, ';
+                    $stakeholders_params =  'x.sales_contact, x.payment_condition_id, x.global_discount, ';
                     break;
                 case '3':
                     $table='employees';
