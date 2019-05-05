@@ -19,7 +19,9 @@ class CreateRemissionsGoodsTable extends Migration
             $table->integer('consecutive');
 
             $table->date('created_at');
-            $table->date('expire_at');
+
+            $table->date('inventory_movement_out_id');
+            
             
             $table->uuid('customer_id');//from stakeholders with customer profile.
             $table->integer('payment_condition_id');//from collections

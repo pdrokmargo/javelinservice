@@ -20,7 +20,7 @@ class RemissionGoods extends Model
         'consecutive',
         'customer_id',
         'created_at',
-        'expire_at',
+        'inventory_movement_out_id',
         'customer_id',
         'payment_condition_id',
         'products',
