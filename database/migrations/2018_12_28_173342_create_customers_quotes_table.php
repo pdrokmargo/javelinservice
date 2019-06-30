@@ -21,6 +21,7 @@ class CreateCustomersQuotesTable extends Migration
             $table->date('created_at');
             $table->date('expire_at');
             
+            $table->uuid('seller_employee_id');//from stakeholders with employee profile.
             $table->uuid('customer_id');//from stakeholders with customer profile.
             $table->integer('payment_condition_id');//from collections
             $table->json('products');
@@ -33,7 +34,7 @@ class CreateCustomersQuotesTable extends Migration
             //      double: discount (%)
             //      double: subtotal
             //      
-            $table->string('notes');
+            $table->string('notes')->nullable();
             $table->boolean('status');
             $table->primary('id');
         });

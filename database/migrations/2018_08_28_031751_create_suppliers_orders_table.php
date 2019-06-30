@@ -25,7 +25,7 @@ class CreateSuppliersOrdersTable extends Migration
             $table->uuid('buyer_employee_id');//from stakeholders with employee profile.
             $table->uuid('supplier_id');//from stakeholders with supplier profile.
             $table->integer('operationcentre_id');//from operationscentres with supplier profile.
-            $table->uuid('warehouse_id');//from stakeholders with supplier profile.
+            $table->uuid('warehouse_id');//from warehouses
             $table->integer('payment_condition_id');//from collections
             $table->json('products');
             // json array

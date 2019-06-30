@@ -8,7 +8,7 @@ class RemissionGoods extends Model
 {
     use \App\Uuids;
     
-    protected $table = 'remission_goods';
+    protected $table = 'remissions_goods';
     public $timestamps = false;
     public $with = array('stakeholderInfo', 'customerInfo', 'document');
     public $incrementing = false;

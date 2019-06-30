@@ -20,9 +20,10 @@ class CreateRemissionsGoodsTable extends Migration
 
             $table->date('created_at');
 
-            $table->date('inventory_movement_out_id');
+            $table->uuid('inventory_movement_out_id');
+            $table->uuid('warehouse_id');
             
-            
+            $table->uuid('seller_employee_id');
             $table->uuid('customer_id');//from stakeholders with customer profile.
             $table->integer('payment_condition_id');//from collections
             $table->json('products');
@@ -30,12 +31,16 @@ class CreateRemissionsGoodsTable extends Migration
             //      uuid: product_id
             //      string: sku
             //      string: name
-            //      integer: quantity
+            //      integer: units
+            //      boolean: fraction
+            //      string: batch
+            //      string: location
+            //      string: expiration_date
             //      double: unit_price
             //      double: discount (%)
             //      double: subtotal
             //      
-            $table->string('notes');
+            $table->string('notes')->nullable();
             $table->boolean('status');
             $table->primary('id');
         });

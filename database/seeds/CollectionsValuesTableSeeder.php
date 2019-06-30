@@ -297,6 +297,9 @@ class CollectionsValuesTableSeeder extends Seeder
             /*199*/['collection_id' => 33, 'parent_id' => 0, 'code' => 'frasco', 'value' => 'Frasco'],
             /*200*/['collection_id' => 33, 'parent_id' => 0, 'code' => 'lapicero-unit-content', 'value' => 'Lapicero'],
             /*201*/['collection_id' => 33, 'parent_id' => 0, 'code' => 'gotero', 'value' => 'Gotero'],
+
+            /* PAYMENT_CONDITION
+            /*202*/["collection_id" => 27, "parent_id" => 0, "code" => "0_contado", "value" => "Contado"],
         ]);
     }
 }
