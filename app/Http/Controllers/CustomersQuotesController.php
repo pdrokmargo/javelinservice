@@ -81,7 +81,6 @@ class CustomersQuotesController extends Controller
                 $data['consecutive'] = 1;
             }
 
-
             $customer_quotes=CustomerQuote::create($data);
             // $this->CreateLog(Auth::id(), 'customers-quotes', 1,'');
             DB::commit();

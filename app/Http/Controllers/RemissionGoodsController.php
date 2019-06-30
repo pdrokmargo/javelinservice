@@ -51,9 +51,18 @@ class RemissionGoodsController extends Controller
     {
         DB::beginTransaction(); 
         try {
+
+            $data = json_decode($request->data, true);
             
-            $remission_goods = json_decode($request->data, true);
-            $remission_goods = \App\Models\RemissionGoods::create($remission_goods);
+            //Consecutive assignment
+            $remission_goods['document'] = \App\Models\Consecutive::where('document_name', 'remission_goods')->first();
+            $data['consecutive_id'] = $customer_quotes['document']['id'];
+            $data['consecutive'] = \App\Models\RemissionGoods::where('consecutive_id', $data['consecutive_id'])->max('consecutive') + 1;
+            if($data['consecutive'] == null){
+                $data['consecutive'] = 1;
+            }
+
+            $remission_goods = \App\Models\RemissionGoods::create($data);
             DB::commit();
             return response()->json([ 
                 "store" => true, 
