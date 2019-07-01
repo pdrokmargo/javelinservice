@@ -21,8 +21,8 @@ class RemissionGoods extends Model
         'customer_id',
         'created_at',
         'inventory_movement_out_id',
-        'customer_id',
-        'payment_condition_id',
+        'warehouse_id',
+        'seller_employee_id',
         'products',
         'notes',
         'status'
