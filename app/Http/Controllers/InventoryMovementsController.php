@@ -179,6 +179,7 @@ class InventoryMovementsController extends Controller
                 DB::commit();
                 return response()->json([ 
                     "store" => true, 
+                    "inventory_movement_id" => $result->id,
                     "message" => "Registro creado correctamente" 
                 ], 200);
             }
