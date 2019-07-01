@@ -62,8 +62,6 @@ class RemissionGoodsController extends Controller
                 $data['consecutive'] = 1;
             }
 
-            $data['inventory_movement_out_id'] = 180;
-
             $remission_goods = \App\Models\RemissionGoods::create($data);
             DB::commit();
             return response()->json([ 

@@ -102,7 +102,7 @@ class InventoryMovementsController extends Controller
                     if(isset($detail['purchase_price']) == true && $detail["fraction"] == false){
                         $stock_result->set_cost = $detail['purchase_price'];
                         $stock_result->fraction_cost = $stock_result->set_cost/$detail['product']['units'];
-                    }elseif($detail["fraction"] == true ||  $detail["purchase_price"] == ""){
+                    }elseif($detail["fraction"] == true ||  (isset($detail['purchase_price']) == true && $detail["purchase_price"] == ""){
                         $detail['purchase_price'] = 0;
                     }else{
                         $detail['purchase_price'] = 0;
