@@ -10,7 +10,7 @@ class RemissionGoods extends Model
     
     protected $table = 'remissions_goods';
     public $timestamps = false;
-    public $with = array('stakeholderInfo', 'customerInfo', 'document');
+    public $with = array('stakeholderInfo', 'customerInfo', 'document', 'warehouse');
     public $incrementing = false;
     protected $casts = [
         'products'=>'json'
@@ -39,5 +39,10 @@ class RemissionGoods extends Model
     public function document()
     {
          return $this->belongsTo('App\Models\Consecutive', 'consecutive_id'); 
+    }
+
+    public function warehouse()
+    {
+         return $this->belongsTo('App\Models\Warehouse', 'warehouse_id'); 
     }
 }
