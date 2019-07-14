@@ -12,18 +12,13 @@ class Billing extends Model
     public $timestamps = false;
     public $with = array('stakeholderInfo', 'customerInfo', 'document');
     public $incrementing = false;
-    protected $casts = [
-        'products'=>'json'
-    ];
     protected $fillable = [
         'consecutive_id',
         'consecutive',
         'customer_id',
         'created_at',
         'expire_at',
-        'customer_id',
         'payment_condition_id',
-        'products',
         'notes',
         'status'
     ];

@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('code')->nullable();
             $table->string('name')->nullable();
             $table->string('sku')->nullable();
+            $table->integer('product_type_id'); //from collections PRODUCT_TYPE
             $table->string('description');
             $table->string('comercial_name');
             $table->integer('units');

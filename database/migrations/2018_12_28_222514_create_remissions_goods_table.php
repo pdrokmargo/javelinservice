@@ -23,7 +23,6 @@ class CreateRemissionsGoodsTable extends Migration
             $table->uuid('inventory_movement_out_id');
             $table->uuid('warehouse_id');
             
-            $table->uuid('seller_employee_id');
             $table->uuid('customer_id');//from stakeholders with customer profile.
             // $table->integer('payment_condition_id');//from collections
             $table->json('products');

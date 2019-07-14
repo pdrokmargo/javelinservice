@@ -12,7 +12,7 @@ class BillingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request  )
+    public function index(Request $request)
     {
         try {
             $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';
@@ -24,6 +24,18 @@ class BillingController extends Controller
             $billing = \App\Models\Billing::orderBy($ordername, $ordertype)->paginate(15); 
 
             return response()->json(['status'=>'success', "message"=>'', "data" => $billing ], 200);
+
+      } catch (Exception $e) {
+          return 'Error:'.$e->getMessage();
+      } 
+    }
+
+    public function getBillingResolutions(Request $request){
+        try {
+            
+            $billing_resolutions = \App\Models\Consecutives::where('document_name', 'sales_billing')->get(); 
+
+            return response()->json(['status'=>'success', "message"=>'', "data" => $billing_resolutions ], 200);
 
       } catch (Exception $e) {
           return 'Error:'.$e->getMessage();
@@ -51,17 +63,17 @@ class BillingController extends Controller
         DB::beginTransaction(); 
         try {
             
-            $billing = json_decode($request->data, true);
+            $data = json_decode($request->data, true);
 
             //Consecutive assignment
-            $billing['document'] = \App\Models\Consecutive::where('document_name', 'sales_billing')->first();
-            $data['consecutive_id'] = $billing['document']['id'];
+            // $billing['document'] = \App\Models\Consecutive::where('id', $billing['consecutive_id'])->first();
+            // $data['consecutive_id'] = $billing['document']['id'];
             $data['consecutive'] = \App\Models\Billing::where('consecutive_id', $data['consecutive_id'])->max('consecutive') + 1;
             if($data['consecutive'] == null){
                 $data['consecutive'] = 1;
             }
 
-            $billing = \App\Models\Billing::create($billing);
+            $billing = \App\Models\Billing::create($data);
             DB::commit();
             return response()->json([ 
                 "store" => true, 

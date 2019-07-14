@@ -44,10 +44,12 @@ class ViewsTableSeeder extends Seeder
     /* 07 */ 
          ['view_parent_id' => 7, 'have_child' => false,     'title' => 'Cotización a clientes',     'link' => 'customers-quotes',       'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ],
          ['view_parent_id' => 7, 'have_child' => false,     'title' => 'Remisiones',                'link' => 'remission-goods',        'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ],
-         ['view_parent_id' => 7, 'have_child' => false,     'title' => 'Facturación',               'link' => 'customers-billing',      'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ],
+         ['view_parent_id' => 7, 'have_child' => false,     'title' => 'Facturación',               'link' => 'billing',      'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ],
     /* 08 */ 
          ['view_parent_id' => 8, 'have_child' => false,     'title' => 'Contratos de dispensación', 'link' => 'delivery-contracts',     'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ],
          ['view_parent_id' => 8, 'have_child' => false,     'title' => 'Afiliados',                 'link' => 'affiliates',             'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ],
+         ['view_parent_id' => 8, 'have_child' => false,     'title' => 'Dispensación',                 'link' => 'delivery',             'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ],
+         ['view_parent_id' => 8, 'have_child' => false,     'title' => 'Entregas Programadas',                 'link' => 'scheduled-deliveries',             'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ],
     /* 09 */ 
          ['view_parent_id' => 9, 'have_child' => false,     'title' => 'Usuarios',                  'link' => 'users',                  'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ],
          ['view_parent_id' => 9, 'have_child' => false,     'title' => 'Perfiles de Usuario',       'link' => 'user-profiles',          'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ],

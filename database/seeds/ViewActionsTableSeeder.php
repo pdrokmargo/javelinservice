@@ -45,10 +45,12 @@ class ViewActionsTableSeeder extends Seeder
 
             ['view_id' => 27, 'actions' => '[{"action":"Crear", "status":false}, {"action":"Leer", "status":false}, {"action":"Actualizar", "status":false}, {"action":"Eliminar", "status":false}]'],
             ['view_id' => 28, 'actions' => '[{"action":"Crear", "status":false}, {"action":"Leer", "status":false}, {"action":"Actualizar", "status":false}, {"action":"Eliminar", "status":false}]'],
-
             ['view_id' => 29, 'actions' => '[{"action":"Crear", "status":false}, {"action":"Leer", "status":false}, {"action":"Actualizar", "status":false}, {"action":"Eliminar", "status":false}]'],
             ['view_id' => 30, 'actions' => '[{"action":"Crear", "status":false}, {"action":"Leer", "status":false}, {"action":"Actualizar", "status":false}, {"action":"Eliminar", "status":false}]'],
+
             ['view_id' => 31, 'actions' => '[{"action":"Crear", "status":false}, {"action":"Leer", "status":false}, {"action":"Actualizar", "status":false}, {"action":"Eliminar", "status":false}]'],
+            ['view_id' => 32, 'actions' => '[{"action":"Crear", "status":false}, {"action":"Leer", "status":false}, {"action":"Actualizar", "status":false}, {"action":"Eliminar", "status":false}]'],
+            ['view_id' => 33, 'actions' => '[{"action":"Crear", "status":false}, {"action":"Leer", "status":false}, {"action":"Actualizar", "status":false}, {"action":"Eliminar", "status":false}]'],
             
         ]);
     }

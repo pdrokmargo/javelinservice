@@ -22,6 +22,7 @@ class CustomerQuote extends Model
         'created_at',
         'expire_at',
         'customer_id',
+        'seller_employee_id',
         'payment_condition_id',
         'products',
         'notes',

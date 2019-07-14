@@ -23,16 +23,7 @@ class CreateBillingTable extends Migration
             
             $table->uuid('customer_id');//from stakeholders with customer profile.
             $table->integer('payment_condition_id');//from collections
-            $table->json('products');
-            // json array
-            //      uuid: product_id
-            //      string: sku
-            //      string: name
-            //      integer: quantity
-            //      double: unit_price
-            //      double: discount (%)
-            //      double: subtotal
-            //       
+     
             $table->string('notes')->nullable();
             $table->boolean('status');
             $table->primary('id');

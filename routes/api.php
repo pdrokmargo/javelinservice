@@ -93,6 +93,10 @@ Route::middleware('auth:api')->group(function () {
     Route::resource('customers-quotes','CustomersQuotesController');
     Route::resource('remission-goods','RemissionGoodsController');
     Route::resource('billing','BillingController');
+    Route::resource('billing-resolutions','BillingController@getBillingResolutions');
+
+
+    
 
 });
 

@@ -300,6 +300,9 @@ class CollectionsValuesTableSeeder extends Seeder
 
             /* PAYMENT_CONDITION
             /*202*/["collection_id" => 27, "parent_id" => 0, "code" => "0_contado", "value" => "Contado"],
+
+            /*203*/['collection_id' => 24, 'parent_id' => 0, 'code' => 'homologo', 'value' => 'Homólogo'],
+            /*204*/['collection_id' => 24, 'parent_id' => 0, 'code' => 'servicios', 'value' => 'Servicios'],
         ]);
     }
 }
