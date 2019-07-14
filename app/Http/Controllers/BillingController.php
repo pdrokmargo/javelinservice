@@ -33,7 +33,7 @@ class BillingController extends Controller
     public function getBillingResolutions(Request $request){
         try {
             
-            $billing_resolutions = \App\Models\Consecutives::where('document_name', 'sales_billing')->get(); 
+            $billing_resolutions = \App\Models\Consecutive::where('document_name', 'sales_billing')->get(); 
 
             return response()->json(['status'=>'success', "message"=>'', "data" => $billing_resolutions ], 200);
 
