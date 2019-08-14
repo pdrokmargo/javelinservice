@@ -13,7 +13,21 @@ class CreateDeliveriesTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('deliveries', function (Blueprint $table) {
+            $table->uuid('id');
+            $table->integer('consecutive');
+            $table->uuid('affiliate_id');
+            $table->date('date');
+            $table->date('formula_date');
+            $table->date('delivery_date');
+            $table->string('authorization')->nullable();
+            $table->uuid('ips_id');
+            $table->integer('modality_id'); //related with collections
+            $table->uuid('medical_diagnostic_id');
+            $table->string('notes');
+            $table->boolean('status');
+            $table->primary('id');
+        });
     }
 
     /**
@@ -23,6 +37,6 @@ class CreateDeliveriesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('deliveries');
     }
 }

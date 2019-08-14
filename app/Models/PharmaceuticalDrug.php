@@ -11,7 +11,7 @@ class PharmaceuticalDrug extends Model
     public $timestamps = false;
     protected $table = 'pharmaceutical_drugs'; 
 	public $incrementing = false;
-	protected $appends = ['concentration'];
+	// protected $appends = ['concentration'];
     protected $fillable = [
 		'id',
 		'name',
@@ -38,23 +38,23 @@ class PharmaceuticalDrug extends Model
 	
 	
 
-    public function getConcentrationAttribute()
-    {
-		$concentration = 0;
-		$arrConcentration = \App\Models\ActiveIngredientsPharmaceuticalDrugs::where('pharmaceutical_drug_id',$this->id)->get();
-		if($arrConcentration){
+    // public function getConcentrationAttribute()
+    // {
+	// 	$concentration = 0;
+	// 	$arrConcentration = \App\Models\ActiveIngredientsPharmaceuticalDrugs::where('pharmaceutical_drug_id',$this->id)->get();
+	// 	if($arrConcentration){
 			
-			$type = \App\Models\CollectionsValues::find( $arrConcentration[0]["measurement_unit_id"]);
-			$type = $type->code;
+	// 		$type = \App\Models\CollectionsValues::find( $arrConcentration[0]["measurement_unit_id"]);
+	// 		$type = $type->code;
 
-			foreach ($arrConcentration as $c) {
-				$_c = 0;
-				$concentration = $concentration + (float)$c->concentration;
-			}
-		}else{
-			$arrConcentration = [];
-		}
-        return $concentration.' '.$type;
-    }
+	// 		foreach ($arrConcentration as $c) {
+	// 			$_c = 0;
+	// 			$concentration = $concentration + (float)$c->concentration;
+	// 		}
+	// 	}else{
+	// 		$arrConcentration = [];
+	// 	}
+    //     return $concentration.' '.$type;
+    // }
 
 }

@@ -25,12 +25,12 @@ class DatabaseSeeder extends Seeder
          $this->call(NotificationsTableSeeder::class);
          $this->call(StakeholdersInfoTableSeeder::class);
          $this->call(CompaniesTableSeeder::class);
-         $this->call(ActiveIngredientsPharmaceuticalDrugsTableSeeder::class);
+        //  $this->call(ActiveIngredientsPharmaceuticalDrugsTableSeeder::class);
          $this->call(ActiveIngredientsTableSeeder::class);
          $this->call(ImportersTableSeeder::class);
          $this->call(ManufacturersTableSeeder::class);
          $this->call(PharmaceuticalDrugsTableSeeder::class);
-         $this->call(ProductsTableSeeder::class);
+        //  $this->call(ProductsTableSeeder::class);
          $this->call(SanitaryRegistrationHoldersTableSeeder::class);
          $this->call(WarehousesTableSeeder::class);
          $this->call(CustomersTableSeeder::class);

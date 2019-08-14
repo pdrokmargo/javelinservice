@@ -10,7 +10,7 @@ class BillingDetail extends Model
     
     protected $table = 'billing_details';
     public $with = array('product');
-    protected $appends = ['subtotal'];
+    protected $appends = ['subtotal'];  
     public $incrementing = false;
     protected $fillable = [
         'billing_id',

@@ -13,7 +13,13 @@ class CreateMedicalDiagnosisTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('medical_diagnosis', function (Blueprint $table) {
+            $table->uuid('id');
+            $table->string('code'); // CIE-10 reference for medical diagnosis
+            $table->string('description');
+            $table->timestamps();
+            $table->primary('id');
+        });
     }
 
     /**
@@ -23,6 +29,6 @@ class CreateMedicalDiagnosisTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('medical_diagnosis');
     }
 }

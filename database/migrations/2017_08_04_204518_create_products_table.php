@@ -15,36 +15,28 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->uuid('id');
-            $table->string('code')->nullable();
             $table->string('name')->nullable();
-            $table->string('sku')->nullable();
+            $table->string('sku');
             $table->integer('product_type_id'); //from collections PRODUCT_TYPE
-            $table->string('description');
-            $table->string('comercial_name');
-            $table->integer('units');
-            $table->date('lifetime');
-            $table->integer('delivery_fraction');
-            $table->integer('barcode')->nullable();
-            $table->string('cums');
             $table->double('average_unit_cost');
-            $table->integer('content_unit_id'); //collection content_unit
-            $table->boolean('batch_control');
-            $table->boolean('serials_control');
-            $table->boolean('institutional_use');
-            $table->boolean('comercial');
-            $table->uuid('manufacturer_id')->nullable();
-            $table->uuid('supplier_id')->nullable();
-            $table->uuid('importer_id');
-            $table->uuid('sanitary_registration_holder_id');
-            $table->string('sanitary_registration');
-            $table->date('validity_sanitary_registration');
-            $table->integer('product_profile_id');
+            $table->string('description');
+            $table->double('tax_percentage');
             $table->integer('security_time');
             $table->integer('covered_period');
-            $table->integer('replacment_time');
+            $table->integer('replacement_time');
+            $table->integer('barcode')->nullable();
+            $table->boolean('institutional_use');
+            $table->boolean('batch_control');
+            $table->boolean('serials_control');
+            $table->boolean('comercial');
+            $table->string('comercial_name');
+            $table->date('lifetime')->nullable();
+            $table->integer('units');
+            $table->uuid('manufacturer_id')->nullable();
+            // $table->uuid('supplier_id')->nullable();
+            $table->uuid('importer_id')->nullable();
             $table->boolean('state')->default(true);
             $table->boolean('delete')->default(false);
-            $table->json('pharmaceutical_drug');
             $table->timestamps();
             $table->primary('id');
         });

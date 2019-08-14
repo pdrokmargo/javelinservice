@@ -62,7 +62,7 @@ class CollectionsValuesTableSeeder extends Seeder
 
             //PRODUCT_TYPE
             /*30*/['collection_id' => '24', 'parent_id' => 0, 'code' => 'medicamento', 'value' => 'Medicamento'],
-            /*31*/['collection_id' => '24', 'parent_id' => 0, 'code' => 'bienes en general', 'value' => 'Bienes en general'],
+            /*31*/['collection_id' => '24', 'parent_id' => 0, 'code' => 'estandar_producto', 'value' => 'Estándar'],
 
             /*PHARMACEUTICAL_FORM*/
             /*32*/['collection_id' => '23', 'parent_id' => 0, 'code' => 'sobre', 'value' => 'Sobre'],
@@ -301,8 +301,30 @@ class CollectionsValuesTableSeeder extends Seeder
             /* PAYMENT_CONDITION
             /*202*/["collection_id" => 27, "parent_id" => 0, "code" => "0_contado", "value" => "Contado"],
 
-            /*203*/['collection_id' => 24, 'parent_id' => 0, 'code' => 'homologo', 'value' => 'Homólogo'],
-            /*204*/['collection_id' => 24, 'parent_id' => 0, 'code' => 'servicios', 'value' => 'Servicios'],
+            //PRODUCT_TYPE
+            /*203*/['collection_id' => 24, 'parent_id' => 0, 'code' => 'homologo', 'value' => 'Homólogos'],
+            /*204*/['collection_id' => 24, 'parent_id' => 0, 'code' => 'insumos', 'value' => 'Insumos'],
+
+            /*205*/['collection_id' => 33, 'parent_id' => 0, 'code' => 'comprimido', 'value' => 'Comprimido'],
+            /*206*/['collection_id' => 33, 'parent_id' => 0, 'code' => 'ampolla-unit-content', 'value' => 'Ampolla'],
+
+            /* continue: PHARMACEUTICAL_FORM*/
+            /*207*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'gel', 'value' => 'Gel'],
+            /*208*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'parche', 'value' => 'Parche'],
+            /*209*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'inhalador', 'value' => 'Inhalador'],
+            /*210*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'tableta_recubierta', 'value' => 'Tableta Recubierta'],
+            /*211*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'suspension', 'value' => 'Suspensión'],
+
+            /* continue: MEASUREMENT_UNIT*/
+            /*212*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'porcentaje', 'value' => 'Porcentaje (%)'],
+            /*213*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'porcentaje', 'value' => 'Onza (Oz)'],
+
+            /* continue: ROUTES_ADMINISTRATION*/
+            /*214*/['collection_id' => 25, 'parent_id' => 0, 'code' => 'transdermico', 'value' => 'Transdérmico'],
+            /*215*/['collection_id' => 25, 'parent_id' => 0, 'code' => 'intra-articular', 'value' => 'Intra-Articular'],
+
+            /*216*/['collection_id' => 33, 'parent_id' => 0, 'code' => 'sobre-unit-content', 'value' => 'Sobre'],
         ]);
     }
 }
+

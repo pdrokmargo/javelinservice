@@ -13,7 +13,16 @@ class CreateDeliveriesDetailsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('deliveries_details', function (Blueprint $table) {
+            $table->uuid('id');
+            $table->uuid('delivery_id');
+            $table->uuid('product_id');
+            $table->integer('requested_units');
+            $table->integer('delivered_units');
+            $table->string('batch');
+            $table->date('expiration_date');
+            $table->primary('id');
+        });
     }
 
     /**
@@ -23,6 +32,6 @@ class CreateDeliveriesDetailsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('deliveries_details');
     }
 }

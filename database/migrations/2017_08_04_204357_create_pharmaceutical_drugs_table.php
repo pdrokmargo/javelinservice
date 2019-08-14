@@ -28,6 +28,7 @@ class CreatePharmaceuticalDrugsTable extends Migration
             $table->integer('storage_condition_id')->default(114);//Default No requiere refrigrración //Condiciones de Almacenamiento: Routes of Can be refrigerado, etc.
             $table->boolean('state')->default(true);
             $table->boolean('delete')->default(false);
+            $table->timestamps();
             $table->primary('id');
         });
     }
