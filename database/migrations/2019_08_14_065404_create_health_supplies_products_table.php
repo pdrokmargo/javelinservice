@@ -33,6 +33,6 @@ class CreateHealthSuppliesProductsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('health_supplies_products');
     }
 }

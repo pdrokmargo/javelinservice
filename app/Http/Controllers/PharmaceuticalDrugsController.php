@@ -19,7 +19,7 @@ class PharmaceuticalDrugsController extends Controller
 
             $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';
             $ordername = isset($request->ordername) ? $request->ordername : 'name';
-            $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
+            $ordertype = isset($request->ordertype) ? $request->ordertype : 'ASC';
             $page = $request->page;
             
             $query = \App\Models\PharmaceuticalDrug::from('pharmaceutical_drugs as pd')
