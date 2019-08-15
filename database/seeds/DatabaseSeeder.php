@@ -11,27 +11,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call(CollectionsTableSeeder::class);
-         $this->call(CollectionsValuesTableSeeder::class);
-         $this->call(UsersTableSeeder::class);
-         $this->call(UserProfilesTableSeeder::class);
-         $this->call(UsersPrivilegesTableSeeder::class);
-         $this->call(ViewsTableSeeder::class);
-         $this->call(ViewActionsTableSeeder::class);
-         $this->call(PrivilegesTableSeeder::class);
-         $this->call(ActivitiesLogTableSeeder::class);
-         $this->call(ConfigurationsTableSeeder::class);
-         $this->call(GeolocationsTableSeeder::class);
-         $this->call(NotificationsTableSeeder::class);
+        //  $this->call(CollectionsTableSeeder::class);
+        //  $this->call(CollectionsValuesTableSeeder::class);
+        //  $this->call(UsersTableSeeder::class);
+        //  $this->call(UserProfilesTableSeeder::class);
+        //  $this->call(UsersPrivilegesTableSeeder::class);
+        //  $this->call(ViewsTableSeeder::class);
+        //  $this->call(ViewActionsTableSeeder::class);
+        //  $this->call(PrivilegesTableSeeder::class);
+        //  $this->call(ActivitiesLogTableSeeder::class);
+        //  $this->call(ConfigurationsTableSeeder::class);
+        //  $this->call(GeolocationsTableSeeder::class);
+        //  $this->call(NotificationsTableSeeder::class);
          $this->call(StakeholdersInfoTableSeeder::class);
          $this->call(CompaniesTableSeeder::class);
          $this->call(ActiveIngredientsTableSeeder::class);
          $this->call(ActiveIngredientsPharmaceuticalDrugsTableSeeder::class);
-         $this->call(ImportersTableSeeder::class);
-         $this->call(ManufacturersTableSeeder::class);
          $this->call(PharmaceuticalDrugsTableSeeder::class);
         //  $this->call(ProductsTableSeeder::class);
-         $this->call(SanitaryRegistrationHoldersTableSeeder::class);
          $this->call(WarehousesTableSeeder::class);
          $this->call(CustomersTableSeeder::class);
          $this->call(DeliveryContractsTableSeeder::class);
@@ -40,6 +37,9 @@ class DatabaseSeeder extends Seeder
          $this->call(SuppliersTableSeeder::class);
          $this->call(ConsecutivesTableSeeder::class);
          $this->call(TokenTableSeeder::class);
-         
+         $this->call(LaboratoriesTableSeeder::class);
+         $this->call(SanitaryRegistrationHoldersTableSeeder::class);
+         $this->call(ImportersTableSeeder::class);
+         $this->call(ManufacturersTableSeeder::class);         
     }
 }

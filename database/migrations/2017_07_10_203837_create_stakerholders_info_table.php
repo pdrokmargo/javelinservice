@@ -26,12 +26,13 @@ class CreateStakerholdersInfoTable extends Migration
             $table->integer('geolocation_id');
             $table->integer('person_type_id');
             $table->boolean('domiciled')->default(true);
-            $table->boolean('rut')->default(true);
+            $table->boolean('rut')->default(false);
             $table->string('address');
             $table->string('phone_number');
             $table->string('email');
             $table->boolean('status')->default(true);
             $table->boolean('delete')->default(false);
+            $table->timestamps();
             $table->primary('id');
         });
     }

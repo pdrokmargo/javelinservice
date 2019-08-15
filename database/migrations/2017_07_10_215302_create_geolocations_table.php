@@ -16,9 +16,9 @@ class CreateGeolocationsTable extends Migration
         Schema::create('geolocations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('country_id'); 
-            $table->integer('department_id'); 
-            $table->integer('city_id'); 
-            $table->integer('dane_code'); 
+            $table->integer('department_id')->nullable(); 
+            $table->integer('city_id')->nullable(); 
+            $table->string('dane_code')->nullable(); 
         });
     }
 
