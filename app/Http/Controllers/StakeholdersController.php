@@ -305,8 +305,11 @@ class StakeholdersController extends Controller
             "is_holder_sanitary"    => $health_holder   ? true : false,
         ];
 
-        $department_id = \App\Models\CollectionsValues::where('id', $stakeholders_info["geolocation_id"])->first()->parent_id;
-        $country_id   = \App\Models\CollectionsValues::where('id', $department_id)->first()->parent_id;
+        
+        $geo_id = \App\Models\Geolocation::where('id', $stakeholders_info["geolocation_id"])->first();
+        $department_id = $geo_id->department_id;//\App\Models\CollectionsValues::where('id', $stakeholders_info["geolocation_id"])->first()->parent_id;
+        $country_id   = $geo_id->country_id;//\App\Models\CollectionsValues::where('id', $department_id)->first()->parent_id;
+        $city_id   = $geo_id->city_id;//\App\Models\CollectionsValues::where('id', $department_id)->first()->parent_id;
 
         return response()->json([
             'status' => 'success', 
@@ -320,7 +323,8 @@ class StakeholdersController extends Controller
                 "profile"                       => $profile
             ],
             "country_id"    => $country_id,
-            "department_id" => $department_id
+            "department_id" => $department_id,
+            "city_id" => $city_id
          ], 200);
        
     }
