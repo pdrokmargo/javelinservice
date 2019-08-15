@@ -137,7 +137,7 @@ class GeolocationsTableSeeder extends Seeder
             ['country_id' => 7, 'department_id' => 218, 'city_id' => 373, 'dane_code' => '890'],
             ['country_id' => 7, 'department_id' => 218, 'city_id' => 374, 'dane_code' => '893'],
             ['country_id' => 7, 'department_id' => 218, 'city_id' => 375, 'dane_code' => '895'],
-            ['country_id' => 7, 'department_id' => 219, 'city_id' => 7, 'dane_code' => '001'], //Barranquilla
+            ['country_id' => 7, 'department_id' => 219, 'city_id' => 376, 'dane_code' => '001'], //Barranquilla
             ['country_id' => 7, 'department_id' => 219, 'city_id' => 377, 'dane_code' => '078'],
             ['country_id' => 7, 'department_id' => 219, 'city_id' => 378, 'dane_code' => '137'],
             ['country_id' => 7, 'department_id' => 219, 'city_id' => 379, 'dane_code' => '141'],

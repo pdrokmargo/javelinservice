@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Maker extends Model
+class Laboratory extends Model
 {
     use \App\Uuids;
     public $incrementing = false;
-    protected $table = 'makers';
+    protected $table = 'laboratories';
     public $timestamps = false;
     public $with = array('stakeholderInfo');
     protected $fillable = [

@@ -294,6 +294,7 @@ class StakeholdersController extends Controller
         $maker                          = \App\Models\Maker::where('stakeholder_info_id',$id)->first();
         $importer                       = \App\Models\Importer::where('stakeholder_info_id',$id)->first();
         $health_holder                  = \App\Models\HealthRecordHolder::where('stakeholder_info_id',$id)->first();
+        $laboratory                  = \App\Models\Laboratory::where('stakeholder_info_id',$id)->first();
 
         $profile = [
             "is_customer"           => $customer        ? true : false,
@@ -303,6 +304,7 @@ class StakeholdersController extends Controller
             "is_maker"              => $maker           ? true : false,
             "is_importer"           => $importer        ? true : false,
             "is_holder_sanitary"    => $health_holder   ? true : false,
+            "is_laboratory"         => $laboratory   ? true : false,
         ];
 
         
