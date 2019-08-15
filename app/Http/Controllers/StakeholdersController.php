@@ -38,7 +38,7 @@ class StakeholdersController extends Controller
                 i.businessname,
                 p.value as country,
                 (select d.value from collections_values as d where d.id = g.department_id LIMIT 1) as department,
-                (select p.value from collections_values as p where p.id = g.city_id LIMIT 1) as city,
+                (select c.value from collections_values as c where c.id = g.city_id LIMIT 1) as city,
                 i.status,
                 i.legalname,
                 i.legalname as businessname
