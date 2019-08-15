@@ -36,9 +36,9 @@ class StakeholdersController extends Controller
                 i.person_type_id,
                 i.document_number,
                 i.businessname,
-                p.value,
-                d.value,
-                c.value,
+                p.value as country,
+                d.value as department,
+                c.value as city,
                 i.status,
                 i.legalname,
                 i.legalname as businessname
