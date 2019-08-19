@@ -29,13 +29,20 @@ class PharmaceuticalDrug extends Model
 		'delete'
     ];
 	protected $hidden = [];
-
+	protected $appends = ['display_name'];
 
 	public function dosage_form()
 	{
 		return $this->belongsTo('App\Models\CollectionsValues', 'dosage_form_id'); 
 	}
-	
+	public function getDisplayNameAttribute()
+	{
+		$activeingredientes = $this->belongsTo('App\Models\ActiveIngredientesPharmaceuticalDrugs', 'pharmaceutical_drug_id');
+		foreach($activeingredientes as $ai){
+
+		}
+		return $activeingredientes;
+	}
 	
 
     // public function getConcentrationAttribute()

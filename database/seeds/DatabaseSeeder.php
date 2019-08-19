@@ -28,7 +28,6 @@ class DatabaseSeeder extends Seeder
          $this->call(ActiveIngredientsTableSeeder::class);
          $this->call(ActiveIngredientsPharmaceuticalDrugsTableSeeder::class);
          $this->call(PharmaceuticalDrugsTableSeeder::class);
-        //  $this->call(ProductsTableSeeder::class);
          $this->call(WarehousesTableSeeder::class);
          $this->call(CustomersTableSeeder::class);
          $this->call(DeliveryContractsTableSeeder::class);
@@ -40,6 +39,8 @@ class DatabaseSeeder extends Seeder
          $this->call(LaboratoriesTableSeeder::class);
          $this->call(SanitaryRegistrationHoldersTableSeeder::class);
          $this->call(ImportersTableSeeder::class);
-         $this->call(ManufacturersTableSeeder::class);         
+         $this->call(ManufacturersTableSeeder::class);   
+          $this->call(ProductsTableSeeder::class);   
+          $this->call(PharmaceuticalDrugsProductsTableSeeder::class);   
     }
 }

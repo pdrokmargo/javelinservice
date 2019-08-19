@@ -21,7 +21,7 @@ class CreatePharmaceuticalDrugsProductsTable extends Migration
             $table->string('name')->nullable();
             $table->integer('delivery_fraction');
             $table->string('invima_file_record');
-            $table->string('invimia_file_record_consecutive');
+            $table->string('invima_file_record_consecutive');
             $table->integer('content_unit_id'); //collection content_unit
             $table->uuid('sanitary_registration_holder_id');
             $table->string('sanitary_registration');
