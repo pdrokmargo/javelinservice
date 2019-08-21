@@ -37,7 +37,7 @@ class PharmaceuticalDrug extends Model
 	}
 	public function getDisplayNameAttribute()
 	{
-		$activeingredientes = $this->belongsTo('App\Models\ActiveIngredientesPharmaceuticalDrugs', 'pharmaceutical_drug_id');
+		$activeingredientes = $this->belongsTo('App\Models\ActiveIngredientsPharmaceuticalDrugs', 'pharmaceutical_drug_id');
 		foreach($activeingredientes as $ai){
 
 		}
