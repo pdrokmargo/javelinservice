@@ -60,8 +60,15 @@ class ProductsController extends Controller
         {
             $data = json_decode($request->data, true);
             $data['pharmaceutical_drug'] = json_encode($data['pharmaceutical_drug']);
+            $is_new = App\Models\Product::where('sku', $data["sku"])->first();
+            if($is_new != null){
+                return response()->json([ 
+                    "store" => false, 
+                    "message" => "No es posible crear el producto, el PLU ya existe! " 
+                ], 500);
+            }
             $product=\App\Models\Product::create($data);
-            $this->CreateLog(Auth::id(), 'product', 1,'');
+            // $this->CreateLog(Auth::id(), 'product', 1,'');
             DB::commit();
             return response()->json([ 
                 "store" => true, 

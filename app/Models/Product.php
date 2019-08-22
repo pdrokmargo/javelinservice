@@ -9,12 +9,14 @@ class Product extends Model
 	use \App\Uuids;
     //public $timestamps = false;
     protected $table = 'products';    
-    public $incrementing = false; 
+		public $incrementing = false; 
+		public $with = array('product_detail');
     protected $fillable = [
 		'id',
 		'code',
 		'name',
 		'sku',
+		'product_type_id',
 		'description',
 		'comercial_name',
 		'units',
@@ -44,9 +46,9 @@ class Product extends Model
 	];
 
 
-	protected $casts = [
-		'pharmaceutical_drug' => 'array'
-	];
+	// protected $casts = [
+	// 	'pharmaceutical_drug' => 'array'
+	// ];
 
 	protected $appends = ['display_name', 'averageunitcost'];
 
@@ -72,6 +74,15 @@ class Product extends Model
 		$sum_units = $entry_movements->sum('units');
 		$sum_units = is_numeric($sum_units) ? $sum_units : 0;
 		return $sum_units == 0 ? 0 :(int)(($sum_purchase_price)/$sum_units);
+	}
+
+	
+	public function product_detail()
+	{
+		if($this->product_type_id == 30){
+			return $this->hasOne('App\Models\PharmaceuticalDrugProduct', 'product_id'); 
+		}
+		return null;
 	}
 
 	public function sanitary_registration_holder()
