@@ -24,7 +24,7 @@ class AffiliatesController extends Controller
             $query = DB::table('affiliates as a')
             ->join('delivery_contracts as dc', 'dc.id', '=', 'a.delivery_contract_id')
             // ->leftJoin('collections_values as cv', 'cv.id', '=', 'a.contracts_payment_method_id')
-            ->select(DB::raw("a.id, (a.firstname || ' ' || a.middlename || ' ' || a.lastname1 || ' ' || a.lastname2) as name, dc.name as contract, cv.value as contracts_payment_method, a.state"));
+            ->select(DB::raw("a.id, (a.firstname || ' ' || a.middlename || ' ' || a.lastname1 || ' ' || a.lastname2) as name, dc.name as contract, a.state"));
 
             if ($search != '') {
                 $query = $query->whereRaw("(lower(a.firstname) || ' ' || lower(a.middlename) || ' ' || lower(a.lastname1) || ' ' || lower(a.lastname2)) like ? or lower(dc.name) like ? or lower(cv.value) like ?", array($search, $search, $search))->orderBy($ordername, $ordertype);
@@ -35,7 +35,7 @@ class AffiliatesController extends Controller
 
             $data=[];  
             if ($page) {
-              $data=$query->paginate(30);
+              $data=$query->paginate(15);
             }else{
               $data=$query->get();
             }  
