@@ -97,8 +97,8 @@ Route::middleware('auth:api')->group(function () {
 
     //Deliveries
     Route::resource('deliveries','DeliveriesController');
-    Route::get('scheduled-deliveries','DeliveriesController@scheduled_deliveries');
-    Route::get('affiliate-deliveries','DeliveriesController@affiliate_deliveries');
+    Route::get('scheduled-deliveries/{affiliate_id}','DeliveriesController@scheduled_deliveries');
+    Route::get('affiliate-deliveries/{affiliate_id}','DeliveriesController@affiliate_deliveries');
     
 
 });
