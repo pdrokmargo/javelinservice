@@ -38,9 +38,9 @@ class CollectionsController extends Controller
 
     public function medical_diagnostics(Request $request){
         $rs = [];
-        $departamento_id = $request->departamento_id;
+        // $departamento_id = $request->departamento_id;
         $arr = \App\Models\MedicalDiagnosis::get();
-        $rs["medical-diagnositcs"] = $arr;
+        $rs["medical-diagnostics"] = $arr;
         return response()->json($rs,200);
     }
     
