@@ -10,7 +10,7 @@ class Product extends Model
     //public $timestamps = false;
     protected $table = 'products';    
 		public $incrementing = false; 
-		public $with = array('product_detail');
+		// public $with = array('product_detail');
     protected $fillable = [
 		'id',
 		'code',
@@ -77,13 +77,13 @@ class Product extends Model
 	}
 
 	
-	public function product_detail()
-	{
-		if($this->product_type_id == 30){
-			return $this->hasOne('App\Models\PharmaceuticalDrugProduct', 'product_id'); 
-		}
-		return '';
-	}
+	// public function product_detail()
+	// {
+	// 	if($this->product_type_id == 30){
+	// 		return $this->hasOne('App\Models\PharmaceuticalDrugProduct', 'product_id'); 
+	// 	}
+	// 	return '';
+	// }
 
 	public function sanitary_registration_holder()
 	{
