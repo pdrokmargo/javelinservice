@@ -39,6 +39,10 @@ class AffiliatesController extends Controller
             }else{
               $data=$query->get();
             }  
+
+            foreach($data as $d){
+                $d->delivery_contract = \App\Models\DeliveryContract::where('id', $d->delivery_contract_id);
+            }
             
             return response()->json([
                 'status' => 'success', 
