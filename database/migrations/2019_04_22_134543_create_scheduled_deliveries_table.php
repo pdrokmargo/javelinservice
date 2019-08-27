@@ -18,13 +18,14 @@ class CreateScheduledDeliveriesTable extends Migration
             $table->integer('consecutive');
             $table->uuid('product_id');
             $table->integer('units');
-            $table->uuid('delivery_source_id');
-            $table->uuid('delivery_fulfillment_id');
+            $table->uuid('delivery_source_id'); // # delivery where item was scheduled.
+            $table->uuid('delivery_fulfillment_id')->nullable(); // # delivery where item was delivered. 0 means released. 
             $table->uuid('affiliate_id');
             $table->integer('type_id');//type of scheduled delivery related with collections
             $table->date('date');//this date must be at future
-            $table->string('notes');
-            $table->boolean('status');
+            $table->string('notes')->nullable();
+            $table->boolean('status')->default(true);
+            $table->date('synced')->nullable();
             $table->primary('id');
         });
     }

@@ -16,7 +16,10 @@ class CreateMedicalDiagnosisTable extends Migration
         Schema::create('medical_diagnosis', function (Blueprint $table) {
             $table->uuid('id');
             $table->string('code'); // CIE-10 reference for medical diagnosis
-            $table->string('description');
+            $table->longText('description');
+            $table->string('genre');
+            $table->integer('inferior_limit');
+            $table->integer('superior_limit');
             $table->timestamps();
             $table->primary('id');
         });

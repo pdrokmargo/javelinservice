@@ -1513,7 +1513,11 @@ class CollectionsValuesTableSeeder extends Seeder
             /*1395*/['collection_id' => '3', 'parent_id' => 0,'code' => '845-uruguay', 'value' => 'Uruguay'],
             /*1396*/['collection_id' => '3', 'parent_id' => 0,'code' => '301-grecia', 'value' => 'Grecia'],
             /*1397*/['collection_id' => '3', 'parent_id' => 0,'code' => '586-paraguay', 'value' => 'Paraguay'],
-            /*1398*/['collection_id' => '3', 'parent_id' => 0,'code' => '607-portugal', 'value' => 'Portugal']
+            /*1398*/['collection_id' => '3', 'parent_id' => 0,'code' => '607-portugal', 'value' => 'Portugal'], 
+
+            /* DELIVERY_CONTRACT_MODALITY */
+            /*1399*/['collection_id' => '43', 'parent_id' => 0,'code' => 'evento', 'value' => 'Evento'], 
+            /*1400*/['collection_id' => '43', 'parent_id' => 0,'code' => 'capital', 'value' => 'Cápita'], 
         ]);
     }
 }

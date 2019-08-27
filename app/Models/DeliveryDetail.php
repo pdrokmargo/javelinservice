@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class DeliveryDetail extends Model
 {
+    use \App\Uuids;
     protected $table = 'deliveries_details';
     public $incrementing = false;
     protected $fillable = [
