@@ -26,7 +26,7 @@ class ProductsController extends Controller
 
             $query = new \App\Models\Product();
             if ($search!='') {
-                $query = $query->whereRaw("delete = false and code like ? or lower(products.name) like ? or lower(description) like ? lower(comercial_name) like ? or (case when state=true then 'activo' else 'inactivo' end) like ?", array($search, $search, $search, $search, $search))
+                $query = $query->whereRaw("delete = false and code like ? or lower(name) like ? or lower(description) like ? lower(comercial_name) like ? or (case when state=true then 'activo' else 'inactivo' end) like ?", array($search, $search, $search, $search, $search))
                 ->orderBy($ordername, $ordertype);
             }else{
                 $query=$query->where('delete', false)->orderBy($ordername, $ordertype);
@@ -34,7 +34,7 @@ class ProductsController extends Controller
 
             $data=[];  
             if ($page) {
-              $data=$query->paginate(30);
+              $data=$query->paginate(15);
             }else{
               $data=$query->get();
             }  
