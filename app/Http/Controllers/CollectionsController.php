@@ -40,7 +40,7 @@ class CollectionsController extends Controller
         $rs = [];
         // $departamento_id = $request->departamento_id;
         $arr = \App\Models\MedicalDiagnosis::get();
-        $rs["medical-diagnostics"] = $arr;
+        $rs["medical_diagnostics"] = $arr;
         return response()->json($rs,200);
     }
     
