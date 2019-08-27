@@ -13,7 +13,16 @@ class DeliveriesController extends Controller
      */
     public function index()
     {
-        //
+        $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';
+            $ordername = isset($request->ordername) ? $request->ordername : 'id';
+            $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
+            $page = $request->page;
+            
+            $company_id = $request->user()->company_default_id;
+            $active_delivery_point = \App\Models\Configuration::where('code', 'active_delivery_point')->first();
+            $deliveries = \App\Models\Delivery::where('delivery_point_id', $active_delivery_point->value)->orderBy($ordername, $ordertype)->paginate(15); 
+            return response()->json(['status'=>'success', "message"=>'', "data" => $deliveries ], 200);
+
     }
 
     /**
@@ -34,7 +43,35 @@ class DeliveriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::beginTransaction(); 
+        try
+        {
+            $data = json_decode($request->data, true);
+            $data["company_id"] = $request->user()->company_default_id;
+            $data_details = $data['details'];
+            $delivery_point_id = \App\Models\Configuration::where('code', 'active_delivery_point')->first();
+            
+            $delivery = \App\Models\Delivery::create($data);
+            foreach ($data_details as $i)
+            {
+                $i["delivery_id"] = $delivery->id;
+                $delivery_detail=\App\Models\DeliveryDetail::create($i);
+                
+            }
+            DB::commit();
+            return response()->json([ 
+                "store" => true, 
+                "message" => "Registro creado correctamente" 
+            ], 200);
+        }
+        catch (Exception $e) 
+        { 
+            DB::rollback();
+            return response()->json([ 
+                "store" => false, 
+                "message" => "Error al intentar almacenar el nuevo registro" 
+            ], 400);
+        }
     }
 
     /**

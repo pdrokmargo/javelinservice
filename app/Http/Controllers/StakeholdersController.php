@@ -224,6 +224,11 @@ class StakeholdersController extends Controller
             $customer = $data["customer"];
             $employee = $data["employee"];
             $supplier = $data["supplier"];
+            $geoLocation=\App\Models\Geolocation::where('country_id', $data['country_id'])
+				->where('department_id', $data['department_id'])
+				->where('city_id', $data['city_id'])
+                ->first();
+                $stakeholders_info["geolocation_id"] = $geolocation->id;
             $profile = [
                 "is_supplier" => isset($data["profile"]["is_supplier"]) ? $data["profile"]["is_supplier"] : false,
                 "is_employee" => isset($data["profile"]["is_employee"]) ? $data["profile"]["is_employee"] : false,

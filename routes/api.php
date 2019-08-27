@@ -95,7 +95,8 @@ Route::middleware('auth:api')->group(function () {
     Route::resource('billing','BillingController');
     Route::get('billing-resolutions','BillingController@getBillingResolutions');
 
-
+    //Deliveries
+    Route::resource('deliveries','DeliveriesController');
     
 
 });

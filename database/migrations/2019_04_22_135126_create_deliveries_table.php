@@ -24,8 +24,11 @@ class CreateDeliveriesTable extends Migration
             $table->uuid('ips_id');
             $table->integer('modality_id'); //related with collections
             $table->uuid('medical_diagnostic_id');
-            $table->string('notes');
+            $table->uuid('delivery_point_id');
+            $table->string('notes')->default('');
             $table->boolean('status');
+            $table->date('synced')->nullable();
+            $table->timestamps();
             $table->primary('id');
         });
     }

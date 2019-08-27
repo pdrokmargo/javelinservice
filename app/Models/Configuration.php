@@ -9,7 +9,6 @@ class Configuration extends Model
     protected $table = 'configurations'; 
     public $timestamps = false;
     protected $fillable = [
-        'code',
         'value',
         'company_id'
     ];
