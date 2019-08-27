@@ -69,7 +69,6 @@ Route::middleware('auth:api')->group(function () {
     Route::resource('supplier','SupplierController');
     Route::resource('suppliers-quotes','SupplierQuotesController');
     Route::resource('suppliers-orders','SupplierOrderController');
-    Route::resource('customers-quotes','CustomersQuotesController');
     Route::resource('healthrecordholder','HealthRecordHolderController');
     Route::resource('pharmaceuticaldrug','PharmaceuticalDrugsController');
     Route::resource('delivery-contracts','DeliveryContractsController');

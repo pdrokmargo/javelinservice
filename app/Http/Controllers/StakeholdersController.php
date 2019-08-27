@@ -152,8 +152,7 @@ class StakeholdersController extends Controller
             
             $query = DB::table('stakeholders_info as i')
             ->join($table . ' as x', 'i.id', '=', 'x.stakeholder_info_id')
-            ->join('geolocations as g', 'i.geolocation_id', '=', 'g.city_id')
-            ->join('collections_values as c', 'g.city_id', '=', 'c.id')
+            ->join('geolocations as g', 'i.geolocation_id', '=', 'g.geolocation_id')
             ->select(DB::raw("
                 i.id, 
                 concat(i.firstname,' ', i.middlename, ' ', i.lastname) as name,
@@ -161,7 +160,9 @@ class StakeholdersController extends Controller
                 i.document_number,
                 CASE WHEN i.person_type_id = 38 THEN concat(i.firstname,' ', i.middlename, ' ', i.lastname) WHEN i.person_type_id = 39 THEN i.legalname END as fullname,
                 i.legalname as businessname,
-                c.value as geolocation,".
+                g.city_id as city_id,
+                g.department_id as department_id,
+                g.country_id as country_id,".
                 $stakeholders_params
                 ."i.status
             "));
