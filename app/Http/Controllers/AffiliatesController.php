@@ -41,7 +41,7 @@ class AffiliatesController extends Controller
             }  
 
             foreach($data as $d){
-                $d->delivery_contract = \App\Models\DeliveryContract::where('id', $d->delivery_contract_id);
+                $d->delivery_contract = \App\Models\DeliveryContract::where('id', $d->delivery_contract_id)->first();
             }
             
             return response()->json([
