@@ -23,4 +23,10 @@ class DeliveryDetail extends Model
     {
          return $this->belongsTo('App\Models\Product', 'product_id'); 
     }
+    public function delivery_point()
+    {
+        $delivery = $this->belongsTo('App\Models\Delivery', 'delivery_id');
+        $delivery = $delivery->with('delivery_point');
+        return $delivery;
+    }
 }

@@ -9,6 +9,7 @@ class ScheduledDelivery extends Model
     use \App\Uuids;
     protected $table = 'scheduled_deliveries';
     public $incrementing = false;
+    protected $with = ('scheduled_delivery_type');
     protected $fillable = [
         'consecutive',
             'affiliate_id',
@@ -21,4 +22,9 @@ class ScheduledDelivery extends Model
             'notes',
             'status'
     ];
+
+    public function scheduled_delivery_type()
+    {
+         return $this->belongsTo('App\Models\CollectionsValues', 'type_id'); 
+    }
 }

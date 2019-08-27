@@ -1517,7 +1517,8 @@ class CollectionsValuesTableSeeder extends Seeder
 
             /* DELIVERY_CONTRACT_MODALITY */
             /*1399*/['collection_id' => '43', 'parent_id' => 0,'code' => 'evento', 'value' => 'Evento'], 
-            /*1400*/['collection_id' => '43', 'parent_id' => 0,'code' => 'capital', 'value' => 'Cápita'], 
+            /*1400*/['collection_id' => '43', 'parent_id' => 0,'code' => 'capita', 'value' => 'Cápita'], 
+            /*1401*/['collection_id' => '43', 'parent_id' => 0,'code' => 'pgp', 'value' => 'PGP'], 
         ]);
     }
 }

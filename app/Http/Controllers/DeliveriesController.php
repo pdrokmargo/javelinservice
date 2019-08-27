@@ -11,7 +11,7 @@ class DeliveriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';
             $ordername = isset($request->ordername) ? $request->ordername : 'id';
@@ -23,6 +23,16 @@ class DeliveriesController extends Controller
             $deliveries = \App\Models\Delivery::where('delivery_point_id', $active_delivery_point->value)->orderBy($ordername, $ordertype)->paginate(15); 
             return response()->json(['status'=>'success', "message"=>'', "data" => $deliveries ], 200);
 
+    }
+
+    public function scheduled_deliveries($affiliate_id)
+    {
+        $deliveries = \App\Models\ScheduledDelivery::where('affiliate_id', $affiliate_id)->where('status',true)->whereNull('delivery_fulfillment_id')->orderBy('consecutive', 'ASC')->paginate(15); 
+    }
+
+    public function affiliate_deliveries($affiliate_id)
+    {
+        $deliveries = \App\Models\Delivery::where('affiliate_id', $affiliate_id)->where('status',true)->orderBy('consecutive', 'ASC')->with('delivery_point')->paginate(15); 
     }
 
     /**
