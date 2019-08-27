@@ -32,7 +32,7 @@ class DeliveriesController extends Controller
 
     public function affiliate_deliveries($affiliate_id)
     {
-        $deliveries = \App\Models\Delivery::where('affiliate_id', $affiliate_id)->where('status',true)->orderBy('consecutive', 'ASC')->with('delivery_point')->paginate(15); 
+        $deliveries = \App\Models\DeliveryDetail::with(['delivery.delivery_point' => function($query){$query->where('affiliate_id', $affiliate_id);}])->where('status',true)->orderBy('consecutive', 'ASC')->with('delivery_point')->paginate(15); 
     }
 
     /**
