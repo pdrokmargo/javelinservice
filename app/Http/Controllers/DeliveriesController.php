@@ -28,11 +28,13 @@ class DeliveriesController extends Controller
     public function scheduled_deliveries($affiliate_id)
     {
         $deliveries = \App\Models\ScheduledDelivery::where('affiliate_id', $affiliate_id)->where('status',true)->whereNull('delivery_fulfillment_id')->orderBy('consecutive', 'ASC')->paginate(15); 
+        return response()->json(['status'=>'success', "message"=>'', "scheduled-deliveries" => $deliveries ], 200);
     }
 
     public function affiliate_deliveries($affiliate_id)
     {
         $deliveries = \App\Models\DeliveryDetail::with(['delivery.delivery_point' => function($query){$query->where('affiliate_id', $affiliate_id);}])->where('status',true)->orderBy('consecutive', 'ASC')->with('delivery_point')->paginate(15); 
+        return response()->json(['status'=>'success', "message"=>'', "affiliate-deliveries" => $deliveries ], 200);
     }
 
     /**
