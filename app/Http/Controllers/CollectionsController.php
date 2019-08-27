@@ -35,5 +35,13 @@ class CollectionsController extends Controller
         $rs["ciudades"] = $arr;
         return response()->json($rs,200);
     }
+
+    public function medical_diagnostics(Request $request){
+        $rs = [];
+        $departamento_id = $request->departamento_id;
+        $arr = \App\Models\MedicalDiagnosis::get();
+        $rs["medical-diagnositcs"] = $arr;
+        return response()->json($rs,200);
+    }
     
 }

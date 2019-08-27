@@ -47,6 +47,7 @@ Route::middleware('auth:api')->group(function () {
 
     Route::get('departamentos','CollectionsController@departamentos');
     Route::get('ciudades','CollectionsController@ciudades');
+    Route::get('medical-diagnostics','CollectionsController@medical_diagnostics');
     
     Route::resource('sales_representatives','SalesRepresentativesController');
     Route::resource('warehouse','WarehouseController');
