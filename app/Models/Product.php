@@ -10,7 +10,7 @@ class Product extends Model
     //public $timestamps = false;
     protected $table = 'products';    
 		public $incrementing = false; 
-		public $with = array('product_type', 'product_detail');
+		public $with = array('product_type');
     protected $fillable = [
 		'id',
 		'code',
