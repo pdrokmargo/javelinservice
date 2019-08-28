@@ -37,5 +37,16 @@ class StocksProductsController extends Controller
         } 
     }
 
+    public function show(Request $request, $id)
+    {
+        try {
+            $stocks = \App\Models\StocksProducts::where('product_id', $id)->orderBy('expiration_date', 'ASC')->get();     
+            return response()->json(['status'=>'success', "message"=>'', "data" => $stocks ], 200);
+
+        } catch (Exception $e) {
+            return 'Error:'.$e->getMessage();
+        } 
+    }
+
     
 }

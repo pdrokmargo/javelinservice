@@ -17,7 +17,7 @@ class CreateStocksProductsTable extends Migration
             $table->uuid('id');
             $table->uuid('warehouse_id');
             $table->uuid('product_id');
-            $table->string('expiration_date');
+            $table->date('expiration_date');
             $table->string('batch');
             $table->string('location');
             $table->integer('set_stock');
