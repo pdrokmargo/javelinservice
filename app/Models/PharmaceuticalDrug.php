@@ -9,7 +9,8 @@ class PharmaceuticalDrug extends Model
 	use \App\Uuids;
 
     public $timestamps = false;
-    protected $table = 'pharmaceutical_drugs'; 
+	protected $table = 'pharmaceutical_drugs'; 
+	protected $with = array('dosage_form', 'routes_administration'); 
 	public $incrementing = false;
 	// protected $appends = ['concentration'];
     protected $fillable = [
@@ -34,6 +35,10 @@ class PharmaceuticalDrug extends Model
 	public function dosage_form()
 	{
 		return $this->belongsTo('App\Models\CollectionsValues', 'dosage_form_id'); 
+	}
+	public function routes_administration()
+	{
+		return $this->belongsTo('App\Models\CollectionsValues', 'routes_administration_id'); 
 	}
 	public function getDisplayNameAttribute()
 	{
