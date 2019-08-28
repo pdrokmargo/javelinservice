@@ -82,7 +82,6 @@ class Product extends Model
 		if($this->product_type_id == 30){
 			return $this->hasOne('App\Models\PharmaceuticalDrugProduct', 'product_id'); 
 		}
-		return null;
 	}
 
 	public function product_type()
