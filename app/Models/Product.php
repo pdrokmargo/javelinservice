@@ -86,9 +86,6 @@ class Product extends Model
 
 	public function product_type()
 	{
-		if($this->product_type_id == 30){
-			$this->load('product_detail');
-		}
 		 return $this->belongsTo('App\Models\CollectionsValues', 'product_type_id'); 
 	}
 	public function sanitary_registration_holder()
