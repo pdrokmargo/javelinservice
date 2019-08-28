@@ -80,7 +80,8 @@ class Product extends Model
 	public function product_detail()
 	{
 		if($this->product_type_id == 30){
-			return $this->hasOne('App\Models\PharmaceuticalDrugProduct', 'product_id'); 
+			// return $this->hasOne('App\Models\PharmaceuticalDrugProduct', 'product_id'); 
+			return [];
 		}
 		return [];
 	}
