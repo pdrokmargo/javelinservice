@@ -93,7 +93,7 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        $data = \App\Models\Product::with(['sanitary_registration_holder', 'supplier', 'manufacturer', 'importer'])->where('id',$id)->first();
+        $data = \App\Models\Product::with(['manufacturer', 'importer'])->where('id',$id)->first();
         if($data->product_type_id == 30){
             $data = $data->load('product_detail');
         }
