@@ -88,10 +88,7 @@ class Product extends Model
 	{
 		 return $this->belongsTo('App\Models\CollectionsValues', 'product_type_id'); 
 	}
-	public function sanitary_registration_holder()
-	{
-		 return $this->belongsTo('App\Models\StakeholdersInfo', 'sanitary_registration_holder_id'); 
-	}
+	
 
 
 	public function supplier()

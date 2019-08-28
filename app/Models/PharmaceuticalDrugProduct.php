@@ -8,7 +8,7 @@ class PharmaceuticalDrugProduct extends Model
 {
     use \App\Uuids;
     protected $table = 'pharmaceutical_drugs_products';   
-    // protected $with = array('pharmaceuticaldrug'); 
+    protected $with = array('pharmaceuticaldrug', 'sanitary_registration_holder'); 
     public $incrementing = false; 
     protected $fillable = [
 		'id',
@@ -23,10 +23,15 @@ class PharmaceuticalDrugProduct extends Model
         'sanitary_registration',
         'validity_sanitary_registration'
     ];
+
+    public function sanitary_registration_holder()
+	{
+		 return $this->belongsTo('App\Models\StakeholdersInfo', 'sanitary_registration_holder_id'); 
+	}
     
-    // public function pharmaceuticaldrug()
-	// {
-	// 	 return $this->belongsTo('App\Models\PharmaceuticalDrug', 'pharmaceutical_drug_id'); 
-	// }
+    public function pharmaceuticaldrug()
+	{
+		 return $this->belongsTo('App\Models\PharmaceuticalDrug', 'pharmaceutical_drug_id'); 
+	}
 	
 }
