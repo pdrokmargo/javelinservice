@@ -76,12 +76,12 @@ class Product extends Model
 		return $sum_units == 0 ? 0 :(int)(($sum_purchase_price)/$sum_units);
 	}
 
-	public function stock()
-	{
-		if($this->product_type_id == 30){
-			return $this->hasMany('App\Models\StocksProducts', 'product_id'); 
-		}
-	}
+	// public function stock()
+	// {
+	// 	if($this->product_type_id == 30){
+	// 		return $this->hasMany('App\Models\StocksProducts', 'product_id'); 
+	// 	}
+	// }
 	public function product_detail()
 	{
 		if($this->product_type_id == 30){
