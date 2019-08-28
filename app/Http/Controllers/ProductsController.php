@@ -37,7 +37,7 @@ class ProductsController extends Controller
             }else{
               $data=$query->get();
             }  
-            $data = $data->load('stock');
+            // $data = $data->load('stock');
             return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
 
         } catch (Exception $e) {
