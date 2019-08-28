@@ -22,22 +22,16 @@ class PharmaceuticalDrugsController extends Controller
             $ordertype = isset($request->ordertype) ? $request->ordertype : 'ASC';
             $page = $request->page;
             
-            $query = \App\Models\PharmaceuticalDrug::from('pharmaceutical_drugs as pd')
-            ->join('collections_values as df', 'df.id', '=', 'pd.dosage_form_id')
-            ->join('collections_values as ra', 'ra.id', '=', 'pd.routes_administration_id')
-            ->select(DB::raw('pd.id, pd.atc, pd.name, ra.value as routes_administration, df.value as dosage_form, pd.state, pd.is_pos'));
 
-
-            if ($search!='') {
-                $query=$query->whereRaw("delete = false and (lower(pd.name) like ? or pd.code like ? or (case when pd.state=true then 'activo' else 'inactivo' end) like ?)", array($search, $search, $search))
-                ->orderBy($ordername, $ordertype);
+            if($search !='') {
+                $query=\App\Models\PharmaceuticalDrugProduct::whereRaw("delete = false and (lower(pharmaceuticaldrug.name) like ? or pharmaceuticaldrug.code like ? or (case when pharmaceuticaldrug.state=true then 'activo' else 'inactivo' end) like ?)", array($search, $search, $search))->orderBy($ordername, $ordertype);
             }else{
-                $query=$query->where('delete', false)->orderBy($ordername, $ordertype);
+                $query=\App\Models\PharmaceuticalDrugProduct::where('delete', false)->orderBy($ordername, $ordertype);
             }          
             
             $data=[];  
             if ($page) {
-              $data=$query->paginate(30);
+              $data=$query->paginate(15);
             }else{
               $data=$query->get();
             }  
