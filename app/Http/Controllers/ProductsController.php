@@ -31,14 +31,13 @@ class ProductsController extends Controller
             }else{
                 $query=$query->where('delete', false)->orderBy($ordername, $ordertype);
             } 
-
             $data=[];  
             if ($page) {
               $data=$query->paginate(15);
             }else{
               $data=$query->get();
             }  
-            
+            $data = $data->load('stock');
             return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
 
         } catch (Exception $e) {
