@@ -24,7 +24,7 @@ class PharmaceuticalDrugsController extends Controller
             
 
             if($search !='') {
-                $query=\App\Models\PharmaceuticalDrugProduct::whereRaw("(lower(pharmaceuticaldrug.name) like ? or pharmaceuticaldrug.code like ? or (case when pharmaceuticaldrug.state=true then 'activo' else 'inactivo' end) like ?)", array($search, $search, $search))->orderBy($ordername, $ordertype);
+                $query=\App\Models\PharmaceuticalDrugProduct::with(['pharmaceuticaldrug' => function($query){ $query->whereRaw("(lower(name) like ? or code like ? or (case when state=true then 'activo' else 'inactivo' end) like ?)", array($search, $search, $search))->orderBy($ordername, $ordertype); }]);
             }else{
                 $query=\App\Models\PharmaceuticalDrugProduct::orderBy($ordername, $ordertype);
             }          

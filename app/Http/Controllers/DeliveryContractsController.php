@@ -28,7 +28,7 @@ class DeliveryContractsController extends Controller
         } 
         $data = [];  
         if ($page) {
-          $data = $query->paginate(30);
+          $data = $query->paginate(15);
         }else{
           $data = $query->get();
         } 

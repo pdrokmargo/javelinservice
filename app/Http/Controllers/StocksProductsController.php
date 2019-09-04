@@ -37,7 +37,7 @@ class StocksProductsController extends Controller
         } 
     }
 
-    public function show(Request $request, $id)
+    public function show($id)
     {
         try {
             $stocks = \App\Models\StocksProducts::where('product_id', $id)->orderBy('expiration_date', 'ASC')->get();     
