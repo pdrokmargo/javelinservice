@@ -9,6 +9,7 @@ class DeliveryDetail extends Model
     use \App\Uuids;
     protected $table = 'deliveries_details';
     public $incrementing = false;
+    public $timestamps = false;
     protected $fillable = [
         'delivery_id',
             'product_id',
