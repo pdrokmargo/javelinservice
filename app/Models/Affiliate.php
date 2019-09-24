@@ -36,5 +36,4 @@ class Affiliate extends Model
         'state',
         'delete'
     ];
-    protected $hidden = [];
 }

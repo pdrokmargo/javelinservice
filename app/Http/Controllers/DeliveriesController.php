@@ -24,6 +24,7 @@ class DeliveriesController extends Controller
             $company_id = $request->user()->company_default_id;
             $active_delivery_point = \App\Models\Configuration::where('code', 'active_delivery_point')->first();
             $deliveries = \App\Models\Delivery::where('delivery_point_id', json_decode($active_delivery_point->value, true)['delivery_point_id'])->orderBy($ordername, $ordertype)->paginate(15); 
+            $deliveries = $deliveries->load('affiliate');
             return response()->json(['status'=>'success', "message"=>'', "data" => $deliveries ], 200);
 
     }
