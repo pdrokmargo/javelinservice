@@ -76,7 +76,14 @@ class DeliveriesController extends Controller
             foreach ($data_details as $i)
             {
                 $i["delivery_id"] = $delivery->id;
-                $delivery_detail=\App\Models\DeliveryDetail::create($i);
+                foreach ($i["stockSelected"] as $s)
+                {
+                    $s["batch"] = $s['batch'];
+                    $s["expiration_date"] = $s['expiration_date'];
+                    $delivery_detail=\App\Models\DeliveryDetail::create($i);
+                    
+                }
+                // $delivery_detail=\App\Models\DeliveryDetail::create($i);
                 
             }
             DB::commit();
