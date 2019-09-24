@@ -67,6 +67,7 @@ class DeliveriesController extends Controller
             $delivery_point_id = \App\Models\Configuration::where('code', 'active_delivery_point')->first();
             
             $delivery = \App\Models\Delivery::create($data);
+            $delivery['delivery_point_id'] = $delivery_point_id;
             foreach ($data_details as $i)
             {
                 $i["delivery_id"] = $delivery->id;
