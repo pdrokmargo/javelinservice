@@ -25,7 +25,6 @@ class Delivery extends Model
             'status',
             'synced'
     ];
-    q
     public function affiliate()
     {
          return $this->belongsTo('App\Models\Affiliate', 'affiliate_id'); 
