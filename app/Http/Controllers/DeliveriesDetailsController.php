@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use Illuminate\Support\Facades\Auth;
+use \App\Models\DeliveryDetail;
 
 class DeliveriesDetailsController extends Controller
 {

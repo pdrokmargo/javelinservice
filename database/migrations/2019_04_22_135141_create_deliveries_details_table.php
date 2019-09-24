@@ -20,7 +20,7 @@ class CreateDeliveriesDetailsTable extends Migration
             $table->integer('requested_units');
             $table->integer('delivered_units');
             $table->integer('delivery_number');
-            $table->integer('total_deliveries');
+            // $table->integer('total_deliveries');
             $table->string('batch');
             $table->date('expiration_date');
             $table->date('synced')->nullable();
