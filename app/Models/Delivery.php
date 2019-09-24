@@ -24,6 +24,9 @@ class Delivery extends Model
             'status',
             'synced'
     ];
+    protected $casts = [
+     'created_at' => 'datetime:Y-m-d',
+     ];
 
     public function affiliate()
     {
