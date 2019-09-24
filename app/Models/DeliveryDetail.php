@@ -14,6 +14,7 @@ class DeliveryDetail extends Model
             'product_id',
             'requested_units',
             'delivered_units',
+            'delivery_number',
             'batch',
             'expiration_date',
             'synced'
