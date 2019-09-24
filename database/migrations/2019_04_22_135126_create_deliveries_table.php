@@ -17,7 +17,7 @@ class CreateDeliveriesTable extends Migration
             $table->uuid('id');
             $table->integer('consecutive');
             $table->uuid('affiliate_id');
-            $table->date('created_at');
+            // $table->date('created_at');
             $table->date('formuled_at');
             $table->date('delivered_at');
             $table->string('authorization')->nullable();
