@@ -78,8 +78,8 @@ class DeliveriesController extends Controller
                 $i["delivery_id"] = $delivery->id;
                 foreach ($i["stockSelected"] as $s)
                 {
-                    $s["batch"] = $s['batch'];
-                    $s["expiration_date"] = $s['expiration_date'];
+                    $i["batch"] = $s['batch'];
+                    $i["expiration_date"] = $s['expiration_date'];
                     $delivery_detail=\App\Models\DeliveryDetail::create($i);
                     
                 }
