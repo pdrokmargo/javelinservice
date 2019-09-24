@@ -13,9 +13,9 @@ class Delivery extends Model
     protected $fillable = [
         'consecutive',
             'affiliate_id',
-            'created_at',
-            'formuled_at',
-            'delivered_at',
+            'date',
+            'formula_date',
+            'delivery_date',
             'authorization',
             'ips_id',
             'modality_id',
