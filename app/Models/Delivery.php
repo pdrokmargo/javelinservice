@@ -25,10 +25,7 @@ class Delivery extends Model
             'status',
             'synced'
     ];
-    protected $casts = [
-     'created_at' => 'datetime:Y-m-d',
-     ];
-
+    q
     public function affiliate()
     {
          return $this->belongsTo('App\Models\Affiliate', 'affiliate_id'); 
