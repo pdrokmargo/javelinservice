@@ -17,11 +17,11 @@ class CreateDeliveriesTable extends Migration
             $table->uuid('id');
             $table->integer('consecutive');
             $table->uuid('affiliate_id');
-            $table->date('date');
-            $table->date('formula_date');
-            $table->date('delivery_date');
+            $table->date('created_at');
+            $table->date('formuled_at');
+            $table->date('delivered_at');
             $table->string('authorization')->nullable();
-            $table->uuid('ips_id');
+            $table->integer('ips_id');
             $table->integer('modality_id'); //related with collections
             $table->uuid('medical_diagnostic_id');
             $table->uuid('delivery_point_id');
