@@ -68,6 +68,14 @@ class ConsecutivesTableSeeder extends Seeder
                 'document_name' => 'sales_billing',
                 'description' => 'Facturas de Venta'
             ],
+            [
+                'id' => '33f809d6-302a-46a1-84ce-45c16fc817ba',
+                'initial_value' => 1,
+                'final_value' => null,
+                'prefix' => 'DP',
+                'document_name' => 'deliveries',
+                'description' => 'Dispensaciones'
+            ],
         ]);
     }
 }
