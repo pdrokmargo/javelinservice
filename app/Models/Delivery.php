@@ -22,7 +22,7 @@ class Delivery extends Model
             'medical_diagnostic_id',
             'delivery_point_id',
             'notes',
-            'status',
+          //   'status',
             'synced'
     ];
     public function affiliate()

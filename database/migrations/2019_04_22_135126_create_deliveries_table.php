@@ -26,7 +26,7 @@ class CreateDeliveriesTable extends Migration
             $table->uuid('medical_diagnostic_id');
             $table->uuid('delivery_point_id');
             $table->string('notes')->default('');
-            $table->boolean('status');
+            // $table->boolean('status');
             $table->date('synced')->nullable();
             $table->timestamps();
             $table->primary('id');
