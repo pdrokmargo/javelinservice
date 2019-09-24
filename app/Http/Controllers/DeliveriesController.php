@@ -65,7 +65,7 @@ class DeliveriesController extends Controller
             $data["company_id"] = $request->user()->company_default_id;
             $data_details = $data['details'];
             $active_delivery_point = \App\Models\Configuration::where('code', 'active_delivery_point')->first();
-            $data['delivery_point_id'] = $$active_delivery_point->value['delivery_point_id'];
+            $data['delivery_point_id'] = $active_delivery_point->value['delivery_point_id'];
             //Consecutive assignment
             $doc['document'] = \App\Models\Consecutive::where('document_name', 'deliveries')->first();
             $data['consecutive_id'] = $doc['document']['id'];
