@@ -9,7 +9,7 @@ class Delivery extends Model
     use \App\Uuids;
     protected $table = 'deliveries';
     public $incrementing = false;
-    protected $dateFormat = 'U';
+    protected $dateFormat = 'Y-m-d H:i:sO';
     protected $fillable = [
         'consecutive',
             'affiliate_id',
