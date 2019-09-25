@@ -11,6 +11,7 @@ class Affiliate extends Model
     public $incrementing = false;
     public $timestamps = false;
     protected $table = 'affiliates';
+    protected $with = array('delivery_contract');
     protected $fillable = [
         'document_type_id',
         'document_number',
@@ -45,5 +46,9 @@ class Affiliate extends Model
         if($this->lastname1 != '' || $this->lastname1 != null){$fullname .= ' '.$this->lastname1;}
         if($this->lastname2 != '' || $this->lastname2 != null){$fullname .= ' '.$this->lastname2;}
 		return $fullname;
-	}
+    }
+    public function delivery_contract()
+    {
+         return $this->belongsTo('App\Models\DeliveryContract', 'delivery_contract_id'); 
+    }
 }
