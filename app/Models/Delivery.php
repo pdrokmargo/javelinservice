@@ -10,7 +10,7 @@ class Delivery extends Model
     protected $table = 'deliveries';
     public $incrementing = false;
     public $timestamps = false;
-    protected $with = array('affiliate');
+    protected $with = array('affiliate','delivery_point');
     protected $fillable = [
         'consecutive',
             'affiliate_id',
