@@ -8,6 +8,7 @@ class Affiliate extends Model
 {
     use \App\Uuids;
 
+    public $increments = false;
     public $timestamps = false;
     protected $table = 'affiliates';
     protected $fillable = [
