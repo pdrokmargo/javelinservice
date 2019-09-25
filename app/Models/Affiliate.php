@@ -37,4 +37,13 @@ class Affiliate extends Model
         'state',
         'delete'
     ];
+
+    public function getDisplayNameAttribute()
+	{
+        $fullname = $this->firstname;
+        if($this->middlename != '' || $this->middlename != null){$fullname .= $this->middlename;}
+        if($this->lastname1 != '' || $this->lastname1 != null){$fullname .= $this->lastname1;}
+        if($this->lastname2 != '' || $this->lastname2 != null){$fullname .= $this->lastname2;}
+		return $fullname;
+	}
 }
