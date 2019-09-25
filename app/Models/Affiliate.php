@@ -37,7 +37,7 @@ class Affiliate extends Model
         'state',
         'delete'
     ];
-
+    protected $appends = ['display_name'];
     public function getDisplayNameAttribute()
 	{
         $fullname = $this->firstname;
