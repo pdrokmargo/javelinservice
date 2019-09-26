@@ -24,7 +24,7 @@ class AffiliatesController extends Controller
             $query = DB::table('affiliates as a')
             ->join('delivery_contracts as dc', 'dc.id', '=', 'a.delivery_contract_id')
             // ->leftJoin('collections_values as cv', 'cv.id', '=', 'a.contracts_payment_method_id')
-            ->select(DB::raw("a.id, a.document_number, a.delivery_contract_id, (a.firstname || ' ' || a.middlename || ' ' || a.lastname1 || ' ' || a.lastname2) as name, dc.name as contract, a.state"));
+            ->select(DB::raw("a.id, a.document_number, a.delivery_contract_id, (a.firstname || ' ' || a.middlename || ' ' || a.lastname1 || ' ' || a.lastname2) as display_name, dc.name as contract, a.state"));
 
             if ($search != '') {
                 $query = $query->whereRaw("(lower(a.firstname) || ' ' || lower(a.middlename) || ' ' || lower(a.lastname1) || ' ' || lower(a.lastname2)) like ? or lower(dc.name) like ?", array($search, $search))->orderBy($ordername, $ordertype);
