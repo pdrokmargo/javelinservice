@@ -111,7 +111,7 @@ class DeliveriesController extends Controller
     public function show($id)
     {
         $delivery = \App\Models\Delivery::find($id);
-        $delivery = $delivery->load('details');
+        $delivery = $delivery->load('details.product');
 	    return response()->json(["status"=>"success", "message"=>"", "data" =>$delivery ], 200);
     }
 
