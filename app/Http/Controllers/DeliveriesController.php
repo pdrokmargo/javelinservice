@@ -117,7 +117,7 @@ class DeliveriesController extends Controller
         $i = 0;
         $empty = false;
         do {
-            if(!$empty && $delivery->details->length > 0){
+            if(!$empty && sizeof($delivery->details) > 0){
                 $product_id = $delivery->details[0]->product_id;
             }
             foreach ($delivery->details as $d){
@@ -135,11 +135,11 @@ class DeliveriesController extends Controller
                 }
             }
             $delivery->details = array_values($delivery->details);
-            if($delivery->details->length == 0){
+            if(sizeof($delivery->details) == 0){
                 $empty = true;
             }
             $i++;
-        } while ($delivery->details->length != 0);
+        } while (sizeof($delivery->details) != 0);
         $delivery->details = $details;
 
 	    return response()->json(["status"=>"success", "message"=>"", "data" =>$delivery ], 200);
