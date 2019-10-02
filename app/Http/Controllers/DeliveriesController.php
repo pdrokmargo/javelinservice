@@ -112,36 +112,8 @@ class DeliveriesController extends Controller
     public function show($id)
     {
          $delivery = \App\Models\Delivery::find($id);
-         $delivery->load('details');
-        // $details = [];
-        // $i = 0;
-        // $empty = false;
-        // $detail = '';
-        // do {
-        //     if(!$empty && sizeof($delivery->details) > 0){
-        //         $detail = $delivery->details->first();
-        //     }
-        //     foreach ($delivery->details as $d){
-        //         if(!$empty && $d->product_id == $detail->product_id){
-        //             $stockSelected['batch'] = $detail->batch;
-        //             $stockSelected['expiration_date'] = $detail->expiration_date;
-        //             $stockSelected['iteration'] = $i;
-        //             $detail->stockSelected[] = $stockSelected;
-        //         }
-        //     }
-        //     $details[] = $detail;
-        //     foreach ($delivery->details as $d){
-        //         if($d->product_id == $detail->product_id){
-        //            unset($d);
-        //         }
-        //     }
-        //     $delivery->details = array_values($delivery->details);
-        //     if(sizeof($delivery->details) == 0){
-        //         $empty = true;
-        //     }
-        //     $i++;
-        // } while (sizeof($delivery->details) != 0);
-        // $delivery->details = $details;
+         $delivery->load('details.product');
+        
 
 	    return response()->json(["status"=>"success", "message"=>"", "data" =>$delivery ], 200);
     }

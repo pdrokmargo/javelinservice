@@ -48,36 +48,6 @@ class Delivery extends Model
     }
     public function details()
     {
-     //     return $this->hasMany('App\Models\DeliveryDetail', 'delivery_id'); 
-         $deliveries_details = \App\Models\DeliveryDetail::where('delivery_id',$this->id)->get();
-        $details = [];
-        $i = 0;
-        $empty = false;
-        $detail = '';
-        do {
-            if(!$empty && sizeof($deliveries_details) > 0){
-                $detail = clone $deliveries_details->first();
-            }
-            foreach ($deliveries_details as $d){
-                if(!$empty && $d->product_id == $detail->product_id){
-                    $stockSelected['batch'] = $detail->batch;
-                    $stockSelected['expiration_date'] = $detail->expiration_date;
-                    $stockSelected['iteration'] = $i;
-                    $detail->stockSelected[] = $stockSelected;
-                }
-            }
-            $details[] = $detail;
-            foreach ($deliveries_details as $d){
-                if($d->product_id == $detail->product_id){
-                   unset($d);
-                }
-            }
-            $deliveries_details = array_values($deliveries_details);
-            if(sizeof($deliveries_details) == 0){
-                $empty = true;
-            }
-            $i++;
-        } while (sizeof($deliveries_details) != 0);
-        $deliveries_details = $details;
+         return $this->hasMany('App\Models\DeliveryDetail', 'delivery_id'); 
     }
 }
