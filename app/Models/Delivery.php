@@ -56,7 +56,7 @@ class Delivery extends Model
         $detail = '';
         do {
             if(!$empty && sizeof($deliveries_details) > 0){
-                $detail = $deliveries_details->first();
+                $detail = clone $deliveries_details->first();
             }
             foreach ($deliveries_details as $d){
                 if(!$empty && $d->product_id == $detail->product_id){
