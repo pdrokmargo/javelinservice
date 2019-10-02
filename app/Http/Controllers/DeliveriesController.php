@@ -142,35 +142,6 @@ class DeliveriesController extends Controller
         } while ($delivery->details->length != 0);
 
         
-            $grouped = false;
-            foreach ($details as $d){
-                foreach ($delivery->details as $d2){
-                    if($d->product_id == $d2->product_id){
-                        $grouped = true;
-                    }
-                }
-            }
-            if($grouped){
-
-            }
-        
-        do {
-            $details = $delivery->details;
-            $toRemove = [];
-            $i = 0;
-            $j = 0;
-            foreach ($details as $d){
-                foreach($delivery->details as $d2){
-                    if($d->product_id == $d2->product_id && $i != $j){
-                        $toRemove[] = $j;
-                    }
-                    $j++;
-                }
-    
-                $i++;
-            }
-        } while ($i <= $delivery->details->length);
-
 	    return response()->json(["status"=>"success", "message"=>"", "data" =>$delivery ], 200);
     }
 
