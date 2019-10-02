@@ -125,7 +125,6 @@ class DeliveriesController extends Controller
                 if(!$empty && $d->product_id == $detail->product_id){
                     $stockSelected['batch'] = $detail->batch;
                     $stockSelected['expiration_date'] = $detail->expiration_date;
-                    $detail->stockSelected = [];
                     $detail->stockSelected[] = $stockSelected;
                 }
             }
