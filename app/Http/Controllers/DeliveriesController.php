@@ -131,8 +131,10 @@ class DeliveriesController extends Controller
             foreach ($delivery->details as $d){
                 if($d->product_id == $product_id){
                    unset($d);
+                   
                 }
             }
+            $delivery->details = array_values($delivery->details);
             if($delivery->details->length == 0){
                 $empty = true;
             }
