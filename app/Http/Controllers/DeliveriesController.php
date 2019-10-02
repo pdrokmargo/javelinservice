@@ -112,7 +112,7 @@ class DeliveriesController extends Controller
     public function show($id)
     {
         $delivery = \App\Models\Delivery::find($id);
-        $delivery = $delivery->load('details');
+        $delivery->load('details');
         $details = [];
         $i = 0;
         $empty = false;
