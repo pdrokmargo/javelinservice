@@ -140,8 +140,8 @@ class DeliveriesController extends Controller
             }
             $i++;
         } while ($delivery->details->length != 0);
+        $delivery->details = $details;
 
-        
 	    return response()->json(["status"=>"success", "message"=>"", "data" =>$delivery ], 200);
     }
 
