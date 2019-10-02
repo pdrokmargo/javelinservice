@@ -116,22 +116,23 @@ class DeliveriesController extends Controller
         $details = [];
         $i = 0;
         $empty = false;
+        $detail = '';
         do {
             if(!$empty && sizeof($delivery->details) > 0){
-                $product_id = $delivery->details[0]->product_id;
+                $detail = $delivery->details[0];
             }
             foreach ($delivery->details as $d){
-                if(!$empty && $d->product_id == $delivery->details[0]->product_id){
-                    $stockSelected['batch'] = $delivery->details[0]['batch'];
-                    $stockSelected['expiration_date'] = $delivery->details[0]['expiration_date'];
-                    $delivery->details[$i]['stockSelected'][] = $stockSelected;
+                if(!$empty && $d->product_id == $detail->product_id){
+                    $stockSelected['batch'] = $detail['batch'];
+                    $stockSelected['expiration_date'] = $detail['expiration_date'];
+                    $detail['stockSelected'] = [];
+                    $detail['stockSelected'][] = $stockSelected;
                 }
             }
-            $details[] = $delivery->details[0];
+            $details[] = $detail;
             foreach ($delivery->details as $d){
-                if($d->product_id == $product_id){
+                if($d->product_id == $detail->product_id){
                    unset($d);
-                   
                 }
             }
             $delivery->details = array_values($delivery->details);
