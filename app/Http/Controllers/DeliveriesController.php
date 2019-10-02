@@ -80,6 +80,7 @@ class DeliveriesController extends Controller
                 {
                     $i["batch"] = $s['batch'];
                     $i["expiration_date"] = $s['expiration_date'];
+                    // $i["batch_units"] = $s['expiration_date'];
                     $delivery_detail=\App\Models\DeliveryDetail::create($i);
                     
                 }
@@ -112,6 +113,62 @@ class DeliveriesController extends Controller
     {
         $delivery = \App\Models\Delivery::find($id);
         $delivery = $delivery->load('details.product');
+        $details = [];
+        $i = 0;
+        $empty = false;
+        do {
+            if(!$empty && $delivery->details->length > 0){
+                $product_id = $delivery->details[0]->product_id;
+            }
+            foreach ($delivery->details as $d){
+                if(!$empty && $d->product_id == $delivery->details[0]->product_id){
+                    $stockSelected['batch'] = $delivery->details[0]['batch'];
+                    $stockSelected['expiration_date'] = $delivery->details[0]['expiration_date'];
+                    $delivery->details[$i]['stockSelected'][] = $stockSelected;
+                }
+            }
+            $details[] = $delivery->details[0];
+            foreach ($delivery->details as $d){
+                if($d->product_id == $product_id){
+                   unset($d);
+                }
+            }
+            if($delivery->details->length == 0){
+                $empty = true;
+            }
+            $i++;
+        } while ($delivery->details->length != 0);
+
+        
+            $grouped = false;
+            foreach ($details as $d){
+                foreach ($delivery->details as $d2){
+                    if($d->product_id == $d2->product_id){
+                        $grouped = true;
+                    }
+                }
+            }
+            if($grouped){
+
+            }
+        
+        do {
+            $details = $delivery->details;
+            $toRemove = [];
+            $i = 0;
+            $j = 0;
+            foreach ($details as $d){
+                foreach($delivery->details as $d2){
+                    if($d->product_id == $d2->product_id && $i != $j){
+                        $toRemove[] = $j;
+                    }
+                    $j++;
+                }
+    
+                $i++;
+            }
+        } while ($i <= $delivery->details->length);
+
 	    return response()->json(["status"=>"success", "message"=>"", "data" =>$delivery ], 200);
     }
 

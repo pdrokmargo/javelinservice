@@ -23,6 +23,7 @@ class CreateDeliveriesDetailsTable extends Migration
             // $table->integer('total_deliveries');
             $table->string('batch');
             $table->date('expiration_date');
+            $table->integer('batch_units')->nullable();
             $table->date('synced')->nullable();
             $table->timestamps();
             $table->primary('id');
