@@ -36,7 +36,7 @@ class DeliveriesController extends Controller
 
     public function affiliate_deliveries($affiliate_id)
     {
-        $deliveries = \App\Models\DeliveryDetail::with(['delivery.delivery_point' => function($query){$query->where('affiliate_id', $affiliate_id);}])->paginate(15); 
+        $deliveries = \App\Models\DeliveryDetail::with(['delivery.delivery_point' => function($query) use($affiliate_id) {$query->where('affiliate_id', $affiliate_id);}])->paginate(15); 
         return response()->json(['status'=>'success', "message"=>'', "affiliate-deliveries" => $deliveries ], 200);
     }
 
