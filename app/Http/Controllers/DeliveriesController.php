@@ -119,7 +119,7 @@ class DeliveriesController extends Controller
         $detail = '';
         do {
             if(!$empty && sizeof($delivery->details) > 0){
-                $detail = $delivery->details[0];
+                $detail = $delivery->details->first();
             }
             foreach ($delivery->details as $d){
                 if(!$empty && $d->product_id == $detail->product_id){
