@@ -98,7 +98,7 @@ class DeliveriesController extends Controller
                         $dn = ceil($i["requested_units"]/$i["delivered_units"]);
                         for ($i = 0; $i < $dn-1; $i++) {
                             $scheduled_delivery = '';
-                            $scheduled_delivery["product_id"] = $i["product_id"];
+                            $scheduled_delivery["product_id"] = $i->product_id;
                             $scheduled_delivery["units"] = $i["delivered_units"];
                             $scheduled_delivery["delivery_source_id"] = $i["delivery_id"];
                             // $scheduled_delivery["delivery_fulfillment_id"] = null;
@@ -111,7 +111,7 @@ class DeliveriesController extends Controller
                     if($i["requested_units"] >= $i["delivered_units"] && $i["deliveryCovered"] == false && $i["scheduleddelivery_id"] == ''){
                         // it means there are not enough stock and pending must be created
                             $pending = '';
-                            $pending["product_id"] = $i['product_id'];
+                            $pending["product_id"] = $i->product_id;
                             $pending["units"] = $i["requested_units"] - $i["delivered_units"];
                             $pending["delivery_source_id"] = $i["delivery_id"];
                             // $scheduled_delivery["delivery_fulfillment_id"] = null;
