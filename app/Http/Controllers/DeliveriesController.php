@@ -97,7 +97,7 @@ class DeliveriesController extends Controller
                         // it means there are stock and scheduled delivery must be created
                         $dn = ceil($i["requested_units"]/$i["delivered_units"]);
                         for ($j = 0; $j < $dn-1; $j++) {
-                            $scheduled_delivery = '';
+                            $scheduled_delivery = new \App\Models\ScheduledDelivery;
                             $scheduled_delivery["product_id"] = $i["product_id"];
                             $scheduled_delivery["units"] = $i["delivered_units"];
                             $scheduled_delivery["delivery_source_id"] = $i["delivery_id"];
@@ -111,7 +111,7 @@ class DeliveriesController extends Controller
                     if($i["requested_units"] >= $i["delivered_units"] && $i["deliveryCovered"] == false && $i["scheduleddelivery_id"] == ''){
                         // it means there are not enough stock and pending must be created
                         var_dump($i["product_id"]);
-                            $pending = '';
+                            $pending = new \App\Models\ScheduledDelivery;
                             $pending["product_id"] = $i["product_id"];
                             $pending["units"] = $i["requested_units"] - $i["delivered_units"];
                             $pending["delivery_source_id"] = $i["delivery_id"];
