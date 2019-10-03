@@ -10,7 +10,7 @@ class DeliveryDetail extends Model
     protected $table = 'deliveries_details';
     public $incrementing = false;
     public $timestamps = false;
-    // protected $with = array('product');
+    protected $with = array('product');
     protected $fillable = [
         'delivery_id',
             'product_id',
