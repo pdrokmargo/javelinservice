@@ -87,6 +87,8 @@ class DeliveriesController extends Controller
                     $i["batch"] = $s['batch'];
                     $i["expiration_date"] = $s['expiration_date'];
 
+                    var_dump($i);
+
                     /*
                     Here we define the scheduled deliveries
                     */
