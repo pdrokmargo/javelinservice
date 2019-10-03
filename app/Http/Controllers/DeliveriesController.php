@@ -86,10 +86,8 @@ class DeliveriesController extends Controller
                 {
                     $i["batch"] = $s['batch'];
                     $i["expiration_date"] = $s['expiration_date'];
-
-                    // var_dump($i);
-
-                    /*
+                }
+                /*
                     Here we define the scheduled deliveries
                     */
 
@@ -125,11 +123,8 @@ class DeliveriesController extends Controller
                             // \App\Models\ScheduledDelivery::create($pending);
                     }
 
-                    // $i["batch_units"] = $s['expiration_date'];
+                    // $i["batch_units"] = $s['expiration_date']; // cool things to save the units used for each batch
                     $delivery_detail=\App\Models\DeliveryDetail::create($i);
-                    
-                }
-                // $delivery_detail=\App\Models\DeliveryDetail::create($i);
                 
             }
             DB::commit();
