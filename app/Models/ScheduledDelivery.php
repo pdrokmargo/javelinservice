@@ -9,6 +9,7 @@ class ScheduledDelivery extends Model
     use \App\Uuids;
     protected $table = 'scheduled_deliveries';
     public $incrementing = false;
+    public $timestamps = false;
     protected $with = ('scheduled_delivery_type');
     protected $fillable = [
         'consecutive',
