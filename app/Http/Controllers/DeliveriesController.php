@@ -117,7 +117,7 @@ class DeliveriesController extends Controller
                             // $scheduled_delivery["delivery_fulfillment_id"] = null;
                             $pending["affiliate_id"] = $data["affiliate_id"];
                             $pending["type_id"] = 196; //196 pending, 195: scheduled
-                            $pending["date"] = $data["created_at"];
+                            $pending["date"] = $data["date"];
                             \App\Models\ScheduledDelivery::create($pending);
                     }
 
