@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Auth;
 use \App\Models\Delivery;
+use \App\Models\ScheduledDelivery;
 
 class DeliveriesController extends Controller
 {
@@ -57,6 +58,10 @@ class DeliveriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function storeScheduledDeliveries(){
+
+    }
+
     public function store(Request $request)
     {
         DB::beginTransaction(); 
@@ -81,6 +86,39 @@ class DeliveriesController extends Controller
                 {
                     $i["batch"] = $s['batch'];
                     $i["expiration_date"] = $s['expiration_date'];
+
+                    /*
+                    Here we define the scheduled deliveries
+                    */
+
+                    if($i["requested_units"] >= $i["delivered_units"] && $i["deliveryCovered"] == true && $i["scheduleddelivery_id"] == ''){
+                        // it means there are stock and scheduled delivery must be created
+                        $dn = ceil($i["requested_units"]/$i["delivered_units"]);
+                        for ($i = 0; $i < $dn-1; $i++) {
+                            $scheduled_delivery = '';
+                            $scheduled_delivery["product_id"] = $i["product_id"];
+                            $scheduled_delivery["units"] = $i["delivered_units"];
+                            $scheduled_delivery["delivery_source_id"] = $i["delivery_id"];
+                            // $scheduled_delivery["delivery_fulfillment_id"] = null;
+                            $scheduled_delivery["affiliate_id"] = $data["affiliate_id"];
+                            $scheduled_delivery["type_id"] = 195; //196 pending, 195: scheduled
+                            $scheduled_delivery["date"] = $data["created_at"];
+                            \App\Models\ScheduledDelivery::create($scheduled_delivery);
+                        }
+                    }
+                    if($i["requested_units"] >= $i["delivered_units"] && $i["deliveryCovered"] == false && $i["scheduleddelivery_id"] == ''){
+                        // it means there are not enough stock and pending must be created
+                            $pending = '';
+                            $pending["product_id"] = $i["product_id"];
+                            $pending["units"] = $i["requested_units"] - $i["delivered_units"];
+                            $pending["delivery_source_id"] = $i["delivery_id"];
+                            // $scheduled_delivery["delivery_fulfillment_id"] = null;
+                            $pending["affiliate_id"] = $data["affiliate_id"];
+                            $pending["type_id"] = 196; //196 pending, 195: scheduled
+                            $pending["date"] = $data["created_at"];
+                            \App\Models\ScheduledDelivery::create($pending);
+                    }
+
                     // $i["batch_units"] = $s['expiration_date'];
                     $delivery_detail=\App\Models\DeliveryDetail::create($i);
                     
