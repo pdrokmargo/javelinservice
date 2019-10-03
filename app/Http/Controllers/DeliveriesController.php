@@ -105,6 +105,7 @@ class DeliveriesController extends Controller
                             $scheduled_delivery["affiliate_id"] = $data["affiliate_id"];
                             $scheduled_delivery["type_id"] = 195; //196 pending, 195: scheduled
                             $scheduled_delivery["date"] = $data["date"];
+                            $scheduled_delivery['consecutive'] = \App\Models\ScheduledDelivery::max('consecutive') + 1;
                             $scheduled_delivery->save();
                             // \App\Models\ScheduledDelivery::create($scheduled_delivery);
                         }
@@ -119,6 +120,7 @@ class DeliveriesController extends Controller
                             $pending["affiliate_id"] = $data["affiliate_id"];
                             $pending["type_id"] = 196; //196 pending, 195: scheduled
                             $pending["date"] = $data["date"];
+                            $pending['consecutive'] = \App\Models\ScheduledDelivery::max('consecutive') + 1;
                             $pending->save();
                             // \App\Models\ScheduledDelivery::create($pending);
                     }
