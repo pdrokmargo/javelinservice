@@ -110,7 +110,6 @@ class DeliveriesController extends Controller
                     }
                     if($i["requested_units"] >= $i["delivered_units"] && $i["deliveryCovered"] == false && $i["scheduleddelivery_id"] == ''){
                         // it means there are not enough stock and pending must be created
-                        var_dump($i["product_id"]);
                             $pending = new \App\Models\ScheduledDelivery;
                             $pending["product_id"] = $i["product_id"];
                             $pending["units"] = $i["requested_units"] - $i["delivered_units"];
