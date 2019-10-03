@@ -10,7 +10,7 @@ class ScheduledDelivery extends Model
     protected $table = 'scheduled_deliveries';
     public $incrementing = false;
     public $timestamps = false;
-    protected $with = ('scheduled_delivery_type');
+    protected $with = array('scheduled_delivery_type', 'product');
     protected $fillable = [
         'consecutive',
             'affiliate_id',
@@ -27,5 +27,9 @@ class ScheduledDelivery extends Model
     public function scheduled_delivery_type()
     {
          return $this->belongsTo('App\Models\CollectionsValues', 'type_id'); 
+    }
+    public function product()
+    {
+         return $this->belongsTo('App\Models\Product', 'product_id'); 
     }
 }
