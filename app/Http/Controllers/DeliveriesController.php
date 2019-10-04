@@ -112,7 +112,7 @@ class DeliveriesController extends Controller
                     $stocks_used[] = ['id','=',$s['id']];
 
                     //Here we create the inventory_movement out details
-                    $i["inventory_movements_id"] = $result_im->id;
+                    $imd["inventory_movements_id"] = $result_im->id;
                         $imd["product_id"] = $i['product_id'];
                         $imd["units"] = $i['delivered_units'];
                         $imd["fraction"] = true;
@@ -120,8 +120,7 @@ class DeliveriesController extends Controller
                         $imd["location"] = $s['location'];
                         $imd["expiration_date"] = $s['expiration_date'];
                         $imd['purchase_price'] = 0;
-                        var_dump($imd["units"]);
-                        $result_detail=\App\Models\InventoryMovementDetail::create($i);
+                        $result_detail=\App\Models\InventoryMovementDetail::create($imd);
                 }
 
                 //reduce the stock here
