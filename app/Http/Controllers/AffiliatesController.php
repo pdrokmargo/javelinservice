@@ -122,7 +122,7 @@ class AffiliatesController extends Controller
             $sync_af = DB::table('syncs')->where('key', 'affiliates'.$id)->first();
             if($sync_af != null){
                 $sync_af->date = \Carbon\Carbon::now();  
-                DB::table('syncs')->update($sync_af);
+                DB::table('syncs')->update(json_decode($sync_af,true));
             }else{
                 $sync['table_name'] = 'affiliates';
                 $sync['id'] = $id;
