@@ -82,7 +82,9 @@ class DeliveriesController extends Controller
 
             // get active warehouse
             $active_delivery_point = \App\Models\Configuration::where('code', 'active_delivery_point')->first();
-            $delivery_point = \App\Models\DeliveryPoint::where('id', $active_delivery_point->value)->first();
+            $delivery_point = \App\Models\DeliveryPoint::where('id', json_decode($active_delivery_point->value, true)['delivery_point_id'])->first();
+
+            
             
             //create_inventory_movement master
             $inventory_movement['document'] = \App\Models\Consecutive::where('document_name', 'inventory_movement_out')->first();
