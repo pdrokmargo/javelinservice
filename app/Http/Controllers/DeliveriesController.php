@@ -109,7 +109,7 @@ class DeliveriesController extends Controller
                 {
                     $i["batch"] = $s['batch'];
                     $i["expiration_date"] = $s['expiration_date'];
-                    $stocks_used[] = ['id','=',$s['stock_id']];
+                    $stocks_used[] = ['id','=',$s['id']];
 
                     //Here we create the inventory_movement out details
                     $i["inventory_movements_id"] = $result_im->id;
