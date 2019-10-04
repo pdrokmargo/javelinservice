@@ -72,7 +72,7 @@ class AffiliatesController extends Controller
             $sync['table_name'] = 'affiliates';
             $sync['id'] = $af->id;
             $sync['date'] = \Carbon\Carbon::now();
-            $sync['key'] = 'affiliates'.$id;
+            $sync['key'] = 'affiliates'.$af->id;
             DB::table('syncs')->insert($sync);
             DB::commit();
             return response()->json([ 
