@@ -71,7 +71,8 @@ class AffiliatesController extends Controller
             $this->CreateLog($request->user()->id, 'affiliates', 1,'');
             $sync['table_name'] = 'affiliates';
             $sync['id'] = $af->id;
-            $sync['key'] = 'affiliates'.$af->id;
+            $sync['date'] = \Carbon\Carbon::now();
+            $sync['key'] = 'affiliates'.$id.'_'.$sync['date'];
             DB::table('syncs')->insert($sync);
             DB::commit();
             return response()->json([ 
@@ -118,12 +119,14 @@ class AffiliatesController extends Controller
             $data_old->fill($data_new);
             $data_old->save();
             $this->CreateLog($request->user()->id, 'affiliates', 2,'');
+            // DB::table('syncs')->where('key', 'affiliates'.$id)->delete();
             $sync['table_name'] = 'affiliates';
             $sync['id'] = $id;
             $sync['newFriend'] = false;
             $sync['synced'] = false;
-            $sync['key'] = 'affiliates'.$id;
             $sync['date'] = \Carbon\Carbon::now();
+            $sync['key'] = 'affiliates'.$id.'_'.$sync['date'];
+            
             DB::table('syncs')->insert($sync);
             DB::commit();
             return response()->json([ 

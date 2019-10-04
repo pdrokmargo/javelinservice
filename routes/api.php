@@ -32,9 +32,18 @@ Route::middleware('auth:api')->group(function () {
         $syncs = \App\Models\Configuration::where('code', 'syncs')->first();
         $last_sync = json_decode(\App\Models\Configuration::where('code', 'last_sync')->first()->value, true);
         foreach(json_decode($syncs->value, true) as $sync){
-            if($sync['down'] == true){
-                $downs = \DB::connection('main')->table('syncs')->where('date', '>', $last_sync)->where('table_name', $sync['table_name'])->select('id');
-                \DB::connection('local')->table($sync['table_name'])->updateOrInsert(json_decode(\DB::connection('main')->table($sync['table_name'])->where('id', $downs)->get(), true));
+            if($sync['down'] == true){  
+                $downs = \DB::connection('main')->table('syncs')->where([['date', '>', $last_sync['date']['date']], ['table_name', '=', $sync['table_name']]])->get();
+                $downs_ids = [];
+                foreach($downs as $down){
+                    $downs_ids[] = ['id','=',$down->id.''];
+                }
+                if(sizeof($downs_ids) > 0){
+                    $collection = json_decode(\DB::connection('main')->table($sync['table_name'])->where($downs_ids)->get(), true);
+                    foreach($collection as $c){
+                        \DB::connection('local')->table($sync['table_name'])->updateOrInsert(['id' => $c['id']], $c);
+                    }
+                }
             }
             // if($sync['up'] == true){
             //     \DB::connection('main')->table($sync['table_name'])->insert(json_decode(\DB::connection('main')->table($sync['table_name'])->get(), true));
