@@ -121,7 +121,7 @@ class AffiliatesController extends Controller
             $this->CreateLog($request->user()->id, 'affiliates', 2,'');
             $sync_af = DB::table('syncs')->where('key', 'affiliates'.$id)->first();
             if($sync_af != null){
-                $sync_af['date'] = \Carbon\Carbon::now();  
+                $sync_af->date = \Carbon\Carbon::now();  
                 $sync_af->save();
             }else{
                 $sync['table_name'] = 'affiliates';
@@ -132,7 +132,6 @@ class AffiliatesController extends Controller
                 $sync['key'] = 'affiliates'.$id;
                 DB::table('syncs')->insert($sync);
             }
-            
             DB::commit();
             return response()->json([ 
                 "update" => true, 
