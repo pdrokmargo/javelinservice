@@ -119,15 +119,20 @@ class AffiliatesController extends Controller
             $data_old->fill($data_new);
             $data_old->save();
             $this->CreateLog($request->user()->id, 'affiliates', 2,'');
-            // DB::table('syncs')->where('key', 'affiliates'.$id)->delete();
-            $sync['table_name'] = 'affiliates';
-            $sync['id'] = $id;
-            $sync['newFriend'] = false;
-            $sync['synced'] = false;
-            $sync['date'] = \Carbon\Carbon::now();
-            $sync['key'] = 'affiliates'.$id.'_'.$sync['date'];
+            $sync_af = DB::table('syncs')->where('key', 'affiliates'.$id)->first();
+            if($sync_af != null){
+                $sync_af['date'] = \Carbon\Carbon::now();  
+                $sync_af->save();
+            }else{
+                $sync['table_name'] = 'affiliates';
+                $sync['id'] = $id;
+                $sync['newFriend'] = false;
+                $sync['synced'] = false;
+                $sync['date'] = \Carbon\Carbon::now();
+                $sync['key'] = 'affiliates'.$id;
+                DB::table('syncs')->insert($sync);
+            }
             
-            DB::table('syncs')->insert($sync);
             DB::commit();
             return response()->json([ 
                 "update" => true, 
