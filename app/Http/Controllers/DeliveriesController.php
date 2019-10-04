@@ -78,7 +78,7 @@ class DeliveriesController extends Controller
             $data['consecutive'] = \App\Models\Delivery::/*where('consecutive_id', $data['consecutive_id'])->*/max('consecutive') + 1;
 
             $delivery = \App\Models\Delivery::create($data);
-            
+            $stocks_used = [];
             foreach ($data_details as $i)
             {
                 $i["delivery_id"] = $delivery->id;
@@ -86,6 +86,8 @@ class DeliveriesController extends Controller
                 {
                     $i["batch"] = $s['batch'];
                     $i["expiration_date"] = $s['expiration_date'];
+                    $stocks_used[] = ['id','=',$s['stock_id']];
+
                 }
                 /*
                     Here we define the scheduled deliveries
@@ -125,6 +127,23 @@ class DeliveriesController extends Controller
 
                     // $i["batch_units"] = $s['expiration_date']; // cool things to save the units used for each batch
                     $delivery_detail=\App\Models\DeliveryDetail::create($i);
+
+                    // get active warehouse
+                    // $active_delivery_point = \App\Models\Configuration::where('code', 'active_delivery_point')->first();
+                    // $delivery_point = \App\Models\DeliveryPoint::where('id', $ctive_delivery_point->value)->first();
+
+                    //reduce the stock here
+                    $stock_result = \App\Models\StocksProducts::where($stocks_used)->get();
+                    $units_to_reduce = $i["delivered_units"];
+                    foreach($stock_result as $stock){
+                        if($stock->fraction_stock <= $units_to_reduce){
+                            $units_to_reduce -= $stock->fraction_stock;
+                            $stock->fraction_stock = 0;
+                        }else{
+                            $stock->fraction_stock -= $units_to_reduce;
+                        }
+                        $stock->save();
+                    }
                 
             }
             DB::commit();
