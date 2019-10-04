@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'main'),
+    'default' => env('DB_CONNECTION', 'local'),
 
     /*
     |--------------------------------------------------------------------------
