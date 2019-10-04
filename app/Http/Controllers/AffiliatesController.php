@@ -67,8 +67,12 @@ class AffiliatesController extends Controller
         try
         {
             $data = json_decode($request->data, true);
-            \App\Models\Affiliate::create($data);
+            $af = \App\Models\Affiliate::create($data);
             $this->CreateLog($request->user()->id, 'affiliates', 1,'');
+            $sync['table_name'] = 'affiliates';
+            $sync['id'] = $af->id;
+            $sync['key'] = 'affiliates'.$af->id;
+            DB::table('syncs')->insert($sync);
             DB::commit();
             return response()->json([ 
                 "store" => true, 
@@ -114,6 +118,13 @@ class AffiliatesController extends Controller
             $data_old->fill($data_new);
             $data_old->save();
             $this->CreateLog($request->user()->id, 'affiliates', 2,'');
+            $sync['table_name'] = 'affiliates';
+            $sync['id'] = $id;
+            $sync['newFriend'] = false;
+            $sync['synced'] = false;
+            $sync['key'] = 'affiliates'.$id;
+            $sync['date'] = \Carbon\Carbon::now();
+            DB::table('syncs')->insert($sync);
             DB::commit();
             return response()->json([ 
                 "update" => true, 

@@ -14,7 +14,7 @@ class DeliveryPointsTableSeeder extends Seeder
         DB::table('delivery_points')->insert([
             [
                 'id'                        => 'dcaf7460-d0f0-11e8-afb0-17b061a62e2e', 
-                'warehouse_id'              => 'd09e0580-c199-11e8-96b5-9fefccf7c7c3',
+                'warehouse_id'              => 'b51edb72-be8e-47cc-aaa2-ce2b2f0910ea',
                 'company_id'                => 1,
                 'name'                      => 'Nombre punto de dispensación 001', 
                 'description'               => "as opposed to using 'Content here, content here', making it look",

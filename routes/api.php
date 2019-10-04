@@ -28,7 +28,19 @@ Route::middleware('auth:api')->group(function () {
                                   "message"=>'El centro de costo se ha registrado satisfactoriamente.', 
                                   "data" => $request->user()->load('usersprivileges') ], 200);
     });
-
+    Route::get('/sync', function (Request $request) {        
+        $syncs = \App\Models\Configuration::where('code', 'syncs')->first();
+        $last_sync = json_decode(\App\Models\Configuration::where('code', 'last_sync')->first()->value, true);
+        foreach(json_decode($syncs->value, true) as $sync){
+            if($sync['down'] == true){
+                $downs = \DB::connection('main')->table('syncs')->where('date', '>', $last_sync)->where('table_name', $sync['table_name'])->select('id');
+                \DB::connection('local')->table($sync['table_name'])->updateOrInsert(json_decode(\DB::connection('main')->table($sync['table_name'])->where('id', $downs)->get(), true));
+            }
+            // if($sync['up'] == true){
+            //     \DB::connection('main')->table($sync['table_name'])->insert(json_decode(\DB::connection('main')->table($sync['table_name'])->get(), true));
+            // }
+        }
+    });
     Route::resource('users', 'UsersController');
     Route::get('users/search/by/{column}/{data}', 'UsersController@searchBy');
     Route::get('users/bytype/{type}', 'UsersController@indexType');

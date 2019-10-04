@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgsql'),
+    'default' => env('DB_CONNECTION', 'local'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,13 +54,26 @@ return [
             'engine' => null,
         ],
 
-        'pgsql' => [
+        'local' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', 'ec2-54-83-8-246.compute-1.amazonaws.com'),
+            'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'dem8sdl16mhv0f'),
-            'username' => env('DB_USERNAME', 'gkjggeckynrmwi'),
-            'password' => env('DB_PASSWORD', '25560f5195a1642f6f2d8332e58d237b5d66f9db8d147e5a1770a6a641aad791'),
+            'database' => env('DB_DATABASE', 'javelinpod'),
+            'username' => env('DB_USERNAME', 'postgres'),
+            'password' => env('DB_PASSWORD', '123456'),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'schema' => 'public',
+            'sslmode' => 'prefer',
+        ],
+
+        'main' => [
+            'driver' => 'pgsql',
+            'host' => 'ec2-54-83-8-246.compute-1.amazonaws.com',
+            'port' => '5432',
+            'database' => 'dem8sdl16mhv0f',
+            'username' => 'gkjggeckynrmwi',
+            'password' => '25560f5195a1642f6f2d8332e58d237b5d66f9db8d147e5a1770a6a641aad791',
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
