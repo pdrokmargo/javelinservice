@@ -25,7 +25,7 @@ class CreateInventoryMovementsTable extends Migration
             // $table->integer('inventory_movement_type_id'); //Collection Values
             $table->integer('inventory_movement_entry_out_type_id'); //Collection Values
             $table->uuid('counterpart_transfer_id')->nullable(); //Defines source where items comes or goes.
-            $table->string('observations');
+            $table->string('observations')->nullable();
             $table->timestamps();
             $table->primary('id');
         });

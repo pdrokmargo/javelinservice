@@ -72,13 +72,34 @@ class DeliveriesController extends Controller
             $data_details = $data['details'];
             $active_delivery_point = \App\Models\Configuration::where('code', 'active_delivery_point')->first();
             $data['delivery_point_id'] = json_decode($active_delivery_point->value, true)['delivery_point_id'];
-            //Consecutive assignment, temporary disabled, working only with the consecutive without document.
-            // $doc['document'] = \App\Models\Consecutive::where('document_name', 'deliveries')->first();
-            // $data['consecutive_id'] = $doc['document']['id'];
-            $data['consecutive'] = \App\Models\Delivery::/*where('consecutive_id', $data['consecutive_id'])->*/max('consecutive') + 1;
+            $data['consecutive'] = \App\Models\Delivery::max('consecutive') + 1;
 
+            //Create the delivery master
             $delivery = \App\Models\Delivery::create($data);
+
+            //This is used to collect all stocks that must be reduced afterwards
             $stocks_used = [];
+
+            // get active warehouse
+            $active_delivery_point = \App\Models\Configuration::where('code', 'active_delivery_point')->first();
+            $delivery_point = \App\Models\DeliveryPoint::where('id', $active_delivery_point->value)->first();
+            
+            //create_inventory_movement master
+            $inventory_movement['document'] = \App\Models\Consecutive::where('document_name', 'inventory_movement_out')->first();
+            $inventory_movement['consecutive_id'] = $inventory_movement['document']['id'];
+            $inventory_movement['consecutive'] = \App\Models\InventoryMovement::where('consecutive_id', $inventory_movement['consecutive_id'])->max('consecutive') + 1;
+            if($inventory_movement['consecutive'] == null){
+                $inventory_movement['consecutive'] = 1;
+            }
+            $inventory_movement['company_id'] = $request->user()->company_default_id;
+            $inventory_movement['warehouse_id'] = $delivery_point->warehouse_id;
+            $inventory_movement['date'] = $delivery->date;
+            $inventory_movement['inventory_movement_entry_out_type_id'] = 180;
+            $inventory_movement['observations'] = '';
+            
+            $result_im=\App\Models\InventoryMovement::create($inventory_movement); // Here we define the inventory_movement model
+
+
             foreach ($data_details as $i)
             {
                 $i["delivery_id"] = $delivery->id;
@@ -88,7 +109,33 @@ class DeliveriesController extends Controller
                     $i["expiration_date"] = $s['expiration_date'];
                     $stocks_used[] = ['id','=',$s['stock_id']];
 
+                    //Here we create the inventory_movement out details
+                    $i["inventory_movements_id"] = $result_im->id;
+                        $imd["product_id"] = $i['product_id'];
+                        $imd["units"] = $i['delivered_units'];
+                        $imd["fraction"] = true;
+                        $imd["batch"] = $s['batch'];
+                        $imd["location"] = $s['location'];
+                        $imd["expiration_date"] = $s['expiration_date'];
+                        $imd['purchase_price'] = 0;
+                        $result_detail=\App\Models\InventoryMovementDetail::create($i);
                 }
+
+                //reduce the stock here
+                $stock_result = \App\Models\StocksProducts::where($stocks_used)->get();
+                $units_to_reduce = $i["delivered_units"];
+                foreach($stock_result as $stock){
+                    if($stock->fraction_stock <= $units_to_reduce){
+                        $units_to_reduce -= $stock->fraction_stock;
+                        $stock->fraction_stock = 0;
+                    }else{
+                        $stock->fraction_stock -= $units_to_reduce;
+                    }
+                    $stock->save();
+                }
+                // $i["batch_units"] = $s['expiration_date']; // cool things to save the units used for each batch
+                $delivery_detail=\App\Models\DeliveryDetail::create($i);
+
                 /*
                     Here we define the scheduled deliveries
                     */
@@ -123,26 +170,6 @@ class DeliveriesController extends Controller
                             $pending['consecutive'] = \App\Models\ScheduledDelivery::max('consecutive') + 1;
                             $pending->save();
                             // \App\Models\ScheduledDelivery::create($pending);
-                    }
-
-                    // $i["batch_units"] = $s['expiration_date']; // cool things to save the units used for each batch
-                    $delivery_detail=\App\Models\DeliveryDetail::create($i);
-
-                    // get active warehouse
-                    // $active_delivery_point = \App\Models\Configuration::where('code', 'active_delivery_point')->first();
-                    // $delivery_point = \App\Models\DeliveryPoint::where('id', $ctive_delivery_point->value)->first();
-
-                    //reduce the stock here
-                    $stock_result = \App\Models\StocksProducts::where($stocks_used)->get();
-                    $units_to_reduce = $i["delivered_units"];
-                    foreach($stock_result as $stock){
-                        if($stock->fraction_stock <= $units_to_reduce){
-                            $units_to_reduce -= $stock->fraction_stock;
-                            $stock->fraction_stock = 0;
-                        }else{
-                            $stock->fraction_stock -= $units_to_reduce;
-                        }
-                        $stock->save();
                     }
                 
             }
