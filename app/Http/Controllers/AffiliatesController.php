@@ -69,11 +69,7 @@ class AffiliatesController extends Controller
             $data = json_decode($request->data, true);
             $af = \App\Models\Affiliate::create($data);
             $this->CreateLog($request->user()->id, 'affiliates', 1,'');
-            $sync['table_name'] = 'affiliates';
-            $sync['id'] = $af->id;
-            $sync['date'] = \Carbon\Carbon::now();
-            $sync['key'] = 'affiliates'.$af->id;
-            DB::table('syncs')->insert($sync);
+            \App\JavelinFriends\feed_syncs::save_sync($af->id, 'affiliates');
             DB::commit();
             return response()->json([ 
                 "store" => true, 
@@ -119,18 +115,7 @@ class AffiliatesController extends Controller
             $data_old->fill($data_new);
             $data_old->save();
             $this->CreateLog($request->user()->id, 'affiliates', 2,'');
-            $sync_af = DB::table('syncs')->where('key', 'affiliates'.$id)->first();
-            if($sync_af != null){
-                DB::table('syncs')->where('key', 'affiliates'.$id)->update(['date' => \Carbon\Carbon::now()]);
-            }else{
-                $sync['table_name'] = 'affiliates';
-                $sync['id'] = $id;
-                $sync['newFriend'] = false;
-                $sync['synced'] = false;
-                $sync['date'] = \Carbon\Carbon::now();
-                $sync['key'] = 'affiliates'.$id;
-                DB::table('syncs')->insert($sync);
-            }
+            \App\JavelinFriends\feed_syncs::update_sync($id, 'affiliates');
             DB::commit();
             return response()->json([ 
                 "update" => true, 

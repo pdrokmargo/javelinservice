@@ -32,23 +32,37 @@ Route::middleware('auth:api')->group(function () {
         $syncs = \App\Models\Configuration::where('code', 'syncs')->first();
         $last_sync = json_decode(\App\Models\Configuration::where('code', 'last_sync')->first()->value, true);
         foreach(json_decode($syncs->value, true) as $sync){
+            $syncs_ways = [];
+            $syncs_ways[] = 'main';
+            
             if($sync['down'] == true){  
                 $downs = \DB::connection('main')->table('syncs')->where([['date', '>', $last_sync['date']['date']], ['table_name', '=', $sync['table_name']]])->get();
                 $downs_ids = [];
                 foreach($downs as $down){
-                    $downs_ids[] = ['id','=',$down->id.''];
+                    $downs_ids[] = $down->id;
                 }
                 if(sizeof($downs_ids) > 0){
-                    $collection = json_decode(\DB::connection('main')->table($sync['table_name'])->where($downs_ids)->get(), true);
-                    foreach($collection as $c){
+                    $col = json_decode(\DB::connection('main')->table($sync['table_name'])->whereIn('id', $downs_ids)->get(), true);
+                    foreach($col as $c){
                         \DB::connection('local')->table($sync['table_name'])->updateOrInsert(['id' => $c['id']], $c);
                     }
                 }
             }
-            // if($sync['up'] == true){
-            //     \DB::connection('main')->table($sync['table_name'])->insert(json_decode(\DB::connection('main')->table($sync['table_name'])->get(), true));
-            // }
+            if($sync['up'] == true){  
+                $ups = \DB::connection('local')->table('syncs')->where([['synced', '=', false], ['table_name', '=', $sync['table_name']]])->get();
+                $ups_ids = [];
+                foreach($ups as $up){
+                    $ups_ids[] = $up->id;
+                }
+                if(sizeof($ups_ids) > 0){
+                    $col = json_decode(\DB::connection('local')->table($sync['table_name'])->whereIn('id', $ups_ids)->get(), true);
+                    foreach($col as $c){
+                        \DB::connection('main')->table($sync['table_name'])->updateOrInsert(['id' => $c['id']], $c);
+                    }
+                }
+            }
         }
+        return response()->json([ "data" => '' ], 200);
     });
     Route::resource('users', 'UsersController');
     Route::get('users/search/by/{column}/{data}', 'UsersController@searchBy');

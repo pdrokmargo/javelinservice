@@ -13,8 +13,8 @@ class DeliveryPointInstallationTableSeeder extends Seeder
     public function run()
     {
         // First we get the delivery point id
-        DB::connection('local')->table('configurations')->delete();
-        DB::connection('local')->table('configurations')->insert(json_decode(DB::connection('main')->table('configurations')->get(), true));
+        // DB::connection('local')->table('configurations')->delete();
+        // DB::connection('local')->table('configurations')->insert(json_decode(DB::connection('main')->table('configurations')->get(), true));
         $syncs = \App\Models\Configuration::where('code', 'syncs')->first();
         $last_sync = \App\Models\Configuration::where('code', 'last_sync')->first();
         $v['date'] = Carbon::now();
