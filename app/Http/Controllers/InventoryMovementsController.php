@@ -50,7 +50,7 @@ class InventoryMovementsController extends Controller
                 $delivery_point = \App\Models\DeliveryPoint::where('id', json_decode($active_delivery_point->value, true)['delivery_point_id'])->with('warehouses')->first(); 
                 $inventory_movements = new \App\Models\InventoryMovement();
                 $inventory_movements->setConnection('main');
-                $inventory_movements = \App\Models\InventoryMovement::where('company_id', $company_id)->where('inventory_movement_entry_out_type_id', 182)->where('counterpart_transfer_id', $delivery_point->warehouse->id)->orderBy($ordername, $ordertype)->paginate(15); 
+                $inventory_movements = \App\Models\InventoryMovement::where('company_id', $company_id)->where('inventory_movement_entry_out_type_id', 182)->where('counterpart_transfer_id', $delivery_point->warehouses->id)->orderBy($ordername, $ordertype)->paginate(15); 
             
             return response()->json(['status'=>'success', "message"=>'', "data" => $inventory_movements ], 200);
 
