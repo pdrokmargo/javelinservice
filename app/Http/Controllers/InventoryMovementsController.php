@@ -47,7 +47,7 @@ class InventoryMovementsController extends Controller
             
             $company_id = $request->user()->company_default_id;
             if(isset($request->counterpart_transfer)){
-                $inventory_movements = \App\Models\InventoryMovement::where('company_id', $company_id)->where('counterpart_transfer_id', $request->counterpart_transfer)->orderBy($ordername, $ordertype)->paginate(15); 
+                $inventory_movements = \App\Models\InventoryMovement::where('company_id', $company_id)->where('inventory_movement_entry_out_type_id', 182)->where('counterpart_transfer_id', $request->counterpart_transfer)->orderBy($ordername, $ordertype)->paginate(15); 
             }
             
             return response()->json(['status'=>'success', "message"=>'', "data" => $inventory_movements ], 200);
