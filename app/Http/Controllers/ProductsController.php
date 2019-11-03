@@ -67,8 +67,9 @@ class ProductsController extends Controller
                 ], 500);
             }
             $product=\App\Models\Product::create($data);
-            // $this->CreateLog(Auth::id(), 'product', 1,'');
+            \App\JavelinFriends\feed_syncs::save_sync($product->id, 'products');
             DB::commit();
+            
             return response()->json([ 
                 "store" => true, 
                 "message" => "Registro creado correctamente" 
@@ -118,7 +119,9 @@ class ProductsController extends Controller
             $data_old->fill($data_new);
             $data_old->save();
             $this->CreateLog($request->user()->id, 'product', 2,'');
+            \App\JavelinFriends\feed_syncs::update_sync($id, 'products');
             DB::commit();
+            
             return response()->json([ 
                 "update" => true, 
                 "message" => "Registro actualizado correctamente" 

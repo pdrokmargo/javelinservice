@@ -36,7 +36,26 @@ class InventoryMovementsController extends Controller
           return 'Error:'.$e->getMessage();
       } 
     }
+    public function indexTranfers(Request $request)
+    {
+        try {
+          
+            $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';
+            $ordername = isset($request->ordername) ? $request->ordername : 'id';
+            $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
+            $page = $request->page;
+            
+            $company_id = $request->user()->company_default_id;
+            if(isset($request->counterpart_transfer)){
+                $inventory_movements = \App\Models\InventoryMovement::where('company_id', $company_id)->where('counterpart_transfer_id', $request->counterpart_transfer)->orderBy($ordername, $ordertype)->paginate(15); 
+            }
+            
+            return response()->json(['status'=>'success', "message"=>'', "data" => $inventory_movements ], 200);
 
+            } catch (Exception $e) {
+                return 'Error:'.$e->getMessage();
+            } 
+    }
     /**
      * Show the form for creating a new resource.
      *
