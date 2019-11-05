@@ -59,7 +59,7 @@ class SupplierOrderController extends Controller
             if($data['consecutive'] == null){
                 $data['consecutive'] = 1;
             }
-
+            $data['operationcentre_id'] = 1; //Temporary code.
 
 
             $supplier_orders=SupplierOrder::create($data);

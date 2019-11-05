@@ -39,6 +39,7 @@ class CreateSuppliersOrdersTable extends Migration
             //      double: subtotal
             //      
             $table->string('notes')->nullable();
+            $table->boolean('fullfilled')->default(false);
             $table->boolean('status');
             $table->primary('id');
         });
