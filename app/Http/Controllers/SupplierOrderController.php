@@ -17,6 +17,7 @@ class SupplierOrderController extends Controller
            $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';           
             $ordername = isset($request->ordername) ? $request->ordername : 'id';
             $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
+            $fullfilled = isset($request->fullfilled) ? $request->fullfilled : false;
             $page = $request->page;
             $sign = isset($request->sign) ? $request->sign : '';
 
@@ -30,8 +31,8 @@ class SupplierOrderController extends Controller
             }else{
                 $query=$query->where('status', true)->orderBy($ordername, $ordertype);
             }
-            if (isset($request->fullfilled)) {
-                $query = $query->where('fullfilled', $request->fullfilled);
+            if ($fullfilled) {
+                $query = $query->where('fullfilled', $fullfilled);
             }
             $sql=$query->toSql();
             $data=[];  
