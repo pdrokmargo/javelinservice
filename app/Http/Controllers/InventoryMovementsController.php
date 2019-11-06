@@ -23,9 +23,9 @@ class InventoryMovementsController extends Controller
             
             $company_id = $request->user()->company_default_id;
             if($request->inventory_movement_type == 1){
-                $inventory_movements = \App\Models\InventoryMovement::where('company_id', $company_id)->whereBetween('inventory_movement_entry_out_type_id', [174, 179])->orderBy($ordername, $ordertype)->paginate(15); 
+                $inventory_movements = \App\Models\InventoryMovement::where('company_id', $company_id)->whereBetween('inventory_movement_entry_out_type_id', [174, 179])->orderBy('consecutive', 'DESC')->orderBy($ordername, $ordertype)->paginate(15); 
             }else{
-                $inventory_movements = \App\Models\InventoryMovement::where('company_id', $company_id)->whereBetween('inventory_movement_entry_out_type_id', [180, 186])->orderBy($ordername, $ordertype)->paginate(15); 
+                $inventory_movements = \App\Models\InventoryMovement::where('company_id', $company_id)->whereBetween('inventory_movement_entry_out_type_id', [180, 186])->orderBy('consecutive', 'DESC')->orderBy($ordername, $ordertype)->paginate(15); 
             }
             
 

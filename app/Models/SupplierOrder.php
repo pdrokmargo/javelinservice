@@ -43,7 +43,10 @@ class SupplierOrder extends Model
         foreach($details as $d){
             $d['units'] -= $details_received->where('product_id', $d['product_id'])->where('fraction', false)->sum('units');
             $d['purchase_price'] = $d['product']['averageunitcost'];
-            $details_out[] = $d;
+            if($d['units'] > 0){
+                $details_out[] = $d;
+            }
+            
         }
         return $details_out;
     }
