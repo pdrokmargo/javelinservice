@@ -36,12 +36,29 @@ class InventoryMovementsController extends Controller
           return 'Error:'.$e->getMessage();
       } 
     }
+    public function getRemaining(Request $request)
+    {
+        $details_received = \App\Models\InventoryMovementDetail::with(['inventory_movement' => function ($query) {
+            $query->where('document_fullfilled_id', $this->id);
+        }]);
+        $details = json_decode($this->products,true);
+        $details_out = [];
+        foreach($details as $d){
+            $d['units'] -= $details_received->where('product_id', $d['product_id'])->where('fraction', false)->sum('units');
+            $d['purchase_price'] = $d['product']['averageunitcost'];
+            if($d['units'] > 0){
+                $details_out[] = $d;
+            }
+            
+        }
+        return $details_out;
+    }
     public function indexTranfers(Request $request)
     {
         try {
           
             $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';
-            $ordername = isset($request->ordername) ? $request->ordername : 'id';
+            $ordername = isset($request->ordername) ? $request->ordername : 'consecutive';
             $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
             $page = $request->page;
             
@@ -50,9 +67,10 @@ class InventoryMovementsController extends Controller
                 $delivery_point = \App\Models\DeliveryPoint::where('id', json_decode($active_delivery_point->value, true)['delivery_point_id'])->with('warehouses')->first(); 
                 $inventory_movements = new \App\Models\InventoryMovement();
                 $inventory_movements->setConnection('main');
-                $inventory_movements = \App\Models\InventoryMovement::where('company_id', $company_id)->where('document_fullfilled_id', $request->document_fullfilled)->where('inventory_movement_entry_out_type_id', 182)->where('counterpart_transfer_id', $delivery_point->warehouses->id)->with('remaining')->orderBy($ordername, $ordertype)->paginate(15); 
-                
-
+                $inventory_movements = \App\Models\InventoryMovement::where('company_id', $company_id)->where('document_fullfilled_id', $request->document_fullfilled)->where('inventory_movement_entry_out_type_id', 182)->where('counterpart_transfer_id', $delivery_point->warehouses->id)->with('details')->orderBy($ordername, $ordertype)->paginate(15); 
+                foreach($inventory_movements as $im){
+                    $im->remaining = $im->details;
+                }
             return response()->json(['status'=>'success', "message"=>'', "data" => $inventory_movements ], 200);
 
             } catch (Exception $e) {

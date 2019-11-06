@@ -10,7 +10,8 @@ class InventoryMovement extends Model
     protected $table = 'inventory_movements';
 
     protected $with = array('warehouse', 'details', 'inventory_movement_type','document');
-    protected $appends = ['total'];
+    protected $appends = ['total', 'remaining'];
+    public $remaining = [];
     public $incrementing = false;
     protected $fillable = [
           'consecutive_id',
@@ -23,6 +24,14 @@ class InventoryMovement extends Model
           'counterpart_transfer_id',
           'observations'
     ];
+    public function getRemainingAttribute()
+    {
+         return $this->remaining;
+    }
+    public function setRemainingAttribute($value)
+    {
+          $this->remaining = $value;
+    }
     public function getTotalAttribute()
     {
         $details = \App\Models\InventoryMovementDetail::where('inventory_movements_id', $this->id)->get(); 
