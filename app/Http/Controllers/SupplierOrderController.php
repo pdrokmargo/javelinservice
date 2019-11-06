@@ -30,6 +30,9 @@ class SupplierOrderController extends Controller
             }else{
                 $query=$query->where('status', true)->orderBy($ordername, $ordertype);
             }
+            if (isset($request->fullfilled)) {
+                $query = $query->where('fullfilled', $request->fullfilled);
+            }
             $sql=$query->toSql();
             $data=[];  
             if ($page) {
