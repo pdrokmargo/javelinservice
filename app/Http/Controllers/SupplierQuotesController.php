@@ -16,7 +16,7 @@ class SupplierQuotesController extends Controller
         try {
 
            $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';           
-            $ordername = isset($request->ordername) ? $request->ordername : 'id';
+            $ordername = isset($request->ordername) ? $request->ordername : 'consecutive';
             $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
             $supplierFilter = isset($request->supplier) ? "supplier_id = '".$request->supplier."'" : "";
             $page = $request->page;

@@ -16,7 +16,7 @@ class BillingController extends Controller
     {
         try {
             $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';
-            $ordername = isset($request->ordername) ? $request->ordername : 'id';
+            $ordername = isset($request->ordername) ? $request->ordername : 'consecutive';
             $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
             $page = $request->page;
             
