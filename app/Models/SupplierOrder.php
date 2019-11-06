@@ -38,6 +38,7 @@ class SupplierOrder extends Model
             $query->where('document_fullfilled_id', '=', $this->id);
         }]);
         
+        $details = $this->products;
         foreach($details as $d){
             $product_units = $details_received->where('product_id', $d->product_id)->where('fraction', false);
             $product_fractions = $details_received->where('product_id', $d->product_id)->where('fraction', true);
