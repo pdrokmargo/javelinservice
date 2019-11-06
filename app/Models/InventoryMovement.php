@@ -24,6 +24,10 @@ class InventoryMovement extends Model
           'counterpart_transfer_id',
           'observations'
     ];
+    public function counterpart_transfer()
+    {
+         return $this->belongsTo('App\Models\Warehouse', 'counterpart_transfer_id'); 
+    }
     public function getRemainingAttribute()
     {
          return $this->remaining;
