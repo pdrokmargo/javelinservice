@@ -40,11 +40,10 @@ class SupplierOrder extends Model
         
         $details = json_decode($this->products, true); 
         foreach($details as $d){
-            $products = $details_received->where('product_id', $d['product_id']);
-            $total_units_received = $products->sum('units');
-            $total_fractions_received = $products->sum('fraction');
-            $d['fraction'] -= $total_fractions_received;
-            $d['units'] -= $total_units_received;
+            $product_units = $details_received->where('product_id', $d['product_id'])->where('fraction', false);
+            $product_fractions = $details_received->where('product_id', $d['product_id'])->where('fraction', true);
+            $d['fraction'] -= $product_fractions->sum('units');
+            $d['units'] -= $product_units->sum('units');
         }
         return $details;
     }
