@@ -40,7 +40,7 @@ class SupplierOrder extends Model
         
         $details = $this->products; 
 
-        return $details;
+        return $details_received;
     }
     public function stakeholderInfo() {
         return $this->hasOne('App\Models\StakeholdersInfo', 'id','supplier_id');
