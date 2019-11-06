@@ -242,7 +242,7 @@ class InventoryMovementsController extends Controller
     public function show($id)
     {
         try {
-            $data = \App\Models\InventoryMovement::find($id);        
+            $data = \App\Models\InventoryMovement::with('counterpart_transfer')->find($id);        
             return response()->json(['status'=>'success', "message"=>'', "data" => $data ], 200);
        } catch (Exception $e) {
            return 'Error: ' . $e->getMessage();
