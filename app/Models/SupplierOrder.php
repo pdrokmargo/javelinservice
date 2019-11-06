@@ -12,6 +12,7 @@ class SupplierOrder extends Model
     public $timestamps = false;
     public $with = array('warehouse', 'stakeholderInfo', 'supplierInfo', 'buyer', 'document');
     public $incrementing = false;
+    public $appends = ['remaining'];
     protected $casts = [
         'products'=>'json'
     ];
@@ -31,7 +32,16 @@ class SupplierOrder extends Model
         'status'
     ];
     protected $hidden = [];
-   
+    public function getRemainingAttribute()
+    {
+        $details_received = \App\Models\InventoryMovementDetail::with(['inventory_movement' => function ($query) {
+            $query->where('document_fullfilled_id', '=', $this->id);
+        }]);
+        
+        $details = $this->products; 
+
+        return $details;
+    }
     public function stakeholderInfo() {
         return $this->hasOne('App\Models\StakeholdersInfo', 'id','supplier_id');
     }

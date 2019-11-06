@@ -25,7 +25,10 @@ class InventoryMovementDetail extends Model
     {
          return $this->belongsTo('App\Models\Product', 'product_id'); 
     }
-
+    public function inventory_movement()
+    {
+         return $this->belongsTo('App\Models\InventoryMovement', 'inventory_movements_id'); 
+    }
     public function getSubtotalAttribute()
     {
         $product = \App\Models\Product::where('id', $this->product_id)->first(); 
