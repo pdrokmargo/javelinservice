@@ -40,11 +40,13 @@ class SupplierOrder extends Model
         
         $details = json_decode($this->products, true); 
         foreach($details as $d){
+            $d = json_encode($d, true);
             $product_units = $details_received->where('product_id', $d['product_id'])->where('fraction', false);
             $product_fractions = $details_received->where('product_id', $d['product_id'])->where('fraction', true);
             $d['fraction'] -= $product_fractions->sum('units');
             $d['units'] -= $product_units->sum('units');
             $d['purchase_price'] = $d['product']['averageunitcost'];
+            $d = json_decode($d, true);
         }
         return $details;
     }
