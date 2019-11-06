@@ -38,7 +38,7 @@ class SupplierOrder extends Model
             $query->where('document_fullfilled_id', '=', $this->id);
         }]);
         
-        $details = $this->products; 
+        $details = json_decode($this->products, true); 
         foreach($details as $d){
             $total_units_received = $details_received->sum('units')->where('product_id', $d['product_id']);
             $total_fractions_received = $details_received->sum('fraction')->where('product_id', $d['product_id']);
