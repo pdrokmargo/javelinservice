@@ -17,15 +17,15 @@ class InventoryMovementsController extends Controller
         try {
           
             $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';
-            $ordername = isset($request->ordername) ? $request->ordername : 'id';
+            $ordername = isset($request->ordername) ? $request->ordername : 'consecutive';
             $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
             $page = $request->page;
             
             $company_id = $request->user()->company_default_id;
             if($request->inventory_movement_type == 1){
-                $inventory_movements = \App\Models\InventoryMovement::where('company_id', $company_id)->whereBetween('inventory_movement_entry_out_type_id', [174, 179])->orderBy('consecutive', 'DESC')->orderBy($ordername, $ordertype)->paginate(15); 
+                $inventory_movements = \App\Models\InventoryMovement::where('company_id', $company_id)->whereBetween('inventory_movement_entry_out_type_id', [174, 179])->orderBy($ordername, $ordertype)->paginate(15); 
             }else{
-                $inventory_movements = \App\Models\InventoryMovement::where('company_id', $company_id)->whereBetween('inventory_movement_entry_out_type_id', [180, 186])->orderBy('consecutive', 'DESC')->orderBy($ordername, $ordertype)->paginate(15); 
+                $inventory_movements = \App\Models\InventoryMovement::where('company_id', $company_id)->whereBetween('inventory_movement_entry_out_type_id', [180, 186])->orderBy($ordername, $ordertype)->paginate(15); 
             }
             
 
