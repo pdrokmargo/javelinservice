@@ -20,6 +20,7 @@ class CreateBillingTable extends Migration
 
             $table->date('created_at');
             $table->date('expire_at');
+            $table->dateTime('cancel_at')>nullable();
             
             $table->uuid('customer_id');//from stakeholders with customer profile.
             $table->integer('payment_condition_id');//from collections

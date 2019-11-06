@@ -18,6 +18,7 @@ class InventoryMovement extends Model
           'warehouse_id',
           'company_id',
           'date',
+          'document_fullfilled_id',
           'inventory_movement_entry_out_type_id',
           'counterpart_transfer_id',
           'observations'

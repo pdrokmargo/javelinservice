@@ -20,6 +20,7 @@ class Billing extends Model
         'expire_at',
         'payment_condition_id',
         'notes',
+        'cancel_at',
         'status'
     ];
     protected $hidden = [];

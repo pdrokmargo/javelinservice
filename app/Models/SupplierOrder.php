@@ -22,6 +22,7 @@ class SupplierOrder extends Model
         'supplier_id',       
         'created_at',
         'expire_at',
+        'fullfilled',        
         'estimate_delivery',
         'buyer_employee_id',
         'operationcentre_id',
