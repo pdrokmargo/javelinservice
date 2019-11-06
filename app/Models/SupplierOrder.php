@@ -39,8 +39,13 @@ class SupplierOrder extends Model
         }]);
         
         $details = $this->products; 
-
-        return $details_received;
+        foreach($details as $d){
+            $total_units_received = $details_received->max('units')->where('product_id', $d['product_id']);
+            $total_fractions_received = $details_received->max('fraction')->where('product_id', $d['product_id']);
+            $d['fraction'] -= $total_fractions_received;
+            $d['units'] -= $total_units_received;
+        }
+        return $details;
     }
     public function stakeholderInfo() {
         return $this->hasOne('App\Models\StakeholdersInfo', 'id','supplier_id');
