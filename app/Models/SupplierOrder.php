@@ -39,14 +39,16 @@ class SupplierOrder extends Model
         }]);
         
         $details = json_decode($this->products,true);
+        $details_out = [];
         foreach($details as $d){
             $product_units = $details_received->where('product_id', $d['product_id'])->where('fraction', false)->sum('units');
             $product_fractions = $details_received->where('product_id', $d['product_id'])->where('fraction', true)->sum('units');
             $d['fraction'] -= $product_fractions;
             $d['units'] -= $product_units;
             $d['purchase_price'] = $d['product']['averageunitcost'];
+            $details_out[] = $d;
         }
-        return $details;
+        return $details_out;
     }
     public function stakeholderInfo() {
         return $this->hasOne('App\Models\StakeholdersInfo', 'id','supplier_id');
