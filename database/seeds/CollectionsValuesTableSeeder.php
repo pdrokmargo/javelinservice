@@ -27,7 +27,7 @@ class CollectionsValuesTableSeeder extends Seeder
                 /*9*/['collection_id' => '4', 'parent_id' => 7,'code' => '47-magdalena', 'value' => 'Magdalena'],
                 /*10*/['collection_id' => '4', 'parent_id' => 7,'code' => '13-bolivar', 'value' => 'Bolívar'],
             //Cities, Towns, etc
-                /*11*/['collection_id' => '5', 'parent_id' => 8, 'code' => '001-barranquilla', 'value' => 'Barranquilla'],
+                /*11*/['collection_id' => '-5', 'parent_id' => 8, 'code' => '001-barranquilla', 'value' => 'Barranquilla'],
             //TYPES_OF_DOCUMENTS
                 /*12*/['collection_id' => '6', 'parent_id' => 0, 'code' => 'CC', 'value' => 'Cédula de ciudadanía'],
                 /*13*/['collection_id' => '6', 'parent_id' => 0, 'code' => 'CE', 'value' => 'Cédula de extranjería'],
@@ -58,16 +58,17 @@ class CollectionsValuesTableSeeder extends Seeder
             /*28*/['collection_id' => '13', 'parent_id' => 0, 'code' => 'detalle', 'value' => 'Detalle'],
 
             //PACKAGING_UNIT
-            /*29*/['collection_id' => '22', 'parent_id' => 0, 'code' => 'caja', 'value' => 'Caja (Cj)'],
+            /*29*/['collection_id' => '22', 'parent_id' => 0, 'code' => 'caja', 'value' => 'Caja'],
 
             //PRODUCT_TYPE
             /*30*/['collection_id' => '24', 'parent_id' => 0, 'code' => 'medicamento', 'value' => 'Medicamento'],
             /*31*/['collection_id' => '24', 'parent_id' => 0, 'code' => 'estandar_producto', 'value' => 'Estándar'],
 
             /*PHARMACEUTICAL_FORM*/
-            /*32*/['collection_id' => '23', 'parent_id' => 0, 'code' => 'sobre', 'value' => 'Sobre'],
-            /*33*/['collection_id' => '23', 'parent_id' => 0, 'code' => 'capsulas', 'value' => 'Cápsulas'],
-            /*34*/['collection_id' => '23', 'parent_id' => 0, 'code' => 'frasco', 'value' => 'Frasco'],
+            /*32*/['collection_id' => -23, 'parent_id' => 0, 'code' => 'sobre', 'value' => 'Sobre'],
+            /*33*/['collection_id' => -23, 'parent_id' => 0, 'code' => 'capsulas', 'value' => 'Cápsulas'],
+            /*34*/['collection_id' => -23, 'parent_id' => 0, 'code' => 'frasco', 'value' => 'Frasco'],
+
             /*ROUTES_ADMINISTRATION*/
             /*35*/['collection_id' => '25', 'parent_id' => 0, 'code' => 'oral', 'value' => 'Oral'],
             /*36*/['collection_id' => '25', 'parent_id' => 0, 'code' => 'intravenosa', 'value' => 'Intravenosa'],
@@ -134,8 +135,8 @@ class CollectionsValuesTableSeeder extends Seeder
             /*77*/["collection_id" => 31, "parent_id" => 0, "code" => "alfanumerico", "value" => "Alfanumérico"],
 
             // continue: PACKAGING_UNIT
-            /*78*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'bolsa', 'value' => 'Bolsa (Bj)'],
-            /*79*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'paquete', 'value' => 'Paquete (Pqte)'],
+            /*78*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'bolsa', 'value' => 'Bolsa'],
+            /*79*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'paquete', 'value' => 'Paquete'],
 
             /* continue: ROUTES_ADMINISTRATION*/
             /*80*/['collection_id' => 25, 'parent_id' => 0, 'code' => 'sublingual', 'value' => 'Sublingual'],
@@ -150,31 +151,31 @@ class CollectionsValuesTableSeeder extends Seeder
             /*89*/['collection_id' => 25, 'parent_id' => 0, 'code' => 'nasal', 'value' => 'Nasal'],  
             
             /* continue: PHARMACEUTICAL_FORM*/
-            /*90*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'tableta', 'value' => 'Tableta'],
-            /*91*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'tabletaprolongada', 'value' => 'Tableta de acción prolongada'],
-            /*92*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'grageas', 'value' => 'Grageas'],
-            /*93*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'supositorios', 'value' => 'Supositorios'],
-            /*94*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'ovulos', 'value' => 'Óvulos'],
-            /*95*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'crema', 'value' => 'Crema'],
-            /*96*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'unguento', 'value' => 'Ungüento'],
-            /*97*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'ampolla', 'value' => 'Ampolla'],
-            /*98*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'jarabe', 'value' => 'Jarabe'],
-            /*99*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'gota', 'value' => 'Gota'],
-            /*100*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'aerosol', 'value' => 'Aerosol'],
+            /*90*/['collection_id' => -23, 'parent_id' => 0, 'code' => 'tableta', 'value' => 'Tableta'],
+            /*91*/['collection_id' => -23, 'parent_id' => 0, 'code' => 'tabletaprolongada', 'value' => 'Tableta de acción prolongada'],
+            /*92*/['collection_id' => -23, 'parent_id' => 0, 'code' => 'grageas', 'value' => 'Grageas'],
+            /*93*/['collection_id' => -23, 'parent_id' => 0, 'code' => 'supositorios', 'value' => 'Supositorios'],
+            /*94*/['collection_id' => -23, 'parent_id' => 0, 'code' => 'ovulos', 'value' => 'Óvulos'],
+            /*95*/['collection_id' => -23, 'parent_id' => 0, 'code' => 'crema', 'value' => 'Crema'],
+            /*96*/['collection_id' => -23, 'parent_id' => 0, 'code' => 'unguento', 'value' => 'Ungüento'],
+            /*97*/['collection_id' => -23, 'parent_id' => 0, 'code' => 'ampolla', 'value' => 'Ampolla'],
+            /*98*/['collection_id' => -23, 'parent_id' => 0, 'code' => 'jarabe', 'value' => 'Jarabe'],
+            /*99*/['collection_id' => -23, 'parent_id' => 0, 'code' => 'gota', 'value' => 'Gota'],
+            /*100*/['collection_id' => -23, 'parent_id' => 0, 'code' => 'aerosol', 'value' => 'Aerosol'],
 
             /* MEASUREMENT_UNIT*/
-            /*101*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'und', 'value' => 'Unidad (und)'],
-            /*102*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'kg', 'value' => 'Kilogramo (kg)'],
-            /*103*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'g', 'value' => 'Gramo (g)'],
-            /*104*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'mg', 'value' => 'Miligramo (mg)'],
-            /*105*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'mcg', 'value' => 'Microgramo (mcg)'],
-            /*106*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'lt', 'value' => 'Litro (lt)'],
-            /*107*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'dl', 'value' => 'Decilitro (dl)'],
-            /*108*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'ml', 'value' => 'Mililitro (ml)'],
-            /*109*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'cc', 'value' => 'Centímetro cúbico (cc)'],
-            /*110*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'm', 'value' => 'Metro (m)'],
-            /*111*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'cm', 'value' => 'Centímetro (cm)'],
-            /*112*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'mm', 'value' => 'Milímetro (mm)'],
+            /*101*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'und', 'value' => 'UND'],
+            /*102*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'kg', 'value' => 'KG'],
+            /*103*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'g', 'value' => 'G'],
+            /*104*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'mg', 'value' => 'MG'],
+            /*105*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'mcg', 'value' => 'MCG'],
+            /*106*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'lt', 'value' => 'LT'],
+            /*107*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'dl', 'value' => 'DL'],
+            /*108*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'ml', 'value' => 'ML'],
+            /*109*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'cc', 'value' => 'CC'],
+            /*110*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'm', 'value' => 'M'],
+            /*111*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'cm', 'value' => 'CM'],
+            /*112*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'mm', 'value' => 'MM'],
             /*113*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'ui', 'value' => 'U.I.'],
             
             /* continue: STORAGE_CONDITION*/
@@ -292,7 +293,7 @@ class CollectionsValuesTableSeeder extends Seeder
             /*195*/['collection_id' => 42, 'parent_id' => 0, 'code' => 'entrega_futura', 'value' => 'Entrega futura'],
             /*196*/['collection_id' => 42, 'parent_id' => 0, 'code' => 'pendiente', 'value' => 'Pendiente'],
 
-            /*197*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'lapicero', 'value' => 'Lapicero'],
+            /*197*/['collection_id' => -23, 'parent_id' => 0, 'code' => 'lapicero', 'value' => 'Lapicero'],
             /*198*/['collection_id' => 33, 'parent_id' => 0, 'code' => 'tubo', 'value' => 'Tubo'],
             /*199*/['collection_id' => 33, 'parent_id' => 0, 'code' => 'frasco', 'value' => 'Frasco'],
             /*200*/['collection_id' => 33, 'parent_id' => 0, 'code' => 'lapicero-unit-content', 'value' => 'Lapicero'],
@@ -302,22 +303,22 @@ class CollectionsValuesTableSeeder extends Seeder
             /*202*/["collection_id" => 27, "parent_id" => 0, "code" => "0_contado", "value" => "Contado"],
 
             //PRODUCT_TYPE
-            /*203*/['collection_id' => 24, 'parent_id' => 0, 'code' => 'homologo', 'value' => 'Homólogos'],
-            /*204*/['collection_id' => 24, 'parent_id' => 0, 'code' => 'insumos', 'value' => 'Insumos'],
+            /*203*/['collection_id' => -24, 'parent_id' => 0, 'code' => 'homologo', 'value' => 'Homólogos'],
+            /*204*/['collection_id' => -24, 'parent_id' => 0, 'code' => 'insumos', 'value' => 'Insumos'],
 
             /*205*/['collection_id' => 33, 'parent_id' => 0, 'code' => 'comprimido', 'value' => 'Comprimido'],
             /*206*/['collection_id' => 33, 'parent_id' => 0, 'code' => 'ampolla-unit-content', 'value' => 'Ampolla'],
 
             /* continue: PHARMACEUTICAL_FORM*/
-            /*207*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'gel', 'value' => 'Gel'],
-            /*208*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'parche', 'value' => 'Parche'],
-            /*209*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'inhalador', 'value' => 'Inhalador'],
-            /*210*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'tableta_recubierta', 'value' => 'Tableta Recubierta'],
-            /*211*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'suspension', 'value' => 'Suspensión'],
+            /*207*/['collection_id' => -23, 'parent_id' => 0, 'code' => 'gel', 'value' => 'Gel'],
+            /*208*/['collection_id' => -23, 'parent_id' => 0, 'code' => 'parche', 'value' => 'Parche'],
+            /*209*/['collection_id' => -23, 'parent_id' => 0, 'code' => 'inhalador', 'value' => 'Inhalador'],
+            /*210*/['collection_id' => -23, 'parent_id' => 0, 'code' => 'tableta_recubierta', 'value' => 'Tableta Recubierta'],
+            /*211*/['collection_id' => -23, 'parent_id' => 0, 'code' => 'suspension', 'value' => 'Suspensión'],
 
             /* continue: MEASUREMENT_UNIT*/
-            /*212*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'porcentaje', 'value' => 'Porcentaje (%)'],
-            /*213*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'porcentaje', 'value' => 'Onza (Oz)'],
+            /*212*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'porcentaje', 'value' => '%'],
+            /*213*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'onza', 'value' => 'OZ'],
 
             /* continue: ROUTES_ADMINISTRATION*/
             /*214*/['collection_id' => 25, 'parent_id' => 0, 'code' => 'transdermico', 'value' => 'Transdérmico'],
@@ -1519,6 +1520,93 @@ class CollectionsValuesTableSeeder extends Seeder
             /*1399*/['collection_id' => '43', 'parent_id' => 0,'code' => 'evento', 'value' => 'Evento'], 
             /*1400*/['collection_id' => '43', 'parent_id' => 0,'code' => 'capita', 'value' => 'Cápita'], 
             /*1401*/['collection_id' => '43', 'parent_id' => 0,'code' => 'pgp', 'value' => 'PGP'], 
+
+            /* DOSAGE_FORM FINAL */
+            /*1402*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'tableta', 'value' => 'TABLETA'],
+            /*1403*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'sol_orl', 'value' => 'SOL_ORL'],
+            /*1404*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'sol_iny', 'value' => 'SOL_INY'],
+            /*1405*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'capsula', 'value' => 'CAPSULA'],
+            /*1406*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'sol_orl_gts', 'value' => 'SOL_ORL_GTS'],
+            /*1407*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'jarabe', 'value' => 'JARABE'],
+            /*1408*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'susp_orl', 'value' => 'SUSP_ORL'],
+            /*1409*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'locion', 'value' => 'LOCION'],
+            /*1410*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'crema', 'value' => 'CREMA'],
+            /*1411*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'pol_liof_iny', 'value' => 'POL_LIOF_INY'],
+            /*1412*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'pol_susp_iny', 'value' => 'POL_SUSP_INY'],
+            /*1413*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'ung_top', 'value' => 'UNG_TOP'],
+            /*1414*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'ung_oft', 'value' => 'UNG_OFT'],
+            /*1415*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'pol_orl', 'value' => 'POL_ORL'],
+            /*1416*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'gel', 'value' => 'GEL'],
+            /*1417*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'susp_oft', 'value' => 'SUSP_OFT'],
+            /*1418*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'comprimido', 'value' => 'COMPRIMIDO'],
+            /*1419*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'sol_oft_gts', 'value' => 'SOL_OFT_GTS'],
+            /*1420*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'sol_inf', 'value' => 'SOL_INF'],
+            /*1421*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'sol_top', 'value' => 'SOL_TOP'],
+            /*1422*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'pol_iny', 'value' => 'POL_INY'],
+            /*1423*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'pol_liof_inf', 'value' => 'POL_LIOF_INF'],
+            /*1424*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'pol_para_susp', 'value' => 'POL_PARA_SUSP'],
+            /*1425*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'sol_nas', 'value' => 'SOL_NAS'],
+            /*1426*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'susp_oral', 'value' => 'SUSP_ORAL'],
+            /*1427*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'spray_nas', 'value' => 'SPRAY_NAS'],
+            /*1428*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'inhalador', 'value' => 'INHALADOR'],
+            /*1429*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'susp_nas', 'value' => 'SUSP_NAS'],
+            /*1430*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'polvo', 'value' => 'POLVO'],
+            /*1431*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'sol_orl_con_valvula', 'value' => 'SOL_ORL_CON_VALVULA'],
+            /*1432*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'sol_otic_gts', 'value' => 'SOL_OTIC_GTS'],
+            /*1433*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'gragea', 'value' => 'GRAGEA'],
+            /*1434*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'bolsa', 'value' => 'BOLSA'],
+            /*1435*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'sol_inh', 'value' => 'SOL_INH'],
+            /*1436*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'sol_neb', 'value' => 'SOL_NEB'],
+            /*1437*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'susp_neb', 'value' => 'SUSP_NEB'],
+            /*1438*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'sist_transd', 'value' => 'SIST_TRANSD'],
+            /*1439*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'pol_orl_eferv', 'value' => 'POL_ORL_EFERV'],
+            /*1440*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'pol_gran', 'value' => 'POL_GRAN'],
+            /*1441*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'ampolla', 'value' => 'AMPOLLA'],
+            /*1442*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'ovulo', 'value' => 'OVULO'],
+            /*1443*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'shamp', 'value' => 'SHAMP'],
+            /*1444*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'sol_nas_gts', 'value' => 'SOL_NAS_GTS'],
+            /*1445*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'emulsion', 'value' => 'EMULSION'],
+            /*1446*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'sol_oft', 'value' => 'SOL_OFT'],
+            /*1447*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'implante', 'value' => 'IMPLANTE'],
+            /*1448*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'susp_iny', 'value' => 'SUSP_INY'],
+            /*1449*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'sol_buc', 'value' => 'SOL_BUC'],
+            /*1450*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'sol_intr', 'value' => 'SOL_INTR'],
+            /*1451*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'supositorio', 'value' => 'SUPOSITORIO'],
+            /*1452*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'jabon', 'value' => 'JABON'],
+            /*1453*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'susp_oft_gts', 'value' => 'SUSP_OFT_GTS'],
+            /*1454*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'suspension', 'value' => 'SUSPENSION'],
+            /*1455*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'solucion', 'value' => 'SOLUCION'],
+            /*1456*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'jalea', 'value' => 'JALEA'],
+            /*1457*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'tubo', 'value' => 'TUBO'],
+            /*1458*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'sol_paren', 'value' => 'SOL_PAREN'],
+            /*1459*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'pol_gran_pro', 'value' => 'POL_GRAN_PRO'],
+            /*1460*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'susp_rec', 'value' => 'SUSP_REC'],
+            /*1461*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'espuma', 'value' => 'ESPUMA'],
+            /*1462*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'jeringa_prellenada', 'value' => 'JERINGA_PRELLENADA'],
+            /*1463*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'frasco', 'value' => 'FRASCO'],
+            /*1464*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'pote', 'value' => 'POTE'],
+            /*1465*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'susp_top', 'value' => 'SUSP_TOP'],
+            /*1466*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'spray_top', 'value' => 'SPRAY_TOP'],
+            /*1467*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'granulado', 'value' => 'GRANULADO'],
+
+            /* Measurement unit
+            /*1468*/['collection_id' => 21, 'parent_id' => 0, 'code' => 'meq', 'value' => 'MEQ'],
+
+            /* Product Type
+            /*1469*/['collection_id' => 24, 'parent_id' => 0, 'code' => 'alimentos', 'value' => 'Alimentos'],
+            /*1470*/['collection_id' => 24, 'parent_id' => 0, 'code' => 'cosmetico', 'value' => 'Cosméticos'],
+            /*1471*/['collection_id' => 24, 'parent_id' => 0, 'code' => 'dispositivo_medico', 'value' => 'Dispositivos Médicos'],
+            /*1472*/['collection_id' => 24, 'parent_id' => 0, 'code' => 'alimentos', 'value' => 'Alimentos'],
+
+            /* CONTENT_UNIT */ 
+            // continue: PACKAGING_UNIT
+            
+            /*1475*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'vial', 'value' => 'Vial'],
+            /*1476*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'tarro', 'value' => 'Tarro'],
+            /*1477*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'pote', 'value' => 'Pote'],
+            /*1478*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'garrafa', 'value' => 'Garrafa'],
+            /*1479*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'spray', 'value' => 'Spray'],
+            /*1480*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'unidad-content-unit', 'value' => 'Unidad'],
         ]);
     }
 }

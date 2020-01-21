@@ -24,7 +24,7 @@ class CreateProductsTable extends Migration
             $table->integer('security_time')->nullable();
             $table->integer('covered_period')->nullable();
             $table->integer('replacement_time')->nullable();
-            $table->integer('barcode')->nullable();
+            $table->string('barcode')->nullable();
             $table->boolean('institutional_use')->default(false);
             $table->boolean('batch_control')->default(false);
             $table->boolean('serials_control')->default(false);

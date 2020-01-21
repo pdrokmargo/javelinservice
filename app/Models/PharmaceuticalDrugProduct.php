@@ -27,6 +27,10 @@ class PharmaceuticalDrugProduct extends Model
     public function sanitary_registration_holder()
 	{
 		 return $this->belongsTo('App\Models\StakeholdersInfo', 'sanitary_registration_holder_id'); 
+    }
+    public function laboratory()
+	{
+		 return $this->belongsTo('App\Models\StakeholdersInfo', 'laboratory_id'); 
 	}
     
     public function pharmaceuticaldrug()

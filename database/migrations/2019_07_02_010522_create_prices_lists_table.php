@@ -13,11 +13,11 @@ class CreatePricesListsTable extends Migration
      */
     public function up()
     {
-        Schema::create('prices_lists', function (Blueprint $table) {
+        Schema::create('prices_contracts', function (Blueprint $table) {
             $table->uuid('id');
             $table->uuid('product_id');
-            $table->uuid('medical_diagnosis_id');
             $table->uuid('delivery_contract_id');
+            $table->double('price');
             $table->timestamps();
             $table->primary('id');
         });
@@ -30,6 +30,6 @@ class CreatePricesListsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prices_lists');
+        Schema::dropIfExists('prices_contracts');
     }
 }

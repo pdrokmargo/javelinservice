@@ -93,14 +93,6 @@ class Product extends Model
 	{
 		 return $this->belongsTo('App\Models\CollectionsValues', 'product_type_id'); 
 	}
-	
-
-
-	public function supplier()
-	{
-		 return $this->belongsTo('App\Models\StakeholdersInfo', 'supplier_id'); 
-	}
-	
 	public function manufacturer()
 	{
 		 return $this->belongsTo('App\Models\StakeholdersInfo', 'manufacturer_id'); 
@@ -109,5 +101,5 @@ class Product extends Model
 	public function importer()
 	{
 		 return $this->belongsTo('App\Models\StakeholdersInfo', 'importer_id'); 
-    }
+	}
 }

@@ -76,7 +76,7 @@ class ConfigurationsTableSeeder extends Seeder
                 {"table_name":"operationscentres", "up":"false", "down":"true", "last_down": ""},
                 {"table_name":"pharmaceutical_drugs", "up":"false", "down":"true", "last_down": ""},
                 {"table_name":"pharmaceutical_drugs_products", "up":"false", "down":"true", "last_down": ""},
-                {"table_name":"prices_lists", "up":"false", "down":"true", "last_down": ""},
+                {"table_name":"prices_contracts", "up":"false", "down":"true", "last_down": ""},
                 {"table_name":"privileges", "up":"false", "down":"true", "last_down": ""},
                 {"table_name":"products_contracts", "up":"false", "down":"true", "last_down": ""},
                 {"table_name":"remissions_goods", "up":"true", "down":"true", "last_down": ""},
