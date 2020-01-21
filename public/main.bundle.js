@@ -1,4 +1,4 @@
-webpackJsonp([25],{
+webpackJsonp([29],{
 
 /***/ "../../../../../src async recursive":
 /***/ (function(module, exports, __webpack_require__) {
@@ -6,70 +6,86 @@ webpackJsonp([25],{
 var map = {
 	"./auth/authentication.module": [
 		"../../../../../src/app/auth/authentication.module.ts",
-		19
+		23
 	],
 	"app/smartity/affiliates/affiliates.module": [
 		"../../../../../src/app/smartity/affiliates/affiliates.module.ts",
-		17
+		21
 	],
 	"app/smartity/auditoria/auditoria.module": [
 		"../../../../../src/app/smartity/auditoria/auditoria.module.ts",
-		22
+		26
+	],
+	"app/smartity/billing/billing.module": [
+		"../../../../../src/app/smartity/billing/billing.module.ts",
+		20
 	],
 	"app/smartity/company/company.module": [
 		"../../../../../src/app/smartity/company/company.module.ts",
-		16
+		19
 	],
 	"app/smartity/configuration/configuration.module": [
 		"../../../../../src/app/smartity/configuration/configuration.module.ts",
-		21
+		25
 	],
 	"app/smartity/costscentres/costscentres.module": [
 		"../../../../../src/app/smartity/costscentres/costscentres.module.ts",
-		15
+		18
+	],
+	"app/smartity/customers-quotes/customers-quotes.module": [
+		"../../../../../src/app/smartity/customers-quotes/customers-quotes.module.ts",
+		17
 	],
 	"app/smartity/dashboard/dashboard.module": [
 		"../../../../../src/app/smartity/dashboard/dashboard.module.ts",
-		23
+		27
 	],
 	"app/smartity/delivery-contracts/delivery-contracts.module": [
 		"../../../../../src/app/smartity/delivery-contracts/delivery-contracts.module.ts",
-		14
+		16
 	],
 	"app/smartity/delivery-points/delivery-points.module": [
 		"../../../../../src/app/smartity/delivery-points/delivery-points.module.ts",
-		13
+		15
+	],
+	"app/smartity/delivery/delivery.module": [
+		"../../../../../src/app/smartity/delivery/delivery.module.ts",
+		14
 	],
 	"app/smartity/inventory-adjustments/inventory-adjustments.module": [
 		"../../../../../src/app/smartity/inventory-adjustments/inventory-adjustments.module.ts",
-		12
+		13
 	],
 	"app/smartity/inventory-audit/inventory-audit.module": [
 		"../../../../../src/app/smartity/inventory-audit/inventory-audit.module.ts",
-		11
+		12
 	],
 	"app/smartity/inventory-movements-entry/inventory-movements-entry.module": [
 		"../../../../../src/app/smartity/inventory-movements-entry/inventory-movements-entry.module.ts",
-		10
+		11
 	],
 	"app/smartity/inventory-movements-out/inventory-movements-out.module": [
 		"../../../../../src/app/smartity/inventory-movements-out/inventory-movements-out.module.ts",
-		9
+		10
 	],
 	"app/smartity/my-profile/my-profile.module": [
 		"../../../../../src/app/smartity/my-profile/my-profile.module.ts",
-		20
+		24
 	],
 	"app/smartity/operationscentre/operationscentre.module": [
 		"../../../../../src/app/smartity/operationscentre/operationscentre.module.ts",
-		8
+		9
 	],
 	"app/smartity/pharmaceutical-drug/pharmaceutical-drug.module": [
 		"../../../../../src/app/smartity/pharmaceutical-drug/pharmaceutical-drug.module.ts",
-		7
+		8
 	],
 	"app/smartity/product/product.module": [
 		"../../../../../src/app/smartity/product/product.module.ts",
+		7
+	],
+	"app/smartity/remission-goods/remission-goods.module": [
+		"../../../../../src/app/smartity/remission-goods/remission-goods.module.ts",
 		6
 	],
 	"app/smartity/stakeholders/stakeholders.module": [
@@ -78,7 +94,7 @@ var map = {
 	],
 	"app/smartity/stocks/stocks.module": [
 		"../../../../../src/app/smartity/stocks/stocks.module.ts",
-		18
+		22
 	],
 	"app/smartity/suppliers-orders/suppliers-orders.module": [
 		"../../../../../src/app/smartity/suppliers-orders/suppliers-orders.module.ts",
@@ -297,6 +313,18 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__smartity_modals_modal_products_modal_products_list_modal_products_list_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-products/modal-products-list/modal-products-list.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__smartity_modals_modal_stocks_modal_stocks_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-stocks/modal-stocks.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__smartity_modals_modal_stocks_modal_stocks_list_modal_stocks_list_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-stocks/modal-stocks-list/modal-stocks-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__smartity_modals_modal_supplier_quotes_modal_supplier_quotes_list_modal_supplier_quotes_list_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-supplier-quotes/modal-supplier-quotes-list/modal-supplier-quotes-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__smartity_modals_modal_supplier_orders_modal_supplier_orders_list_modal_supplier_orders_list_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-supplier-orders/modal-supplier-orders-list/modal-supplier-orders-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__smartity_modals_modal_customers_quotes_modal_customers_quotes_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-customers-quotes/modal-customers-quotes.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__smartity_modals_modal_customers_quotes_modal_customers_quotes_list_modal_customers_quotes_list_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-customers-quotes/modal-customers-quotes-list/modal-customers-quotes-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_51__smartity_modals_modal_remission_goods_modal_remission_goods_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-remission-goods/modal-remission-goods.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_52__smartity_modals_modal_remission_goods_modal_remission_goods_list_modal_remission_goods_list_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-remission-goods/modal-remission-goods-list/modal-remission-goods-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_53__smartity_modals_modal_affiliates_modal_affiliates_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-affiliates/modal-affiliates.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_54__smartity_modals_modal_affiliates_modal_affiliates_list_modal_affiliates_list_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-affiliates/modal-affiliates-list/modal-affiliates-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_55__smartity_modals_modal_inventory_movement_transfers_modal_inventory_movement_transfers_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-inventory-movement-transfers/modal-inventory-movement-transfers.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__smartity_modals_modal_inventory_movement_transfers_modal_inventory_movement_transfers_list_modal_inventory_movement_transfers_list_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-inventory-movement-transfers/modal-inventory-movement-transfers-list/modal-inventory-movement-transfers-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__smartity_modals_modal_purchase_orders_modal_purchase_orders_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-purchase-orders/modal-purchase-orders.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__smartity_modals_modal_purchase_orders_modal_purchase_orders_list_modal_purchase_orders_list_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-purchase-orders/modal-purchase-orders-list/modal-purchase-orders-list.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -336,6 +364,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 // Sub modules
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -453,7 +493,21 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_43__smartity_modals_modal_products_modal_products_action_modal_products_action_component__["a" /* ModalProductsActionComponent */],
                 __WEBPACK_IMPORTED_MODULE_44__smartity_modals_modal_products_modal_products_list_modal_products_list_component__["a" /* ModalProductsListComponent */],
                 __WEBPACK_IMPORTED_MODULE_45__smartity_modals_modal_stocks_modal_stocks_component__["a" /* ModalStocksComponent */],
-                __WEBPACK_IMPORTED_MODULE_46__smartity_modals_modal_stocks_modal_stocks_list_modal_stocks_list_component__["a" /* ModalStocksListComponent */]
+                __WEBPACK_IMPORTED_MODULE_46__smartity_modals_modal_stocks_modal_stocks_list_modal_stocks_list_component__["a" /* ModalStocksListComponent */],
+                __WEBPACK_IMPORTED_MODULE_28__smartity_modals__["w" /* ModalSupplierQuotesComponent */],
+                __WEBPACK_IMPORTED_MODULE_28__smartity_modals__["x" /* ModalSupplierOrdersComponent */],
+                __WEBPACK_IMPORTED_MODULE_47__smartity_modals_modal_supplier_quotes_modal_supplier_quotes_list_modal_supplier_quotes_list_component__["a" /* ModalSupplierQuotesListComponent */],
+                __WEBPACK_IMPORTED_MODULE_48__smartity_modals_modal_supplier_orders_modal_supplier_orders_list_modal_supplier_orders_list_component__["a" /* ModalSupplierOrdersListComponent */],
+                __WEBPACK_IMPORTED_MODULE_49__smartity_modals_modal_customers_quotes_modal_customers_quotes_component__["a" /* ModalCustomersQuotesComponent */],
+                __WEBPACK_IMPORTED_MODULE_50__smartity_modals_modal_customers_quotes_modal_customers_quotes_list_modal_customers_quotes_list_component__["a" /* ModalCustomersQuotesListComponent */],
+                __WEBPACK_IMPORTED_MODULE_51__smartity_modals_modal_remission_goods_modal_remission_goods_component__["a" /* ModalRemissionGoodsComponent */],
+                __WEBPACK_IMPORTED_MODULE_52__smartity_modals_modal_remission_goods_modal_remission_goods_list_modal_remission_goods_list_component__["a" /* ModalRemissionGoodsListComponent */],
+                __WEBPACK_IMPORTED_MODULE_53__smartity_modals_modal_affiliates_modal_affiliates_component__["a" /* ModalAffiliatesComponent */],
+                __WEBPACK_IMPORTED_MODULE_54__smartity_modals_modal_affiliates_modal_affiliates_list_modal_affiliates_list_component__["a" /* ModalAffiliatesListComponent */],
+                __WEBPACK_IMPORTED_MODULE_55__smartity_modals_modal_inventory_movement_transfers_modal_inventory_movement_transfers_component__["a" /* ModalInventoryMovementTransfersComponent */],
+                __WEBPACK_IMPORTED_MODULE_56__smartity_modals_modal_inventory_movement_transfers_modal_inventory_movement_transfers_list_modal_inventory_movement_transfers_list_component__["a" /* ModalInventoryMovementTransfersListComponent */],
+                __WEBPACK_IMPORTED_MODULE_57__smartity_modals_modal_purchase_orders_modal_purchase_orders_component__["a" /* ModalPurchaseOrdersComponent */],
+                __WEBPACK_IMPORTED_MODULE_58__smartity_modals_modal_purchase_orders_modal_purchase_orders_list_modal_purchase_orders_list_component__["a" /* ModalPurchaseOrdersListComponent */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_41__smartity_pipe_mycurrency_pipe__["a" /* MycurrencyPipe */],
@@ -499,6 +553,15 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_34__smartity_active_ingredients_active_ingredients_action_active_ingredients_action_component__["a" /* ActiveIngredientsActionComponent */],
                 __WEBPACK_IMPORTED_MODULE_42__smartity_modals_modal_products_modal_products_component__["a" /* ModalProductsComponent */],
                 __WEBPACK_IMPORTED_MODULE_45__smartity_modals_modal_stocks_modal_stocks_component__["a" /* ModalStocksComponent */],
+                __WEBPACK_IMPORTED_MODULE_28__smartity_modals__["x" /* ModalSupplierOrdersComponent */],
+                __WEBPACK_IMPORTED_MODULE_28__smartity_modals__["w" /* ModalSupplierQuotesComponent */],
+                __WEBPACK_IMPORTED_MODULE_49__smartity_modals_modal_customers_quotes_modal_customers_quotes_component__["a" /* ModalCustomersQuotesComponent */],
+                __WEBPACK_IMPORTED_MODULE_53__smartity_modals_modal_affiliates_modal_affiliates_component__["a" /* ModalAffiliatesComponent */],
+                __WEBPACK_IMPORTED_MODULE_54__smartity_modals_modal_affiliates_modal_affiliates_list_modal_affiliates_list_component__["a" /* ModalAffiliatesListComponent */],
+                __WEBPACK_IMPORTED_MODULE_57__smartity_modals_modal_purchase_orders_modal_purchase_orders_component__["a" /* ModalPurchaseOrdersComponent */],
+                __WEBPACK_IMPORTED_MODULE_58__smartity_modals_modal_purchase_orders_modal_purchase_orders_list_modal_purchase_orders_list_component__["a" /* ModalPurchaseOrdersListComponent */],
+                __WEBPACK_IMPORTED_MODULE_55__smartity_modals_modal_inventory_movement_transfers_modal_inventory_movement_transfers_component__["a" /* ModalInventoryMovementTransfersComponent */],
+                __WEBPACK_IMPORTED_MODULE_56__smartity_modals_modal_inventory_movement_transfers_modal_inventory_movement_transfers_list_modal_inventory_movement_transfers_list_component__["a" /* ModalInventoryMovementTransfersListComponent */]
             ]
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_core__["c" /* ApplicationRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_core__["c" /* ApplicationRef */]) === "function" ? _a : Object])
@@ -552,8 +615,8 @@ var AuthenticationService = /** @class */ (function () {
     function AuthenticationService(http) {
         this.http = http;
         var currentUser = JSON.parse(localStorage.getItem("currentUser"));
-        // this.urlBase = 'http://localhost/javelinservice/public/';
-        this.urlBase = 'https://javelinservice.herokuapp.com/';
+        this.urlBase = 'https://javelinservice.herokuapp.com';
+        // this.urlBase = 'http://localhost/javelinservice/public';
         if (localStorage.getItem('currentUser') != null) {
             this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Headers */]({
                 "Accept": "application/json",
@@ -953,6 +1016,10 @@ var routes = [
             { path: 'inventory-audit', loadChildren: 'app/smartity/inventory-audit/inventory-audit.module#InventoryAuditModule', canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_guards_privilege_guard__["a" /* PrivilegeGuard */]] },
             { path: 'suppliers-orders', loadChildren: 'app/smartity/suppliers-orders/suppliers-orders.module#SuppliersOrdersModule', canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_guards_privilege_guard__["a" /* PrivilegeGuard */]] },
             { path: 'suppliers-quotes', loadChildren: 'app/smartity/suppliers-quotes/suppliers-quotes.module#SuppliersQuotesModule', canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_guards_privilege_guard__["a" /* PrivilegeGuard */]] },
+            { path: 'customers-quotes', loadChildren: 'app/smartity/customers-quotes/customers-quotes.module#CustomersQuotesModule', canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_guards_privilege_guard__["a" /* PrivilegeGuard */]] },
+            { path: 'remission-goods', loadChildren: 'app/smartity/remission-goods/remission-goods.module#RemissionGoodsModule', canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_guards_privilege_guard__["a" /* PrivilegeGuard */]] },
+            { path: 'billing', loadChildren: 'app/smartity/billing/billing.module#BillingModule', canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_guards_privilege_guard__["a" /* PrivilegeGuard */]] },
+            { path: 'delivery', loadChildren: 'app/smartity/delivery/delivery.module#DeliveryModule', canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_guards_privilege_guard__["a" /* PrivilegeGuard */]] },
         ]
     }
 ];
@@ -2261,7 +2328,7 @@ var ActiveIngredientsActionComponent = /** @class */ (function (_super) {
 /***/ "../../../../../src/app/smartity/active-ingredients/active-ingredients-list/active-ingredients-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n            <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\" (keydown)=\"enter($event)\">\n            <div style=\"width: 34px\" class=\"input-group-addon\">\n                <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                    <i class=\"fa fa-search\"></i>\n                </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-md-6\" *ngIf=\"!noaction\">\n        <button mat-raised-button (click)=\"NEW()\" color=\"primary\" class=\"btn-w-md no-margin-left btn-right\">\n            <mat-icon>add_circle_outline</mat-icon> Nuevo\n        </button>\n    </div>\n\n    <div class=\"col-sm-12\">\n\n        <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n            <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n                <thead>\n                    <tr>\n                        <th (click)=\"sort('id')\">ID\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='cc.id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('name')\">Nombre\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='name'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th *ngIf=\"!noaction\"></th>\n                    </tr>\n                </thead>\n                <tbody *ngIf=\"list.data\">\n                    <tr *ngFor=\"let item of list.data; let index = index\" (click)=\"view(item); numItemSelected = index\" [ngClass]=\"{'active': numItemSelected == index }\">\n                        <td>{{ item.id }}</td>\n                        <td>{{ item.name }}</td>\n                        <td class=\"text-center\" *ngIf=\"!noaction\">\n                            <a style=\"color:#0a6ebd;cursor:pointer;\" (click)=\"view(item)\">\n                                <i class=\"fa fa-pencil fa-2x\"></i>\n                            </a>\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n\n        </div>\n\n        <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\n            [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n    </div>\n</div>"
+module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n            <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\" (keydown)=\"enter($event)\">\n            <div style=\"width: 34px\" class=\"input-group-addon\">\n                <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                    <i class=\"fa fa-search\"></i>\n                </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-md-6\" *ngIf=\"!noaction\">\n        <button mat-raised-button (click)=\"NEW()\" color=\"primary\" class=\"btn-w-md no-margin-left btn-right\">\n            <mat-icon>add_circle_outline</mat-icon> Nuevo\n        </button>\n    </div>\n\n    <div class=\"col-sm-12\">\n\n        <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n            <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n                <thead>\n                    <tr>\n                        <!-- <th (click)=\"sort('id')\">ID\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='cc.id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th> -->\n                        <th (click)=\"sort('name')\">Nombre\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='name'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th *ngIf=\"!noaction\"></th>\n                    </tr>\n                </thead>\n                <tbody *ngIf=\"list.data\">\n                    <tr *ngFor=\"let item of list.data; let index = index\" (click)=\"view(item); numItemSelected = index\" [ngClass]=\"{'active': numItemSelected == index }\">\n                        <!-- <td>{{ item.id }}</td> -->\n                        <td>{{ item.name }}</td>\n                        <td class=\"text-center\" *ngIf=\"!noaction\">\n                            <a style=\"color:#0a6ebd;cursor:pointer;\" (click)=\"view(item)\">\n                                <i class=\"fa fa-pencil fa-2x\"></i>\n                            </a>\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n\n        </div>\n\n        <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\n            [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n    </div>\n</div>"
 
 /***/ }),
 
@@ -3321,6 +3388,30 @@ var LrvTableComponent = /** @class */ (function () {
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__modal_products_modal_products_list_modal_products_list_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-products/modal-products-list/modal-products-list.component.ts");
 /* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__modal_supplier_quotes_modal_supplier_quotes_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-supplier-quotes/modal-supplier-quotes.component.ts");
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "w", function() { return __WEBPACK_IMPORTED_MODULE_30__modal_supplier_quotes_modal_supplier_quotes_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__modal_supplier_orders_modal_supplier_orders_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-supplier-orders/modal-supplier-orders.component.ts");
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "x", function() { return __WEBPACK_IMPORTED_MODULE_31__modal_supplier_orders_modal_supplier_orders_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__modal_customers_quotes_modal_customers_quotes_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-customers-quotes/modal-customers-quotes.component.ts");
+/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__modal_remission_goods_modal_remission_goods_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-remission-goods/modal-remission-goods.component.ts");
+/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__modal_affiliates_modal_affiliates_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-affiliates/modal-affiliates.component.ts");
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "y", function() { return __WEBPACK_IMPORTED_MODULE_34__modal_affiliates_modal_affiliates_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__modal_products_modal_products_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-products/modal-products.component.ts");
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "z", function() { return __WEBPACK_IMPORTED_MODULE_35__modal_products_modal_products_component__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__modal_purchase_orders_modal_purchase_orders_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-purchase-orders/modal-purchase-orders.component.ts");
+/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__modal_inventory_movement_transfers_modal_inventory_movement_transfers_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-inventory-movement-transfers/modal-inventory-movement-transfers.component.ts");
+/* unused harmony namespace reexport */
+
+
+
+
+
+
+
+
 
 
 
@@ -3415,10 +3506,153 @@ var ModalActiveIngredientsComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/smartity/modals/modal-affiliates/modal-affiliates-list/modal-affiliates-list.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n            <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\" (keydown)=\"enter($event)\">\n            <div style=\"width: 34px\" class=\"input-group-addon\">\n                <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                    <i class=\"fa fa-search\"></i>\n                </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-md-6\" *ngIf=\"!noaction\">\n        <button *ngIf=\"actions[0].status\" mat-raised-button (click)=\"NEW()\" color=\"primary\" class=\"btn-w-md no-margin-left btn-right\">\n            <mat-icon>add_circle_outline</mat-icon> Nuevo\n        </button>\n    </div>\n\n    <div class=\"col-sm-12\">\n\n        <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n            <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n                <thead>\n                    <tr>\n                        <th class=\"noAuto\" (click)=\"sort('id')\">Identificación\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('document_type_id')\">Nombre\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='document_type_id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('contract')\">Contrato\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='contract'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <!--th (click)=\"sort('contract')\">Modalidad\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='contract'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th-->\n                        <th (click)=\"sort('state')\">Estado\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='ct.state'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                    </tr>\n                </thead>\n                <tbody *ngIf=\"list.data\">\n                    <tr *ngFor=\"let item of list.data\" (click)=\"view(item); numItemSelected = index\" [ngClass]=\"{'active': numItemSelected == index }\">\n                        <td class=\"noAuto\">{{ item.document_number }}</td>\n                        <td>{{ item.display_name }}</td>\n                        <td>{{ item.contract }}</td>\n                        <!--td>{{item.contracts_payment_method}}</td-->\n                        <td>{{ item.state ? 'Activo' : 'Inactiva' }}</td>\n                    </tr>\n                </tbody>\n            </table>\n\n        </div>\n\n        <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\n            [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-affiliates/modal-affiliates-list/modal-affiliates-list.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bases_base_list__ = __webpack_require__("../../../../../src/app/smartity/bases/base-list.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalAffiliatesListComponent; });
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ModalAffiliatesListComponent = /** @class */ (function (_super) {
+    __extends(ModalAffiliatesListComponent, _super);
+    function ModalAffiliatesListComponent(loaderService, helperService, router) {
+        var _this = _super.call(this, loaderService, helperService) || this;
+        _this.loaderService = loaderService;
+        _this.helperService = helperService;
+        _this.router = router;
+        _this.select = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* EventEmitter */]();
+        _this.numItemSelected = -1;
+        _this.urlApi = '/api/affiliates';
+        return _this;
+    }
+    ModalAffiliatesListComponent.prototype.ngOnInit = function () {
+        this.getAll();
+    };
+    ModalAffiliatesListComponent.prototype.view = function (row) {
+        this.select.emit(row);
+    };
+    var _a, _b, _c, _d;
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* Input */])(),
+        __metadata("design:type", typeof (_a = typeof String !== "undefined" && String) === "function" ? _a : Object)
+    ], ModalAffiliatesListComponent.prototype, "affiliate", void 0);
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* Output */])(),
+        __metadata("design:type", Object)
+    ], ModalAffiliatesListComponent.prototype, "select", void 0);
+    ModalAffiliatesListComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+            selector: 'app-modal-affiliates-list',
+            template: __webpack_require__("../../../../../src/app/smartity/modals/modal-affiliates/modal-affiliates-list/modal-affiliates-list.component.html")
+        }),
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared__["a" /* LoaderService */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared__["b" /* HelperService */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" ? _d : Object])
+    ], ModalAffiliatesListComponent);
+    return ModalAffiliatesListComponent;
+}(__WEBPACK_IMPORTED_MODULE_1__bases_base_list__["a" /* BaseList */]));
+
+//# sourceMappingURL=modal-affiliates-list.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-affiliates/modal-affiliates.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h1 mat-dialog-title>{{ data.title }}</h1>\n\n<mat-dialog-content>\n  <app-modal-affiliates-list [affiliate]=\"data.affiliate\" (select)=\"select($event)\"></app-modal-affiliates-list>\n</mat-dialog-content>\n\n<mat-dialog-actions>\n    <div class=\"flex full-width\">\n        <span class=\"flex-spacer\"></span>\n        <button class=\"ml-5\" color=\"primary\" mat-button type=\"button\" [disabled]=\"!model\" (click)=\"add()\">Seleccionar</button>\n        <button mat-dialog-close mat-button type=\"button\">Cerrar</button>\n    </div>\n</mat-dialog-actions>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-affiliates/modal-affiliates.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalAffiliatesComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+var ModalAffiliatesComponent = /** @class */ (function () {
+    function ModalAffiliatesComponent(formBuilder, dialogRef, data) {
+        this.formBuilder = formBuilder;
+        this.dialogRef = dialogRef;
+        this.data = data;
+    }
+    ModalAffiliatesComponent.prototype.ngOnInit = function () {
+    };
+    ModalAffiliatesComponent.prototype.add = function () {
+        this.dialogRef.close(this.model);
+    };
+    ModalAffiliatesComponent.prototype.select = function (row) {
+        this.model = row;
+    };
+    var _a, _b;
+    ModalAffiliatesComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+            selector: 'app-modal-affiliates',
+            template: __webpack_require__("../../../../../src/app/smartity/modals/modal-affiliates/modal-affiliates.component.html")
+        }),
+        __param(2, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Inject */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["s" /* MAT_DIALOG_DATA */])),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["i" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["i" /* FormBuilder */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["t" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["t" /* MatDialogRef */]) === "function" ? _b : Object, Object])
+    ], ModalAffiliatesComponent);
+    return ModalAffiliatesComponent;
+}());
+
+//# sourceMappingURL=modal-affiliates.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/smartity/modals/modal-bank-account/modal-bank-account.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1 mat-dialog-title>{{ data.title }}</h1>\n\n\n<mat-dialog-content>\n    <form #bankForm=\"ngForm\" autocomplete=\"off\">\n        \n        <!-- banks -->\n        <div class='col-sm-12 col-md-6 margin-bottom'>\n            <mat-select class=\"full-width\" placeholder=\"Banco\" [(ngModel)]=\"model.bank\" name=\"bank\" id=\"bank\">\n                <mat-option *ngFor=\"let item of banks\" [value]=\"item.id\">{{item.value}}</mat-option>\n            </mat-select>\n        </div>\n\n        <!-- bank_account_type -->\n        <div class='col-sm-12 col-md-6 margin-bottom'>\n            <mat-select class=\"full-width\" placeholder=\"Tipo de cuenta\" [(ngModel)]=\"model.bank_account_type\" name=\"bank_account_type\"\n                id=\"bank_account\">\n                <mat-option *ngFor=\"let item of bank_account_types\" [value]=\"item.id\">{{item.value}}</mat-option>\n            </mat-select>\n        </div>\n\n        <!-- account_number -->\n        <div class='col-sm-12 col-md-6 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input required type=\"text\" id=\"account_number\" name=\"account_number\" [(ngModel)]=\"model.account_number\" matInput placeholder=\"Número de cuenta\">\n            </mat-form-field>\n        </div>\n\n        <!-- owner -->\n        <div class='col-sm-12 col-md-6 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input required type=\"text\" id=\"owner\" name=\"owner\" [(ngModel)]=\"model.owner\" matInput placeholder=\"Nombre del dueño de la cuenta\">\n            </mat-form-field>\n        </div>\n\n        <!-- name_sales_representative -->\n        <div class='col-sm-12 col-md-6 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input required type=\"text\" id=\"name_sales_representative\" name=\"name_sales_representative\" [(ngModel)]=\"model.name_sales_representative\"\n                    matInput placeholder=\"Nombre del representante de ventas\">\n            </mat-form-field>\n        </div>\n\n        <!-- phone_sales_representative -->\n        <div class='col-sm-12 col-md-6 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input required type=\"text\" id=\"phone_sales_representative\" name=\"phone_sales_representative\" [(ngModel)]=\"model.phone_sales_representative\"\n                    matInput placeholder=\"Teléfono del representante de ventas\">\n            </mat-form-field>\n        </div>\n\n        <!-- email_sales_representative -->\n        <div class='col-sm-12 col-md-6 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input required type=\"text\" id=\"email_sales_representative\" name=\"email_sales_representative\" [(ngModel)]=\"model.email_sales_representative\"\n                    matInput placeholder=\"Correo del representante de ventas\">\n            </mat-form-field>\n        </div>\n    </form>\n</mat-dialog-content>\n\n<mat-dialog-actions>\n    <div class=\"col-sm-12\">\n        <div class=\"flex\">\n            <span class=\"flex-spacer\"></span>\n            <button color=\"primary\" mat-raised-button type=\"submit\" [disabled]=\"action_active ? false : !bankForm.form.valid\" (click)=\"add()\">{{ booShow ? 'Agregar' : 'Editar' }}</button>\n            <button class=\"btn-default\" mat-button type=\"button\" mat-dialog-close>Cerrar</button>\n        </div>\n    </div>\n\n</mat-dialog-actions>"
+module.exports = "<h1 mat-dialog-title>{{ data.title }}</h1>\r\n\r\n\r\n<mat-dialog-content>\r\n    <form class=\"col-sm-12\" #bankForm=\"ngForm\" autocomplete=\"off\">\r\n        <div class=\"row\">\r\n\r\n            <!-- banks -->\r\n            <div class='col-sm-12 col-md-6 margin-bottom'>\r\n                <mat-form-field class=\"full-width\">\r\n                    <mat-select class=\"full-width\" placeholder=\"Banco\" [(ngModel)]=\"model.bank\"\r\n                        name=\"bank\" id=\"bank\">\r\n                        <mat-option *ngFor=\"let item of banks\" [value]=\"item.id\">{{item.value}}</mat-option>\r\n                    </mat-select>\r\n                </mat-form-field>\r\n            </div>\r\n\r\n            <!-- bank_account_type -->\r\n            <div class='col-sm-12 col-md-6 margin-bottom'>\r\n                <mat-form-field class=\"full-width\">\r\n                    <mat-select class=\"full-width\" placeholder=\"Tipo de cuenta\" [(ngModel)]=\"model.bank_account_type\"\r\n                        name=\"bank_account_type\" id=\"bank_account\">\r\n                        <mat-option *ngFor=\"let item of bank_account_types\" [value]=\"item.id\">{{item.value}}</mat-option>\r\n                    </mat-select>\r\n                </mat-form-field>\r\n            </div>\r\n\r\n            <!-- account_number -->\r\n            <div class='col-sm-12 col-md-6 margin-bottom'>\r\n                <mat-form-field class=\"full-width\">\r\n                    <input required type=\"text\" id=\"account_number\" name=\"account_number\" [(ngModel)]=\"model.account_number\" matInput placeholder=\"Número de cuenta\">\r\n                </mat-form-field>\r\n            </div>\r\n\r\n            <!-- owner -->\r\n            <div class='col-sm-12 col-md-6 margin-bottom'>\r\n                <mat-form-field class=\"full-width\">\r\n                    <input required type=\"text\" id=\"owner\" name=\"owner\" [(ngModel)]=\"model.owner\" matInput placeholder=\"Nombre del dueño de la cuenta\">\r\n                </mat-form-field>\r\n            </div>\r\n\r\n            <!-- name_sales_representative -->\r\n            <div class='col-sm-12 col-md-6 margin-bottom'>\r\n                <mat-form-field class=\"full-width\">\r\n                    <input required type=\"text\" id=\"name_sales_representative\" name=\"name_sales_representative\" [(ngModel)]=\"model.name_sales_representative\"\r\n                        matInput placeholder=\"Nombre del representante de ventas\">\r\n                </mat-form-field>\r\n            </div>\r\n\r\n            <!-- phone_sales_representative -->\r\n            <div class='col-sm-12 col-md-6 margin-bottom'>\r\n                <mat-form-field class=\"full-width\">\r\n                    <input required type=\"text\" id=\"phone_sales_representative\" name=\"phone_sales_representative\" [(ngModel)]=\"model.phone_sales_representative\"\r\n                        matInput placeholder=\"Teléfono del representante de ventas\">\r\n                </mat-form-field>\r\n            </div>\r\n\r\n            <!-- email_sales_representative -->\r\n            <div class='col-sm-12 col-md-6 margin-bottom'>\r\n                <mat-form-field class=\"full-width\">\r\n                    <input required type=\"text\" id=\"email_sales_representative\" name=\"email_sales_representative\" [(ngModel)]=\"model.email_sales_representative\"\r\n                        matInput placeholder=\"Correo del representante de ventas\">\r\n                </mat-form-field>\r\n            </div>\r\n        </div>\r\n    </form>\r\n</mat-dialog-content>\r\n\r\n<mat-dialog-actions>\r\n    <div class=\"col-sm-12\">\r\n        <div class=\"flex\">\r\n            <span class=\"flex-spacer\"></span>\r\n            <button color=\"primary\" mat-raised-button type=\"submit\" [disabled]=\"action_active ? false : !bankForm.form.valid\" (click)=\"add()\">{{\r\n                booShow ? 'Agregar' : 'Editar' }}</button>\r\n            <button class=\"btn-default\" mat-button type=\"button\" mat-dialog-close>Cerrar</button>\r\n        </div>\r\n    </div>\r\n</mat-dialog-actions>"
 
 /***/ }),
 
@@ -3516,7 +3750,7 @@ var ModalBankAccountComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/smartity/modals/modal-confirmation/modal-confirmation.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1 mat-dialog-title>{{ data.title }}</h1>\n<mat-dialog-content>\n    {{ data.message }}\n</mat-dialog-content>\n<mat-dialog-actions>\n    <!-- <button mat-button type=\"submit\" [disabled]=\"action_active ? false : !sucursalForm.form.valid\" (click)=\"add()\">Agregar</button>     \n    <button mat-button type=\"button\" mat-dialog-close>Cerrar</button> -->\n    <button mat-button mat-dialog-close>{{ data.button_close }}</button>    \n    <button mat-button (click)=\"acept()\">{{ data.button_confirm }}</button>\n</mat-dialog-actions>"
+module.exports = "<h1  style=\"text-align: center;\" mat-dialog-title>{{ data.title }}</h1>\n<mat-dialog-content style=\"text-align: center;\">\n    {{ data.message }}\n</mat-dialog-content>\n<mat-dialog-actions>\n    <button mat-button mat-dialog-close>{{ data.button_close }}</button>    \n    <button class=\"ml-5\" color=\"primary\" mat-button type=\"button\" (click)=\"acept()\">{{ data.button_confirm }}</button>\n</mat-dialog-actions>"
 
 /***/ }),
 
@@ -3566,6 +3800,148 @@ var ModalConfirmationComponent = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=modal-confirmation.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-customers-quotes/modal-customers-quotes-list/modal-customers-quotes-list.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<!-- LIST -->\n<div class=\"row\">\n  <div class=\"col-md-6\">\n      <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n          <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\"\n              (keydown)=\"enter($event)\">\n          <div style=\"width: 34px\" class=\"input-group-addon\">\n              <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                  <i class=\"fa fa-search\"></i>\n              </a>\n          </div>\n      </div>\n  </div>\n\n  <div class=\"col-sm-12\">\n\n      <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n          <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n              <thead>\n                  <tr>\n                      <th class=\"noAuto\" (click)=\"sort('id')\"># Cotización\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th (click)=\"sort('supplier_id')\">Cliente\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='supplier_id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th (click)=\"sort('created_at')\">Fecha de elaboración\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='created_at'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th (click)=\"sort('created_at')\">Fecha de vencimiento\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='created_at'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th (click)=\"sort('status')\">Estado\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='status'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                  </tr>\n              </thead>\n              <tbody>\n                  <tr *ngFor=\"let item of list.data; let index = index\" (click)=\"view(item); numItemSelected = index\" [ngClass]=\"{'active': numItemSelected == index }\">\n                      <td>{{ item.document.prefix }}-{{item.consecutive}}</td>\n                      <td>{{ item.stakeholder_info.fullname }}</td>\n                      <td>{{ item.created_at }}</td>\n                      <td>{{ item.expire_at }}</td>\n                      <td>{{ item.status ? 'Activo' : 'Inactiva' }}</td>\n                  </tr>\n              </tbody>\n          </table>\n\n      </div>\n\n      <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\n          [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-customers-quotes/modal-customers-quotes-list/modal-customers-quotes-list.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bases_base_list__ = __webpack_require__("../../../../../src/app/smartity/bases/base-list.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalCustomersQuotesListComponent; });
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ModalCustomersQuotesListComponent = /** @class */ (function (_super) {
+    __extends(ModalCustomersQuotesListComponent, _super);
+    function ModalCustomersQuotesListComponent(loaderService, helperService, router) {
+        var _this = _super.call(this, loaderService, helperService) || this;
+        _this.loaderService = loaderService;
+        _this.helperService = helperService;
+        _this.router = router;
+        _this.select = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* EventEmitter */]();
+        _this.urlApi = '/api/customers-quotes';
+        return _this;
+    }
+    ModalCustomersQuotesListComponent.prototype.ngOnInit = function () {
+        this.getAll();
+    };
+    ModalCustomersQuotesListComponent.prototype.view = function (row) {
+        this.select.emit(row);
+    };
+    var _a, _b, _c, _d;
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* Input */])(),
+        __metadata("design:type", typeof (_a = typeof String !== "undefined" && String) === "function" ? _a : Object)
+    ], ModalCustomersQuotesListComponent.prototype, "customer", void 0);
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* Output */])(),
+        __metadata("design:type", Object)
+    ], ModalCustomersQuotesListComponent.prototype, "select", void 0);
+    ModalCustomersQuotesListComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+            selector: 'app-modal-customers-quotes-list',
+            template: __webpack_require__("../../../../../src/app/smartity/modals/modal-customers-quotes/modal-customers-quotes-list/modal-customers-quotes-list.component.html")
+        }),
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared__["a" /* LoaderService */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared__["b" /* HelperService */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" ? _d : Object])
+    ], ModalCustomersQuotesListComponent);
+    return ModalCustomersQuotesListComponent;
+}(__WEBPACK_IMPORTED_MODULE_1__bases_base_list__["a" /* BaseList */]));
+
+//# sourceMappingURL=modal-customers-quotes-list.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-customers-quotes/modal-customers-quotes.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h1 mat-dialog-title>{{ data.title }}</h1>\n\n<mat-dialog-content>\n  <app-modal-customers-quotes-list [customer]=\"data.customer\" (select)=\"select($event)\"></app-modal-customers-quotes-list>\n</mat-dialog-content>\n\n<mat-dialog-actions>\n    <div class=\"flex full-width\">\n        <span class=\"flex-spacer\"></span>\n        <button class=\"ml-5\" color=\"primary\" mat-button type=\"button\" [disabled]=\"!model\" (click)=\"add()\">Seleccionar</button>\n        <button mat-dialog-close mat-button type=\"button\">Cerrar</button>\n    </div>\n</mat-dialog-actions>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-customers-quotes/modal-customers-quotes.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalCustomersQuotesComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+var ModalCustomersQuotesComponent = /** @class */ (function () {
+    function ModalCustomersQuotesComponent(formBuilder, dialogRef, data) {
+        this.formBuilder = formBuilder;
+        this.dialogRef = dialogRef;
+        this.data = data;
+    }
+    ModalCustomersQuotesComponent.prototype.ngOnInit = function () {
+    };
+    ModalCustomersQuotesComponent.prototype.add = function () {
+        this.dialogRef.close(this.model);
+    };
+    ModalCustomersQuotesComponent.prototype.select = function (row) {
+        this.model = row;
+    };
+    var _a, _b;
+    ModalCustomersQuotesComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+            selector: 'app-modal-customers-quotes',
+            template: __webpack_require__("../../../../../src/app/smartity/modals/modal-customers-quotes/modal-customers-quotes.component.html")
+        }),
+        __param(2, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Inject */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["s" /* MAT_DIALOG_DATA */])),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["i" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["i" /* FormBuilder */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["t" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["t" /* MatDialogRef */]) === "function" ? _b : Object, Object])
+    ], ModalCustomersQuotesComponent);
+    return ModalCustomersQuotesComponent;
+}());
+
+//# sourceMappingURL=modal-customers-quotes.component.js.map
 
 /***/ }),
 
@@ -4107,13 +4483,13 @@ var CustomersListComponent = /** @class */ (function (_super) {
         if (this.type != '') {
             switch (this.type) {
                 case 'customers':
-                    this.urlApi = '/api/Costumers-customers';
+                    this.urlApi = '/api/stakeholders-custumers';
                     break;
             }
             this.getAll();
         }
         else {
-            this.urlApi = '/api/Costumers';
+            this.urlApi = '/api/stakeholders-custumers';
             this.getAll();
         }
     };
@@ -4706,6 +5082,149 @@ var ModalInstitucionalSaleContractComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/smartity/modals/modal-inventory-movement-transfers/modal-inventory-movement-transfers-list/modal-inventory-movement-transfers-list.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n            <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\" (keydown)=\"enter($event)\">\n            <div style=\"width: 34px\" class=\"input-group-addon\">\n                <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                    <i class=\"fa fa-search\"></i>\n                </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-sm-12\">\n\n        <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n            <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n                <thead>\n                    <tr>\n                        <!-- <th class=\"noAuto\" (click)=\"sort('w.id')\">ID\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='w.id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th> -->\n                        <th># Transacción\n                            <span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th>Bodega\n                            <span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th>Fecha\n                            <span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <!-- <th>Realizado por\n                            <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th> -->\n                        <th>Tipo de salida\n                            <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th>Total\n                            <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <!-- <th class=\"noAuto\" (click)=\"sort('w.state')\">Estado\n                            <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th> -->\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor=\"let item of list.data; let index = index\" (click)=\"view(item); numItemSelected = index\"\n                        [ngClass]=\"{'active': numItemSelected == index }\">\n                        <!-- <td class=\"noAuto\">{{ item.id }}</td> -->\n                        <td>{{ item.document.prefix }}-{{item.consecutive}}</td>\n                        <td>{{ item.warehouse.name }}</td>\n                        <td>{{ item.date }}</td>\n                        <td>{{ item.inventory_movement_type.value}}</td>\n                        <td>${{ item.total}}</td>\n                    </tr>\n                </tbody>\n            </table>\n\n        </div>\n\n        <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\n            [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-inventory-movement-transfers/modal-inventory-movement-transfers-list/modal-inventory-movement-transfers-list.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bases_base_list__ = __webpack_require__("../../../../../src/app/smartity/bases/base-list.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalInventoryMovementTransfersListComponent; });
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ModalInventoryMovementTransfersListComponent = /** @class */ (function (_super) {
+    __extends(ModalInventoryMovementTransfersListComponent, _super);
+    function ModalInventoryMovementTransfersListComponent(router, loaderService, helperSerive) {
+        var _this = _super.call(this, loaderService, helperSerive) || this;
+        _this.router = router;
+        _this.loaderService = loaderService;
+        _this.helperSerive = helperSerive;
+        _this.select = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* EventEmitter */]();
+        _this.numItemSelect = -1;
+        _this.urlApi = '/api/inventory-movements-transfers';
+        return _this;
+    }
+    ModalInventoryMovementTransfersListComponent.prototype.ngOnInit = function () {
+        this.getAll();
+    };
+    ModalInventoryMovementTransfersListComponent.prototype.view = function (row) {
+        this.select.emit(row);
+    };
+    var _a, _b, _c, _d;
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* Input */])(),
+        __metadata("design:type", typeof (_a = typeof String !== "undefined" && String) === "function" ? _a : Object)
+    ], ModalInventoryMovementTransfersListComponent.prototype, "document_fullfilled", void 0);
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* Output */])(),
+        __metadata("design:type", Object)
+    ], ModalInventoryMovementTransfersListComponent.prototype, "select", void 0);
+    ModalInventoryMovementTransfersListComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+            selector: 'app-modal-inventory-movement-transfers-list',
+            template: __webpack_require__("../../../../../src/app/smartity/modals/modal-inventory-movement-transfers/modal-inventory-movement-transfers-list/modal-inventory-movement-transfers-list.component.html")
+        }),
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared__["a" /* LoaderService */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared__["b" /* HelperService */]) === "function" ? _d : Object])
+    ], ModalInventoryMovementTransfersListComponent);
+    return ModalInventoryMovementTransfersListComponent;
+}(__WEBPACK_IMPORTED_MODULE_1__bases_base_list__["a" /* BaseList */]));
+
+//# sourceMappingURL=modal-inventory-movement-transfers-list.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-inventory-movement-transfers/modal-inventory-movement-transfers.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h1 mat-dialog-title>{{ data.title }}</h1>\n\n<mat-dialog-content>\n  <app-modal-inventory-movement-transfers-list [document_fullfilled]=\"data.document_fullfilled\"  (select)=\"select($event)\"></app-modal-inventory-movement-transfers-list>\n</mat-dialog-content>\n\n<mat-dialog-actions>\n    <div class=\"flex full-width\">\n        <span class=\"flex-spacer\"></span>\n        <button class=\"ml-5\" color=\"primary\" mat-button type=\"button\" [disabled]=\"!model\" (click)=\"add()\">Seleccionar</button>\n        <button mat-dialog-close mat-button type=\"button\">Cerrar</button>\n    </div>\n</mat-dialog-actions>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-inventory-movement-transfers/modal-inventory-movement-transfers.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalInventoryMovementTransfersComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+var ModalInventoryMovementTransfersComponent = /** @class */ (function () {
+    function ModalInventoryMovementTransfersComponent(formBuilder, dialogRef, data) {
+        this.formBuilder = formBuilder;
+        this.dialogRef = dialogRef;
+        this.data = data;
+    }
+    ModalInventoryMovementTransfersComponent.prototype.ngOnInit = function () {
+    };
+    ModalInventoryMovementTransfersComponent.prototype.add = function () {
+        this.dialogRef.close(this.model);
+    };
+    ModalInventoryMovementTransfersComponent.prototype.select = function (row) {
+        this.model = row;
+    };
+    var _a, _b;
+    ModalInventoryMovementTransfersComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+            selector: 'app-modal-inventory-movement-transfers',
+            template: __webpack_require__("../../../../../src/app/smartity/modals/modal-inventory-movement-transfers/modal-inventory-movement-transfers.component.html")
+        }),
+        __param(2, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Inject */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["s" /* MAT_DIALOG_DATA */])),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["i" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["i" /* FormBuilder */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["t" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["t" /* MatDialogRef */]) === "function" ? _b : Object, Object])
+    ], ModalInventoryMovementTransfersComponent);
+    return ModalInventoryMovementTransfersComponent;
+}());
+
+//# sourceMappingURL=modal-inventory-movement-transfers.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/smartity/modals/modal-ips-network/ips-network-action/ips-network-action.component.html":
 /***/ (function(module, exports) {
 
@@ -5012,7 +5531,7 @@ var ModalPharmaceuticalComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/smartity/modals/modal-pharmaceutical/pharmaceutical-drug-action/pharmaceutical-drug-action.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- FORM -->\n\n<form #pharmeceuticalForm=\"ngForm\" autocomplete=\"off\">\n\n    \n\n    <!-- name -->\n    <div class='col-sm-12 col-md-6  margin-bottom'>\n        <mat-form-field class=\"full-width\">\n            <input required type=\"text\" id=\"name\" name=\"name\" [(ngModel)]=\"model.name\" matInput placeholder=\"Principio activo\">\n        </mat-form-field>\n    </div>\n    <!-- estado -->\n    <div class='col-sm-12 col-md-6 margin-bottom'>\n        <div class=\"flex\">\n            <span class=\"flex-spacer\"></span>\n            <mat-slide-toggle [labelPosition]=\"'before'\" id=\"state\" name=\"state\" [(ngModel)]=\"model.state\">Estado</mat-slide-toggle>\n        </div>\n    </div>\n    <!-- Principio activo -->\n    <div class=\"col-sm-12 margin-bottom\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <div class=\"flex margin-bottom\">\n                    <div class=\"box-header no-padding-h\">Principio activo</div>\n                    <span class=\"flex-spacer\"></span>\n                    <button type=\"button\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left\" (click)=\"openModalActiveIngredients()\">Añadir</button>\n                </div>\n                <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n                    <table class=\"mdl-data-table table-bordered table-striped no-margin\">\n                        <thead>\n                            <tr>\n                                <th>Nombre</th>\n                                <th>Concentración</th>\n                                <th>Unidad de medida</th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr *ngFor=\"let item of arrActive_ingredients; let index = index\">\n                                <td>{{item.name}}</td>\n                                <td>\n                                    <mat-form-field class=\"full-width\">\n                                        <input type=\"text\" id=\"concentration{{index}}\" name=\"concentration{{index}}\" [(ngModel)]=\"item.concentration\" matInput>\n                                    </mat-form-field>\n                                </td>\n                                <td>\n                                    <mat-select class=\"full-width\" [(ngModel)]=\"item.measurement_unit_id\" name=\"measurement_unit_id{{index}}\" id=\"measurement_unit_id{{index}}\">\n                                        <mat-option *ngFor=\"let item of arrMeasurement_unit\" [value]=\"item.id\">{{item.value.trim()}}</mat-option>\n                                    </mat-select>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n        </div>\n    </div>\n    <!-- dosage_form_id -->\n    <div class='col-sm-12 col-md-4 col-lg-3 margin-bottom'>\n        <mat-select class=\"full-width\" placeholder=\"Forma Farmacéutica\" [(ngModel)]=\"model.dosage_form_id\" name=\"dosage_form_id\" id=\"dosage_form_id\">\n            <mat-option *ngFor=\"let i of pharmaceutical_form\" [value]=\"i.id\">{{i.value}}</mat-option>\n        </mat-select>\n    </div>\n    <!-- routes_administration_id -->\n    <div class='col-sm-12 col-md-4 col-lg-3 margin-bottom'>\n        <mat-select class=\"full-width\" placeholder=\"Vía de administración\" [(ngModel)]=\"model.routes_administration_id\" name=\"routes_administration_id\"\n            id=\"routes_administration_id\">\n            <mat-option *ngFor=\"let i of routes_administration\" [value]=\"i.id\">{{i.value}}</mat-option>\n        </mat-select>\n    </div>\n    <!-- atc -->\n    <div class='col-sm-12 col-md-4 col-lg-3 margin-bottom'>\n        <mat-form-field class=\"full-width\">\n            <input required type=\"text\" id=\"atc\" name=\"atc\" [(ngModel)]=\"model.atc\" matInput placeholder=\"Código ATC\">\n        </mat-form-field>\n    </div>\n    <!-- regulated_price -->\n    <div class='col-sm-12 col-md-4 col-lg-3 margin-bottom'>\n        <mat-form-field class=\"full-width\">\n            <input required type=\"text\" id=\"regulated_price\" name=\"regulated_price\" appMycurrency [(ngModel)]=\"model.regulated_price\" matInput placeholder=\"Precio regulado\">\n        </mat-form-field>\n    </div>\n    <!-- storage_condition_id -->\n    <div class='col-sm-12 col-md-3 margin-bottom'>\n        <mat-select class=\"full-width\" placeholder=\"Almacenamiento\" [(ngModel)]=\"model.storage_condition_id\" name=\"storage_condition_id\"\n            id=\"storage_condition_id\">\n            <mat-option *ngFor=\"let i of storage_condition\" [value]=\"i.id\">{{i.value}}</mat-option>\n        </mat-select>\n    </div>\n    <!-- is_controlled -->\n    <div class='col-sm-12 col-md-3 margin-bottom'>\n        <mat-slide-toggle [labelPosition]=\"after\" id=\"is_controlled\" name=\"is_controlled\" [(ngModel)]=\"model.is_controlled\">Controlado</mat-slide-toggle>\n    </div>\n    <!-- is_monopoly -->\n    <div class='col-sm-12 col-md-3 margin-bottom'>\n        <mat-slide-toggle [labelPosition]=\"after\" id=\"is_monopoly\" name=\"is_monopoly\" [(ngModel)]=\"model.is_monopoly\">Monopolio</mat-slide-toggle>\n    </div>\n    <!-- is_pos -->\n    <div class='col-sm-12 col-md-3 margin-bottom'>\n        <mat-slide-toggle [labelPosition]=\"after\" id=\"is_pos\" name=\"is_pos\" [(ngModel)]=\"model.is_pos\">POS</mat-slide-toggle>\n    </div>\n    <div class=\"col-sm-12\" [class.btn-action-container]=\"booActive\">\n        <button type=\"button\" [disabled]=\"action_active ? false : !pharmeceuticalForm.form.valid\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left btn-right\"\n            (click)=\"save()\">{{str_action}}</button>\n    </div>\n</form>"
+module.exports = "<!-- FORM -->\n\n<form #pharmeceuticalForm=\"ngForm\" autocomplete=\"off\">\n\n    \n\n    <!-- name -->\n    <div class='col-sm-12 col-md-10  margin-bottom'>\n        <mat-form-field class=\"full-width\">\n            <input required type=\"text\" id=\"name\" name=\"name\" [(ngModel)]=\"model.name\" matInput placeholder=\"Nombre medicamento\">\n        </mat-form-field>\n    </div>\n    <!-- estado -->\n    <div class='col-sm-12 col-md-2 margin-bottom'>\n        <div class=\"flex\">\n            <span class=\"flex-spacer\"></span>\n            <mat-slide-toggle [labelPosition]=\"'before'\" id=\"state\" name=\"state\" [(ngModel)]=\"model.state\">Estado</mat-slide-toggle>\n        </div>\n    </div>\n    <!-- Principio activo -->\n    <div class=\"col-sm-12 margin-bottom\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <div class=\"flex margin-bottom\">\n                    <div class=\"box-header no-padding-h\">Principio activo</div>\n                    <span class=\"flex-spacer\"></span>\n                    <button type=\"button\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left\" (click)=\"openModalActiveIngredients()\">Añadir</button>\n                </div>\n                <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n                    <table class=\"mdl-data-table table-bordered table-striped no-margin\">\n                        <thead>\n                            <tr>\n                                <th>Nombre</th>\n                                <th>Concentración</th>\n                                <th>Unidad de medida</th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr *ngFor=\"let item of arrActive_ingredients; let index = index\">\n                                <td>{{item.name}}</td>\n                                <td>\n                                    <mat-form-field class=\"full-width\">\n                                        <input type=\"text\" id=\"concentration{{index}}\" name=\"concentration{{index}}\" [(ngModel)]=\"item.concentration\" matInput>\n                                    </mat-form-field>\n                                </td>\n                                <td>\n                                    <mat-select class=\"full-width\" [(ngModel)]=\"item.measurement_unit_id\" name=\"measurement_unit_id{{index}}\" id=\"measurement_unit_id{{index}}\">\n                                        <mat-option *ngFor=\"let item of arrMeasurement_unit\" [value]=\"item.id\">{{item.value.trim()}}</mat-option>\n                                    </mat-select>\n                                </td>\n                            </tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n        </div>\n    </div>\n    <!-- dosage_form_id -->\n    <div class='col-sm-12 col-md-4 col-lg-3 margin-bottom'>\n        <mat-select class=\"full-width\" placeholder=\"Forma Farmacéutica\" [(ngModel)]=\"model.dosage_form_id\" name=\"dosage_form_id\" id=\"dosage_form_id\">\n            <mat-option *ngFor=\"let i of pharmaceutical_form\" [value]=\"i.id\">{{i.value}}</mat-option>\n        </mat-select>\n    </div>\n    <!-- routes_administration_id -->\n    <div class='col-sm-12 col-md-4 col-lg-3 margin-bottom'>\n        <mat-select class=\"full-width\" placeholder=\"Vía de administración\" [(ngModel)]=\"model.routes_administration_id\" name=\"routes_administration_id\"\n            id=\"routes_administration_id\">\n            <mat-option *ngFor=\"let i of routes_administration\" [value]=\"i.id\">{{i.value}}</mat-option>\n        </mat-select>\n    </div>\n    <!-- atc -->\n    <div class='col-sm-12 col-md-4 col-lg-3 margin-bottom'>\n        <mat-form-field class=\"full-width\">\n            <input required type=\"text\" id=\"atc\" name=\"atc\" [(ngModel)]=\"model.atc\" matInput placeholder=\"Código ATC\">\n        </mat-form-field>\n    </div>\n    <!-- regulated_price -->\n    <div class='col-sm-12 col-md-4 col-lg-3 margin-bottom'>\n        <mat-form-field class=\"full-width\">\n            <input required type=\"text\" id=\"regulated_price\" name=\"regulated_price\" appMycurrency [(ngModel)]=\"model.regulated_price\" matInput placeholder=\"Precio regulado\">\n        </mat-form-field>\n    </div>\n    <!-- storage_condition_id -->\n    <div class='col-sm-12 col-md-3 margin-bottom'>\n        <mat-select class=\"full-width\" placeholder=\"Almacenamiento\" [(ngModel)]=\"model.storage_condition_id\" name=\"storage_condition_id\"\n            id=\"storage_condition_id\">\n            <mat-option *ngFor=\"let i of storage_condition\" [value]=\"i.id\">{{i.value}}</mat-option>\n        </mat-select>\n    </div>\n    <!-- is_controlled -->\n    <div class='col-sm-12 col-md-3 margin-bottom'>\n        <mat-slide-toggle [labelPosition]=\"after\" id=\"is_controlled\" name=\"is_controlled\" [(ngModel)]=\"model.is_controlled\">Controlado</mat-slide-toggle>\n    </div>\n    <!-- is_monopoly -->\n    <div class='col-sm-12 col-md-3 margin-bottom'>\n        <mat-slide-toggle [labelPosition]=\"after\" id=\"is_monopoly\" name=\"is_monopoly\" [(ngModel)]=\"model.is_monopoly\">Monopolio</mat-slide-toggle>\n    </div>\n    <!-- is_pos -->\n    <div class='col-sm-12 col-md-3 margin-bottom'>\n        <mat-slide-toggle [labelPosition]=\"after\" id=\"is_pos\" name=\"is_pos\" [(ngModel)]=\"model.is_pos\">POS</mat-slide-toggle>\n    </div>\n    <div class=\"col-sm-12\" [class.btn-action-container]=\"booActive\">\n        <button type=\"button\" [disabled]=\"action_active ? false : !pharmeceuticalForm.form.valid\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left btn-right\"\n            (click)=\"save()\">{{str_action}}</button>\n    </div>\n</form>"
 
 /***/ }),
 
@@ -5303,7 +5822,7 @@ var ModalProductsActionComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/smartity/modals/modal-products/modal-products-list/modal-products-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- LIST -->\n<div class=\"row\">\n  <div class=\"col-md-6\">\n      <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n          <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\"\n              (keydown)=\"enter($event)\">\n          <div style=\"width: 34px\" class=\"input-group-addon\">\n              <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                  <i class=\"fa fa-search\"></i>\n              </a>\n          </div>\n      </div>\n  </div>\n  <div class=\"col-sm-12\">\n\n      <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n          <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n              <thead>\n                  <tr>\n                      <th (click)=\"sort('sku')\">SKU\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='sku'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n\n                      <th (click)=\"sort('ra.value')\">Nombre de Producto\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='name'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n\n                      <th (click)=\"sort('pd.units')\">Cantidad\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='units'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n\n                      <th (click)=\"sort('pd.cost')\">Precio\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='cost'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n\n                      <th (click)=\"sort('pd.state')\">Estado\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='state'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n\n                  </tr>\n              </thead>\n              <tbody>\n                  <tr *ngFor=\"let item of list.data; let index = index\" (click)=\"view(item); numItemSelected = index\"\n                      [ngClass]=\"{'active': numItemSelected == index }\">\n                      <td>{{ item.sku }}</td>\n                      <td>{{ item.comercial_name }}</td>\n                      <td>{{ item.units }}</td>\n                      <td>{{ item.cost }}</td>\n                      <td>{{ item.state ? 'Activo' : 'Inactivo' }}</td>\n                  </tr>\n              </tbody>\n          </table>\n\n      </div>\n      <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"6\"\n          [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n  </div>\n</div>"
+module.exports = "<!-- LIST -->\n<div class=\"row\">\n  <div class=\"col-md-6\">\n      <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n          <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\"\n              (keydown)=\"enter($event)\">\n          <div style=\"width: 34px\" class=\"input-group-addon\">\n              <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                  <i class=\"fa fa-search\"></i>\n              </a>\n          </div>\n      </div>\n  </div>\n  <div class=\"col-sm-12\">\n\n      <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n          <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n              <thead>\n                  <tr>\n                        <th>PLU\n                                <span class=\"glyphicon sort-icon\"></span>\n                        </th>\n                        <!-- <th>Cums\n                                <span class=\"glyphicon sort-icon\"></span>\n                        </th> -->\n                        <th (click)=\"sort('comercial_name')\">Nombre\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='comercial_name'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('state')\">Tipo de Producto\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='state'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('state')\">Estado\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='state'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n\n                  </tr>\n              </thead>\n              <tbody>\n                  <tr *ngFor=\"let item of list.data; let index = index\" (click)=\"view(item); numItemSelected = index\"\n                      [ngClass]=\"{'active': numItemSelected == index }\">\n                      <td>{{item.sku}}</td>\n                        <td >{{ item.name }} <span style=\"font-weight:bold;\" *ngIf=\"item.comercial\">({{item.comercial_name}})</span></td>\n                        <td>{{item.product_type.value}}</td>\n                        <td>{{ item.state ? 'Activo' : 'Inactivo' }}</td>\n                  </tr>\n              </tbody>\n          </table>\n\n      </div>\n      <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"6\"\n          [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n  </div>\n</div>"
 
 /***/ }),
 
@@ -5383,7 +5902,7 @@ var ModalProductsListComponent = /** @class */ (function (_super) {
 /***/ "../../../../../src/app/smartity/modals/modal-products/modal-products.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1 mat-dialog-title>{{ data.title }}</h1>\n\n<mat-dialog-content>\n\n    <div class='col-sm-12 col-mat-12'>\n        <div class=\"box-body\">\n            <p>\n                <mat-radio-group class=\"mat-radio-group-spacing\" [(ngModel)]=\"radio.option\">\n                    <mat-radio-button value=\"1\">Buscar</mat-radio-button>\n                    <mat-radio-button value=\"2\">Crear</mat-radio-button>\n                </mat-radio-group>\n            </p>\n        </div>\n    </div>\n    <!-- FORM -->\n    <app-products-action *ngIf=\"radio.option==='2'\" (select)=\"select($event)\"></app-products-action>\n    <!-- LIST -->\n    <div class=\"col-sm-12\">\n        <app-products-list *ngIf=\"radio.option==='1'\" (select)=\"select($event)\"></app-products-list>\n    </div>\n</mat-dialog-content>\n\n<mat-dialog-actions>\n    <div class=\"flex full-width\">\n        <span class=\"flex-spacer\"></span>\n        <button class=\"ml-5\" color=\"primary\" mat-button type=\"button\" [disabled]=\"!model\" (click)=\"add()\" *ngIf=\"radio.option === '1'\">Seleccionar</button>\n        <button mat-dialog-close mat-button type=\"button\">Cerrar</button>\n    </div>\n</mat-dialog-actions>"
+module.exports = "<h1 mat-dialog-title>{{ data.title }}</h1>\r\n\r\n<mat-dialog-content>\r\n\r\n    <div class='col-sm-12 col-mat-12'>\r\n        <div class=\"box-body\">\r\n            <p>\r\n                <mat-radio-group class=\"mat-radio-group-spacing\" [(ngModel)]=\"radio.option\">\r\n                    <mat-radio-button value=\"1\">Buscar</mat-radio-button>\r\n                    <!-- <mat-radio-button value=\"2\">Crear</mat-radio-button> -->\r\n                </mat-radio-group>\r\n            </p>\r\n        </div>\r\n    </div>\r\n    <!-- FORM -->\r\n    <!-- <app-products-action *ngIf=\"radio.option==='2'\" (select)=\"select($event)\"></app-products-action> -->\r\n    <!-- LIST -->\r\n    <div class=\"col-sm-12\">\r\n        <app-products-list *ngIf=\"radio.option==='1'\" (select)=\"select($event)\"></app-products-list>\r\n    </div>\r\n</mat-dialog-content>\r\n\r\n<mat-dialog-actions>\r\n    <div class=\"flex full-width\">\r\n        <span class=\"flex-spacer\"></span>\r\n        <button class=\"ml-5\" color=\"primary\" mat-button type=\"button\" [disabled]=\"!model\" (click)=\"add()\" *ngIf=\"radio.option === '1'\">Seleccionar</button>\r\n        <button mat-dialog-close mat-button type=\"button\">Cerrar</button>\r\n    </div>\r\n</mat-dialog-actions>"
 
 /***/ }),
 
@@ -5437,6 +5956,267 @@ var ModalProductsComponent = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=modal-products.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-purchase-orders/modal-purchase-orders-list/modal-purchase-orders-list.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n            <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\"\n                (keydown)=\"enter($event)\">\n            <div style=\"width: 34px\" class=\"input-group-addon\">\n                <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                    <i class=\"fa fa-search\"></i>\n                </a>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"col-sm-12\">\n\n        <div class=\"box box-default table-box table-responsive matl-shadow--2dp\">\n            <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n              <thead>\n                  <tr>\n                      <th class=\"noAuto\" (click)=\"sort('id')\"># Orden\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th (click)=\"sort('supplier_id')\">Proveedor\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='supplier_id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th (click)=\"sort('created_at')\">Fecha de elaboración\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='created_at'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th (click)=\"sort('created_at')\">Fecha de vencimiento\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='created_at'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th (click)=\"sort('created_at')\">Entrega Estimada\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='created_at'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('created_at')\">Bodega Destino\n                                <span class=\"glyphicon sort-icon\" *ngIf=\"key =='created_at'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                            </th>\n                      <th (click)=\"sort('status')\">Estado\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='status'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                  </tr>\n              </thead>\n              <tbody>\n                  <tr *ngFor=\"let item of list.data; let index = index\" (click)=\"view(item); numItemSelected = index\"\n                        [ngClass]=\"{'active': numItemSelected == index }\">\n                    <td>{{ item.document.prefix }}-{{item.consecutive}}</td>\n                      <td>{{ item.stakeholder_info.fullname }}</td>\n                      <td>{{ item.created_at | date:'dd/MM/yyyy' }}</td>\n                      <td>{{ item.expire_at | date:'dd/MM/yyyy' }}</td>\n                      <td>{{ item.expire_at | date:'dd/MM/yyyy' }}</td>\n                      <td>{{ item.warehouse.name }}</td>\n                      <td>{{ item.fullfilled ? 'Cumplida' : 'No Cumplida' }}</td>\n                  </tr>\n              </tbody>\n          </table>\n\n        </div>\n\n        <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\n            [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-purchase-orders/modal-purchase-orders-list/modal-purchase-orders-list.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bases_base_list__ = __webpack_require__("../../../../../src/app/smartity/bases/base-list.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalPurchaseOrdersListComponent; });
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ModalPurchaseOrdersListComponent = /** @class */ (function (_super) {
+    __extends(ModalPurchaseOrdersListComponent, _super);
+    function ModalPurchaseOrdersListComponent(router, loaderService, helperSerive) {
+        var _this = _super.call(this, loaderService, helperSerive) || this;
+        _this.router = router;
+        _this.loaderService = loaderService;
+        _this.helperSerive = helperSerive;
+        _this.select = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* EventEmitter */]();
+        _this.numItemSelect = -1;
+        _this.urlApi = '/api/suppliers-orders';
+        return _this;
+    }
+    ModalPurchaseOrdersListComponent.prototype.ngOnInit = function () {
+        this.getAll('&fullfilled=false');
+    };
+    ModalPurchaseOrdersListComponent.prototype.view = function (row) {
+        this.select.emit(row);
+    };
+    var _a, _b, _c;
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* Output */])(),
+        __metadata("design:type", Object)
+    ], ModalPurchaseOrdersListComponent.prototype, "select", void 0);
+    ModalPurchaseOrdersListComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+            selector: 'app-modal-purchase-orders-list',
+            template: __webpack_require__("../../../../../src/app/smartity/modals/modal-purchase-orders/modal-purchase-orders-list/modal-purchase-orders-list.component.html")
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared__["a" /* LoaderService */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared__["b" /* HelperService */]) === "function" ? _c : Object])
+    ], ModalPurchaseOrdersListComponent);
+    return ModalPurchaseOrdersListComponent;
+}(__WEBPACK_IMPORTED_MODULE_1__bases_base_list__["a" /* BaseList */]));
+
+//# sourceMappingURL=modal-purchase-orders-list.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-purchase-orders/modal-purchase-orders.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h1 mat-dialog-title>{{ data.title }}</h1>\n\n<mat-dialog-content>\n  <app-modal-purchase-orders-list (select)=\"select($event)\"></app-modal-purchase-orders-list>\n</mat-dialog-content>\n\n<mat-dialog-actions>\n    <div class=\"flex full-width\">\n        <span class=\"flex-spacer\"></span>\n        <button class=\"ml-5\" color=\"primary\" mat-button type=\"button\" [disabled]=\"!model\" (click)=\"add()\">Seleccionar</button>\n        <button mat-dialog-close mat-button type=\"button\">Cerrar</button>\n    </div>\n</mat-dialog-actions>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-purchase-orders/modal-purchase-orders.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalPurchaseOrdersComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+var ModalPurchaseOrdersComponent = /** @class */ (function () {
+    function ModalPurchaseOrdersComponent(formBuilder, dialogRef, data) {
+        this.formBuilder = formBuilder;
+        this.dialogRef = dialogRef;
+        this.data = data;
+    }
+    ModalPurchaseOrdersComponent.prototype.ngOnInit = function () {
+    };
+    ModalPurchaseOrdersComponent.prototype.add = function () {
+        this.dialogRef.close(this.model);
+    };
+    ModalPurchaseOrdersComponent.prototype.select = function (row) {
+        this.model = row;
+    };
+    var _a, _b;
+    ModalPurchaseOrdersComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+            selector: 'app-modal-purchase-orders',
+            template: __webpack_require__("../../../../../src/app/smartity/modals/modal-purchase-orders/modal-purchase-orders.component.html")
+        }),
+        __param(2, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Inject */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["s" /* MAT_DIALOG_DATA */])),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["i" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["i" /* FormBuilder */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["t" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["t" /* MatDialogRef */]) === "function" ? _b : Object, Object])
+    ], ModalPurchaseOrdersComponent);
+    return ModalPurchaseOrdersComponent;
+}());
+
+//# sourceMappingURL=modal-purchase-orders.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-remission-goods/modal-remission-goods-list/modal-remission-goods-list.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  modal-remission-goods-list works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-remission-goods/modal-remission-goods-list/modal-remission-goods-list.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-remission-goods/modal-remission-goods-list/modal-remission-goods-list.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalRemissionGoodsListComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ModalRemissionGoodsListComponent = /** @class */ (function () {
+    function ModalRemissionGoodsListComponent() {
+    }
+    ModalRemissionGoodsListComponent.prototype.ngOnInit = function () {
+    };
+    ModalRemissionGoodsListComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+            selector: 'app-modal-remission-goods-list',
+            template: __webpack_require__("../../../../../src/app/smartity/modals/modal-remission-goods/modal-remission-goods-list/modal-remission-goods-list.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/smartity/modals/modal-remission-goods/modal-remission-goods-list/modal-remission-goods-list.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ModalRemissionGoodsListComponent);
+    return ModalRemissionGoodsListComponent;
+}());
+
+//# sourceMappingURL=modal-remission-goods-list.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-remission-goods/modal-remission-goods.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  modal-remission-goods works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-remission-goods/modal-remission-goods.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-remission-goods/modal-remission-goods.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalRemissionGoodsComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ModalRemissionGoodsComponent = /** @class */ (function () {
+    function ModalRemissionGoodsComponent() {
+    }
+    ModalRemissionGoodsComponent.prototype.ngOnInit = function () {
+    };
+    ModalRemissionGoodsComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+            selector: 'app-modal-remission-goods',
+            template: __webpack_require__("../../../../../src/app/smartity/modals/modal-remission-goods/modal-remission-goods.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/smartity/modals/modal-remission-goods/modal-remission-goods.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ModalRemissionGoodsComponent);
+    return ModalRemissionGoodsComponent;
+}());
+
+//# sourceMappingURL=modal-remission-goods.component.js.map
 
 /***/ }),
 
@@ -6122,7 +6902,7 @@ var StakeholdersActionComponent = /** @class */ (function (_super) {
 /***/ "../../../../../src/app/smartity/modals/modal-stakeholder/stakeholders-list/stakeholders-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n            <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\" (keydown)=\"enter($event)\">\n            <div style=\"width: 34px\" class=\"input-group-addon\">\n                <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                    <i class=\"fa fa-search\"></i>\n                </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-sm-12\">\n\n        <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n            <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n                <thead>\n                    <tr>\n                        <th class=\"noAuto\" (click)=\"sort('i.id')\">ID\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='i.id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('firstname')\">Nombre\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='firstname'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('document_number')\">Número de documento\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='name'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n\n                        <th (click)=\"sort('c.value')\">Ubicación\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='c.value'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('i.status')\">Estado\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='i.status'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor=\"let item of list.data; let index = index\" (click)=\"view(item); numItemSelected = index\" [ngClass]=\"{'active': numItemSelected == index }\">\n                        <td class=\"noAuto\">{{ item.id }}</td>\n                        <td *ngIf=\"item.person_type_id === 38\">{{ item.name }}</td>\n                        <td *ngIf=\"item.person_type_id === 39\">{{ item.legalname }}</td>\n                        <td>{{ item.document_number }}</td>\n                        <td>{{ item.geolocation }}</td>\n                        <td>{{ item.status ? 'Activo' : 'Inactivo' }}</td>\n                    </tr>\n                </tbody>\n            </table>\n\n        </div>\n        <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"6\" [rotate]=\"true\"\n            [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n    </div>\n</div>"
+module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n            <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\" (keydown)=\"enter($event)\">\n            <div style=\"width: 34px\" class=\"input-group-addon\">\n                <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                    <i class=\"fa fa-search\"></i>\n                </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-sm-12\">\n\n        <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n            <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n                <thead>\n                    <tr>\n                        <th class=\"noAuto\" (click)=\"sort('i.id')\">ID\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='i.id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('firstname')\">Nombre\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='firstname'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('document_number')\">Número de documento\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='name'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n\n                        <th (click)=\"sort('c.value')\">Ubicación\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='c.value'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('i.status')\">Estado\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='i.status'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor=\"let item of list.data; let index = index\" (click)=\"view(item); numItemSelected = index\" [ngClass]=\"{'active': numItemSelected == index }\">\n                        <td class=\"noAuto\">{{ item.id }}</td>\n                        <td *ngIf=\"item.person_type_id === 38\">{{ item.name }}</td>\n                        <td *ngIf=\"item.person_type_id === 39\">{{ item.fullname }}</td>\n                        <td>{{ item.document_number }}</td>\n                        <td>{{ item.geolocation }}</td>\n                        <td>{{ item.status ? 'Activo' : 'Inactivo' }}</td>\n                    </tr>\n                </tbody>\n            </table>\n\n        </div>\n        <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"6\" [rotate]=\"true\"\n            [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n    </div>\n</div>"
 
 /***/ }),
 
@@ -6213,7 +6993,7 @@ var StakeholdersListComponent = /** @class */ (function (_super) {
 /***/ "../../../../../src/app/smartity/modals/modal-stocks/modal-stocks-list/modal-stocks-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- LIST -->\n<div class=\"row\">\n  <!-- <div class='col-md-4 margin-bottom'>\n      <mat-form-field class=\"full-width\">\n  <mat-select class=\"full-width\" placeholder=\"Seleccione una Bodega\" (change)=\"filtrar($event)\" [(ngModel)]=\"warehouse_id\" name=\"warehouse_id\">\n      <mat-option *ngFor=\"let item of warehouses\" [value]=\"item.id\">{{item.name}}</mat-option>\n  </mat-select>\n      </mat-form-field>\n</div> -->\n  <div class=\"col-sm-12\">\n\n      <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n          <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n              <thead>\n                  <tr>\n\n                      <th>PLU\n                          <span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th>Producto\n                          <span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th>Unidades\n                          <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th>Fracciones\n                          <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th>Lote\n                          <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th>Ubicación\n                          <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                  </tr>\n              </thead>\n              <tbody>\n                <tr *ngFor=\"let item of list.data; let index = index\" (click)=\"view(item); numItemSelected = index\"\n                [ngClass]=\"{'active': numItemSelected == index }\">\n                      <td>{{item.product.sku}}</td>\n                      <td>{{item.product.display_name}}</td>\n                      <td>{{item.set_stock}}</td>\n                      <td>{{item.fraction_stock}}</td>\n                      <td>{{item.batch}}</td>\n                      <td>{{item.location}}</td>\n                  </tr>\n              </tbody>\n          </table>\n\n      </div>\n\n      <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\n          [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n  </div>\n</div>"
+module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n            <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\" (keydown)=\"enter($event)\">\n            <div style=\"width: 34px\" class=\"input-group-addon\">\n                <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                    <i class=\"fa fa-search\"></i>\n                </a>\n            </div>\n        </div>\n    </div>\n    <div class='col-md-4 margin-bottom'>\n        <mat-form-field class=\"full-width\">\n    <mat-select class=\"full-width\" placeholder=\"Seleccione una Bodega\" (change)=\"filtrar($event)\" [(ngModel)]=\"warehouse_id\" name=\"warehouse_id\">\n        <mat-option *ngFor=\"let item of warehouses\" [value]=\"item.id\">{{item.name}}</mat-option>\n    </mat-select>\n        </mat-form-field>\n</div>\n  <div class=\"col-sm-12\">\n\n      <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n                <table class=\"mdl-data-table table-bordered table-striped no-margin\" style=\"white-space: normal;\">\n                <thead>\n                    <tr>\n                        <!-- <th class=\"noAuto\" (click)=\"sort('w.id')\">ID\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='w.id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th> -->\n                        <th>Bodega\n                            <span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th>PLU\n                            <span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th>Producto\n                            <span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th>Unidades\n                            <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th>Fracciones\n                            <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th>Lote\n                            <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th>Ubicación\n                            <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th>Fecha de Vencimiento\n                            <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th>Costo Unitario\n                            <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th>Valor Total\n                            <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                    </tr>\n                </thead>\n                <tbody>\n                        <tr *ngFor=\"let item of list.data; let index = index\" (click)=\"view(item); numItemSelected = index\"\n                        [ngClass]=\"{'active': numItemSelected == index }\">\n                        <!-- <td class=\"noAuto\">{{ item.id }}</td> -->\n                        <td>{{item.warehouse.name}}</td>\n                        <td>{{item.product.sku}}</td>\n                        <td>{{item.product.name}}<span style=\"font-weight:bold;\" *ngIf=\"item.product.comercial\">({{item.product.comercial_name}})</span></td>\n                        <td>{{item.set_stock}}</td>\n                        <td>{{item.fraction_stock}}</td>\n                        <td>{{item.batch}}</td>\n                        <td>{{item.location}}</td>\n                        <td>{{item.expiration_date}}</td>\n                        <td>${{item.product.averageunitcost}}</td>\n                        <td>${{(item.product.averageunitcost * item.set_stock) + ((item.product.averageunitcost/item.product.units) * item.fraction_stock)}}</td>\n                    </tr>\n                </tbody>\n      \n          </table>\n\n      </div>\n\n      <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\n          [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n  </div>\n</div>"
 
 /***/ }),
 
@@ -6261,11 +7041,28 @@ var ModalStocksListComponent = /** @class */ (function (_super) {
         _this.helperSerive = helperSerive;
         _this.select = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* EventEmitter */]();
         _this.numItemSelect = -1;
+        _this.warehouses = [];
         _this.urlApi = '/api/stocks-products';
         return _this;
     }
+    ModalStocksListComponent.prototype.filtrar = function (event) {
+        this.getAll('&warehouse=' + this.warehouse_id);
+    };
     ModalStocksListComponent.prototype.ngOnInit = function () {
-        this.getAll('&warehouse=' + this.warehouse + '&expired=' + this.expired);
+        this.getCollection();
+        this.getAll();
+    };
+    ModalStocksListComponent.prototype.getCollection = function () {
+        var _this = this;
+        this.loaderService.display(true);
+        this.helperService.GET("/api/warehouse").subscribe(function (rs) {
+            var res = rs.json();
+            _this.warehouses = res.data;
+            _this.loaderService.display(false);
+        }, function (err) {
+            console.log(err);
+            _this.loaderService.display(false);
+        });
     };
     ModalStocksListComponent.prototype.view = function (row) {
         this.select.emit(row);
@@ -6476,10 +7273,295 @@ var ModalSucursalComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/smartity/modals/modal-supplier-orders/modal-supplier-orders-list/modal-supplier-orders-list.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  modal-supplier-orders-list works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-supplier-orders/modal-supplier-orders-list/modal-supplier-orders-list.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bases_base_list__ = __webpack_require__("../../../../../src/app/smartity/bases/base-list.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalSupplierOrdersListComponent; });
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ModalSupplierOrdersListComponent = /** @class */ (function (_super) {
+    __extends(ModalSupplierOrdersListComponent, _super);
+    function ModalSupplierOrdersListComponent(loaderService, helperService, router) {
+        var _this = _super.call(this, loaderService, helperService) || this;
+        _this.loaderService = loaderService;
+        _this.helperService = helperService;
+        _this.router = router;
+        _this.select = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* EventEmitter */]();
+        _this.urlApi = '/api/suppliers-quotes';
+        return _this;
+    }
+    ModalSupplierOrdersListComponent.prototype.ngOnInit = function () {
+        this.getAll();
+    };
+    ModalSupplierOrdersListComponent.prototype.view = function (row) {
+        this.select.emit(row);
+    };
+    var _a, _b, _c;
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* Output */])(),
+        __metadata("design:type", Object)
+    ], ModalSupplierOrdersListComponent.prototype, "select", void 0);
+    ModalSupplierOrdersListComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+            selector: 'app-modal-supplier-orders-list',
+            template: __webpack_require__("../../../../../src/app/smartity/modals/modal-supplier-orders/modal-supplier-orders-list/modal-supplier-orders-list.component.html")
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared__["a" /* LoaderService */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared__["b" /* HelperService */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" ? _c : Object])
+    ], ModalSupplierOrdersListComponent);
+    return ModalSupplierOrdersListComponent;
+}(__WEBPACK_IMPORTED_MODULE_1__bases_base_list__["a" /* BaseList */]));
+
+//# sourceMappingURL=modal-supplier-orders-list.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-supplier-orders/modal-supplier-orders.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h1 mat-dialog-title>{{ data.title }}</h1>\n\n<mat-dialog-content>\n  <app-modal-supplier-orders-list (select)=\"select($event)\"></app-modal-supplier-orders-list>\n</mat-dialog-content>\n\n<mat-dialog-actions>\n    <div class=\"flex full-width\">\n        <span class=\"flex-spacer\"></span>\n        <button class=\"ml-5\" color=\"primary\" mat-button type=\"button\" [disabled]=\"!model\" (click)=\"add()\">Seleccionar</button>\n        <button mat-dialog-close mat-button type=\"button\">Cerrar</button>\n    </div>\n</mat-dialog-actions>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-supplier-orders/modal-supplier-orders.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalSupplierOrdersComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+var ModalSupplierOrdersComponent = /** @class */ (function () {
+    function ModalSupplierOrdersComponent(formBuilder, dialogRef, data) {
+        this.formBuilder = formBuilder;
+        this.dialogRef = dialogRef;
+        this.data = data;
+    }
+    ModalSupplierOrdersComponent.prototype.ngOnInit = function () {
+    };
+    ModalSupplierOrdersComponent.prototype.add = function () {
+        this.dialogRef.close(this.model);
+    };
+    ModalSupplierOrdersComponent.prototype.select = function (row) {
+        this.model = row;
+    };
+    var _a, _b;
+    ModalSupplierOrdersComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+            selector: 'app-modal-supplier-orders',
+            template: __webpack_require__("../../../../../src/app/smartity/modals/modal-supplier-orders/modal-supplier-orders.component.html")
+        }),
+        __param(2, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Inject */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["s" /* MAT_DIALOG_DATA */])),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["i" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["i" /* FormBuilder */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["t" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["t" /* MatDialogRef */]) === "function" ? _b : Object, Object])
+    ], ModalSupplierOrdersComponent);
+    return ModalSupplierOrdersComponent;
+}());
+
+//# sourceMappingURL=modal-supplier-orders.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-supplier-quotes/modal-supplier-quotes-list/modal-supplier-quotes-list.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n            <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\"\n                (keydown)=\"enter($event)\">\n            <div style=\"width: 34px\" class=\"input-group-addon\">\n                <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                    <i class=\"fa fa-search\"></i>\n                </a>\n            </div>\n        </div>\n    </div>\n\n  \n    <div class=\"col-sm-12\">\n  \n        <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n  \n            <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n                <thead>\n                    <tr>\n                        <th class=\"noAuto\" (click)=\"sort('id')\"># Cotización\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('supplier_id')\">Proveedor\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='supplier_id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('created_at')\">Fecha de elaboración\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='created_at'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('created_at')\">Fecha de vencimiento\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='created_at'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('status')\">Estado\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='status'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor=\"let item of list.data; let index = index\" (click)=\"view(item); numItemSelected = index\" [ngClass]=\"{'active': numItemSelected == index }\">\n                        <td>{{ item.document.prefix }}-{{item.consecutive}}</td>\n                        <td>{{ item.stakeholder_info.fullname }}</td>\n                        <td>{{ item.created_at }}</td>\n                        <td>{{ item.expire_at }}</td>\n                        <td>{{ item.status ? 'Activo' : 'Inactiva' }}</td>\n                    </tr>\n                </tbody>\n            </table>\n  \n        </div>\n  \n        <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\n            [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n  \n    </div>\n  </div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-supplier-quotes/modal-supplier-quotes-list/modal-supplier-quotes-list.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bases_base_list__ = __webpack_require__("../../../../../src/app/smartity/bases/base-list.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalSupplierQuotesListComponent; });
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ModalSupplierQuotesListComponent = /** @class */ (function (_super) {
+    __extends(ModalSupplierQuotesListComponent, _super);
+    function ModalSupplierQuotesListComponent(loaderService, helperService, router) {
+        var _this = _super.call(this, loaderService, helperService) || this;
+        _this.loaderService = loaderService;
+        _this.helperService = helperService;
+        _this.router = router;
+        _this.select = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* EventEmitter */]();
+        _this.urlApi = '/api/suppliers-quotes';
+        return _this;
+    }
+    ModalSupplierQuotesListComponent.prototype.ngOnInit = function () {
+        // if(this.supplier != "-1" && !isUndefined(this.supplier)){
+        //   this.getAll('&supplier='+this.supplier);
+        // }else{
+        //   this.getAll();
+        // }
+        this.getAll();
+    };
+    ModalSupplierQuotesListComponent.prototype.view = function (row) {
+        this.select.emit(row);
+    };
+    var _a, _b, _c, _d;
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* Input */])(),
+        __metadata("design:type", typeof (_a = typeof String !== "undefined" && String) === "function" ? _a : Object)
+    ], ModalSupplierQuotesListComponent.prototype, "supplier", void 0);
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* Output */])(),
+        __metadata("design:type", Object)
+    ], ModalSupplierQuotesListComponent.prototype, "select", void 0);
+    ModalSupplierQuotesListComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+            selector: 'app-modal-supplier-quotes-list',
+            template: __webpack_require__("../../../../../src/app/smartity/modals/modal-supplier-quotes/modal-supplier-quotes-list/modal-supplier-quotes-list.component.html")
+        }),
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared__["a" /* LoaderService */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared__["b" /* HelperService */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" ? _d : Object])
+    ], ModalSupplierQuotesListComponent);
+    return ModalSupplierQuotesListComponent;
+}(__WEBPACK_IMPORTED_MODULE_1__bases_base_list__["a" /* BaseList */]));
+
+//# sourceMappingURL=modal-supplier-quotes-list.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-supplier-quotes/modal-supplier-quotes.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h1 mat-dialog-title>{{ data.title }}</h1>\n\n<mat-dialog-content>\n  <app-modal-supplier-quotes-list [supplier]=\"data.supplier\" (select)=\"select($event)\"></app-modal-supplier-quotes-list>\n</mat-dialog-content>\n\n<mat-dialog-actions>\n    <div class=\"flex full-width\">\n        <span class=\"flex-spacer\"></span>\n        <button class=\"ml-5\" color=\"primary\" mat-button type=\"button\" [disabled]=\"!model\" (click)=\"add()\">Seleccionar</button>\n        <button mat-dialog-close mat-button type=\"button\">Cerrar</button>\n    </div>\n</mat-dialog-actions>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-supplier-quotes/modal-supplier-quotes.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalSupplierQuotesComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+var ModalSupplierQuotesComponent = /** @class */ (function () {
+    function ModalSupplierQuotesComponent(formBuilder, dialogRef, data) {
+        this.formBuilder = formBuilder;
+        this.dialogRef = dialogRef;
+        this.data = data;
+    }
+    ModalSupplierQuotesComponent.prototype.ngOnInit = function () {
+    };
+    ModalSupplierQuotesComponent.prototype.add = function () {
+        this.dialogRef.close(this.model);
+    };
+    ModalSupplierQuotesComponent.prototype.select = function (row) {
+        this.model = row;
+    };
+    var _a, _b;
+    ModalSupplierQuotesComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+            selector: 'app-modal-supplier-quotes',
+            template: __webpack_require__("../../../../../src/app/smartity/modals/modal-supplier-quotes/modal-supplier-quotes.component.html")
+        }),
+        __param(2, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Inject */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["s" /* MAT_DIALOG_DATA */])),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["i" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["i" /* FormBuilder */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["t" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["t" /* MatDialogRef */]) === "function" ? _b : Object, Object])
+    ], ModalSupplierQuotesComponent);
+    return ModalSupplierQuotesComponent;
+}());
+
+//# sourceMappingURL=modal-supplier-quotes.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/smartity/modals/modal-users/modal-users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1 mat-dialog-title>{{ data.title }}</h1>\n\n<mat-dialog-content>\n\n    <div class='col-sm-12 col-md-12'>\n        <div class=\"box-body\">\n            <p>\n                <mat-radio-group class=\"md-radio-group-spacing\" [(ngModel)]=\"radio.option\">\n                    <mat-radio-button value=\"1\">Buscar</mat-radio-button>\n                    <mat-radio-button value=\"2\">Crear</mat-radio-button>\n                </mat-radio-group>\n            </p>\n        </div>\n    </div>\n    <!-- FORM -->\n    <user-action-cmp *ngIf=\"radio.option==='2'\" (select)=\"select($event)\"></user-action-cmp>\n    <!-- LIST -->\n    <div class=\"col-sm-12\">\n        <user-list-cmp *ngIf=\"radio.option==='1'\" (select)=\"select($event)\" [type]=\"data.type\"></user-list-cmp>\n    </div>\n</mat-dialog-content>\n\n<mat-dialog-actions>\n    <div class=\"flex full-width\">\n        <span class=\"flex-spacer\"></span>\n        <button class=\"ml-5\" color=\"primary\" mat-button type=\"button\" [disabled]=\"!model\" (click)=\"add()\" *ngIf=\"radio.option === '1'\">Seleccionar</button>\n        <button mat-dialog-close mat-button type=\"button\">Cerrar</button>\n    </div>\n</mat-dialog-actions>"
+module.exports = "<h1 mat-dialog-title>{{ data.title }}</h1>\r\n\r\n<mat-dialog-content>\r\n\r\n    <div class='col-sm-12 col-md-12'>\r\n        <div class=\"box-body\">\r\n            <p>\r\n                <mat-radio-group class=\"md-radio-group-spacing\" [(ngModel)]=\"radio.option\">\r\n                    <mat-radio-button value=\"1\">Buscar</mat-radio-button>\r\n                    <!-- <mat-radio-button value=\"2\">Crear</mat-radio-button> -->\r\n                </mat-radio-group>\r\n            </p>\r\n        </div>\r\n    </div>\r\n    <!-- FORM -->\r\n    <!-- <user-action-cmp *ngIf=\"radio.option==='2'\" (select)=\"select($event)\"></user-action-cmp> -->\r\n    <!-- LIST -->\r\n    <div class=\"col-sm-12\">\r\n        <user-list-cmp *ngIf=\"radio.option==='1'\" (select)=\"select($event)\" [type]=\"data.type\"></user-list-cmp>\r\n    </div>\r\n</mat-dialog-content>\r\n\r\n<mat-dialog-actions>\r\n    <div class=\"flex full-width\">\r\n        <span class=\"flex-spacer\"></span>\r\n        <button class=\"ml-5\" color=\"primary\" mat-button type=\"button\" [disabled]=\"!model\" (click)=\"add()\" *ngIf=\"radio.option === '1'\">Seleccionar</button>\r\n        <button mat-dialog-close mat-button type=\"button\">Cerrar</button>\r\n    </div>\r\n</mat-dialog-actions>"
 
 /***/ }),
 
@@ -6540,7 +7622,7 @@ var ModalUsersComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/smartity/modals/modal-users/user-action/user-action.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"box-body\">\n    <!--FORM-->\n    <form #modelForm=\"ngForm\" autocomplete=\"off\">\n        <div class=\"col-sm-12 margin-botton\">\n            <div class=\"flex\">\n                <span class=\"flex-spacer\"></span>\n                <mat-slide-toggle checked=\"true\" id=\"status\" name=\"status\" [(ngModel)]=\"model.status\"> Estado </mat-slide-toggle>\n            </div>\n        </div>\n        \n        <div class=\"col-sm-12 col-md-6 margin-botton\">\n            <mat-form-field class=\"full-width\">\n                <input required type=\"text\" id=\"firstname\" name=\"firstname\" [(ngModel)]=\"model.firstname\" matInput placeholder=\"Nombres\">\n            </mat-form-field>\n        </div>\n\n        <div class=\"col-sm-12 col-md-6 margin-botton\">\n            <mat-form-field class=\"full-width\">\n                <input required type=\"text\" id=\"lastname\" name=\"lastname\" [(ngModel)]=\"model.lastname\" matInput placeholder=\"Apellidos\">\n            </mat-form-field>\n        </div>\n\n        <div class=\"col-sm-12 col-md-6 margin-botton\">\n            <mat-form-field class=\"full-width\">\n                <input autocomplete=\"nope\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" required type=\"text\" id=\"username\" name=\"username\"\n                    [(ngModel)]=\"model.username\" matInput placeholder=\"Nombre de Usuario\">\n            </mat-form-field>\n        </div>\n\n        <div class=\"col-sm-12 col-md-6 margin-botton\">\n            <mat-form-field class=\"full-width\">\n                <input autocomplete=\"new-password\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" [required]=\"!model.id\" [disabled]=\"model.id\"\n                    type=\"password\" id=\"password\" name=\"password\" [(ngModel)]=\"model.password\" matInput placeholder=\"Contraseña\"\n                    reverse=\"true\">\n            </mat-form-field>\n        </div>\n\n        <div class=\"col-sm-12 col-md-6 margin-botton\">\n            <mat-form-field class=\"full-width\">\n                <input required type=\"email\" id=\"email\" name=\"email\" [(ngModel)]=\"model.email\" matInput placeholder=\"Correo electrónico\">\n            </mat-form-field>\n        </div>\n\n\n\n    </form>\n\n\n</div>\n\n<div class=\"box-body\">\n\n    <div class=\"row\">\n\n        <div class=\"col-sm-12\">\n            <form #companyForm=\"ngForm\" autocomplete=\"off\">\n\n                <!-- company -->\n                <div class='col-sm-12 col-md-4'>\n                    <div class=\"box-body\">\n                        <mat-select required class=\"full-width\" placeholder=\"Empresa\" [(ngModel)]=\"model_user_company.company\" name=\"company_id\" id=\"company_id\">\n                            <mat-option *ngFor=\"let item of companies\" [value]=\"item\" [hidden]=\"item.hide\">{{item.name}}</mat-option>\n                        </mat-select>\n                    </div>\n                </div>\n\n                <!-- user profile -->\n                <div class='col-sm-12 col-md-4'>\n                    <div class=\"box-body\">\n                        <mat-select required class=\"full-width\" placeholder=\"Perfil de usuario\" [(ngModel)]=\"model_user_company.userprofile\" name=\"user_profile_id\"\n                            id=\"user_profile_id\">\n                            <mat-option *ngFor=\"let item of user_profiles\" [value]=\"item\">{{item.up_description}}</mat-option>\n                        </mat-select>\n                    </div>\n                </div>\n\n                <div class=\"col-md-4\">\n                    <button type=\"button\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left\" [disabled]=\"!companyForm.form.valid\"\n                        (click)=\"addCompany()\">Añadir Empresa</button>\n                </div>\n            </form>\n            <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n                <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n                    <thead>\n                        <tr>\n                            <th>Empresa</th>\n                            <th>Perfil de Usuario</th>\n                            <th colspan=\"2\"></th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let item of model.usersprivileges\">\n                            <td>{{ item.company?.name }}</td>\n                            <td>{{ item.userprofile?.up_description }}</td>\n                            <td class=\"text-center\">\n                                <i class=\"fa fa-check fa-2x text-success\" aria-hidden=\"true\" *ngIf=\"item.company_id == model.company_default_id\"></i>\n                            </td>\n                            <td class=\"text-center\" title=\"Remover empresa\">\n                                <a style=\"cursor: pointer;\" class=\"text-danger\" (click)=\"removeCompany(item)\">\n                                    <i class=\"fa fa-trash fa-2x\"></i>\n                                </a>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n\n            </div>\n        </div>\n\n        <div class=\"col-sm-12\" [class.btn-action-container]=\"booActive\">\n            <button type=\"button\" [disabled]=\"action_active ? false : !modelForm.form.valid\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left btn-right\"\n                (click)=\"save()\">{{str_action}}</button>\n        </div>\n\n    </div>\n\n</div>"
+module.exports = "<div class=\"box-body\">\r\n    <!--FORM-->\r\n    \r\n    <form #modelForm=\"ngForm\" autocomplete=\"off\">\r\n            <div class=\"row\">\r\n        <div class=\"col-sm-12 margin-botton\">\r\n            <div class=\"flex\">\r\n                <span class=\"flex-spacer\"></span>\r\n                <mat-slide-toggle checked=\"true\" id=\"status\" name=\"status\" [(ngModel)]=\"model.status\"> Estado </mat-slide-toggle>\r\n            </div>\r\n        </div>\r\n        \r\n        <div class=\"col-sm-12 col-md-6 margin-botton\">\r\n            <mat-form-field class=\"full-width\">\r\n                <input required type=\"text\" id=\"firstname\" name=\"firstname\" [(ngModel)]=\"model.firstname\" matInput placeholder=\"Nombres\">\r\n            </mat-form-field>\r\n        </div>\r\n\r\n        <div class=\"col-sm-12 col-md-6 margin-botton\">\r\n            <mat-form-field class=\"full-width\">\r\n                <input required type=\"text\" id=\"lastname\" name=\"lastname\" [(ngModel)]=\"model.lastname\" matInput placeholder=\"Apellidos\">\r\n            </mat-form-field>\r\n        </div>\r\n\r\n        <div class=\"col-sm-12 col-md-6 margin-botton\">\r\n            <mat-form-field class=\"full-width\">\r\n                <input autocomplete=\"nope\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" required type=\"text\" id=\"username\" name=\"username\"\r\n                    [(ngModel)]=\"model.username\" matInput placeholder=\"Nombre de Usuario\">\r\n            </mat-form-field>\r\n        </div>\r\n\r\n        <div class=\"col-sm-12 col-md-6 margin-botton\">\r\n            <mat-form-field class=\"full-width\">\r\n                <input autocomplete=\"new-password\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"false\" [required]=\"!model.id\" [disabled]=\"model.id\"\r\n                    type=\"password\" id=\"password\" name=\"password\" [(ngModel)]=\"model.password\" matInput placeholder=\"Contraseña\"\r\n                    reverse=\"true\">\r\n            </mat-form-field>\r\n        </div>\r\n\r\n        <div class=\"col-sm-12 col-md-6 margin-botton\">\r\n            <mat-form-field class=\"full-width\">\r\n                <input required type=\"email\" id=\"email\" name=\"email\" [(ngModel)]=\"model.email\" matInput placeholder=\"Correo electrónico\">\r\n            </mat-form-field>\r\n        </div>\r\n\r\n    </div>\r\n\r\n    </form>\r\n\r\n\r\n</div>\r\n\r\n<div class=\"box-body\">\r\n\r\n    <div class=\"row\">\r\n\r\n        <div class=\"col-sm-12\">\r\n            <form #companyForm=\"ngForm\" autocomplete=\"off\">\r\n\r\n                <!-- company -->\r\n                <div class='col-sm-12 col-md-4'>\r\n                    <div class=\"box-body\">\r\n                        <mat-form-field><mat-select required class=\"full-width\" placeholder=\"Empresa\" [(ngModel)]=\"model_user_company.company\" name=\"company_id\" id=\"company_id\">\r\n                            <mat-option *ngFor=\"let item of companies\" [value]=\"item\" [hidden]=\"item.hide\">{{item.name}}</mat-option>\r\n                        </mat-select></mat-form-field>\r\n                    </div>\r\n                </div>\r\n\r\n                <!-- user profile -->\r\n                <div class='col-sm-12 col-md-4'>\r\n                    <div class=\"box-body\">\r\n                        <mat-form-field><mat-select required class=\"full-width\" placeholder=\"Perfil de usuario\" [(ngModel)]=\"model_user_company.userprofile\" name=\"user_profile_id\"\r\n                            id=\"user_profile_id\">\r\n                            <mat-option *ngFor=\"let item of user_profiles\" [value]=\"item\">{{item.up_description}}</mat-option>\r\n                        </mat-select></mat-form-field>\r\n                    </div>\r\n                </div>\r\n\r\n                <div class=\"col-md-4\">\r\n                    <button type=\"button\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left\" [disabled]=\"!companyForm.form.valid\"\r\n                        (click)=\"addCompany()\">Añadir Empresa</button>\r\n                </div>\r\n            </form>\r\n            <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\r\n\r\n                <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\r\n                    <thead>\r\n                        <tr>\r\n                            <th>Empresa</th>\r\n                            <th>Perfil de Usuario</th>\r\n                            <th colspan=\"2\"></th>\r\n                        </tr>\r\n                    </thead>\r\n                    <tbody>\r\n                        <tr *ngFor=\"let item of model.usersprivileges\">\r\n                            <td>{{ item.company?.name }}</td>\r\n                            <td>{{ item.userprofile?.up_description }}</td>\r\n                            <td class=\"text-center\">\r\n                                <i class=\"fa fa-check fa-2x text-success\" aria-hidden=\"true\" *ngIf=\"item.company_id == model.company_default_id\"></i>\r\n                            </td>\r\n                            <td class=\"text-center\" title=\"Remover empresa\">\r\n                                <a style=\"cursor: pointer;\" class=\"text-danger\" (click)=\"removeCompany(item)\">\r\n                                    <i class=\"fa fa-trash fa-2x\"></i>\r\n                                </a>\r\n                            </td>\r\n                        </tr>\r\n                    </tbody>\r\n                </table>\r\n\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"col-sm-12\" [class.btn-action-container]=\"booActive\">\r\n            <button type=\"button\" [disabled]=\"action_active ? false : !modelForm.form.valid\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left btn-right\"\r\n                (click)=\"save()\">{{str_action}}</button>\r\n        </div>\r\n\r\n    </div>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -6741,7 +7823,7 @@ var UserActionComponent = /** @class */ (function (_super) {
 /***/ "../../../../../src/app/smartity/modals/modal-users/user-list/user-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"box-body\">\n    <!-- LIST -->\n    <div class=\"row\">\n            <div class=\"col-md-6\">\n                <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">                                    \n                    <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\"\n                    [(ngModel)]=\"search\" (keydown)=\"enter($event)\">\n                    <div style=\"width: 34px\" class=\"input-group-addon\">\n                        <a style=\"cursor:pointer\" (click)=\"getAll()\"><i class=\"fa fa-search\"></i></a> \n                    </div>\n                </div>\n            </div>\n        \n        <div class=\"col-sm-12\">\n            \n            <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n                \n                <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n                <thead>\n                    <tr>\n                        <th (click)=\"sort('u.id')\">ID\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='u.id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('username')\">Nombre de Usuario\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='username'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('firstname')\">Nombre\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='firstname'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('up_description')\">Perfil de Usuario\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='up_description'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('c.name')\">Empresa\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='c.name'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('last_access')\">Ultimo Acceso\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='last_access'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span></th>     \n                        <th (click)=\"sort('u.status')\">Estado\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='u.status'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th *ngIf=\"!noaction\"></th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor=\"let item of list.data; let index = index\" (click)=\"view(item); numItemSelected = index\" [ngClass]=\"{'active': numItemSelected == index }\">\n                        <td>{{ item.id }}</td>                                                                       \n                        <td>{{ item.username }}</td>\n                        <td>{{ item.firstname + ' ' + item.lastname }}</td>  \n                        <td>{{ item.user_profile }}</td>    \n                        <td>{{ item.company }}</td>    \n                        <td>{{ item.last_access }}</td>                                    \n                        <td>{{ item.status ? 'Activo' : 'Inactivo' }}</td>\n                        \n                    </tr>                                          \n                </tbody>\n                </table>\n                \n            </div>\n\n            <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\" [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n            \n        </div>\n    </div>                  \n</div>\n"
+module.exports = "\r\n<div class=\"box-body\">\r\n    <!-- LIST -->\r\n    <div class=\"row\">\r\n            <div class=\"col-md-6\">\r\n                <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">                                    \r\n                    <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\"\r\n                    [(ngModel)]=\"search\" (keydown)=\"enter($event)\">\r\n                    <div style=\"width: 34px\" class=\"input-group-addon\">\r\n                        <a style=\"cursor:pointer\" (click)=\"getAll()\"><i class=\"fa fa-search\"></i></a> \r\n                    </div>\r\n                </div>\r\n            </div>\r\n        \r\n        <div class=\"col-sm-12\">\r\n            \r\n            <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\r\n                \r\n                <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\r\n                <thead>\r\n                    <tr>\r\n                        <!-- <th (click)=\"sort('u.id')\">ID\r\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='u.id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\r\n                        </th> -->\r\n                        <th (click)=\"sort('username')\">Nombre de Usuario\r\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='username'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\r\n                        </th>\r\n                        <th (click)=\"sort('firstname')\">Nombre\r\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='firstname'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\r\n                        </th>\r\n                        <th (click)=\"sort('up_description')\">Perfil de Usuario\r\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='up_description'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\r\n                        </th>\r\n                        <th (click)=\"sort('c.name')\">Empresa\r\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='c.name'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\r\n                        </th>\r\n                        <th (click)=\"sort('last_access')\">Ultimo Acceso\r\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='last_access'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span></th>     \r\n                        <th (click)=\"sort('u.status')\">Estado\r\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='u.status'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\r\n                        </th>\r\n                        <th *ngIf=\"!noaction\"></th>\r\n                    </tr>\r\n                </thead>\r\n                <tbody>\r\n                    <tr *ngFor=\"let item of list.data; let index = index\" (click)=\"view(item); numItemSelected = index\" [ngClass]=\"{'active': numItemSelected == index }\">\r\n                        <!-- <td>{{ item.id }}</td>                                                                        -->\r\n                        <td>{{ item.username }}</td>\r\n                        <td>{{ item.firstname + ' ' + item.lastname }}</td>  \r\n                        <td>{{ item.user_profile }}</td>    \r\n                        <td>{{ item.company }}</td>    \r\n                        <td>{{ item.last_access }}</td>                                    \r\n                        <td>{{ item.status ? 'Activo' : 'Inactivo' }}</td>\r\n                        \r\n                    </tr>                                          \r\n                </tbody>\r\n                </table>\r\n                \r\n            </div>\r\n\r\n            <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\" [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\r\n            \r\n        </div>\r\n    </div>                  \r\n</div>\r\n"
 
 /***/ }),
 
@@ -6897,7 +7979,7 @@ var ModalWarehouseComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/smartity/modals/modal-warehouse/warehouse-action/warehouse-action.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- FORM -->\n<form class=\"col-sm-12\" #modelForm=\"ngForm\" autocomplete=\"off\">\n    <div class=\"row\">\n        <div class=\"col-sm-12 margin-bottom\" [class.btn-action-container]=\"booActive\" *ngIf=\"!noaction\">\n            <button type=\"button\" mat-raised-button color=\"primary\" (click)=\"goList()\" class=\"btn-w-md no-margin-left\">\n                <mat-icon>keyboard_arrow_left</mat-icon> Regresar\n            </button>\n        </div>\n\n        <!-- name -->\n        <div class='col-sm-12 col-md-4'>\n            <div class=\"box-body\">\n                <mat-form-field class=\"full-width\">\n                    <input required type=\"text\" id=\"name\" name=\"name\" [(ngModel)]=\"model.name\" matInput placeholder=\"Nombre de la bodega\">\n                </mat-form-field>\n            </div>\n        </div>\n\n        <!--warehouse_type_id-->\n        <div class='col-sm-12 col-md-4'>\n            <div class=\"box-body\">\n                <mat-select class=\"full-width\" placeholder=\"Tipo de bodega\" [(ngModel)]=\"model.warehouse_type_id\" name=\"warehouse_type_id\"\n                    id=\"warehouse_type_id\">\n                    <mat-option *ngFor=\"let i of warehouses\" [value]=\"i.id\">{{i.value}}</mat-option>\n                </mat-select>\n            </div>\n        </div>\n\n        <!-- estado -->\n        <div class='col-sm-12 col-md-4'>\n            <div class=\"box-body\">\n                <mat-slide-toggle [labelPosition]=\"after\" id=\"state\" name=\"state\" [(ngModel)]=\"model.state\">Estado</mat-slide-toggle>\n            </div>\n        </div>\n\n        <!-- description -->\n        <div class=\"col-sm-12 col-md-12\">\n            <div class=\"box-body\">\n                <mat-form-field class=\"full-width\">\n                    <textarea id=\"description\" name=\"description\" [(ngModel)]=\"model.description\" matInput placeholder=\"Descripción\"></textarea>\n                </mat-form-field>\n            </div>\n        </div>\n\n        <!--country -->\n        <div class='col-sm-12 col-md-4'>\n            <div class=\"box-body\">\n                <mat-select class=\"full-width\" placeholder=\"Pais\" [(ngModel)]=\"model.country_id\" name=\"country_id\" (change)=\"getDepartments()\"\n                    id=\"country_id\">\n                    <mat-option *ngFor=\"let item of countries\" [value]=\"item.id\">{{item.value}}</mat-option>\n                </mat-select>\n            </div>\n        </div>\n\n        <!-- department -->\n        <div class='col-sm-12 col-md-4'>\n            <div class=\"box-body\">\n                <mat-select class=\"full-width\" placeholder=\"Departamento\" [(ngModel)]=\"model.department_id\" name=\"department_id\" (change)=\"getCities()\"\n                    id=\"department_id\">\n                    <mat-option *ngFor=\"let item of departments\" [value]=\"item.id\">{{item.value}}</mat-option>\n                </mat-select>\n            </div>\n        </div>\n\n        <!--city -->\n        <div class='col-sm-12 col-md-4'>\n            <div class=\"box-body\">\n                <mat-select class=\"full-width\" placeholder=\"Ciudad\" [(ngModel)]=\"model.city_id\" name=\"city_id\" id=\"city_id\">\n                    <mat-option *ngFor=\"let item of cities\" [value]=\"item.id\">{{item.value}}</mat-option>\n                </mat-select>\n            </div>\n        </div>\n\n        <div class=\"col-sm-12\" [class.btn-action-container]=\"booActive\">\n            <button type=\"button\" [disabled]=\"action_active ? false : !modelForm.form.valid\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left btn-right\"\n                (click)=\"save()\">{{str_action}}</button>\n        </div>\n    </div>\n</form>"
+module.exports = "<!-- FORM -->\r\n<form class=\"col-sm-12\" #modelForm=\"ngForm\" autocomplete=\"off\">\r\n    <div class=\"row\">\r\n\r\n        <!-- name -->\r\n        <div class='col-sm-12 col-md-4'>\r\n            <div class=\"box-body\">\r\n                <mat-form-field class=\"full-width\">\r\n                    <input required type=\"text\" id=\"name\" name=\"name\" [(ngModel)]=\"model.name\" matInput placeholder=\"Nombre de la bodega\">\r\n                </mat-form-field>\r\n            </div>\r\n        </div>\r\n\r\n        <!--warehouse_type_id-->\r\n        <div class='col-sm-12 col-md-4'>\r\n            <div class=\"box-body\">\r\n                    <mat-form-field class=\"full-width\"><mat-select class=\"full-width\" placeholder=\"Tipo de bodega\" [(ngModel)]=\"model.warehouse_type_id\" name=\"warehouse_type_id\"\r\n                    id=\"warehouse_type_id\">\r\n                    <mat-option *ngFor=\"let i of warehouses\" [value]=\"i.id\">{{i.value}}</mat-option>\r\n                </mat-select>\r\n                    </mat-form-field>\r\n            </div>\r\n        </div>\r\n\r\n        <!-- estado -->\r\n        <div class='col-sm-12 col-md-4'>\r\n            <div class=\"box-body\">\r\n                <mat-slide-toggle [labelPosition]=\"after\" id=\"state\" name=\"state\" [(ngModel)]=\"model.state\">Estado</mat-slide-toggle>\r\n            </div>\r\n        </div>\r\n\r\n        <!-- description -->\r\n        <div class=\"col-sm-12 col-md-12\">\r\n            <div class=\"box-body\">\r\n                <mat-form-field class=\"full-width\">\r\n                    <textarea id=\"description\" name=\"description\" [(ngModel)]=\"model.description\" matInput placeholder=\"Descripción\"></textarea>\r\n                </mat-form-field>\r\n            </div>\r\n        </div>\r\n\r\n        <!--country -->\r\n        <div class='col-sm-12 col-md-4'>\r\n            <div class=\"box-body\">\r\n                    <mat-form-field class=\"full-width\">\r\n                <mat-select class=\"full-width\" placeholder=\"País\" [(ngModel)]=\"model.country_id\" name=\"country_id\" (change)=\"getDepartments()\"\r\n                    id=\"country_id\">\r\n                    <mat-option *ngFor=\"let item of countries\" [value]=\"item.id\">{{item.value}}</mat-option>\r\n                </mat-select>\r\n                </mat-form-field>\r\n            </div>\r\n        </div>\r\n\r\n        <!-- department -->\r\n        <div class='col-sm-12 col-md-4'>\r\n            <div class=\"box-body\">\r\n                    <mat-form-field class=\"full-width\">\r\n                <mat-select class=\"full-width\" placeholder=\"Departamento\" [(ngModel)]=\"model.department_id\" name=\"department_id\" (change)=\"getCities()\"\r\n                    id=\"department_id\">\r\n                    <mat-option *ngFor=\"let item of departments\" [value]=\"item.id\">{{item.value}}</mat-option>\r\n                </mat-select>\r\n                </mat-form-field>\r\n            </div>\r\n        </div>\r\n\r\n        <!--city -->\r\n        <div class='col-sm-12 col-md-4'>\r\n            <div class=\"box-body\">\r\n                    <mat-form-field class=\"full-width\">\r\n                <mat-select class=\"full-width\" placeholder=\"Ciudad\" [(ngModel)]=\"model.city_id\" name=\"city_id\" id=\"city_id\">\r\n                    <mat-option *ngFor=\"let item of cities\" [value]=\"item.id\">{{item.value}}</mat-option>\r\n                </mat-select>\r\n                </mat-form-field>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"col-sm-12\" [class.btn-action-container]=\"booActive\">\r\n            <button type=\"button\" [disabled]=\"action_active ? false : !modelForm.form.valid\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left btn-right\"\r\n                (click)=\"save()\">{{str_action}}</button>\r\n        </div>\r\n    </div>\r\n</form>"
 
 /***/ }),
 
@@ -7491,7 +8573,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "html {\n  height: 100%;\n  background-color: #e5e5e5; }\n\nbody {\n  height: 100%;\n  margin: 0;\n  padding: 0; }\n\n.full-height {\n  height: 100% !important; }\n\n.app-header {\n  display: block;\n  position: relative;\n  z-index: 1000;\n  height: 60px;\n  width: 100%;\n  background-color: #fff; }\n  .app-header .toggle-sidebar {\n    display: block; }\n\n.fixed-header .app-header {\n  position: fixed;\n  left: 0;\n  top: 0;\n  right: 0; }\n\n@media only screen and (min-width: 992px) {\n  .app-header .toggle-sidebar-btn {\n    display: none; }\n  .app-header .brand {\n    display: inline-block;\n    width: 250px;\n    padding: 0 0 0 64px;\n    transition: padding 0.25s cubic-bezier(0, 0, 0.2, 1); }\n    .app-header .brand a {\n      text-decoration: none;\n      font-weight: normal; }\n  .nav-behind .app-header .brand {\n    padding-left: 0; } }\n\n.app-sidebar {\n  display: block;\n  z-index: 99;\n  position: fixed;\n  left: 0;\n  bottom: 0;\n  top: 0;\n  height: 100vh;\n  width: 250px;\n  overflow: hidden;\n  background-color: #292b2c; }\n  .app-sidebar .sidebar-header {\n    display: block;\n    position: relative;\n    height: 60px; }\n  .app-sidebar .sidebar-footer {\n    background-color: #292b2c; }\n\n@media only screen and (min-width: 992px) {\n  .app-sidebar {\n    z-index: 1001;\n    overflow-x: hidden; } }\n\n.app-page-container {\n  width: 100%;\n  height: 100%; }\n  .app-page-container .app-content-wrapper {\n    min-height: 100%;\n    position: relative;\n    background-color: #fff; }\n    .app-page-container .app-content-wrapper .app-content {\n      z-index: 10;\n      padding-bottom: 44px;\n      min-height: 100%;\n      transition: all 0.3s ease; }\n      .app-page-container .app-content-wrapper .app-content.full-width {\n        width: 100%; }\n\n.fixed-header .app-page-container .app-content-wrapper .app-content {\n  padding-top: 60px; }\n\n.app-page-container.scroll-disabled {\n  overflow: hidden; }\n\n@media only screen and (max-width: 991px) {\n  .app-page-container {\n    position: relative;\n    z-index: 100;\n    padding-left: 0;\n    transition: transform .25s ease;\n    background-color: #fff; }\n    .app-page-container .app-content-wrapper .app-content {\n      overflow-x: hidden; }\n  .sidebar-mobile-open .app-page-container {\n    overflow: hidden;\n    position: fixed;\n    transform: translateX(250px); } }\n\n@media only screen and (min-width: 992px) {\n  .app-page-container .app-content-wrapper .app-content {\n    padding-left: 250px; }\n  .app-page-container .app-content-wrapper .app-footer {\n    left: 250px; }\n  .nav-collapsed .app-page-container .app-content-wrapper .app-content {\n    padding-left: 64px; }\n  .nav-collapsed .app-page-container .app-content-wrapper .app-footer {\n    left: 64px; } }\n\n.app-page-container .app-footer {\n  position: absolute;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  transition: left 0.3s cubic-bezier(0, 0, 0.2, 1); }\n  .app-page-container .app-footer.fixed {\n    position: fixed; }\n\n.app-page-container .app-footer {\n  padding: 13px 0;\n  border-top: 1px solid rgba(0, 0, 0, 0.05);\n  font-size: 11px;\n  line-height: 17px;\n  color: #636c72; }\n  .app-page-container .app-footer .brand {\n    color: rgba(0, 0, 0, 0.87);\n    text-transform: uppercase;\n    letter-spacing: 0.02em; }\n  .app-page-container .app-footer .material-icons {\n    font-size: 0.875rem;\n    vertical-align: text-top; }\n\n.quickview-wrapper {\n  z-index: 1001;\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  height: 100vh;\n  right: -300px;\n  width: 300px;\n  background: #fff;\n  transition: right 0.4s cubic-bezier(0.05, 0.74, 0.2, 0.99);\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden; }\n\n.quickview-open .quickview-wrapper {\n  right: 0; }\n\n.quickview-wrapper {\n  border-left: 1px solid rgba(0, 0, 0, 0.05);\n  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); }\n\n.app-overlay {\n  opacity: 0;\n  visibility: hidden;\n  transition: opacity .3s ease,  visibility .3s ease;\n  z-index: 1040;\n  position: fixed;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  background: #fff;\n  overflow: hidden; }\n  .app-overlay .overlay-close {\n    position: absolute;\n    right: 20px;\n    top: 25px; }\n\n.overlay-active .app-overlay {\n  visibility: visible;\n  opacity: 1; }\n\n.app-main {\n  max-width: 100%;\n  margin: auto;\n  transition: max-width .35s ease; }\n  .app-main .app-sidebar {\n    left: auto; }\n  .app-main .app-header > .app-header-inner {\n    max-width: 100%;\n    margin: auto;\n    transition: max-width .35s ease; }\n\n@media only screen and (min-width: 992px) {\n  .layout-boxed.app-main {\n    max-width: 1200px;\n    box-shadow: 0 0 1px rgba(0, 0, 0, 0.2); }\n    .layout-boxed.app-main .app-header > .app-header-inner {\n      max-width: 1200px;\n      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); }\n    .layout-boxed.app-main .app-overlay > .app-overlay-inner {\n      max-width: 1200px;\n      margin: auto; } }\n\n@media only screen and (max-width: 991px) {\n  .no-app-sidebar + .app-page-container .app-header .header-icon {\n    display: none; } }\n\n@media only screen and (min-width: 992px) {\n  .no-app-sidebar + .app-page-container .app-header .brand {\n    padding-left: 0; }\n  .no-app-sidebar + .app-page-container .app-content-wrapper .app-content {\n    padding-left: 0; }\n  .no-app-sidebar + .app-page-container .app-content-wrapper .app-footer {\n    left: 0; } }\n\n.app-sidebar ul.nav {\n  -ms-flex-direction: column;\n      flex-direction: column; }\n  .app-sidebar ul.nav ul {\n    display: none; }\n  .app-sidebar ul.nav li {\n    position: relative; }\n    .app-sidebar ul.nav li.open > .icon-has-ul {\n      transform: rotate(-180deg); }\n  .app-sidebar ul.nav .icon-has-ul {\n    position: absolute;\n    top: 12px;\n    right: 15px;\n    font-size: 18px;\n    line-height: 1;\n    color: #777;\n    transition: transform .3s ease-in-out; }\n  .app-sidebar ul.nav ul .icon-has-ul {\n    top: 11px; }\n  .app-sidebar ul.nav .nav-divider {\n    background-color: rgba(0, 0, 0, 0.15);\n    min-height: 1px;\n    margin: 10px 0;\n    overflow: hidden; }\n\n.app-sidebar .sidebar-content {\n  height: calc(100% - 104px); }\n\n.sidebar-header a.collapsednav-toggler {\n  display: inline-block;\n  position: absolute;\n  width: 20px;\n  height: 20px;\n  line-height: 20px;\n  text-align: center;\n  right: 18px;\n  top: 20px;\n  color: rgba(255, 255, 255, 0.55); }\n  .sidebar-header a.collapsednav-toggler .material-icons {\n    font-size: 12px; }\n\n@media only screen and (max-width: 991px) {\n  .app-sidebar .sidebar-header a.collapsednav-toggler {\n    display: none; } }\n\n.app-sidebar .sidebar-header {\n  text-align: left; }\n  .app-sidebar .sidebar-header .logo-icon {\n    margin-right: 11px; }\n  .app-sidebar .sidebar-header .logo-img {\n    margin-right: 12px; }\n  .app-sidebar .sidebar-header .brand {\n    display: inline; }\n  .app-sidebar .sidebar-header .collapsednav-toggler {\n    display: inline-block; }\n\n.app-sidebar .sidebar-content .nav-header {\n  display: block; }\n\n.app-sidebar .sidebar-content .nav-text {\n  display: inline; }\n\n.app-sidebar .sidebar-content .icon-has-ul {\n  display: inherit; }\n\n.app-sidebar .sidebar-content .badge {\n  display: inherit;\n  top: 14px;\n  right: 35px; }\n\n.app-sidebar .sidebar-content .nav > li > a {\n  padding: 10px 16px;\n  text-align: left; }\n  .app-sidebar .sidebar-content .nav > li > a .nav-icon {\n    transition: padding 0.35s cubic-bezier(0, 0, 0.2, 1), margin 0.35s cubic-bezier(0, 0, 0.2, 1);\n    margin-right: 18px; }\n\n.app-sidebar .sidebar-content .nav > li ul li > a {\n  text-align: left; }\n  .app-sidebar .sidebar-content .nav > li ul li > a > span {\n    display: inline; }\n  .app-sidebar .sidebar-content .nav > li ul li > a > .material-icons {\n    transition: margin 0.35s cubic-bezier(0, 0, 0.2, 1);\n    margin-right: 18px; }\n\n.app-sidebar .sidebar-footer .nav-text {\n  display: inline; }\n\n.app-sidebar .sidebar-footer .nav > li > a {\n  padding: 10px 16px;\n  text-align: left; }\n  .app-sidebar .sidebar-footer .nav > li > a .nav-icon {\n    margin-right: 15px; }\n\n@media only screen and (min-width: 992px) {\n  .app-sidebar {\n    transition: width 0.3s cubic-bezier(0, 0, 0.2, 1);\n    white-space: nowrap; }\n  .nav-collapsed .app-sidebar {\n    width: 64px; }\n    .nav-collapsed .app-sidebar .sidebar-header {\n      text-align: center; }\n      .nav-collapsed .app-sidebar .sidebar-header .logo-icon,\n      .nav-collapsed .app-sidebar .sidebar-header .logo-img {\n        margin-right: 0; }\n      .nav-collapsed .app-sidebar .sidebar-header .brand {\n        display: none; }\n      .nav-collapsed .app-sidebar .sidebar-header .collapsednav-toggler {\n        display: none; }\n    .nav-collapsed .app-sidebar .sidebar-content .nav-header,\n    .nav-collapsed .app-sidebar .sidebar-content .nav-text,\n    .nav-collapsed .app-sidebar .sidebar-content .icon-has-ul,\n    .nav-collapsed .app-sidebar .sidebar-content .nav ul a > span {\n      display: none; }\n    .nav-collapsed .app-sidebar .sidebar-content .badge {\n      top: 3px;\n      right: 5px; }\n    .nav-collapsed .app-sidebar .sidebar-content .nav > li > a {\n      padding: 12px 16px;\n      text-align: center; }\n    .nav-collapsed .app-sidebar .sidebar-content .nav > li .nav-icon {\n      margin-right: 0; }\n    .nav-collapsed .app-sidebar .sidebar-content .nav > li ul li > a {\n      text-align: center; }\n      .nav-collapsed .app-sidebar .sidebar-content .nav > li ul li > a > .material-icons {\n        margin-right: 0; }\n    .nav-collapsed .app-sidebar .sidebar-footer .nav-text {\n      display: none; }\n    .nav-collapsed .app-sidebar .sidebar-footer .nav > li > a {\n      text-align: center; }\n    .nav-collapsed .app-sidebar .sidebar-footer .nav > li .nav-icon {\n      margin-right: 0; }\n  .nav-collapsed .app-sidebar:hover {\n    width: 250px; }\n    .nav-collapsed .app-sidebar:hover > * {\n      width: 250px; }\n    .nav-collapsed .app-sidebar:hover .sidebar-header {\n      text-align: left; }\n      .nav-collapsed .app-sidebar:hover .sidebar-header .logo-icon {\n        margin-right: 11px; }\n      .nav-collapsed .app-sidebar:hover .sidebar-header .logo-img {\n        margin-right: 12px; }\n      .nav-collapsed .app-sidebar:hover .sidebar-header .brand {\n        display: inline; }\n      .nav-collapsed .app-sidebar:hover .sidebar-header .collapsednav-toggler {\n        display: inline-block; }\n    .nav-collapsed .app-sidebar:hover .sidebar-content .nav-header {\n      display: block; }\n    .nav-collapsed .app-sidebar:hover .sidebar-content .nav-text {\n      display: inline; }\n    .nav-collapsed .app-sidebar:hover .sidebar-content .icon-has-ul {\n      display: inherit; }\n    .nav-collapsed .app-sidebar:hover .sidebar-content .badge {\n      display: inherit;\n      top: 14px;\n      right: 35px; }\n    .nav-collapsed .app-sidebar:hover .sidebar-content .nav > li > a {\n      padding: 10px 16px;\n      text-align: left; }\n      .nav-collapsed .app-sidebar:hover .sidebar-content .nav > li > a .nav-icon {\n        transition: padding 0.35s cubic-bezier(0, 0, 0.2, 1), margin 0.35s cubic-bezier(0, 0, 0.2, 1);\n        margin-right: 18px; }\n    .nav-collapsed .app-sidebar:hover .sidebar-content .nav > li ul li > a {\n      text-align: left; }\n      .nav-collapsed .app-sidebar:hover .sidebar-content .nav > li ul li > a > span {\n        display: inline; }\n      .nav-collapsed .app-sidebar:hover .sidebar-content .nav > li ul li > a > .material-icons {\n        transition: margin 0.35s cubic-bezier(0, 0, 0.2, 1);\n        margin-right: 18px; }\n    .nav-collapsed .app-sidebar:hover .sidebar-footer .nav-text {\n      display: inline; }\n    .nav-collapsed .app-sidebar:hover .sidebar-footer .nav > li > a {\n      padding: 10px 16px;\n      text-align: left; }\n      .nav-collapsed .app-sidebar:hover .sidebar-footer .nav > li > a .nav-icon {\n        margin-right: 15px; } }\n\n@media only screen and (min-width: 992px) {\n  .nav-behind .app-sidebar {\n    z-index: 999; } }\n\n@media only screen and (min-width: 992px) {\n  .sidebar-sm.nav-collapsed .app-page-container .app-content-wrapper .app-content,\n  .sidebar-lg.nav-collapsed .app-page-container .app-content-wrapper .app-content {\n    padding-left: 64px; }\n  .sidebar-sm.nav-collapsed .app-page-container .app-content-wrapper .app-footer,\n  .sidebar-lg.nav-collapsed .app-page-container .app-content-wrapper .app-footer {\n    left: 64px; } }\n\n@media only screen and (min-width: 992px) {\n  .sidebar-sm.nav-collapsed .app-sidebar,\n  .sidebar-lg.nav-collapsed .app-sidebar {\n    width: 64px; } }\n\n@media only screen and (min-width: 992px) {\n  .sidebar-sm .app-header .brand {\n    width: 220px; } }\n\n@media only screen and (min-width: 992px) {\n  .sidebar-sm .app-page-container .app-content-wrapper .app-content {\n    padding-left: 220px; }\n  .sidebar-sm .app-page-container .app-content-wrapper .app-footer {\n    left: 220px; } }\n\n@media only screen and (max-width: 991px) {\n  .sidebar-sm.sidebar-mobile-open .app-page-container {\n    transform: translateX(220px); } }\n\n.sidebar-sm .app-sidebar {\n  width: 220px; }\n\n@media only screen and (min-width: 992px) {\n  .sidebar-sm.nav-collapsed .app-sidebar:hover {\n    width: 220px; }\n    .sidebar-sm.nav-collapsed .app-sidebar:hover > * {\n      width: 220px; } }\n\n@media only screen and (min-width: 992px) {\n  .sidebar-lg .app-header .brand {\n    width: 280px; } }\n\n@media only screen and (min-width: 992px) {\n  .sidebar-lg .app-page-container .app-content-wrapper .app-content {\n    padding-left: 280px; }\n  .sidebar-lg .app-page-container .app-content-wrapper .app-footer {\n    left: 280px; } }\n\n@media only screen and (max-width: 991px) {\n  .sidebar-lg.sidebar-mobile-open .app-page-container {\n    transform: translateX(280px); } }\n\n.sidebar-lg .app-sidebar {\n  width: 280px; }\n\n@media only screen and (min-width: 992px) {\n  .sidebar-lg.nav-collapsed .app-sidebar:hover {\n    width: 280px; }\n    .sidebar-lg.nav-collapsed .app-sidebar:hover > * {\n      width: 280px; } }\n\n.app-header {\n  padding: 0;\n  border: 0;\n  text-align: center; }\n  .app-header .app-header-inner {\n    height: 60px;\n    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }\n  @media only screen and (min-width: 992px) {\n    .app-header {\n      text-align: inherit; } }\n  .app-header.bg-transparent {\n    background-color: transparent !important; }\n  .app-header .brand {\n    display: inline-block;\n    text-align: center;\n    float: left; }\n    .app-header .brand h2 {\n      font-size: 30px;\n      margin: 0;\n      line-height: 60px; }\n  .app-header .header-icon {\n    display: inline-block;\n    height: 60px;\n    padding: 0 14px; }\n    @media only screen and (min-width: 992px) {\n      .app-header .header-icon {\n        padding-left: 18px;\n        padding-right: 18px; } }\n    .app-header .header-icon .material-icons {\n      font-size: 24px; }\n\n.top-nav-left > ul > .list-inline-item,\n.top-nav-right > ul > .list-inline-item {\n  margin: 0;\n  padding: 0; }\n\n.top-nav-left {\n  display: inline-block; }\n  .top-nav-left > ul {\n    display: inline;\n    margin: 0; }\n\n.top-nav-right {\n  display: inline-block;\n  font-size: 16px;\n  line-height: 24px;\n  float: right; }\n  .top-nav-right ul {\n    margin: 0; }\n  .top-nav-right li {\n    height: 60px;\n    float: left; }\n  .top-nav-right a:hover, .top-nav-right a:focus {\n    text-decoration: none; }\n\n.logo-img {\n  width: 24px;\n  height: 24px;\n  margin-bottom: -3px; }\n  .logo-img .st1 {\n    opacity: .9; }\n\n.bg-color-dark > .logo-img .st0,\n.bg-color-primary > .logo-img .st0,\n.bg-color-info > .logo-img .st0,\n.bg-color-danger > .logo-img .st0,\n.bg-color-success > .logo-img .st0 {\n  fill: #fff; }\n\n.bg-color-warning > .logo-img .st0,\n.bg-color-light > .logo-img .st0 {\n  fill: rgba(0, 0, 0, 0.87); }\n\n.app-sidebar {\n  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.15); }\n  .app-sidebar .sidebar-header {\n    line-height: 60px;\n    padding: 0 18px;\n    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }\n    .app-sidebar .sidebar-header .logo-icon {\n      text-align: center;\n      font-size: 24px; }\n      .app-sidebar .sidebar-header .logo-icon.material-icons {\n        line-height: 60px;\n        height: 60px;\n        vertical-align: sub; }\n    .app-sidebar .sidebar-header a.brand {\n      display: inline-block;\n      font-weight: normal;\n      font-size: 23px;\n      line-height: 60px;\n      text-decoration: none; }\n  .app-sidebar .sidebar-footer {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    height: 44px;\n    border-top: 1px solid rgba(0, 0, 0, 0.1);\n    background-color: #333C44; }\n\n.app-sidebar .nav a {\n  display: block;\n  position: relative;\n  text-decoration: none; }\n  .app-sidebar .nav a:hover {\n    cursor: pointer; }\n\n.app-sidebar .nav li {\n  position: relative; }\n  .app-sidebar .nav li .badge {\n    position: absolute;\n    padding: 3px 6px; }\n\n.app-sidebar .nav .nav-header {\n  margin: 15px 15px 5px;\n  font-size: 0.875rem; }\n\n.app-sidebar .nav .nav-divider + .nav-header {\n  margin-top: 5px; }\n\n.app-sidebar .nav > li > a {\n  line-height: 24px; }\n\n.app-sidebar .nav .nav-icon {\n  display: inline-block; }\n  .app-sidebar .nav .nav-icon.material-icons {\n    width: 24px;\n    height: 24px;\n    font-size: 18px;\n    line-height: 24px;\n    text-align: center; }\n    .app-sidebar .nav .nav-icon.material-icons.nav-dot {\n      font-size: 16px; }\n\n.app-sidebar .nav ul {\n  list-style: none;\n  padding: 0; }\n  .app-sidebar .nav ul li > a {\n    padding: 10px 18px; }\n    .app-sidebar .nav ul li > a .material-icons {\n      width: 20px;\n      height: 20px;\n      font-size: 16px;\n      line-height: 1;\n      text-align: center;\n      vertical-align: middle;\n      margin-bottom: -2px; }\n\n.app-sidebar .nav ul ul li > a {\n  padding: 10px 15px 10px 56px; }\n\n.app-sidebar .nav ul ul ul li > a {\n  padding-left: 74px; }\n\n.app-sidebar {\n  background-color: #333C44; }\n  .app-sidebar .nav {\n    color: #a1a1a1; }\n    .app-sidebar .nav a {\n      color: #a1a1a1; }\n    .app-sidebar .nav .nav-header {\n      color: #636c72; }\n    .app-sidebar .nav .nav-divider {\n      background-color: rgba(0, 0, 0, 0.15); }\n    .app-sidebar .nav li > a:hover, .app-sidebar .nav li > a:focus {\n      background-color: transparent;\n      color: #fafafa; }\n    .app-sidebar .nav li.active > a,\n    .app-sidebar .nav li.active > a:hover,\n    .app-sidebar .nav li.active > a:focus {\n      background-color: transparent;\n      color: #fafafa; }\n    .app-sidebar .nav li.open > a,\n    .app-sidebar .nav li.open > a:hover,\n    .app-sidebar .nav li.open > a:focus {\n      background-color: rgba(0, 0, 0, 0.1);\n      color: #fafafa; }\n    .app-sidebar .nav ul {\n      background-color: rgba(0, 0, 0, 0.1); }\n      .app-sidebar .nav ul li.active > a,\n      .app-sidebar .nav ul li.active > a:hover,\n      .app-sidebar .nav ul li.active > a:focus, .app-sidebar .nav ul li.open > a,\n      .app-sidebar .nav ul li.open > a:hover,\n      .app-sidebar .nav ul li.open > a:focus {\n        background-color: rgba(0, 0, 0, 0.1); }\n    .app-sidebar .nav ul ul {\n      background-color: rgba(0, 0, 0, 0.1); }\n      .app-sidebar .nav ul ul > li.active > a,\n      .app-sidebar .nav ul ul > li.active > a:hover,\n      .app-sidebar .nav ul ul > li.active > a:focus, .app-sidebar .nav ul ul > li.open > a,\n      .app-sidebar .nav ul ul > li.open > a:hover,\n      .app-sidebar .nav ul ul > li.open > a:focus {\n        background-color: rgba(0, 0, 0, 0.1);\n        color: #fafafa; }\n    .app-sidebar .nav ul ul ul {\n      background-color: rgba(0, 0, 0, 0.1); }\n\n.app-overlay .app-overlay-inner {\n  max-width: 1090px;\n  margin: 0 auto;\n  padding: 20px 30px; }\n  @media only screen and (min-width: 768px) {\n    .app-overlay .app-overlay-inner {\n      padding: 20px 100px; } }\n\n.app-overlay input.overlay-search-input {\n  border: 0;\n  background-color: transparent;\n  font-size: 35px;\n  font-weight: normal;\n  width: 100%;\n  padding-left: 0;\n  line-height: 1; }\n  @media only screen and (min-width: 768px) {\n    .app-overlay input.overlay-search-input {\n      font-size: 70px; } }\n  .app-overlay input.overlay-search-input:focus {\n    outline: none; }\n\n.app-overlay .overlay-header {\n  position: relative;\n  padding: 60px 0 0; }\n  .app-overlay .overlay-header h2 {\n    font-size: 18px;\n    font-weight: normal;\n    margin: 0; }\n    @media only screen and (min-width: 768px) {\n      .app-overlay .overlay-header h2 {\n        font-size: 24px; } }\n\n.app-overlay a.overlay-close {\n  position: absolute;\n  top: 0;\n  right: 10px;\n  font-weight: 300; }\n  .app-overlay a.overlay-close .material-icons {\n    font-size: 32px; }\n\n.app-overlay .overlay-content {\n  margin: 12px 0 0; }\n\n.app-overlay {\n  background: rgba(255, 255, 255, 0.9); }\n  .app-overlay a.overlay-close {\n    color: rgba(0, 0, 0, 0.87); }\n\n.quickview-open-app #quickview-app {\n  right: 0; }\n\n.quickview-app .quickview-close {\n  display: inline-block;\n  z-index: 1;\n  position: absolute;\n  top: 11px;\n  right: 15px;\n  line-height: 24px;\n  color: rgba(0, 0, 0, 0.87);\n  opacity: .6; }\n  .quickview-app .quickview-close .material-icons {\n    font-size: 1rem;\n    vertical-align: middle; }\n  .quickview-app .quickview-close:hover {\n    opacity: 1; }\n\n#quickview-customizer {\n  width: 410px;\n  right: -410px; }\n\n.quickview-open-customizer #quickview-customizer {\n  right: 0; }\n\n.customizer {\n  padding: 0;\n  background-color: #fafafa; }\n  .customizer .quickview-inner {\n    padding: 15px 45px; }\n  .customizer .customizer-header {\n    text-transform: uppercase;\n    margin-bottom: 3px; }\n  .customizer h4.section-header {\n    margin: 12px 0 0;\n    font-size: 16px;\n    line-height: 1.35;\n    font-weight: normal; }\n  .customizer a {\n    position: relative;\n    display: block;\n    width: 100%;\n    color: rgba(0, 0, 0, 0.87); }\n  .customizer .customizer-close {\n    position: absolute;\n    right: 10px;\n    top: 10px;\n    padding: 7px;\n    width: auto;\n    z-index: 10; }\n    .customizer .customizer-close .material-icons {\n      font-size: 20px; }\n  .customizer a.customizer-toggle,\n  .customizer a.customizer-close {\n    color: rgba(0, 0, 0, 0.87); }\n    .customizer a.customizer-toggle:hover, .customizer a.customizer-toggle:focus,\n    .customizer a.customizer-close:hover,\n    .customizer a.customizer-close:focus {\n      color: rgba(0, 0, 0, 0.87); }\n  .customizer .customizer-toggle {\n    position: absolute;\n    top: 25%;\n    width: 54px;\n    height: 50px;\n    left: -48px;\n    text-align: center;\n    line-height: 50px;\n    cursor: pointer; }\n    .customizer .customizer-toggle .material-icons {\n      font-size: 16px;\n      line-height: 50px; }\n  .customizer:before {\n    position: absolute;\n    content: '';\n    top: 25%;\n    left: -47px;\n    width: 48px;\n    height: 50px;\n    background-color: #fafafa;\n    box-shadow: 0 0 9px rgba(0, 0, 0, 0.1);\n    border-left: 1px solid rgba(0, 0, 0, 0.1);\n    border-radius: 0 4px 4px 0; }\n  .customizer:after {\n    position: absolute;\n    top: 25%;\n    left: 0;\n    content: '';\n    width: 5px;\n    height: 50px;\n    background-color: #fafafa; }\n  .customizer md-list {\n    padding: 0; }\n  .customizer md-list-item, .customizer md-list-item ._md-list-item-inner {\n    min-height: 40px; }\n  .customizer md-list-item ._md-no-style, .customizer md-list-item._md-no-proxy {\n    padding: 0 5px; }\n\n.theme-gray .customizer a,\n.theme-dark .customizer a {\n  color: rgba(255, 255, 255, 0.7); }\n  .theme-gray .customizer a:hover, .theme-gray .customizer a:focus,\n  .theme-dark .customizer a:hover,\n  .theme-dark .customizer a:focus {\n    color: rgba(255, 255, 255, 0.7); }\n\n.theme-dark .customizer {\n  background-color: #3e4953; }\n  .theme-dark .customizer:before {\n    background-color: #3e4953; }\n  .theme-dark .customizer:after {\n    background-color: #3e4953; }\n\n.theme-gray .customizer {\n  background-color: #484848; }\n  .theme-gray .customizer:before {\n    background-color: #484848; }\n  .theme-gray .customizer:after {\n    background-color: #484848; }\n\n.top-nav-left li .header-btn.mat-button,\n.top-nav-right li .header-btn.mat-button {\n  margin: 0;\n  line-height: 60px;\n  border-radius: 0;\n  min-width: 52px; }\n  @media only screen and (min-width: 992px) {\n    .top-nav-left li .header-btn.mat-button,\n    .top-nav-right li .header-btn.mat-button {\n      min-width: 60px; } }\n  .top-nav-left li .header-btn.mat-button > .material-icons,\n  .top-nav-right li .header-btn.mat-button > .material-icons {\n    vertical-align: middle; }\n  .top-nav-left li .header-btn.mat-button .badge,\n  .top-nav-right li .header-btn.mat-button .badge {\n    background-color: transparent;\n    position: absolute;\n    top: 6px;\n    right: 3px;\n    color: inherit; }\n\n.app-sidebar .mat-button {\n  margin: 0;\n  text-align: left;\n  text-transform: none;\n  border-radius: 0;\n  font-weight: normal;\n  line-height: inherit;\n  min-height: inherit;\n  min-width: inherit; }\n\n.quickview-app md-tabs > md-tabs-wrapper {\n  background-color: #eee;\n  padding: 0 40px; }\n\n.quickview-app md-tabs md-pagination-wrapper {\n  width: 100% !important; }\n\nmd-backdrop.md-sidenav-backdrop,\n.md-sidenav-right {\n  z-index: 1001; }\n\n.md-sidenav-right .md-sidenav-inner {\n  height: 100%; }\n  .md-sidenav-right .md-sidenav-inner > md-tabs {\n    height: 100%; }\n\n.md-sidenav-right md-tabs-canvas > md-pagination-wrapper {\n  width: 100% !important; }\n  .md-sidenav-right md-tabs-canvas > md-pagination-wrapper > md-tab-item {\n    width: 50%; }\n  .md-sidenav-right md-tabs-canvas > md-pagination-wrapper md-ink-bar {\n    color: #2196F3;\n    background: #2196F3; }\n", ""]);
+exports.push([module.i, "html {\n  height: 100%;\n  background-color: #e5e5e5; }\n\nbody {\n  height: 100%;\n  margin: 0;\n  padding: 0; }\n\n.full-height {\n  height: 100% !important; }\n\n@media print {\n  /* invert the display (show/hide) properties of the main */\n  /* aplication component and the printing component       */\n  my-app-sidenav {\n    display: none; }\n  my-app-search-overlay {\n    display: none; }\n  my-app-header {\n    display: none; }\n  my-app-footer {\n    display: none; }\n  .hero {\n    display: none; } }\n\n.app-header {\n  display: block;\n  position: relative;\n  z-index: 1000;\n  height: 60px;\n  width: 100%;\n  background-color: #fff; }\n  .app-header .toggle-sidebar {\n    display: block; }\n\n.fixed-header .app-header {\n  position: fixed;\n  left: 0;\n  top: 0;\n  right: 0; }\n\n@media only screen and (min-width: 992px) {\n  .app-header .toggle-sidebar-btn {\n    display: none; }\n  .app-header .brand {\n    display: inline-block;\n    width: 250px;\n    padding: 0 0 0 64px;\n    transition: padding 0.25s cubic-bezier(0, 0, 0.2, 1); }\n    .app-header .brand a {\n      text-decoration: none;\n      font-weight: normal; }\n  .nav-behind .app-header .brand {\n    padding-left: 0; } }\n\n.app-sidebar {\n  display: block;\n  z-index: 99;\n  position: fixed;\n  left: 0;\n  bottom: 0;\n  top: 0;\n  height: 100vh;\n  width: 250px;\n  overflow: hidden;\n  background-color: #292b2c; }\n  .app-sidebar .sidebar-header {\n    display: block;\n    position: relative;\n    height: 60px; }\n  .app-sidebar .sidebar-footer {\n    background-color: #292b2c; }\n\n@media only screen and (min-width: 992px) {\n  .app-sidebar {\n    z-index: 1001;\n    overflow-x: hidden; } }\n\n.app-page-container {\n  width: 100%;\n  height: 100%; }\n  .app-page-container .app-content-wrapper {\n    min-height: 100%;\n    position: relative;\n    background-color: #fff; }\n    .app-page-container .app-content-wrapper .app-content {\n      z-index: 10;\n      padding-bottom: 44px;\n      min-height: 100%;\n      transition: all 0.3s ease; }\n      .app-page-container .app-content-wrapper .app-content.full-width {\n        width: 100%; }\n\n.fixed-header .app-page-container .app-content-wrapper .app-content {\n  padding-top: 60px; }\n\n.app-page-container.scroll-disabled {\n  overflow: hidden; }\n\n@media only screen and (max-width: 991px) {\n  .app-page-container {\n    position: relative;\n    z-index: 100;\n    padding-left: 0;\n    transition: transform .25s ease;\n    background-color: #fff; }\n    .app-page-container .app-content-wrapper .app-content {\n      overflow-x: hidden; }\n  .sidebar-mobile-open .app-page-container {\n    overflow: hidden;\n    position: fixed;\n    transform: translateX(250px); } }\n\n@media only screen and (min-width: 992px) {\n  .app-page-container .app-content-wrapper .app-content {\n    padding-left: 250px; }\n  .app-page-container .app-content-wrapper .app-footer {\n    left: 250px; }\n  .nav-collapsed .app-page-container .app-content-wrapper .app-content {\n    padding-left: 64px; }\n  .nav-collapsed .app-page-container .app-content-wrapper .app-footer {\n    left: 64px; } }\n\n.app-page-container .app-footer {\n  position: absolute;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  transition: left 0.3s cubic-bezier(0, 0, 0.2, 1); }\n  .app-page-container .app-footer.fixed {\n    position: fixed; }\n\n.app-page-container .app-footer {\n  padding: 13px 0;\n  border-top: 1px solid rgba(0, 0, 0, 0.05);\n  font-size: 11px;\n  line-height: 17px;\n  color: #636c72; }\n  .app-page-container .app-footer .brand {\n    color: rgba(0, 0, 0, 0.87);\n    text-transform: uppercase;\n    letter-spacing: 0.02em; }\n  .app-page-container .app-footer .material-icons {\n    font-size: 0.875rem;\n    vertical-align: text-top; }\n\n.quickview-wrapper {\n  z-index: 1001;\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  height: 100vh;\n  right: -300px;\n  width: 300px;\n  background: #fff;\n  transition: right 0.4s cubic-bezier(0.05, 0.74, 0.2, 0.99);\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden; }\n\n.quickview-open .quickview-wrapper {\n  right: 0; }\n\n.quickview-wrapper {\n  border-left: 1px solid rgba(0, 0, 0, 0.05);\n  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); }\n\n.app-overlay {\n  opacity: 0;\n  visibility: hidden;\n  transition: opacity .3s ease,  visibility .3s ease;\n  z-index: 1040;\n  position: fixed;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  background: #fff;\n  overflow: hidden; }\n  .app-overlay .overlay-close {\n    position: absolute;\n    right: 20px;\n    top: 25px; }\n\n.overlay-active .app-overlay {\n  visibility: visible;\n  opacity: 1; }\n\n.app-main {\n  max-width: 100%;\n  margin: auto;\n  transition: max-width .35s ease; }\n  .app-main .app-sidebar {\n    left: auto; }\n  .app-main .app-header > .app-header-inner {\n    max-width: 100%;\n    margin: auto;\n    transition: max-width .35s ease; }\n\n@media only screen and (min-width: 992px) {\n  .layout-boxed.app-main {\n    max-width: 1200px;\n    box-shadow: 0 0 1px rgba(0, 0, 0, 0.2); }\n    .layout-boxed.app-main .app-header > .app-header-inner {\n      max-width: 1200px;\n      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); }\n    .layout-boxed.app-main .app-overlay > .app-overlay-inner {\n      max-width: 1200px;\n      margin: auto; } }\n\n@media only screen and (max-width: 991px) {\n  .no-app-sidebar + .app-page-container .app-header .header-icon {\n    display: none; } }\n\n@media only screen and (min-width: 992px) {\n  .no-app-sidebar + .app-page-container .app-header .brand {\n    padding-left: 0; }\n  .no-app-sidebar + .app-page-container .app-content-wrapper .app-content {\n    padding-left: 0; }\n  .no-app-sidebar + .app-page-container .app-content-wrapper .app-footer {\n    left: 0; } }\n\n.app-sidebar ul.nav {\n  -ms-flex-direction: column;\n      flex-direction: column; }\n  .app-sidebar ul.nav ul {\n    display: none; }\n  .app-sidebar ul.nav li {\n    position: relative; }\n    .app-sidebar ul.nav li.open > .icon-has-ul {\n      transform: rotate(-180deg); }\n  .app-sidebar ul.nav .icon-has-ul {\n    position: absolute;\n    top: 12px;\n    right: 15px;\n    font-size: 18px;\n    line-height: 1;\n    color: #777;\n    transition: transform .3s ease-in-out; }\n  .app-sidebar ul.nav ul .icon-has-ul {\n    top: 11px; }\n  .app-sidebar ul.nav .nav-divider {\n    background-color: rgba(0, 0, 0, 0.15);\n    min-height: 1px;\n    margin: 10px 0;\n    overflow: hidden; }\n\n.app-sidebar .sidebar-content {\n  height: calc(100% - 104px); }\n\n.sidebar-header a.collapsednav-toggler {\n  display: inline-block;\n  position: absolute;\n  width: 20px;\n  height: 20px;\n  line-height: 20px;\n  text-align: center;\n  right: 18px;\n  top: 20px;\n  color: rgba(255, 255, 255, 0.55); }\n  .sidebar-header a.collapsednav-toggler .material-icons {\n    font-size: 12px; }\n\n@media only screen and (max-width: 991px) {\n  .app-sidebar .sidebar-header a.collapsednav-toggler {\n    display: none; } }\n\n.app-sidebar .sidebar-header {\n  text-align: left; }\n  .app-sidebar .sidebar-header .logo-icon {\n    margin-right: 11px; }\n  .app-sidebar .sidebar-header .logo-img {\n    margin-right: 12px; }\n  .app-sidebar .sidebar-header .brand {\n    display: inline; }\n  .app-sidebar .sidebar-header .collapsednav-toggler {\n    display: inline-block; }\n\n.app-sidebar .sidebar-content .nav-header {\n  display: block; }\n\n.app-sidebar .sidebar-content .nav-text {\n  display: inline; }\n\n.app-sidebar .sidebar-content .icon-has-ul {\n  display: inherit; }\n\n.app-sidebar .sidebar-content .badge {\n  display: inherit;\n  top: 14px;\n  right: 35px; }\n\n.app-sidebar .sidebar-content .nav > li > a {\n  padding: 10px 16px;\n  text-align: left; }\n  .app-sidebar .sidebar-content .nav > li > a .nav-icon {\n    transition: padding 0.35s cubic-bezier(0, 0, 0.2, 1), margin 0.35s cubic-bezier(0, 0, 0.2, 1);\n    margin-right: 18px; }\n\n.app-sidebar .sidebar-content .nav > li ul li > a {\n  text-align: left; }\n  .app-sidebar .sidebar-content .nav > li ul li > a > span {\n    display: inline; }\n  .app-sidebar .sidebar-content .nav > li ul li > a > .material-icons {\n    transition: margin 0.35s cubic-bezier(0, 0, 0.2, 1);\n    margin-right: 18px; }\n\n.app-sidebar .sidebar-footer .nav-text {\n  display: inline; }\n\n.app-sidebar .sidebar-footer .nav > li > a {\n  padding: 10px 16px;\n  text-align: left; }\n  .app-sidebar .sidebar-footer .nav > li > a .nav-icon {\n    margin-right: 15px; }\n\n@media only screen and (min-width: 992px) {\n  .app-sidebar {\n    transition: width 0.3s cubic-bezier(0, 0, 0.2, 1);\n    white-space: nowrap; }\n  .nav-collapsed .app-sidebar {\n    width: 64px; }\n    .nav-collapsed .app-sidebar .sidebar-header {\n      text-align: center; }\n      .nav-collapsed .app-sidebar .sidebar-header .logo-icon,\n      .nav-collapsed .app-sidebar .sidebar-header .logo-img {\n        margin-right: 0; }\n      .nav-collapsed .app-sidebar .sidebar-header .brand {\n        display: none; }\n      .nav-collapsed .app-sidebar .sidebar-header .collapsednav-toggler {\n        display: none; }\n    .nav-collapsed .app-sidebar .sidebar-content .nav-header,\n    .nav-collapsed .app-sidebar .sidebar-content .nav-text,\n    .nav-collapsed .app-sidebar .sidebar-content .icon-has-ul,\n    .nav-collapsed .app-sidebar .sidebar-content .nav ul a > span {\n      display: none; }\n    .nav-collapsed .app-sidebar .sidebar-content .badge {\n      top: 3px;\n      right: 5px; }\n    .nav-collapsed .app-sidebar .sidebar-content .nav > li > a {\n      padding: 12px 16px;\n      text-align: center; }\n    .nav-collapsed .app-sidebar .sidebar-content .nav > li .nav-icon {\n      margin-right: 0; }\n    .nav-collapsed .app-sidebar .sidebar-content .nav > li ul li > a {\n      text-align: center; }\n      .nav-collapsed .app-sidebar .sidebar-content .nav > li ul li > a > .material-icons {\n        margin-right: 0; }\n    .nav-collapsed .app-sidebar .sidebar-footer .nav-text {\n      display: none; }\n    .nav-collapsed .app-sidebar .sidebar-footer .nav > li > a {\n      text-align: center; }\n    .nav-collapsed .app-sidebar .sidebar-footer .nav > li .nav-icon {\n      margin-right: 0; }\n  .nav-collapsed .app-sidebar:hover {\n    width: 250px; }\n    .nav-collapsed .app-sidebar:hover > * {\n      width: 250px; }\n    .nav-collapsed .app-sidebar:hover .sidebar-header {\n      text-align: left; }\n      .nav-collapsed .app-sidebar:hover .sidebar-header .logo-icon {\n        margin-right: 11px; }\n      .nav-collapsed .app-sidebar:hover .sidebar-header .logo-img {\n        margin-right: 12px; }\n      .nav-collapsed .app-sidebar:hover .sidebar-header .brand {\n        display: inline; }\n      .nav-collapsed .app-sidebar:hover .sidebar-header .collapsednav-toggler {\n        display: inline-block; }\n    .nav-collapsed .app-sidebar:hover .sidebar-content .nav-header {\n      display: block; }\n    .nav-collapsed .app-sidebar:hover .sidebar-content .nav-text {\n      display: inline; }\n    .nav-collapsed .app-sidebar:hover .sidebar-content .icon-has-ul {\n      display: inherit; }\n    .nav-collapsed .app-sidebar:hover .sidebar-content .badge {\n      display: inherit;\n      top: 14px;\n      right: 35px; }\n    .nav-collapsed .app-sidebar:hover .sidebar-content .nav > li > a {\n      padding: 10px 16px;\n      text-align: left; }\n      .nav-collapsed .app-sidebar:hover .sidebar-content .nav > li > a .nav-icon {\n        transition: padding 0.35s cubic-bezier(0, 0, 0.2, 1), margin 0.35s cubic-bezier(0, 0, 0.2, 1);\n        margin-right: 18px; }\n    .nav-collapsed .app-sidebar:hover .sidebar-content .nav > li ul li > a {\n      text-align: left; }\n      .nav-collapsed .app-sidebar:hover .sidebar-content .nav > li ul li > a > span {\n        display: inline; }\n      .nav-collapsed .app-sidebar:hover .sidebar-content .nav > li ul li > a > .material-icons {\n        transition: margin 0.35s cubic-bezier(0, 0, 0.2, 1);\n        margin-right: 18px; }\n    .nav-collapsed .app-sidebar:hover .sidebar-footer .nav-text {\n      display: inline; }\n    .nav-collapsed .app-sidebar:hover .sidebar-footer .nav > li > a {\n      padding: 10px 16px;\n      text-align: left; }\n      .nav-collapsed .app-sidebar:hover .sidebar-footer .nav > li > a .nav-icon {\n        margin-right: 15px; } }\n\n@media only screen and (min-width: 992px) {\n  .nav-behind .app-sidebar {\n    z-index: 999; } }\n\n@media only screen and (min-width: 992px) {\n  .sidebar-sm.nav-collapsed .app-page-container .app-content-wrapper .app-content,\n  .sidebar-lg.nav-collapsed .app-page-container .app-content-wrapper .app-content {\n    padding-left: 64px; }\n  .sidebar-sm.nav-collapsed .app-page-container .app-content-wrapper .app-footer,\n  .sidebar-lg.nav-collapsed .app-page-container .app-content-wrapper .app-footer {\n    left: 64px; } }\n\n@media only screen and (min-width: 992px) {\n  .sidebar-sm.nav-collapsed .app-sidebar,\n  .sidebar-lg.nav-collapsed .app-sidebar {\n    width: 64px; } }\n\n@media only screen and (min-width: 992px) {\n  .sidebar-sm .app-header .brand {\n    width: 220px; } }\n\n@media only screen and (min-width: 992px) {\n  .sidebar-sm .app-page-container .app-content-wrapper .app-content {\n    padding-left: 220px; }\n  .sidebar-sm .app-page-container .app-content-wrapper .app-footer {\n    left: 220px; } }\n\n@media only screen and (max-width: 991px) {\n  .sidebar-sm.sidebar-mobile-open .app-page-container {\n    transform: translateX(220px); } }\n\n.sidebar-sm .app-sidebar {\n  width: 220px; }\n\n@media only screen and (min-width: 992px) {\n  .sidebar-sm.nav-collapsed .app-sidebar:hover {\n    width: 220px; }\n    .sidebar-sm.nav-collapsed .app-sidebar:hover > * {\n      width: 220px; } }\n\n@media only screen and (min-width: 992px) {\n  .sidebar-lg .app-header .brand {\n    width: 280px; } }\n\n@media only screen and (min-width: 992px) {\n  .sidebar-lg .app-page-container .app-content-wrapper .app-content {\n    padding-left: 280px; }\n  .sidebar-lg .app-page-container .app-content-wrapper .app-footer {\n    left: 280px; } }\n\n@media only screen and (max-width: 991px) {\n  .sidebar-lg.sidebar-mobile-open .app-page-container {\n    transform: translateX(280px); } }\n\n.sidebar-lg .app-sidebar {\n  width: 280px; }\n\n@media only screen and (min-width: 992px) {\n  .sidebar-lg.nav-collapsed .app-sidebar:hover {\n    width: 280px; }\n    .sidebar-lg.nav-collapsed .app-sidebar:hover > * {\n      width: 280px; } }\n\n.app-header {\n  padding: 0;\n  border: 0;\n  text-align: center; }\n  .app-header .app-header-inner {\n    height: 60px;\n    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }\n  @media only screen and (min-width: 992px) {\n    .app-header {\n      text-align: inherit; } }\n  .app-header.bg-transparent {\n    background-color: transparent !important; }\n  .app-header .brand {\n    display: inline-block;\n    text-align: center;\n    float: left; }\n    .app-header .brand h2 {\n      font-size: 30px;\n      margin: 0;\n      line-height: 60px; }\n  .app-header .header-icon {\n    display: inline-block;\n    height: 60px;\n    padding: 0 14px; }\n    @media only screen and (min-width: 992px) {\n      .app-header .header-icon {\n        padding-left: 18px;\n        padding-right: 18px; } }\n    .app-header .header-icon .material-icons {\n      font-size: 24px; }\n\n.top-nav-left > ul > .list-inline-item,\n.top-nav-right > ul > .list-inline-item {\n  margin: 0;\n  padding: 0; }\n\n.top-nav-left {\n  display: inline-block; }\n  .top-nav-left > ul {\n    display: inline;\n    margin: 0; }\n\n.top-nav-right {\n  display: inline-block;\n  font-size: 16px;\n  line-height: 24px;\n  float: right; }\n  .top-nav-right ul {\n    margin: 0; }\n  .top-nav-right li {\n    height: 60px;\n    float: left; }\n  .top-nav-right a:hover, .top-nav-right a:focus {\n    text-decoration: none; }\n\n.logo-img {\n  width: 24px;\n  height: 24px;\n  margin-bottom: -3px; }\n  .logo-img .st1 {\n    opacity: .9; }\n\n.bg-color-dark > .logo-img .st0,\n.bg-color-primary > .logo-img .st0,\n.bg-color-info > .logo-img .st0,\n.bg-color-danger > .logo-img .st0,\n.bg-color-success > .logo-img .st0 {\n  fill: #fff; }\n\n.bg-color-warning > .logo-img .st0,\n.bg-color-light > .logo-img .st0 {\n  fill: rgba(0, 0, 0, 0.87); }\n\n.app-sidebar {\n  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.15); }\n  .app-sidebar .sidebar-header {\n    line-height: 60px;\n    padding: 0 18px;\n    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }\n    .app-sidebar .sidebar-header .logo-icon {\n      text-align: center;\n      font-size: 24px; }\n      .app-sidebar .sidebar-header .logo-icon.material-icons {\n        line-height: 60px;\n        height: 60px;\n        vertical-align: sub; }\n    .app-sidebar .sidebar-header a.brand {\n      display: inline-block;\n      font-weight: normal;\n      font-size: 23px;\n      line-height: 60px;\n      text-decoration: none; }\n  .app-sidebar .sidebar-footer {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    height: 44px;\n    border-top: 1px solid rgba(0, 0, 0, 0.1);\n    background-color: #333C44; }\n\n.app-sidebar .nav a {\n  display: block;\n  position: relative;\n  text-decoration: none; }\n  .app-sidebar .nav a:hover {\n    cursor: pointer; }\n\n.app-sidebar .nav li {\n  position: relative; }\n  .app-sidebar .nav li .badge {\n    position: absolute;\n    padding: 3px 6px; }\n\n.app-sidebar .nav .nav-header {\n  margin: 15px 15px 5px;\n  font-size: 0.875rem; }\n\n.app-sidebar .nav .nav-divider + .nav-header {\n  margin-top: 5px; }\n\n.app-sidebar .nav > li > a {\n  line-height: 24px; }\n\n.app-sidebar .nav .nav-icon {\n  display: inline-block; }\n  .app-sidebar .nav .nav-icon.material-icons {\n    width: 24px;\n    height: 24px;\n    font-size: 18px;\n    line-height: 24px;\n    text-align: center; }\n    .app-sidebar .nav .nav-icon.material-icons.nav-dot {\n      font-size: 16px; }\n\n.app-sidebar .nav ul {\n  list-style: none;\n  padding: 0; }\n  .app-sidebar .nav ul li > a {\n    padding: 10px 18px; }\n    .app-sidebar .nav ul li > a .material-icons {\n      width: 20px;\n      height: 20px;\n      font-size: 16px;\n      line-height: 1;\n      text-align: center;\n      vertical-align: middle;\n      margin-bottom: -2px; }\n\n.app-sidebar .nav ul ul li > a {\n  padding: 10px 15px 10px 56px; }\n\n.app-sidebar .nav ul ul ul li > a {\n  padding-left: 74px; }\n\n.app-sidebar {\n  background-color: #333C44; }\n  .app-sidebar .nav {\n    color: #a1a1a1; }\n    .app-sidebar .nav a {\n      color: #a1a1a1; }\n    .app-sidebar .nav .nav-header {\n      color: #636c72; }\n    .app-sidebar .nav .nav-divider {\n      background-color: rgba(0, 0, 0, 0.15); }\n    .app-sidebar .nav li > a:hover, .app-sidebar .nav li > a:focus {\n      background-color: transparent;\n      color: #fafafa; }\n    .app-sidebar .nav li.active > a,\n    .app-sidebar .nav li.active > a:hover,\n    .app-sidebar .nav li.active > a:focus {\n      background-color: transparent;\n      color: #fafafa; }\n    .app-sidebar .nav li.open > a,\n    .app-sidebar .nav li.open > a:hover,\n    .app-sidebar .nav li.open > a:focus {\n      background-color: rgba(0, 0, 0, 0.1);\n      color: #fafafa; }\n    .app-sidebar .nav ul {\n      background-color: rgba(0, 0, 0, 0.1); }\n      .app-sidebar .nav ul li.active > a,\n      .app-sidebar .nav ul li.active > a:hover,\n      .app-sidebar .nav ul li.active > a:focus, .app-sidebar .nav ul li.open > a,\n      .app-sidebar .nav ul li.open > a:hover,\n      .app-sidebar .nav ul li.open > a:focus {\n        background-color: rgba(0, 0, 0, 0.1); }\n    .app-sidebar .nav ul ul {\n      background-color: rgba(0, 0, 0, 0.1); }\n      .app-sidebar .nav ul ul > li.active > a,\n      .app-sidebar .nav ul ul > li.active > a:hover,\n      .app-sidebar .nav ul ul > li.active > a:focus, .app-sidebar .nav ul ul > li.open > a,\n      .app-sidebar .nav ul ul > li.open > a:hover,\n      .app-sidebar .nav ul ul > li.open > a:focus {\n        background-color: rgba(0, 0, 0, 0.1);\n        color: #fafafa; }\n    .app-sidebar .nav ul ul ul {\n      background-color: rgba(0, 0, 0, 0.1); }\n\n.app-overlay .app-overlay-inner {\n  max-width: 1090px;\n  margin: 0 auto;\n  padding: 20px 30px; }\n  @media only screen and (min-width: 768px) {\n    .app-overlay .app-overlay-inner {\n      padding: 20px 100px; } }\n\n.app-overlay input.overlay-search-input {\n  border: 0;\n  background-color: transparent;\n  font-size: 35px;\n  font-weight: normal;\n  width: 100%;\n  padding-left: 0;\n  line-height: 1; }\n  @media only screen and (min-width: 768px) {\n    .app-overlay input.overlay-search-input {\n      font-size: 70px; } }\n  .app-overlay input.overlay-search-input:focus {\n    outline: none; }\n\n.app-overlay .overlay-header {\n  position: relative;\n  padding: 60px 0 0; }\n  .app-overlay .overlay-header h2 {\n    font-size: 18px;\n    font-weight: normal;\n    margin: 0; }\n    @media only screen and (min-width: 768px) {\n      .app-overlay .overlay-header h2 {\n        font-size: 24px; } }\n\n.app-overlay a.overlay-close {\n  position: absolute;\n  top: 0;\n  right: 10px;\n  font-weight: 300; }\n  .app-overlay a.overlay-close .material-icons {\n    font-size: 32px; }\n\n.app-overlay .overlay-content {\n  margin: 12px 0 0; }\n\n.app-overlay {\n  background: rgba(255, 255, 255, 0.9); }\n  .app-overlay a.overlay-close {\n    color: rgba(0, 0, 0, 0.87); }\n\n.quickview-open-app #quickview-app {\n  right: 0; }\n\n.quickview-app .quickview-close {\n  display: inline-block;\n  z-index: 1;\n  position: absolute;\n  top: 11px;\n  right: 15px;\n  line-height: 24px;\n  color: rgba(0, 0, 0, 0.87);\n  opacity: .6; }\n  .quickview-app .quickview-close .material-icons {\n    font-size: 1rem;\n    vertical-align: middle; }\n  .quickview-app .quickview-close:hover {\n    opacity: 1; }\n\n#quickview-customizer {\n  width: 410px;\n  right: -410px; }\n\n.quickview-open-customizer #quickview-customizer {\n  right: 0; }\n\n.customizer {\n  padding: 0;\n  background-color: #fafafa; }\n  .customizer .quickview-inner {\n    padding: 15px 45px; }\n  .customizer .customizer-header {\n    text-transform: uppercase;\n    margin-bottom: 3px; }\n  .customizer h4.section-header {\n    margin: 12px 0 0;\n    font-size: 16px;\n    line-height: 1.35;\n    font-weight: normal; }\n  .customizer a {\n    position: relative;\n    display: block;\n    width: 100%;\n    color: rgba(0, 0, 0, 0.87); }\n  .customizer .customizer-close {\n    position: absolute;\n    right: 10px;\n    top: 10px;\n    padding: 7px;\n    width: auto;\n    z-index: 10; }\n    .customizer .customizer-close .material-icons {\n      font-size: 20px; }\n  .customizer a.customizer-toggle,\n  .customizer a.customizer-close {\n    color: rgba(0, 0, 0, 0.87); }\n    .customizer a.customizer-toggle:hover, .customizer a.customizer-toggle:focus,\n    .customizer a.customizer-close:hover,\n    .customizer a.customizer-close:focus {\n      color: rgba(0, 0, 0, 0.87); }\n  .customizer .customizer-toggle {\n    position: absolute;\n    top: 25%;\n    width: 54px;\n    height: 50px;\n    left: -48px;\n    text-align: center;\n    line-height: 50px;\n    cursor: pointer; }\n    .customizer .customizer-toggle .material-icons {\n      font-size: 16px;\n      line-height: 50px; }\n  .customizer:before {\n    position: absolute;\n    content: '';\n    top: 25%;\n    left: -47px;\n    width: 48px;\n    height: 50px;\n    background-color: #fafafa;\n    box-shadow: 0 0 9px rgba(0, 0, 0, 0.1);\n    border-left: 1px solid rgba(0, 0, 0, 0.1);\n    border-radius: 0 4px 4px 0; }\n  .customizer:after {\n    position: absolute;\n    top: 25%;\n    left: 0;\n    content: '';\n    width: 5px;\n    height: 50px;\n    background-color: #fafafa; }\n  .customizer md-list {\n    padding: 0; }\n  .customizer md-list-item, .customizer md-list-item ._md-list-item-inner {\n    min-height: 40px; }\n  .customizer md-list-item ._md-no-style, .customizer md-list-item._md-no-proxy {\n    padding: 0 5px; }\n\n.theme-gray .customizer a,\n.theme-dark .customizer a {\n  color: rgba(255, 255, 255, 0.7); }\n  .theme-gray .customizer a:hover, .theme-gray .customizer a:focus,\n  .theme-dark .customizer a:hover,\n  .theme-dark .customizer a:focus {\n    color: rgba(255, 255, 255, 0.7); }\n\n.theme-dark .customizer {\n  background-color: #3e4953; }\n  .theme-dark .customizer:before {\n    background-color: #3e4953; }\n  .theme-dark .customizer:after {\n    background-color: #3e4953; }\n\n.theme-gray .customizer {\n  background-color: #484848; }\n  .theme-gray .customizer:before {\n    background-color: #484848; }\n  .theme-gray .customizer:after {\n    background-color: #484848; }\n\n.top-nav-left li .header-btn.mat-button,\n.top-nav-right li .header-btn.mat-button {\n  margin: 0;\n  line-height: 60px;\n  border-radius: 0;\n  min-width: 52px; }\n  @media only screen and (min-width: 992px) {\n    .top-nav-left li .header-btn.mat-button,\n    .top-nav-right li .header-btn.mat-button {\n      min-width: 60px; } }\n  .top-nav-left li .header-btn.mat-button > .material-icons,\n  .top-nav-right li .header-btn.mat-button > .material-icons {\n    vertical-align: middle; }\n  .top-nav-left li .header-btn.mat-button .badge,\n  .top-nav-right li .header-btn.mat-button .badge {\n    background-color: transparent;\n    position: absolute;\n    top: 6px;\n    right: 3px;\n    color: inherit; }\n\n.app-sidebar .mat-button {\n  margin: 0;\n  text-align: left;\n  text-transform: none;\n  border-radius: 0;\n  font-weight: normal;\n  line-height: inherit;\n  min-height: inherit;\n  min-width: inherit; }\n\n.quickview-app md-tabs > md-tabs-wrapper {\n  background-color: #eee;\n  padding: 0 40px; }\n\n.quickview-app md-tabs md-pagination-wrapper {\n  width: 100% !important; }\n\nmd-backdrop.md-sidenav-backdrop,\n.md-sidenav-right {\n  z-index: 1001; }\n\n.md-sidenav-right .md-sidenav-inner {\n  height: 100%; }\n  .md-sidenav-right .md-sidenav-inner > md-tabs {\n    height: 100%; }\n\n.md-sidenav-right md-tabs-canvas > md-pagination-wrapper {\n  width: 100% !important; }\n  .md-sidenav-right md-tabs-canvas > md-pagination-wrapper > md-tab-item {\n    width: 50%; }\n  .md-sidenav-right md-tabs-canvas > md-pagination-wrapper md-ink-bar {\n    color: #2196F3;\n    background: #2196F3; }\n", ""]);
 
 // exports
 

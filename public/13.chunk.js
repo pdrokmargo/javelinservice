@@ -1,29 +1,27 @@
 webpackJsonp([13],{
 
-/***/ "../../../../../src/app/smartity/delivery-points/delivery-points-action/delivery-points-action.component.html":
+/***/ "../../../../../src/app/smartity/inventory-adjustments/inventory-adjustments-action/inventory-adjustments-action.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form #modelForm=\"ngForm\" autocomplete=\"off\">\n    <div class=\"col-sm-12\">\n        <div class=\"row\">\n            <div class=\"col-sm-12 margin-bottom\" [class.btn-action-container]=\"booActive\">\n                <button type=\"button\" mat-raised-button color=\"primary\" (click)=\"goList()\" class=\"btn-w-md no-margin-left\">\n                    <mat-icon>keyboard_arrow_left</mat-icon> Regresar\n                </button>\n            </div>\n            <!-- name -->\n            <div class='col-sm-12 col-md-6 margin-bottom'>\n                <mat-form-field class=\"full-width\">\n                    <input required type=\"text\" id=\"name\" name=\"name\" [(ngModel)]=\"model.name\" matInput placeholder=\"Nombre\">\n                </mat-form-field>\n            </div>\n            <!-- instalado -->\n            <div class='col-sm-12 col-md-6 col-lg-3 margin-bottom'>\n                <div class=\"flex\">\n                    <span class=\"flex-spacer\"></span>\n                    <mat-slide-toggle [labelPosition]=\"'before'\" id=\"installed\" name=\"installed\" [(ngModel)]=\"model.installed\">Instalado</mat-slide-toggle>\n                </div>\n\n            </div>\n            <!-- estado -->\n            <div class='col-sm-12 col-md-6 col-lg-3 margin-bottom'>\n                <div class=\"flex\">\n                    <span class=\"flex-spacer\"></span>\n                    <mat-slide-toggle [labelPosition]=\"'before'\" id=\"state\" name=\"state\" [(ngModel)]=\"model.state\">Estado</mat-slide-toggle>\n                </div>\n            </div>\n            <!-- bodega -->\n            <div class=\"col-sm-12 col-md-6 margin-bottom\">\n                <mat-form-field class=\"full-width\">\n                    <input readonly matInput type=\"text\" placeholder=\"Bodega\" [(ngModel)]=\"warehouse.name\" id=\"warehouse\" name=\"warehouse\" />\n                    <mat-icon matSuffix mdSuffix class=\"wh-24 pointer\" (click)=\"openModalWarehouse()\">search</mat-icon>\n                </mat-form-field>\n            </div>\n            <!-- grupo de punto de dispensacion -->\n            <div class=\"col-sm-12 col-md-6 margin-bottom\">\n                <mat-select class=\"full-width\" placeholder=\"Grupos de puntos de dispensación\" [(ngModel)]=\"model.delivery_point_group_id\"\n                    name=\"delivery_point_group_id\" id=\"delivery_point_group_id\">\n                    <mat-option *ngFor=\"let item of arrDelivery_point_group\" [value]=\"item.id\">{{item.value}}</mat-option>\n                </mat-select>\n            </div>\n            <!--contratos-->\n            <div class=\"col-sm-12 col-md-6 margin-bottom\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"flex\" style=\"height: 51px;\">\n                            <div class=\"box-header no-padding-h\">Contratos</div>\n                        </div>\n                        <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n                            <table class=\"mdl-data-table table-bordered table-striped no-margin\">\n                                <thead>\n                                    <tr>\n                                        <th>Nombre</th>\n                                        <th>Evento</th>\n                                        <th>Cápita</th>\n                                        <th>PGP</th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                    <tr *ngFor=\"let item of arrDelivery_contracts\">\n                                        <td>{{item.name}}</td>\n                                        <td class=\"text-center\">\n                                            <mat-icon>{{item.event ? 'check_circle' : ''}}</mat-icon>\n                                        </td>\n                                        <td class=\"text-center\">\n                                            <mat-icon>{{item.capita ? 'check_circle' : ''}}</mat-icon>\n                                        </td>\n                                        <td class=\"text-center\">\n                                            <mat-icon>{{item.pgp ? 'check_circle' : ''}}</mat-icon>\n                                        </td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <!--Usuario de regente-->\n            <div class=\"col-sm-12 col-md-6 margin-bottom\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"flex\" style=\"margin-bottom: 10px;\">\n                            <div class=\"box-header no-padding-h\">Usuario de regente</div>\n                            <span class=\"flex-spacer\"></span>\n                            <button type=\"button\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left\" (click)=\"openModalUsers()\">Añadir</button>\n                        </div>\n                        <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n                            <table class=\"mdl-data-table table-bordered table-striped no-margin\">\n                                <thead>\n                                    <tr>\n                                        <th>Nombre</th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                    <tr *ngFor=\"let item of model.assigned_users\">\n                                        <td>{{item.firstname}} {{item.lastname}}</td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <!--description-->\n            <div class='col-sm-12 margin-bottom'>\n                <mat-form-field class=\"full-width\">\n                    <textarea type=\"text\" id=\"description\" name=\"description\" [(ngModel)]=\"model.description\" matInput placeholder=\"Descripción\"></textarea>\n                </mat-form-field>\n            </div>\n            <div class=\"col-sm-12\" [class.btn-action-container]=\"booActive\">\n                <button type=\"button\" [disabled]=\"!modelForm.form.valid\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left btn-right\"\n                    (click)=\"save()\">{{strAction}}</button>\n            </div>\n        </div>\n    </div>\n</form>"
+module.exports = "<!-- FORM -->\r\n<form class=\"col-sm-12\" #modelForm=\"ngForm\" autocomplete=\"off\">\r\n    <div class=\"row\">\r\n        <div class=\"col-sm-12 margin-bottom\" [class.btn-action-container]=\"booActive\">\r\n            <button mat-raised-button color=\"primary\" (click)=\"goList()\" class=\"btn-w-md no-margin-left\">\r\n                <mat-icon>keyboard_arrow_left</mat-icon> Regresar\r\n            </button>\r\n        </div>\r\n\r\n\r\n        <!-- inventory_adjustment_type_id -->\r\n        <div class='col-sm-12 col-md-4 margin-bottom'>\r\n            <mat-form-field class=\"full-width\">\r\n                <mat-select (change)=\"setCurrentValue()\" class=\"full-width\" placeholder=\"Tipo de ajuste\" [(ngModel)]=\"model.inventory_adjustment_type_id\"\r\n                    name=\"inventory_adjustment_type_id\">\r\n                    <mat-option *ngFor=\"let item of inventory_adjustments_type\" [value]=\"item.id\">{{item.value}}</mat-option>\r\n                </mat-select>\r\n            </mat-form-field>\r\n        </div>\r\n\r\n        <!-- warehouse -->\r\n        <div *ngIf=\"model.stock.warehouse\" class=\"col-sm-12 col-md-4 margin-bottom\">\r\n            <mat-form-field class=\"full-width\">\r\n                <input readonly matInput type=\"text\" placeholder=\"Bodega de entrada\" [(ngModel)]=\"model.warehouse.name\"\r\n                    id=\"warehouse_name\" name=\"warehouse_name\" />\r\n                <mat-icon matSuffix mdSuffix class=\"wh-24 pointer\" (click)=\"openModalWarehouse()\">search</mat-icon>\r\n            </mat-form-field>\r\n        </div>\r\n\r\n        <!-- date -->\r\n        <div class=\"col-md-4\">\r\n            <mat-form-field>\r\n                <input matInput [matDatepicker]=\"pickerAdjustmentDate\" placeholder=\"Fecha de ajuste\" [(ngModel)]=\"model.adjustment_date\"\r\n                    name=\"adjustment_date\">\r\n                <mat-datepicker-toggle matSuffix [for]=\"pickerAdjustmentDate\"></mat-datepicker-toggle>\r\n                <mat-datepicker #pickerAdjustmentDate></mat-datepicker>\r\n            </mat-form-field>\r\n        </div>\r\n\r\n        <div class=\"col-md-12\" *ngIf=\"numId == undefined\">\r\n            <button [disabled]=\"model.warehouse_id == -1\" mat-raised-button (click)=\"openModalStocks()\" color=\"primary\"\r\n                class=\"btn-w-md no-margin-left btn-right\">\r\n                Seleccionar Producto\r\n            </button>\r\n        </div>\r\n        <br>\r\n        <br>\r\n        <br>\r\n        <div class=\"col-md-2\">\r\n            <mat-form-field class=\"full-width\">\r\n                <input readonly matInput type=\"text\" placeholder=\"PLU\" [(ngModel)]=\"model.stock.product.sku\" id=\"product_sku\"\r\n                    name=\"product_sku\" />\r\n            </mat-form-field>\r\n        </div>\r\n\r\n        <div class=\"col-md-4\">\r\n            <mat-form-field class=\"full-width\">\r\n                <input readonly matInput type=\"text\" placeholder=\"Nombre de Producto\" [(ngModel)]=\"model.stock.product.display_name\"\r\n                    id=\"display_name\" name=\"display_name\" />\r\n            </mat-form-field>\r\n        </div>\r\n\r\n        <div class=\"col-md-2\">\r\n            <mat-form-field class=\"full-width\">\r\n                <input readonly matInput type=\"text\" placeholder=\"Stock\" [(ngModel)]=\"model.stock.set_stock\" id=\"set_stock\"\r\n                    name=\"set_stock\" />\r\n            </mat-form-field>\r\n        </div>\r\n        <div class=\"col-md-2\">\r\n            <mat-form-field class=\"full-width\">\r\n                <input readonly matInput type=\"text\" placeholder=\"Stock Fracciones\" [(ngModel)]=\"model.stock.fraction_stock\"\r\n                    id=\"fraction_stock\" name=\"fraction_stock\" />\r\n            </mat-form-field>\r\n        </div>\r\n        <div class=\"col-md-2\">\r\n            <mat-form-field class=\"full-width\">\r\n                <input readonly matInput type=\"text\" placeholder=\"Costo (promedio)\" [(ngModel)]=\"model.stock.product.averageunitcost\"\r\n                    id=\"averageunitcost\" name=\"averageunitcost\" />\r\n            </mat-form-field>\r\n        </div>\r\n\r\n        <div class=\"col-md-2\" *ngIf=\"model.inventory_adjustment_type_id == 187\">\r\n            <mat-form-field class=\"full-width\">\r\n                <input readonly matInput type=\"text\" placeholder=\"Lote anterior\" [(ngModel)]=\"model.current_adjustment_value\"\r\n                    id=\"current_adjustment_value\" name=\"current_adjustment_value\" />\r\n            </mat-form-field>\r\n        </div>\r\n        <div class=\"col-md-2\" *ngIf=\"model.inventory_adjustment_type_id == 187\">\r\n            <mat-form-field class=\"full-width\">\r\n                <input readonly=\"numId != undefined\" matInput type=\"text\" placeholder=\"Lote nuevo\" [(ngModel)]=\"model.new_adjustment_value\"\r\n                    id=\"new_adjustment_value\" name=\"new_adjustment_value\" />\r\n            </mat-form-field>\r\n        </div>\r\n\r\n        <div class=\"col-md-2\" *ngIf=\"model.inventory_adjustment_type_id == 188\">\r\n            <mat-form-field class=\"full-width\">\r\n                <input readonly matInput type=\"text\" placeholder=\"Ubicación anterior\" [(ngModel)]=\"model.current_adjustment_value\"\r\n                    id=\"current_adjustment_value2\" name=\"current_adjustment_value2\" />\r\n            </mat-form-field>\r\n        </div>\r\n        <div class=\"col-md-2\" *ngIf=\"model.inventory_adjustment_type_id == 188\">\r\n            <mat-form-field class=\"full-width\">\r\n                <input readonly=\"numId != undefined\" matInput type=\"text\" placeholder=\"Ubicación nueva\" [(ngModel)]=\"model.new_adjustment_value\"\r\n                    id=\"new_adjustment_value2\" name=\"new_adjustment_value2\" />\r\n            </mat-form-field>\r\n        </div>\r\n\r\n        <div class=\"col-md-12\" *ngIf=\"numId == undefined\">\r\n            <button mat-raised-button (click)=\"guardar()\" color=\"primary\" class=\"btn-w-md no-margin-left btn-right\">\r\n                {{strAction}}\r\n            </button>\r\n        </div>\r\n\r\n    </div>\r\n</form>"
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/delivery-points/delivery-points-action/delivery-points-action.component.ts":
+/***/ "../../../../../src/app/smartity/inventory-adjustments/inventory-adjustments-action/inventory-adjustments-action.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_startWith__ = __webpack_require__("../../../../rxjs/add/operator/startWith.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_startWith___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_startWith__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bases_base_model__ = __webpack_require__("../../../../../src/app/smartity/bases/base-model.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__bases_base_model__ = __webpack_require__("../../../../../src/app/smartity/bases/base-model.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__delivery_points_component__ = __webpack_require__("../../../../../src/app/smartity/delivery-points/delivery-points.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__modals_modal_warehouse_modal_warehouse_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-warehouse/modal-warehouse.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modals_modal_stocks_modal_stocks_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-stocks/modal-stocks.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__modals_modal_warehouse_modal_warehouse_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-warehouse/modal-warehouse.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__inventory_adjustments_component__ = __webpack_require__("../../../../../src/app/smartity/inventory-adjustments/inventory-adjustments.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_operators__ = __webpack_require__("../../../../rxjs/operators.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_operators__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__modals_modal_users_modal_users_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-users/modal-users.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DeliveryPointsActionComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InventoryAdjustmentsActionComponent; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -55,10 +53,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-var DeliveryPointsActionComponent = /** @class */ (function (_super) {
-    __extends(DeliveryPointsActionComponent, _super);
-    function DeliveryPointsActionComponent(snackBar, route, router, loaderService, helperService, comp, dialog) {
+var InventoryAdjustmentsActionComponent = /** @class */ (function (_super) {
+    __extends(InventoryAdjustmentsActionComponent, _super);
+    function InventoryAdjustmentsActionComponent(snackBar, route, router, loaderService, helperService, comp, dialog) {
         var _this = _super.call(this) || this;
         _this.snackBar = snackBar;
         _this.route = route;
@@ -67,110 +64,85 @@ var DeliveryPointsActionComponent = /** @class */ (function (_super) {
         _this.helperService = helperService;
         _this.comp = comp;
         _this.dialog = dialog;
-        _this.arrDelivery_point_group = [];
-        _this.warehouse = {};
-        _this.arrDelivery_contracts = [];
-        _this.select = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* EventEmitter */]();
+        _this.inventory_adjustments = [];
+        _this.inventory_adjustments_type = [];
         return _this;
     }
-    DeliveryPointsActionComponent.prototype.ngOnInit = function () {
-        this.clean();
+    InventoryAdjustmentsActionComponent.prototype.ngOnInit = function () {
         this.getCollection();
-        if (this.numId !== undefined) {
+        if (this.numId != undefined) {
             this.getDataById();
+            this.strAction = 'Actualiza';
         }
+        else {
+            this.model.adjustment_date = new Date();
+            this.strAction = 'Guardar';
+        }
+        this.clean();
+        console.log(this.model.warehouse.name);
     };
-    DeliveryPointsActionComponent.prototype.getCollection = function () {
+    InventoryAdjustmentsActionComponent.prototype.getCollection = function () {
         var _this = this;
         this.loaderService.display(true);
-        this.helperService.POST("/api/collections", ["DELIVERY_POINTS_GROUPS"]).subscribe(function (rs) {
+        this.helperService.POST("/api/collections", ['INVENTORY_ADJUSTMENT_TYPE']).subscribe(function (rs) {
             var res = rs.json();
-            _this.arrDelivery_point_group = res.DELIVERY_POINTS_GROUPS;
+            _this.inventory_adjustments_type = res.INVENTORY_ADJUSTMENT_TYPE;
             _this.loaderService.display(false);
         }, function (err) {
             console.log(err);
             _this.loaderService.display(false);
         });
     };
-    DeliveryPointsActionComponent.prototype.save = function () {
-        var _this = this;
-        this.loaderService.display(true);
-        switch (this.strAction) {
-            case 'Guardar':
-                this.model.delivery_contracts = '[]';
-                this.helperService.POST("/api/delivery-points", this.model).subscribe(function (rs) {
-                    var res = rs.json();
-                    if (res.store) {
-                        _this.snackBar.open(res.message, 'Guardado', { duration: 4000 });
-                        _this.comp.openList();
-                        _this.loaderService.display(false);
-                    }
-                }, function (err) {
-                    _this.snackBar.open(err.message, 'Guardado', { duration: 4000 });
-                    _this.loaderService.display(false);
-                });
-                break;
-            case 'Actualizar':
-                this.helperService.PUT("/api/delivery-points/" + this.numId, this.model).subscribe(function (rs) {
-                    var res = rs.json();
-                    if (res.update) {
-                        _this.snackBar.open(res.message, 'Actualización', { duration: 4000 });
-                        _this.comp.openList();
-                    }
-                }, function (err) {
-                    _this.snackBar.open(err.message, 'Actualización', { duration: 4000 });
-                    _this.loaderService.display(false);
-                });
-                break;
-            case 'Eliminar':
-                this.helperService.DELETE("/api/delivery-points/" + this.numId).subscribe(function (rs) {
-                    var res = rs.json();
-                    if (res.delete) {
-                        _this.snackBar.open(res.message, 'Eliminación', { duration: 4000 });
-                        _this.comp.openList();
-                    }
-                }, function (err) {
-                    _this.snackBar.open(err.message, 'Eliminación', { duration: 4000 });
-                    _this.loaderService.display(false);
-                });
-                break;
-        }
+    InventoryAdjustmentsActionComponent.prototype.clean = function () {
+        this.inventory_adjustments = [];
+        this.inventory_adjustments_type = [];
+        this.model = { "warehouse_id": -1, "stock": { "product": { "sku": "", "display_name": "", "averageunitcost": "" }, "warehouse": { "name": "" } } };
     };
-    DeliveryPointsActionComponent.prototype.getDataById = function () {
+    InventoryAdjustmentsActionComponent.prototype.getDataById = function () {
         var _this = this;
         this.loaderService.display(true);
-        this.helperService.GET("/api/delivery-points/" + this.numId).map(function (response) {
-            var res = response.json();
+        this.helperService.GET("/api/inventory-adjustments/" + this.numId).subscribe(function (rs) {
+            var res = rs.json();
             _this.model = res.data;
-            _this.arrDelivery_contracts = [];
-            _this.model.contract_point.forEach(function (element) {
-                element.config = JSON.parse(element.config);
-                _this.arrDelivery_contracts.push({
-                    id: element.delivery_contracts.id,
-                    name: element.delivery_contracts.name,
-                    event: element.config.event || false,
-                    capita: element.config.capita || false,
-                    pgp: element.config.pgp || false,
-                });
-            });
-            _this.warehouse = _this.model.warehouses;
-            _this.model.operation_cost_centre_id = _this.model.root == true ? 'co-' + _this.model.operation_cost_centre_id : 'cc-' + _this.model.operation_cost_centre_id;
-        }).subscribe(function (error) {
             _this.loaderService.display(false);
-        }, function (done) {
+        }, function (err) {
+            console.log(err);
             _this.loaderService.display(false);
         });
     };
-    DeliveryPointsActionComponent.prototype.clean = function () {
-        this.model = {};
-        this.model.state = true;
-    };
-    DeliveryPointsActionComponent.prototype.goList = function () {
+    InventoryAdjustmentsActionComponent.prototype.goList = function () {
         this.comp.openList();
     };
-    DeliveryPointsActionComponent.prototype.openModalWarehouse = function () {
+    InventoryAdjustmentsActionComponent.prototype.openModalStocks = function () {
         var _this = this;
-        this.modalWarehouse = this.dialog.open(__WEBPACK_IMPORTED_MODULE_7__modals_modal_warehouse_modal_warehouse_component__["a" /* ModalWarehouseComponent */], {
+        this.modalStocks = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__modals_modal_stocks_modal_stocks_component__["a" /* ModalStocksComponent */], {
+            hasBackdrop: false,
+            data: {
+                title: 'Existencias',
+                warehouse: this.model.warehouse_id
+            }
+        });
+        this.modalStocks.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8_rxjs_operators__["filter"])(function (data) { return data; })).subscribe(function (data) {
+            _this.model.stock_product_id = data.id;
+            _this.model.new_adjustment_value = "";
+            _this.model.stock.product.sku = data.product.sku;
+            _this.model.stock.product.averageunitcost = data.product.averageunitcost;
+            _this.model.stock.product.display_name = data.product.display_name;
+            _this.model.stock.set_stock = data.set_stock;
+            _this.model.stock.fraction_stock = data.fraction_stock;
+            _this.model.batch = data.batch;
+            _this.model.location = data.location;
+            if (_this.model.inventory_adjustment_type_id == 187) {
+                _this.model.current_adjustment_value = data.batch;
+            }
+            else if (_this.model.inventory_adjustment_type_id == 188) {
+                _this.model.current_adjustment_value = data.location;
+            }
+        });
+    };
+    InventoryAdjustmentsActionComponent.prototype.openModalWarehouse = function () {
+        var _this = this;
+        this.modalWarehouse = this.dialog.open(__WEBPACK_IMPORTED_MODULE_4__modals_modal_warehouse_modal_warehouse_component__["a" /* ModalWarehouseComponent */], {
             hasBackdrop: false,
             data: {
                 title: 'Bodega',
@@ -181,67 +153,74 @@ var DeliveryPointsActionComponent = /** @class */ (function (_super) {
             .pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8_rxjs_operators__["filter"])(function (data) { return data; }))
             .subscribe(function (data) {
             _this.model.warehouse_id = data.id;
-            _this.warehouse = data;
+            _this.model.warehouse = data;
+            _this.model.new_adjustment_value = "";
+            _this.model.current_adjustment_value = "";
+            _this.model.stock.product.sku = "";
+            _this.model.stock.product.averageunitcost = "";
+            _this.model.stock.product.display_name = "";
+            _this.model.set_stock = "";
+            _this.model.fraction_stock = "";
+            _this.model.batch = "";
+            _this.model.location = "";
         });
     };
-    DeliveryPointsActionComponent.prototype.openModalUsers = function () {
+    InventoryAdjustmentsActionComponent.prototype.setCurrentValue = function () {
+        if (this.model.inventory_adjustment_type_id == 187) {
+            this.model.current_adjustment_value = this.model.batch;
+        }
+        else if (this.model.inventory_adjustment_type_id == 188) {
+            this.model.current_adjustment_value = this.model.location;
+        }
+    };
+    InventoryAdjustmentsActionComponent.prototype.guardar = function () {
         var _this = this;
-        this.modalUsers = this.dialog.open(__WEBPACK_IMPORTED_MODULE_9__modals_modal_users_modal_users_component__["a" /* ModalUsersComponent */], {
-            hasBackdrop: false,
-            data: {
-                title: 'Usuarios',
-                type: 'regente'
+        this.loaderService.display(true);
+        this.helperService.POST("/api/inventory-adjustments", this.model).subscribe(function (rs) {
+            var res = rs.json();
+            if (res.store) {
+                _this.snackBar.open(res.message, 'Guardado', { duration: 4000 });
+                _this.comp.openList();
             }
-        });
-        this.modalUsers.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8_rxjs_operators__["filter"])(function (data) { return data; })).subscribe(function (data) {
-            if (!_this.model.assigned_users) {
-                _this.model.assigned_users = [];
-            }
-            _this.model.assigned_users.push(data);
-            if (!_this.model.users) {
-                _this.model.users = [];
-            }
-            _this.model.users.push({ "user_id": data.id });
+            _this.loaderService.display(false);
+        }, function (err) {
+            _this.snackBar.open('Error', err.message, { duration: 4000 });
+            console.log(err.message);
+            _this.loaderService.display(false);
         });
     };
     var _a, _b, _c, _d, _e, _f, _g;
-    __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* Output */])(),
-        __metadata("design:type", Object)
-    ], DeliveryPointsActionComponent.prototype, "select", void 0);
-    DeliveryPointsActionComponent = __decorate([
+    InventoryAdjustmentsActionComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
-            selector: "delivery-points-action-cmp",
-            template: __webpack_require__("../../../../../src/app/smartity/delivery-points/delivery-points-action/delivery-points-action.component.html")
+            selector: 'inventory-adjustments-action-cmp',
+            template: __webpack_require__("../../../../../src/app/smartity/inventory-adjustments/inventory-adjustments-action/inventory-adjustments-action.component.html")
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["q" /* MatSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["q" /* MatSnackBar */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__shared__["a" /* LoaderService */]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__shared__["b" /* HelperService */]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__delivery_points_component__["a" /* DeliveryPointsComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__delivery_points_component__["a" /* DeliveryPointsComponent */]) === "function" ? _f : Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["r" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["r" /* MatDialog */]) === "function" ? _g : Object])
-    ], DeliveryPointsActionComponent);
-    return DeliveryPointsActionComponent;
-}(__WEBPACK_IMPORTED_MODULE_4__bases_base_model__["a" /* BaseModel */]));
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["q" /* MatSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["q" /* MatSnackBar */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["c" /* ActivatedRoute */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* Router */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared__["a" /* LoaderService */]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared__["b" /* HelperService */]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__inventory_adjustments_component__["a" /* InventoryAdjustmentsComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__inventory_adjustments_component__["a" /* InventoryAdjustmentsComponent */]) === "function" ? _f : Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["r" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["r" /* MatDialog */]) === "function" ? _g : Object])
+    ], InventoryAdjustmentsActionComponent);
+    return InventoryAdjustmentsActionComponent;
+}(__WEBPACK_IMPORTED_MODULE_1__bases_base_model__["a" /* BaseModel */]));
 
-//# sourceMappingURL=delivery-points-action.component.js.map
+//# sourceMappingURL=inventory-adjustments-action.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/delivery-points/delivery-points-list/delivery-points-list.component.html":
+/***/ "../../../../../src/app/smartity/inventory-adjustments/inventory-adjustments-list/inventory-adjustments-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n            <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\" (keydown)=\"enter($event)\">\n            <div style=\"width: 34px\" class=\"input-group-addon\">\n                <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                    <i class=\"fa fa-search\"></i>\n                </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-md-6\">\n        <button type=\"button\" mat-raised-button (click)=\"CUD('Guardar')\" color=\"primary\" class=\"btn-w-md no-margin-left btn-right\">\n            <mat-icon>add_circle_outline</mat-icon> Nuevo\n        </button>\n    </div>\n\n    <div class=\"col-sm-12\">\n\n        <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n            <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n                <thead>\n                    <tr>\n                        <th class=\"noAuto\" (click)=\"sort('id')\">ID\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('name')\">Nombre\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='name'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('delivery_contract_id')\">Grupo\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='delivery_contract_id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('ct.state')\">Estado\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='ct.state'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th class=\"w-40\"></th>\n                        <th class=\"w-40\"></th>\n                    </tr>\n                </thead>\n                <tbody *ngIf=\"list.data\">\n                    <tr *ngFor=\"let item of list.data; let index = index\" (click)=\"view(item); numItemSelected = index\" [ngClass]=\"{'active': numItemSelected == index }\">\n                        <td class=\"noAuto\">{{ item.id }}</td>\n                        <td>{{ item.name }}</td>\n                        <td>{{ item.delivery_points_groups.value }}</td>\n                        <td>{{ item.state ? 'Activo' : 'Inactiva' }}</td>\n                        <td class=\"w-40\">\n                            <button type=\"button\" mat-icon-button class=\"text-primary\" (click)=\"CUD('Actualizar', item)\">\n                                <mat-icon>mode_edit</mat-icon>\n                            </button>\n                        </td>\n                        <td class=\"w-40\">\n                            <button type=\"button\" mat-icon-button class=\"text-danger\" (click)=\"CUD('Eliminar', item)\">\n                                <mat-icon>delete</mat-icon>\n                            </button>\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n\n        </div>\n\n        <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\n            [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n    </div>\n</div>"
+module.exports = "<!-- LIST -->\n<div class=\"row\">\n  <div class=\"col-md-6\">\n      <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n          <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\" (keydown)=\"enter($event)\">\n          <div style=\"width: 34px\" class=\"input-group-addon\">\n              <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                  <i class=\"fa fa-search\"></i>\n              </a>\n          </div>\n      </div>\n  </div>\n  <div class=\"col-md-6\">\n      <button mat-raised-button  (click)=\"CUD('Guardar')\" color=\"primary\" class=\"btn-w-md no-margin-left btn-right\">\n        <mat-icon>add_circle_outline</mat-icon> Nuevo\n      </button>\n  </div>\n  <div class=\"col-sm-12\">\n\n      <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n          <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n              <thead>\n                  <tr>\n                      <!-- <th class=\"noAuto\" (click)=\"sort('w.id')\">ID\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='w.id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th> -->\n                      <!-- <th># ID\n                          <span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th> -->\n                      <th>Bodega\n                          <span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th>Tipo de ajuste\n                          <span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <!-- <th>Realizado por\n                          <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th> -->\n                      <th>Fecha\n                          <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th class=\"w-200\">Producto \n                        <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                    </th>\n                    <th>Ajuste\n                      <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                  </th>\n                      <th *ngIf=\"actions[2].status\" class=\"w-40\"></th>\n                  </tr>\n              </thead>\n              <tbody>\n                  <tr *ngFor=\"let item of list.data\">\n                      <!-- <td class=\"noAuto\">{{ item.id }}</td> -->\n                      <td>{{ item.stock.warehouse.name }}</td>\n                      <td>{{ item.inventory_adjustment_type.value }}</td>\n                      <td>{{ item.adjustment_date }}</td>\n                      <td>{{ item.stock.product.display_name}}</td>\n                      <td>{{ item.current_adjustment_value }} -> {{ item.new_adjustment_value }}</td>\n                      <td *ngIf=\"actions[2].status\" class=\"w-40\">\n                          <button type=\"button\" mat-icon-button class=\"text-primary\" (click)=\"CUD('Actualizar',item)\">\n                              <mat-icon>mode_edit</mat-icon>\n                          </button>\n                      </td>\n                  </tr>\n              </tbody>\n          </table>\n\n      </div>\n\n      <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\n          [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n  </div>\n</div>"
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/delivery-points/delivery-points-list/delivery-points-list.component.ts":
+/***/ "../../../../../src/app/smartity/inventory-adjustments/inventory-adjustments-list/inventory-adjustments-list.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_startWith__ = __webpack_require__("../../../../rxjs/add/operator/startWith.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_startWith___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_startWith__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__bases_base_list__ = __webpack_require__("../../../../../src/app/smartity/bases/base-list.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__delivery_points_component__ = __webpack_require__("../../../../../src/app/smartity/delivery-points/delivery-points.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DeliveryPointsListComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bases_base_list__ = __webpack_require__("../../../../../src/app/smartity/bases/base-list.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__inventory_adjustments_component__ = __webpack_require__("../../../../../src/app/smartity/inventory-adjustments/inventory-adjustments.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InventoryAdjustmentsListComponent; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -269,23 +248,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-var DeliveryPointsListComponent = /** @class */ (function (_super) {
-    __extends(DeliveryPointsListComponent, _super);
-    function DeliveryPointsListComponent(router, loaderService, helperService, comp) {
+var InventoryAdjustmentsListComponent = /** @class */ (function (_super) {
+    __extends(InventoryAdjustmentsListComponent, _super);
+    function InventoryAdjustmentsListComponent(loaderService, helperService, router, comp) {
         var _this = _super.call(this, loaderService, helperService) || this;
-        _this.router = router;
         _this.loaderService = loaderService;
         _this.helperService = helperService;
+        _this.router = router;
         _this.comp = comp;
-        _this.select = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* EventEmitter */]();
-        _this.urlApi = '/api/delivery-points';
+        _this.urlApi = '/api/inventory-adjustments';
         return _this;
     }
-    DeliveryPointsListComponent.prototype.ngOnInit = function () {
+    InventoryAdjustmentsListComponent.prototype.ngOnInit = function () {
         this.getAll();
     };
-    DeliveryPointsListComponent.prototype.CUD = function (action, row) {
+    InventoryAdjustmentsListComponent.prototype.CUD = function (action, row) {
         this.comp.strAction = action;
         switch (action) {
             case 'Guardar':
@@ -298,38 +275,34 @@ var DeliveryPointsListComponent = /** @class */ (function (_super) {
         this.comp.openActions();
     };
     var _a, _b, _c, _d;
-    __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* Output */])(),
-        __metadata("design:type", Object)
-    ], DeliveryPointsListComponent.prototype, "select", void 0);
-    DeliveryPointsListComponent = __decorate([
+    InventoryAdjustmentsListComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
-            selector: "delivery-points-list-cmp",
-            template: __webpack_require__("../../../../../src/app/smartity/delivery-points/delivery-points-list/delivery-points-list.component.html"),
+            selector: 'inventory-adjustments-list-cmp',
+            template: __webpack_require__("../../../../../src/app/smartity/inventory-adjustments/inventory-adjustments-list/inventory-adjustments-list.component.html")
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* LoaderService */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* HelperService */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__delivery_points_component__["a" /* DeliveryPointsComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__delivery_points_component__["a" /* DeliveryPointsComponent */]) === "function" ? _d : Object])
-    ], DeliveryPointsListComponent);
-    return DeliveryPointsListComponent;
-}(__WEBPACK_IMPORTED_MODULE_3__bases_base_list__["a" /* BaseList */]));
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared__["a" /* LoaderService */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared__["b" /* HelperService */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__inventory_adjustments_component__["a" /* InventoryAdjustmentsComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__inventory_adjustments_component__["a" /* InventoryAdjustmentsComponent */]) === "function" ? _d : Object])
+    ], InventoryAdjustmentsListComponent);
+    return InventoryAdjustmentsListComponent;
+}(__WEBPACK_IMPORTED_MODULE_2__bases_base_list__["a" /* BaseList */]));
 
-//# sourceMappingURL=delivery-points-list.component.js.map
+//# sourceMappingURL=inventory-adjustments-list.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/delivery-points/delivery-points.component.html":
+/***/ "../../../../../src/app/smartity/inventory-adjustments/inventory-adjustments.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"chapter\">\n    <section class=\"hero\">\n        <div class=\"hero-content\">\n            <h1 class=\"hero-title\">Puntos de dispensación</h1>\n        </div>\n        <p class=\"hero-tagline\"></p>\n    </section>\n    <article class=\"article padding-lg-v article-dark article-bordered\">\n        <div class=\"container-fluid with-maxwidth\">\n            <div class=\"box box-default\">\n                <div class=\"box-body\">\n                    <delivery-points-action-cmp *ngIf=\"isOpenActions\" [numId]=\"id\" [strAction]=\"strAction\"></delivery-points-action-cmp>\n                    <delivery-points-list-cmp *ngIf=\"isOpenList\"></delivery-points-list-cmp>\n                </div>\n            </div>\n        </div>\n    </article>\n</section>"
+module.exports = "<section class=\"chapter\">\n  <section class=\"hero\">\n      <div class=\"hero-content\">\n          <h1 class=\"hero-title\">Ajustes de Inventario</h1>\n      </div>\n      <p class=\"hero-tagline\">We provide amazing solutions that you can't miss</p>\n  </section>\n  <article class=\"article padding-lg-v article-dark article-bordered\">\n      <div class=\"container-fluid with-maxwidth\">\n          <div class=\"box box-default\">\n              <div class=\"box-body\">\n                  <inventory-adjustments-action-cmp *ngIf=\"isOpenActions\" [numId]=\"id\" [strAction]=\"strAction\"></inventory-adjustments-action-cmp>\n                  <inventory-adjustments-list-cmp *ngIf=\"isOpenList\"></inventory-adjustments-list-cmp>\n              </div>                 \n          </div>\n      </div>\n  </article>\n</section>            "
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/delivery-points/delivery-points.component.ts":
+/***/ "../../../../../src/app/smartity/inventory-adjustments/inventory-adjustments.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bases_base__ = __webpack_require__("../../../../../src/app/smartity/bases/base.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DeliveryPointsComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InventoryAdjustmentsComponent; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -354,29 +327,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var DeliveryPointsComponent = /** @class */ (function (_super) {
-    __extends(DeliveryPointsComponent, _super);
-    function DeliveryPointsComponent() {
+var InventoryAdjustmentsComponent = /** @class */ (function (_super) {
+    __extends(InventoryAdjustmentsComponent, _super);
+    function InventoryAdjustmentsComponent() {
         return _super.call(this) || this;
     }
-    DeliveryPointsComponent.prototype.ngOnInit = function () {
+    InventoryAdjustmentsComponent.prototype.ngOnInit = function () {
     };
-    DeliveryPointsComponent = __decorate([
+    InventoryAdjustmentsComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
-            selector: "delivery-points-cmp",
-            template: __webpack_require__("../../../../../src/app/smartity/delivery-points/delivery-points.component.html"),
-            styles: []
+            selector: 'app-inventory-adjustments',
+            template: __webpack_require__("../../../../../src/app/smartity/inventory-adjustments/inventory-adjustments.component.html")
         }),
         __metadata("design:paramtypes", [])
-    ], DeliveryPointsComponent);
-    return DeliveryPointsComponent;
+    ], InventoryAdjustmentsComponent);
+    return InventoryAdjustmentsComponent;
 }(__WEBPACK_IMPORTED_MODULE_1__bases_base__["a" /* Base */]));
 
-//# sourceMappingURL=delivery-points.component.js.map
+//# sourceMappingURL=inventory-adjustments.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/delivery-points/delivery-points.module.ts":
+/***/ "../../../../../src/app/smartity/inventory-adjustments/inventory-adjustments.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -385,11 +357,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_shared_module__ = __webpack_require__("../../../../../src/app/shared/shared.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__delivery_points_component__ = __webpack_require__("../../../../../src/app/smartity/delivery-points/delivery-points.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__delivery_points_list_delivery_points_list_component__ = __webpack_require__("../../../../../src/app/smartity/delivery-points/delivery-points-list/delivery-points-list.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__delivery_points_action_delivery_points_action_component__ = __webpack_require__("../../../../../src/app/smartity/delivery-points/delivery-points-action/delivery-points-action.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeliveryPointsModule", function() { return DeliveryPointsModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__inventory_adjustments_component__ = __webpack_require__("../../../../../src/app/smartity/inventory-adjustments/inventory-adjustments.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__inventory_adjustments_action_inventory_adjustments_action_component__ = __webpack_require__("../../../../../src/app/smartity/inventory-adjustments/inventory-adjustments-action/inventory-adjustments-action.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__inventory_adjustments_list_inventory_adjustments_list_component__ = __webpack_require__("../../../../../src/app/smartity/inventory-adjustments/inventory-adjustments-list/inventory-adjustments-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InventoryAdjustmentsModule", function() { return InventoryAdjustmentsModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -404,29 +376,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var routes = [{ path: '', component: __WEBPACK_IMPORTED_MODULE_5__delivery_points_component__["a" /* DeliveryPointsComponent */] }];
-var DeliveryPointsModule = /** @class */ (function () {
-    function DeliveryPointsModule() {
+var routes = [{ path: '', component: __WEBPACK_IMPORTED_MODULE_4__inventory_adjustments_component__["a" /* InventoryAdjustmentsComponent */] }];
+var InventoryAdjustmentsModule = /** @class */ (function () {
+    function InventoryAdjustmentsModule() {
     }
-    DeliveryPointsModule = __decorate([
+    InventoryAdjustmentsModule = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_common__["a" /* CommonModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */].forChild(routes),
                 __WEBPACK_IMPORTED_MODULE_3__shared_shared_module__["a" /* SharedModule */],
-                __WEBPACK_IMPORTED_MODULE_4__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot()
+                __WEBPACK_IMPORTED_MODULE_7__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot()
             ],
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_5__delivery_points_component__["a" /* DeliveryPointsComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__delivery_points_list_delivery_points_list_component__["a" /* DeliveryPointsListComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__delivery_points_action_delivery_points_action_component__["a" /* DeliveryPointsActionComponent */]
+                __WEBPACK_IMPORTED_MODULE_4__inventory_adjustments_component__["a" /* InventoryAdjustmentsComponent */],
+                __WEBPACK_IMPORTED_MODULE_5__inventory_adjustments_action_inventory_adjustments_action_component__["a" /* InventoryAdjustmentsActionComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__inventory_adjustments_list_inventory_adjustments_list_component__["a" /* InventoryAdjustmentsListComponent */]
             ]
         })
-    ], DeliveryPointsModule);
-    return DeliveryPointsModule;
+    ], InventoryAdjustmentsModule);
+    return InventoryAdjustmentsModule;
 }());
 
-//# sourceMappingURL=delivery-points.module.js.map
+//# sourceMappingURL=inventory-adjustments.module.js.map
 
 /***/ })
 

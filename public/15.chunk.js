@@ -1,13 +1,13 @@
 webpackJsonp([15],{
 
-/***/ "../../../../../src/app/smartity/costscentres/costscentres-action/costscentres-action.component.html":
+/***/ "../../../../../src/app/smartity/delivery-points/delivery-points-action/delivery-points-action.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form #modelForm=\"ngForm\" autocomplete=\"off\">\n\n    <div class=\"col-sm-12 margin-bottom\" [class.btn-action-container]=\"booActive\">\n        <button mat-raised-button color=\"primary\" (click)=\"goList()\" class=\"btn-w-md no-margin-left\">\n            <mat-icon>keyboard_arrow_left</mat-icon> Regresar\n        </button>\n    </div>\n\n    <!-- name -->\n    <div class='col-sm-12 col-md-6'>\n        <div class=\"box-body\">\n            <mat-form-field class=\"full-width\">\n                <input required type=\"text\" id=\"name\" name=\"name\" [(ngModel)]=\"model.name\" matInput placeholder=\"Nombre del Centro de Costo\">\n            </mat-form-field>\n        </div>\n    </div>\n\n    <!-- estado -->\n    <div class='col-sm-12 col-md-3'>\n        <div class=\"box-body\">\n            <mat-slide-toggle [labelPosition]=\"after\" id=\"state\" name=\"state\" [(ngModel)]=\"model.state\">Estado</mat-slide-toggle>\n        </div>\n    </div>\n\n    <div class='col-sm-12 col-md-12'>\n        <div class=\"box-body\">\n            <mat-form-field class=\"full-width\">\n                <textarea type=\"text\" id=\"description\" name=\"description\" [(ngModel)]=\"model.description\" matInput placeholder=\"Descripción\">\n                </textarea>\n            </mat-form-field>\n        </div>\n    </div>\n\n    <!--tipo -->\n    <div class=\"col-sm-12 col-md-4 col-lg-4\">\n        <div class=\"box-body\">\n            <mat-select class=\"full-width\" placeholder=\"Tipo\" [(ngModel)]=\"model.costcentretype_id\" name=\"costcentretype_id\" id=\"costcentretype_id\">\n                <mat-option *ngFor=\"let item of costs_centres_types\" [value]=\"item.id\">{{item.value}}</mat-option>\n            </mat-select>\n        </div>\n    </div>\n\n    <!-- operations/costs centres -->\n    <div class=\"col-sm-12 col-md-4 col-lg-4\">\n        <div class=\"box-body\">\n            <mat-select class=\"full-width\" placeholder=\"C. Operation/Costos\" [(ngModel)]=\"model.operation_cost_centre_id\" name=\"operation_cost_centre_id\"\n                id=\"operation_cost_centre_id\">\n                <mat-option *ngFor=\"let item of operations_costs_centres\" [value]=\"item.id\">{{item.name}}</mat-option>\n            </mat-select>\n        </div>\n    </div>\n\n    <!--cost centre group -->\n    <div class=\"col-sm-12 col-md-4 col-lg-4\">\n        <div class=\"box-body\">\n            <mat-select class=\"full-width\" placeholder=\"Grupo de Centro de Costo\" [(ngModel)]=\"model.costcentregroup_id\" name=\"costcentregroup_id\"\n                id=\"costcentregroup_id\">\n                <mat-option *ngFor=\"let item of costs_centres_groups\" [value]=\"item.id\">{{item.value}}</mat-option>\n            </mat-select>\n        </div>\n    </div>\n\n    <div class=\"col-sm-12 col-md-12\" [class.btn-action-container]=\"booActive\">\n\n        <button [disabled]=\"action_active ? false : !modelForm.form.valid\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left btn-right\"\n            (click)=\"save()\">{{strAction}}</button>\n\n    </div>\n\n</form>"
+module.exports = "<form #modelForm=\"ngForm\" autocomplete=\"off\">\r\n    <div class=\"col-sm-12\">\r\n        <div class=\"row\">\r\n            <div class=\"col-sm-12 margin-bottom\" [class.btn-action-container]=\"booActive\">\r\n                <button type=\"button\" mat-raised-button color=\"primary\" (click)=\"goList()\" class=\"btn-w-md no-margin-left\">\r\n                    <mat-icon>keyboard_arrow_left</mat-icon> Regresar\r\n                </button>\r\n            </div>\r\n            <!-- name -->\r\n            <div class='col-sm-12 col-md-6 margin-bottom'>\r\n                <mat-form-field class=\"full-width\">\r\n                    <input required type=\"text\" id=\"name\" name=\"name\" [(ngModel)]=\"model.name\" matInput placeholder=\"Nombre\">\r\n                </mat-form-field>\r\n            </div>\r\n            <!-- instalado -->\r\n            <div class='col-sm-12 col-md-6 col-lg-3 margin-bottom'>\r\n                <div class=\"flex\">\r\n                    <span class=\"flex-spacer\"></span>\r\n                    <mat-slide-toggle [labelPosition]=\"'before'\" id=\"installed\" name=\"installed\" [(ngModel)]=\"model.installed\">Instalado</mat-slide-toggle>\r\n                </div>\r\n\r\n            </div>\r\n            <!-- estado -->\r\n            <div class='col-sm-12 col-md-6 col-lg-3 margin-bottom'>\r\n                <div class=\"flex\">\r\n                    <span class=\"flex-spacer\"></span>\r\n                    <mat-slide-toggle [labelPosition]=\"'before'\" id=\"state\" name=\"state\" [(ngModel)]=\"model.state\">Estado</mat-slide-toggle>\r\n                </div>\r\n            </div>\r\n            <!-- bodega -->\r\n            <div class=\"col-sm-12 col-md-6 margin-bottom\">\r\n                <mat-form-field class=\"full-width\">\r\n                    <input readonly matInput type=\"text\" placeholder=\"Bodega\" [(ngModel)]=\"warehouse.name\" id=\"warehouse\" name=\"warehouse\" />\r\n                    <mat-icon matSuffix mdSuffix class=\"wh-24 pointer\" (click)=\"openModalWarehouse()\">search</mat-icon>\r\n                </mat-form-field>\r\n            </div>\r\n            <!-- grupo de punto de dispensacion -->\r\n            <div class=\"col-sm-12 col-md-6 margin-bottom\">\r\n                    <mat-form-field class=\"full-width\">\r\n                <mat-select class=\"full-width\" placeholder=\"Grupos de puntos de dispensación\" [(ngModel)]=\"model.delivery_point_group_id\"\r\n                    name=\"delivery_point_group_id\" id=\"delivery_point_group_id\">\r\n                    <mat-option *ngFor=\"let item of arrDelivery_point_group\" [value]=\"item.id\">{{item.value}}</mat-option>\r\n                </mat-select>\r\n            </mat-form-field>\r\n            </div>\r\n            <!--contratos-->\r\n            <div class=\"col-sm-12 col-md-6 margin-bottom\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-sm-12\">\r\n                        <div class=\"flex\" style=\"height: 51px;\">\r\n                            <div class=\"box-header no-padding-h\">Contratos</div>\r\n                        </div>\r\n                        <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\r\n                            <table class=\"mdl-data-table table-bordered table-striped no-margin\">\r\n                                <thead>\r\n                                    <tr>\r\n                                        <th>Nombre</th>\r\n                                        <th>Evento</th>\r\n                                        <th>Cápita</th>\r\n                                        <th>PGP</th>\r\n                                    </tr>\r\n                                </thead>\r\n                                <tbody>\r\n                                    <tr *ngFor=\"let item of arrDelivery_contracts\">\r\n                                        <td>{{item.name}}</td>\r\n                                        <td class=\"text-center\">\r\n                                            <mat-icon>{{item.event ? 'check_circle' : ''}}</mat-icon>\r\n                                        </td>\r\n                                        <td class=\"text-center\">\r\n                                            <mat-icon>{{item.capita ? 'check_circle' : ''}}</mat-icon>\r\n                                        </td>\r\n                                        <td class=\"text-center\">\r\n                                            <mat-icon>{{item.pgp ? 'check_circle' : ''}}</mat-icon>\r\n                                        </td>\r\n                                    </tr>\r\n                                </tbody>\r\n                            </table>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <!--Usuario de regente-->\r\n            <div class=\"col-sm-12 col-md-6 margin-bottom\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-sm-12\">\r\n                        <div class=\"flex\" style=\"margin-bottom: 10px;\">\r\n                            <div class=\"box-header no-padding-h\">Usuario de regente</div>\r\n                            <span class=\"flex-spacer\"></span>\r\n                            <button type=\"button\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left\" (click)=\"openModalUsers()\">Añadir</button>\r\n                        </div>\r\n                        <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\r\n                            <table class=\"mdl-data-table table-bordered table-striped no-margin\">\r\n                                <thead>\r\n                                    <tr>\r\n                                        <th>Nombre</th>\r\n                                    </tr>\r\n                                </thead>\r\n                                <tbody>\r\n                                    <tr *ngFor=\"let item of model.assigned_users\">\r\n                                        <td>{{item.firstname}} {{item.lastname}}</td>\r\n                                    </tr>\r\n                                </tbody>\r\n                            </table>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <!--description-->\r\n            <div class='col-sm-12 margin-bottom'>\r\n                <mat-form-field class=\"full-width\">\r\n                    <textarea type=\"text\" id=\"description\" name=\"description\" [(ngModel)]=\"model.description\" matInput placeholder=\"Descripción\"></textarea>\r\n                </mat-form-field>\r\n            </div>\r\n            <div class=\"col-sm-12\" [class.btn-action-container]=\"booActive\">\r\n                <button type=\"button\" [disabled]=\"!modelForm.form.valid\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left btn-right\"\r\n                    (click)=\"save()\">{{strAction}}</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</form>"
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/costscentres/costscentres-action/costscentres-action.component.ts":
+/***/ "../../../../../src/app/smartity/delivery-points/delivery-points-action/delivery-points-action.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18,8 +18,12 @@ module.exports = "<form #modelForm=\"ngForm\" autocomplete=\"off\">\n\n    <div 
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__bases_base_model__ = __webpack_require__("../../../../../src/app/smartity/bases/base-model.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__costscentres_component__ = __webpack_require__("../../../../../src/app/smartity/costscentres/costscentres.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CostscentresActionComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__delivery_points_component__ = __webpack_require__("../../../../../src/app/smartity/delivery-points/delivery-points.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__modals_modal_warehouse_modal_warehouse_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-warehouse/modal-warehouse.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_operators__ = __webpack_require__("../../../../rxjs/operators.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_operators__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__modals_modal_users_modal_users_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-users/modal-users.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DeliveryPointsActionComponent; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -49,9 +53,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var CostscentresActionComponent = /** @class */ (function (_super) {
-    __extends(CostscentresActionComponent, _super);
-    function CostscentresActionComponent(snackBar, route, router, loaderService, helperService, comp) {
+
+
+
+var DeliveryPointsActionComponent = /** @class */ (function (_super) {
+    __extends(DeliveryPointsActionComponent, _super);
+    function DeliveryPointsActionComponent(snackBar, route, router, loaderService, helperService, comp, dialog) {
         var _this = _super.call(this) || this;
         _this.snackBar = snackBar;
         _this.route = route;
@@ -59,75 +66,64 @@ var CostscentresActionComponent = /** @class */ (function (_super) {
         _this.loaderService = loaderService;
         _this.helperService = helperService;
         _this.comp = comp;
-        _this.tipos = [];
-        _this.costs_centres_groups = [];
-        _this.costs_centres_types = [];
-        _this.operations_costs_centres = [];
+        _this.dialog = dialog;
+        _this.arrDelivery_point_group = [];
+        _this.warehouse = {};
+        _this.arrDelivery_contracts = [];
+        _this.select = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* EventEmitter */]();
         return _this;
     }
-    CostscentresActionComponent.prototype.ngOnInit = function () {
+    DeliveryPointsActionComponent.prototype.ngOnInit = function () {
         this.clean();
         this.getCollection();
-        this.getCostCentres();
         if (this.numId !== undefined) {
             this.getDataById();
         }
     };
-    CostscentresActionComponent.prototype.getCollection = function () {
+    DeliveryPointsActionComponent.prototype.getCollection = function () {
         var _this = this;
         this.loaderService.display(true);
-        this.helperService.POST("/api/collections", ["COSTS_CENTRE_GROUPS", "COSTS_CENTRE_TYPES"]).subscribe(function (rs) {
+        this.helperService.POST("/api/collections", ["DELIVERY_POINTS_GROUPS"]).subscribe(function (rs) {
             var res = rs.json();
-            _this.costs_centres_groups = res.COSTS_CENTRE_GROUPS;
-            _this.costs_centres_types = res.COSTS_CENTRE_TYPES;
+            _this.arrDelivery_point_group = res.DELIVERY_POINTS_GROUPS;
             _this.loaderService.display(false);
         }, function (err) {
             console.log(err);
             _this.loaderService.display(false);
         });
     };
-    CostscentresActionComponent.prototype.getCostCentres = function () {
-        var _this = this;
-        this.loaderService.display(true);
-        this.helperService.GET("/api/costs_centre/operations_costs_centre").subscribe(function (rs) {
-            var res = rs.json();
-            _this.operations_costs_centres = res.data;
-            _this.loaderService.display(false);
-        }, function (err) {
-            console.log(err);
-            _this.loaderService.display(false);
-        });
-    };
-    CostscentresActionComponent.prototype.save = function () {
+    DeliveryPointsActionComponent.prototype.save = function () {
         var _this = this;
         this.loaderService.display(true);
         switch (this.strAction) {
             case 'Guardar':
-                this.helperService.POST("/api/costscentres", this.model).subscribe(function (rs) {
+                this.model.delivery_contracts = '[]';
+                this.helperService.POST("/api/delivery-points", this.model).subscribe(function (rs) {
                     var res = rs.json();
                     if (res.store) {
                         _this.snackBar.open(res.message, 'Guardado', { duration: 4000 });
-                        _this.goList();
+                        _this.comp.openList();
+                        _this.loaderService.display(false);
                     }
                 }, function (err) {
-                    _this.loaderService.display(false);
                     _this.snackBar.open(err.message, 'Guardado', { duration: 4000 });
+                    _this.loaderService.display(false);
                 });
                 break;
             case 'Actualizar':
-                this.helperService.PUT("/api/costscentres/" + this.numId, this.model).subscribe(function (rs) {
+                this.helperService.PUT("/api/delivery-points/" + this.numId, this.model).subscribe(function (rs) {
                     var res = rs.json();
                     if (res.update) {
                         _this.snackBar.open(res.message, 'Actualización', { duration: 4000 });
                         _this.comp.openList();
                     }
                 }, function (err) {
-                    _this.snackBar.open(err.message, 'Guardado', { duration: 4000 });
+                    _this.snackBar.open(err.message, 'Actualización', { duration: 4000 });
                     _this.loaderService.display(false);
                 });
                 break;
             case 'Eliminar':
-                this.helperService.DELETE("/api/costscentres/" + this.numId).subscribe(function (rs) {
+                this.helperService.DELETE("/api/delivery-points/" + this.numId).subscribe(function (rs) {
                     var res = rs.json();
                     if (res.delete) {
                         _this.snackBar.open(res.message, 'Eliminación', { duration: 4000 });
@@ -140,50 +136,101 @@ var CostscentresActionComponent = /** @class */ (function (_super) {
                 break;
         }
     };
-    CostscentresActionComponent.prototype.getDataById = function () {
+    DeliveryPointsActionComponent.prototype.getDataById = function () {
         var _this = this;
         this.loaderService.display(true);
-        this.helperService.GET("/api/costscentres/" + this.numId).subscribe(function (rs) {
-            var res = rs.json();
+        this.helperService.GET("/api/delivery-points/" + this.numId).map(function (response) {
+            var res = response.json();
             _this.model = res.data;
+            _this.arrDelivery_contracts = [];
+            _this.model.contract_point.forEach(function (element) {
+                element.config = JSON.parse(element.config);
+                _this.arrDelivery_contracts.push({
+                    id: element.delivery_contracts.id,
+                    name: element.delivery_contracts.name,
+                    event: element.config.event || false,
+                    capita: element.config.capita || false,
+                    pgp: element.config.pgp || false,
+                });
+            });
+            _this.warehouse = _this.model.warehouses;
             _this.model.operation_cost_centre_id = _this.model.root == true ? 'co-' + _this.model.operation_cost_centre_id : 'cc-' + _this.model.operation_cost_centre_id;
+        }).subscribe(function (error) {
             _this.loaderService.display(false);
-        }, function (err) {
-            console.log(err);
+        }, function (done) {
             _this.loaderService.display(false);
         });
     };
-    CostscentresActionComponent.prototype.clean = function () {
+    DeliveryPointsActionComponent.prototype.clean = function () {
         this.model = {};
         this.model.state = true;
     };
-    CostscentresActionComponent.prototype.goList = function () {
+    DeliveryPointsActionComponent.prototype.goList = function () {
         this.comp.openList();
     };
-    var _a, _b, _c, _d, _e, _f;
-    CostscentresActionComponent = __decorate([
+    DeliveryPointsActionComponent.prototype.openModalWarehouse = function () {
+        var _this = this;
+        this.modalWarehouse = this.dialog.open(__WEBPACK_IMPORTED_MODULE_7__modals_modal_warehouse_modal_warehouse_component__["a" /* ModalWarehouseComponent */], {
+            hasBackdrop: false,
+            data: {
+                title: 'Bodega',
+            }
+        });
+        this.modalWarehouse
+            .afterClosed()
+            .pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8_rxjs_operators__["filter"])(function (data) { return data; }))
+            .subscribe(function (data) {
+            _this.model.warehouse_id = data.id;
+            _this.warehouse = data;
+        });
+    };
+    DeliveryPointsActionComponent.prototype.openModalUsers = function () {
+        var _this = this;
+        this.modalUsers = this.dialog.open(__WEBPACK_IMPORTED_MODULE_9__modals_modal_users_modal_users_component__["a" /* ModalUsersComponent */], {
+            hasBackdrop: false,
+            data: {
+                title: 'Usuarios',
+                type: 'regente'
+            }
+        });
+        this.modalUsers.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8_rxjs_operators__["filter"])(function (data) { return data; })).subscribe(function (data) {
+            if (!_this.model.assigned_users) {
+                _this.model.assigned_users = [];
+            }
+            _this.model.assigned_users.push(data);
+            if (!_this.model.users) {
+                _this.model.users = [];
+            }
+            _this.model.users.push({ "user_id": data.id });
+        });
+    };
+    var _a, _b, _c, _d, _e, _f, _g;
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* Output */])(),
+        __metadata("design:type", Object)
+    ], DeliveryPointsActionComponent.prototype, "select", void 0);
+    DeliveryPointsActionComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
-            selector: "costscentres-action-cmp",
-            template: __webpack_require__("../../../../../src/app/smartity/costscentres/costscentres-action/costscentres-action.component.html"),
-            styles: []
+            selector: "delivery-points-action-cmp",
+            template: __webpack_require__("../../../../../src/app/smartity/delivery-points/delivery-points-action/delivery-points-action.component.html")
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["q" /* MatSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["q" /* MatSnackBar */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__shared__["a" /* LoaderService */]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__shared__["b" /* HelperService */]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__costscentres_component__["a" /* CostscentresComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__costscentres_component__["a" /* CostscentresComponent */]) === "function" ? _f : Object])
-    ], CostscentresActionComponent);
-    return CostscentresActionComponent;
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["q" /* MatSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["q" /* MatSnackBar */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__shared__["a" /* LoaderService */]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__shared__["b" /* HelperService */]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__delivery_points_component__["a" /* DeliveryPointsComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__delivery_points_component__["a" /* DeliveryPointsComponent */]) === "function" ? _f : Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["r" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["r" /* MatDialog */]) === "function" ? _g : Object])
+    ], DeliveryPointsActionComponent);
+    return DeliveryPointsActionComponent;
 }(__WEBPACK_IMPORTED_MODULE_4__bases_base_model__["a" /* BaseModel */]));
 
-//# sourceMappingURL=costscentres-action.component.js.map
+//# sourceMappingURL=delivery-points-action.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/costscentres/costscentres-list/costscentres-list.component.html":
+/***/ "../../../../../src/app/smartity/delivery-points/delivery-points-list/delivery-points-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n            <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\" (keydown)=\"enter($event)\">\n            <div style=\"width: 34px\" class=\"input-group-addon\">\n                <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                    <i class=\"fa fa-search\"></i>\n                </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-md-6\">\n        <button *ngIf=\"actions[0].status\" mat-raised-button (click)=\"CUD('Guardar')\" color=\"primary\" class=\"btn-w-md no-margin-left btn-right\">\n            <mat-icon>add_circle_outline</mat-icon> Nuevo\n        </button>\n    </div>\n\n    <div class=\"col-sm-12\">\n\n        <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n            <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n                <thead>\n                    <tr>\n                        <th class=\"noAuto\" (click)=\"sort('cc.id')\">ID\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='cc.id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('code')\">Código\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='code'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('name')\">Nombre\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='name'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('operationcostcentres')\">C. Operaciones/Costos\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='operationcostcentres'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('ct.value')\">Tipo\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='ct.value'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('cg.value')\">Grupo\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='cg.value'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('state')\">Estado\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='state'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th *ngIf=\"actions[2].status\" class=\"w-40\"></th>\n                        <th *ngIf=\"actions[3].status\" class=\"w-40\"></th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor=\"let item of list.data\">\n                        <td class=\"noAuto\">{{ item.id }}</td>\n                        <td>{{ item.code }}</td>\n                        <td>{{ item.name }}</td>\n                        <td>{{ item.operationcostcentres }}</td>\n                        <td>{{ item.costcentretype }}</td>\n                        <td>{{ item.costcentregroup }}</td>\n                        <td>{{ item.state ? 'Activo' : 'Inactiva' }}</td>\n                        <td *ngIf=\"actions[2].status\" class=\"w-40\">\n                            <button type=\"button\" mat-icon-button class=\"text-primary\" (click)=\"CUD('Actualizar',item)\">\n                                <mat-icon>mode_edit</mat-icon>\n                            </button>\n                        </td>\n                        <td *ngIf=\"actions[3].status\" class=\"w-40\">\n                            <button type=\"button\" mat-icon-button class=\"text-danger\" (click)=\"CUD('Eliminar',item)\">\n                                <mat-icon>delete</mat-icon>\n                            </button>\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n\n        </div>\n\n        <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\n            [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n    </div>\n</div>"
+module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n            <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\" (keydown)=\"enter($event)\">\n            <div style=\"width: 34px\" class=\"input-group-addon\">\n                <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                    <i class=\"fa fa-search\"></i>\n                </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-md-6\">\n        <button type=\"button\" mat-raised-button (click)=\"CUD('Guardar')\" color=\"primary\" class=\"btn-w-md no-margin-left btn-right\">\n            <mat-icon>add_circle_outline</mat-icon> Nuevo\n        </button>\n    </div>\n\n    <div class=\"col-sm-12\">\n\n        <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n            <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n                <thead>\n                    <tr>\n                        <th class=\"noAuto\" (click)=\"sort('id')\">ID\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('name')\">Nombre\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='name'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('delivery_contract_id')\">Grupo\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='delivery_contract_id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('ct.state')\">Estado\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='ct.state'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th class=\"w-40\"></th>\n                        <th class=\"w-40\"></th>\n                    </tr>\n                </thead>\n                <tbody *ngIf=\"list.data\">\n                    <tr *ngFor=\"let item of list.data; let index = index\" (click)=\"view(item); numItemSelected = index\" [ngClass]=\"{'active': numItemSelected == index }\">\n                        <td class=\"noAuto\">{{ item.id }}</td>\n                        <td>{{ item.name }}</td>\n                        <td>{{ item.delivery_points_groups.value }}</td>\n                        <td>{{ item.state ? 'Activo' : 'Inactiva' }}</td>\n                        <td class=\"w-40\">\n                            <button type=\"button\" mat-icon-button class=\"text-primary\" (click)=\"CUD('Actualizar', item)\">\n                                <mat-icon>mode_edit</mat-icon>\n                            </button>\n                        </td>\n                        <td class=\"w-40\">\n                            <button type=\"button\" mat-icon-button class=\"text-danger\" (click)=\"CUD('Eliminar', item)\">\n                                <mat-icon>delete</mat-icon>\n                            </button>\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n\n        </div>\n\n        <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\n            [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n    </div>\n</div>"
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/costscentres/costscentres-list/costscentres-list.component.ts":
+/***/ "../../../../../src/app/smartity/delivery-points/delivery-points-list/delivery-points-list.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -193,8 +240,8 @@ module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div class=\"col-md-6\
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__bases_base_list__ = __webpack_require__("../../../../../src/app/smartity/bases/base-list.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__costscentres_component__ = __webpack_require__("../../../../../src/app/smartity/costscentres/costscentres.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CostscentresListComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__delivery_points_component__ = __webpack_require__("../../../../../src/app/smartity/delivery-points/delivery-points.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DeliveryPointsListComponent; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -223,21 +270,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var CostscentresListComponent = /** @class */ (function (_super) {
-    __extends(CostscentresListComponent, _super);
-    function CostscentresListComponent(router, loaderService, helperService, comp) {
+var DeliveryPointsListComponent = /** @class */ (function (_super) {
+    __extends(DeliveryPointsListComponent, _super);
+    function DeliveryPointsListComponent(router, loaderService, helperService, comp) {
         var _this = _super.call(this, loaderService, helperService) || this;
         _this.router = router;
         _this.loaderService = loaderService;
         _this.helperService = helperService;
         _this.comp = comp;
-        _this.urlApi = '/api/costscentres';
+        _this.select = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* EventEmitter */]();
+        _this.urlApi = '/api/delivery-points';
         return _this;
     }
-    CostscentresListComponent.prototype.ngOnInit = function () {
+    DeliveryPointsListComponent.prototype.ngOnInit = function () {
         this.getAll();
     };
-    CostscentresListComponent.prototype.CUD = function (action, row) {
+    DeliveryPointsListComponent.prototype.CUD = function (action, row) {
         this.comp.strAction = action;
         switch (action) {
             case 'Guardar':
@@ -250,35 +298,38 @@ var CostscentresListComponent = /** @class */ (function (_super) {
         this.comp.openActions();
     };
     var _a, _b, _c, _d;
-    CostscentresListComponent = __decorate([
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* Output */])(),
+        __metadata("design:type", Object)
+    ], DeliveryPointsListComponent.prototype, "select", void 0);
+    DeliveryPointsListComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
-            selector: "costscentres-list-cmp",
-            template: __webpack_require__("../../../../../src/app/smartity/costscentres/costscentres-list/costscentres-list.component.html"),
-            styles: []
+            selector: "delivery-points-list-cmp",
+            template: __webpack_require__("../../../../../src/app/smartity/delivery-points/delivery-points-list/delivery-points-list.component.html"),
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* LoaderService */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* HelperService */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__costscentres_component__["a" /* CostscentresComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__costscentres_component__["a" /* CostscentresComponent */]) === "function" ? _d : Object])
-    ], CostscentresListComponent);
-    return CostscentresListComponent;
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* LoaderService */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* HelperService */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__delivery_points_component__["a" /* DeliveryPointsComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__delivery_points_component__["a" /* DeliveryPointsComponent */]) === "function" ? _d : Object])
+    ], DeliveryPointsListComponent);
+    return DeliveryPointsListComponent;
 }(__WEBPACK_IMPORTED_MODULE_3__bases_base_list__["a" /* BaseList */]));
 
-//# sourceMappingURL=costscentres-list.component.js.map
+//# sourceMappingURL=delivery-points-list.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/costscentres/costscentres.component.html":
+/***/ "../../../../../src/app/smartity/delivery-points/delivery-points.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"chapter\">\n    <section class=\"hero\">\n        <div class=\"hero-content\">\n            <h1 class=\"hero-title\">Centros de Costos</h1>\n        </div>\n        <p class=\"hero-tagline\">A través de esta opción, usted podrá crear los centros de operaciones de los cuales son necesarias para...</p>\n    </section>\n    <article class=\"article padding-lg-v article-dark article-bordered\">\n        <div class=\"container-fluid with-maxwidth\">\n            <div class=\"box box-default\">\n                <div class=\"box-body\">\n                    <costscentres-action-cmp *ngIf=\"isOpenActions\" [numId]=\"id\" [strAction]=\"strAction\"></costscentres-action-cmp>\n                    <costscentres-list-cmp *ngIf=\"isOpenList\"></costscentres-list-cmp>\n                </div>               \n            </div>\n        </div>\n    </article>\n</section>"
+module.exports = "<section class=\"chapter\">\n    <section class=\"hero\">\n        <div class=\"hero-content\">\n            <h1 class=\"hero-title\">Puntos de dispensación</h1>\n        </div>\n        <p class=\"hero-tagline\"></p>\n    </section>\n    <article class=\"article padding-lg-v article-dark article-bordered\">\n        <div class=\"container-fluid with-maxwidth\">\n            <div class=\"box box-default\">\n                <div class=\"box-body\">\n                    <delivery-points-action-cmp *ngIf=\"isOpenActions\" [numId]=\"id\" [strAction]=\"strAction\"></delivery-points-action-cmp>\n                    <delivery-points-list-cmp *ngIf=\"isOpenList\"></delivery-points-list-cmp>\n                </div>\n            </div>\n        </div>\n    </article>\n</section>"
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/costscentres/costscentres.component.ts":
+/***/ "../../../../../src/app/smartity/delivery-points/delivery-points.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bases_base__ = __webpack_require__("../../../../../src/app/smartity/bases/base.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CostscentresComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DeliveryPointsComponent; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -303,29 +354,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var CostscentresComponent = /** @class */ (function (_super) {
-    __extends(CostscentresComponent, _super);
-    function CostscentresComponent() {
+var DeliveryPointsComponent = /** @class */ (function (_super) {
+    __extends(DeliveryPointsComponent, _super);
+    function DeliveryPointsComponent() {
         return _super.call(this) || this;
     }
-    CostscentresComponent.prototype.ngOnInit = function () {
+    DeliveryPointsComponent.prototype.ngOnInit = function () {
     };
-    CostscentresComponent = __decorate([
+    DeliveryPointsComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
-            selector: "costscentres-cmp",
-            template: __webpack_require__("../../../../../src/app/smartity/costscentres/costscentres.component.html"),
+            selector: "delivery-points-cmp",
+            template: __webpack_require__("../../../../../src/app/smartity/delivery-points/delivery-points.component.html"),
             styles: []
         }),
         __metadata("design:paramtypes", [])
-    ], CostscentresComponent);
-    return CostscentresComponent;
+    ], DeliveryPointsComponent);
+    return DeliveryPointsComponent;
 }(__WEBPACK_IMPORTED_MODULE_1__bases_base__["a" /* Base */]));
 
-//# sourceMappingURL=costscentres.component.js.map
+//# sourceMappingURL=delivery-points.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/costscentres/costscentres.module.ts":
+/***/ "../../../../../src/app/smartity/delivery-points/delivery-points.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -334,11 +385,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_shared_module__ = __webpack_require__("../../../../../src/app/shared/shared.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__costscentres_component__ = __webpack_require__("../../../../../src/app/smartity/costscentres/costscentres.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__costscentres_action_costscentres_action_component__ = __webpack_require__("../../../../../src/app/smartity/costscentres/costscentres-action/costscentres-action.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__costscentres_list_costscentres_list_component__ = __webpack_require__("../../../../../src/app/smartity/costscentres/costscentres-list/costscentres-list.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CostscentresModule", function() { return CostscentresModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__delivery_points_component__ = __webpack_require__("../../../../../src/app/smartity/delivery-points/delivery-points.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__delivery_points_list_delivery_points_list_component__ = __webpack_require__("../../../../../src/app/smartity/delivery-points/delivery-points-list/delivery-points-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__delivery_points_action_delivery_points_action_component__ = __webpack_require__("../../../../../src/app/smartity/delivery-points/delivery-points-action/delivery-points-action.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeliveryPointsModule", function() { return DeliveryPointsModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -353,29 +404,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var routes = [{ path: '', component: __WEBPACK_IMPORTED_MODULE_4__costscentres_component__["a" /* CostscentresComponent */] }];
-var CostscentresModule = /** @class */ (function () {
-    function CostscentresModule() {
+var routes = [{ path: '', component: __WEBPACK_IMPORTED_MODULE_5__delivery_points_component__["a" /* DeliveryPointsComponent */] }];
+var DeliveryPointsModule = /** @class */ (function () {
+    function DeliveryPointsModule() {
     }
-    CostscentresModule = __decorate([
+    DeliveryPointsModule = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_common__["a" /* CommonModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */].forChild(routes),
                 __WEBPACK_IMPORTED_MODULE_3__shared_shared_module__["a" /* SharedModule */],
-                __WEBPACK_IMPORTED_MODULE_5__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot()
+                __WEBPACK_IMPORTED_MODULE_4__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot()
             ],
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_4__costscentres_component__["a" /* CostscentresComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__costscentres_action_costscentres_action_component__["a" /* CostscentresActionComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__costscentres_list_costscentres_list_component__["a" /* CostscentresListComponent */]
+                __WEBPACK_IMPORTED_MODULE_5__delivery_points_component__["a" /* DeliveryPointsComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__delivery_points_list_delivery_points_list_component__["a" /* DeliveryPointsListComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__delivery_points_action_delivery_points_action_component__["a" /* DeliveryPointsActionComponent */]
             ]
         })
-    ], CostscentresModule);
-    return CostscentresModule;
+    ], DeliveryPointsModule);
+    return DeliveryPointsModule;
 }());
 
-//# sourceMappingURL=costscentres.module.js.map
+//# sourceMappingURL=delivery-points.module.js.map
 
 /***/ })
 

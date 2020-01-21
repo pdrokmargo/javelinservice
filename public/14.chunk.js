@@ -1,31 +1,26 @@
 webpackJsonp([14],{
 
-/***/ "../../../../../src/app/smartity/delivery-contracts/delivery-contracts-action/delivery-contracts-action.component.html":
+/***/ "../../../../../src/app/smartity/delivery/delivery-action/delivery-action.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form #modelForm=\"ngForm\" autocomplete=\"off\">\n    <div class=\"row\">\n        <div class=\"col-sm-12 margin-bottom-40\" [class.btn-action-container]=\"booActive\">\n            <button type=\"button\" mat-raised-button color=\"primary\" (click)=\"goList()\" class=\"btn-w-md no-margin-left\">\n                <mat-icon>keyboard_arrow_left</mat-icon> Regresar\n            </button>\n        </div>\n        <!-- name -->\n        <div class='col-sm-12 col-md-6 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input required type=\"text\" id=\"name\" name=\"name\" [(ngModel)]=\"model.name\" matInput placeholder=\"Nombre\">\n            </mat-form-field>\n        </div>\n        <!-- estado -->\n        <div class='col-sm-12 col-md-6 margin-bottom'>\n            <div class=\"flex\">\n                <span class=\"flex-spacer\"></span>\n                <mat-slide-toggle [labelPosition]=\"'before'\" id=\"state\" name=\"state\" [(ngModel)]=\"model.state\">Estado</mat-slide-toggle>\n            </div>\n        </div>\n        <!--cliente-->\n        <div class=\"col-sm-12 col-md-6 margin-bottom\">\n            <mat-form-field class=\"full-width\">\n                <input readonly matInput type=\"text\" placeholder=\"Cliente\" [(ngModel)]=\"customers.legalname\" id=\"client\" name=\"client\" />\n                <mat-icon matSuffix mdSuffix class=\"wh-24 pointer\" (click)=\"openModalCostumers()\">search</mat-icon>\n            </mat-form-field>\n        </div>\n        <!-- tipo de poblacion -->\n        <div class=\"col-sm-12 col-md-6 margin-bottom\">\n            <mat-select class=\"full-width\" placeholder=\"Tipo de población\" [(ngModel)]=\"model.population_type_id\" name=\"population_type_id\"\n                id=\"population_type_id\">\n                <mat-option *ngFor=\"let item of arrPopulation_type\" [value]=\"item.id\">{{item.value}}</mat-option>\n            </mat-select>\n        </div>\n        <!--description-->\n        <div class='col-sm-12 col-md-6 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <textarea type=\"text\" id=\"description\" name=\"description\" [(ngModel)]=\"model.description\" matInput placeholder=\"Descripción\"></textarea>\n            </mat-form-field>\n        </div>\n        <!--Red adscrita-->\n        <div class=\"col-sm-12 col-md-6 margin-bottom\">\n            <div class=\"flex margin-bottom\">\n                <div class=\"box-header no-padding-h text-center\">Red adscrita</div>\n                <span class=\"flex-spacer\"></span>\n\n                <button type=\"button\" color=\"primary\" type=\"button\" mat-raised-button class=\"btn-w-md\" (click)=\"openModalIpsNetwork()\">Añadir</button>\n            </div>\n            <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n                <table class=\"mdl-data-table table-bordered table-striped no-margin\">\n                    <thead>\n                        <tr>\n                            <th>Nombre</th>\n                            <th></th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let item of _ips\">\n                            <td>{{item.value}}</td>\n                            <td class=\"w-40\">\n                                <button type=\"button\" class=\"text-danger\" type=\"button\" mat-icon-button (click)=\"deleteIps(item)\">\n                                    <mat-icon>delete</mat-icon>\n                                </button>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n    <!--EVENTO-->\n    <div class=\"row\">\n        <div class=\"col-sm-12 margin-bottom-40\" style=\"padding-bottom: 10px; border-bottom: 1px solid #bebebe\">\n            <mat-slide-toggle [labelPosition]=\"'before'\" id=\"event\" name=\"event\" [(ngModel)]=\"booEvento\">Evento</mat-slide-toggle>\n        </div>\n    </div>\n    <div class=\"row\" *ngIf=\"booEvento\">\n        <!-- Numero de contrato -->\n        <div class='col-sm-12 col-md-6 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input required type=\"text\" id=\"evento_contract_number\" name=\"evento_contract_number\" [(ngModel)]=\"contract_number\" matInput\n                    placeholder=\"Numero de contrato\">\n            </mat-form-field>\n        </div>\n        <!-- inicio del contrato -->\n        <div class='col-sm-12 col-md-3 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input matInput [matDatepicker]=\"pickerIssueDate2\" id=\"evento_contract_start_date\" name=\"evento_contract_start_date\" placeholder=\"Inicio de contrato\"\n                    [(ngModel)]=\"contract_start_date\">\n                <!-- <button mdSuffix [matDatepicker]=\"pickerIssueDate2\"></button> -->\n            </mat-form-field>\n            <mat-datepicker #pickerIssueDate2></mat-datepicker>\n        </div>\n        <!-- Vencimiento del contrato -->\n        <div class='col-sm-12 col-md-3 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input matInput [matDatepicker]=\"pickerIssueDate1\" id=\"evento_contract_expiration_date\" name=\"evento_contract_expiration_date\"\n                    placeholder=\"Vencimiento del contrato\" [(ngModel)]=\"contract_expiration_date\">\n                <!-- <button mdSuffix [matDatepicker]=\"pickerIssueDate1\"></button> -->\n            </mat-form-field>\n            <mat-datepicker #pickerIssueDate1></mat-datepicker>\n        </div>\n        <!-- presupuesto -->\n        <div class='col-sm-12 col-md-4 col-lg-2 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input required type=\"text\" id=\"budget\" name=\"budget\" [(ngModel)]=\"objEvent.budget\" matInput placeholder=\"Presupuesto\">\n            </mat-form-field>\n        </div>\n        <!-- Alerta -->\n        <div class='col-sm-12 col-md-4 col-lg-2 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <span mdPrefix>% &nbsp;</span>\n                <input required type=\"text\" id=\"percent_alert\" name=\"percent_alert\" [(ngModel)]=\"objEvent.percent_alert\" matInput placeholder=\"Alerta\">\n            </mat-form-field>\n        </div>\n        <!-- Inactivacion -->\n        <div class='col-sm-12 col-md-4 col-lg-2 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <span mdPrefix>% &nbsp;</span>\n                <input required type=\"text\" id=\"percent_unable\" name=\"percent_unable\" [(ngModel)]=\"objEvent.percent_unable\" matInput placeholder=\"Inactivación\">\n            </mat-form-field>\n        </div>\n        <!-- autorizacion -->\n        <div class='col-sm-12 col-md-6 col-lg-2 margin-bottom'>\n            <mat-slide-toggle (change)=\"activeperauth_length()\" [labelPosition]=\"'before'\" id=\"perauth\" name=\"perauth\" [(ngModel)]=\"objEvent.perauth\">Autorización</mat-slide-toggle>\n        </div>\n        <!-- longitud -->\n        <div class='col-sm-12 col-md-4 col-lg-2 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input [disabled]=\"!objEvent.perauth\" [required]=\"objEvent.perauth\" type=\"text\" id=\"perauth_length\" name=\"perauth_length\"\n                    [(ngModel)]=\"objEvent.perauth_length\" matInput placeholder=\"Longitud\">\n            </mat-form-field>\n        </div>\n        <!-- tipo de caracteres -->\n        <div class=\"col-sm-12 col-md-4 col-lg-2 margin-bottom\">\n            <mat-select [disabled]=\"!objEvent.perauth\" class=\"full-width\" placeholder=\"Tipo caracteres\" [(ngModel)]=\"objEvent.perauth_char_type\"\n                name=\"perauth_char_type\" id=\"perauth_char_type\">\n                <mat-option *ngFor=\"let item of arrPerauth_char_type\" [value]=\"item.id\">{{item.value}}</mat-option>\n            </mat-select>\n        </div>\n    </div>\n    <!--CÁPITA-->\n    <div class=\"row\">\n        <div class=\"col-sm-12  margin-bottom-40\" style=\"padding-bottom: 10px; border-bottom: 1px solid #bebebe\">\n            <mat-slide-toggle [labelPosition]=\"'before'\" id=\"capita\" name=\"capita\" [(ngModel)]=\"booCapita\">Cápita</mat-slide-toggle>\n        </div>\n    </div>\n    <div class=\"row\" *ngIf=\"booCapita\">\n        <!-- Numero de contrato -->\n        <div class='col-sm-12 col-md-6 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input required type=\"text\" id=\"capita_contract_number\" name=\"capita_contract_number\" [(ngModel)]=\"contract_number\" matInput\n                    placeholder=\"Numero de contrato\">\n            </mat-form-field>\n        </div>\n        <!-- inicio del contrato -->\n        <div class='col-sm-12 col-md-3 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input matInput [matDatepicker]=\"pickerIssueDate\" id=\"capita_contract_start_date\" name=\"capita_contract_start_date\" placeholder=\"Inicio de contrato\"\n                    [(ngModel)]=\"contract_start_date\">\n                <!-- <button mdSuffix [matDatepicker]=\"pickerIssueDate\"></button> -->\n            </mat-form-field>\n            <mat-datepicker #pickerIssueDate></mat-datepicker>\n        </div>\n        <!-- Vencimiento del contrato -->\n        <div class='col-sm-12 col-md-3  margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input matInput [matDatepicker]=\"pickerIssueDate3\" id=\"capita_contract_expiration_date\" name=\"capita_contract_expiration_date\"\n                    placeholder=\"Vencimiento del contrato\" [(ngModel)]=\"contract_expiration_date\">\n                <!-- <button mdSuffix [matDatepicker]=\"pickerIssueDate3\"></button> -->\n            </mat-form-field>\n            <mat-datepicker #pickerIssueDate3></mat-datepicker>\n        </div>\n        <!-- Alerta -->\n        <div class='col-sm-12 col-md-3 col-lg-2 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <span mdPrefix>% &nbsp;</span>\n                <input required type=\"text\" id=\"capita_percent_alert\" name=\"capita_percent_alert\" [(ngModel)]=\"objCapita.percent_alert\" matInput\n                    placeholder=\"Alerta\">\n            </mat-form-field>\n        </div>\n        <!-- Inactivacion -->\n        <div class='col-sm-12 col-md-4 col-lg-2 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <span mdPrefix>% &nbsp;</span>\n                <input required type=\"text\" id=\"capita_percent_unable\" name=\"capita_percent_unable\" [(ngModel)]=\"objCapita.percent_unable\"\n                    matInput placeholder=\"Inactivación\">\n            </mat-form-field>\n        </div>\n        <!-- afiliados -->\n        <div class='col-sm-12 col-md-4 col-lg-2 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input required type=\"text\" id=\"capita_affiliates_total_qty\" name=\"capita_affiliates_total_qty\" [(ngModel)]=\"objCapita.affiliates_total_qty\"\n                    matInput placeholder=\"Afiliados\">\n            </mat-form-field>\n        </div>\n        <div class=\"col-sm-12\"></div>\n        <!-- Historico de afiliados -->\n        <div class=\"col-sm-12 col-md-6 margin-bottom\">\n            <div class=\"box-header no-padding-h\" style=\"height: 67px;\">Histórico de afiliados</div>\n            <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n                <table class=\"mdl-data-table table-bordered table-striped no-margin\">\n                    <thead>\n                        <tr>\n                            <th>Ubicación</th>\n                            <th>Fecha</th>\n                            <th>Afiliados</th>\n                            <th>Valor capita</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let item of objCapita.affiliates_qty_history_record\">\n                            <td>{{item.department.value}}, {{item.city.value}}</td>\n                            <td>{{item.affiliates_number}}</td>\n                            <td>{{item.affiliates_number}}</td>\n                            <td>{{item.date | date:'dd-MM-yyyy'}}</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n        <!-- Capita detallada -->\n        <div class=\"col-sm-12 col-md-6 margin-bottom\">\n            <div class=\"flex margin-bottom\">\n                <div class=\"box-header no-padding-h\">Cápita detallada</div>\n                <span class=\"flex-spacer\"></span>\n                <button type=\"button\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left\" (click)=\"openModalGeolocation()\">Añadir</button>\n            </div>\n            <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n                <table class=\"mdl-data-table table-bordered table-striped no-margin\">\n                    <thead>\n                        <tr>\n                            <th>Ubicación</th>\n                            <th>Afiliados</th>\n                            <th>Valor cápita</th>\n                            <th></th>\n                        </tr>\n                    </thead>\n                    <tbody *ngFor=\"let item of objCapita.detailed_capita; let index = index\">\n\n                        <tr *ngIf=\"item.state\">\n                            <td>{{item.department.value}}, {{item.city.value}}</td>\n                            <td>\n                                <mat-form-field class=\"full-width\">\n                                    <input required type=\"text\" id=\"affiliates_number{{index}}\" name=\"affiliates_number{{index}}\" [(ngModel)]=\"item.affiliates_number\"\n                                        matInput>\n                                </mat-form-field>\n                            </td>\n                            <td>\n                                <mat-form-field class=\"full-width\">\n                                    <input required type=\"text\" id=\"capita_fare{{index}}\" name=\"capita_fare{{index}}\" [(ngModel)]=\"item.capita_fare\" matInput>\n                                </mat-form-field>\n                            </td>\n                            <td class=\"w-40\">\n                                <button type=\"button\" class=\"text-danger\" mat-icon-button (click)=\"deleteDetailedCapita(item)\">\n                                    <mat-icon>delete</mat-icon>\n                                </button>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n\n    </div>\n    <!--PGP-->\n    <div class=\"row\">\n        <div class=\"col-sm-12  margin-bottom-40\" style=\"padding-bottom: 10px; border-bottom: 1px solid #bebebe\">\n            <mat-slide-toggle [labelPosition]=\"'before'\" id=\"php\" name=\"pgp\" [(ngModel)]=\"booPgp\">PGP </mat-slide-toggle>\n        </div>\n    </div>\n    <div class=\"row\" *ngIf=\"booPgp\">\n        <!-- Numero de contrato -->\n        <div class='col-sm-12 col-md-6 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input required type=\"text\" id=\"pgp_contract_number\" name=\"pgp_contract_number\" [(ngModel)]=\"contract_number\" matInput placeholder=\"Numero de contrato\">\n            </mat-form-field>\n        </div>\n        <!-- inicio del contrato -->\n        <div class='col-sm-12 col-md-3 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input matInput [matDatepicker]=\"pickerIssueDate4\" id=\"pgp_contract_start_date\" name=\"pgp_contract_start_date\" placeholder=\"Inicio de contrato\"\n                    [(ngModel)]=\"contract_start_date\">\n                <!-- <button mdSuffix [matDatepicker]=\"pickerIssueDate4\"></button> -->\n            </mat-form-field>\n            <mat-datepicker #pickerIssueDate4></mat-datepicker>\n        </div>\n        <!-- Vencimiento del contrato -->\n        <div class='col-sm-12 col-md-3 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input matInput [matDatepicker]=\"pickerIssueDate5\" id=\"pgp_contract_expiration_date\" name=\"pgp_contract_expiration_date\" placeholder=\"Vencimiento del contrato\"\n                    [(ngModel)]=\"contract_expiration_date\">\n                <!-- <button mdSuffix [matDatepicker]=\"pickerIssueDate5\"></button> -->\n            </mat-form-field>\n            <mat-datepicker #pickerIssueDate5></mat-datepicker>\n        </div>\n        <!-- presupuesto -->\n        <div class='col-sm-12 col-md-4 col-lg-2 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input required type=\"text\" id=\"pgp_budget\" name=\"pgp_budget\" [(ngModel)]=\"objPgp.budget\" matInput placeholder=\"Presupuesto Mensual\">\n            </mat-form-field>\n        </div>\n        <!-- Alerta -->\n        <div class='col-sm-12 col-md-4 col-lg-2 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <span mdPrefix>% &nbsp;</span>\n                <input required type=\"text\" id=\"pgp_percent_alert\" name=\"pgp_percent_alert\" [(ngModel)]=\"objPgp.percent_alert\" matInput placeholder=\"Alerta\">\n            </mat-form-field>\n        </div>\n        <!-- inactivacion -->\n        <div class='col-sm-12 col-md-4 col-lg-2 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input required type=\"text\" id=\"pgp_percent_unable\" name=\"pgp_percent_unable\" [(ngModel)]=\"objPgp.percent_unable\" matInput\n                    placeholder=\"Inactivación\">\n            </mat-form-field>\n        </div>\n    </div>\n    <div class=\"row\">\n        <!-- medicamentos -->\n        <div class=\"col-sm-12 margin-bottom\">\n\n            <div class=\"flex margin-bottom\">\n                <div class=\"box-header no-padding-h\">Medicamentos</div>\n                <span class=\"flex-spacer\"></span>\n                <button type=\"button\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left\" (click)=\"openModalPharmaceutical()\">Añadir</button>\n            </div>\n            <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n                <table class=\"mdl-data-table table-bordered table-striped no-margin\">\n                    <thead>\n                        <tr>\n                            <th>Nombre</th>\n                            <th>Evento</th>\n                            <th>Tarifa</th>\n                            <th>Cápita</th>\n                            <th>PGP</th>\n                            <th></th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let item of _pharmadrugs; let index = index\">\n                            <td>{{item.name}}</td>\n                            <td>\n                                <mat-slide-toggle [disabled]=\"!booEvento\" id=\"p_event{{index}}\" name=\"p_event{{index}}\" [(ngModel)]=\"item.event\"></mat-slide-toggle>\n                            </td>\n                            <td>\n                                <mat-form-field class=\"full-width\">\n                                    <input [disabled]=\"!item.event\" matInput type=\"text\" [(ngModel)]=\"item.fare\" id=\"p_fare{{index}}\" name=\"p_fare{{index}}\" />\n                                </mat-form-field>\n                            </td>\n                            <td>\n                                <mat-slide-toggle [disabled]=\"!booCapita\" id=\"p_capita{{index}}\" name=\"p_capita{{index}}\" [(ngModel)]=\"item.capita\"></mat-slide-toggle>\n                            </td>\n                            <td>\n                                <mat-slide-toggle [disabled]=\"!booPgp\" id=\"p_pgp{{index}}\" name=\"p_pgp{{index}}\" [(ngModel)]=\"item.pgp\"></mat-slide-toggle>\n                            </td>\n                            <td class=\"w-40\">\n                                <button type=\"button\" class=\"text-danger\" mat-icon-button (click)=\"deletePharmadrug()\">\n                                    <mat-icon>delete</mat-icon>\n                                </button>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n\n        </div>\n        <!-- puntos de dispensacion -->\n        <div class=\"col-sm-12 margin-bottom\">\n\n            <div class=\"flex margin-bottom\">\n                <div class=\"box-header no-padding-h\">Puntos de dispensación</div>\n                <span class=\"flex-spacer\"></span>\n                <button type=\"button\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left\" (click)=\"openModalDeliveryPoints()\">Añadir</button>\n            </div>\n            <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n                <table class=\"mdl-data-table table-bordered table-striped no-margin\">\n                    <thead>\n                        <tr>\n                            <th>Nombre</th>\n                            <th>Evento</th>\n                            <th>Cápita</th>\n                            <th>PGP</th>\n                            <th></th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let item of model.delivery_points; let index = index\">\n                            <td>{{item.name}}</td>\n                            <td>\n                                <mat-slide-toggle id=\"d_event{{index}}\" name=\"_devent{{index}}\" [(ngModel)]=\"item.event\"></mat-slide-toggle>\n                            </td>\n                            <td>\n                                <mat-slide-toggle id=\"d_capita{{index}}\" name=\"d_capita{{index}}\" [(ngModel)]=\"item.capita\"></mat-slide-toggle>\n                            </td>\n                            <td>\n                                <mat-slide-toggle id=\"d_pgp{{index}}\" name=\"d_pgp{{index}}\" [(ngModel)]=\"item.pgp\"></mat-slide-toggle>\n                            </td>\n                            <td class=\"w-40\">\n                                <button type=\"button\" class=\"text-danger\" mat-icon-button (click)=\"deleteDeliveryPoints(item)\">\n                                    <mat-icon>delete</mat-icon>\n                                </button>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n\n        </div>\n    </div>\n    <div class=\"row\">\n        <!-- medicamentos -->\n        <div class=\"col-sm-12 margin-bottom\">\n            <div class=\"box-header no-padding-h\">Histórico alerta de contratos</div>\n            <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n                <table class=\"mdl-data-table table-bordered table-striped no-margin\">\n                    <tbody>\n                        <tr *ngFor=\"let item of model.conditional_alers\">\n                            <td>{{item.description}}</td>\n                            <td>{{item.issue_date}}</td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n        <div class=\"col-sm-12\" [class.btn-action-container]=\"booActive\">\n            <button type=\"button\" [disabled]=\"!modelForm.form.valid\" mat-raised-button class=\"btn-w-md no-margin-left btn-right\" (click)=\"save()\">{{strAction}}</button>\n        </div>\n    </div>\n</form>"
+module.exports = "<form #modelForm=\"ngForm\" autocomplete=\"off\">\n  <div class=\"row\">\n    <div class=\"col-sm-12 margin-bottom-40\">\n      <button type=\"button\" mat-raised-button color=\"primary\" (click)=\"goList()\" class=\"btn-w-md no-margin-left\">\n        <mat-icon>keyboard_arrow_left</mat-icon> Regresar\n      </button>\n    </div>\n    <!-- Afiliado -->\n    <div class=\"col-sm-12 col-md-9 margin-bottom\">\n      <mat-form-field class=\"full-width\">\n        <input readonly matInput type=\"text\" placeholder=\"Afiliado\" [(ngModel)]=\"affiliate.display_name\" id=\"affiliate\"\n          name=\"affiliate\" />\n        <mat-icon matSuffix mdSuffix class=\"wh-24 pointer\" (click)=\"openModalAffiliates()\">search</mat-icon>\n      </mat-form-field>\n    </div>\n    <!-- estado -->\n    <!-- <div class='col-sm-12 col-md-3 col-lg-3 margin-bottom left'>\n      <div class=\"flex\">\n        <span class=\"flex-spacer\"></span>\n        <mat-slide-toggle [labelPosition]=\"'before'\" id=\"state\" name=\"state\" [(ngModel)]=\"model.state\">Estado\n        </mat-slide-toggle>\n      </div>\n    </div> -->\n    <!-- pendientes -->\n    <div class=\"col-sm-12 col-md-12 margin-bottom\"  *ngIf=\"numId == undefined\">\n\n        <div class=\"flex margin-bottom\">\n          <div class=\"box-header no-padding-h\">Entregas Programadas: Pendientes y Entregas Futuras</div>\n          <span class=\"flex-spacer\"></span>\n        </div>\n        <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n          <table class=\"mdl-data-table table-bordered table-striped no-margin\">\n            <thead>\n              <tr>\n                <th>PLU\n                  <span class=\"glyphicon sort-icon\"\n                    [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                </th>\n                <th>Producto\n                  <span class=\"glyphicon sort-icon\"\n                    [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                </th>\n                <!-- <th>Laboratorio/Fabricante\n                  <span class=\"glyphicon sort-icon\"\n                    [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                </th> -->\n                <th>Unidades a Entregar\n                  <span class=\"glyphicon sort-icon\"\n                    [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                </th>\n                <!-- <th>Fecha a Entregar\n                  <span class=\"glyphicon sort-icon\"\n                    [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                </th> -->\n                <th>Tipo de Entrega Programada\n                    <span class=\"glyphicon sort-icon\"\n                      [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                  </th>\n                <!-- <th>Estado\n                  <span class=\"glyphicon sort-icon\"\n                    [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                </th> -->\n              </tr>\n            </thead>\n            <tbody>\n              <tr *ngFor=\"let detail of arrScheduledDeliveries;let index = index;\">\n                  <!-- <td style=\"width:80px;\">{{detail.delivery.consecutive}}</td> -->\n                  <td>{{detail.product.sku}}</td>\n                  <td>{{detail.product.name}}<span style=\"font-weight:bold;\" *ngIf=\"detail.product.comercial\">({{detail.product.comercial_name}})</span></td>\n                  <td style=\"width:80px;\"><span style=\"width:80px;\">{{detail.units}}</span></td>\n                  <td style=\"width:80px;\"><span style=\"width:80px;\">{{detail.scheduled_delivery_type.value}}</span></td>\n  \n                <td>\n                  <button type=\"button\" mat-raised-button color=\"primary\"\n            class=\"btn-w-md no-margin-left\" (click)=\"openModalProducts()\">Entregar</button>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n      \n      <!-- historial de entregas -->\n      <div class=\"col-sm-12 col-md-12 margin-bottom\" *ngIf=\"numId == undefined\">\n  \n        <div class=\"flex margin-bottom\">\n          <div class=\"box-header no-padding-h\">Historial de Entregas</div>\n          <span class=\"flex-spacer\"></span>\n        </div>\n        <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n          <table class=\"mdl-data-table table-bordered table-striped no-margin\" style=\"white-space: normal;\">\n            <thead>\n              <tr>\n                  <th># Entrega\n                      <span class=\"glyphicon sort-icon\"\n                        [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                    </th>\n                <th>PLU\n                  <span class=\"glyphicon sort-icon\"\n                    [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                </th>\n                <th>Producto\n                  <span class=\"glyphicon sort-icon\"\n                    [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                </th>\n                <th>Unidades Solicitadas\n                    <span class=\"glyphicon sort-icon\"\n                      [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                  </th>\n                <th>Unidades Entregadas\n                  <span class=\"glyphicon sort-icon\"\n                    [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                </th>\n                <th>Fecha de Entrega\n                  <span class=\"glyphicon sort-icon\"\n                    [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                </th>\n                <th>Fecha de Creación\n                  <span class=\"glyphicon sort-icon\"\n                    [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                </th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr *ngFor=\"let detail of arrAffiliateDeliveries;let index = index;\">\n                <td style=\"width:80px;\">{{detail.delivery.consecutive}}</td>\n                <td>{{detail.product.sku}}</td>\n                <td>{{detail.product.name}}<span style=\"font-weight:bold;\" *ngIf=\"detail.product.comercial\">({{detail.product.comercial_name}})</span></td>\n                <td style=\"width:80px;\"><span style=\"width:80px;\">{{detail.requested_units}}</span></td>\n                <td style=\"width:80px;\"><span style=\"width:80px;\">{{detail.delivered_units}}</span></td>\n                <td style=\"width:80px;\"><span style=\"width:80px;\">{{detail.delivery.delivery_date | date:'dd/MM/yyyy'}}</span></td>\n                <td style=\"width:80px;\"><span style=\"width:80px;\">{{detail.delivery.date | date:'dd/MM/yyyy'}}</span></td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    \n    <!-- Afiliado -->\n    <div class=\"col-sm-12 col-md-12 margin-bottom\"  *ngIf=\"numId == undefined\">\n        <mat-form-field class=\"full-width\">\n          <input readonly matInput type=\"text\" placeholder=\"Afiliado\" [(ngModel)]=\"affiliate.display_name\" id=\"affiliate2\"\n            name=\"affiliate2\" />\n        </mat-form-field>\n      </div>  \n    <!-- Diagnóstico -->\n    <div class=\"col-sm-12 col-md-3 margin-bottom\">\n      <mat-form-field class=\"full-width\">\n        <mat-select class=\"full-width\" placeholder=\"Diagnóstico\" [(ngModel)]=\"model.medical_diagnostic_id\"\n          name=\"medical_diagnostic_id\" id=\"medical_diagnostic_id\">\n          <mat-option *ngFor=\"let item of arrMedicalDiagnostics\" [value]=\"item.id\">{{item.code}}: {{item.description}}</mat-option>\n        </mat-select>\n      </mat-form-field>\n    </div>\n    <!-- Formulado el -->\n    <div class=\"col-md-3 margin-bottom\">\n      <mat-form-field>\n        <input matInput [matDatepicker]=\"pickerFormulaDate\" placeholder=\"Formulado el\" [max]=\"model.created_at\"\n          [(ngModel)]=\"model.formula_date\" name=\"formula_date\">\n        <mat-datepicker-toggle matSuffix [for]=\"pickerFormulaDate\"></mat-datepicker-toggle>\n        <mat-datepicker #pickerFormulaDate></mat-datepicker>\n      </mat-form-field>\n    </div>\n    <!-- Entregado el -->\n    <div class=\"col-md-3 margin-bottom\">\n      <mat-form-field>\n        <input matInput [matDatepicker]=\"pickerDeliveryDate\" placeholder=\"Entregado el\" [max]=\"model.created_at\"\n          [(ngModel)]=\"model.delivery_date\" name=\"delivery_date\">\n        <mat-datepicker-toggle matSuffix [for]=\"pickerDeliveryDate\"></mat-datepicker-toggle>\n        <mat-datepicker #pickerDeliveryDate></mat-datepicker>\n      </mat-form-field>\n    </div>\n    <!-- Creado el -->\n    <div class=\"col-md-3 margin-bottom\">\n      <mat-form-field>\n        <input matInput readonly placeholder=\"Creado el\" name=\"created_at\"\n          value=\"{{model.date | date:'dd/MM/yyyy'}}\">\n      </mat-form-field>\n    </div>\n    <!-- Modalidad -->\n    <div class=\"col-sm-12 col-md-3 margin-bottom\">\n      <mat-form-field class=\"full-width\">\n        <mat-select class=\"full-width\" placeholder=\"Modalidad\" [(ngModel)]=\"model.modality_id\" name=\"modality_id\"\n          id=\"modality_id\">\n          <mat-option *ngFor=\"let item of arrModality\" [value]=\"item.id\">{{item.value}}</mat-option>\n        </mat-select>\n      </mat-form-field>\n    </div>\n    <!-- Red Adscrita -->\n    <div class=\"col-sm-12 col-md-3 margin-bottom\">\n      <mat-form-field class=\"full-width\">\n        <mat-select class=\"full-width\" placeholder=\"Red Adscrita\" [(ngModel)]=\"model.ips_id\" name=\"ips_id\" id=\"ips_id\">\n          <mat-option *ngFor=\"let item of arrIPS\" [value]=\"item.id\">{{item.value}}</mat-option>\n        </mat-select>\n      </mat-form-field>\n    </div>\n    <!-- # Autorización -->\n    <div class=\"col-md-3 margin-bottom\" *ngIf=\"model.modality_id == 1399\">\n      <mat-form-field>\n        <input matInput placeholder=\"Número de Autorización\" name=\"authorization\" [(ngModel)]=\"model.authorization\">\n      </mat-form-field>\n    </div>\n\n    \n\n    <!-- productos -->\n    <div class=\"col-sm-12 col-md-12 margin-bottom\">\n\n      <div class=\"flex margin-bottom\">\n        <div class=\"box-header no-padding-h\">Productos</div>\n        <span class=\"flex-spacer\"></span>\n        <button type=\"button\" mat-raised-button color=\"primary\"\n          class=\"btn-w-md no-margin-left\" (click)=\"openModalProducts()\">Añadir</button>\n      </div>\n      <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n        <table class=\"mdl-data-table table-bordered table-striped no-margin\" style=\"white-space: normal;\">\n          <thead>\n            <tr>\n              <th>PLU\n                <span class=\"glyphicon sort-icon\"\n                  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n              </th>\n              <th>Producto\n                <span class=\"glyphicon sort-icon\"\n                  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n              </th>\n              <th>Unidades Solicitadas\n                <span class=\"glyphicon sort-icon\"\n                  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n              </th>\n              <th>Unidades Entregadas\n                <span class=\"glyphicon sort-icon\"\n                  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n              </th>\n              <!-- <th># Entrega / Total\n                <span class=\"glyphicon sort-icon\"\n                  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n              </th> -->\n              <th>Lote\n                <span class=\"glyphicon sort-icon\"\n                  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n              </th>\n              <th>Fecha de Vencimiento\n                <span class=\"glyphicon sort-icon\"\n                  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n              </th>\n              <th *ngIf=\"numId == undefined\"><span *ngIf=\"numId == undefined\">Stock</span><span *ngIf=\"numId != undefined\">Unidades x Lote</span>\n                  <span class=\"glyphicon sort-icon\"\n                    [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n              </th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr *ngFor=\"let detail of model.details;let index = index;\">\n              <td>{{detail.product.sku}}</td>\n              <td>{{detail.product.name}}<span style=\"font-weight:bold;\" *ngIf=\"detail.product.comercial\">({{detail.product.comercial_name}})</span> <!-- <span *ngIf=\"detail.deliveryCovered\"> Entrega 1 / {{detail.requested_units/detail.delivered_units}}</span>--></td>\n              <td style=\"width:80px;\" *ngIf=\"numId != undefined\">{{detail.requested_units}}</td><td style=\"width:80px;\" *ngIf=\"numId == undefined\"><mat-form-field style=\"width:50px;\"><input matInput (input)=\"validateRequested(detail.requested_units, index, -1)\" [disabled]=\"detail.stockSelected == undefined\"  type=\"number\" [(ngModel)]=\"detail.requested_units\" name=\"requested_units{{index}}\" /></mat-form-field></td>\n              <td style=\"width:80px;\" *ngIf=\"numId != undefined\">{{detail.delivered_units}}</td><td style=\"width:80px;\" *ngIf=\"numId == undefined\"><mat-form-field style=\"width:50px;\"><input (input)=\"validateDelivered(detail.requested_units, detail.delivered_units, index)\" [disabled]=\"detail.stockSelected == undefined\" matInput type=\"number\" [(ngModel)]=\"detail.delivered_units\" name=\"delivered_units{{index}}\" /></mat-form-field></td>\n              <!-- <td style=\"width:200px;\" *ngIf=\"numId != undefined\">{{detail.delivery_number}} / {{detail.total_deliveries}}</td><td style=\"width:100px;\" *ngIf=\"numId == undefined\"><mat-form-field style=\"width:30px;\"><input [readonly]=\"true\" matInput type=\"number\" [(ngModel)]=\"detail.delivery_number\" name=\"delivery_number{{index}}\" /></mat-form-field> / <mat-form-field style=\"width:30px;\"><input [readonly]=\"detail.delivered_units == detail.requested_units\" [disabled]=\"detail.stockSelected == undefined\" matInput type=\"number\" [(ngModel)]=\"detail.total_deliveries\" name=\"total_deliveries{{index}}\" /></mat-form-field></td> -->\n              \n              <td colspan=\"3\" *ngIf=\"numId == undefined\">\n                <span *ngIf=\"detail.stockSelected == undefined\">Sin Existencias</span>\n                  <div class=\"col-sm-12 col-md-12 margin-bottom\" *ngFor=\"let itemX of detail.stocks; index as i\">\n                      <mat-form-field class=\"full-width\">\n                        <mat-select [(ngModel)]=\"detail.stockSelected[i]\" (change)=\"validateRequested(detail.requested_units, index, i)\" class=\"full-width\" placeholder=\"Seleccionar\" name=\"lote_expire{{i}}\">\n                          <mat-option *ngFor=\"let item of itemX\" [value]=\"item\">{{item.batch}} - {{item.expiration_date}} <span *ngIf=\"numId == undefined\">- {{item.fraction_stock}}</span></mat-option>\n                        </mat-select>\n                      </mat-form-field>\n                    </div>\n              </td>\n              <td colspan=\"3\" *ngIf=\"numId != undefined\">\n                <span *ngFor=\"let item of detail.stocks\">\n                    {{item.batch}} - {{item.expiration_date | date:'dd/MM/yyyy'}} <br>\n                </span>\n                \n              </td>\n              <!-- <td>{{detail.stockSelected}}</td> -->\n              <td class=\"w-40\">\n                <button type=\"button\" class=\"text-danger\" mat-icon-button (click)=\"removeProduct(index)\">\n                  <mat-icon>delete</mat-icon>\n                </button>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </div>\n    </div>\n\n\n\n    <!--notas-->\n    <div class='col-sm-12 col-md-12 margin-bottom'>\n      <mat-form-field class=\"full-width\">\n        <textarea type=\"text\" id=\"notes\" name=\"notes\" [(ngModel)]=\"model.notes\" matInput placeholder=\"Nota\"></textarea>\n      </mat-form-field>\n    </div>\n\n\n    <div class=\"col-sm-12\">\n      <button [disabled]=\"action_active ? false : !modelForm.form.valid\" mat-raised-button color=\"primary\"\n        class=\"btn-w-md no-margin-left btn-right\" (click)=\"openModalConfirmYesNo()\">{{strAction}}</button>\n        <button [disabled]=\"action_active ? false : !modelForm.form.valid\" mat-raised-button color=\"primary\"\n        class=\"btn-w-md no-margin-left btn-right\" (click)=\"print()\">Imprimir</button>\n    </div>\n  </div>\n</form>"
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/delivery-contracts/delivery-contracts-action/delivery-contracts-action.component.ts":
+/***/ "../../../../../src/app/smartity/delivery/delivery-action/delivery-action.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_startWith__ = __webpack_require__("../../../../rxjs/add/operator/startWith.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_startWith___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_startWith__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__bases_base_model__ = __webpack_require__("../../../../../src/app/smartity/bases/base-model.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__delivery_contracts_component__ = __webpack_require__("../../../../../src/app/smartity/delivery-contracts/delivery-contracts.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_operators__ = __webpack_require__("../../../../rxjs/operators.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_operators__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__modals__ = __webpack_require__("../../../../../src/app/smartity/modals/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__modals_modal_delivery_points_modal_delivery_points_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-delivery-points/modal-delivery-points.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__modals_modal_ips_network_modal_ips_network_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-ips-network/modal-ips-network.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__modals_modal_geolocation_modal_geolocation_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-geolocation/modal-geolocation.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DeliveryContractsActionComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__bases_base_model__ = __webpack_require__("../../../../../src/app/smartity/bases/base-model.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__delivery_component__ = __webpack_require__("../../../../../src/app/smartity/delivery/delivery.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_operators__ = __webpack_require__("../../../../rxjs/operators.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_operators__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__modals__ = __webpack_require__("../../../../../src/app/smartity/modals/index.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DeliveryActionComponent; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -56,13 +51,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
-
-var DeliveryContractsActionComponent = /** @class */ (function (_super) {
-    __extends(DeliveryContractsActionComponent, _super);
-    function DeliveryContractsActionComponent(snackBar, route, router, loaderService, helperService, comp, dialog) {
+var DeliveryActionComponent = /** @class */ (function (_super) {
+    __extends(DeliveryActionComponent, _super);
+    function DeliveryActionComponent(snackBar, route, router, loaderService, helperService, comp, dialog) {
         var _this = _super.call(this) || this;
         _this.snackBar = snackBar;
         _this.route = route;
@@ -71,403 +62,372 @@ var DeliveryContractsActionComponent = /** @class */ (function (_super) {
         _this.helperService = helperService;
         _this.comp = comp;
         _this.dialog = dialog;
-        _this.contract_number = '';
-        _this.contract_start_date = '';
-        _this.contract_expiration_date = '';
-        _this.arrPopulation_type = [];
-        _this.arrPerauth_char_type = [];
-        _this.booEvento = false;
-        _this.booCapita = false;
-        _this.booPgp = false;
-        _this.customers = {};
-        _this._conditional_alerts = [];
-        _this._pharmadrugs = [];
-        _this._ips = [];
-        _this._model = {
-            delivery_contracts: {
-                state: true,
-                pharmadrug_monopoly: false,
-                pharmadrug_control: false,
-                cooled_products: false
-            }
-        };
+        _this.affiliate = {};
+        _this.pharmadrugs = {};
+        _this.arrModality = [];
+        _this.arrMedicalDiagnostics = [];
+        _this.arrIPS = [];
+        _this.arrAffiliateDeliveries = [];
+        _this.arrScheduledDeliveries = [];
+        _this.arrStock = [];
         return _this;
     }
-    DeliveryContractsActionComponent.prototype.ngOnInit = function () {
+    DeliveryActionComponent.prototype.ngOnInit = function () {
         this.clean();
         this.getCollection();
+        this.getMedicalDiagnostics();
         if (this.numId !== undefined) {
             this.getDataById();
         }
+        else {
+            this.model.date = new Date();
+        }
     };
-    DeliveryContractsActionComponent.prototype.getCollection = function () {
+    DeliveryActionComponent.prototype.print = function () {
         var _this = this;
-        this.helperService.POST("/api/collections", ["POPULATION_TYPE", "PREAUTH_CHAR_TYPE"]).subscribe(function (rs) {
+        window.onafterprint = function (event) {
+            _this.goList();
+        };
+        window.print();
+    };
+    //   var beforePrint = function() {
+    //     console.log('Functionality to run before printing.');
+    // };
+    DeliveryActionComponent.prototype.getCollection = function () {
+        var _this = this;
+        this.helperService.POST("/api/collections", ["DELIVERY_CONTRACT_MODALITY"]).subscribe(function (rs) {
             var res = rs.json();
-            _this.arrPopulation_type = res.POPULATION_TYPE;
-            _this.arrPerauth_char_type = res.PREAUTH_CHAR_TYPE;
+            _this.arrModality = res.DELIVERY_CONTRACT_MODALITY;
         }, function (err) { });
     };
-    DeliveryContractsActionComponent.prototype.save = function () {
+    DeliveryActionComponent.prototype.getMedicalDiagnostics = function () {
         var _this = this;
-        if (this.model.delivery_points && this.model.delivery_points.length > 0) {
-            if (this.booEvento) {
-                this.objEvent.contract_number = this.contract_number;
-                this.objEvent.contract_expiration_date = this.contract_expiration_date;
-                this.objEvent.contract_start_date = this.contract_start_date;
-            }
-            if (!this.booCapita) {
-                this.objCapita.contract_number = this.contract_number;
-                this.objCapita.contract_expiration_date = this.contract_expiration_date;
-                this.objCapita.contract_start_date = this.contract_start_date;
-            }
-            if (!this.booPgp) {
-                this.objPgp.contract_number = this.contract_number;
-                this.objPgp.contract_expiration_date = this.contract_expiration_date;
-                this.objPgp.contract_start_date = this.contract_start_date;
-            }
-            this.model.pharmadrugs = JSON.stringify(this._pharmadrugs || []);
-            this.model.ips = this._ips || [];
-            this.model.conditional_alerts = JSON.stringify(this._conditional_alerts || []);
-            console.log(this.objEvent);
-            this.model.event = JSON.stringify(this.objEvent || {});
-            this.model.pgp = JSON.stringify(this.objPgp || {});
-            this.model.capita = JSON.stringify(this.objCapita || {});
-            if (!this.booEvento) {
-                this.model.event = null;
-            }
-            if (!this.booCapita) {
-                this.model.capita = null;
-            }
-            if (!this.booPgp) {
-                this.model.pgp = null;
-            }
-            this.loaderService.display(true);
-            switch (this.strAction) {
-                case 'Guardar':
-                    this.helperService.POST("/api/delivery-contracts", this.model).subscribe(function (rs) {
-                        var res = rs.json();
-                        if (res.store) {
-                            _this.snackBar.open(res.message, 'Guardado', { duration: 4000 });
-                            _this.goList();
-                        }
-                    }, function (err) {
-                        _this.snackBar.open(err.message, 'Guardado', { duration: 4000 });
-                        _this.loaderService.display(false);
-                    });
-                    break;
-                case 'Actualizar':
-                    this.helperService.PUT("/api/delivery-contracts/" + this.numId, this.model).subscribe(function (rs) {
-                        var res = rs.json();
-                        if (res.update) {
-                            _this.snackBar.open(res.message, 'Actualización', { duration: 4000 });
-                            _this.goList();
-                        }
-                    }, function (err) {
-                        _this.snackBar.open(err.message, 'Actualización', { duration: 4000 });
-                        _this.loaderService.display(false);
-                    });
-                    this.loaderService.display(false);
-                    break;
-                case 'Eliminar':
-                    this.helperService.DELETE("/api/delivery-contracts/" + this.numId).subscribe(function (rs) {
-                        var res = rs.json();
-                        if (res.delete) {
-                            _this.snackBar.open(res.message, 'Eliminación', { duration: 4000 });
-                            _this.goList();
-                        }
-                    }, function (err) {
-                        _this.snackBar.open(err.message, 'Eliminación', { duration: 4000 });
-                        _this.loaderService.display(false);
-                    });
-                    break;
-            }
-        }
-        else {
-            this.snackBar.open('No ha seleccionado ningún punto de dispensación', 'Error', { duration: 4000 });
-            return null;
-        }
-    };
-    DeliveryContractsActionComponent.prototype.getDataById = function () {
-        var _this = this;
-        this.loaderService.display(true);
-        this.helperService.GET("/api/delivery-contracts/" + this.numId).subscribe(function (rs) {
+        this.helperService.GET("/api/medical-diagnostics").subscribe(function (rs) {
             var res = rs.json();
-            _this.model = res.data;
-            var delivery_points = [];
-            _this.model.contract_point.forEach(function (element, index) {
-                element.config = JSON.parse(element.config);
-                delivery_points.push({
-                    id: element.delivery_points.id,
-                    name: element.delivery_points.name,
-                    event: element.config.event || false,
-                    capita: element.config.capita || false,
-                    pgp: element.config.pgp || false,
-                });
-                if (_this.model.contract_point.length - 1 == index) {
-                    _this.model.delivery_points = delivery_points;
+            _this.arrMedicalDiagnostics = res.medical_diagnostics;
+        }, function (err) { });
+    };
+    DeliveryActionComponent.prototype.getScheduledDeliveries = function () {
+        var _this = this;
+        this.helperService.GET("/api/scheduled-deliveries/" + this.affiliate.id).subscribe(function (rs) {
+            var res = rs.json();
+            _this.arrScheduledDeliveries = res.scheduled_deliveries.data;
+        }, function (err) { });
+    };
+    DeliveryActionComponent.prototype.getAffiliateDeliveries = function () {
+        var _this = this;
+        this.helperService.GET("/api/affiliate-deliveries/" + this.affiliate.id).subscribe(function (rs) {
+            var res = rs.json();
+            _this.arrAffiliateDeliveries = res.affiliate_deliveries.data;
+            _this.groupAffiliateDeliveriesDetails();
+        }, function (err) { });
+    };
+    DeliveryActionComponent.prototype.clean = function () {
+        this.model = { "details": [], "delivery_date": new Date() };
+        this.model.state = true;
+    };
+    DeliveryActionComponent.prototype.goList = function () {
+        this.comp.openList();
+    };
+    DeliveryActionComponent.prototype.updateRowStock = function (index, detail) {
+        // detail.stockSelected = detail.stocks[index].fraction_stock;
+    };
+    DeliveryActionComponent.prototype.groupAffiliateDeliveriesDetails = function () {
+        var details = [];
+        var i = 0;
+        var _loop_1 = function () {
+            var detail = {};
+            detail = this_1.arrAffiliateDeliveries[i];
+            var passed = false;
+            details.forEach(function (d) {
+                if (d.delivery_id == detail['delivery_id']) {
+                    passed = true;
                 }
             });
-            _this.customers = _this.model.customers;
-            _this._pharmadrugs = JSON.parse(_this.model.pharmadrugs);
-            _this._conditional_alerts = JSON.parse(_this.model.conditional_alerts);
-            _this._ips = _this.model.ips;
-            _this.objEvent = JSON.parse(_this.model.event);
-            _this.booEvento = !(Object.keys(_this.objEvent).length === 0);
-            if (_this.booEvento) {
-                _this.contract_number = _this.objEvent.contract_number;
-                _this.contract_expiration_date = _this.objEvent.contract_expiration_date;
-                _this.contract_start_date = _this.objEvent.contract_start_date;
+            if (!passed) {
+                details.push(detail);
             }
-            _this.objPgp = JSON.parse(_this.model.pgp);
-            _this.booPgp = !(Object.keys(_this.objPgp).length === 0);
-            if (_this.booPgp) {
-                _this.contract_number = _this.objPgp.contract_number;
-                _this.contract_expiration_date = _this.objPgp.contract_expiration_date;
-                _this.contract_start_date = _this.objPgp.contract_start_date;
+            i++;
+        };
+        var this_1 = this;
+        do {
+            _loop_1();
+        } while (this.arrAffiliateDeliveries.length > i);
+        this.arrAffiliateDeliveries = details;
+        console.log(this.arrAffiliateDeliveries);
+        console.log(details);
+    };
+    DeliveryActionComponent.prototype.groupBatchs = function () {
+        var details = [];
+        var i = 0;
+        var empty = false;
+        var toRemove = [];
+        var _loop_2 = function () {
+            var detail = {};
+            if (!empty && this_2.model.details.length > 0) {
+                detail = this_2.model.details[i];
             }
-            _this.objCapita = JSON.parse(_this.model.capita);
-            _this.booCapita = !(Object.keys(_this.objCapita).length === 0);
-            if (_this.booCapita) {
-                _this.contract_number = _this.objCapita.contract_number;
-                _this.contract_expiration_date = _this.objCapita.contract_expiration_date;
-                _this.contract_start_date = _this.objCapita.contract_start_date;
+            var passed = false;
+            details.forEach(function (d) {
+                if (d.product_id == detail['product_id']) {
+                    passed = true;
+                }
+            });
+            if (!passed) {
+                detail['stocks'] = [];
+                this_2.model.details.forEach(function (d) {
+                    if (!empty && d.product_id == detail['product_id'] && !passed) {
+                        var _stockSelected = {};
+                        _stockSelected['batch'] = d.batch;
+                        _stockSelected['expiration_date'] = d.expiration_date;
+                        detail['stocks'].push(_stockSelected);
+                    }
+                });
+                details.push(detail);
+                passed = false;
             }
+            i++;
+        };
+        var this_2 = this;
+        do {
+            _loop_2();
+        } while (this.model.details.length > i);
+        this.model.details = details;
+        console.log(this.model.details);
+        console.log(details);
+    };
+    DeliveryActionComponent.prototype.getDataById = function () {
+        var _this = this;
+        this.loaderService.display(true);
+        this.helperService.GET("/api/deliveries/" + this.numId).subscribe(function (rs) {
+            var res = rs.json();
+            _this.model = res.data;
+            _this.groupBatchs();
+            _this.affiliate = _this.model.affiliate;
+            _this.arrIPS = _this.affiliate.delivery_contract.ips;
+            _this.pharmadrugs = JSON.parse(_this.affiliate.delivery_contract.pharmadrugs);
+            _this.getScheduledDeliveries();
+            _this.getAffiliateDeliveries();
             _this.loaderService.display(false);
         }, function (err) {
             console.log(err);
             _this.loaderService.display(false);
         });
     };
-    DeliveryContractsActionComponent.prototype.clean = function () {
-        this.model = {};
-        this.model.state = true;
-        this._pharmadrugs = [];
-        this._conditional_alerts = [];
-        this.objEvent = {};
-        this.objPgp = {};
-        this.objCapita = {};
-    };
-    DeliveryContractsActionComponent.prototype.goList = function () {
-        this.comp.openList();
-    };
-    DeliveryContractsActionComponent.prototype.openModalCostumers = function () {
+    DeliveryActionComponent.prototype.openModalAffiliates = function () {
         var _this = this;
-        this.modalCostumer = this.dialog.open(__WEBPACK_IMPORTED_MODULE_8__modals__["t" /* ModalStakeholderComponent */], {
+        this.modalAffiliates = this.dialog.open(__WEBPACK_IMPORTED_MODULE_7__modals__["y" /* ModalAffiliatesComponent */], {
             hasBackdrop: false,
             data: {
-                title: 'Clientes',
+                title: 'Afiliados',
                 option: '1'
             }
         });
-        this.modalCostumer.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_rxjs_operators__["filter"])(function (data) { return data; })).subscribe(function (data) {
-            _this.model.customer_id = data.id;
-            _this.customers = data;
+        this.modalAffiliates.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6_rxjs_operators__["filter"])(function (data) { return data; })).subscribe(function (data) {
+            _this.model.affiliate_id = data.id;
+            _this.affiliate = data;
+            _this.arrIPS = _this.affiliate.delivery_contract.ips;
+            _this.pharmadrugs = JSON.parse(_this.affiliate.delivery_contract.pharmadrugs);
+            _this.getScheduledDeliveries();
+            _this.getAffiliateDeliveries();
         });
     };
-    DeliveryContractsActionComponent.prototype.openModalPharmaceutical = function () {
+    DeliveryActionComponent.prototype.openModalProducts = function () {
         var _this = this;
-        this.modalPharmaceutical = this.dialog.open(__WEBPACK_IMPORTED_MODULE_8__modals__["f" /* ModalPharmaceuticalComponent */], {
+        this.modalProducts = this.dialog.open(__WEBPACK_IMPORTED_MODULE_7__modals__["z" /* ModalProductsComponent */], {
             hasBackdrop: false,
             data: {
-                title: 'Medicamentos'
+                title: 'Productos'
             }
         });
-        this.modalPharmaceutical.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_rxjs_operators__["filter"])(function (data) { return data; })).subscribe(function (data) {
-            data.pharmadrug_id = data.id;
-            if (!_this._pharmadrugs) {
-                _this._pharmadrugs = [];
-            }
-            if (_this._pharmadrugs.length == 0) {
-                data.event = false;
-                data.capita = false;
-                data.pgp = false;
-                data.fare = '';
-                _this._pharmadrugs.push(data);
-            }
-            var exist = false;
-            _this._pharmadrugs.forEach(function (element, index) {
-                if (element.name == data.name) {
-                    exist = true;
-                }
-                if (_this._pharmadrugs.length == index + 1) {
-                    if (!exist) {
-                        data.event = false;
-                        data.capita = false;
-                        data.pgp = false;
-                        data.fare = '0';
-                        _this._pharmadrugs.push(data);
+        this.modalProducts.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6_rxjs_operators__["filter"])(function (data) { return data; })).subscribe(function (data) {
+            _this.loaderService.display(true);
+            _this.helperService.GET("/api/product/" + data.id).subscribe(function (rs) {
+                var res = rs.json();
+                var canBeDelivered = false;
+                _this.pharmadrugs.forEach(function (element) {
+                    if (res.data.product_detail.pharmaceutical_drug_id == element.pharmaceutical_drug_id) {
+                        canBeDelivered = true;
                     }
+                });
+                if (canBeDelivered) {
+                    _this.helperService.GET("/api/stocks-products/" + data.id).subscribe(function (rs) {
+                        var res = rs.json();
+                        var movement = new Object({
+                            "product_id": data.id,
+                            "product": data,
+                            "batch": "",
+                            "requested_units": 0,
+                            "delivered_units": 0,
+                            "delivery_number": 1,
+                            "total_deliveries": 1,
+                            "stocks": [res.data],
+                            "location": "",
+                            "expiration_date": "",
+                            "stockSelected": [res.data[0]],
+                            "deliveryCovered": false,
+                            "scheduleddelivery_id": '',
+                        });
+                        console.log(res.data[0]);
+                        var productIsLoaded = false;
+                        _this.model.details.forEach(function (element) {
+                            if (element.product.sku == data.sku) {
+                                productIsLoaded = true;
+                            }
+                        });
+                        if (!productIsLoaded) {
+                            _this.model.details.push(movement);
+                            if (movement["stockSelected"] == undefined) {
+                                _this.snackBar.open('El producto no tiene existencias. Se creará un pendiente al guardar la dispensación.', 'Dispensación', { duration: 10000 });
+                            }
+                        }
+                        else {
+                            _this.snackBar.open('El producto ya se encuentra en la lista', 'Dispensación', { duration: 7000 });
+                        }
+                        _this.loaderService.display(false);
+                    }, function (err) {
+                        console.log(err);
+                        _this.loaderService.display(false);
+                    });
                 }
+                else {
+                    _this.snackBar.open('El producto no está habilitado para el contrato del afiliado', 'Contratos', { duration: 7000 });
+                }
+                _this.loaderService.display(false);
+            }, function (err) {
+                console.log(err);
+                _this.loaderService.display(false);
             });
         });
     };
-    DeliveryContractsActionComponent.prototype.openModalDeliveryPoints = function () {
+    DeliveryActionComponent.prototype.removeProduct = function (index) {
+        this.model.details.splice(index, 1);
+    };
+    DeliveryActionComponent.prototype.validateDelivered = function (unitsR, unitsD, index) {
+        var sumStocks = 0;
+        this.model.details[index]["stockSelected"].forEach(function (element) {
+            sumStocks += element["fraction_stock"];
+        });
+        if (unitsD > unitsR) {
+            this.snackBar.open('Se han modificado automáticamente las unidades de entrega debido a que se ingresaron cantidades superiores a las unidades solicitadas (' + unitsR + '). ', 'Producto a dispensar', { duration: 7000 });
+            this.model.details[index]["delivered_units"] = unitsR;
+        }
+        else if (unitsD > sumStocks) {
+            this.snackBar.open('Se han modificado automáticamente las unidades de entrega debido a que se ingresaron cantidades superiores a las unidades existentes (' + sumStocks + '). ', 'Producto a dispensar', { duration: 7000 });
+            this.model.details[index]["delivered_units"] = sumStocks;
+        }
+    };
+    DeliveryActionComponent.prototype.validateRequested = function (units, index, i) {
         var _this = this;
-        this.modalDeliveryPoints = this.dialog.open(__WEBPACK_IMPORTED_MODULE_9__modals_modal_delivery_points_modal_delivery_points_component__["a" /* ModalDeliveryPointsComponent */], {
-            hasBackdrop: false,
-            data: {
-                title: 'Puntos de dispensación'
+        this.model.details[index]["delivered_units"] = units;
+        this.model.details[index]["deliveryCovered"] = true;
+        var sumStocks = 0;
+        var ic = 0;
+        this.model.details[index]["stockSelected"].forEach(function (element) {
+            sumStocks += element["fraction_stock"];
+            if (units > sumStocks) {
+                ic += 1;
             }
         });
-        this.modalDeliveryPoints.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_rxjs_operators__["filter"])(function (data) { return data; })).subscribe(function (data) {
-            data.delivery_point_id = data.id;
-            if (!_this.model.delivery_points) {
-                _this.model.delivery_points = [];
-            }
-            if (_this.model.delivery_points.length == 0) {
-                data.event = false;
-                data.capita = false;
-                data.pgp = false;
-                _this.model.delivery_points.push(data);
-            }
-            var exist = false;
-            _this.model.delivery_points.forEach(function (element, index) {
-                if (element.name == data.name) {
-                    exist = true;
+        if (i > -1) {
+            this.model.details[index]["stocks"].splice(i + 1, this.model.details[index]["stocks"].length - i - 1);
+            this.model.details[index]["stockSelected"].splice(i + 1, this.model.details[index]["stockSelected"].length - i - 1);
+        }
+        if (units > sumStocks) {
+            if (this.model.details[index]["stocks"][this.model.details[index]["stocks"].length - 1].length > 1) {
+                var newStocks = this.model.details[index]["stocks"][this.model.details[index]["stocks"].length - 1].filter(function (e) { return e.id != _this.model.details[index]["stockSelected"][_this.model.details[index]["stocks"].length - 1]["id"]; });
+                this.model.details[index]["stocks"].push(newStocks);
+                this.model.details[index]["stockSelected"].push(this.model.details[index]["stocks"][this.model.details[index]["stocks"].length - 1][0]);
+                // sumStocks += this.model.details[index]["stocks"][this.model.details[index]["stocks"].length-1][0]["fraction_stock"];
+                if (this.model.details[index]["stocks"][this.model.details[index]["stocks"].length - 1][0]["fraction_stock"] + sumStocks < units) {
+                    this.validateRequested(units, index, i);
                 }
-                if (_this.model.delivery_points.length == index + 1) {
-                    if (!exist) {
-                        data.event = false;
-                        data.capita = false;
-                        data.pgp = false;
-                        _this.model.delivery_points.push(data);
-                    }
-                }
-            });
-        });
-    };
-    DeliveryContractsActionComponent.prototype.deleteDeliveryPoints = function (item) {
-        this.model.delivery_points.splice(this._ips.indexOf(item), 1);
-    };
-    DeliveryContractsActionComponent.prototype.deletePharmadrug = function (item) {
-        this._pharmadrugs.splice(this._pharmadrugs.indexOf(item), 1);
-    };
-    DeliveryContractsActionComponent.prototype.openModalIpsNetwork = function () {
-        var _this = this;
-        this.modalIpsNetwork = this.dialog.open(__WEBPACK_IMPORTED_MODULE_10__modals_modal_ips_network_modal_ips_network_component__["a" /* ModalIpsNetworkComponent */], {
-            hasBackdrop: false,
-            data: {
-                title: 'Red adscrita'
-            }
-        });
-        this.modalIpsNetwork.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_rxjs_operators__["filter"])(function (data) { return data; })).subscribe(function (data) {
-            console.log(data);
-            if (_this._ips.length == 0) {
-                _this._ips.push(data);
             }
             else {
-                var exist = false;
-                _this._ips.forEach(function (element, index) {
-                    if (element.value == data.value) {
-                        exist = true;
-                    }
-                    if (_this._ips.length - 1 == index) {
-                        if (!exist) {
-                            _this._ips.push(data);
-                        }
-                    }
-                });
+                this.snackBar.open('No hay unidades suficientes para cubrir las unidades solicitadas', 'Existencias Dispensación', { duration: 4000 });
+                this.model.details[index]["delivered_units"] = sumStocks;
+                this.model.details[index]["deliveryCovered"] = false;
             }
-        });
+        }
+        else {
+            this.model.details[index]["stocks"].splice(ic + 1, this.model.details[index]["stocks"].length - ic - 1);
+            this.model.details[index]["stockSelected"].splice(ic + 1, this.model.details[index]["stockSelected"].length - ic - 1);
+        }
     };
-    DeliveryContractsActionComponent.prototype.deleteIps = function (item) {
-        this._ips.splice(this._ips.indexOf(item), 1);
-    };
-    DeliveryContractsActionComponent.prototype.openModalGeolocation = function () {
+    DeliveryActionComponent.prototype.openModalConfirmYesNo = function () {
         var _this = this;
-        this.modalGeolocation = this.dialog.open(__WEBPACK_IMPORTED_MODULE_11__modals_modal_geolocation_modal_geolocation_component__["a" /* ModalGeolocationComponent */], {
-            hasBackdrop: false,
-            width: '400px',
-            data: { title: 'Ubicación', }
+        this.modalConfirmYesNo = this.dialog.open(__WEBPACK_IMPORTED_MODULE_7__modals__["b" /* ModalConfirmationComponent */], {
+            data: {
+                message: 'Desea crear el registro?',
+                title: 'Confirmar',
+                button_confirm: 'Sí',
+                button_close: 'No'
+            }
         });
-        this.modalGeolocation.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_rxjs_operators__["filter"])(function (data) { return data; })).subscribe(function (data) {
-            if (data) {
-                if (_this.objCapita.detailed_capita == undefined || _this.objCapita.detailed_capita == null) {
-                    _this.objCapita.detailed_capita = [];
-                    _this.objCapita.detailed_capita.push(data);
-                }
-                var exist = false;
-                var isDelete = false;
-                var _data;
-                _this.objCapita.detailed_capita.forEach(function (element, index) {
-                    if (element.city.id == data.city.id) {
-                        exist = true;
-                        if (!element.state) {
-                            isDelete = true;
-                            _data = element;
-                        }
-                    }
-                    if (_this.objCapita.detailed_capita.length - 1 == index) {
-                        if (!exist) {
-                            _this.objCapita.detailed_capita.push(data);
-                        }
-                        if (isDelete) {
-                            _data.state = true;
-                        }
-                    }
-                });
+        this.modalConfirmYesNo.afterClosed().subscribe(function (confirmation) {
+            if (confirmation) {
+                console.log('SI'); //save() or update()
+                _this.save();
+            }
+            else {
+                console.log('NO');
             }
         });
     };
-    DeliveryContractsActionComponent.prototype.deleteDetailedCapita = function (item) {
-        item.state = false;
-    };
-    DeliveryContractsActionComponent.prototype.activeperauth_length = function () {
-        if (!this.objEvent.perauth) {
-            this.objEvent.perauth_length = '';
-            this.objEvent.perauth_char_type = '';
-        }
-    };
-    DeliveryContractsActionComponent.prototype.clearEvent = function () {
-        if (this.booEvento) {
-            this.objEvent = {};
-            this._pharmadrugs.forEach(function (element) {
-                element.fare = '';
-                element.event = false;
-            });
-        }
-    };
-    DeliveryContractsActionComponent.prototype.clearCapita = function () {
-        if (this.booCapita) {
-            this.objCapita = {};
-            this._pharmadrugs.forEach(function (element) {
-                element.capita = false;
-            });
-        }
-    };
-    DeliveryContractsActionComponent.prototype.clearPgp = function () {
-        if (this.booPgp) {
-            this.objPgp = {};
-            this._pharmadrugs.forEach(function (element) {
-                element.pgp = false;
-            });
+    DeliveryActionComponent.prototype.save = function () {
+        var _this = this;
+        this.loaderService.display(true);
+        switch (this.strAction) {
+            case 'Guardar':
+                this.helperService.POST("/api/deliveries", this.model).subscribe(function (rs) {
+                    var res = rs.json();
+                    if (res.store) {
+                        _this.snackBar.open(res.message, 'Guardado', { duration: 4000 });
+                        _this.goList();
+                    }
+                }, function (err) {
+                    _this.snackBar.open(err.message, 'Guardado', { duration: 4000 });
+                    _this.loaderService.display(false);
+                });
+                break;
+            case 'Actualizar':
+                this.helperService.PUT("/api/deliveries/" + this.numId, this.model).subscribe(function (rs) {
+                    var res = rs.json();
+                    if (res.update) {
+                        _this.snackBar.open(res.message, 'Actualización', { duration: 4000 });
+                        _this.goList();
+                    }
+                }, function (err) {
+                    _this.snackBar.open(err.message, 'Actualización', { duration: 4000 });
+                    _this.loaderService.display(false);
+                });
+                this.loaderService.display(false);
+                break;
         }
     };
     var _a, _b, _c, _d, _e, _f, _g;
-    DeliveryContractsActionComponent = __decorate([
+    DeliveryActionComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
-            selector: "delivery-contracts-action-cmp",
-            template: __webpack_require__("../../../../../src/app/smartity/delivery-contracts/delivery-contracts-action/delivery-contracts-action.component.html"),
-            styles: []
+            selector: 'delivery-action-cmp',
+            template: __webpack_require__("../../../../../src/app/smartity/delivery/delivery-action/delivery-action.component.html")
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["q" /* MatSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["q" /* MatSnackBar */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__shared__["a" /* LoaderService */]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__shared__["b" /* HelperService */]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__delivery_contracts_component__["a" /* DeliveryContractsComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__delivery_contracts_component__["a" /* DeliveryContractsComponent */]) === "function" ? _f : Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["r" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["r" /* MatDialog */]) === "function" ? _g : Object])
-    ], DeliveryContractsActionComponent);
-    return DeliveryContractsActionComponent;
-}(__WEBPACK_IMPORTED_MODULE_4__bases_base_model__["a" /* BaseModel */]));
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["q" /* MatSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["q" /* MatSnackBar */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* ActivatedRoute */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* LoaderService */]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* HelperService */]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__delivery_component__["a" /* DeliveryComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__delivery_component__["a" /* DeliveryComponent */]) === "function" ? _f : Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["r" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["r" /* MatDialog */]) === "function" ? _g : Object])
+    ], DeliveryActionComponent);
+    return DeliveryActionComponent;
+}(__WEBPACK_IMPORTED_MODULE_3__bases_base_model__["a" /* BaseModel */]));
 
-//# sourceMappingURL=delivery-contracts-action.component.js.map
+//# sourceMappingURL=delivery-action.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/delivery-contracts/delivery-contracts-list/delivery-contracts-list.component.html":
+/***/ "../../../../../src/app/smartity/delivery/delivery-list/delivery-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n            <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\" (keydown)=\"enter($event)\">\n            <div style=\"width: 34px\" class=\"input-group-addon\">\n                <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                    <i class=\"fa fa-search\"></i>\n                </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-md-6\">\n        <button *ngIf=\"actions[0].status\" mat-raised-button (click)=\"CUD('Guardar')\" color=\"primary\" class=\"btn-w-md no-margin-left btn-right\">\n            <mat-icon>add_circle_outline</mat-icon> Nuevo\n        </button>\n    </div>\n\n    <div class=\"col-sm-12\">\n\n        <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n            <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n                <thead>\n                    <tr>\n                        <th class=\"noAuto\" (click)=\"sort('id')\">ID\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('code')\">Nombre\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='code'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('name')\">Cliente\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='name'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('operationcostcentres')\">Población\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='operationcostcentres'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('ct.value')\">Estado\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='ct.value'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th *ngIf=\"actions[2].status\" class=\"w-40\"></th>\n                        <th *ngIf=\"actions[3].status\" class=\"w-40\"></th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor=\"let item of list.data\">\n                        <td class=\"noAuto\">{{ item.id }}</td>\n                        <td>{{ item.name }}</td>\n                        <td>{{ item.customers.businessname }}</td>\n                        <td>{{ item.population_types.value }}</td>\n                        <td>{{ item.state ? 'Activo' : 'Inactiva' }}</td>\n                        <td *ngIf=\"actions[2].status\" class=\"w-40\">\n                            <button type=\"button\" mat-icon-button class=\"text-primary\" (click)=\"CUD('Actualizar', item)\">\n                                <mat-icon>mode_edit</mat-icon>\n                            </button>\n                        </td>\n                        <td *ngIf=\"actions[3].status\" class=\"w-40\">\n                            <button type=\"button\" mat-icon-button class=\"text-danger\" (click)=\"CUD('Eliminar',item)\">\n                                <mat-icon>delete</mat-icon>\n                            </button>\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n\n        </div>\n\n        <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\n            [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n    </div>\n</div>"
+module.exports = "<!-- LIST -->\n<div class=\"row\">\n  <div class=\"col-md-6\">\n      <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n          <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\" (keydown)=\"enter($event)\">\n          <div style=\"width: 34px\" class=\"input-group-addon\">\n              <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                  <i class=\"fa fa-search\"></i>\n              </a>\n          </div>\n      </div>\n  </div>\n  <div class=\"col-md-6\">\n      <button *ngIf=\"actions[0].status\" mat-raised-button (click)=\"CUD('Guardar')\" color=\"primary\" class=\"btn-w-md no-margin-left btn-right\">\n          <mat-icon>add_circle_outline</mat-icon> Nuevo\n      </button>\n  </div>\n\n  <div class=\"col-sm-12\">\n\n      <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n          <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n              <thead>\n                  <tr>\n                      <th class=\"noAuto\" (click)=\"sort('id')\"># Entrega\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th (click)=\"sort('code')\">Afiliado\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='code'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th (click)=\"sort('name')\">Contrato\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='name'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th (click)=\"sort('operationcostcentres')\">Modalidad\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='operationcostcentres'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th (click)=\"sort('operationcostcentres')\">Fecha Digitación\n                        <span class=\"glyphicon sort-icon\" *ngIf=\"key =='operationcostcentres'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                    </th>\n                    <th (click)=\"sort('operationcostcentres')\">Fecha de Entrega\n                      <span class=\"glyphicon sort-icon\" *ngIf=\"key =='operationcostcentres'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                  </th>\n                      <!-- <th (click)=\"sort('ct.value')\">Estado\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='ct.value'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th> -->\n                      <th *ngIf=\"actions[2].status\" class=\"w-40\"></th>\n                      <!-- <th *ngIf=\"actions[3].status\" class=\"w-40\"></th> -->\n                  </tr>\n              </thead>\n              <tbody>\n                  <tr *ngFor=\"let item of list.data\">\n                      <td class=\"noAuto\">{{ item.consecutive }}</td>\n                      <td>{{ item.affiliate.display_name }}</td>\n                      <td>{{ item.affiliate.delivery_contract.name }}</td>\n                      <td>{{ item.modality.value }}</td>\n                      <td>{{ item.date | date:'dd/MM/yyyy'}}</td>\n                      <td>{{ item.delivery_date | date:'dd/MM/yyyy'}}</td>\n                      <td *ngIf=\"actions[2].status\" class=\"w-40\">\n                          <button type=\"button\" mat-icon-button class=\"text-primary\" (click)=\"CUD('Actualizar', item)\">\n                              <mat-icon>mode_edit</mat-icon>\n                          </button>\n                      </td>\n                      <!-- <td *ngIf=\"actions[3].status\" class=\"w-40\">\n                          <button type=\"button\" mat-icon-button class=\"text-danger\" (click)=\"CUD('Eliminar',item)\">\n                              <mat-icon>delete</mat-icon>\n                          </button>\n                      </td> -->\n                  </tr>\n              </tbody>\n          </table>\n\n      </div>\n\n      <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\n          [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n  </div>\n</div>"
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/delivery-contracts/delivery-contracts-list/delivery-contracts-list.component.ts":
+/***/ "../../../../../src/app/smartity/delivery/delivery-list/delivery-list.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -477,8 +437,8 @@ module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div class=\"col-md-6\
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__bases_base_list__ = __webpack_require__("../../../../../src/app/smartity/bases/base-list.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__delivery_contracts_component__ = __webpack_require__("../../../../../src/app/smartity/delivery-contracts/delivery-contracts.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DeliveryContractsListComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__delivery_component__ = __webpack_require__("../../../../../src/app/smartity/delivery/delivery.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DeliveryListComponent; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -507,21 +467,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var DeliveryContractsListComponent = /** @class */ (function (_super) {
-    __extends(DeliveryContractsListComponent, _super);
-    function DeliveryContractsListComponent(router, loaderService, helperService, comp) {
+var DeliveryListComponent = /** @class */ (function (_super) {
+    __extends(DeliveryListComponent, _super);
+    function DeliveryListComponent(router, loaderService, helperService, comp) {
         var _this = _super.call(this, loaderService, helperService) || this;
         _this.router = router;
         _this.loaderService = loaderService;
         _this.helperService = helperService;
         _this.comp = comp;
-        _this.urlApi = '/api/delivery-contracts';
+        _this.urlApi = '/api/deliveries';
         return _this;
     }
-    DeliveryContractsListComponent.prototype.ngOnInit = function () {
+    DeliveryListComponent.prototype.ngOnInit = function () {
         this.getAll();
+        console.log(this.list);
     };
-    DeliveryContractsListComponent.prototype.CUD = function (action, row) {
+    DeliveryListComponent.prototype.CUD = function (action, row) {
         this.comp.strAction = action;
         switch (action) {
             case 'Guardar':
@@ -534,35 +495,35 @@ var DeliveryContractsListComponent = /** @class */ (function (_super) {
         this.comp.openActions();
     };
     var _a, _b, _c, _d;
-    DeliveryContractsListComponent = __decorate([
+    DeliveryListComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
-            selector: "delivery-contracts-list-cmp",
-            template: __webpack_require__("../../../../../src/app/smartity/delivery-contracts/delivery-contracts-list/delivery-contracts-list.component.html"),
+            selector: "delivery-list-cmp",
+            template: __webpack_require__("../../../../../src/app/smartity/delivery/delivery-list/delivery-list.component.html"),
             styles: []
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* LoaderService */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* HelperService */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__delivery_contracts_component__["a" /* DeliveryContractsComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__delivery_contracts_component__["a" /* DeliveryContractsComponent */]) === "function" ? _d : Object])
-    ], DeliveryContractsListComponent);
-    return DeliveryContractsListComponent;
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* LoaderService */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* HelperService */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__delivery_component__["a" /* DeliveryComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__delivery_component__["a" /* DeliveryComponent */]) === "function" ? _d : Object])
+    ], DeliveryListComponent);
+    return DeliveryListComponent;
 }(__WEBPACK_IMPORTED_MODULE_3__bases_base_list__["a" /* BaseList */]));
 
-//# sourceMappingURL=delivery-contracts-list.component.js.map
+//# sourceMappingURL=delivery-list.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/delivery-contracts/delivery-contracts.component.html":
+/***/ "../../../../../src/app/smartity/delivery/delivery.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"chapter\">\n    <section class=\"hero\">\n        <div class=\"hero-content\">\n            <h1 class=\"hero-title\">Contratos de dispensación</h1>\n        </div>\n        <p class=\"hero-tagline\"></p>\n    </section>\n    <article class=\"article padding-lg-v article-dark article-bordered\">\n        <div class=\"container-fluid with-maxwidth\">\n            <div class=\"box box-default\">\n                <div class=\"box-body\">\n                    <delivery-contracts-action-cmp *ngIf=\"isOpenActions\" [numId]=\"id\" [strAction]=\"strAction\"></delivery-contracts-action-cmp>\n                    <delivery-contracts-list-cmp *ngIf=\"isOpenList\"></delivery-contracts-list-cmp>\n                </div>\n            </div>\n        </div>\n    </article>\n</section>"
+module.exports = "<section class=\"chapter\">\n  <section class=\"hero\">\n      <div class=\"hero-content\">\n          <h1 class=\"hero-title\">Dispensación</h1>\n      </div>\n      <p class=\"hero-tagline\"></p>\n  </section>\n  <article class=\"article padding-lg-v article-dark article-bordered\">\n      <div class=\"container-fluid with-maxwidth\">\n          <div class=\"box box-default\">\n              <div class=\"box-body\">\n                  <delivery-action-cmp *ngIf=\"isOpenActions\" [numId]=\"id\" [strAction]=\"strAction\"></delivery-action-cmp>\n                  <delivery-list-cmp *ngIf=\"isOpenList\"></delivery-list-cmp>\n              </div>\n          </div>\n      </div>\n  </article>\n</section>"
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/delivery-contracts/delivery-contracts.component.ts":
+/***/ "../../../../../src/app/smartity/delivery/delivery.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bases_base__ = __webpack_require__("../../../../../src/app/smartity/bases/base.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DeliveryContractsComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DeliveryComponent; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -587,29 +548,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var DeliveryContractsComponent = /** @class */ (function (_super) {
-    __extends(DeliveryContractsComponent, _super);
-    function DeliveryContractsComponent() {
+var DeliveryComponent = /** @class */ (function (_super) {
+    __extends(DeliveryComponent, _super);
+    function DeliveryComponent() {
         return _super.call(this) || this;
     }
-    DeliveryContractsComponent.prototype.ngOnInit = function () {
+    DeliveryComponent.prototype.ngOnInit = function () {
     };
-    DeliveryContractsComponent = __decorate([
+    DeliveryComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
-            selector: "delivery-contracts-cmp",
-            template: __webpack_require__("../../../../../src/app/smartity/delivery-contracts/delivery-contracts.component.html"),
-            styles: []
+            selector: 'app-delivery',
+            template: __webpack_require__("../../../../../src/app/smartity/delivery/delivery.component.html")
         }),
         __metadata("design:paramtypes", [])
-    ], DeliveryContractsComponent);
-    return DeliveryContractsComponent;
+    ], DeliveryComponent);
+    return DeliveryComponent;
 }(__WEBPACK_IMPORTED_MODULE_1__bases_base__["a" /* Base */]));
 
-//# sourceMappingURL=delivery-contracts.component.js.map
+//# sourceMappingURL=delivery.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/delivery-contracts/delivery-contracts.module.ts":
+/***/ "../../../../../src/app/smartity/delivery/delivery.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -619,10 +579,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_shared_module__ = __webpack_require__("../../../../../src/app/shared/shared.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__delivery_contracts_component__ = __webpack_require__("../../../../../src/app/smartity/delivery-contracts/delivery-contracts.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__delivery_contracts_action_delivery_contracts_action_component__ = __webpack_require__("../../../../../src/app/smartity/delivery-contracts/delivery-contracts-action/delivery-contracts-action.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__delivery_contracts_list_delivery_contracts_list_component__ = __webpack_require__("../../../../../src/app/smartity/delivery-contracts/delivery-contracts-list/delivery-contracts-list.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeliveryContractsModule", function() { return DeliveryContractsModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__delivery_component__ = __webpack_require__("../../../../../src/app/smartity/delivery/delivery.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__delivery_action_delivery_action_component__ = __webpack_require__("../../../../../src/app/smartity/delivery/delivery-action/delivery-action.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__delivery_list_delivery_list_component__ = __webpack_require__("../../../../../src/app/smartity/delivery/delivery-list/delivery-list.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DeliveryModule", function() { return DeliveryModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -637,11 +597,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var routes = [{ path: '', component: __WEBPACK_IMPORTED_MODULE_5__delivery_contracts_component__["a" /* DeliveryContractsComponent */] }];
-var DeliveryContractsModule = /** @class */ (function () {
-    function DeliveryContractsModule() {
+var routes = [{ path: '', component: __WEBPACK_IMPORTED_MODULE_5__delivery_component__["a" /* DeliveryComponent */] }];
+var DeliveryModule = /** @class */ (function () {
+    function DeliveryModule() {
     }
-    DeliveryContractsModule = __decorate([
+    DeliveryModule = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_common__["a" /* CommonModule */],
@@ -650,16 +610,16 @@ var DeliveryContractsModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_4__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot()
             ],
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_5__delivery_contracts_component__["a" /* DeliveryContractsComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__delivery_contracts_action_delivery_contracts_action_component__["a" /* DeliveryContractsActionComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__delivery_contracts_list_delivery_contracts_list_component__["a" /* DeliveryContractsListComponent */]
+                __WEBPACK_IMPORTED_MODULE_5__delivery_component__["a" /* DeliveryComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__delivery_action_delivery_action_component__["a" /* DeliveryActionComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__delivery_list_delivery_list_component__["a" /* DeliveryListComponent */]
             ]
         })
-    ], DeliveryContractsModule);
-    return DeliveryContractsModule;
+    ], DeliveryModule);
+    return DeliveryModule;
 }());
 
-//# sourceMappingURL=delivery-contracts.module.js.map
+//# sourceMappingURL=delivery.module.js.map
 
 /***/ })
 

@@ -1,13 +1,13 @@
 webpackJsonp([7],{
 
-/***/ "../../../../../src/app/smartity/pharmaceutical-drug/pharmaceutical-drug-action/pharmaceutical-drug-action.component.html":
+/***/ "../../../../../src/app/smartity/product/product-action/product-action.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- FORM -->\n\n<form #pharmeceuticalForm=\"ngForm\" autocomplete=\"off\">\n\n    <div class=\"col-sm-12 margin-bottom\" [class.btn-action-container]=\"booActive\" *ngIf=\"!noaction\">\n        <button type=\"button\" mat-raised-button color=\"secundary\" (click)=\"goList()\" class=\"btn-w-md no-margin-left\">Regresar</button>\n    </div>\n\n    <!-- name -->\n    <div class='col-sm-12 col-md-6  margin-bottom'>\n        <mat-form-field class=\"full-width\">\n            <input required type=\"text\" id=\"name\" name=\"name\" [(ngModel)]=\"model.name\" matInput placeholder=\"Principio activo\">\n        </mat-form-field>\n    </div>\n    <!-- estado -->\n    <div class='col-sm-12 col-md-6 margin-bottom'>\n        <div class=\"flex\">\n            <span class=\"flex-spacer\"></span>\n            <mat-slide-toggle [labelPosition]=\"'before'\" id=\"state\" name=\"state\" [(ngModel)]=\"model.state\">Estado</mat-slide-toggle>\n        </div>\n    </div>\n    <!-- Principio activo -->\n    <div class=\"col-sm-12 margin-bottom\">\n        <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <div class=\"flex margin-bottom\">\n                    <div class=\"box-header no-padding-h\">Principio activo</div>\n                    <span class=\"flex-spacer\"></span>\n                    <button type=\"button\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left\" (click)=\"openModalActiveIngredients()\">Añadir</button>\n                </div>\n                <div class=\"col-sm-12 margin-bottom\" *ngIf=\"arrActive_ingredients.length > 0\">\n                    <mat-select [required]=\"arrActive_ingredients.length > 0\" (change)=\"getMeasurement_unit()\" placeholder=\"Unidad de medida\"\n                        class=\"full-width\" [(ngModel)]=\"measurement_unit_id\" name=\"measurement_unit_id\" id=\"measurement_unit_id\">\n                        <mat-option *ngFor=\"let item of arrMeasurement_unit\" [value]=\"item.id\">{{item.value.trim()}}</mat-option>\n                    </mat-select>\n                </div>\n                <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n                    <table class=\"mdl-data-table table-bordered table-striped no-margin\">\n                        <thead>\n                            <tr>\n                                <th>Nombre</th>\n                                <th style=\"width: 150px\">Concentración</th>\n                            </tr>\n                        </thead>\n                        <tbody>\n                            <tr *ngFor=\"let item of arrActive_ingredients; let index = index\">\n                                <td>{{item.name}}</td>\n                                <td class=\"max-w-100 padding-bottom-0\">\n                                    <mat-form-field class=\"full-width\">\n                                        <input NumberOnly type=\"text\" id=\"concentration{{index}}\" name=\"concentration{{index}}\" [(ngModel)]=\"item.concentration\"\n                                            (keyup)=\"all()\" matInput>\n                                        <span matSuffix>&nbsp; {{measurement_unit.code}}</span>\n                                    </mat-form-field>\n                                </td>\n                            </tr>\n                            <tr *ngIf=\"arrActive_ingredients.length > 0\">\n                                <th></th>\n                                <th style=\"text-align: right\">\n                                    {{ all_concentration }} {{ measurement_unit.code }}\n                                </th>\n                            </tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n        </div>\n    </div>\n    <!-- dosage_form_id -->\n    <div class='col-sm-12 col-md-4 col-lg-3 margin-bottom'>\n        <mat-select class=\"full-width\" placeholder=\"Forma Farmacéutica\" [(ngModel)]=\"model.dosage_form_id\" name=\"dosage_form_id\" id=\"dosage_form_id\">\n            <mat-option *ngFor=\"let i of pharmaceutical_form\" [value]=\"i.id\">{{i.value}}</mat-option>\n        </mat-select>\n    </div>\n    <!-- routes_administration_id -->\n    <div class='col-sm-12 col-md-4 col-lg-3 margin-bottom'>\n        <mat-select class=\"full-width\" placeholder=\"Vía de administración\" [(ngModel)]=\"model.routes_administration_id\" name=\"routes_administration_id\"\n            id=\"routes_administration_id\">\n            <mat-option *ngFor=\"let i of routes_administration\" [value]=\"i.id\">{{i.value}}</mat-option>\n        </mat-select>\n    </div>\n    <!-- atc -->\n    <div class='col-sm-12 col-md-4 col-lg-3 margin-bottom'>\n        <mat-form-field class=\"full-width\">\n            <input required type=\"text\" id=\"atc\" name=\"atc\" [(ngModel)]=\"model.atc\" matInput placeholder=\"Código ATC\">\n        </mat-form-field>\n    </div>\n    <!-- regulated_price -->\n    <div class='col-sm-12 col-md-4 col-lg-3 margin-bottom'>\n        <mat-form-field class=\"full-width\">\n            <span mdPrefix>$ &nbsp;</span>\n            <input required type=\"text\" id=\"regulated_price\" appMycurrency name=\"regulated_price\" [(ngModel)]=\"model.regulated_price\"\n                matInput placeholder=\"Precio regulado\">\n        </mat-form-field>\n    </div>\n    <!-- storage_condition_id -->\n    <div class='col-sm-12 col-md-3 margin-bottom'>\n        <mat-select class=\"full-width\" placeholder=\"Almacenamiento\" [(ngModel)]=\"model.storage_condition_id\" name=\"storage_condition_id\"\n            id=\"storage_condition_id\">\n            <mat-option *ngFor=\"let i of storage_condition\" [value]=\"i.id\">{{i.value}}</mat-option>\n        </mat-select>\n    </div>\n    <!-- is_controlled -->\n    <div class='col-sm-12 col-md-3 margin-bottom'>\n        <mat-slide-toggle [labelPosition]=\"after\" id=\"is_controlled\" name=\"is_controlled\" [(ngModel)]=\"model.is_controlled\">Controlado</mat-slide-toggle>\n    </div>\n    <!-- is_monopoly -->\n    <div class='col-sm-12 col-md-3 margin-bottom'>\n        <mat-slide-toggle [labelPosition]=\"after\" id=\"is_monopoly\" name=\"is_monopoly\" [(ngModel)]=\"model.is_monopoly\">Monopolio</mat-slide-toggle>\n    </div>\n    <!-- is_pos -->\n    <div class='col-sm-12 col-md-3 margin-bottom'>\n        <mat-slide-toggle [labelPosition]=\"after\" id=\"is_pos\" name=\"is_pos\" [(ngModel)]=\"model.is_pos\">POS</mat-slide-toggle>\n    </div>\n    <div class=\"col-sm-12\" [class.btn-action-container]=\"booActive\">\n        <button type=\"button\" [disabled]=\"!pharmeceuticalForm.form.valid\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left btn-right\"\n            (click)=\"save()\">{{strAction}}</button>\n    </div>\n</form>"
+module.exports = "<form #productForm=\"ngForm\" autocomplete=\"off\">\n    <div class=\"row\">\n\n        <div class=\"col-sm-12 margin-bottom\">\n            <button type=\"button\" mat-raised-button color=\"secundary\" (click)=\"goList()\" class=\"btn-w-md no-margin-left\">Regresar</button>\n        </div>\n\n        <!-- state -->\n        <div class='col-sm-12 margin-bottom'>\n            <div class=\"flex\">\n                <span class=\"flex-spacer\"></span>\n                <mat-slide-toggle [labelPosition]=\"'before'\" id=\"state\" name=\"state\" [(ngModel)]=\"model.state\">Estado</mat-slide-toggle>\n            </div>\n        </div>\n\n        <!--product type -->\n        <div class='col-sm-12 col-md-4 margin-bottom'>\n                <mat-form-field class=\"full-width\">\n            <mat-select class=\"full-width\" placeholder=\"Tipo de producto\" [(ngModel)]=\"model.product_type_id\" name=\"product_type_id\"\n                id=\"product_profile_id\">\n                <mat-option *ngFor=\"let item of product_type\" [value]=\"item.id\">{{item.value}}</mat-option>\n            </mat-select>\n                </mat-form-field>\n        </div>\n\n        <div class='col-sm-12 col-md-3 margin-bottom'>\n                <mat-form-field class=\"full-width\">\n                    <input type=\"text\" id=\"sku\" name=\"sku\" [(ngModel)]=\"model.sku\" matInput placeholder=\"PLU\">\n                </mat-form-field>\n            </div>\n\n\n        <!-- medicamentos -->\n        <div class=\"col-sm-12 margin-bottom\" *ngIf=\"model.product_type_id == 30\">\n            <div class=\"flex margin-bottom\">\n                <div class=\"box-header no-padding-h\">Medicamento asociado</div>\n                <span class=\"flex-spacer\"></span>\n                <button *ngIf=\"model.product_detail.pharmaceuticaldrug == null\" type=\"button\" type=\"button\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left\" (click)=\"openAddBankAccount()\">Añadir</button>\n            </div>\n            <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n                <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n                    <thead>\n                        <tr>\n                            <th>Nombre</th>\n                            <th>Vía Administración</th>\n                            <th>Forma Farmaceutica</th>\n                            <th class=\"w-40\"></th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngIf=\"model.product_detail.pharmaceuticaldrug != null || model.product_detail.pharmaceuticaldrug != undefined\">\n                            <td>{{ model.product_detail.pharmaceuticaldrug.name || \"\" }}</td>\n                            <td>{{ model.product_detail.pharmaceuticaldrug.routes_administration.value || \"\" }}</td>\n                            <td>{{ model.product_detail.pharmaceuticaldrug.dosage_form.value || \"\" }}</td>\n                            <td class=\"w-40\">\n                                <button type=\"button\" type=\"button\" mat-icon-button (click)=\"removePharmaceutical()\">\n                                    <mat-icon>delete</mat-icon>\n                                </button>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n\n         <!--description-->\n         <div class='col-sm-12 col-md-12 margin-bottom'>\n                <mat-form-field class=\"full-width\">\n                    <textarea type=\"text\" id=\"description\" name=\"description\" [(ngModel)]=\"model.description\" matInput placeholder=\"Descripción\"></textarea>\n                </mat-form-field>\n            </div>\n\n        <!-- comercial -->\n        <div class='col-sm-12 col-md-4 margin-bottom'>\n            <mat-slide-toggle [labelPosition]=\"'after'\" id=\"comercial\" name=\"comercial\" [(ngModel)]=\"model.comercial\" (change)=\"model.comercial_name = model.comercial ? model.comercial_name : ''\">Comercial</mat-slide-toggle>\n        </div>\n\n        <!-- comercial_name -->\n        <div class='col-sm-12 col-md-4 margin-bottom' *ngIf=\"model.comercial\">\n            <mat-form-field class=\"full-width\">\n                <input type=\"text\" id=\"comercial_name\" name=\"comercial_name\" [(ngModel)]=\"model.comercial_name\" matInput placeholder=\"Nombre comercial\">\n            </mat-form-field>\n        </div>\n\n        <!-- content_unit_id -->\n        <div class='col-sm-12 col-md-4 margin-bottom'>\n                <mat-form-field class=\"full-width\">\n            <mat-select class=\"full-width\" placeholder=\"Unidad de contenido\" [(ngModel)]=\"model.product_detail.content_unit_id\" name=\"content_unit_id\"\n                id=\"content_unit_id\">\n                <mat-option *ngFor=\"let i of content_unit\" [value]=\"i.id\">{{i.value}}</mat-option>\n            </mat-select>\n                </mat-form-field>\n        </div>\n\n        <span class=\"col-sm-12\"></span>\n\n        <!-- units -->\n        <div class='col-sm-12 col-md-4 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input NumberOnly required type=\"text\" id=\"units\" name=\"units\" [(ngModel)]=\"model.units\" matInput placeholder=\"Unidades\">\n            </mat-form-field>\n        </div>\n\n        <!-- delivery_fraction -->\n        <div class='col-sm-12 col-md-1 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input required type=\"text\" id=\"delivery_fraction\" name=\"delivery_fraction\" [(ngModel)]=\"model.product_detail.delivery_fraction\" matInput\n                    placeholder=\"Fracción de entrega\">\n            </mat-form-field>\n        </div>\n\n        <!-- cum_code -->\n        <div class='col-sm-12 col-md-3 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input required type=\"text\" id=\"cum_invima_file_record\" name=\"cum_invima_file_record\" [(ngModel)]=\"model.product_detail.invima_file_record\" matInput placeholder=\"CUMS Expediente\">\n            </mat-form-field>\n        </div>\n        <!-- cum_code -->\n        <div class='col-sm-12 col-md-1 margin-bottom'>\n                <mat-form-field class=\"full-width\">\n                    <input required type=\"text\" id=\"cum_invima_file_record_consecutive\" name=\"cum_invima_file_record_consecutive\" [(ngModel)]=\"model.product_detail.invima_file_record_consecutive\" matInput placeholder=\"Consecutivo\">\n                </mat-form-field>\n            </div>\n\n        <!-- barcode -->\n        <div class='col-sm-12 col-md-4 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input type=\"text\" id=\"barcode\" name=\"barcode\" [(ngModel)]=\"model.barcode\" matInput placeholder=\"Código de barras\">\n            </mat-form-field>\n        </div>\n\n        <!--lifetime -->\n        <div class='col-sm-12 col-md-4 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input matInput [matDatepicker]=\"pickerLifetime\" id=\"lifetime\" name=\"lifetime\" placeholder=\"Vida util\" [(ngModel)]=\"model.lifetime\">\n                <!-- <button type=\"button\" mdSuffix [matDatepicker]=\"pickerLifetime\"></button> -->\n            </mat-form-field>\n            <mat-datepicker #pickerLifetime></mat-datepicker>\n        </div>\n\n        <span class=\"col-sm-12\"></span>\n\n        <!-- institutional_use -->\n        <div class='col-sm-12 col-md-4 margin-bottom'>\n            <mat-slide-toggle [labelPosition]=\"after\" id=\"institutional_use\" name=\"institutional_use\" [(ngModel)]=\"model.institutional_use\">Uso institucional</mat-slide-toggle>\n        </div>\n\n        <!-- serials_control -->\n        <div class='col-sm-12 col-md-4 margin-bottom'>\n            <mat-slide-toggle [labelPosition]=\"after\" id=\"batch_control\" name=\"serials_control\" [(ngModel)]=\"model.serials_control\">Controla serial</mat-slide-toggle>\n        </div>\n\n        <!-- batch_control -->\n        <div class='col-sm-12 col-md-4 margin-bottom'>\n            <mat-slide-toggle [labelPosition]=\"after\" id=\"batch_control\" name=\"batch_control\" [(ngModel)]=\"model.batch_control\">Controla lotes</mat-slide-toggle>\n        </div>\n\n        <!-- titular registro sanitario -->\n        <div class=\"col-sm-12 col-md-6 margin-bottom\">\n            <mat-form-field class=\"full-width\">\n                <input required readonly matInput type=\"text\" placeholder=\"Titular registro sanitario\" [(ngModel)]=\"sanitary_registration_holder.businessname\"\n                    id=\"sanitary_registration_holder\" name=\"sanitary_registration_holder\" />\n                <mat-icon matSuffix mdSuffix class=\"wh-24 pointer\" (click)=\"openAddSanitaryRegistration()\">search</mat-icon>\n            </mat-form-field>\n        </div>\n\n        <!-- sanitary_registration -->\n        <div class='col-sm-12 col-md-3 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input required type=\"text\" id=\"sanitary_registration\" name=\"sanitary_registration\" [(ngModel)]=\"model.product_detail.sanitary_registration\"\n                    matInput placeholder=\"Registro sanitario\">\n            </mat-form-field>\n        </div>\n\n        <!-- validity_sanitary_registration -->\n        <div class='col-sm-12 col-md-3 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input matInput [matDatepicker]=\"picker\" id=\"validity_sanitary_registration\" name=\"validity_sanitary_registration\" placeholder=\"Vigencia de registro sanitario\"\n                    [(ngModel)]=\"model.product_detail.validity_sanitary_registration\">\n                <!-- <button type=\"button\" mdSuffix [matDatepicker]=\"picker\"></button> -->\n            </mat-form-field>\n            <mat-datepicker #picker></mat-datepicker>\n        </div>\n\n        <!-- proveedor\n        <div class=\"col-sm-12 col-md-6 margin-bottom\">\n            <mat-form-field class=\"full-width\">\n                <input required readonly matInput type=\"text\" placeholder=\"Proveedor\" [(ngModel)]=\"supplier.businessname\" id=\"supplier\" name=\"supplier\"/>\n                <mat-icon matSuffix mdSuffix class=\"wh-24 pointer\" (click)=\"openAddSupplier()\">search</mat-icon>\n            </mat-form-field>\n        </div> -->\n\n        <!-- fabricante -->\n        <div class=\"col-sm-12 col-md-6 margin-bottom\">\n            <mat-form-field class=\"full-width\">\n                <input required readonly matInput type=\"text\" placeholder=\"Fabricante\" [(ngModel)]=\"manufacturer.businessname\" id=\"manufacturer\"\n                    name=\"manufacturer\" />\n                <mat-icon matSuffix mdSuffix class=\"wh-24 pointer\" (click)=\"openAddMaker()\">search</mat-icon>\n            </mat-form-field>\n        </div>\n\n        <!-- importador -->\n        <div class=\"col-sm-12 col-md-6 margin-bottom\">\n            <mat-form-field class=\"full-width\">\n                <input required readonly matInput type=\"text\" placeholder=\"Importador\" [(ngModel)]=\"importer.businessname\" id=\"importer\" name=\"importer\"\n                />\n                <mat-icon matSuffix mdSuffix class=\"wh-24 pointer\" (click)=\"openAddImporter()\">search</mat-icon>\n            </mat-form-field>\n        </div>\n\n        <!-- security_time -->\n        <div class='col-sm-12 col-md-6 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input NumberOnly type=\"text\" id=\"security_time\" name=\"security_time\" [(ngModel)]=\"model.security_time\" matInput\n                    placeholder=\"Tiempo de seguridad\">\n            </mat-form-field>\n        </div>\n\n        <!-- covered_period -->\n        <div class='col-sm-12 col-md-6 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input NumberOnly type=\"text\" id=\"covered_period\" name=\"covered_period\" [(ngModel)]=\"model.covered_period\" matInput\n                    placeholder=\"Periodo de cubrimiento\">\n            </mat-form-field>\n        </div>\n\n        <!-- replacment_time -->\n        <div class='col-sm-12 col-md-6 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input NumberOnly type=\"text\" id=\"replacment_time\" name=\"replacment_time\" [(ngModel)]=\"model.replacment_time\" matInput\n                    placeholder=\"Tiempo de reposición\">\n            </mat-form-field>\n        </div>\n\n        <div class=\"col-sm-12\">\n            <button type=\"button\" [disabled]=\"!productForm.form.valid\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left btn-right\"\n                (click)=\"save()\">{{strAction}}</button>\n        </div>\n\n    </div>\n</form>"
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/pharmaceutical-drug/pharmaceutical-drug-action/pharmaceutical-drug-action.component.ts":
+/***/ "../../../../../src/app/smartity/product/product-action/product-action.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17,12 +17,12 @@ module.exports = "<!-- FORM -->\n\n<form #pharmeceuticalForm=\"ngForm\" autocomp
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pharmaceutical_drug_component__ = __webpack_require__("../../../../../src/app/smartity/pharmaceutical-drug/pharmaceutical-drug.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__product_component__ = __webpack_require__("../../../../../src/app/smartity/product/product.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__bases_base_model__ = __webpack_require__("../../../../../src/app/smartity/bases/base-model.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__modals_modal_active_ingredients_modal_active_ingredients_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-active-ingredients/modal-active-ingredients.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__modals__ = __webpack_require__("../../../../../src/app/smartity/modals/index.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_operators__ = __webpack_require__("../../../../rxjs/operators.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_operators__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PharmaceuticalDrugActionComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductActionComponent; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -54,9 +54,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var PharmaceuticalDrugActionComponent = /** @class */ (function (_super) {
-    __extends(PharmaceuticalDrugActionComponent, _super);
-    function PharmaceuticalDrugActionComponent(loaderService, helperService, snackBar, route, router, comp, dialog) {
+var ProductActionComponent = /** @class */ (function (_super) {
+    __extends(ProductActionComponent, _super);
+    function ProductActionComponent(loaderService, helperService, snackBar, route, router, comp, dialog) {
         var _this = _super.call(this) || this;
         _this.loaderService = loaderService;
         _this.helperService = helperService;
@@ -65,175 +65,231 @@ var PharmaceuticalDrugActionComponent = /** @class */ (function (_super) {
         _this.router = router;
         _this.comp = comp;
         _this.dialog = dialog;
-        _this.measurement_unit = {};
-        _this.pharmaceutical_form = [];
-        _this.routes_administration = [];
-        _this.storage_condition = [];
-        _this.arrActive_ingredients = [];
-        _this.arrMeasurement_unit = [];
-        _this.all_concentration = 0;
+        _this.content_unit = [];
+        _this.product_type = [];
+        _this.sanitary_registration_holder = {};
+        _this.supplier = {};
+        _this.manufacturer = {};
+        _this.importer = {};
         return _this;
     }
-    PharmaceuticalDrugActionComponent.prototype.ngOnInit = function () {
+    ProductActionComponent.prototype.ngOnInit = function () {
         this.clean();
         this.getCollection();
         if (this.numId !== undefined) {
             this.getDataById();
         }
     };
-    PharmaceuticalDrugActionComponent.prototype.getMeasurement_unit = function () {
-        var _this = this;
-        this.measurement_unit = this.arrMeasurement_unit.filter(function (x) { return x.id === _this.measurement_unit_id; })[0];
-    };
-    PharmaceuticalDrugActionComponent.prototype.getCollection = function () {
+    ProductActionComponent.prototype.getCollection = function () {
         var _this = this;
         this.loaderService.display(true);
-        this.helperService.POST("/api/collections", ['PHARMACEUTICAL_FORM', 'ROUTES_ADMINISTRATION', 'STORAGE_CONDITION', 'MEASUREMENT_UNIT'])
-            .map(function (response) {
-            var res = response.json();
-            _this.pharmaceutical_form = res.PHARMACEUTICAL_FORM;
-            _this.routes_administration = res.ROUTES_ADMINISTRATION;
-            _this.storage_condition = res.STORAGE_CONDITION;
-            _this.arrMeasurement_unit = res.MEASUREMENT_UNIT;
-        }).subscribe(function (error) {
-            _this.loaderService.display(false);
-        }, function (done) {
-            _this.loaderService.display(false);
-        });
-    };
-    PharmaceuticalDrugActionComponent.prototype.save = function () {
-        var _this = this;
-        this.arrActive_ingredients.forEach(function (element) {
-            element.measurement_unit_id = _this.measurement_unit_id;
-        });
-        this.loaderService.display(true);
-        switch (this.strAction) {
-            case 'Guardar':
-                this.helperService.POST("/api/pharmaceuticaldrug", { "drug": this.model, "active_ingredients": this.arrActive_ingredients }).subscribe(function (rs) {
-                    var res = rs.json();
-                    if (res.store) {
-                        _this.snackBar.open(res.message, 'Guardado', { duration: 4000 });
-                        _this.goList();
-                    }
-                }, function (err) {
-                    _this.snackBar.open(err.message, 'Guardado', { duration: 4000 });
-                    _this.loaderService.display(false);
-                });
-                break;
-            case 'Actualizar':
-                this.helperService.PUT("/api/pharmaceuticaldrug/" + this.numId, { "drug": this.model, "active_ingredients": this.arrActive_ingredients }).subscribe(function (rs) {
-                    var res = rs.json();
-                    if (res.update) {
-                        _this.snackBar.open(res.message, 'Actualización', { duration: 4000 });
-                        _this.comp.openList();
-                    }
-                }, function (err) {
-                    _this.loaderService.display(false);
-                    _this.snackBar.open(err.message, 'Actualización', { duration: 4000 });
-                });
-                break;
-            case 'Eliminar':
-                this.helperService.DELETE("/api/pharmaceuticaldrug/" + this.numId).subscribe(function (rs) {
-                    var res = rs.json();
-                    if (res.delete) {
-                        _this.snackBar.open(res.message, 'Eliminación', { duration: 4000 });
-                        _this.comp.openList();
-                    }
-                }, function (err) {
-                    _this.loaderService.display(false);
-                    _this.snackBar.open(err.message, 'Eliminación', { duration: 4000 });
-                });
-                break;
-        }
-    };
-    PharmaceuticalDrugActionComponent.prototype.getDataById = function () {
-        var _this = this;
-        this.loaderService.display(true);
-        this.helperService.GET("/api/pharmaceuticaldrug/" + this.numId).subscribe(function (rs) {
+        this.helperService.POST("/api/collections", ['CONTENT_UNIT', 'PRODUCT_TYPE']).subscribe(function (rs) {
             var res = rs.json();
-            _this.model = res['data']["model"];
-            _this.arrActive_ingredients = res["data"]["active_ingredients"];
-            _this.measurement_unit_id = res["data"]["active_ingredients"][0]["measurement_unit_id"];
-            _this.all();
-            _this.arrActive_ingredients.forEach(function (element) {
-                element.name = element.active_ingredient.name;
-                element.id = element.active_ingredient.id;
-            });
-            _this.getMeasurement_unit();
+            _this.content_unit = res.CONTENT_UNIT;
+            _this.product_type = res.PRODUCT_TYPE;
             _this.loaderService.display(false);
         }, function (err) {
             _this.loaderService.display(false);
         });
     };
-    PharmaceuticalDrugActionComponent.prototype.clean = function () {
-        this.model = {};
-        this.arrActive_ingredients = [];
-        this.model.is_pos = false;
-        this.model.is_controlled = false;
-        this.model.is_monopoly = false;
-        this.model.state = true;
+    ProductActionComponent.prototype.save = function () {
+        var _this = this;
+        this.model.name = '';
+        if (this.model.product_detail.pharmaceuticaldrug === undefined) {
+            this.model.product_detail.pharmaceuticaldrug = {};
+        }
+        if (this.model.product_detail.pharmaceuticaldrug == null && this.model.product_profile_id == 30) {
+            this.snackBar.open('Seleccione por lo menos un medicamento', 'Error', { duration: 4000 });
+        }
+        else {
+            this.loaderService.display(true);
+            switch (this.strAction) {
+                case 'Guardar':
+                    this.helperService.POST("/api/product", this.model).subscribe(function (rs) {
+                        var res = rs.json();
+                        if (res.store) {
+                            _this.snackBar.open(res.message, 'Guardado', { duration: 4000 });
+                            _this.goList();
+                        }
+                    }, function (err) {
+                        _this.loaderService.display(false);
+                        _this.snackBar.open(err.message, 'Guardado', { duration: 4000 });
+                    });
+                    break;
+                case 'Actualizar':
+                    this.helperService.PUT("/api/product/" + this.numId, this.model).subscribe(function (rs) {
+                        var res = rs.json();
+                        if (res.update) {
+                            _this.snackBar.open(res.message, 'Actualización', { duration: 4000 });
+                            _this.comp.openList();
+                        }
+                    }, function (err) {
+                        _this.snackBar.open(err.message, 'Actualización', { duration: 4000 });
+                        _this.loaderService.display(false);
+                    });
+                    break;
+                case 'Eliminar':
+                    this.helperService.DELETE("/api/product/" + this.numId).subscribe(function (rs) {
+                        var res = rs.json();
+                        if (res.delete) {
+                            _this.snackBar.open(res.message, 'Eliminación', { duration: 4000 });
+                            _this.comp.openList();
+                        }
+                    }, function (err) {
+                        _this.snackBar.open(err.message, 'Eliminación', { duration: 4000 });
+                        _this.loaderService.display(false);
+                    });
+                    break;
+            }
+        }
     };
-    PharmaceuticalDrugActionComponent.prototype.goList = function () {
+    ProductActionComponent.prototype.getDataById = function () {
+        var _this = this;
+        this.loaderService.display(true);
+        this.helperService.GET("/api/product/" + this.numId).subscribe(function (rs) {
+            var res = rs.json();
+            _this.model = res['data'];
+            // this.model.product_detail.pharmaceuticaldrug = this.model.product_detail.pharmaceuticaldrug != null ? JSON.parse(this.model.product_detail.pharmaceuticaldrug) : [];
+            _this.importer = res['data']['importer'] || {};
+            _this.sanitary_registration_holder = res['data']['product_detail']['sanitary_registration_holder'] || {};
+            _this.supplier = res['data']['supplier'] || {};
+            if (_this.supplier.businessname == '') {
+                _this.supplier.businessname = _this.supplier.fullname;
+            }
+            _this.manufacturer = res['data']['manufacturer'] || {};
+            _this.loaderService.display(false);
+        }, function (err) {
+            console.log(err);
+            _this.loaderService.display(false);
+        });
+    };
+    ProductActionComponent.prototype.clean = function () {
+        this.model = { "product_detail": {} };
+        this.model.batch_control = false;
+        this.model.serials_control = false;
+        this.model.institutional_use = false;
+        this.model.comercial = false;
+        this.model.is_regulated = false;
+        this.model.state = true;
+        this.model.comercial_name = '';
+        this.model.product_detail.pharmaceuticaldrug = null;
+    };
+    ProductActionComponent.prototype.goList = function () {
         this.comp.openList();
     };
-    PharmaceuticalDrugActionComponent.prototype.openModalActiveIngredients = function () {
+    ProductActionComponent.prototype.openAddBankAccount = function () {
         var _this = this;
-        this.modalActiveIngredients = this.dialog.open(__WEBPACK_IMPORTED_MODULE_7__modals_modal_active_ingredients_modal_active_ingredients_component__["a" /* ModalActiveIngredientsComponent */], {
+        this.pharmaceuticalDialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_7__modals__["f" /* ModalPharmaceuticalComponent */], {
             hasBackdrop: false,
             data: {
-                title: 'Principio activo',
+                title: 'Medicamentos'
             }
         });
-        this.modalActiveIngredients.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8_rxjs_operators__["filter"])(function (data) { return data; })).subscribe(function (data) {
-            if (_this.arrActive_ingredients.length == 0) {
-                _this.arrActive_ingredients.push(data);
-            }
-            else {
-                var exist = false;
-                _this.arrActive_ingredients.forEach(function (element, index) {
-                    if (element.name == data.name) {
-                        exist = true;
-                    }
-                    if (_this.arrActive_ingredients.length - 1 == index) {
-                        if (!exist) {
-                            _this.arrActive_ingredients.push(data);
-                        }
-                    }
-                });
-            }
+        this.pharmaceuticalDialogRef
+            .afterClosed()
+            .pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8_rxjs_operators__["filter"])(function (pharmaceuticalDrug) { return pharmaceuticalDrug; }))
+            .subscribe(function (pharmaceuticalDrug) {
+            _this.model.product_detail.pharmaceuticaldrug = pharmaceuticalDrug.pharmaceuticaldrug;
         });
     };
-    PharmaceuticalDrugActionComponent.prototype.all = function () {
+    ProductActionComponent.prototype.removePharmaceutical = function () {
+        this.model.product_detail.pharmaceuticaldrug = null;
+    };
+    ProductActionComponent.prototype.openAddSanitaryRegistration = function () {
         var _this = this;
-        this.all_concentration = 0;
-        this.arrActive_ingredients.forEach(function (element) {
-            _this.all_concentration += parseInt(element.concentration);
+        this.modalStakeHolderDialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_7__modals__["t" /* ModalStakeholderComponent */], {
+            hasBackdrop: false,
+            data: {
+                title: 'Titular registro sanitario',
+                option: '6'
+            }
+        });
+        this.modalStakeHolderDialogRef.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8_rxjs_operators__["filter"])(function (stakeHolder) { return stakeHolder; })).subscribe(function (stakeHolder) {
+            if (stakeHolder.businessname == '') {
+                stakeHolder.businessname = stakeHolder.name;
+            }
+            _this.sanitary_registration_holder = stakeHolder;
+            _this.model.sanitary_registration_holder_id = stakeHolder.id;
+        });
+    };
+    ProductActionComponent.prototype.openAddSupplier = function () {
+        var _this = this;
+        this.modalStakeHolderDialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_7__modals__["t" /* ModalStakeholderComponent */], {
+            hasBackdrop: false,
+            data: {
+                title: 'Proveedores',
+                option: '2'
+            }
+        });
+        this.modalStakeHolderDialogRef.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8_rxjs_operators__["filter"])(function (stakeHolder) { return stakeHolder; })).subscribe(function (stakeHolder) {
+            if (stakeHolder.businessname == '') {
+                stakeHolder.businessname = stakeHolder.name;
+            }
+            _this.supplier = stakeHolder;
+            _this.model.supplier_id = stakeHolder.id;
+        });
+    };
+    ProductActionComponent.prototype.openAddMaker = function () {
+        var _this = this;
+        this.modalStakeHolderDialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_7__modals__["t" /* ModalStakeholderComponent */], {
+            hasBackdrop: false,
+            data: {
+                title: 'Fabricantes',
+                option: '4'
+            }
+        });
+        this.modalStakeHolderDialogRef
+            .afterClosed()
+            .pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8_rxjs_operators__["filter"])(function (stakeHolder) { return stakeHolder; }))
+            .subscribe(function (stakeHolder) {
+            if (stakeHolder.businessname == '') {
+                stakeHolder.businessname = stakeHolder.name;
+            }
+            _this.manufacturer = stakeHolder;
+            _this.model.manufacturer_id = stakeHolder.id;
+        });
+    };
+    ProductActionComponent.prototype.openAddImporter = function () {
+        var _this = this;
+        this.modalStakeHolderDialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_7__modals__["t" /* ModalStakeholderComponent */], {
+            hasBackdrop: false,
+            data: {
+                title: 'Importador',
+                option: '5'
+            }
+        });
+        this.modalStakeHolderDialogRef.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8_rxjs_operators__["filter"])(function (stakeHolder) { return stakeHolder; })).subscribe(function (stakeHolder) {
+            if (stakeHolder.businessname == '') {
+                stakeHolder.businessname = stakeHolder.name;
+            }
+            _this.importer = stakeHolder;
+            _this.model.importer_id = stakeHolder.id;
         });
     };
     var _a, _b, _c, _d, _e, _f, _g;
-    PharmaceuticalDrugActionComponent = __decorate([
+    ProductActionComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
-            selector: 'pharmaceutical-drug-action-cmp',
-            template: __webpack_require__("../../../../../src/app/smartity/pharmaceutical-drug/pharmaceutical-drug-action/pharmaceutical-drug-action.component.html"),
+            selector: 'product-action-cmp',
+            template: __webpack_require__("../../../../../src/app/smartity/product/product-action/product-action.component.html"),
             styles: []
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* LoaderService */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* HelperService */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["q" /* MatSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["q" /* MatSnackBar */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__pharmaceutical_drug_component__["a" /* PharmaceuticalDrugComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__pharmaceutical_drug_component__["a" /* PharmaceuticalDrugComponent */]) === "function" ? _f : Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["r" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["r" /* MatDialog */]) === "function" ? _g : Object])
-    ], PharmaceuticalDrugActionComponent);
-    return PharmaceuticalDrugActionComponent;
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* LoaderService */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* HelperService */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["q" /* MatSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["q" /* MatSnackBar */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__product_component__["a" /* ProductComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__product_component__["a" /* ProductComponent */]) === "function" ? _f : Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["r" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["r" /* MatDialog */]) === "function" ? _g : Object])
+    ], ProductActionComponent);
+    return ProductActionComponent;
 }(__WEBPACK_IMPORTED_MODULE_6__bases_base_model__["a" /* BaseModel */]));
 
-//# sourceMappingURL=pharmaceutical-drug-action.component.js.map
+//# sourceMappingURL=product-action.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/pharmaceutical-drug/pharmaceutical-drug-list/pharmaceutical-drug-list.component.html":
+/***/ "../../../../../src/app/smartity/product/product-list/product-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n            <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\" (keydown)=\"enter($event)\">\n            <div style=\"width: 34px\" class=\"input-group-addon\">\n                <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                    <i class=\"fa fa-search\"></i>\n                </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-md-6\">\n        <button *ngIf=\"actions[0].status\" mat-raised-button (click)=\"CUD('Guardar')\" color=\"primary\" class=\"btn-w-md no-margin-left btn-right\">\n            <mat-icon>add_circle_outline</mat-icon> Nuevo\n        </button>\n    </div>\n\n    <div class=\"col-sm-12\">\n\n        <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n            <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n                <thead>\n                    <tr>\n                        <th class=\"noAuto\" (click)=\"sort('pd.id')\">ID\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='pd.id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('pd.name')\">Nombre\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='pd.name'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n\n                        <th (click)=\"sort('ra.concentration')\">Concentración\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='ra.value'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n\n                        <th (click)=\"sort('ra.value')\">Forma Farmaceutica\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='ra.value'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n\n                        <th (click)=\"sort('is_pos')\">POS\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='is_pos'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n\n                        <th (click)=\"sort('pd.state')\">Estado\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='pd.state'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th *ngIf=\"actions[2].status\" class=\"w-40\"></th>\n                        <th *ngIf=\"actions[3].status\" class=\"w-40\"></th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor=\"let item of list.data\">\n                        <td class=\"noAuto\">{{ item.id }}</td>\n                        <td>{{ item.name }}</td>\n                        <td>{{ item.concentration }}</td>\n                        <td>{{ item.dosage_form }}</td>\n                        <td>{{ item.is_pos ? 'Si' : 'No' }}</td>\n                        <td>{{ item.state ? 'Activo' : 'Inactivo' }}</td>\n                        <td *ngIf=\"actions[2].status\" class=\"w-40\">\n                            <button type=\"button\" mat-icon-button class=\"text-primary\" (click)=\"CUD('Actualizar',item)\">\n                                <mat-icon>mode_edit</mat-icon>\n                            </button>\n                        </td>\n                        <td *ngIf=\"actions[3].status\" class=\"w-40\">\n                            <button type=\"button\" mat-icon-button class=\"text-danger\" (click)=\"CUD('Eliminar',item)\">\n                                <mat-icon>delete</mat-icon>\n                            </button>\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n\n        </div>\n        <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"6\" [rotate]=\"true\"\n            [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n    </div>\n</div>"
+module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n            <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\" (keydown)=\"enter($event)\">\n            <div style=\"width: 34px\" class=\"input-group-addon\">\n                <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                    <i class=\"fa fa-search\"></i>\n                </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-md-6\">\n        <button *ngIf=\"actions[0].status\" mat-raised-button (click)=\"CUD('Guardar')\" color=\"primary\" class=\"btn-w-md no-margin-left btn-right\">\n            <mat-icon>add_circle_outline</mat-icon> Nuevo\n        </button>\n    </div>\n\n    <div class=\"col-sm-12\">\n\n        <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n            <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n                <thead>\n                    <tr>\n                        <!-- <th class=\"noAuto\" (click)=\"sort('id')\">ID\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th> -->\n                        <!-- <th (click)=\"sort('barcode')\">Código de barras\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='barcode'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th> -->\n                        <th>PLU\n                                <span class=\"glyphicon sort-icon\"></span>\n                        </th>\n                        <!-- <th>Cums\n                                <span class=\"glyphicon sort-icon\"></span>\n                        </th> -->\n                        <th (click)=\"sort('comercial_name')\">Nombre\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='comercial_name'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('state')\">Tipo de Producto\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='state'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('state')\">Estado\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='state'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th *ngIf=\"actions[2].status\" class=\"w-40\"></th>\n                        <th *ngIf=\"actions[3].status\" class=\"w-40\"></th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor=\"let item of list.data\">                        \n                        <td>{{item.sku}}</td>\n                        <td >{{ item.name }} <span style=\"font-weight:bold;\" *ngIf=\"item.comercial\">({{item.comercial_name}})</span></td>\n                        <td>{{item.product_type.value}}</td>\n                        <td>{{ item.state ? 'Activo' : 'Inactivo' }}</td>\n                        <td *ngIf=\"actions[2].status\" class=\"w-40\">\n                            <button type=\"button\" mat-icon-button class=\"text-primary\" (click)=\"CUD('Actualizar',item)\">\n                                <mat-icon>mode_edit</mat-icon>\n                            </button>\n                        </td>\n                        <td *ngIf=\"actions[3].status\" class=\"w-40\">\n                            <button type=\"button\" mat-icon-button class=\"text-danger\" (click)=\"CUD('Eliminar',item)\">\n                                <mat-icon>delete</mat-icon>\n                            </button>\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n\n        </div>\n        <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"6\" [rotate]=\"true\"\n            [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n    </div>\n</div>"
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/pharmaceutical-drug/pharmaceutical-drug-list/pharmaceutical-drug-list.component.ts":
+/***/ "../../../../../src/app/smartity/product/product-list/product-list.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -243,8 +299,8 @@ module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div class=\"col-md-6\
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__bases_base_list__ = __webpack_require__("../../../../../src/app/smartity/bases/base-list.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pharmaceutical_drug_component__ = __webpack_require__("../../../../../src/app/smartity/pharmaceutical-drug/pharmaceutical-drug.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PharmaceuticalDrugListComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__product_component__ = __webpack_require__("../../../../../src/app/smartity/product/product.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductListComponent; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -273,21 +329,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var PharmaceuticalDrugListComponent = /** @class */ (function (_super) {
-    __extends(PharmaceuticalDrugListComponent, _super);
-    function PharmaceuticalDrugListComponent(router, loaderService, helperService, comp) {
+var ProductListComponent = /** @class */ (function (_super) {
+    __extends(ProductListComponent, _super);
+    function ProductListComponent(router, loaderService, helperService, comp) {
         var _this = _super.call(this, loaderService, helperService) || this;
         _this.router = router;
         _this.loaderService = loaderService;
         _this.helperService = helperService;
         _this.comp = comp;
-        _this.urlApi = '/api/pharmaceuticaldrug';
+        _this.urlApi = '/api/product';
         return _this;
     }
-    PharmaceuticalDrugListComponent.prototype.ngOnInit = function () {
+    ProductListComponent.prototype.ngOnInit = function () {
         this.getAll();
     };
-    PharmaceuticalDrugListComponent.prototype.CUD = function (action, row) {
+    ProductListComponent.prototype.CUD = function (action, row) {
         this.comp.strAction = action;
         switch (action) {
             case 'Guardar':
@@ -300,35 +356,35 @@ var PharmaceuticalDrugListComponent = /** @class */ (function (_super) {
         this.comp.openActions();
     };
     var _a, _b, _c, _d;
-    PharmaceuticalDrugListComponent = __decorate([
+    ProductListComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
-            selector: 'pharmaceutical-drug-list-cmp',
-            template: __webpack_require__("../../../../../src/app/smartity/pharmaceutical-drug/pharmaceutical-drug-list/pharmaceutical-drug-list.component.html"),
+            selector: 'product-list-cmp',
+            template: __webpack_require__("../../../../../src/app/smartity/product/product-list/product-list.component.html"),
             styles: []
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* LoaderService */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* HelperService */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__pharmaceutical_drug_component__["a" /* PharmaceuticalDrugComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__pharmaceutical_drug_component__["a" /* PharmaceuticalDrugComponent */]) === "function" ? _d : Object])
-    ], PharmaceuticalDrugListComponent);
-    return PharmaceuticalDrugListComponent;
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* LoaderService */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* HelperService */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__product_component__["a" /* ProductComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__product_component__["a" /* ProductComponent */]) === "function" ? _d : Object])
+    ], ProductListComponent);
+    return ProductListComponent;
 }(__WEBPACK_IMPORTED_MODULE_3__bases_base_list__["a" /* BaseList */]));
 
-//# sourceMappingURL=pharmaceutical-drug-list.component.js.map
+//# sourceMappingURL=product-list.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/pharmaceutical-drug/pharmaceutical-drug.component.html":
+/***/ "../../../../../src/app/smartity/product/product.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"chapter\">\n    <section class=\"hero\">\n        <div class=\"hero-content\">\n            <h1 class=\"hero-title\">Medicamentos</h1>\n        </div>\n        <p class=\"hero-tagline\">A través de esta opción, usted podrá crear los medicamentos de las cuales son necesarias para...</p>\n    </section>\n    <article class=\"article padding-lg-v article-dark article-bordered\">\n        <div class=\"container-fluid with-maxwidth\">\n            <div class=\"box box-default\">\n                <div class=\"box-body\">\n                    <pharmaceutical-drug-action-cmp *ngIf=\"isOpenActions\" [numId]=\"id\" [strAction]=\"strAction\"></pharmaceutical-drug-action-cmp>\n                    <pharmaceutical-drug-list-cmp *ngIf=\"isOpenList\"></pharmaceutical-drug-list-cmp>\n                </div>               \n            </div>\n        </div>\n    </article>\n</section>"
+module.exports = "<section class=\"chapter\">\n    <section class=\"hero\">\n        <div class=\"hero-content\">\n            <h1 class=\"hero-title\">Productos</h1>\n        </div>\n        <p class=\"hero-tagline\">A través de esta opción, usted podrá crear los productos de las cuales son necesarias para...</p>\n    </section>\n    <article class=\"article padding-lg-v article-dark article-bordered\">\n        <div class=\"container-fluid with-maxwidth\">\n            <div class=\"box box-default\">\n                <div class=\"box-body\">\n                    <product-action-cmp *ngIf=\"isOpenActions\" [numId]=\"id\" [strAction]=\"strAction\"></product-action-cmp>\n                    <product-list-cmp *ngIf=\"isOpenList\"></product-list-cmp>\n                </div>               \n            </div>\n        </div>\n    </article>\n</section>"
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/pharmaceutical-drug/pharmaceutical-drug.component.ts":
+/***/ "../../../../../src/app/smartity/product/product.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bases_base__ = __webpack_require__("../../../../../src/app/smartity/bases/base.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PharmaceuticalDrugComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductComponent; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -353,28 +409,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var PharmaceuticalDrugComponent = /** @class */ (function (_super) {
-    __extends(PharmaceuticalDrugComponent, _super);
-    function PharmaceuticalDrugComponent() {
+var ProductComponent = /** @class */ (function (_super) {
+    __extends(ProductComponent, _super);
+    function ProductComponent() {
         return _super.call(this) || this;
     }
-    PharmaceuticalDrugComponent.prototype.ngOnInit = function () { };
-    PharmaceuticalDrugComponent = __decorate([
+    ProductComponent.prototype.ngOnInit = function () { };
+    ProductComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
-            selector: 'pharmaceutical-drug-cmp',
-            template: __webpack_require__("../../../../../src/app/smartity/pharmaceutical-drug/pharmaceutical-drug.component.html"),
+            selector: 'product-cmp',
+            template: __webpack_require__("../../../../../src/app/smartity/product/product.component.html"),
             styles: []
         }),
         __metadata("design:paramtypes", [])
-    ], PharmaceuticalDrugComponent);
-    return PharmaceuticalDrugComponent;
+    ], ProductComponent);
+    return ProductComponent;
 }(__WEBPACK_IMPORTED_MODULE_1__bases_base__["a" /* Base */]));
 
-//# sourceMappingURL=pharmaceutical-drug.component.js.map
+//# sourceMappingURL=product.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/pharmaceutical-drug/pharmaceutical-drug.module.ts":
+/***/ "../../../../../src/app/smartity/product/product.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -383,12 +439,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_shared_module__ = __webpack_require__("../../../../../src/app/shared/shared.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pharmaceutical_drug_component__ = __webpack_require__("../../../../../src/app/smartity/pharmaceutical-drug/pharmaceutical-drug.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__product_component__ = __webpack_require__("../../../../../src/app/smartity/product/product.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pharmaceutical_drug_action_pharmaceutical_drug_action_component__ = __webpack_require__("../../../../../src/app/smartity/pharmaceutical-drug/pharmaceutical-drug-action/pharmaceutical-drug-action.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pharmaceutical_drug_list_pharmaceutical_drug_list_component__ = __webpack_require__("../../../../../src/app/smartity/pharmaceutical-drug/pharmaceutical-drug-list/pharmaceutical-drug-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__product_action_product_action_component__ = __webpack_require__("../../../../../src/app/smartity/product/product-action/product-action.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__product_list_product_list_component__ = __webpack_require__("../../../../../src/app/smartity/product/product-list/product-list.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PharmaceuticalDrugModule", function() { return PharmaceuticalDrugModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductModule", function() { return ProductModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -404,11 +460,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var routes = [{ path: '', component: __WEBPACK_IMPORTED_MODULE_4__pharmaceutical_drug_component__["a" /* PharmaceuticalDrugComponent */] }];
-var PharmaceuticalDrugModule = /** @class */ (function () {
-    function PharmaceuticalDrugModule() {
+var routes = [{ path: '', component: __WEBPACK_IMPORTED_MODULE_4__product_component__["a" /* ProductComponent */] }];
+var ProductModule = /** @class */ (function () {
+    function ProductModule() {
     }
-    PharmaceuticalDrugModule = __decorate([
+    ProductModule = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_common__["a" /* CommonModule */],
@@ -416,20 +472,19 @@ var PharmaceuticalDrugModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_3__shared_shared_module__["a" /* SharedModule */],
                 __WEBPACK_IMPORTED_MODULE_5__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
                 __WEBPACK_IMPORTED_MODULE_8__angular_material__["b" /* MatDialogModule */],
-                __WEBPACK_IMPORTED_MODULE_8__angular_material__["u" /* NativeDateModule */],
                 __WEBPACK_IMPORTED_MODULE_8__angular_material__["c" /* MatRippleModule */]
             ],
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_4__pharmaceutical_drug_component__["a" /* PharmaceuticalDrugComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__pharmaceutical_drug_action_pharmaceutical_drug_action_component__["a" /* PharmaceuticalDrugActionComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__pharmaceutical_drug_list_pharmaceutical_drug_list_component__["a" /* PharmaceuticalDrugListComponent */]
+                __WEBPACK_IMPORTED_MODULE_4__product_component__["a" /* ProductComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__product_action_product_action_component__["a" /* ProductActionComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__product_list_product_list_component__["a" /* ProductListComponent */]
             ]
         })
-    ], PharmaceuticalDrugModule);
-    return PharmaceuticalDrugModule;
+    ], ProductModule);
+    return ProductModule;
 }());
 
-//# sourceMappingURL=pharmaceutical-drug.module.js.map
+//# sourceMappingURL=product.module.js.map
 
 /***/ })
 

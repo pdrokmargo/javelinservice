@@ -3,7 +3,7 @@ webpackJsonp([4],{
 /***/ "../../../../../src/app/smartity/suppliers-orders/suppliers-orders-action/suppliers-orders-action.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form #modelForm=\"ngForm\" autocomplete=\"off\">\n    <div class=\"row\">\n        <div class=\"col-sm-12 margin-bottom-40\" [class.btn-action-container]=\"booActive\">\n            <button type=\"button\" mat-raised-button color=\"primary\" (click)=\"goList()\" class=\"btn-w-mat no-margin-left\">\n                <mat-icon>keyboard_arrow_left</mat-icon> Regresar\n            </button>\n        </div>\n        <!--comprador-->\n        <div class=\"col-sm-12 col-md-3 margin-bottom\">\n            <mat-form-field class=\"full-width\">\n                <input required readonly matInput type=\"text\" placeholder=\"Comprador\" [(ngModel)]=\"employee.fullname\"\n                    id=\"employees\" name=\"employees\" />\n                <mat-icon matSuffix class=\"wh-24 pointer\" (click)=\"openAddEmployees()\">search</mat-icon>\n            </mat-form-field>\n        </div>\n        <!-- creado el -->\n      <div class=\"col-md-3 margin-bottom\">\n          <mat-form-field>\n              <input matInput [matDatepicker]=\"pickerCreatedAt\" placeholder=\"Creado el\" [(ngModel)]=\"model.created_at\" name=\"created_at\">\n              <mat-datepicker-toggle matSuffix [for]=\"pickerCreatedAt\"></mat-datepicker-toggle>\n              <mat-datepicker #pickerCreatedAt></mat-datepicker>\n            </mat-form-field>\n      </div>\n    <!-- vence el -->\n    <div class=\"col-md-3 margin-bottom\">\n          <mat-form-field>\n              <input matInput [matDatepicker]=\"pickerExpiredAt\" placeholder=\"Vence el\" [(ngModel)]=\"model.expire_at\" name=\"expired_at\">\n              <mat-datepicker-toggle matSuffix [for]=\"pickerExpiredAt\"></mat-datepicker-toggle>\n              <mat-datepicker #pickerExpiredAt></mat-datepicker>\n            </mat-form-field>\n      </div>\n        <!-- estado -->\n        <div class='col-sm-12 col-md-3 margin-bottom'>\n            <div class=\"flex\">\n                <span class=\"flex-spacer\"></span>\n                <mat-slide-toggle [labelPosition]=\"'before'\" id=\"status\" name=\"status\" [(ngModel)]=\"model.status\">Estado</mat-slide-toggle>\n            </div>\n        </div>\n        <!-- proveedor -->\n        <div class=\"col-sm-12 col-md-4 margin-bottom\">\n            <mat-form-field class=\"full-width\">\n                <input required readonly matInput type=\"text\" placeholder=\"Proveedor\" [(ngModel)]=\"supplier.businessname\"\n                    id=\"supplier\" name=\"supplier\" />\n                <mat-icon matSuffix class=\"wh-24 pointer\" (click)=\"openAddSupplier()\">search</mat-icon>\n            </mat-form-field>\n        </div>\n        <!-- contacto de compras -->\n        <div class='col-sm-12 col-md-4 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <input type=\"text\" name=\"contact_name\" [(ngModel)]=\"contact_name.name_sales_contact\" matInput placeholder=\"Contacto\">\n            </mat-form-field>\n        </div>\n        <!--condiciones de pago-->\n        <div class=\"col-sm-12 col-md-4 margin-bottom\">\n            <mat-form-field>\n            <mat-select class=\"full-width\" placeholder=\"Condición de pago\" [(ngModel)]=\"model.payment_condition_id\" name=\"payment_condition\"\n                id=\"population_type_id\">\n                <mat-option *ngFor=\"let item of arrPayment_condition\" [value]=\"item.id\">{{item.value}}</mat-option>\n            </mat-select>\n        </mat-form-field>\n        </div>\n        <!-- operations/costs centres -->\n        <div class=\"col-sm-12 col-md-4 margin-bottom\">\n            <mat-form-field>\n            <mat-select class=\"full-width\" placeholder=\"Centro de operaciones\" [(ngModel)]=\"model.operationcentre_id\"\n                name=\"operationcentre_id\" id=\"operationcentre_id\">\n                <mat-option *ngFor=\"let item of operations_costs_centres\" [value]=\"item.id\">{{item.name}}</mat-option>\n            </mat-select>\n        </mat-form-field>\n        </div>\n        <!-- bodega destino -->\n        <div class=\"col-sm-12 col-md-4 margin-bottom\">\n            <mat-form-field class=\"full-width\">\n                <input readonly matInput type=\"text\" placeholder=\"Bodega destino\" [(ngModel)]=\"warehouse.name\" id=\"warehouse\"\n                    name=\"warehouse\" />\n                <mat-icon matSuffix class=\"wh-24 pointer\" (click)=\"openModalWarehouse()\">search</mat-icon>\n            </mat-form-field>\n        </div>\n        <!-- entrega estimada -->\n        <div class=\"col-md-3 margin-bottom\">\n            <mat-form-field>\n                <input matInput [matDatepicker]=\"pickerEstimateDelivery\" placeholder=\"Vence el\" [(ngModel)]=\"model.estimate_delivery\" name=\"estimate_delivery\">\n                <mat-datepicker-toggle matSuffix [for]=\"pickerEstimateDelivery\"></mat-datepicker-toggle>\n                <mat-datepicker #pickerEstimateDelivery></mat-datepicker>\n              </mat-form-field>\n        </div>\n    </div>\n\n    <div class=\"row\">\n        <!-- productos -->\n        <div class=\"col-sm-12 margin-bottom\">\n\n            <div class=\"flex margin-bottom\">\n                <div class=\"box-header no-padding-h\">Productos</div>\n                <span class=\"flex-spacer\"></span>\n                <button type=\"button\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left\" (click)=\"openModalProducts()\">Añadir</button>\n            </div>\n            <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n                <table class=\"mdl-data-table table-bordered table-striped no-margin\">\n                    <thead>\n                        <tr>\n                            <th>SKU</th>\n                            <th>Nombre del producto</th>\n                            <th>Cantidad</th>\n                            <th>Precio</th>\n                            <th>Descuento (%)</th>\n                            <th>Sub total</th>\n                            <th></th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                        <tr *ngFor=\"let item of _pharmadrugs; let index = index\">\n                            <td>{{item.sku}}</td>\n                            <td>\n                                {{item.name}}\n                            </td>\n                            <td>\n                                {{item.units}}\n                            </td>\n                            <td>\n                                {{item.cost}}\n                            </td>\n                            <td>\n                                Descuento(%)\n                            </td>\n                            <td>\n                                Subtotal(Int)\n                            </td>\n                            <td class=\"w-40\">\n                                <button type=\"button\" class=\"text-danger\" mat-icon-button (click)=\"deletePharmadrug()\">\n                                    <mat-icon>delete</mat-icon>\n                                </button>\n                            </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </div>\n        </div>\n        <!--notas-->\n        <div class='col-sm-12 col-md-12 margin-bottom'>\n            <mat-form-field class=\"full-width\">\n                <textarea type=\"text\" id=\"notes\" name=\"notes\" [(ngModel)]=\"model.notes\" matInput\n                    placeholder=\"Nota\"></textarea>\n            </mat-form-field>\n        </div>\n\n\n    </div>\n    <div class=\"row\">\n\n        <div class=\"col-sm-12\" [class.btn-action-container]=\"booActive\">\n            <button type=\"button\" [disabled]=\"!modelForm.form.valid\" mat-raised-button class=\"btn-w-mat no-margin-left btn-right\"\n                (click)=\"save()\">{{strAction}}</button>\n        </div>\n    </div>\n</form>"
+module.exports = "<form #modelForm=\"ngForm\" autocomplete=\"off\">\r\n    <div class=\"row form-inline\">\r\n        <div class=\"margin-bottom-40\" style=\"padding-left: 15px;padding-right: 15px;\">\r\n            <button type=\"button\" mat-raised-button color=\"primary\" (click)=\"goList()\"\r\n                class=\"btn-w-mat no-margin-right\">\r\n                <mat-icon>keyboard_arrow_left</mat-icon> Regresar\r\n            </button>\r\n        </div>\r\n        <div *ngIf=\"!model.fullfilled\" class=\"margin-bottom-40\">\r\n            <button type=\"button\" mat-raised-button color=\"primary\" (click)=\"openSupplierQuotesLoad()\"\r\n                class=\"btn-w-mat no-margin-left\">\r\n                <mat-icon>search</mat-icon> Cotización\r\n            </button>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <!--comprador-->\r\n        <div class=\"col-sm-12 col-md-3 margin-bottom\">\r\n            <mat-form-field class=\"full-width\">\r\n                <input required readonly matInput type=\"text\" placeholder=\"Comprador\" [(ngModel)]=\"buyer.fullname\"\r\n                    id=\"employees\" name=\"employees\" />\r\n                <mat-icon matSuffix class=\"wh-24 pointer\" (click)=\"openAddEmployees()\">search</mat-icon>\r\n            </mat-form-field>\r\n        </div>\r\n        <!-- creado el -->\r\n        <div class=\"col-md-3 margin-bottom\">\r\n            <mat-form-field>\r\n                <input matInput readonly placeholder=\"Creado el\" name=\"created_at\"\r\n                    value=\"{{model.created_at | date:'dd/MM/yyyy'}}\">\r\n            </mat-form-field>\r\n        </div>\r\n        <!-- vence el -->\r\n        <div class=\"col-md-3 margin-bottom\">\r\n            <mat-form-field>\r\n                <input matInput [matDatepicker]=\"pickerExpiredAt\" placeholder=\"Vence el\" [min]=\"model.created_at\"\r\n                    [(ngModel)]=\"model.expire_at\" name=\"expired_at\">\r\n                <mat-datepicker-toggle matSuffix [for]=\"pickerExpiredAt\"></mat-datepicker-toggle>\r\n                <mat-datepicker #pickerExpiredAt></mat-datepicker>\r\n            </mat-form-field>\r\n        </div>\r\n        <!-- estado -->\r\n        <div *ngIf=\"!model.fullfilled\" class='col-sm-12 col-md-1 margin-bottom'>\r\n            <div class=\"flex\">\r\n                <span class=\"flex-spacer\"></span>\r\n                <mat-slide-toggle [labelPosition]=\"'before'\" id=\"status\" name=\"status\" [(ngModel)]=\"model.status\">Estado\r\n                </mat-slide-toggle>\r\n            </div>\r\n        </div>\r\n        <!-- cumplida -->\r\n        <div *ngIf=\"model.fullfilled\" class='col-sm-12 col-md-1 margin-bottom'>\r\n            <div class=\"flex\">\r\n                <span class=\"flex-spacer\"></span>\r\n                <mat-slide-toggle [labelPosition]=\"'before'\" [disabled]=\"true\" id=\"fullfilled\" name=\"fullfilled\" [(ngModel)]=\"model.fullfilled\">Cumplida\r\n                </mat-slide-toggle>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\">\r\n        <!-- proveedor -->\r\n        <div class=\"col-sm-12 col-md-3 margin-bottom\">\r\n            <mat-form-field class=\"full-width\">\r\n                <input required readonly matInput type=\"text\" placeholder=\"Proveedor\" [(ngModel)]=\"supplier.fullname\"\r\n                    id=\"supplier\" name=\"supplier\" />\r\n                <mat-icon matSuffix class=\"wh-24 pointer\" (click)=\"openAddSupplier()\">search</mat-icon>\r\n            </mat-form-field>\r\n        </div>\r\n        <!-- contacto de compras -->\r\n        <div class='col-sm-12 col-md-3 margin-bottom'>\r\n            <mat-form-field class=\"full-width\">\r\n                <input type=\"text\" name=\"contact_name\" [(ngModel)]=\"contact_name.name_sales_contact\" matInput\r\n                    placeholder=\"Contacto\">\r\n            </mat-form-field>\r\n        </div>\r\n        <!--condiciones de pago-->\r\n        <div class=\"col-sm-12 col-md-3 margin-bottom\">\r\n            <mat-form-field>\r\n                <mat-select class=\"full-width\" placeholder=\"Condición de pago\" [(ngModel)]=\"model.payment_condition_id\"\r\n                    name=\"payment_condition\" id=\"population_type_id\">\r\n                    <mat-option *ngFor=\"let item of arrPayment_condition\" [value]=\"item.id\">{{item.value}}</mat-option>\r\n                </mat-select>\r\n            </mat-form-field>\r\n        </div>\r\n        <!-- operations/costs centres\r\n        <div class=\"col-sm-12 col-md-3 margin-bottom\">\r\n            <mat-form-field>\r\n                <mat-select class=\"full-width\" placeholder=\"Centro de operaciones\"\r\n                    [(ngModel)]=\"model.operationcentre_id\" name=\"operationcentre_id\" id=\"operationcentre_id\">\r\n                    <mat-option *ngFor=\"let item of operations_costs_centres\" [value]=\"item.id\">{{item.name}}\r\n                    </mat-option>\r\n                </mat-select>\r\n            </mat-form-field>\r\n        </div> -->\r\n    </div>\r\n    <div class=\"row\">\r\n        <!-- bodega destino -->\r\n        <div class=\"col-sm-12 col-md-4 margin-bottom\">\r\n            <mat-form-field class=\"full-width\">\r\n                <input readonly matInput type=\"text\" placeholder=\"Bodega destino\" [(ngModel)]=\"warehouse.name\"\r\n                    id=\"warehouse\" name=\"warehouse\" />\r\n                <mat-icon matSuffix class=\"wh-24 pointer\" (click)=\"openModalWarehouse()\">search</mat-icon>\r\n            </mat-form-field>\r\n        </div>\r\n        <!-- entrega estimada -->\r\n        <div class=\"col-md-3 margin-bottom\">\r\n            <mat-form-field>\r\n                <input matInput [matDatepicker]=\"pickerEstimateDelivery\" [min]=\"model.created_at\"\r\n                    placeholder=\"Entrega estimada\" [(ngModel)]=\"model.estimate_delivery\" name=\"estimate_delivery\">\r\n                <mat-datepicker-toggle matSuffix [for]=\"pickerEstimateDelivery\"></mat-datepicker-toggle>\r\n                <mat-datepicker #pickerEstimateDelivery></mat-datepicker>\r\n            </mat-form-field>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"row\">\r\n        <!-- productos -->\r\n        <div class=\"col-sm-12 margin-bottom\">\r\n\r\n            <div class=\"flex margin-bottom\">\r\n                <div class=\"box-header no-padding-h\">Productos</div>\r\n                <span class=\"flex-spacer\"></span>\r\n                <button [disabled]=\"model.supplier_id == -1 || model.fullfilled\" type=\"button\" mat-raised-button color=\"primary\"\r\n                    class=\"btn-w-md no-margin-left\" (click)=\"openModalProducts()\">Añadir</button>\r\n            </div>\r\n            <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\r\n                <table class=\"mdl-data-table table-bordered table-striped no-margin\">\r\n                    <thead>\r\n                        <tr>\r\n                            <th>PLU\r\n                                <span class=\"glyphicon sort-icon\"\r\n                                    [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\r\n                            </th>\r\n                            <th>Producto\r\n                                <span class=\"glyphicon sort-icon\"\r\n                                    [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\r\n                            </th>\r\n                            <th>Unidades\r\n                                <span class=\"glyphicon sort-icon\"\r\n                                    [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\r\n                            </th>\r\n                            <th>Precio Unitario\r\n                                <span class=\"glyphicon sort-icon\"\r\n                                    [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\r\n                            </th>\r\n                            <th>Descuento (%)\r\n                                <span class=\"glyphicon sort-icon\"\r\n                                    [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\r\n                            </th>\r\n                            <th>Subtotal\r\n                                <span class=\"glyphicon sort-icon\"\r\n                                    [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\r\n                            </th>\r\n                        </tr>\r\n                    </thead>\r\n                    <tbody>\r\n                        <tr *ngFor=\"let detail of model.details;let index = index;\">\r\n                            <td>{{detail.product.sku}}</td>\r\n                            <td>{{detail.product.display_name}}</td>\r\n                            <td>\r\n                                <mat-form-field><input (keyup)=\"totalCost()\" matInput type=\"text\"\r\n                                        [(ngModel)]=\"detail.units\" name=\"units{{index}}\" /></mat-form-field>\r\n                            </td>\r\n                            <td>\r\n                                <mat-form-field>$ <input (keyup)=\"totalCost()\" matInput type=\"text\"\r\n                                        [(ngModel)]=\"detail.product.averageunitcost\" name=\"average{{index}}\" />\r\n                                </mat-form-field>\r\n                            </td>\r\n                            <td>\r\n                                <mat-form-field>% <input (keyup)=\"totalCost()\" matInput type=\"text\"\r\n                                        [(ngModel)]=\"detail.discount\" name=\"discount{{index}}\" /></mat-form-field>\r\n                            </td>\r\n\r\n                            <td>${{ detail.product.averageunitcost * detail.units * (1-(detail.discount/100))}}</td>\r\n                            <td class=\"w-40\">\r\n                                <button type=\"button\" class=\"text-danger\" mat-icon-button\r\n                                    (click)=\"removeProduct(index)\">\r\n                                    <mat-icon>delete</mat-icon>\r\n                                </button>\r\n                            </td>\r\n                        </tr>\r\n                    </tbody>\r\n                </table>\r\n            </div>\r\n        </div>\r\n        <!--notas-->\r\n        <div class='col-sm-12 col-md-12 margin-bottom'>\r\n            <mat-form-field class=\"full-width\">\r\n                <textarea type=\"text\" id=\"notes\" name=\"notes\" [(ngModel)]=\"model.notes\" matInput\r\n                    placeholder=\"Nota\"></textarea>\r\n            </mat-form-field>\r\n        </div>\r\n\r\n\r\n    </div>\r\n    <div class=\"row\">\r\n        <div class=\"col-md-5\">\r\n            <mat-form-field><input readonly matInput placeholder=\"Total ($)\" [(ngModel)]=\"model.total\"\r\n                    name=\"total cost\"></mat-form-field>\r\n        </div>\r\n        <div class=\"col-md-7\" *ngIf=\"!model.fullfilled && numId != undefined\" [class.btn-action-container]=\"booActive\">\r\n            <button type=\"button\" [disabled]=\"!modelForm.form.valid\" mat-raised-button\r\n            class=\"btn-w-mat no-margin-left btn-right\" (click)=\"save()\">{{strAction}}</button>\r\n            <button type=\"button\" [disabled]=\"!modelForm.form.valid\" mat-raised-button\r\n                class=\"btn-w-mat no-margin-left btn-right\" (click)=\"fullfill()\">Cumplida</button>\r\n                \r\n        </div>\r\n        <div *ngIf=\"numId == undefined && !model.fullfilled\" class=\"col-md-7\" [class.btn-action-container]=\"booActive\">\r\n            <button type=\"button\" [disabled]=\"!modelForm.form.valid\" mat-raised-button\r\n                class=\"btn-w-mat no-margin-left btn-right\" (click)=\"save()\">{{strAction}}</button>\r\n        </div>\r\n    </div>\r\n</form>"
 
 /***/ }),
 
@@ -85,7 +85,7 @@ var SuppliersOrdersActionComponent = /** @class */ (function (_super) {
         _this._pharmadrugs = [];
         _this._ips = [];
         _this.supplier = {};
-        _this.employee = {};
+        _this.buyer = {};
         _this._model = {
             delivery_contracts: {
                 status: true,
@@ -102,6 +102,9 @@ var SuppliersOrdersActionComponent = /** @class */ (function (_super) {
         this.getCostCentres();
         if (this.numId !== undefined) {
             this.getDataById();
+        }
+        else {
+            this.model.created_at = new Date();
         }
     };
     SuppliersOrdersActionComponent.prototype.getCollection = function () {
@@ -125,9 +128,33 @@ var SuppliersOrdersActionComponent = /** @class */ (function (_super) {
             _this.loaderService.display(false);
         });
     };
+    SuppliersOrdersActionComponent.prototype.openSupplierQuotesLoad = function () {
+        var _this = this;
+        this.modalSupplierQuotes = this.dialog.open(__WEBPACK_IMPORTED_MODULE_1__modals__["w" /* ModalSupplierQuotesComponent */], {
+            hasBackdrop: false,
+            data: {
+                title: 'Cotizaciones de proveedores',
+                supplier: this.model.supplier_id,
+                option: '2'
+            }
+        });
+        this.modalSupplierQuotes.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9_rxjs_operators__["filter"])(function (supplierQuotes) { return supplierQuotes; })).subscribe(function (supplierQuotes) {
+            _this.model.details = JSON.parse(supplierQuotes.products || []);
+            _this.model.supplier_id = supplierQuotes.supplier_id;
+            _this.supplier = supplierQuotes.stakeholder_info;
+            _this.contact_name["name_sales_contact"] = supplierQuotes.supplier_info.sales_contact.name;
+            _this.model.payment_condition_id = supplierQuotes.payment_condition_id;
+            _this.model.notes = 'Orden realizada a partir de la cotización ' + supplierQuotes.document.prefix + '-' + supplierQuotes.consecutive;
+            _this.totalCost();
+        });
+    };
+    SuppliersOrdersActionComponent.prototype.fullfill = function () {
+        this.model.fullfilled = true;
+        this.save();
+    };
     SuppliersOrdersActionComponent.prototype.save = function () {
         var _this = this;
-        this.model.products = JSON.stringify(this._pharmadrugs || []);
+        this.model.products = JSON.stringify(this.model.details || []);
         console.log(this.model.products);
         this.loaderService.display(true);
         switch (this.strAction) {
@@ -177,8 +204,9 @@ var SuppliersOrdersActionComponent = /** @class */ (function (_super) {
             _this.model = res.data;
             _this.supplier = res['data']['stakeholder_info'] || {};
             _this.warehouse = res['data']['warehouse'] || {};
-            _this.employee = res['data']['buyer'] || {};
-            _this._pharmadrugs = JSON.parse(_this.model.products);
+            _this.buyer = res['data']['buyer'] || {};
+            _this.contact_name = res['data']['supplier_info']['sales_contact'];
+            _this.model.details = JSON.parse(_this.model.products);
             console.log(res);
             if (_this.supplier.businessname == '') {
                 _this.supplier.businessname = _this.supplier.fullname;
@@ -186,6 +214,7 @@ var SuppliersOrdersActionComponent = /** @class */ (function (_super) {
             // if (this.employee.businessname == '') {
             //     this.employee.businessname = this.employee.fullname;
             // }
+            _this.totalCost();
             _this.loaderService.display(false);
         }, function (err) {
             console.log(err);
@@ -193,7 +222,7 @@ var SuppliersOrdersActionComponent = /** @class */ (function (_super) {
         });
     };
     SuppliersOrdersActionComponent.prototype.clean = function () {
-        this.model = {};
+        this.model = { "details": [], "supplier_id": -1 };
         this.model.status = true;
         this._pharmadrugs = [];
         this._conditional_alerts = [];
@@ -203,6 +232,10 @@ var SuppliersOrdersActionComponent = /** @class */ (function (_super) {
     };
     SuppliersOrdersActionComponent.prototype.goList = function () {
         this.comp.openList();
+    };
+    SuppliersOrdersActionComponent.prototype.removeProduct = function (index) {
+        this.model.details.splice(index, 1);
+        this.totalCost();
     };
     SuppliersOrdersActionComponent.prototype.openModalCostumers = function () {
         var _this = this;
@@ -250,11 +283,14 @@ var SuppliersOrdersActionComponent = /** @class */ (function (_super) {
             _this.supplier = stakeHolder;
             _this.contact_name = JSON.parse(stakeHolder.sales_contact);
             _this.model.payment_condition_id = _this.supplier.payment_condition_id;
-            console.log(_this.contact_name['name_sales_contact']);
             _this.model.supplier_id = stakeHolder.id;
+            // this.model.supplier_id = supplierQuotes.supplier_id;
+            // this.supplier = supplierQuotes.stakeholder_info;
+            // this.contact_name["name_sales_contact"] = supplierQuotes.supplier_info.sales_contact.name;
+            // this.model.payment_condition_id = supplierQuotes.payment_condition_id;
         });
     };
-    SuppliersOrdersActionComponent.prototype.openAddEmployee = function () {
+    SuppliersOrdersActionComponent.prototype.openAddEmployees = function () {
         var _this = this;
         this.modalStakeHolderDialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_1__modals__["t" /* ModalStakeholderComponent */], {
             hasBackdrop: false,
@@ -264,11 +300,13 @@ var SuppliersOrdersActionComponent = /** @class */ (function (_super) {
             }
         });
         this.modalStakeHolderDialogRef.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9_rxjs_operators__["filter"])(function (stakeHolder) { return stakeHolder; })).subscribe(function (stakeHolder) {
+            console.log(stakeHolder);
             if (stakeHolder.businessname == '') {
                 stakeHolder.businessname = stakeHolder.name;
             }
-            _this.employee = stakeHolder;
+            _this.buyer["fullname"] = stakeHolder.name;
             _this.model.buyer_employee_id = stakeHolder.id;
+            console.log(_this.buyer);
         });
     };
     SuppliersOrdersActionComponent.prototype.openModalProducts = function () {
@@ -282,26 +320,34 @@ var SuppliersOrdersActionComponent = /** @class */ (function (_super) {
         this.modalProducts.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9_rxjs_operators__["filter"])(function (data) { return data; })).subscribe(function (data) {
             var movement = new Object({
                 "product_id": data.id,
-                "product": { "sku": data.sku, "display_name": data.name },
+                "product": { "sku": data.sku, "display_name": data.name, "averageunitcost": data.averageunitcost, "units": data.units },
                 "batch": "",
                 "fraction": false,
                 "location": "",
                 "expiration_date": "",
                 "units": "",
+                "discount": _this.supplier.global_discount,
                 "unit_cost": ""
             });
             _this.model.details.push(movement);
-            var exist = false;
-            _this._pharmadrugs.forEach(function (element, index) {
-                if (element.name == data.name) {
-                    exist = true;
-                }
-                if (_this._pharmadrugs.length == index + 1) {
-                    if (!exist) {
-                        _this._pharmadrugs.push(data);
-                    }
-                }
-            });
+            // var exist = false;
+            // this._pharmadrugs.forEach((element, index) => {
+            //     if (element.name == data.name) {
+            //         exist = true;
+            //     }
+            //     if (this._pharmadrugs.length == index + 1) {
+            //         if (!exist) {
+            //             this._pharmadrugs.push(data);
+            //         }
+            //     }
+            // });
+        });
+    };
+    SuppliersOrdersActionComponent.prototype.totalCost = function () {
+        var _this = this;
+        this.model.total = 0;
+        this.model.details.forEach(function (element) {
+            _this.model.total = _this.model.total + (element.units * element.product.averageunitcost * (1 - (element.discount / 100)));
         });
     };
     SuppliersOrdersActionComponent.prototype.openModalDeliveryPoints = function () {
@@ -373,79 +419,6 @@ var SuppliersOrdersActionComponent = /** @class */ (function (_super) {
             }
         });
     };
-    SuppliersOrdersActionComponent.prototype.deleteIps = function (item) {
-        this._ips.splice(this._ips.indexOf(item), 1);
-    };
-    SuppliersOrdersActionComponent.prototype.openModalGeolocation = function () {
-        var _this = this;
-        this.modalGeolocation = this.dialog.open(__WEBPACK_IMPORTED_MODULE_1__modals__["s" /* ModalGeolocationComponent */], {
-            hasBackdrop: false,
-            width: '400px',
-            data: { title: 'Ubicación', }
-        });
-        this.modalGeolocation.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9_rxjs_operators__["filter"])(function (data) { return data; })).subscribe(function (data) {
-            if (data) {
-                if (_this.objCapita.detailed_capita == undefined || _this.objCapita.detailed_capita == null) {
-                    _this.objCapita.detailed_capita = [];
-                    _this.objCapita.detailed_capita.push(data);
-                }
-                var exist = false;
-                var isDelete = false;
-                var _data;
-                _this.objCapita.detailed_capita.forEach(function (element, index) {
-                    if (element.city.id == data.city.id) {
-                        exist = true;
-                        if (!element.state) {
-                            isDelete = true;
-                            _data = element;
-                        }
-                    }
-                    if (_this.objCapita.detailed_capita.length - 1 == index) {
-                        if (!exist) {
-                            _this.objCapita.detailed_capita.push(data);
-                        }
-                        if (isDelete) {
-                            _data.state = true;
-                        }
-                    }
-                });
-            }
-        });
-    };
-    SuppliersOrdersActionComponent.prototype.deleteDetailedCapita = function (item) {
-        item.status = false;
-    };
-    SuppliersOrdersActionComponent.prototype.activeperauth_length = function () {
-        if (!this.objEvent.perauth) {
-            this.objEvent.perauth_length = '';
-            this.objEvent.perauth_char_type = '';
-        }
-    };
-    SuppliersOrdersActionComponent.prototype.clearEvent = function () {
-        if (this.booEvento) {
-            this.objEvent = {};
-            this._pharmadrugs.forEach(function (element) {
-                element.fare = '';
-                element.event = false;
-            });
-        }
-    };
-    SuppliersOrdersActionComponent.prototype.clearCapita = function () {
-        if (this.booCapita) {
-            this.objCapita = {};
-            this._pharmadrugs.forEach(function (element) {
-                element.capita = false;
-            });
-        }
-    };
-    SuppliersOrdersActionComponent.prototype.clearPgp = function () {
-        if (this.booPgp) {
-            this.objPgp = {};
-            this._pharmadrugs.forEach(function (element) {
-                element.pgp = false;
-            });
-        }
-    };
     var _a, _b, _c, _d, _e, _f, _g;
     SuppliersOrdersActionComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
@@ -465,7 +438,7 @@ var SuppliersOrdersActionComponent = /** @class */ (function (_super) {
 /***/ "../../../../../src/app/smartity/suppliers-orders/suppliers-orders-list/suppliers-orders-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n            <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\"\n                (keydown)=\"enter($event)\">\n            <div style=\"width: 34px\" class=\"input-group-addon\">\n                <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                    <i class=\"fa fa-search\"></i>\n                </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-md-6\">\n        <button *ngIf=\"actions[0].status\" mat-raised-button (click)=\"CUD('Guardar')\" color=\"primary\" class=\"btn-w-mat no-margin-left btn-right\">\n            <mat-icon>add_circle_outline</mat-icon> Nuevo\n        </button>\n    </div>\n\n    <div class=\"col-sm-12\">\n\n        <div class=\"box box-default table-box table-responsive matl-shadow--2dp\">\n            <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n              <thead>\n                  <tr>\n                      <th class=\"noAuto\" (click)=\"sort('id')\"># Orden\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th (click)=\"sort('supplier_id')\">Proveedor\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='supplier_id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th (click)=\"sort('created_at')\">Fecha de elaboración\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='created_at'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th (click)=\"sort('created_at')\">Fecha de vencimiento\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='created_at'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th (click)=\"sort('status')\">Estado\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='status'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th *ngIf=\"actions[2].status\" class=\"w-40\"></th>\n                      <th *ngIf=\"actions[3].status\" class=\"w-40\"></th>\n                  </tr>\n              </thead>\n              <tbody>\n                  <tr *ngFor=\"let item of list.data\">\n                      <td class=\"noAuto\">{{ item.id }}</td>\n                      <td>{{ item.stakeholder_info.firstname }}</td>\n                      <td>{{ item.created_at }}</td>\n                      <td>{{ item.expire_at }}</td>\n                      <td>{{ item.status ? 'Activo' : 'Inactiva' }}</td>\n                      <td *ngIf=\"actions[2].status\" class=\"w-40\">\n                          <button type=\"button\" mat-icon-button class=\"text-primary\" (click)=\"CUD('Actualizar', item)\">\n                              <mat-icon>mode_edit</mat-icon>\n                          </button>\n                      </td>\n                      <td *ngIf=\"actions[3].status\" class=\"w-40\">\n                          <button type=\"button\" mat-icon-button class=\"text-danger\" (click)=\"CUD('Eliminar', item)\">\n                              <mat-icon>delete</mat-icon>\n                          </button>\n                      </td>\n                  </tr>\n              </tbody>\n          </table>\n\n        </div>\n\n        <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\n            [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n    </div>\n</div>"
+module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n            <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\"\n                (keydown)=\"enter($event)\">\n            <div style=\"width: 34px\" class=\"input-group-addon\">\n                <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                    <i class=\"fa fa-search\"></i>\n                </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-md-6\">\n        <button *ngIf=\"actions[0].status\" mat-raised-button (click)=\"CUD('Guardar')\" color=\"primary\" class=\"btn-w-mat no-margin-left btn-right\">\n            <mat-icon>add_circle_outline</mat-icon> Nuevo\n        </button>\n    </div>\n\n    <div class=\"col-sm-12\">\n\n        <div class=\"box box-default table-box table-responsive matl-shadow--2dp\">\n            <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n              <thead>\n                  <tr>\n                      <th class=\"noAuto\" (click)=\"sort('id')\"># Orden\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th (click)=\"sort('supplier_id')\">Proveedor\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='supplier_id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th (click)=\"sort('created_at')\">Fecha de elaboración\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='created_at'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th (click)=\"sort('created_at')\">Fecha de vencimiento\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='created_at'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th (click)=\"sort('created_at')\">Entrega Estimada\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='created_at'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('created_at')\">Bodega Destino\n                                <span class=\"glyphicon sort-icon\" *ngIf=\"key =='created_at'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                            </th>\n                      <th (click)=\"sort('status')\">Cumplida\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='status'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th *ngIf=\"actions[2].status\" class=\"w-40\"></th>\n                      <th *ngIf=\"actions[3].status\" class=\"w-40\"></th>\n                  </tr>\n              </thead>\n              <tbody>\n                  <tr *ngFor=\"let item of list.data\">\n                    <td>{{ item.document.prefix }}-{{item.consecutive}}</td>\n                      <td>{{ item.stakeholder_info.fullname }}</td>\n                      <td>{{ item.created_at | date:'dd/MM/yyyy'}}</td>\n                      <td>{{ item.expire_at | date:'dd/MM/yyyy'}}</td>\n                      <td>{{ item.estimate_delivery | date:'dd/MM/yyyy'}}</td>\n                      <td>{{ item.warehouse.name }}</td>\n                      <td>{{ item.fullfilled ? 'Cumplida' : 'No Cumplida' }}</td>\n                      <td *ngIf=\"actions[2].status\" class=\"w-40\">\n                          <button type=\"button\" mat-icon-button class=\"text-primary\" (click)=\"CUD('Actualizar', item)\">\n                              <mat-icon>mode_edit</mat-icon>\n                          </button>\n                      </td>\n                      <td *ngIf=\"actions[3].status\" class=\"w-40\">\n                          <button type=\"button\" mat-icon-button class=\"text-danger\" (click)=\"CUD('Eliminar', item)\">\n                              <mat-icon>delete</mat-icon>\n                          </button>\n                      </td>\n                  </tr>\n              </tbody>\n          </table>\n\n        </div>\n\n        <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\n            [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n    </div>\n</div>"
 
 /***/ }),
 
