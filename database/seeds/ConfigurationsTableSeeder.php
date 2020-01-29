@@ -12,6 +12,7 @@ class ConfigurationsTableSeeder extends Seeder
     public function run()
     {
         DB::table('configurations')->delete();
+        $syncs = \App\Models\Configuration::where('code', 'syncs')->first();
         DB::table('configurations')->insert([
             // [
             //     'code' => 'business',
