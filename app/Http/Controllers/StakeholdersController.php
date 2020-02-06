@@ -228,6 +228,7 @@ class StakeholdersController extends Controller
             $customer = $data["customer"];
             $employee = $data["employee"];
             $supplier = $data["supplier"];
+            $laboratory = $data["laboratory"];
             $geolocation=\App\Models\Geolocation::where('country_id', $data['country_id'])
 				->where('department_id', $data['department_id'])
 				->where('city_id', $data['city_id'])
@@ -240,7 +241,8 @@ class StakeholdersController extends Controller
                 "is_maker" => isset($data["profile"]["is_maker"]) ? $data["profile"]["is_maker"] : false,
                 "is_importer" => isset($data["profile"]["is_importer"]) ? $data["profile"]["is_importer"] : false,
                 "is_customer" => isset($data["profile"]["is_customer"]) ? $data["profile"]["is_customer"] : false,
-                "is_holder_sanitary" => isset($data["profile"]["is_holder_sanitary"]) ? $data["profile"]["is_holder_sanitary"] : false
+                "is_holder_sanitary" => isset($data["profile"]["is_holder_sanitary"]) ? $data["profile"]["is_holder_sanitary"] : false,
+                "is_laboratory" => isset($data["profile"]["is_laboratory"]) ? $data["profile"]["is_laboratory"] : false
             ];
             $stakeholder_info_id = \App\Models\StakeholdersInfo::create($stakeholders_info)->id;
             if ($stakeholders_info['person_type_id'] == 39) { $comercial_stakeholders_info['stakeholder_info_id'] = $stakeholder_info_id; \App\Models\ComercialStakeholdersInfo::create($comercial_stakeholders_info); }           
@@ -250,6 +252,7 @@ class StakeholdersController extends Controller
             if ($profile['is_maker']) { \App\Models\Maker::create(['stakeholder_info_id' => $stakeholder_info_id ]); }
             if ($profile['is_importer']) { \App\Models\Importer::create([ 'stakeholder_info_id' => $stakeholder_info_id ]); }
             if ($profile['is_holder_sanitary']) { \App\Models\HealthRecordHolder::create(['stakeholder_info_id' => $stakeholder_info_id ]); }
+            if ($profile['is_laboratory']) { \App\Models\Laboratory::create(['stakeholder_info_id' => $stakeholder_info_id ]); }
             if ($profile['is_customer']) 
             {
                 /*$destinationPath = public_path().'/customer_documents'; 
@@ -331,6 +334,7 @@ class StakeholdersController extends Controller
                 "customer"                      => $customer,
                 "employee"                      => $employee,
                 "supplier"                      => $supplier,
+                "laboratory"                      => $laboratory,
                 "profile"                       => $profile
             ],
             "country_id"    => $country_id,
@@ -366,7 +370,8 @@ class StakeholdersController extends Controller
                 "is_maker"              => isset($data["profile"]["is_maker"])              ? $data["profile"]["is_maker"]              : false,
                 "is_importer"           => isset($data["profile"]["is_importer"])           ? $data["profile"]["is_importer"]           : false,
                 "is_customer"           => isset($data["profile"]["is_customer"])           ? $data["profile"]["is_customer"]           : false,
-                "is_holder_sanitary"    => isset($data["profile"]["is_holder_sanitary"])    ? $data["profile"]["is_holder_sanitary"]    : false
+                "is_holder_sanitary"    => isset($data["profile"]["is_holder_sanitary"])    ? $data["profile"]["is_holder_sanitary"]    : false,
+                "is_laboratory"    => isset($data["profile"]["is_laboratory"])    ? $data["profile"]["is_laboratory"]    : false
             ];
 
             $stakeholders_info_old = \App\Models\StakeholdersInfo::find($id);
@@ -437,6 +442,14 @@ class StakeholdersController extends Controller
                     else 
                     {
                         \App\Models\Maker::firstOrCreate(['stakeholder_info_id' => $id ], ['stakeholder_info_id' => $id ]);
+                    }
+                    if (!$profile['is_laboratory']) 
+                    {
+                        \App\Models\Laboratory::where('stakeholder_info_id', $id)->delete();    
+                    } 
+                    else 
+                    {
+                        \App\Models\Laboratory::firstOrCreate(['stakeholder_info_id' => $id ], ['stakeholder_info_id' => $id ]);
                     }
                     if (!$profile['is_importer']) 
                     { 
