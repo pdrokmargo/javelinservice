@@ -69,11 +69,11 @@ return [
 
         'main' => [
             'driver' => 'pgsql',
-            'host' => 'ec2-54-83-8-246.compute-1.amazonaws.com',
+            'host' => 'myecolombia.com.co',
             'port' => '5432',
-            'database' => 'dem8sdl16mhv0f',
-            'username' => 'gkjggeckynrmwi',
-            'password' => '25560f5195a1642f6f2d8332e58d237b5d66f9db8d147e5a1770a6a641aad791',
+            'database' => 'javelin',
+            'username' => 'javelin',
+            'password' => '123456',
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
