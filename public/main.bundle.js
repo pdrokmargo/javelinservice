@@ -2917,14 +2917,17 @@ var NumberOnlyDirective = /** @class */ (function () {
                 // let it happen, don't do anything
                 return;
             }
-            var ch = String.fromCharCode(e.keyCode);
-            var regEx = new RegExp(this.regexStr);
-            if (regEx.test(ch)) {
-                return;
-            }
-            else {
+            // Ensure that it is a number and stop the keypress
+            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
                 e.preventDefault();
             }
+            // const ch = String.fromCharCode(e.keyCode);
+            // const regEx =  new RegExp(this.regexStr);
+            // if(regEx.test(ch)){
+            //     return;
+            // } else {
+            //     e.preventDefault();
+            // }
         }
     };
     var _a, _b;
@@ -8254,7 +8257,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var padding = "000000";
 var MycurrencyPipe = /** @class */ (function () {
     function MycurrencyPipe() {
-        this.prefix = '';
+        this.prefix = '$';
         this.suffix = '';
         this.decimal_separator = '.';
         this.thousands_separator = ',';
