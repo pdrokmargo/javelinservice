@@ -23,6 +23,23 @@ class DeliveryPointInstallationTableSeeder extends Seeder
         foreach(json_decode($syncs->value, true) as $sync){
             if($sync['down'] == true){
                 DB::connection('local')->table($sync['table_name'])->delete();
+
+                // Companies installation
+                if($sync['table_name'] == 'companies'){
+
+                }
+
+                // Contracts installation
+                if($sync['table_name'] == 'delivery_contracts'){
+                    
+                }
+
+                // Products installation
+                if($sync['table_name'] == 'products'){
+                    
+                }
+
+                // General installation
                 DB::connection('local')->table($sync['table_name'])->insert(json_decode(DB::connection('main')->table($sync['table_name'])->get(), true));
             }
         }

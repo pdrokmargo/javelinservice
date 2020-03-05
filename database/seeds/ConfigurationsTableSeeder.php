@@ -12,6 +12,14 @@ class ConfigurationsTableSeeder extends Seeder
     public function run()
     {
         DB::table('configurations')->delete();
+        $delivery_point = new \App\Models\DeliveryPoint;
+        // $delivery_point->setConnection('main');
+
+        // Here goes the token assigned when delivery point is created. 
+        // $delivery_point = \App\Models\DeliveryPoint::find('203830c0-5e66-11ea-94de-ad04bd0c1d1d');
+        $delivery_point = DB::connection('main')->table('delivery_points')->where('token', '3GfB2MkH')->first();
+        dump($delivery_point);
+
         $syncs = \App\Models\Configuration::where('code', 'syncs')->first();
         DB::table('configurations')->insert([
             // [
@@ -24,19 +32,19 @@ class ConfigurationsTableSeeder extends Seeder
                 'code' => 'main_source',
                 'display' => 'Fuente Principal',
                 'value' => '{"source":"javelin.myecolombia.com.co"}',
-                'company_id' => 1
+                'company_id' => $delivery_point->company_id
             ],
             [
                 'code' => 'active_delivery_point',
                 'display' => 'Punto de Dispensación Activo',
-                'value' => '{"delivery_point_id":"dcaf7460-d0f0-11e8-afb0-17b061a62e2e"}',
-                'company_id' => 1
+                'value' => '{"delivery_point_id":"'.$delivery_point->id.'"}',
+                'company_id' => $delivery_point->company_id
             ],
             [
                 'code' => 'last_sync',
                 'display' => 'Última Sincronización',
                 'value' => '{"date":""}',
-                'company_id' => 1
+                'company_id' => $delivery_point->company_id
             ],
             [
                 'code' => 'syncs',
@@ -95,7 +103,7 @@ class ConfigurationsTableSeeder extends Seeder
                 {"table_name":"views", "up":"false", "down":"true", "last_down": ""},
                 {"table_name":"view_actions", "up":"false", "down":"true", "last_down": ""},
                 {"table_name":"warehouses", "up":"false", "down":"true"}]',
-                'company_id' => 1
+                'company_id' => $delivery_point->company_id
             ],
         ]);
     }

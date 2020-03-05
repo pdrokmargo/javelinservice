@@ -79,6 +79,7 @@ var StakeholdersActionComponent = /** @class */ (function (_super) {
                 bank_accounts: [],
                 sales_contact: {}
             },
+            laboratory: {},
             profile: {}
         };
         _this.document_number_digit = undefined;
@@ -271,6 +272,9 @@ var StakeholdersActionComponent = /** @class */ (function (_super) {
             if (!_this._model.employee) {
                 _this._model.employee = {};
             }
+            if (!_this._model.laboratory) {
+                _this._model.laboratory = {};
+            }
             if (!_this._model.supplier) {
                 _this._model.supplier = {
                     bank_accounts: [],
@@ -296,6 +300,7 @@ var StakeholdersActionComponent = /** @class */ (function (_super) {
                 monopoly_resolution: []
             },
             employee: {},
+            laboratory: {},
             supplier: {
                 bank_accounts: [],
                 sales_contact: {}
