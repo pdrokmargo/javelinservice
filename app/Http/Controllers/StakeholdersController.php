@@ -228,7 +228,7 @@ class StakeholdersController extends Controller
             $customer = $data["customer"];
             $employee = $data["employee"];
             $supplier = $data["supplier"];
-            $laboratory = $data["laboratory"];
+            // $laboratory = isset($data["laboratory"]) ? '%'.strtolower($request->search).'%' : '';          
             $geolocation=\App\Models\Geolocation::where('country_id', $data['country_id'])
 				->where('department_id', $data['department_id'])
 				->where('city_id', $data['city_id'])
