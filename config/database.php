@@ -69,11 +69,11 @@ return [
 
         'main' => [
             'driver' => 'pgsql',
-            'host' => 'myecolombia.com.co',
+            'host' => '159.65.37.80',
             'port' => '5432',
             'database' => 'javelin',
-            'username' => 'javelin',
-            'password' => '123456',
+            'username' => 'javelinuser',
+            'password' => 'jav____2020____LIN',
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
