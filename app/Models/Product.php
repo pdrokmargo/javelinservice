@@ -55,13 +55,14 @@ class Product extends Model
 	
 	public function getDisplayNameAttribute()
 	{
-		if($this->comercial){
-			return $this->product_detail->name . "(<b>". $this->comercial_name . "</b>)";
-		}else{
-			// k$this->product_detail());
-			// $item = $item[0];
-			return $this->product_detail->name;
-		}
+		// if($this->comercial){
+		// 	return $this->product_detail->name . "(<b>". $this->comercial_name . "</b>)";
+		// }else{
+		// 	// k$this->product_detail());
+		// 	// $item = $item[0];
+		// 	return $this->product_detail->name;
+		// }
+		return $this->product_detail->name;
 	}
 
 	public function getAverageunitcostAttribute()
