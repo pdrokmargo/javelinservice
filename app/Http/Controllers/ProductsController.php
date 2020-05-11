@@ -67,6 +67,7 @@ class ProductsController extends Controller
                 ], 500);
             }
             $product=\App\Models\Product::create($data);
+            $data['product_detail']['product_id'] = $product->id;
             $pharma_product =\App\Models\PharmaceuticalDrugProduct::create(
                 $data['product_detail']
             //     [
