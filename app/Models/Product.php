@@ -60,7 +60,7 @@ class Product extends Model
 		}else{
 			// k$this->product_detail());
 			// $item = $item[0];
-			return $this->product_detail->name;
+			return $this->product_detail;
 		}
 	}
 
