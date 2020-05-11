@@ -132,10 +132,13 @@ class ProductsController extends Controller
         try
         {
             $data_new = json_decode($request->data,true);
-            $data_new['pharmaceutical_drug'] = json_encode($data_new['pharmaceutical_drug']);
+            // $data_new['pharmaceutical_drug'] = json_encode($data_new['pharmaceutical_drug']);
             $data_old = \App\Models\Product::find($id);
             $data_old->fill($data_new);
             $data_old->save();
+            $data_old_pivot = \App\Models\PharmaceuticalDrugProduct::where('product_id', $id)->first();
+            $data_old_pivot->fill($data_new['product_detail']);
+            $data_old_pivot->save();
             $this->CreateLog($request->user()->id, 'product', 2,'');
             \App\JavelinFriends\feed_syncs::update_sync($id, 'products');
             DB::commit();

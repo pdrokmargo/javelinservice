@@ -15,6 +15,7 @@ class PharmaceuticalDrugProduct extends Model
         'product_id',
         'pharmaceutical_drug_id',
         'name',
+        'laboratory_id',
         'delivery_fraction',
         'invima_file_record',
         'invima_file_record_consecutive',
