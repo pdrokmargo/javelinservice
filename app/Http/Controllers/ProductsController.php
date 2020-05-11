@@ -58,7 +58,7 @@ class ProductsController extends Controller
         try
         {
             $data = json_decode($request->data, true);
-            $data['pharmaceutical_drug'] = json_encode($data['pharmaceutical_drug']);
+            // $data['pharmaceutical_drug'] = json_encode($data['pharmaceuticaldrug']);
             $is_new = App\Models\Product::where('sku', $data["sku"])->first();
             if($is_new != null){
                 return response()->json([ 
@@ -67,6 +67,23 @@ class ProductsController extends Controller
                 ], 500);
             }
             $product=\App\Models\Product::create($data);
+            $pharma_product =\App\Models\PharmaceuticalDrugProduct::create(
+                $data['product_detail']
+            //     [
+            //     'product_id' => '', 
+            //     'pharmaceutical_drug_id' => '',
+            //     'name' => '',
+            //     'delivery_fraction' => 1,
+            //     'invima_file_record' => '',
+            //     'invima_file_record_consecutive' => '',
+            //     'content_unit_id' => '',
+            //     'packaging_unit_id' => '',
+            //     'sanitary_registration_holder_id' => '',
+            //     'laboratory_id' => '',
+            //     'sanitary_registration' => '',
+            //     'validity_sanitary_registration' => ''
+            // ]
+        );
             \App\JavelinFriends\feed_syncs::save_sync($product->id, 'products');
             DB::commit();
             
