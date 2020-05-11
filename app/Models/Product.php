@@ -58,7 +58,7 @@ class Product extends Model
 		if($this->comercial){
 			return $this->comercial_name;
 		}else{
-			$item = json_encode($this->pharmaceutical_drug);
+			$item = json_encode($this->product_detail());
 			$item = $item[0];
 			return $item["name"];
 		}
