@@ -56,7 +56,7 @@ class Product extends Model
 	public function getDisplayNameAttribute()
 	{
 		if($this->comercial){
-			return $this->comercial_name;
+			return $this->product_detail->name . "(<b>". $this->comercial_name . "</b>)";
 		}else{
 			// k$this->product_detail());
 			// $item = $item[0];
