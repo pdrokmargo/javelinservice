@@ -60,7 +60,7 @@ class Product extends Model
 		}else{
 			$item = json_encode($this->pharmaceutical_drug);
 			$item = $item[0];
-			return $this->item["name"];
+			return $item["name"];
 		}
 	}
 
