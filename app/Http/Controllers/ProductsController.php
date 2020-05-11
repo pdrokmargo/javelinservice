@@ -95,7 +95,7 @@ class ProductsController extends Controller
     {
         $data = \App\Models\Product::with(['manufacturer', 'importer'])->where('id',$id)->first();
         if($data->product_type_id == 30){
-            $data = $data->load('product_detail.laboratory.stakeholderInfo');
+            $data = $data->load('product_detail');
         }
         return response()->json([ "data" => $data ], 200);
     }

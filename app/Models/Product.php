@@ -50,9 +50,15 @@ class Product extends Model
 	// 	'pharmaceutical_drug' => 'array'
 	// ];
 
-	protected $appends = ['display_name', 'averageunitcost'];
+	protected $appends = ['display_name', 'averageunitcost', 'laboratory_name'];
 
-	
+	public function getLaboratoryNameAttribute()
+	{
+		if($this->product_type_id == 30){
+			return $this->product_detail->laboratory->stakeholderInfo->fullname;
+		}
+		
+	}
 	public function getDisplayNameAttribute()
 	{
 		// if($this->comercial){
