@@ -59,7 +59,7 @@ class ProductsController extends Controller
         {
             $data = json_decode($request->data, true);
             // $data['pharmaceutical_drug'] = json_encode($data['pharmaceuticaldrug']);
-            $is_new = App\Models\Product::where('sku', $data["sku"])->first();
+            $is_new = \App\Models\Product::where('sku', $data["sku"])->first();
             if($is_new != null){
                 return response()->json([ 
                     "store" => false, 
