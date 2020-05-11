@@ -158,6 +158,7 @@ class StakeholdersController extends Controller
             ->join('geolocations as g', 'i.geolocation_id', '=', 'g.id')
             ->select(DB::raw("
                 i.id, 
+                x.id as stk_id,
                 concat(i.firstname,' ', i.middlename, ' ', i.lastname) as name,
                 i.person_type_id,
                 i.document_number,
