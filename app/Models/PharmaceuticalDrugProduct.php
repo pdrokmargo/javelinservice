@@ -30,7 +30,7 @@ class PharmaceuticalDrugProduct extends Model
     }
     public function laboratory()
 	{
-		 return $this->belongsTo('App\Models\StakeholdersInfo', 'laboratory_id'); 
+		 return $this->belongsTo('App\Models\Laboratory', 'laboratory_id'); 
 	}
     
     public function pharmaceuticaldrug()
