@@ -24,9 +24,9 @@ class PharmaceuticalDrugsController extends Controller
             
 
             if($search !='') {
-                $query=\App\Models\PharmaceuticalDrugProduct::whereRaw("lower(name) like ?", array($search))->orderBy($ordername, $ordertype);
+                $query=\App\Models\PharmaceuticalDrug::whereRaw("lower(name) like ?", array($search))->orderBy($ordername, $ordertype);
             }else{
-                $query=\App\Models\PharmaceuticalDrugProduct::orderBy($ordername, $ordertype);
+                $query=\App\Models\PharmaceuticalDrug::orderBy($ordername, $ordertype);
             }          
             
             $data=[];  
