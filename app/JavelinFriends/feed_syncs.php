@@ -26,7 +26,7 @@ class feed_syncs
             if($sync_af != null){
                 \DB::table('syncs')->where('key', $table_name.$id)->update(['date' => \Carbon\Carbon::now()]);
             }else{
-                echo 'it seems the sync record is already created and we are running over the update.';
+                // echo 'it seems the sync record is already created and we are running over the update.';
             }
         } catch(\Illuminate\Database\QueryException $ex){
 
