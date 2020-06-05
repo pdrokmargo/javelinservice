@@ -17,7 +17,7 @@ class ConfigurationsTableSeeder extends Seeder
 
         // Here goes the token assigned when delivery point is created. 
         // $delivery_point = \App\Models\DeliveryPoint::find('203830c0-5e66-11ea-94de-ad04bd0c1d1d');
-        $delivery_point = DB::connection('main')->table('delivery_points')->where('token', '3GfB2MkH')->first();
+        $delivery_point = DB::connection('main')->table('delivery_points')->where('token', 'hZUbaSM2')->first();
         dump($delivery_point);
 
         $syncs = \App\Models\Configuration::where('code', 'syncs')->first();
@@ -49,7 +49,7 @@ class ConfigurationsTableSeeder extends Seeder
             [
                 'code' => 'syncs',
                 'display' => 'Sincronización',
-                'value' => '[{"table_name":"affiliates", "up":"true", "down":"true", "last_down":"", "last_down": ""}, 
+                'value' => '[{"table_name":"affiliates", "up":"true", "down":"true", "last_down": ""}, 
                 {"table_name":"products", "up":"false", "down":"true", "last_down": ""}, 
                 {"table_name":"active_ingredients", "up":"false", "down":"true", "last_down": ""}, 
                 {"table_name":"active_ingredients_pharmaceutical_drugs", "up":"false", "down":"true", "last_down": ""}, 
@@ -88,8 +88,8 @@ class ConfigurationsTableSeeder extends Seeder
                 {"table_name":"prices_contracts", "up":"false", "down":"true", "last_down": ""},
                 {"table_name":"privileges", "up":"false", "down":"true", "last_down": ""},
                 {"table_name":"products_contracts", "up":"false", "down":"true", "last_down": ""},
-                {"table_name":"remissions_goods", "up":"true", "down":"true", "last_down": ""},
-                {"table_name":"remissions_goods_details", "up":"true", "down":"true", "last_down": ""},
+                {"table_name":"remissions_goods", "up":"true", "down":"false", "last_down": ""},
+                {"table_name":"remissions_goods_details", "up":"true", "down":"false", "last_down": ""},
                 {"table_name":"sales_representatives", "up":"false", "down":"true", "last_down": ""},
                 {"table_name":"stakeholders_info", "up":"false", "down":"true", "last_down": ""},
                 {"table_name":"stocks_products", "up":"true", "down":"true", "last_down": ""},
