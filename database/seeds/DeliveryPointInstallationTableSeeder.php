@@ -14,7 +14,7 @@ class DeliveryPointInstallationTableSeeder extends Seeder
     {
         // Cartagena Alto Costo: hZUbaSM2
         // $token = '3GfB2MkH';
-        $token = 'hZUbaSM2';
+        // $token = 'hZUbaSM2';
         try{
         $delivery_point = DB::connection('main')->table('delivery_points')->where('token', $token)->first();
         $syncs = \App\Models\Configuration::where('code', 'syncs')->first();
