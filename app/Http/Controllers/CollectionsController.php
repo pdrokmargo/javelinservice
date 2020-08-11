@@ -23,7 +23,7 @@ class CollectionsController extends Controller
     public function departamentos(Request $request){
         $rs = [];
         $pais_id = $request->pais_id;
-        $arr = \App\Models\CollectionsValues::where('parent_id',$pais_id)->get();
+        $arr = \App\Models\CollectionsValues::where('parent_id',$pais_id)->where('collection_id', '>', 0)->get();
         $rs["departamentos"] = $arr;
         return response()->json($rs,200);
     }
@@ -31,7 +31,7 @@ class CollectionsController extends Controller
     public function ciudades(Request $request){
         $rs = [];
         $departamento_id = $request->departamento_id;
-        $arr = \App\Models\CollectionsValues::where('parent_id',$departamento_id)->get();
+        $arr = \App\Models\CollectionsValues::where('parent_id',$departamento_id)->where('collection_id', '>', 0)->get();
         $rs["ciudades"] = $arr;
         return response()->json($rs,200);
     }

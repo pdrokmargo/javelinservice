@@ -13,7 +13,7 @@ class DeliveryPointInstallationTableSeeder extends Seeder
     public function run()
     {
         // Cartagena Alto Costo: hZUbaSM2
-        // $token = '3GfB2MkH';
+        // $token = '3GfB2MkH'; Punto43B
         // $token = 'hZUbaSM2';
         try{
         $delivery_point = DB::connection('main')->table('delivery_points')->where('token', $token)->first();

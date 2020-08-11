@@ -23,9 +23,9 @@ class CollectionsValuesTableSeeder extends Seeder
             //Countries
                 /*7*/['collection_id' => '3', 'parent_id' => 0, 'code' => '169-colombia', 'value' => 'Colombia'],
             //Departaments
-                /*8*/['collection_id' => '4', 'parent_id' => 7, 'code' => '08-atlantico', 'value' => 'Atlántico'],
-                /*9*/['collection_id' => '4', 'parent_id' => 7,'code' => '47-magdalena', 'value' => 'Magdalena'],
-                /*10*/['collection_id' => '4', 'parent_id' => 7,'code' => '13-bolivar', 'value' => 'Bolívar'],
+                /*8*/['collection_id' => '-4', 'parent_id' => 7, 'code' => '08-atlantico', 'value' => 'Atlántico'],
+                /*9*/['collection_id' => '-4', 'parent_id' => 7,'code' => '47-magdalena', 'value' => 'Magdalena'],
+                /*10*/['collection_id' => -'4', 'parent_id' => 7,'code' => '13-bolivar', 'value' => 'Bolívar'],
             //Cities, Towns, etc
                 /*11*/['collection_id' => '-5', 'parent_id' => 8, 'code' => '001-barranquilla', 'value' => 'Barranquilla'],
             //TYPES_OF_DOCUMENTS
@@ -127,7 +127,7 @@ class CollectionsValuesTableSeeder extends Seeder
             /*73*/["collection_id" => 29, "parent_id" => 0, "code" => "contributivo", "value" => "Contributivo"],
 
             // DELIVERY_POINTS_GROUPS
-            /*74*/["collection_id" => 30, "parent_id" => 0, "code" => "zonaatlantico", "value" => "Zona Atlántico"],
+            /*74*/["collection_id" => 30, "parent_id" => 0, "code" => "zonanorte", "value" => "Zona Norte"],
 
             // AUTH_CHAR_TYPE
             /*75*/["collection_id" => 31, "parent_id" => 0, "code" => "numerico", "value" => "Numérico"],
@@ -1607,6 +1607,8 @@ class CollectionsValuesTableSeeder extends Seeder
             /*1478*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'garrafa', 'value' => 'Garrafa'],
             /*1479*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'spray', 'value' => 'Spray'],
             /*1480*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'unidad-content-unit', 'value' => 'Unidad'],
+
+            
         ]);
     }
 }
