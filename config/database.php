@@ -93,7 +93,7 @@ return [
             ],
         'main' => [
             'driver' => 'pgsql',
-            'host' => env('DB_CONNECTION', 'ec2-3-214-4-151.compute-1.amazonaws.com'),
+            'host' => env('DB_HOST', 'ec2-3-214-4-151.compute-1.amazonaws.com'),
             'port' => env('DB_PORT', 'doqc8fbi8s9sp'),
             'database' => env('DB_DATABASE', 'doqc8fbi8s9sp'),
             'username' => env('DB_USERNAME', 'zoncngyypoqqqh'),
