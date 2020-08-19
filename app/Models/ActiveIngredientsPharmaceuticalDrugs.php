@@ -11,6 +11,7 @@ class ActiveIngredientsPharmaceuticalDrugs extends Model
     public $incrementing = false;
     protected $appends = array('measurement_unit','active_ingredient');
     protected $fillable = [
+        'id',
         'active_ingredient_id',
         'pharmaceutical_drug_id',
         'measurement_unit_id',

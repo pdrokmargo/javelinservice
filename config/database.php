@@ -91,6 +91,18 @@ return [
                 'schema' => 'public',
                 'sslmode' => 'prefer',
             ],
+            'local_test' => [
+                'driver' => 'pgsql',
+                'host' => env('DB_HOST', 'localhost'),
+                'port' => env('DB_PORT', '5432'),
+                'database' => env('DB_DATABASE', 'javelin_test'),
+                'username' => env('DB_USERNAME', 'postgres'),
+                'password' => env('DB_PASSWORD', '123456'),
+                'charset' => 'utf8',
+                'prefix' => '',
+                'schema' => 'public',
+                'sslmode' => 'prefer',
+            ],
         'main' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', 'ec2-3-214-4-151.compute-1.amazonaws.com'),
