@@ -60,7 +60,6 @@ class PharmaceuticalDrugsController extends Controller
             foreach ($data["active_ingredients"] as $i) {
                 $i["pharmaceutical_drug_id"] = $id;
                 $i["active_ingredient_id"] = $i["id"];
-                unset($i["id"]);
                 $ai_pharma["pharmaceutical_drug_id"] = $i["pharmaceutical_drug_id"];
                 $ai_pharma["active_ingredient_id"] = $i["active_ingredient_id"];
                 $ai_pharma["measurement_unit_id"] = $i["measurement_unit_id"];

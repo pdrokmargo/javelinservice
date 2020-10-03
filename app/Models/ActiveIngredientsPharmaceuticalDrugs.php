@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ActiveIngredientsPharmaceuticalDrugs extends Model
 {
+    use \App\Uuids;
     public $timestamps = false;
     protected $table = 'active_ingredients_pharmaceutical_drugs';    
     public $incrementing = false;
