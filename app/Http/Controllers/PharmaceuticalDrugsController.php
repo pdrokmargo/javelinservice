@@ -60,6 +60,7 @@ class PharmaceuticalDrugsController extends Controller
             foreach ($data["active_ingredients"] as $i) {
                 $i["pharmaceutical_drug_id"] = $id;
                 $i["active_ingredient_id"] = $i["id"];
+                unset($i["id"]);
                 \App\Models\ActiveIngredientsPharmaceuticalDrugs::create($i);
             }
             $this->CreateLog($request->user()->id, 'pharmaceutical-drug', 1,'');
@@ -127,6 +128,7 @@ class PharmaceuticalDrugsController extends Controller
             foreach ($data_new["active_ingredients"] as $i) {
                 $i["pharmaceutical_drug_id"] = $id;
                 $i["active_ingredient_id"] = $i["id"];
+                unset($i["id"]);
                 \App\Models\ActiveIngredientsPharmaceuticalDrugs::create($i);
             }
 
