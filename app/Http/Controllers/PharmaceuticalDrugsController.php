@@ -61,7 +61,11 @@ class PharmaceuticalDrugsController extends Controller
                 $i["pharmaceutical_drug_id"] = $id;
                 $i["active_ingredient_id"] = $i["id"];
                 unset($i["id"]);
-                \App\Models\ActiveIngredientsPharmaceuticalDrugs::create($i);
+                $ai_pharma["pharmaceutical_drug_id"] = $i["pharmaceutical_drug_id"];
+                $ai_pharma["active_ingredient_id"] = $i["active_ingredient_id"];
+                $ai_pharma["measurement_unit_id"] = $i["measurement_unit_id"];
+                $ai_pharma["concentration"] = $i["concentration"];
+                \App\Models\ActiveIngredientsPharmaceuticalDrugs::create($ai_pharma);
             }
             $this->CreateLog($request->user()->id, 'pharmaceutical-drug', 1,'');
             DB::commit();
