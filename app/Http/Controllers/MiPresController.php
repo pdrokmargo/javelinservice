@@ -7,15 +7,15 @@ use GuzzleHttp\Client;
 
 class MiPresController extends Controller
 {
-    private $baseUrl = 'https://wsmipres.sispro.gov.co/WSSUMMIPRESNOPBS';
+    private $baseUrl = 'https://wsmipres.sispro.gov.co/WSSUMMIPRESNOPBS/api/';
     private $mainToken = '525FE1ED-00E2-4364-9F5D-7612B8B1E21E';
     private $nit = '802024817';
     private $secondToken = '';
 
     public function generateToken()
     {
-        $client = new Client(['base_uri' => $this->baseUrl]);
-        $this->secondToken = $client->request('GET', 'api/GenerarToken/'.$this->nit.'/'.$this->mainToken);
+        $client = new Client();
+        $this->secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken);
         return $this->secondToken;
     }
     public function direccionamientoXFecha(Request $request)
