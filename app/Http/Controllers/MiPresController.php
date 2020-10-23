@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Request;
 
 class MiPresController extends Controller
 {
@@ -27,8 +28,8 @@ class MiPresController extends Controller
     public function direccionamientoXPrescripcion(Request $request, $prescription)
     {
         $this->generateToken();
-        $client = new Client();
-        $res = $client->request('GET', $this->baseUrl.'DireccionamientoXPrescripcion/'.$this->nit.'/'.$this->secondToken.'/'.$prescription);
+        $r = new Request();
+        $res = $r->request('GET', $this->baseUrl.'DireccionamientoXPrescripcion/'.$this->nit.'/'.$this->secondToken.'/'.$prescription);
         // $res = (string)$res->getBody();
         return $res;
         // return response()->json([ 
