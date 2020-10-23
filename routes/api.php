@@ -136,7 +136,9 @@ Route::middleware('auth:api')->group(function () {
     Route::resource('deliveries','DeliveriesController');
     Route::get('scheduled-deliveries/{affiliate_id}','DeliveriesController@scheduled_deliveries');
     Route::get('affiliate-deliveries/{affiliate_id}','DeliveriesController@affiliate_deliveries');
-    
+
+
+    Route::get('mipres/generateToken','MiPresController@generateToken');
 
 });
 
