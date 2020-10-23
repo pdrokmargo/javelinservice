@@ -28,7 +28,8 @@ class MiPresController extends Controller
     {
         $this->generateToken();
         $client = new Client();
-        $res = (string)$client->request('GET', $this->baseUrl.'DireccionamientoXPrescripcion/'.$this->nit.'/'.$this->secondToken.'/'.$prescription)->getBody();
+        $res = $client->request('GET', $this->baseUrl.'DireccionamientoXPrescripcion/'.$this->nit.'/'.$this->secondToken.'/'.$prescription);
+        $res = (string)$res->getBody();
         return response()->json([ 
             "object" => $res 
         ], 200);
