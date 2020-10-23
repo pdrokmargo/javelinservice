@@ -139,6 +139,7 @@ Route::middleware('auth:api')->group(function () {
 
 
     Route::get('mipres/generateToken','MiPresController@generateToken');
+    Route::get('mipres/prescriptionAddressing/{prescription}','MiPresController@direccionamientoXPrescripcion');
 
 });
 
