@@ -1,4 +1,4 @@
-webpackJsonp([29],{
+webpackJsonp([30],{
 
 /***/ "../../../../../src async recursive":
 /***/ (function(module, exports, __webpack_require__) {
@@ -6,115 +6,119 @@ webpackJsonp([29],{
 var map = {
 	"./auth/authentication.module": [
 		"../../../../../src/app/auth/authentication.module.ts",
-		23
+		24
 	],
 	"app/smartity/affiliates/affiliates.module": [
 		"../../../../../src/app/smartity/affiliates/affiliates.module.ts",
-		21
+		22
 	],
 	"app/smartity/auditoria/auditoria.module": [
 		"../../../../../src/app/smartity/auditoria/auditoria.module.ts",
-		26
+		27
 	],
 	"app/smartity/billing/billing.module": [
 		"../../../../../src/app/smartity/billing/billing.module.ts",
-		20
+		21
 	],
 	"app/smartity/company/company.module": [
 		"../../../../../src/app/smartity/company/company.module.ts",
-		19
+		20
 	],
 	"app/smartity/configuration/configuration.module": [
 		"../../../../../src/app/smartity/configuration/configuration.module.ts",
-		25
+		26
 	],
 	"app/smartity/costscentres/costscentres.module": [
 		"../../../../../src/app/smartity/costscentres/costscentres.module.ts",
-		18
+		19
 	],
 	"app/smartity/customers-quotes/customers-quotes.module": [
 		"../../../../../src/app/smartity/customers-quotes/customers-quotes.module.ts",
-		17
+		18
 	],
 	"app/smartity/dashboard/dashboard.module": [
 		"../../../../../src/app/smartity/dashboard/dashboard.module.ts",
-		27
+		28
 	],
 	"app/smartity/delivery-contracts/delivery-contracts.module": [
 		"../../../../../src/app/smartity/delivery-contracts/delivery-contracts.module.ts",
-		16
+		17
 	],
 	"app/smartity/delivery-points/delivery-points.module": [
 		"../../../../../src/app/smartity/delivery-points/delivery-points.module.ts",
-		15
+		16
 	],
 	"app/smartity/delivery/delivery.module": [
 		"../../../../../src/app/smartity/delivery/delivery.module.ts",
-		14
+		15
 	],
 	"app/smartity/inventory-adjustments/inventory-adjustments.module": [
 		"../../../../../src/app/smartity/inventory-adjustments/inventory-adjustments.module.ts",
-		13
+		14
 	],
 	"app/smartity/inventory-audit/inventory-audit.module": [
 		"../../../../../src/app/smartity/inventory-audit/inventory-audit.module.ts",
-		12
+		13
 	],
 	"app/smartity/inventory-movements-entry/inventory-movements-entry.module": [
 		"../../../../../src/app/smartity/inventory-movements-entry/inventory-movements-entry.module.ts",
-		11
+		12
 	],
 	"app/smartity/inventory-movements-out/inventory-movements-out.module": [
 		"../../../../../src/app/smartity/inventory-movements-out/inventory-movements-out.module.ts",
-		10
+		11
+	],
+	"app/smartity/mipres/mipres.module.ts": [
+		"../../../../../src/app/smartity/mipres/mipres.module.ts",
+		0
 	],
 	"app/smartity/my-profile/my-profile.module": [
 		"../../../../../src/app/smartity/my-profile/my-profile.module.ts",
-		24
+		25
 	],
 	"app/smartity/operationscentre/operationscentre.module": [
 		"../../../../../src/app/smartity/operationscentre/operationscentre.module.ts",
-		9
+		10
 	],
 	"app/smartity/pharmaceutical-drug/pharmaceutical-drug.module": [
 		"../../../../../src/app/smartity/pharmaceutical-drug/pharmaceutical-drug.module.ts",
-		8
+		9
 	],
 	"app/smartity/product/product.module": [
 		"../../../../../src/app/smartity/product/product.module.ts",
-		7
+		8
 	],
 	"app/smartity/remission-goods/remission-goods.module": [
 		"../../../../../src/app/smartity/remission-goods/remission-goods.module.ts",
-		6
+		7
 	],
 	"app/smartity/stakeholders/stakeholders.module": [
 		"../../../../../src/app/smartity/stakeholders/stakeholders.module.ts",
-		5
+		6
 	],
 	"app/smartity/stocks/stocks.module": [
 		"../../../../../src/app/smartity/stocks/stocks.module.ts",
-		22
+		23
 	],
 	"app/smartity/suppliers-orders/suppliers-orders.module": [
 		"../../../../../src/app/smartity/suppliers-orders/suppliers-orders.module.ts",
-		4
+		5
 	],
 	"app/smartity/suppliers-quotes/suppliers-quotes.module": [
 		"../../../../../src/app/smartity/suppliers-quotes/suppliers-quotes.module.ts",
-		3
+		4
 	],
 	"app/smartity/userprofile/userprofile.module": [
 		"../../../../../src/app/smartity/userprofile/userprofile.module.ts",
-		2
+		3
 	],
 	"app/smartity/users/users.module": [
 		"../../../../../src/app/smartity/users/users.module.ts",
-		1
+		2
 	],
 	"app/smartity/warehouse/warehouse.module": [
 		"../../../../../src/app/smartity/warehouse/warehouse.module.ts",
-		0
+		1
 	]
 };
 function webpackAsyncContext(req) {
@@ -1007,6 +1011,8 @@ var routes = [
             { path: 'costs-centres', loadChildren: 'app/smartity/costscentres/costscentres.module#CostscentresModule', canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_guards_privilege_guard__["a" /* PrivilegeGuard */]] },
             { path: 'product', loadChildren: 'app/smartity/product/product.module#ProductModule', canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_guards_privilege_guard__["a" /* PrivilegeGuard */]] },
             { path: 'pharmaceutical-drug', loadChildren: 'app/smartity/pharmaceutical-drug/pharmaceutical-drug.module#PharmaceuticalDrugModule', canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_guards_privilege_guard__["a" /* PrivilegeGuard */]] },
+            { path: 'mipres-supplier', loadChildren: 'app/smartity/mipres/mipres.module.ts#MipresModule', canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_guards_privilege_guard__["a" /* PrivilegeGuard */]] },
+            { path: 'mipres-delivery', loadChildren: 'app/smartity/mipres/mipres.module.ts#MipresModule', canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_guards_privilege_guard__["a" /* PrivilegeGuard */]] },
             { path: 'delivery-contracts', loadChildren: 'app/smartity/delivery-contracts/delivery-contracts.module#DeliveryContractsModule', canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_guards_privilege_guard__["a" /* PrivilegeGuard */]] },
             { path: 'delivery-points', loadChildren: 'app/smartity/delivery-points/delivery-points.module#DeliveryPointsModule', canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_guards_privilege_guard__["a" /* PrivilegeGuard */]] },
             { path: 'affiliates', loadChildren: 'app/smartity/affiliates/affiliates.module#AffiliatesModule', canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_guards_privilege_guard__["a" /* PrivilegeGuard */]] },
@@ -1969,6 +1975,9 @@ var HelperService = /** @class */ (function () {
         this.authService = authService;
         this.baseUrl = authService.urlBase;
     }
+    HelperService.prototype.GETRAW = function (url) {
+        return this.http.get('https://wsmipres.sispro.gov.co/WSSUMMIPRESNOPBS/' + url, this.headersRaw());
+    };
     HelperService.prototype.GET = function (url) {
         return this.http.get(this.baseUrl + url, this.headers());
     };
@@ -1991,6 +2000,12 @@ var HelperService = /** @class */ (function () {
         var header = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Headers */]({
             "Accept": "application/json",
             "Authorization": "Bearer " + JSON.parse(localStorage.getItem('currentUser'))["access_token"]
+        });
+        return new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* RequestOptions */]({ headers: header });
+    };
+    HelperService.prototype.headersRaw = function () {
+        var header = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Headers */]({
+            "Accept": "application/json"
         });
         return new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* RequestOptions */]({ headers: header });
     };
@@ -2494,6 +2509,7 @@ var BaseList = /** @class */ (function () {
         this.loaderService = loaderService;
         this.helperService = helperService;
         this.list = [];
+        this.rawData = [];
         this.search = '';
         this.urlApi = '';
         this.key = null;
@@ -2513,6 +2529,24 @@ var BaseList = /** @class */ (function () {
     BaseList.prototype.fillPagination = function (data) {
         this.paginationSize = data.total;
         this.pageSize = data.per_page;
+    };
+    BaseList.prototype.getRaw = function (url) {
+        var _this = this;
+        this.loaderService.display(true);
+        if (url == undefined) {
+            url = '';
+        }
+        this.helperService
+            .GETRAW(url)
+            .map(function (response) {
+            var res = response.json();
+            _this.rawData = res.data;
+        })
+            .subscribe(function (error) {
+            _this.loaderService.display(false);
+        }, function (done) {
+            _this.loaderService.display(false);
+        });
     };
     BaseList.prototype.getAll = function (filter) {
         var _this = this;

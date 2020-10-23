@@ -1,20 +1,104 @@
 webpackJsonp([24],{
 
-/***/ "../../../../../src/app/smartity/my-profile/my-profile.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<section class=\"chapter\">\n    <section class=\"hero\">\n        <div class=\"hero-content\">\n            <h1 class=\"hero-title\">Mi perfil</h1>\n        </div>\n        <p class=\"hero-tagline\">\n            A través de esta opción, usted podrá administrar la información de usuario.\n        </p>\n    </section>\n    <article class=\"article padding-lg-v article-dark article-bordered\">\n        <div class=\"container-fluid with-maxwidth\">\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"box box-default\">\n                        <div class=\"box-body\">\n                            <div class=\"ibox-plain\">\n\n                                <form [hidden]=\"formActive == 'formPass'\" #modelForm=\"ngForm\" autocomplete=\"off\">\n                                    <div class=\"row\">\n\n                                        <div class=\"col-sm-12 col-md-6 col-lg-6\">\n                                            <div class=\"box-body\">    \n                                                <mat-form-field class=\"full-width\">\n                                                    <input type=\"text\" readonly id=\"firstname\" name=\"firstname\" [(ngModel)]=\"model.firstname\" matInput placeholder=\"Nombres\">\n                                                </mat-form-field>\n                                            </div>\n                                        </div>\n\n                                        <div class=\"col-sm-12 col-md-6 col-lg-6\">\n                                            <div class=\"box-body\">    \n                                                <mat-form-field class=\"full-width\">\n                                                    <input type=\"text\" readonly id=\"lastname\" name=\"lastname\" [(ngModel)]=\"model.lastname\" matInput placeholder=\"Apellidos\">\n                                                </mat-form-field>\n                                            </div>\n                                        </div>\n\n                                        <div class=\"col-sm-12 col-md-6 col-lg-6\">\n                                            <div class=\"box-body\">    \n                                                <mat-form-field class=\"full-width\">\n                                                    <input type=\"text\" readonly id=\"username\" name=\"username\" [(ngModel)]=\"model.username\" matInput placeholder=\"Usuario\">\n                                                </mat-form-field>\n                                            </div>\n                                        </div>\n\n                                        <div class=\"col-sm-12 col-md-6 col-lg-6\">\n                                            <div class=\"box-body\">    \n                                                <mat-form-field class=\"full-width\">\n                                                    <input type=\"email\" readonly id=\"email\" name=\"email\" [(ngModel)]=\"model.email\" matInput placeholder=\"Correo electrónico\">\n                                                </mat-form-field>\n                                            </div>\n                                        </div>\n\n                                        <div class='col-sm-12 col-md-6'>\n                                            <mat-form-field class=\"full-width\">                            \n                                                <mat-select required class=\"full-width\" placeholder=\"Empresa por defecto\" [(ngModel)]=\"model.company_default_id\" name=\"company_default_id\"\n                                                id=\"company_default_id\">\n                                                    <mat-option *ngFor=\"let item of model.usersprivileges\" [value]=\"item.company.id\">{{item.company.name}}</mat-option>\n                                                </mat-select>    \n                                            </mat-form-field>                                                               \n                                        </div>\n\n                                        <div class=\"col-sm-12\" [class.btn-action-container]=\"booActive\">\n                                                \n                                            <button [disabled]=\"action_active ? false : !modelForm.form.valid\" mat-raised-button color=\"primary\"\n                                            class=\"btn-w-md no-margin-left btn-right\" (click)=\"updateProfile()\">Guardar</button>\n                                          \n                                            <button mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left btn-right\" (click)=\"formActive = 'formPass'\">Cambiar contraseña</button>\n\n                                        </div>\n                                     \n                                        <!--div class=\"col-sm-12 btn-right\">\n                            <button mat-raised-button color=\"primary\" class=\"btn-w-md\" [disabled]=\"!myprofileForm.form.valid\">Actualizar</button>\n                        </div-->\n                                    </div>\n                                </form>\n                                <form [hidden]=\"formActive == 'form'\" #updatePassForm=\"ngForm\" autocomplete=\"off\">\n                                    <div class=\"row\">\n                                        <div class=\"col-sm-12\">\n                                            <h5>Actualiza contraseña</h5>\n                                        </div>\n                                        <div class=\"form-group col-sm-12 col-md-6\">\n                                            <mat-form-field class=\"full-width\">\n                                                <input required type=\"password\" id=\"password1\" name=\"password1\" [(ngModel)]=\"pass.password1\" matInput placeholder=\"Contraseña\"\n                                                    validateEqual=\"password2\" reverse=\"true\">\n                                            </mat-form-field>\n                                        </div>\n                                        <div class=\"form-group col-sm-12 col-md-6\">\n                                            <mat-form-field class=\"full-width\">\n                                                <input required type=\"password\" #password2=\"ngModel\" id=\"password2\" name=\"password2\" [(ngModel)]=\"pass.password2\" matInput\n                                                    placeholder=\"Confirmar\" validateEqual=\"password1\" reverse=\"false\">\n                                            </mat-form-field>\n                                        </div>\n                                        <div class=\"col-sm-12\">\n                                            <small [hidden]=\"password2.valid || (password2.pristine && !updatePassForm.submitted)\" class=\"text-danger\">La contraseña no son iguales</small>\n                                        </div>\n                                        <div class=\"col-sm-12 btn-right\">\n                                            <button mat-raised-button color=\"primary\" class=\"btn-w-md\" [disabled]=\"!updatePassForm.form.valid\" (click)=\"updatePass()\">Actualiza</button>\n                                            <button mat-raised-button color=\"secondary\" class=\"btn-w-md\" (click)=\"formActive = 'form'; pass = {}; updatePassForm.reset();\">Regresar</button>\n                                        </div>\n                                    </div>\n                                </form>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </article>\n</section>"
-
-/***/ }),
-
-/***/ "../../../../../src/app/smartity/my-profile/my-profile.component.ts":
+/***/ "../../../../../src/app/auth/authentication-routing.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyProfileComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__login_login_component__ = __webpack_require__("../../../../../src/app/auth/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* unused harmony export AuthRoutes */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthRoutingModule; });
+
+
+var AuthRoutes = [
+    {
+        path: "",
+        children: [
+            { path: "", redirectTo: "login", pathMatch: "full" },
+            { path: "login", component: __WEBPACK_IMPORTED_MODULE_0__login_login_component__["a" /* PageLoginComponent */] }
+        ]
+    }
+];
+var AuthRoutingModule = __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forChild(AuthRoutes);
+//# sourceMappingURL=authentication-routing.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/auth/authentication.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__authentication_service__ = __webpack_require__("../../../../../src/app/auth/authentication.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__authentication_routing_module__ = __webpack_require__("../../../../../src/app/auth/authentication-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login_component__ = __webpack_require__("../../../../../src/app/auth/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthenticationModule", function() { return AuthenticationModule; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+var AuthenticationModule = /** @class */ (function () {
+    function AuthenticationModule() {
+    }
+    AuthenticationModule = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__angular_core__["b" /* NgModule */])({
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* JsonpModule */],
+                __WEBPACK_IMPORTED_MODULE_4__authentication_routing_module__["a" /* AuthRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_0__angular_common__["a" /* CommonModule */],
+                __WEBPACK_IMPORTED_MODULE_7__angular_material__["p" /* MatIconModule */],
+                __WEBPACK_IMPORTED_MODULE_7__angular_material__["m" /* MatInputModule */],
+                __WEBPACK_IMPORTED_MODULE_7__angular_material__["l" /* MatButtonModule */]
+            ],
+            exports: [],
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_5__login_login_component__["a" /* PageLoginComponent */]
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_3__authentication_service__["a" /* AuthenticationService */]
+            ]
+        })
+    ], AuthenticationModule);
+    return AuthenticationModule;
+}());
+
+//# sourceMappingURL=authentication.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/auth/login/login.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"page-auth\">\n  <div class=\"main-body\">\n    <!-- <mat-progress-bar *ngIf=\"btn_text == 'Procesando...'\" [color]=\"'primary'\" [mode]=\"'indeterminate'\" [value]=\"50\" [bufferValue]=\"75\"></mat-progress-bar> -->\n    <div class=\"card card-white\" style=\"margin: 0\">\n      <div class=\"card-content\">\n        <div class=\"logo\">\n          <a [routerLink]=\"['/']\">Iniciar sesión</a>\n        </div>\n\n        <form name=\"form\" class=\"md-form-auth form-validation\" (ngSubmit)=\"loginForm.form.valid && login()\" #loginForm=\"ngForm\" novalidate>\n          <fieldset>\n            <div class=\"form-group\">\n              <mat-form-field class=\"full-width mat-icon-left\">\n                <input required matInput type=\"text\" name=\"username\" placeholder=\"Usuario\" [(ngModel)]=\"model.username\" #username=\"ngModel\">\n                <mat-icon matSuffix class=\"material-icons\">account_box</mat-icon>\n              </mat-form-field>\n            </div>\n            <div class=\"form-group\">\n              <mat-form-field class=\"full-width mat-icon-left\">\n                <mat-icon matSuffix class=\"material-icons\">lock_outline</mat-icon>\n                <input required matInput type=\"password\" name=\"password\" placeholder=\"Contraseña\" [(ngModel)]=\"model.password\"  #password=\"ngModel\">\n              </mat-form-field>\n            </div>\n            <div *ngIf=\"error\" >{{error}}</div>\n            <button mat-raised-button type=\"submit\" color=\"primary\" class=\"float-right\">{{btn_text}}</button>\n          </fieldset>\n        </form>\n\n        <!--div class=\"additional-info\">\n          <a [routerLink]=\"['/extra/sign-up']\">Sign up</a>\n          <span class=\"divider-h\"></span>\n          <a [routerLink]=\"['/extra/forgot-password']\">Forgot your password?</a>\n        </div-->\n\n      </div>\n    </div>\n  </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/auth/login/login.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__authentication_service__ = __webpack_require__("../../../../../src/app/auth/authentication.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PageLoginComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -27,130 +111,64 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var MyProfileComponent = /** @class */ (function () {
-    function MyProfileComponent(loaderService, helperService, snackBar) {
-        this.loaderService = loaderService;
-        this.helperService = helperService;
+
+var PageLoginComponent = /** @class */ (function () {
+    function PageLoginComponent(router, service, snackBar) {
+        this.router = router;
+        this.service = service;
         this.snackBar = snackBar;
-        this.formActive = 'form';
         this.model = {};
-        this.pass = {
-            password1: '',
-            password2: ''
-        };
-        this.password = { confirm: '' };
+        this.error = '';
+        this.btn_text = '';
+        this.views = [];
     }
-    MyProfileComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.loaderService.display(true);
-        this.helperService.GET("/api/profile")
-            .map(function (response) {
-            var res = response.json();
-            _this.model = res['data'];
-        }).subscribe(function (error) {
-            _this.loaderService.display(false);
-        }, function (done) {
-            _this.loaderService.display(false);
-        });
+    PageLoginComponent.prototype.ngOnInit = function () {
+        this.btn_text = 'Ingresar';
+        this.service.logout();
     };
-    MyProfileComponent.prototype.updatePass = function () {
+    PageLoginComponent.prototype.login = function () {
         var _this = this;
-        this.loaderService.display(true);
-        var username = JSON.parse(localStorage.getItem('currentUser'))['username'];
-        this.helperService.PUT("/api/users/change/password/" + username, this.pass)
-            .map(function (response) {
-            var res = response.json();
-            if (res['status'] === 'success') {
-                _this.formActive = 'form';
-                _this.snackBar.open(res.message, 'Actualización', {
+        this.btn_text = 'Procesando...';
+        this.service
+            .login(this.model.username, this.model.password)
+            .subscribe(function (data) {
+            _this.service.GET("login").subscribe(function (res) {
+                console.log(res);
+                if (!res['usercompany']) {
+                    _this.snackBar.open('Usted no tiene una empresa asignada.', 'Error', {
+                        duration: 3500,
+                    });
+                    return false;
+                }
+                _this.views = res['usercompany']["userprofile"]["privileges"];
+                localStorage.setItem('view', JSON.stringify(_this.views));
+                localStorage.setItem('objUser', JSON.stringify(res));
+                var link = ['/dashboard'];
+                _this.router.navigate(link);
+            }, function (err) {
+                _this.snackBar.open('El usuario o la contraseña son incorrectos.', 'Error', {
                     duration: 3500,
                 });
-            }
-        }).subscribe(function (error) {
-            _this.loaderService.display(false);
-        }, function (done) {
-            _this.loaderService.display(false);
-        });
-    };
-    MyProfileComponent.prototype.updateProfile = function () {
-        var _this = this;
-        this.loaderService.display(true);
-        this.helperService.PUT("/api/users/" + this.model.id, this.model)
-            .map(function (response) {
-            var res = response.json();
-            if (res.status === 'success') {
-                _this.snackBar.open(res.message, 'Actualización', {
-                    duration: 3500,
-                });
-                var views = res.data['usercompany']['userprofile']['privileges'];
-                localStorage.setItem('view', JSON.stringify(views));
-                localStorage.setItem('objUser', JSON.stringify(res.data));
-                window.location.reload();
-            }
-        }).subscribe(function (error) {
-            _this.loaderService.display(false);
-        }, function (done) {
-            _this.loaderService.display(false);
+            });
+        }, function (error) {
+            _this.snackBar.open('El usuario o la contraseña son incorrectos.', 'Error', {
+                duration: 3500,
+            });
         });
     };
     var _a, _b, _c;
-    MyProfileComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
-            selector: 'my-profile-cmp',
-            template: __webpack_require__("../../../../../src/app/smartity/my-profile/my-profile.component.html"),
-            styles: []
+    PageLoginComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["d" /* Component */])({
+            selector: "my-page-login",
+            styles: [],
+            template: __webpack_require__("../../../../../src/app/auth/login/login.component.html")
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared__["a" /* LoaderService */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared__["b" /* HelperService */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["q" /* MatSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["q" /* MatSnackBar */]) === "function" ? _c : Object])
-    ], MyProfileComponent);
-    return MyProfileComponent;
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__authentication_service__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__authentication_service__["a" /* AuthenticationService */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_material__["q" /* MatSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_material__["q" /* MatSnackBar */]) === "function" ? _c : Object])
+    ], PageLoginComponent);
+    return PageLoginComponent;
 }());
 
-//# sourceMappingURL=my-profile.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/smartity/my-profile/my-profile.module.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_shared_module__ = __webpack_require__("../../../../../src/app/shared/shared.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__my_profile_component__ = __webpack_require__("../../../../../src/app/smartity/my-profile/my-profile.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyProfileModule", function() { return MyProfileModule; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-
-var routes = [{ path: '', component: __WEBPACK_IMPORTED_MODULE_4__my_profile_component__["a" /* MyProfileComponent */] }];
-var MyProfileModule = /** @class */ (function () {
-    function MyProfileModule() {
-    }
-    MyProfileModule = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1__angular_common__["a" /* CommonModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */].forChild(routes),
-                __WEBPACK_IMPORTED_MODULE_3__shared_shared_module__["a" /* SharedModule */]
-            ],
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_4__my_profile_component__["a" /* MyProfileComponent */]
-            ]
-        })
-    ], MyProfileModule);
-    return MyProfileModule;
-}());
-
-//# sourceMappingURL=my-profile.module.js.map
+//# sourceMappingURL=login.component.js.map
 
 /***/ })
 

@@ -1,25 +1,30 @@
 webpackJsonp([21],{
 
-/***/ "../../../../../src/app/smartity/affiliates/affiliates-action/affiliates-action.component.html":
+/***/ "../../../../../src/app/smartity/billing/billing-action/billing-action.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form #modelForm=\"ngForm\" autocomplete=\"off\">\r\n    <div class=\"row\">\r\n    <div class=\"col-sm-12 margin-bottom-40\">\r\n        <button type=\"button\" mat-raised-button color=\"primary\" (click)=\"goList()\" class=\"btn-w-md no-margin-left\">\r\n            <mat-icon>keyboard_arrow_left</mat-icon> Regresar\r\n        </button>\r\n    </div>\r\n    <!-- document_type_id -->\r\n    <div class=\"col-sm-12 col-md-6 margin-bottom\">\r\n        <mat-form-field class=\"full-width\"><mat-select required class=\"full-width\" placeholder=\"Tipo de identificación\" [(ngModel)]=\"model.document_type_id\" name=\"document_type_id\"\r\n            id=\"document_type_id\">\r\n            <mat-option *ngFor=\"let item of arrDocument_type\" [value]=\"item.id\">{{item.value}}</mat-option>\r\n        </mat-select></mat-form-field>\r\n    </div>\r\n    <!-- document_number -->\r\n    <div class='col-sm-12 col-md-6 col-lg-3 margin-bottom'>\r\n        <mat-form-field class=\"full-width\">\r\n            <input required type=\"text\" id=\"document_number\" name=\"document_number\" [(ngModel)]=\"model.document_number\" matInput placeholder=\"Identificación\">\r\n        </mat-form-field>\r\n    </div>\r\n    <!-- estado -->\r\n    <div class='col-sm-12 col-md-6 col-lg-3 margin-bottom'>\r\n        <div class=\"flex\">\r\n            <span class=\"flex-spacer\"></span>\r\n            <mat-slide-toggle [labelPosition]=\"'before'\" id=\"state\" name=\"state\" [(ngModel)]=\"model.state\">Estado</mat-slide-toggle>\r\n        </div>\r\n    </div>\r\n    <div class=\"col-sm-12\"></div>\r\n    <!-- firstname -->\r\n    <div class='col-sm-12 col-md-6 col-lg-3 margin-bottom'>\r\n        <mat-form-field class=\"full-width\">\r\n            <input required type=\"text\" id=\"firstname\" name=\"firstname\" [(ngModel)]=\"model.firstname\" matInput placeholder=\"Nombres\">\r\n        </mat-form-field>\r\n    </div>\r\n    <!-- middlename -->\r\n    <div class='col-sm-12 col-md-6 col-lg-3 margin-bottom'>\r\n        <mat-form-field class=\"full-width\">\r\n            <input type=\"text\" id=\"middlename\" name=\"middlename\" [(ngModel)]=\"model.middlename\" matInput>\r\n        </mat-form-field>\r\n    </div>\r\n    <!-- lastname1 -->\r\n    <div class='col-sm-12 col-md-6 col-lg-3 margin-bottom'>\r\n        <mat-form-field class=\"full-width\">\r\n            <input required type=\"text\" id=\"lastname1\" name=\"lastname1\" [(ngModel)]=\"model.lastname1\" matInput placeholder=\"Apellidos\">\r\n        </mat-form-field>\r\n    </div>\r\n    <!-- lastname2 -->\r\n    <div class='col-sm-12 col-md-6 col-lg-3 margin-bottom'>\r\n        <mat-form-field class=\"full-width\">\r\n            <input type=\"text\" id=\"lastname2\" name=\"lastname2\" [(ngModel)]=\"model.lastname2\" matInput>\r\n        </mat-form-field>\r\n    </div>\r\n    <div class=\"col-sm-12\"></div>\r\n    <!-- birthday -->\r\n    <div class='col-sm-12 col-md-6 col-lg-3 margin-bottom'>\r\n        <mat-form-field class=\"full-width\">\r\n            <input matInput [matDatepicker]=\"pickerIssueDate5\" id=\"birthday\" name=\"birthday\" placeholder=\"Fecha de nacimiento\" [(ngModel)]=\"model.birthday\">\r\n            <!-- <button mdSuffix [matDatepicker]=\"pickerIssueDate5\"></button> -->\r\n        </mat-form-field>\r\n        <mat-datepicker #pickerIssueDate5></mat-datepicker>\r\n    </div>\r\n    <!-- gender_id -->\r\n    <div class=\"col-sm-12 col-md-6 col-lg-3 margin-bottom\">\r\n        <mat-form-field class=\"full-width\"><mat-select class=\"full-width\" placeholder=\"Género\" [(ngModel)]=\"model.gender_id\" name=\"gender_id\" id=\"gender_id\">\r\n            <mat-option *ngFor=\"let item of arrGender\" [value]=\"item.id\">{{item.value}}</mat-option>\r\n        </mat-select></mat-form-field>\r\n    </div>\r\n    <!-- phone_number -->\r\n    <div class='col-sm-12 col-md-6 col-lg-3 margin-bottom'>\r\n        <mat-form-field class=\"full-width\">\r\n            <input NumberOnly required type=\"text\" id=\"phone_number\" name=\"phone_number\" [(ngModel)]=\"model.phone_number\" matInput placeholder=\"Teléfono\">\r\n        </mat-form-field>\r\n    </div>\r\n    <!-- mobile_number -->\r\n    <div class='col-sm-12 col-md-6 col-lg-3 margin-bottom'>\r\n        <mat-form-field class=\"full-width\">\r\n            <input NumberOnly required type=\"text\" id=\"mobile_number\" name=\"mobile_number\" [(ngModel)]=\"model.mobile_number\" matInput placeholder=\"Celular\">\r\n        </mat-form-field>\r\n    </div>\r\n    <div class=\"col-sm-12\"></div>\r\n    <!-- address -->\r\n    <div class='col-sm-12 col-md-6 margin-bottom'>\r\n        <mat-form-field class=\"full-width\">\r\n            <input required type=\"text\" id=\"address\" name=\"address\" [(ngModel)]=\"model.address\" matInput placeholder=\"Dirección\">\r\n        </mat-form-field>\r\n    </div>\r\n    <!-- conutry -->\r\n    <div class=\"col-sm-12 col-md-6 col-lg-3 margin-bottom\">\r\n        <mat-form-field class=\"full-width\"><mat-select [disabled]=\"arrDepartment.length == 0\" class=\"full-width\" placeholder=\"Departamento\" [(ngModel)]=\"model.department\"\r\n            name=\"department\" id=\"department\" (change)=\"loadCity()\">\r\n            <mat-option *ngFor=\"let item of arrDepartment\" [value]=\"item.id\">{{item.value}}</mat-option>\r\n        </mat-select></mat-form-field>\r\n\r\n    </div>\r\n    <!-- conutry -->\r\n    <div class=\"col-sm-12 col-md-6 col-lg-3 margin-bottom\">\r\n        <mat-form-field class=\"full-width\"><mat-select [disabled]=\"arrCity.length == 0\" class=\"full-width\" placeholder=\"Ciudad\" [(ngModel)]=\"model.city\" name=\"city\"\r\n            id=\"city\" (change)=\"booGeolocation=true\">\r\n            <mat-option *ngFor=\"let item of arrCity\" [value]=\"item.id\">{{item.value}}</mat-option>\r\n        </mat-select></mat-form-field>\r\n    </div>\r\n    <div class=\"col-sm-12\"></div>\r\n    <!-- attendant_name -->\r\n    <div class='col-sm-12 col-md-6 margin-bottom'>\r\n        <mat-form-field class=\"full-width\">\r\n            <input required type=\"text\" id=\"attendant_name\" name=\"attendant_name\" [(ngModel)]=\"model.attendant_name\" matInput placeholder=\"Nombre acudiente\">\r\n        </mat-form-field>\r\n    </div>\r\n    <!-- attendant_phone_number -->\r\n    <div class='col-sm-12 col-md-6 col-lg-3 margin-bottom'>\r\n        <mat-form-field class=\"full-width\">\r\n            <input NumberOnly required type=\"text\" id=\"attendant_phone_number\" name=\"attendant_phone_number\" [(ngModel)]=\"model.attendant_phone_number\"\r\n                matInput placeholder=\"Teléfono acudiente\">\r\n        </mat-form-field>\r\n    </div>\r\n    <!-- attendant_mobile_number -->\r\n    <div class='col-sm-12 col-md-6 col-lg-3 margin-bottom'>\r\n        <mat-form-field class=\"full-width\">\r\n            <input NumberOnly required type=\"text\" id=\"attendant_mobile_number\" name=\"attendant_mobile_number\" [(ngModel)]=\"model.attendant_mobile_number\"\r\n                matInput placeholder=\"Celular acudiente\">\r\n        </mat-form-field>\r\n    </div>\r\n    <div class=\"col-sm-12\"></div>\r\n    <!-- delivery_contract_id -->\r\n    <div class=\"col-sm-12 col-md-6 margin-bottom\">\r\n        <mat-form-field class=\"full-width\"><mat-select class=\"full-width\" placeholder=\"Contrato\" [(ngModel)]=\"model.delivery_contract_id\" name=\"delivery_contract_id\" id=\"delivery_contract_id\">\r\n            <mat-option *ngFor=\"let item of arrDelivery_contract\" [value]=\"item.id\" (click)=\"loadIpsNetword(item)\">{{item.name}}</mat-option>\r\n        </mat-select></mat-form-field>\r\n    </div>\r\n    <!-- contracts_payment_method_id -->\r\n    <!--div class=\"col-sm-12 col-md-6 col-lg-3 margin-bottom\">\r\n        <mat-form-field class=\"full-width\"><mat-select class=\"full-width\" placeholder=\"Modalidad de contratación\" [(ngModel)]=\"model.contracts_payment_method_id\" name=\"contracts_payment_method_id\"\r\n            id=\"contracts_payment_method_id\">\r\n            <mat-option *ngFor=\"let item of arrContracts_payment_method\" [value]=\"item.id\">{{item.value}}</mat-option>\r\n        </mat-select></mat-form-field>\r\n    </div-->\r\n    <!-- affiliate_condition_id -->\r\n    <div class=\"col-sm-12 col-md-6 col-lg-3 margin-bottom\">\r\n        <mat-form-field class=\"full-width\"><mat-select class=\"full-width\" placeholder=\"Condición de afiliado\" [(ngModel)]=\"model.affiliate_condition_id\" name=\"affiliate_condition_id\"\r\n            id=\"affiliate_condition_id\">\r\n            <mat-option *ngFor=\"let item of arrAffiliate_condition\" [value]=\"item.id\">{{item.value}}</mat-option>\r\n        </mat-select></mat-form-field>\r\n    </div>\r\n    <div class=\"col-sm-12\"></div>\r\n    <!-- ips_network_id -->\r\n    <div class=\"col-sm-12 col-md-6 col-lg-4 margin-bottom\">\r\n        <mat-form-field class=\"full-width\"><mat-select class=\"full-width\" placeholder=\"Red adscrita\" [(ngModel)]=\"model.ips_network_id\" name=\"ips_network_id\" id=\"ips_network_id\">\r\n            <mat-option *ngFor=\"let item of arrIps_network\" [value]=\"item.id\">{{item.value}}</mat-option>\r\n        </mat-select></mat-form-field>\r\n    </div>\r\n    <!-- affiliate_level -->\r\n    <div class='col-sm-12 col-md-6 col-lg-2 margin-bottom'>\r\n        <mat-form-field class=\"full-width\">\r\n            <input required type=\"text\" id=\"affiliate_level\" name=\"affiliate_level\" [(ngModel)]=\"model.affiliate_level\" matInput placeholder=\"Nivel de afiliado\">\r\n        </mat-form-field>\r\n    </div>\r\n    <!-- affiliate_type -->\r\n    <div class=\"col-sm-12 col-md-6 col-lg-3 margin-bottom\">\r\n        <mat-form-field class=\"full-width\"><mat-select class=\"full-width\" placeholder=\"Tipo de afiliado\" [(ngModel)]=\"model.affiliate_type\" name=\"affiliate_type\" id=\"affiliate_type\">\r\n            <mat-option *ngFor=\"let item of arrAffiliate_type\" [value]=\"item.id\">{{item.value}}</mat-option>\r\n        </mat-select></mat-form-field>\r\n    </div>\r\n    <!-- public_health_condition_id -->\r\n    <div class=\"col-sm-12 col-md-6 col-lg-3 margin-bottom\">\r\n        <mat-form-field class=\"full-width\"><mat-select class=\"full-width\" placeholder=\"Condición de salud pública\" [(ngModel)]=\"model.public_health_condition_id\" name=\"public_health_condition_id\"\r\n            id=\"public_health_condition_id\">\r\n            <mat-option *ngFor=\"let item of arrPublic_health_condition\" [value]=\"item.id\">{{item.value}}</mat-option>\r\n        </mat-select></mat-form-field>\r\n    </div>\r\n    <div class=\"col-sm-12\">\r\n        <button [disabled]=\"action_active ? false : !modelForm.form.valid\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left btn-right\"\r\n            (click)=\"save()\">{{strAction}}</button>\r\n    </div>\r\n</div>\r\n</form>"
+module.exports = "<form #modelForm=\"ngForm\" autocomplete=\"off\">\n  <div class=\"row form-inline\">\n    <div class=\"margin-bottom-40\" style=\"padding-left: 15px;padding-right: 15px;\">\n      <button type=\"button\" mat-raised-button color=\"primary\" (click)=\"goList()\" class=\"btn-w-mat no-margin-right\">\n        <mat-icon>keyboard_arrow_left</mat-icon> Regresar\n      </button>\n    </div>\n    <!-- <div class=\"margin-bottom-40\">\n        <button type=\"button\" mat-raised-button color=\"primary\" (click)=\"openCustomerQuotesLoad()\" class=\"btn-w-mat no-margin-left\">\n            <mat-icon>search</mat-icon> Cotización\n        </button>\n  </div> -->\n  </div>\n  <div class=\"row\">\n    <!-- Resolución de factura -->\n    <div class=\"col-sm-12 col-md-3 margin-bottom\">\n      <mat-form-field class=\"full-width\">\n        <mat-select class=\"full-width\" placeholder=\"Resolución de factura\" [(ngModel)]=\"model.document_id\"\n          name=\"document_id\">\n          <mat-option *ngFor=\"let item of billingResolutions\" [value]=\"item.id\">{{item.prefix}} - X</mat-option>\n        </mat-select>\n      </mat-form-field>\n    </div>\n    <!--vendedor-->\n    <div class=\"col-sm-12 col-md-4 margin-bottom\">\n      <mat-form-field class=\"full-width\">\n        <input required readonly matInput type=\"text\" placeholder=\"Vendedor\" [(ngModel)]=\"seller.fullname\"\n          id=\"employees\" name=\"employees\" />\n        <mat-icon matSuffix class=\"wh-24 pointer\" (click)=\"openAddEmployees()\">search</mat-icon>\n      </mat-form-field>\n    </div>\n    <!-- creado el -->\n    <div class=\"col-md-3 col-md-offset-1 margin-bottom\">\n      <mat-form-field>\n        <input matInput readonly placeholder=\"Creado el\" name=\"created_at\"\n          value=\"{{model.created_at | date:'dd/MM/yyyy'}}\">\n      </mat-form-field>\n    </div>\n\n    <!-- estado -->\n    <div class='col-sm-12 col-md-1 margin-bottom'>\n      <div class=\"flex\">\n        <span class=\"flex-spacer\"></span>\n        <mat-slide-toggle [labelPosition]=\"'before'\" id=\"status\" name=\"status\" [(ngModel)]=\"model.status\">Estado\n        </mat-slide-toggle>\n      </div>\n    </div>\n    <!--vendedor-->\n    <!-- <div class=\"col-sm-12 col-md-3 margin-bottom\">\n              <mat-form-field class=\"full-width\">\n                  <input required readonly matInput type=\"text\" placeholder=\"Vendedor\" [(ngModel)]=\"seller.fullname\"\n                      id=\"employees\" name=\"employees\" />\n                  <mat-icon matSuffix class=\"wh-24 pointer\" (click)=\"openAddEmployees()\">search</mat-icon>\n              </mat-form-field>\n          </div> -->\n  </div>\n\n  <div class=\"row\">\n    <!-- cliente -->\n    <div class=\"col-sm-12 col-md-3\">\n      <mat-form-field class=\"full-width\">\n        <input required readonly matInput type=\"text\" placeholder=\"Cliente\" [(ngModel)]=\"customer.fullname\"\n          id=\"customer\" name=\"customer\" />\n        <mat-icon matSuffix class=\"wh-24 pointer\" (click)=\"openAddCustomer()\">search</mat-icon>\n      </mat-form-field>\n    </div>\n    <!-- Forma de pago -->\n    <div class=\"col-sm-12 col-md-2\">\n      <mat-form-field class=\"full-width\">\n        <mat-select class=\"full-width\" placeholder=\"Forma de Pago\" [(ngModel)]=\"model.payment_method_id\"\n          name=\"payment_method_id\">\n          <mat-option *ngFor=\"let item of arrPayment_method\" [value]=\"item.id\">{{item.value}}</mat-option>\n        </mat-select>\n      </mat-form-field>\n    </div>\n    <!-- Condición de pago -->\n    <div class=\"col-sm-12 col-md-2\">\n      <mat-form-field class=\"full-width\">\n        <mat-select class=\"full-width\" placeholder=\"Condición de pago\" [(ngModel)]=\"model.payment_condition_id\"\n          name=\"payment_condition_id\">\n          <mat-option *ngFor=\"let item of arrPayment_condition\" [value]=\"item.id\">{{item.value}}</mat-option>\n        </mat-select>\n      </mat-form-field>\n    </div>\n    <div class=\"col-md-5\" *ngIf=\"numId == undefined\">\n      <button (click)=\"openModalProducts()\" mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left btn-right\">\n        Añadir Producto\n      </button>\n    </div>\n    <!-- productos -->\n    <div class=\"col-sm-12\">\n\n      <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n        <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n          <thead>\n            <tr>\n              <!-- <th class=\"noAuto\" (click)=\"sort('w.id')\">ID\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='w.id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th> -->\n              <th>PLU\n                <span class=\"glyphicon sort-icon\"\n                  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n              </th>\n              <th>Producto\n                <span class=\"glyphicon sort-icon\"\n                  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n              </th>\n              <th>Fraccionado\n                <span class=\"glyphicon sort-icon\"\n                  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n              </th>\n              <th>Unidades\n                <span class=\"glyphicon sort-icon\"\n                  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n              </th>\n              <th>Precio de Venta\n                <span class=\"glyphicon sort-icon\"\n                  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n              </th>\n              <th>Descuento\n                <span class=\"glyphicon sort-icon\"\n                  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n              </th>\n              <th>IVA\n                <span class=\"glyphicon sort-icon\"\n                  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n              </th>\n              <th>Subtotal\n                <span class=\"glyphicon sort-icon\"\n                  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n              </th>\n              <th class=\"w-40\" *ngIf=\"numId == undefined\"></th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr *ngFor=\"let detail of model.details;let index = index;\">\n              <td>{{detail.product.sku}}</td>\n              <td>{{detail.product.display_name}}</td>\n              <td *ngIf=\"numId != undefined\">{{ detail.fraction ? 'Sí' : 'No' }}</td>\n              <td *ngIf=\"numId == undefined\">\n                <mat-slide-toggle [labelPosition]=\"after\" name=\"fraction{{index}}\" [(ngModel)]=\"detail.fraction\">\n                </mat-slide-toggle>\n              </td>\n              <td *ngIf=\"numId != undefined\">{{detail.units}}</td>\n              <td *ngIf=\"numId == undefined\">\n                <mat-form-field><input (keyup)=\"totalCost()\" matInput type=\"text\" [(ngModel)]=\"detail.units\"\n                    name=\"units{{index}}\" /></mat-form-field>\n              </td>\n              <td *ngIf=\"detail.fraction == false\">${{detail.product.averageunitcost * 1.2}}</td>\n              <td *ngIf=\"detail.fraction == true\">\n                ${{(detail.product.averageunitcost/detail.product.units)  * 1.2}}</td>\n\n                <td *ngIf=\"numId != undefined\">{{detail.discount}}</td>\n              <td *ngIf=\"numId == undefined\">\n                    <mat-form-field>\n                    <span (click)=\"changeDiscountSymbol()\">{{discountSymbol}} </span> <input (keyup)=\"totalCost()\" matInput type=\"text\" [(ngModel)]=\"detail.discount\"\n                    name=\"units{{index}}\" /></mat-form-field>\n                    <div *ngIf=\"discountSymbol == '%'\"><span *ngIf=\"detail.fraction == false\">(${{(detail.product.averageunitcost * 1.2)*(detail.discount/100)}})</span>\n                    <span *ngIf=\"detail.fraction == true\">(${{((detail.product.averageunitcost/detail.product.units)  * 1.2)*(detail.discount/100)}})</span></div>\n                    <div *ngIf=\"discountSymbol != '%'\"><span *ngIf=\"detail.fraction == false\">(%{{100*(detail.discount/(detail.product.averageunitcost * 1.2))}})</span>\n                      <span *ngIf=\"detail.fraction == true\">(%{{100*(detail.discount/((detail.product.averageunitcost/detail.product.units)  * 1.2))}})</span></div>\n              </td>\n                \n\n              <td *ngIf=\"numId == undefined && model.inventory_movement_entry_out_type_id == 174\">\n                <mat-form-field>$<input (keyup)=\"totalCost()\" matInput type=\"text\" [(ngModel)]=\"detail.purchase_price\"\n                    name=\"purchase_price{{index}}\" /></mat-form-field>\n              </td>\n              <td *ngIf=\"detail.fraction == false\">${{detail.product.averageunitcost * detail.units}}</td>\n              <td *ngIf=\"detail.fraction == true\">\n                ${{(detail.product.averageunitcost/detail.product.units) * detail.units}}</td>\n              <td class=\"w-40\" *ngIf=\"numId == undefined\">\n                <button type=\"button\" mat-icon-button class=\"text-danger\" (click)=\"removeProduct(index)\">\n                  <mat-icon>delete</mat-icon>\n                </button>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n\n      </div>\n    </div>\n    <!--notas-->\n    <div class='col-sm-12 col-md-12 margin-bottom'>\n      <mat-form-field class=\"full-width\">\n        <textarea type=\"text\" id=\"notes\" name=\"notes\" [(ngModel)]=\"model.notes\" matInput placeholder=\"Nota\"></textarea>\n      </mat-form-field>\n    </div>\n\n\n  </div>\n  <div class=\"row\">\n    <div class=\"col-md-5\">\n      <mat-form-field><input readonly matInput placeholder=\"Total ($)\" [(ngModel)]=\"model.total\" name=\"total cost\">\n      </mat-form-field>\n    </div>\n    <div class=\"col-md-7\" [class.btn-action-container]=\"booActive\" *ngIf=\"strAction != 'Actualizar'\">\n      <button type=\"button\" [disabled]=\"!modelForm.form.valid\" mat-raised-button\n        class=\"btn-w-mat no-margin-left btn-right\" (click)=\"save()\">{{strAction}}</button>\n    </div>\n  </div>\n</form>"
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/affiliates/affiliates-action/affiliates-action.component.ts":
+/***/ "../../../../../src/app/smartity/billing/billing-action/billing-action.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_startWith__ = __webpack_require__("../../../../rxjs/add/operator/startWith.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_startWith___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_startWith__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__bases_base_model__ = __webpack_require__("../../../../../src/app/smartity/bases/base-model.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__affiliates_component__ = __webpack_require__("../../../../../src/app/smartity/affiliates/affiliates.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AffiliatesActionComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__modals__ = __webpack_require__("../../../../../src/app/smartity/modals/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modals_modal_stocks_modal_stocks_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-stocks/modal-stocks.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modals_modal_customers_quotes_modal_customers_quotes_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-customers-quotes/modal-customers-quotes.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_startWith__ = __webpack_require__("../../../../rxjs/add/operator/startWith.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_startWith___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_startWith__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__bases_base_model__ = __webpack_require__("../../../../../src/app/smartity/bases/base-model.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__billing_component__ = __webpack_require__("../../../../../src/app/smartity/billing/billing.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_operators__ = __webpack_require__("../../../../rxjs/operators.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_operators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_rxjs_operators__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BillingActionComponent; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -49,10 +54,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var AffiliatesActionComponent = /** @class */ (function (_super) {
-    __extends(AffiliatesActionComponent, _super);
-    //private str_action: string = 'Guardar';
-    function AffiliatesActionComponent(snackBar, route, router, loaderService, helperService, comp, dialog) {
+
+
+
+
+var BillingActionComponent = /** @class */ (function (_super) {
+    __extends(BillingActionComponent, _super);
+    function BillingActionComponent(snackBar, route, router, loaderService, helperService, comp, dialog) {
         var _this = _super.call(this) || this;
         _this.snackBar = snackBar;
         _this.route = route;
@@ -61,201 +69,365 @@ var AffiliatesActionComponent = /** @class */ (function (_super) {
         _this.helperService = helperService;
         _this.comp = comp;
         _this.dialog = dialog;
-        _this.arrDocument_type = [];
-        _this.arrGender = [];
-        _this.arrDelivery_contract = [];
-        _this.arrContracts_payment_method = [];
-        _this.arrAffiliate_condition = [];
-        _this.arrIps_network = [];
-        _this.arrAffiliate_type = [];
-        _this.arrPublic_health_condition = [];
-        _this.arrDepartment = [];
-        _this.arrCity = [];
-        _this.booGeolocation = false;
-        _this.arrDelivery_point_group = [];
+        _this.warehouse = {};
+        _this.warehouses = [];
+        _this.stocks = [];
+        _this.created_at = '';
+        _this.expire_at = '';
+        _this.estimate_delivery = '';
+        _this.contact_name = {};
+        _this.arrPopulation_type = [];
+        _this.arrPerauth_char_type = [];
+        _this.operations_costs_centres = [];
+        _this.arrPayment_condition = [];
+        _this.arrPayment_method = [];
+        _this.customer = {};
+        _this.customers = [];
+        _this.seller = {};
+        _this.discountSymbol = '%';
+        _this.billingResolutions = [];
         return _this;
     }
-    AffiliatesActionComponent.prototype.ngOnInit = function () {
+    BillingActionComponent.prototype.ngOnInit = function () {
+        this.model.created_at = '';
         this.clean();
         this.getCollection();
-        this.loadDepartment();
-        switch (this.strAction) {
-            case 'Guardar':
-                this.loadDeliveryContract();
-                break;
-            case 'Actualizar':
-            case 'Eliminar':
-                this.getDataById();
-                break;
+        if (this.numId !== undefined) {
+            this.getDataById();
+        }
+        else {
+            this.model.created_at = new Date();
         }
     };
-    AffiliatesActionComponent.prototype.getCollection = function () {
+    BillingActionComponent.prototype.getCollection = function () {
         var _this = this;
-        this.helperService.POST("/api/collections", [
-            "TYPES_OF_DOCUMENTS",
-            "PAYMENT_METHOD",
-            "AFFILIATE_TYPE",
-            "AFFILIATE_CONDITION",
-            "PUBLIC_HEALTH_CONDITION",
-            "GENDER"
-        ]).subscribe(function (rs) {
+        this.helperService.POST("/api/collections", ["POPULATION_TYPE", "PAYMENT_METHOD", "PAYMENT_CONDITION"]).subscribe(function (rs) {
             var res = rs.json();
-            _this.arrDocument_type = res.TYPES_OF_DOCUMENTS;
-            _this.arrGender = res.GENDER;
-            _this.arrContracts_payment_method = res.PAYMENT_METHOD;
-            _this.arrAffiliate_type = res.AFFILIATE_TYPE;
-            _this.arrAffiliate_condition = res.AFFILIATE_CONDITION;
-            _this.arrPublic_health_condition = res.PUBLIC_HEALTH_CONDITION;
-        }, function (err) { console.log(err); });
+            _this.arrPopulation_type = res.POPULATION_TYPE;
+            _this.arrPayment_method = res.PAYMENT_METHOD;
+            _this.arrPayment_condition = res.PAYMENT_CONDITION;
+        }, function (err) { });
+        this.helperService.GET("/api/billing-resolutions").subscribe(function (data) {
+            var res = data.json();
+            _this.billingResolutions = res.data;
+            console.log(_this.billingResolutions);
+        }, function (err) { });
     };
-    AffiliatesActionComponent.prototype.loadDepartment = function () {
+    BillingActionComponent.prototype.openCustomerQuotesLoad = function () {
         var _this = this;
-        this.arrCity = [];
-        this.booGeolocation = false;
-        this.helperService.GET("/api/departamentos?pais_id=7").subscribe(function (rs) {
-            var res = rs.json();
-            _this.arrDepartment = res.departamentos;
-        }, function (err) {
-            console.log(err);
+        this.modalCustomersQuotes = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__modals_modal_customers_quotes_modal_customers_quotes_component__["a" /* ModalCustomersQuotesComponent */], {
+            hasBackdrop: false,
+            data: {
+                title: 'Cotizaciones de clientes',
+                customer: this.model.customer,
+                option: '2'
+            }
+        });
+        this.modalCustomersQuotes.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10_rxjs_operators__["filter"])(function (customerQuotes) { return customerQuotes; })).subscribe(function (customerQuotes) {
+            _this.model.details = JSON.parse(customerQuotes.products || []);
+            _this.model.customer_id = customerQuotes.customer_id;
+            _this.customer = customerQuotes.stakeholder_info;
+            _this.contact_name["name_sales_contact"] = customerQuotes.supplier_info.sales_contact.name;
+            _this.model.payment_condition_id = customerQuotes.payment_condition_id;
+            _this.model.notes = 'Remisión realizada a partir de la cotización ' + customerQuotes.document.prefix + '-' + customerQuotes.consecutive;
+            _this.totalCost();
         });
     };
-    AffiliatesActionComponent.prototype.loadCity = function () {
+    BillingActionComponent.prototype.openRemissionGoods = function () {
         var _this = this;
-        this.helperService.GET("/api/ciudades?departamento_id=" + this.model.department).subscribe(function (rs) {
-            var res = rs.json();
-            _this.arrCity = res.ciudades;
-            _this.model.city = _this.model.geolocation.city;
-        }, function (err) {
-            console.log(err);
+        this.modalCustomersQuotes = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__modals_modal_customers_quotes_modal_customers_quotes_component__["a" /* ModalCustomersQuotesComponent */], {
+            hasBackdrop: false,
+            data: {
+                title: 'Remisiones',
+                customer: this.model.customer,
+                option: '2'
+            }
+        });
+        this.modalCustomersQuotes.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10_rxjs_operators__["filter"])(function (customerQuotes) { return customerQuotes; })).subscribe(function (customerQuotes) {
+            _this.model.details = JSON.parse(customerQuotes.products || []);
+            _this.model.customer_id = customerQuotes.customer_id;
+            _this.customer = customerQuotes.stakeholder_info;
+            _this.contact_name["name_sales_contact"] = customerQuotes.supplier_info.sales_contact.name;
+            _this.model.payment_condition_id = customerQuotes.payment_condition_id;
+            _this.model.notes = 'Remisión realizada a partir de la cotización ' + customerQuotes.document.prefix + '-' + customerQuotes.consecutive;
+            _this.totalCost();
         });
     };
-    AffiliatesActionComponent.prototype.loadDeliveryContract = function () {
+    BillingActionComponent.prototype.save = function () {
         var _this = this;
-        this.helperService.GET("/api/delivery-contracts").subscribe(function (rs) {
-            var res = rs.json();
-            _this.arrDelivery_contract = res.data;
-        }, function (err) {
-            console.log(err);
-        });
-    };
-    AffiliatesActionComponent.prototype.save = function () {
-        var _this = this;
+        this.model.products = JSON.stringify(this.model.details || []);
+        console.log(this.model.products);
         this.loaderService.display(true);
-        this.model.geolocation = JSON.stringify({
-            "department": this.model.department,
-            "city": this.model.city
-        });
         switch (this.strAction) {
             case 'Guardar':
-                this.model.delivery_contracts = '';
-                this.helperService.POST("/api/affiliates", this.model).subscribe(function (rs) {
+                var modelInv = { "details": {} };
+                modelInv['details'] = this.model.details;
+                modelInv['warehouse_id'] = this.model['warehouse_id'];
+                modelInv['date'] = this.model['created_at'];
+                modelInv['inventory_movement_entry_out_type_id'] = 180;
+                modelInv['observations'] = '';
+                modelInv['purchase_price'] = 0;
+                this.helperService.POST("/api/inventory-movements", modelInv).subscribe(function (rs) {
                     var res = rs.json();
                     if (res.store) {
-                        _this.snackBar.open(res.message, 'Guardado', { duration: 3500 });
-                        _this.clean();
-                        _this.loaderService.display(false);
-                        _this.comp.openList();
+                        _this.model['inventory_movement_out_id'] = res.inventory_movement_id;
+                        _this.helperService.POST("/api/remission-goods", _this.model).subscribe(function (rs1) {
+                            var res1 = rs1.json();
+                            if (res1.store) {
+                                _this.snackBar.open(res.message, 'Guardado', { duration: 4000 });
+                                _this.goList();
+                            }
+                        }, function (err) {
+                            var err_rs = err.json();
+                            _this.loaderService.display(false);
+                            _this.snackBar.open(err_rs.message, 'Error', { duration: 4000 });
+                        });
                     }
                 }, function (err) {
+                    var err_rs = err.json();
                     _this.loaderService.display(false);
+                    _this.snackBar.open(err_rs.message, 'Error', { duration: 4000 });
                 });
                 break;
             case 'Actualizar':
-                this.helperService.PUT("/api/affiliates/" + this.numId, this.model).subscribe(function (rs) {
+                this.helperService.PUT("/api/remission-goods/" + this.numId, this.model).subscribe(function (rs) {
                     var res = rs.json();
                     if (res.update) {
-                        _this.snackBar.open(res.message, 'Actualización', {
-                            duration: 3500,
-                        });
+                        _this.snackBar.open(res.message, 'Actualización', { duration: 4000 });
                         _this.comp.openList();
                     }
                 }, function (err) {
+                    _this.snackBar.open(err.message, 'Actualización', { duration: 4000 });
                     _this.loaderService.display(false);
                 });
                 break;
             case 'Eliminar':
-                this.helperService.DELETE("/api/affiliates/" + this.numId).subscribe(function (rs) {
+                this.helperService.DELETE("/api/remission-goods/" + this.numId).subscribe(function (rs) {
                     var res = rs.json();
                     if (res.delete) {
-                        _this.snackBar.open(res.message, 'Eliminación', {
-                            duration: 3500,
-                        });
+                        _this.snackBar.open(res.message, 'Eliminación', { duration: 4000 });
                         _this.comp.openList();
                     }
                 }, function (err) {
+                    _this.snackBar.open(err.message, 'Eliminación', { duration: 4000 });
                     _this.loaderService.display(false);
                 });
                 break;
         }
     };
-    AffiliatesActionComponent.prototype.getDataById = function () {
+    BillingActionComponent.prototype.getDataById = function () {
         var _this = this;
-        this.helperService.GET("/api/delivery-contracts").subscribe(function (rs) {
+        this.loaderService.display(true);
+        this.helperService.GET("/api/remission-goods/" + this.numId).subscribe(function (rs) {
             var res = rs.json();
-            _this.arrDelivery_contract = res.data;
-            _this.loaderService.display(true);
-            _this.helperService.GET("/api/affiliates/" + _this.numId)
-                .map(function (response) {
-                var res = response.json();
-                _this.model = res.data;
-                _this.model.geolocation = JSON.parse(_this.model.geolocation);
-                _this.model.department = _this.model.geolocation.department;
-                _this.loadCity();
-                _this.loadIpsNetword(_this.arrDelivery_contract.filter(function (x) { return x.id == _this.model.delivery_contract_id; })[0]);
-            }).subscribe(function (error) {
-                _this.loaderService.display(false);
-            }, function (done) {
-                _this.loaderService.display(false);
-            });
+            _this.model = res.data;
+            _this.customer = res['data']['stakeholder_info'] || {};
+            _this.seller = res['data']['seller'] || {};
+            _this.contact_name = res['data']['customer_info']['purchases_contact'];
+            _this.model.details = JSON.parse(_this.model.products);
+            console.log(res);
+            if (_this.customer.businessname == '') {
+                _this.customer.businessname = _this.customer.fullname;
+            }
+            // if (this.employee.businessname == '') {
+            //     this.employee.businessname = this.employee.fullname;
+            // }
+            _this.totalCost();
+            _this.loaderService.display(false);
         }, function (err) {
             console.log(err);
+            _this.loaderService.display(false);
         });
     };
-    AffiliatesActionComponent.prototype.clean = function () {
-        this.model = {};
-        this.model.geolocation = {};
-        this.model.state = true;
+    BillingActionComponent.prototype.clean = function () {
+        this.model = { "warehouse": { "name": "" }, "details": [], "customer_id": -1, "warehouse_id": -1, "date": "" };
+        this.model.status = true;
     };
-    AffiliatesActionComponent.prototype.goList = function () {
+    BillingActionComponent.prototype.goList = function () {
         this.comp.openList();
     };
-    AffiliatesActionComponent.prototype.loadIpsNetword = function (item) {
-        this.arrIps_network = item.ips;
+    BillingActionComponent.prototype.removeProduct = function (index) {
+        this.model.details.splice(index, 1);
+        this.totalCost();
+    };
+    BillingActionComponent.prototype.openModalWarehouse = function () {
+        var _this = this;
+        this.modalWarehouses = this.dialog.open(__WEBPACK_IMPORTED_MODULE_1__modals__["g" /* ModalWarehouseComponent */], {
+            hasBackdrop: false,
+            data: {
+                title: 'Bodega',
+            }
+        });
+        this.modalWarehouses
+            .afterClosed()
+            .pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10_rxjs_operators__["filter"])(function (data) { return data; }))
+            .subscribe(function (data) {
+            _this.model.warehouse_id = data.id;
+            _this.model.warehouse = data;
+            console.log(_this.model.warehouse_id);
+        });
+    };
+    BillingActionComponent.prototype.openModalCostumers = function () {
+        var _this = this;
+        this.modalCostumer = this.dialog.open(__WEBPACK_IMPORTED_MODULE_1__modals__["t" /* ModalStakeholderComponent */], {
+            hasBackdrop: false,
+            data: {
+                title: 'Clientes',
+                option: '1'
+            }
+        });
+        this.modalCostumer.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10_rxjs_operators__["filter"])(function (data) { return data; })).subscribe(function (data) {
+            _this.model.customer_id = data.id;
+            _this.customers = data;
+        });
+    };
+    BillingActionComponent.prototype.openAddCustomer = function () {
+        var _this = this;
+        this.modalStakeHolderDialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_1__modals__["t" /* ModalStakeholderComponent */], {
+            hasBackdrop: false,
+            data: {
+                title: 'Clientes',
+                option: '1'
+            }
+        });
+        this.modalStakeHolderDialogRef.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10_rxjs_operators__["filter"])(function (stakeHolder) { return stakeHolder; })).subscribe(function (stakeHolder) {
+            if (stakeHolder.businessname == '') {
+                stakeHolder.businessname = stakeHolder.name;
+            }
+            _this.customer = stakeHolder;
+            _this.contact_name = JSON.parse(stakeHolder.purchases_contact);
+            _this.model.payment_condition_id = _this.customer.payment_condition_id;
+            _this.model.customer_id = stakeHolder.id;
+            // this.model.supplier_id = supplierQuotes.supplier_id;
+            // this.supplier = supplierQuotes.stakeholder_info;
+            // this.contact_name["name_sales_contact"] = supplierQuotes.supplier_info.sales_contact.name;
+            // this.model.payment_condition_id = supplierQuotes.payment_condition_id;
+        });
+    };
+    BillingActionComponent.prototype.openAddEmployees = function () {
+        var _this = this;
+        this.modalStakeHolderDialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_1__modals__["t" /* ModalStakeholderComponent */], {
+            hasBackdrop: false,
+            data: {
+                title: 'Vendedores',
+                option: '3'
+            }
+        });
+        this.modalStakeHolderDialogRef.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10_rxjs_operators__["filter"])(function (stakeHolder) { return stakeHolder; })).subscribe(function (stakeHolder) {
+            console.log(stakeHolder);
+            if (stakeHolder.businessname == '') {
+                stakeHolder.businessname = stakeHolder.name;
+            }
+            _this.seller["fullname"] = stakeHolder.name;
+            _this.model.seller_employee_id = stakeHolder.id;
+            console.log(_this.seller);
+        });
+    };
+    BillingActionComponent.prototype.openModalProducts = function () {
+        var _this = this;
+        this.modalStocksProducts = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__modals_modal_stocks_modal_stocks_component__["a" /* ModalStocksComponent */], {
+            hasBackdrop: false,
+            data: {
+                title: 'Productos'
+            }
+        });
+        this.modalStocksProducts.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10_rxjs_operators__["filter"])(function (data) { return data; })).subscribe(function (data) {
+            var movement = new Object({
+                "product_id": data.id,
+                "product": { "sku": data.sku, "display_name": data.display_name, "averageunitcost": data.averageunitcost, "units": data.units },
+                "batch": "",
+                "fraction": false,
+                "location": "",
+                "expiration_date": "",
+                "units": "",
+                "discount": _this.customer.global_discount,
+                "unit_cost": ""
+            });
+            _this.model.details.push(movement);
+        });
+    };
+    BillingActionComponent.prototype.totalCost = function () {
+        var _this = this;
+        this.model.total = 0;
+        this.model.details.forEach(function (element) {
+            _this.model.total = _this.model.total + (element.units * element.product.averageunitcost);
+        });
+    };
+    BillingActionComponent.prototype.changeDiscountSymbol = function () {
+        if (this.discountSymbol == '%') {
+            this.discountSymbol = '$';
+        }
+        else {
+            this.discountSymbol = '%';
+        }
+    };
+    BillingActionComponent.prototype.openModalDeliveryPoints = function () {
+        var _this = this;
+        this.modalDeliveryPoints = this.dialog.open(__WEBPACK_IMPORTED_MODULE_1__modals__["k" /* ModalDeliveryPointsComponent */], {
+            hasBackdrop: false,
+            data: {
+                title: 'Puntos de dispensación'
+            }
+        });
+        this.modalDeliveryPoints.afterClosed().pipe(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10_rxjs_operators__["filter"])(function (data) { return data; })).subscribe(function (data) {
+            data.delivery_point_id = data.id;
+            if (!_this.model.delivery_points) {
+                _this.model.delivery_points = [];
+            }
+            if (_this.model.delivery_points.length == 0) {
+                data.event = false;
+                data.capita = false;
+                data.pgp = false;
+                _this.model.delivery_points.push(data);
+            }
+            var exist = false;
+            _this.model.delivery_points.forEach(function (element, index) {
+                if (element.name == data.name) {
+                    exist = true;
+                }
+                if (_this.model.delivery_points.length == index + 1) {
+                    if (!exist) {
+                        data.event = false;
+                        data.capita = false;
+                        data.pgp = false;
+                        _this.model.delivery_points.push(data);
+                    }
+                }
+            });
+        });
     };
     var _a, _b, _c, _d, _e, _f, _g;
-    AffiliatesActionComponent = __decorate([
+    BillingActionComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
-            selector: "affiliates-action-cmp",
-            template: __webpack_require__("../../../../../src/app/smartity/affiliates/affiliates-action/affiliates-action.component.html")
+            selector: 'billing-action-cmp',
+            template: __webpack_require__("../../../../../src/app/smartity/billing/billing-action/billing-action.component.html")
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["q" /* MatSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["q" /* MatSnackBar */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__shared__["a" /* LoaderService */]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__shared__["b" /* HelperService */]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__affiliates_component__["a" /* AffiliatesComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__affiliates_component__["a" /* AffiliatesComponent */]) === "function" ? _f : Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["r" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["r" /* MatDialog */]) === "function" ? _g : Object])
-    ], AffiliatesActionComponent);
-    return AffiliatesActionComponent;
-}(__WEBPACK_IMPORTED_MODULE_4__bases_base_model__["a" /* BaseModel */]));
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__angular_material__["q" /* MatSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_material__["q" /* MatSnackBar */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_7__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__angular_router__["c" /* ActivatedRoute */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_7__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__angular_router__["a" /* Router */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_8__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__shared__["a" /* LoaderService */]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_8__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__shared__["b" /* HelperService */]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_9__billing_component__["a" /* BillingComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__billing_component__["a" /* BillingComponent */]) === "function" ? _f : Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_4__angular_material__["r" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_material__["r" /* MatDialog */]) === "function" ? _g : Object])
+    ], BillingActionComponent);
+    return BillingActionComponent;
+}(__WEBPACK_IMPORTED_MODULE_6__bases_base_model__["a" /* BaseModel */]));
 
-//# sourceMappingURL=affiliates-action.component.js.map
+//# sourceMappingURL=billing-action.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/affiliates/affiliates-list/affiliates-list.component.html":
+/***/ "../../../../../src/app/smartity/billing/billing-list/billing-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n            <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\" (keydown)=\"enter($event)\">\n            <div style=\"width: 34px\" class=\"input-group-addon\">\n                <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                    <i class=\"fa fa-search\"></i>\n                </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-md-6\" *ngIf=\"!noaction\">\n        <button *ngIf=\"actions[0].status\" mat-raised-button (click)=\"NEW()\" color=\"primary\" class=\"btn-w-md no-margin-left btn-right\">\n            <mat-icon>add_circle_outline</mat-icon> Nuevo\n        </button>\n    </div>\n\n    <div class=\"col-sm-12\">\n\n        <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n            <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n                <thead>\n                    <tr>\n                        <!-- <th class=\"noAuto\" (click)=\"sort('id')\">ID\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th> -->\n                        <th (click)=\"sort('document_type_id')\">Identificación\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='document_type_id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('contract')\">Contrato\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='contract'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <!--th (click)=\"sort('contract')\">Modalidad\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='contract'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th-->\n                        <th (click)=\"sort('state')\">Estado\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='ct.state'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th *ngIf=\"actions[2].status\" class=\"w-40\"></th>\n                        <th *ngIf=\"actions[3].status\" class=\"w-40\"></th>\n                    </tr>\n                </thead>\n                <tbody *ngIf=\"list.data\">\n                    <tr *ngFor=\"let item of list.data\">\n                        <td class=\"noAuto\">{{ item.document_number }}</td>\n                        <td>{{ item.display_name }}</td>\n                        <td>{{ item.contract }}</td>\n                        <!--td>{{item.contracts_payment_method}}</td-->\n                        <td>{{ item.state ? 'Activo' : 'Inactiva' }}</td>\n                        <td *ngIf=\"actions[2].status\" class=\"w-40\">\n                            <button type=\"button\" mat-icon-button class=\"text-primary\" (click)=\"view(item,'Actualizar')\">\n                                <mat-icon>mode_edit</mat-icon>\n                            </button>\n                        </td>\n                        <td *ngIf=\"actions[3].status\" class=\"w-40\">\n                            <button type=\"button\" mat-icon-button class=\"text-danger\" (click)=\"view(item, 'Eliminar')\">\n                                <mat-icon>delete</mat-icon>\n                            </button>\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n\n        </div>\n\n        <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\n            [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n    </div>\n</div>"
+module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div class=\"col-md-6\">\n        <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n            <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\"\n                (keydown)=\"enter($event)\">\n            <div style=\"width: 34px\" class=\"input-group-addon\">\n                <a style=\"cursor:pointer\" (click)=\"getAll()\">\n                    <i class=\"fa fa-search\"></i>\n                </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"col-md-6\">\n        <button *ngIf=\"actions[0].status\" mat-raised-button (click)=\"CUD('Guardar')\" color=\"primary\" class=\"btn-w-md no-margin-left btn-right\">\n            <mat-icon>add_circle_outline</mat-icon> Nuevo\n        </button>\n    </div>\n  \n    <div class=\"col-sm-12\">\n  \n        <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n  \n            <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n                <thead>\n                    <tr>\n                        <th class=\"noAuto\" (click)=\"sort('id')\"># Factura\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('supplier_id')\">Cliente\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='supplier_id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('created_at')\">Fecha de elaboración\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='created_at'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('created_at')\">Fecha de vencimiento\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='created_at'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('status')\">Total\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='status'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th (click)=\"sort('status')\">Estado\n                            <span class=\"glyphicon sort-icon\" *ngIf=\"key =='status'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                        </th>\n                        <th *ngIf=\"actions[2].status\" class=\"w-40\"></th>\n                        <th *ngIf=\"actions[3].status\" class=\"w-40\"></th>\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor=\"let item of list.data\">\n                        <td>{{ item.document.prefix }}-{{item.consecutive}}</td>\n                        <td>{{ item.stakeholder_info.fullname }}</td>\n                        <td>{{ item.created_at }}</td>\n                        <td>{{ item.expire_at }}</td>\n                        <td>$23.000</td>\n                        <td>{{ item.status ? 'Activo' : 'Inactiva' }}</td>\n                        <td *ngIf=\"actions[2].status\" class=\"w-40\">\n                            <button type=\"button\" mat-icon-button class=\"text-primary\" (click)=\"CUD('Actualizar', item)\">\n                                <mat-icon>mode_edit</mat-icon>\n                            </button>\n                        </td>\n                        <td *ngIf=\"actions[3].status\" class=\"w-40\">\n                            <button type=\"button\" mat-icon-button class=\"text-danger\" (click)=\"CUD('Eliminar', item)\">\n                                <mat-icon>delete</mat-icon>\n                            </button>\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n  \n        </div>\n  \n        <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\n            [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n  \n    </div>\n  </div>"
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/affiliates/affiliates-list/affiliates-list.component.ts":
+/***/ "../../../../../src/app/smartity/billing/billing-list/billing-list.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_startWith__ = __webpack_require__("../../../../rxjs/add/operator/startWith.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_startWith___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_startWith__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__bases_base_list__ = __webpack_require__("../../../../../src/app/smartity/bases/base-list.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__affiliates_component__ = __webpack_require__("../../../../../src/app/smartity/affiliates/affiliates.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AffiliatesListComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__bases_base_list__ = __webpack_require__("../../../../../src/app/smartity/bases/base-list.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__billing_component__ = __webpack_require__("../../../../../src/app/smartity/billing/billing.component.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BillingListComponent; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -283,60 +455,61 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-var AffiliatesListComponent = /** @class */ (function (_super) {
-    __extends(AffiliatesListComponent, _super);
-    function AffiliatesListComponent(router, loaderService, helperService, comp) {
+var BillingListComponent = /** @class */ (function (_super) {
+    __extends(BillingListComponent, _super);
+    function BillingListComponent(loaderService, helperService, router, comp) {
         var _this = _super.call(this, loaderService, helperService) || this;
-        _this.router = router;
         _this.loaderService = loaderService;
         _this.helperService = helperService;
+        _this.router = router;
         _this.comp = comp;
-        _this.urlApi = '/api/affiliates';
+        _this.urlApi = '/api/billing';
         return _this;
     }
-    AffiliatesListComponent.prototype.ngOnInit = function () {
+    BillingListComponent.prototype.ngOnInit = function () {
         this.getAll();
     };
-    AffiliatesListComponent.prototype.NEW = function (row) {
-        this.comp.openActions();
-        this.comp.id = '';
-        this.comp.strAction = 'Guardar';
-    };
-    AffiliatesListComponent.prototype.view = function (row, action) {
-        this.comp.id = row.id;
+    BillingListComponent.prototype.CUD = function (action, row) {
         this.comp.strAction = action;
+        switch (action) {
+            case 'Guardar':
+                this.comp.id = undefined;
+                break;
+            default:
+                this.comp.id = row.id;
+                break;
+        }
         this.comp.openActions();
     };
     var _a, _b, _c, _d;
-    AffiliatesListComponent = __decorate([
+    BillingListComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
-            selector: "affiliates-list-cmp",
-            template: __webpack_require__("../../../../../src/app/smartity/affiliates/affiliates-list/affiliates-list.component.html"),
+            selector: 'billing-list-cmp',
+            template: __webpack_require__("../../../../../src/app/smartity/billing/billing-list/billing-list.component.html")
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared__["a" /* LoaderService */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared__["b" /* HelperService */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__affiliates_component__["a" /* AffiliatesComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__affiliates_component__["a" /* AffiliatesComponent */]) === "function" ? _d : Object])
-    ], AffiliatesListComponent);
-    return AffiliatesListComponent;
-}(__WEBPACK_IMPORTED_MODULE_3__bases_base_list__["a" /* BaseList */]));
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared__["a" /* LoaderService */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared__["b" /* HelperService */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__billing_component__["a" /* BillingComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__billing_component__["a" /* BillingComponent */]) === "function" ? _d : Object])
+    ], BillingListComponent);
+    return BillingListComponent;
+}(__WEBPACK_IMPORTED_MODULE_2__bases_base_list__["a" /* BaseList */]));
 
-//# sourceMappingURL=affiliates-list.component.js.map
+//# sourceMappingURL=billing-list.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/affiliates/affiliates.component.html":
+/***/ "../../../../../src/app/smartity/billing/billing.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"chapter\">\n    <section class=\"hero\">\n        <div class=\"hero-content\">\n            <h1 class=\"hero-title\">Afiliados</h1>\n        </div>\n        <p class=\"hero-tagline\"></p>\n    </section>\n    <article class=\"article padding-lg-v article-dark article-bordered\">\n        <div class=\"container-fluid with-maxwidth\">\n            <div class=\"box box-default\">\n                <div class=\"box-body\">\n\n                    <affiliates-action-cmp *ngIf=\"isOpenActions\" [numId]=\"id\" [strAction]='strAction'></affiliates-action-cmp>\n\n                    <affiliates-list-cmp *ngIf=\"isOpenList\"></affiliates-list-cmp>\n\n                </div>\n            </div>\n        </div>\n    </article>\n</section>"
+module.exports = "<section class=\"chapter\">\n    <section class=\"hero\">\n        <div class=\"hero-content\">\n            <h1 class=\"hero-title\">Facturación</h1>\n        </div>\n        <p class=\"hero-tagline\">We provide amazing solutions that you can't miss</p>\n    </section>\n    <article class=\"article padding-lg-v article-dark article-bordered\">\n        <div class=\"container-fluid with-maxwidth\">\n            <div class=\"box box-default\">\n                <div class=\"box-body\">\n                    <billing-action-cmp *ngIf=\"isOpenActions\" [numId]=\"id\" [strAction]=\"strAction\"></billing-action-cmp>\n                    <billing-list-cmp *ngIf=\"isOpenList\"></billing-list-cmp>\n                </div>                 \n            </div>\n        </div>\n    </article>\n</section>                  "
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/affiliates/affiliates.component.ts":
+/***/ "../../../../../src/app/smartity/billing/billing.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__bases_base__ = __webpack_require__("../../../../../src/app/smartity/bases/base.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AffiliatesComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BillingComponent; });
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -361,29 +534,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var AffiliatesComponent = /** @class */ (function (_super) {
-    __extends(AffiliatesComponent, _super);
-    function AffiliatesComponent() {
+var BillingComponent = /** @class */ (function (_super) {
+    __extends(BillingComponent, _super);
+    function BillingComponent() {
         return _super.call(this) || this;
     }
-    AffiliatesComponent.prototype.ngOnInit = function () {
+    BillingComponent.prototype.ngOnInit = function () {
     };
-    AffiliatesComponent = __decorate([
+    BillingComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
-            selector: "affiliates-cmp",
-            template: __webpack_require__("../../../../../src/app/smartity/affiliates/affiliates.component.html"),
-            styles: []
+            selector: 'app-billing',
+            template: __webpack_require__("../../../../../src/app/smartity/billing/billing.component.html")
         }),
         __metadata("design:paramtypes", [])
-    ], AffiliatesComponent);
-    return AffiliatesComponent;
+    ], BillingComponent);
+    return BillingComponent;
 }(__WEBPACK_IMPORTED_MODULE_1__bases_base__["a" /* Base */]));
 
-//# sourceMappingURL=affiliates.component.js.map
+//# sourceMappingURL=billing.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/smartity/affiliates/affiliates.module.ts":
+/***/ "../../../../../src/app/smartity/billing/billing.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -392,11 +564,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_shared_module__ = __webpack_require__("../../../../../src/app/shared/shared.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__affiliates_component__ = __webpack_require__("../../../../../src/app/smartity/affiliates/affiliates.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__affiliates_list_affiliates_list_component__ = __webpack_require__("../../../../../src/app/smartity/affiliates/affiliates-list/affiliates-list.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__affiliates_action_affiliates_action_component__ = __webpack_require__("../../../../../src/app/smartity/affiliates/affiliates-action/affiliates-action.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AffiliatesModule", function() { return AffiliatesModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__billing_component__ = __webpack_require__("../../../../../src/app/smartity/billing/billing.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__billing_action_billing_action_component__ = __webpack_require__("../../../../../src/app/smartity/billing/billing-action/billing-action.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__billing_list_billing_list_component__ = __webpack_require__("../../../../../src/app/smartity/billing/billing-list/billing-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BillingModule", function() { return BillingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -411,29 +583,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var routes = [{ path: '', component: __WEBPACK_IMPORTED_MODULE_5__affiliates_component__["a" /* AffiliatesComponent */] }];
-var AffiliatesModule = /** @class */ (function () {
-    function AffiliatesModule() {
+var routes = [{ path: '', component: __WEBPACK_IMPORTED_MODULE_4__billing_component__["a" /* BillingComponent */] }];
+var BillingModule = /** @class */ (function () {
+    function BillingModule() {
     }
-    AffiliatesModule = __decorate([
+    BillingModule = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_common__["a" /* CommonModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* RouterModule */].forChild(routes),
                 __WEBPACK_IMPORTED_MODULE_3__shared_shared_module__["a" /* SharedModule */],
-                __WEBPACK_IMPORTED_MODULE_4__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot()
+                __WEBPACK_IMPORTED_MODULE_7__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot()
             ],
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_5__affiliates_component__["a" /* AffiliatesComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__affiliates_list_affiliates_list_component__["a" /* AffiliatesListComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__affiliates_action_affiliates_action_component__["a" /* AffiliatesActionComponent */]
+                __WEBPACK_IMPORTED_MODULE_4__billing_component__["a" /* BillingComponent */],
+                __WEBPACK_IMPORTED_MODULE_5__billing_action_billing_action_component__["a" /* BillingActionComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__billing_list_billing_list_component__["a" /* BillingListComponent */]
             ]
         })
-    ], AffiliatesModule);
-    return AffiliatesModule;
+    ], BillingModule);
+    return BillingModule;
 }());
 
-//# sourceMappingURL=affiliates.module.js.map
+//# sourceMappingURL=billing.module.js.map
 
 /***/ })
 
