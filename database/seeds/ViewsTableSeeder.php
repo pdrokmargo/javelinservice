@@ -14,7 +14,7 @@ class ViewsTableSeeder extends Seeder
     DB::table('views')->insert([
     /*01*/['view_parent_id' => 0, 'have_child' => true,     'title' => 'Organización',              'link' => '',                       'icon' => 'business',               'description' => '', 'load_children' => '', 'show_menu' => true ], 
     /*02*/['view_parent_id' => 0, 'have_child' => false,    'title' => 'Terceros',                  'link' => 'stakeholders',           'icon' => 'supervised_user_circle', 'description' => '', 'load_children' => '', 'show_menu' => true ],
-    /*03*/['view_parent_id' => 0, 'have_child' => true,     'title' => 'Sanidad',                   'link' => '',                       'icon' => 'local_pharmacy',         'description' => '', 'load_children' => '', 'show_menu' => true ],
+    /*03*/['view_parent_id' => 0, 'have_child' => true,     'title' => 'Gestión Farmaceútica',                   'link' => '',                       'icon' => 'local_pharmacy',         'description' => '', 'load_children' => '', 'show_menu' => true ],
     /*04*/['view_parent_id' => 0, 'have_child' => false,    'title' => 'Productos',                 'link' => 'product',                'icon' => 'donut_small',            'description' => '', 'load_children' => '', 'show_menu' => true ],
     /*05*/['view_parent_id' => 0, 'have_child' => true,     'title' => 'Logística',                 'link' => '',                       'icon' => 'local_shipping',         'description' => '', 'load_children' => '', 'show_menu' => true ],
     /*06*/['view_parent_id' => 0, 'have_child' => true,     'title' => 'Compras',                   'link' => '',                       'icon' => 'add_shopping_cart',      'description' => '', 'load_children' => '', 'show_menu' => true ],
@@ -31,6 +31,8 @@ class ViewsTableSeeder extends Seeder
           ['view_parent_id' => 1, 'have_child' => false,    'title' => 'Puntos de dispensación',    'link' => 'delivery-points',        'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ],
     /* 03 */
           ['view_parent_id' => 3, 'have_child' => false,    'title' => 'Medicamentos',              'link' => 'pharmaceutical-drug',    'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ],
+          ['view_parent_id' => 3, 'have_child' => false,    'title' => 'MiPRES Proveedor',          'link' => 'mipres-supplier',    'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ],
+          ['view_parent_id' => 3, 'have_child' => false,    'title' => 'MiPres Dispensación',       'link' => 'mipres-delivery',    'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ],
     /* 05 */
       ['view_parent_id' => 5, 'have_child' => false, 'title' => 'Ingresos',                     'link' => 'inventory-movement-entry',     'icon' => '',     'description' => '', 'load_children' => '', 'show_menu' => true ],
       ['view_parent_id' => 5, 'have_child' => false, 'title' => 'Salidas',                      'link' => 'inventory-movement-out',       'icon' => '',     'description' => '', 'load_children' => '', 'show_menu' => true ],
@@ -53,7 +55,9 @@ class ViewsTableSeeder extends Seeder
     /* 09 */ 
          ['view_parent_id' => 9, 'have_child' => false,     'title' => 'Usuarios',                  'link' => 'users',                  'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ],
          ['view_parent_id' => 9, 'have_child' => false,     'title' => 'Perfiles de Usuario',       'link' => 'user-profiles',          'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ],
-         ['view_parent_id' => 9, 'have_child' => false,     'title' => 'Logs',                      'link' => 'audit',                  'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ]
+         ['view_parent_id' => 9, 'have_child' => false,     'title' => 'Logs',                      'link' => 'audit',                  'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ],
+
+      //    ['view_parent_id' => 9, 'have_child' => false,     'title' => 'Logs',                      'link' => 'audit',                  'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ]
 
     ]);
     }
