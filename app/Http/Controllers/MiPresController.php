@@ -28,7 +28,7 @@ class MiPresController extends Controller
     public function direccionamientoXPrescripcion(Request $request, $prescription)
     {
         $this->generateToken();
-        $r = new GuzzleHttp\Psr7\Request();
+        $r = new \GuzzleHttp\Psr7\Request();
         $res = $r->request('GET', $this->baseUrl.'DireccionamientoXPrescripcion/'.$this->nit.'/'.$this->secondToken.'/'.$prescription);
         // $res = (string)$res->getBody();
         return $res;
