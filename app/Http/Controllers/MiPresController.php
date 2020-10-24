@@ -35,7 +35,7 @@ class MiPresController extends Controller
         // $res = (string)$res->getBody();
         // dd($res);
         return response()->json([ 
-            "object" => $res->getBody()
+            "object" => $url
         ], 200);
     }
 }
