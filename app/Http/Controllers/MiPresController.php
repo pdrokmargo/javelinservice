@@ -35,7 +35,11 @@ class MiPresController extends Controller
         $client = new Client();
         $url = $this->baseUrl.'DireccionamientoXPrescripcion/'.$this->nit.'/'.$this->secondToken.'/'.$prescription;
         echo $url;
-        $res = $client->request('GET', $url);
+        $headers = [
+            'content-type'  => 'application/json'
+        ];
+        $res = $client->request('GET', $url, ['headers' $headers]);
+        
         // $res = (string)$res->getBody();
         dd($res);
         // return response()->json([ 
