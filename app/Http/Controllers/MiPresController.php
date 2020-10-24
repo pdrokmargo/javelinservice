@@ -13,7 +13,7 @@ class MiPresController extends Controller
     private $baseUrl = 'https://wsmipres.sispro.gov.co/WSSUMMIPRESNOPBS/api/';
     private $mainToken = '525FE1ED-00E2-4364-9F5D-7612B8B1E21E';
     private $nit = '802024817';
-    private $secondToken = '_0hZFuEPhyPIbwAowjiePR8TMae8cIdhF4MCV5Dh7CA%3D';
+    private $secondToken = '';
     // private $client;
 
     // public function __construct() {
@@ -26,12 +26,13 @@ class MiPresController extends Controller
         $this->secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken);
     }
     public function direccionamientoXPrescripcion(Request $request, $prescription)
-    {
-        try{
+    {   
 
-            $client = new \GuzzleHttp\Client();
+        try{
+            $this->generateToken();
+            // $client = new \GuzzleHttp\Client();
             $headers = ['Accept' => 'application/json'];
-            $url = $this->baseUrl.'DireccionamientoXPrescripcion/'.$this->nit.'/_0hZFuEPhyPIbwAowjiePcnIm_JiaHcoxVINF7BHUBA=/'.$prescription;
+            $url = $this->baseUrl.'DireccionamientoXPrescripcion/'.$this->nit.'/'.$this->secondToken.'/'.$prescription;
             $response = $client->request('GET', $url, $headers);
             $body = $response->getBody();
             $status = 'true';
