@@ -25,7 +25,7 @@ class MiPresController extends Controller
     public function direccionamientoXPrescripcion(Request $request, $prescription)
     {
         // $this->generateToken();
-        // $client = new Client();
+        $client = new Client();
         $url = $this->baseUrl.'DireccionamientoXPrescripcion/'.$this->nit.'/_0hZFuEPhyPIbwAowjiePR8TMae8cIdhF4MCV5Dh7CA=/'.$prescription;
         // echo $url;
         // $url = $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken;
