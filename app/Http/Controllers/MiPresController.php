@@ -20,7 +20,6 @@ class MiPresController extends Controller
     // public function __construct() {
     //     $client = new Client();
     // }
-    p
 
     public function generateToken()
     {
@@ -32,6 +31,7 @@ class MiPresController extends Controller
     {   
 
         try{
+           
             $secondToken = $this->generateToken();
             // $client = new \GuzzleHttp\Client();
             $headers = ['Accept' => 'application/json'];
