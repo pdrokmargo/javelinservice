@@ -31,11 +31,18 @@ class MiPresController extends Controller
     {   
 
         try{
-           
+            // Send an asynchronous request.
+//             $request = new \GuzzleHttp\Psr7\Request('GET', $url, $headers);
+//             $promise = $client->sendAsync($request)->then(function ($response) {
+//                 echo 'I completed! ' . $response->getBody();
+//             });
+
+// $promise->wait();
             $secondToken = $this->generateToken();
             // $client = new \GuzzleHttp\Client();
             $headers = ['Accept' => 'application/json'];
             $url = $this->baseUrl.'DireccionamientoXPrescripcion/'.$this->nit.'/'.$secondToken.'/'.$prescription;
+            echo 'prove: '. $secondToken;   
             $response = $client->request('GET', $url, $headers);
             $body = $response->getBody();
             $status = 'true';
