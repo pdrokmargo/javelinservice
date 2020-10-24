@@ -37,10 +37,10 @@ class MiPresController extends Controller
 
         $request = new \GuzzleHttp\Psr7\Request('GET', $url);
         $promise = $client->sendAsync($request)->then(function ($response) {
-            // echo 'I completed! ' . $response->getBody();
-            return response()->json([ 
-                "object" => $response->getBody()
-            ], 200);
+            echo 'I completed! ' . $response->getBody();
+            // return response()->json([ 
+            //     "object" => $response->getBody()
+            // ], 200);
         });
 
         $promise->wait();
