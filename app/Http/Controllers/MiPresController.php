@@ -36,10 +36,7 @@ class MiPresController extends Controller
         // echo $url;
         // $url = $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken;
         // echo $url;
-        $headers = [
-            'content-type'  => 'application/json'
-        ];
-        $res = $client->request('GET', $url, ['headers' => $headers]);
+        $res = $client->request('GET', $url);
         
         // $res = (string)$res->getBody();
         // dd($res);
