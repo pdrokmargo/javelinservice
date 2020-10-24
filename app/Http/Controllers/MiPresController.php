@@ -38,7 +38,7 @@ class MiPresController extends Controller
         $headers = [
             'content-type'  => 'application/json'
         ];
-        $res = $client->request('GET', $url, ['headers' $headers]);
+        $res = $client->request('GET', $url, ['headers' => $headers]);
         
         // $res = (string)$res->getBody();
         dd($res);
