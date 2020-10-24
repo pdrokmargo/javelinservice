@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 
 class MiPresController extends Controller
 {
@@ -25,12 +26,7 @@ class MiPresController extends Controller
     public function direccionamientoXPrescripcion(Request $request, $prescription)
     {
         // $this->generateToken();
-        $client = new Client();
-        $url = $this->baseUrl.'DireccionamientoXPrescripcion/'.$this->nit.'/_0hZFuEPhyPIbwAowjiePR8TMae8cIdhF4MCV5Dh7CA=/'.$prescription;
-        // echo $url;
-        // $url = $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken;
-        // echo $url;
-        $res = $client->request('GET', $url);
+        
         
         // $res = (string)$res->getBody();
         dd($res->getBody());
@@ -44,6 +40,33 @@ class MiPresController extends Controller
         // });
 
         // $promise->wait();
+
+        try {
+
+            $client = new Client();
+            $url = $this->baseUrl.'DireccionamientoXPrescripcion/'.$this->nit.'/_0hZFuEPhyPIbwAowjiePR8TMae8cIdhF4MCV5Dh7CA=/'.$prescription;
+            $res = $client->request('GET', $url);
+                
+            // Here the code for successful request
+        
+        } catch (RequestException $e) {
+        
+            // Catch all 4XX errors 
+            
+            // To catch exactly error 400 use 
+            if ($e->hasResponse()){
+                if ($e->getResponse()->getStatusCode() == '400') {
+                        echo "Got response 400";
+                }
+            }
+        
+            // You can check for whatever error status code you need 
+            
+        } catch (\Exception $e) {
+            dd($e);
+            // There was another exception.
+        
+        }
         
     }
 }
