@@ -56,7 +56,7 @@ class MiPresController extends Controller
             // To catch exactly error 400 use 
             if ($e->hasResponse()){
                 if ($e->getResponse()->getStatusCode() == '400') {
-                        echo "Got response 400";
+                        echo $e;
                 }
             }
         
