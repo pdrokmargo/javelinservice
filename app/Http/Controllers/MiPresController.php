@@ -29,7 +29,7 @@ class MiPresController extends Controller
         
         
         // $res = (string)$res->getBody();
-        dd($res->getBody());
+        // dd($res->getBody());
 
         // $request = new \GuzzleHttp\Psr7\Request('GET', $url);
         // $promise = $client->sendAsync($request)->then(function ($response) {
