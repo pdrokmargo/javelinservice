@@ -29,7 +29,8 @@ class MiPresController extends Controller
     {
         try{
             $client = new \GuzzleHttp\Client();
-            $response = $client->request('GET', 'https://wsmipres.sispro.gov.co/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion/802024817/_0hZFuEPhyPIbwAowjiePR8TMae8cIdhF4MCV5Dh7CA=/20201003197023452163');
+            $headers = ['Accept' => 'application/json'];
+            $response = $client->request('GET', 'https://wsmipres.sispro.gov.co/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion/802024817/_0hZFuEPhyPIbwAowjiePR8TMae8cIdhF4MCV5Dh7CA=/20201003197023452163', $headers);
             $body = $response->getBody();
             $status = 'true';
             $message = 'Data found!';
