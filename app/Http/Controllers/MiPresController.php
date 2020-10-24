@@ -28,9 +28,11 @@ class MiPresController extends Controller
     public function direccionamientoXPrescripcion(Request $request, $prescription)
     {
         try{
+
             $client = new \GuzzleHttp\Client();
             $headers = ['Accept' => 'application/json'];
-            $response = $client->request('GET', 'https://wsmipres.sispro.gov.co/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion/802024817/_0hZFuEPhyPIbwAowjiePcnIm_JiaHcoxVINF7BHUBA=/20201003197023452163', $headers);
+            $url = $this->baseUrl.'DireccionamientoXPrescripcion/'.$this->nit.'/_0hZFuEPhyPIbwAowjiePcnIm_JiaHcoxVINF7BHUBA=/'.$prescription;
+            $response = $client->request('GET', $url, $headers);
             $body = $response->getBody();
             $status = 'true';
             $message = 'Data found!';
