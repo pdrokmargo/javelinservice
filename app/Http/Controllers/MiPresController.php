@@ -39,7 +39,7 @@ class MiPresController extends Controller
 
 // $promise->wait();
             // $secondToken = $this->generateToken();
-            // $client = new \GuzzleHttp\Client();
+            $client = new \GuzzleHttp\Client();
             $headers = ['Accept' => 'application/json'];
             $url = $this->baseUrl.'DireccionamientoXPrescripcion/'.$this->nit.'/'.$token.'/'.$prescription;
             // echo 'prove: '. $secondToken;   
