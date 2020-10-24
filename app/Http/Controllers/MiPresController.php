@@ -30,20 +30,20 @@ class MiPresController extends Controller
         // echo $url;
         // $url = $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken;
         // echo $url;
-        // $res = $client->request('GET', $url);
+        $res = $client->request('GET', $url);
         
         // $res = (string)$res->getBody();
-        // dd($res);
+        dd($res->getBody());
 
-        $request = new \GuzzleHttp\Psr7\Request('GET', $url);
-        $promise = $client->sendAsync($request)->then(function ($response) {
-            echo 'I completed! ' . $response->getBody();
-            // return response()->json([ 
-            //     "object" => $response->getBody()
-            // ], 200);
-        });
+        // $request = new \GuzzleHttp\Psr7\Request('GET', $url);
+        // $promise = $client->sendAsync($request)->then(function ($response) {
+        //     echo 'I completed! ' . $response->getBody();
+        //     // return response()->json([ 
+        //     //     "object" => $response->getBody()
+        //     // ], 200);
+        // });
 
-        $promise->wait();
+        // $promise->wait();
         
     }
 }
