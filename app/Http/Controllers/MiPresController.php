@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\RequestException;
+use Exception;
 
 class MiPresController extends Controller
 {
@@ -25,9 +27,31 @@ class MiPresController extends Controller
     }
     public function direccionamientoXPrescripcion(Request $request, $prescription)
     {
-        $client = new \GuzzleHttp\Client();
-        $response = $client->request('GET', 'https://wsmipres.sispro.gov.co/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion/802024817/_0hZFuEPhyPIbwAowjiePR8TMae8cIdhF4MCV5Dh7CA=/20201003197023452163');
-        dd($response);
+        try{
+            $client = new \GuzzleHttp\Client();
+            $response = $client->request('GET', 'https://wsmipres.sispro.gov.co/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion/802024817/_0hZFuEPhyPIbwAowjiePR8TMae8cIdhF4MCV5Dh7CA=/20201003197023452163');
+            $body = $response->getBody();
+            $status = 'true';
+            $message = 'Data found!';
+            $data = json_decode($body);
+        }catch(ClientException $ce){
+            $status = 'false';
+            $message = $ce->getMessage();
+            $data = [];
+        }catch(RequestException $re){
+           $status = 'false';
+           $message = $re->getMessage();
+           $data = [];
+        }catch(Exception $e){
+           $this->status = 'false';
+           $this->message = $e->getMessage();
+           $data = [];
+        }
+        
+        return ['status'=>$status,'message'=>$message,'data'=>$data];
+        // $client = new \GuzzleHttp\Client();
+        // $response = $client->request('GET', 'https://wsmipres.sispro.gov.co/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion/802024817/_0hZFuEPhyPIbwAowjiePR8TMae8cIdhF4MCV5Dh7CA=/20201003197023452163');
+        // dd($response);
 // echo $response->getStatusCode(); // 200
 // echo $response->getHeaderLine('content-type'); // 'application/json; charset=utf8'
 // echo $response->getBody(); // '{"id": 1420053, "name": "guzzle", ...}'
