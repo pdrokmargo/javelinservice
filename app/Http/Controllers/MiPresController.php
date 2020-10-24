@@ -26,14 +26,14 @@ class MiPresController extends Controller
     public function direccionamientoXPrescripcion(Request $request, $prescription)
     {
         $client = new \GuzzleHttp\Client();
-$response = $client->request('GET', 'https://api.github.com/repos/guzzle/guzzle');
+// $response = $client->request('GET', 'https://api.github.com/repos/guzzle/guzzle');
 
-echo $response->getStatusCode(); // 200
-echo $response->getHeaderLine('content-type'); // 'application/json; charset=utf8'
-echo $response->getBody(); // '{"id": 1420053, "name": "guzzle", ...}'
+// echo $response->getStatusCode(); // 200
+// echo $response->getHeaderLine('content-type'); // 'application/json; charset=utf8'
+// echo $response->getBody(); // '{"id": 1420053, "name": "guzzle", ...}'
 
 // Send an asynchronous request.
-$request = new \GuzzleHttp\Psr7\Request('GET', 'http://httpbin.org');
+$request = new \GuzzleHttp\Psr7\Request('GET', 'https://wsmipres.sispro.gov.co/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion/802024817/_0hZFuEPhyPIbwAowjiePR8TMae8cIdhF4MCV5Dh7CA=/20201003197023452163');
 $promise = $client->sendAsync($request)->then(function ($response) {
     echo 'I completed! ' . $response->getBody();
 });
