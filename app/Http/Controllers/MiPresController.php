@@ -33,7 +33,7 @@ class MiPresController extends Controller
         $this->generateToken();
         $client = new Client();
         $url = $this->baseUrl.'DireccionamientoXPrescripcion/'.$this->nit.'/'.$this->secondToken.'/'.$prescription;
-        echo $url;
+        // echo $url;
         // $url = $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken;
         // echo $url;
         $headers = [
