@@ -13,7 +13,7 @@ class MiPresController extends Controller
     private $secondToken = '';
     private $client;
 
-    function __construct() {
+    public function __construct() {
         $client = new Client();
     }
 
