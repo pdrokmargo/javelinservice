@@ -25,17 +25,25 @@ class MiPresController extends Controller
     public function direccionamientoXPrescripcion(Request $request, $prescription)
     {
         // $this->generateToken();
-        $client = new Client();
-        $url = $this->baseUrl.'DireccionamientoXPrescripcion/'.$this->nit.'/_0hZFuEPhyPIbwAowjiePR8TMae8cIdhF4MCV5Dh7CA=/'.$prescription;
+        // $client = new Client();
+        // $url = $this->baseUrl.'DireccionamientoXPrescripcion/'.$this->nit.'/_0hZFuEPhyPIbwAowjiePR8TMae8cIdhF4MCV5Dh7CA=/'.$prescription;
         // echo $url;
         // $url = $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken;
         // echo $url;
-        $res = $client->request('GET', $url);
+        // $res = $client->request('GET', $url);
         
         // $res = (string)$res->getBody();
         // dd($res);
-        return response()->json([ 
-            "object" => $res
-        ], 200);
+
+        $request = new \GuzzleHttp\Psr7\Request('GET', $url);
+        $promise = $client->sendAsync($request)->then(function ($response) {
+            // echo 'I completed! ' . $response->getBody();
+            return response()->json([ 
+                "object" => $response->getBody()
+            ], 200);
+        });
+
+        $promise->wait();
+        
     }
 }
