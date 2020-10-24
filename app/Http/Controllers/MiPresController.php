@@ -27,7 +27,7 @@ class MiPresController extends Controller
         $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken);
         return $secondToken;
     }
-    public function direccionamientoXPrescripcion(Request $request, $prescription)
+    public function direccionamientoXPrescripcion(Request $request, $token, $prescription)
     {   
 
         try{
@@ -38,11 +38,11 @@ class MiPresController extends Controller
 //             });
 
 // $promise->wait();
-            $secondToken = $this->generateToken();
+            // $secondToken = $this->generateToken();
             // $client = new \GuzzleHttp\Client();
             $headers = ['Accept' => 'application/json'];
-            $url = $this->baseUrl.'DireccionamientoXPrescripcion/'.$this->nit.'/'.$secondToken.'/'.$prescription;
-            echo 'prove: '. $secondToken;   
+            $url = $this->baseUrl.'DireccionamientoXPrescripcion/'.$this->nit.'/'.$token.'/'.$prescription;
+            // echo 'prove: '. $secondToken;   
             $response = $client->request('GET', $url, $headers);
             $body = $response->getBody();
             $status = 'true';
