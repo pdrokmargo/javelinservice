@@ -22,12 +22,6 @@ class MiPresController extends Controller
         $client = new Client();
         $this->secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken);
     }
-    public function direccionamientoXFecha(Request $request)
-    {
-        // $client = new Client();
-        $res = $client->request('GET', 'GenerarToken/'.$this->nit.'/'.$mainToken);
-        return $res;
-    }
     public function direccionamientoXPrescripcion(Request $request, $prescription)
     {
         // $this->generateToken();
@@ -36,7 +30,7 @@ class MiPresController extends Controller
         // echo $url;
         // $url = $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken;
         // echo $url;
-        $res = $client->request('GET', $url);
+        $res = $client->request('GET', $url)->getBody();
         
         // $res = (string)$res->getBody();
         // dd($res);
