@@ -258,7 +258,7 @@ class MiPresController extends Controller
                 $status = 'true';
                 $message = 'Data found!';
                 $data = json_decode($body);
-                $keys[$k] = $data;
+                $finalData[$k] = $data;
             }
         }catch(ClientException $ce){
             $status = 'false';
