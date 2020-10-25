@@ -27,7 +27,7 @@ class MiPresController extends Controller
         $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken);
         return $secondToken;
     }
-    public function direccionamientoXPrescripcion(Request $request, $token, $prescription)
+    public function prescriptionAddressing(Request $request, $token, $prescription)
     {   
 
         try{
@@ -122,5 +122,156 @@ class MiPresController extends Controller
         
         // }
         
+    }
+    public function prescriptionProgramming(Request $request, $token, $prescription)
+    {   
+
+        try{
+            $client = new \GuzzleHttp\Client();
+            $headers = ['Accept' => 'application/json'];
+            $url = $this->baseUrl.'ProgramacionXPrescripcion/'.$this->nit.'/'.$token.'/'.$prescription;
+            $response = $client->request('GET', $url, $headers);
+            $body = $response->getBody();
+            $status = 'true';
+            $message = 'Data found!';
+            $data = json_decode($body);
+        }catch(ClientException $ce){
+            $status = 'false';
+            $message = $ce->getMessage();
+            $data = [];
+        }catch(RequestException $re){
+           $status = 'false';
+           $message = $re->getMessage();
+           $data = [];
+        }catch(Exception $e){
+           $this->status = 'false';
+           $this->message = $e->getMessage();
+           $data = [];
+        }
+        return ['status'=>$status,'message'=>$message,'data'=>$data];        
+    }
+    public function prescriptionDelivery(Request $request, $token, $prescription)
+    {   
+
+        try{
+            $client = new \GuzzleHttp\Client();
+            $headers = ['Accept' => 'application/json'];
+            $url = $this->baseUrl.'EntregaXPrescripcion/'.$this->nit.'/'.$token.'/'.$prescription;
+            $response = $client->request('GET', $url, $headers);
+            $body = $response->getBody();
+            $status = 'true';
+            $message = 'Data found!';
+            $data = json_decode($body);
+        }catch(ClientException $ce){
+            $status = 'false';
+            $message = $ce->getMessage();
+            $data = [];
+        }catch(RequestException $re){
+           $status = 'false';
+           $message = $re->getMessage();
+           $data = [];
+        }catch(Exception $e){
+           $this->status = 'false';
+           $this->message = $e->getMessage();
+           $data = [];
+        }
+        return ['status'=>$status,'message'=>$message,'data'=>$data];        
+    }
+    public function prescriptionDeliveryReport(Request $request, $token, $prescription)
+    {   
+
+        try{
+            $client = new \GuzzleHttp\Client();
+            $headers = ['Accept' => 'application/json'];
+            $url = $this->baseUrl.'ReporteEntregaXPrescripcion/'.$this->nit.'/'.$token.'/'.$prescription;
+            $response = $client->request('GET', $url, $headers);
+            $body = $response->getBody();
+            $status = 'true';
+            $message = 'Data found!';
+            $data = json_decode($body);
+        }catch(ClientException $ce){
+            $status = 'false';
+            $message = $ce->getMessage();
+            $data = [];
+        }catch(RequestException $re){
+           $status = 'false';
+           $message = $re->getMessage();
+           $data = [];
+        }catch(Exception $e){
+           $this->status = 'false';
+           $this->message = $e->getMessage();
+           $data = [];
+        }
+        return ['status'=>$status,'message'=>$message,'data'=>$data];        
+    }
+    public function prescriptionBilled(Request $request, $token, $prescription)
+    {   
+
+        // try{
+        //     $client = new \GuzzleHttp\Client();
+        //     $headers = ['Accept' => 'application/json'];
+        //     $url = $this->baseUrl.'DireccionamientoXPrescripcion/'.$this->nit.'/'.$token.'/'.$prescription;
+        //     $response = $client->request('GET', $url, $headers);
+        //     $body = $response->getBody();
+        //     $status = 'true';
+        //     $message = 'Data found!';
+        //     $data = json_decode($body);
+        // }catch(ClientException $ce){
+        //     $status = 'false';
+        //     $message = $ce->getMessage();
+        //     $data = [];
+        // }catch(RequestException $re){
+        //    $status = 'false';
+        //    $message = $re->getMessage();
+        //    $data = [];
+        // }catch(Exception $e){
+        //    $this->status = 'false';
+        //    $this->message = $e->getMessage();
+        //    $data = [];
+        // }
+        // return ['status'=>$status,'message'=>$message,'data'=>$data];        
+    }
+    public function prescription(Request $request, $token, $prescription)
+    {   
+        $keys = ['addressing' => '', 'programming' => '', 'delivery' => '', 'delivery-report' => ''];
+        // $endpoints = ['DireccionamientoXPrescripcion', 'ProgramacionXPrescripcion', 'EntregaXPrescripcion', 'ReporteEntregaXPrescripcion'];
+        $final = [];
+        
+        try {
+            foreach ($keys as $k){
+                $client = new \GuzzleHttp\Client();
+                $headers = ['Accept' => 'application/json'];
+                $endpoint = '';
+                if($k == 'addressing'){
+                    $endpoint = 'DireccionamientoXPrescripcion';
+                }else if($k == 'programming'){
+                    $endpoint = 'ProgramacionXPrescripcion';
+                }else if($k == 'delivery'){
+                    $endpoint = 'EntregaXPrescripcion';
+                }else if($k == 'delivery-report'){
+                    $endpoint = 'ReporteEntregaXPrescripcion';
+                }                
+                $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$prescription;
+                $response = $client->request('GET', $url, $headers);
+                $body = $response->getBody();
+                $status = 'true';
+                $message = 'Data found!';
+                $data = json_decode($body);
+                $keys[$k] = $data;
+            }
+        }catch(ClientException $ce){
+            $status = 'false';
+            $message = $ce->getMessage();
+            $data = [];
+        }catch(RequestException $re){
+           $status = 'false';
+           $message = $re->getMessage();
+           $data = [];
+        }catch(Exception $e){
+           $this->status = 'false';
+           $this->message = $e->getMessage();
+           $data = [];
+        }
+        return ['status'=>$status,'message'=>$message,'data'=>$keys];        
     }
 }
