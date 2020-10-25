@@ -233,7 +233,8 @@ class MiPresController extends Controller
     }
     public function prescription(Request $request, $token, $prescription)
     {   
-        $keys = ['addressing' => '', 'programming' => '', 'delivery' => '', 'delivery-report' => ''];
+        $keys = ['addressing', 'programming', 'delivery', 'delivery-report'];
+        $finalData = ['addressing' => '', 'programming' => '', 'delivery' => '', 'delivery-report' => ''];
         // $endpoints = ['DireccionamientoXPrescripcion', 'ProgramacionXPrescripcion', 'EntregaXPrescripcion', 'ReporteEntregaXPrescripcion'];
         $final = [];
         
