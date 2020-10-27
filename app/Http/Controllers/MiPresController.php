@@ -310,7 +310,7 @@ class MiPresController extends Controller
         }else{
             $status = 'false';
             $message = 'Prescription not found!';
-            $data = $request->prescriptionNumber;
+            $data = [];
         }
         return ['status'=>$status,'message'=>$message,'data'=>$data]; 
     }
