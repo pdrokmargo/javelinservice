@@ -281,6 +281,7 @@ class MiPresController extends Controller
         //There are 3 cases, we just cover to fetch one prescription without details given a prescription number.
         //Next step, is to add 2 more cases to fetch all prescription in date range without details, 
         //and last case to fetch prescriptions by patient ID wihtout details.
+        echo $request->prescriptionNumber;
         if(isset($request->prescriptionNumber)){
             try {
             $client = new \GuzzleHttp\Client();
@@ -292,6 +293,7 @@ class MiPresController extends Controller
             $status = 'true';
             $message = 'Data found!';
             $data = json_decode($body);
+            $data = $data[0];
         }catch(ClientException $ce){
             $status = 'false';
             $message = $ce->getMessage();
