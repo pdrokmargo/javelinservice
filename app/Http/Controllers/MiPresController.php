@@ -237,6 +237,88 @@ class MiPresController extends Controller
         $finalData = ['addressing' => '', 'programming' => '', 'delivery' => '', 'delivery-report' => ''];
         // $endpoints = ['DireccionamientoXPrescripcion', 'ProgramacionXPrescripcion', 'EntregaXPrescripcion', 'ReporteEntregaXPrescripcion'];
         $final = [];
+        $prescriptions = [];
+        
+        try {
+            foreach ($keys as $k){
+                $client = new \GuzzleHttp\Client();
+                $headers = ['Accept' => 'application/json'];
+                $endpoint = '';
+                if($k == 'addressing'){
+                    $endpoint = 'DireccionamientoXPrescripcion';
+                }else if($k == 'programming'){
+                    $endpoint = 'ProgramacionXPrescripcion';
+                }else if($k == 'delivery'){
+                    $endpoint = 'EntregaXPrescripcion';
+                }else if($k == 'delivery-report'){
+                    $endpoint = 'ReporteEntregaXPrescripcion';
+                }                
+                $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$prescription;
+                $response = $client->request('GET', $url, $headers);
+                $body = $response->getBody();
+                $status = 'true';
+                $message = 'Data found!';
+                $data = json_decode($body);
+                $finalData[$k] = $data;
+            }
+        }catch(ClientException $ce){
+            $status = 'false';
+            $message = $ce->getMessage();
+            $data = [];
+        }catch(RequestException $re){
+           $status = 'false';
+           $message = $re->getMessage();
+           $data = [];
+        }catch(Exception $e){
+           $this->status = 'false';
+           $this->message = $e->getMessage();
+           $data = [];
+        }
+        return ['status'=>$status,'message'=>$message,'data'=>$finalData];        
+    }
+    public function getPrescriptions(Request $request, $token)
+    {   
+        //There are 3 cases, we just cover to fetch one prescription without details given a prescription number.
+        //Next step, is to add 2 more cases to fetch all prescription in date range without details, 
+        //and last case to fetch prescriptions by patient ID wihtout details.
+        if(isset($request->prescriptionNumber)){
+            try {
+            $client = new \GuzzleHttp\Client();
+            $headers = ['Accept' => 'application/json'];
+            $endpoint = 'DireccionamientoXPrescripcion';
+            $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$prescriptionNumber;
+            $response = $client->request('GET', $url, $headers);
+            $body = $response->getBody();
+            $status = 'true';
+            $message = 'Data found!';
+            $data = json_decode($body);
+        }catch(ClientException $ce){
+            $status = 'false';
+            $message = $ce->getMessage();
+            $data = [];
+        }catch(RequestException $re){
+           $status = 'false';
+           $message = $re->getMessage();
+           $data = [];
+        }catch(Exception $e){
+           $this->status = 'false';
+           $this->message = $e->getMessage();
+           $data = [];
+        }
+        }else{
+            $status = 'false';
+            $message = 'Prescription not found!';
+            $data = [];
+        }
+        return ['status'=>$status,'message'=>$message,'data'=>$data]; 
+    }
+    public function getPrescriptionStatusByNumber(Request $request, $token, $prescription)
+    {   
+        $keys = ['addressing', 'programming', 'delivery', 'delivery-report'];
+        $finalData = ['addressing' => '', 'programming' => '', 'delivery' => '', 'delivery-report' => ''];
+        // $endpoints = ['DireccionamientoXPrescripcion', 'ProgramacionXPrescripcion', 'EntregaXPrescripcion', 'ReporteEntregaXPrescripcion'];
+        $final = [];
+        $prescriptions = [];
         
         try {
             foreach ($keys as $k){
