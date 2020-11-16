@@ -199,12 +199,14 @@ class MiPresController extends Controller
                     ]];
                 }
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token;
-                $response = $client->request('PUT', $url, $form_params);
+                Log::debug($url);
+                Log::debug($form_params);
+                $response = $client->request('PUT', $url, $headers, $form_params);
                 $body = $response->getBody();
                 $status = 'true';
                 $message = 'Data found!';
                 $data = json_decode($body);
-                Log::debug($form_params);
+                
         }catch(ClientException $ce){
             $status = 'false';
             $message = $ce->getMessage();
