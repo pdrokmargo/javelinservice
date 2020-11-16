@@ -178,9 +178,9 @@ class MiPresController extends Controller
                         'CodSerTecAEntregar' => $request["CodSerTecAEntregar"],
                         'CantTotAEntregar' => $request["CantTotAEntregar"]
                     ];
-                    dump('not yet');
-                    $form_params = json_decode($form_params, true);
-                    dump('now decoded');
+                    // dump('not yet');
+                    // $form_params = json_decode($form_params, true);
+                    // dump('now decoded');
                 }elseif($process == 'delivery'){
                     $endpoint = 'Entrega';
                     $form_params = ['form_params' => [
@@ -209,7 +209,7 @@ class MiPresController extends Controller
                     $form_params]);
                 $body = $response->getBody();
                 $status = 'true';
-                dump($body);
+                // dump($body);
                 $message = 'Data found!';
                 $data = json_decode($body);
                 
