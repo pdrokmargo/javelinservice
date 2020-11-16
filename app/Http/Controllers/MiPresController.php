@@ -7,6 +7,8 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\RequestException;
 use Exception;
+use Illuminate\Support\Facades\Log;
+
 
 class MiPresController extends Controller
 {
@@ -198,6 +200,7 @@ class MiPresController extends Controller
                 $status = 'true';
                 $message = 'Data found!';
                 $data = json_decode($body);
+                Log::debug($form_params);
         }catch(ClientException $ce){
             $status = 'false';
             $message = $ce->getMessage();
