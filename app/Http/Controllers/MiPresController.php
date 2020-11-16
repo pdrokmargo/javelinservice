@@ -201,9 +201,9 @@ class MiPresController extends Controller
                     ]];
                 }
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token;
-                dump($url);
-                dump($form_params);
-                dump("1.6 form_params encoded");
+                // dump($url);
+                // dump($form_params);
+                // dump("1.6 form_params encoded");
                 $response = $client->request('PUT', $url, ['headers' => $headers,
                 'form_params' => 
                     $form_params]);
