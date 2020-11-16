@@ -157,6 +157,7 @@ class MiPresController extends Controller
 
         try{
             if($process != null){
+                $object = json_decode($request->data, true);
                 $client = new \GuzzleHttp\Client();
                 $headers = ['Accept' => 'application/json'];
                 $form_params = [];
@@ -164,13 +165,13 @@ class MiPresController extends Controller
                 if($process == 'programming'){
                     $endpoint = 'Programacion';
                     $form_params = ['form_params' => [
-                        'ID' => $request->ID,
-                        'FecMaxEnt' => $request->FecMaxEnt,
-                        'TipoIDSedeProv' => $request->TipoIDSedeProv,
-                        'NoIDSedeProv' => $request->NoIDSedeProv,
-                        'CodSedeProv' => $request->CodSedeProv,
-                        'CodSerTecAEntregar' => $request->CodSerTecAEntregar,
-                        'CantTotAEntregar' => $request->CantTotAEntregar,
+                        'ID' => $object["ID"],
+                        'FecMaxEnt' => $object["FecMaxEnt"],
+                        'TipoIDSedeProv' => $object["TipoIDSedeProv"],
+                        'NoIDSedeProv' => $object["NoIDSedeProv"],
+                        'CodSedeProv' => $object["CodSedeProv"],
+                        'CodSerTecAEntregar' => $object["CodSerTecAEntregar"],
+                        'CantTotAEntregar' => $object["CantTotAEntregar"]
                     ]];
                 }elseif($process == 'delivery'){
                     $endpoint = 'Entrega';
