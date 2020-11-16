@@ -211,6 +211,6 @@ class MiPresController extends Controller
            $this->message = $e->getMessage();
            $data = [];
         }
-        return ['status'=>$status,'message'=>$message,'data'=>$finalData];        
+        return ['status'=>$status,'message'=>$message,'data'=>$data];        
     }
 }
