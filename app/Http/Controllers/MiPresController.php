@@ -168,7 +168,7 @@ class MiPresController extends Controller
                 if($process == 'programming'){
                     $endpoint = 'Programacion';
                     $form_params = [
-                        'ID' => $request["ID"]+0,
+                        'ID' => $request["ID"],
                         'FecMaxEnt' => substr($request["FecMaxEnt"], 0, 10),
                         'TipoIDSedeProv' => $request["TipoIDSedeProv"],
                         'NoIDSedeProv' => $request["NoIDSedeProv"],
