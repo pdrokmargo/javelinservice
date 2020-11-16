@@ -176,7 +176,7 @@ class MiPresController extends Controller
                         'NoIDSedeProv' => $request["NoIDSedeProv"],
                         'CodSedeProv' => $request["CodSedeProv"],
                         'CodSerTecAEntregar' => $request["CodSerTecAEntregar"],
-                        'CantTotAEntregar' => $request["CantTotAEntregar"]
+                        'CantTotAEntregar' => $request["CantTotAEntregar"]+0
                     ];
                     // dump('not yet');
                     // $form_params = json_decode($form_params, true);
