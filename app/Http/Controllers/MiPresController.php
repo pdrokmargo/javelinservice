@@ -200,8 +200,8 @@ class MiPresController extends Controller
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token;
                 dump($url);
                 dump($form_params);
-                dump("1.4 remove headers");
-                $response = $client->request('PUT', $url, [
+                dump("1.5 ambos headers deben estar");
+                $response = $client->request('PUT', $url, ['headers' => $headers,
                 'form_params' => 
                     $form_params]);
                 $body = $response->getBody();
