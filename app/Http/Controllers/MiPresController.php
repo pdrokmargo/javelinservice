@@ -178,7 +178,7 @@ class MiPresController extends Controller
                         'CodSerTecAEntregar' => $request["CodSerTecAEntregar"],
                         'CantTotAEntregar' => $request["CantTotAEntregar"]
                     ];
-                    $form_params = json_encode($form_params, true);
+                    $form_params = json_decode($form_params, true);
                 }elseif($process == 'delivery'){
                     $endpoint = 'Entrega';
                     $form_params = ['form_params' => [
