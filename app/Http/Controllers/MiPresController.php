@@ -170,13 +170,13 @@ class MiPresController extends Controller
                 if($process == 'programming'){
                     $endpoint = 'Programacion';
                     $form_params = [
-                        'ID' => $request["ID"]+0,
+                        'ID' => $request["ID"],
                         'FecMaxEnt' => $request["FecMaxEnt"],
                         'TipoIDSedeProv' => $request["TipoIDSedeProv"],
                         'NoIDSedeProv' => $request["NoIDSedeProv"],
                         'CodSedeProv' => $request["CodSedeProv"],
                         'CodSerTecAEntregar' => $request["CodSerTecAEntregar"],
-                        'CantTotAEntregar' => $request["CantTotAEntregar"]+0
+                        'CantTotAEntregar' => $request["CantTotAEntregar"]
                     ];
                     // dump('not yet');
                     // $form_params = json_decode($form_params, true);
