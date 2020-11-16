@@ -156,7 +156,7 @@ class MiPresController extends Controller
     public function changePrescriptionState(Request $request, $token, $process){
 
         try{
-            if($process != null){
+            if($process){
                 $object = json_decode($request->data, true);
                 $client = new \GuzzleHttp\Client();
                 $headers = ['Accept' => 'application/json'];
