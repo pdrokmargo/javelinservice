@@ -169,7 +169,7 @@ class MiPresController extends Controller
                     $endpoint = 'Programacion';
                     $form_params = [
                         'ID' => $request["ID"]+0,
-                        'FecMaxEnt' => $request["FecMaxEnt"],
+                        'FecMaxEnt' => substr($request["FecMaxEnt"], 0, 10),
                         'TipoIDSedeProv' => $request["TipoIDSedeProv"],
                         'NoIDSedeProv' => $request["NoIDSedeProv"],
                         'CodSedeProv' => $request["CodSedeProv"],
