@@ -157,7 +157,8 @@ class MiPresController extends Controller
     }
     public function changePrescriptionState(Request $request, $token, $process){
 
-        try{
+        try{    
+            $object = json_decode($request->data,true);
                 $client = new \GuzzleHttp\Client();
                 $headers = [
                     'Accept' => 'application/json',
@@ -168,13 +169,13 @@ class MiPresController extends Controller
                 if($process == 'programming'){
                     $endpoint = 'Programacion';
                     $form_params = [
-                        'ID' => $request["ID"],
-                        'FecMaxEnt' => substr($request["FecMaxEnt"], 0, 10),
-                        'TipoIDSedeProv' => $request["TipoIDSedeProv"],
-                        'NoIDSedeProv' => $request["NoIDSedeProv"],
-                        'CodSedeProv' => $request["CodSedeProv"],
-                        'CodSerTecAEntregar' => $request["CodSerTecAEntregar"],
-                        'CantTotAEntregar' => $request["CantTotAEntregar"]
+                        'ID' => $object["ID"],
+                        'FecMaxEnt' => substr($object["FecMaxEnt"], 0, 10),
+                        'TipoIDSedeProv' => $object["TipoIDSedeProv"],
+                        'NoIDSedeProv' => $object["NoIDSedeProv"],
+                        'CodSedeProv' => $object["CodSedeProv"],
+                        'CodSerTecAEntregar' => $object["CodSerTecAEntregar"],
+                        'CantTotAEntregar' => $object["CantTotAEntregar"]
                     ];
                 }elseif($process == 'delivery'){
                     $endpoint = 'Entrega';
