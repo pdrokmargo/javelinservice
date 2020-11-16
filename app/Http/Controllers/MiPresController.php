@@ -178,6 +178,7 @@ class MiPresController extends Controller
                         'CodSerTecAEntregar' => $request["CodSerTecAEntregar"],
                         'CantTotAEntregar' => $request["CantTotAEntregar"]
                     ];
+                    $form_params = json_encode($form_params, true);
                 }elseif($process == 'delivery'){
                     $endpoint = 'Entrega';
                     $form_params = ['form_params' => [
@@ -200,7 +201,7 @@ class MiPresController extends Controller
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token;
                 dump($url);
                 dump($form_params);
-                dump("1.5 ambos headers deben estar");
+                dump("1.6 form_params encoded");
                 $response = $client->request('PUT', $url, ['headers' => $headers,
                 'form_params' => 
                     $form_params]);
