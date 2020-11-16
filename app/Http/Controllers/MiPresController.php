@@ -200,8 +200,8 @@ class MiPresController extends Controller
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token;
                 dump($url);
                 dump($form_params);
-                dump("1.3 agregué nuvamente content-type");
-                $response = $client->request('PUT', $url, ['headers' => $headers,
+                dump("1.4 remove headers");
+                $response = $client->request('PUT', $url, [
                 'form_params' => 
                     $form_params]);
                 $body = $response->getBody();
