@@ -129,6 +129,7 @@ class MiPresController extends Controller
                 }else if($k == 'delivery-report'){
                     $endpoint = 'ReporteEntregaXPrescripcion';
                 }else if($k == 'billing'){
+                    $baseUrl = 'https://wsmipres.sispro.gov.co/WSFACMIPRESNOPBS/api/';
                     $endpoint = 'FacturacionXPrescripcion';
                 }
 
