@@ -161,8 +161,7 @@ class MiPresController extends Controller
                 // $object = json_decode($request->data, true);
                 $client = new \GuzzleHttp\Client();
                 $headers = [
-                    'Accept' => 'application/json',
-                    'Content-Type' => 'application/json'
+                    'Accept' => 'application/json'
                 ];
                 $form_params = [];
                 // dump($request["ID"]);
@@ -200,7 +199,7 @@ class MiPresController extends Controller
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token;
                 dump($url);
                 dump($form_params);
-                dump("1.1");
+                dump("1.2");
                 $response = $client->request('PUT', $url, ['headers' => $headers,
                 'form_params' => 
                     $form_params]);
