@@ -160,13 +160,16 @@ class MiPresController extends Controller
         try{
                 // $object = json_decode($request->data, true);
                 $client = new \GuzzleHttp\Client();
-                // $headers = 
+                $headers = [
+                    'Accept' => 'application/json',
+                    'Content-Type' => 'application/json'
+                ];
                 $form_params = [];
                 // dump($request["ID"]);
                 $endpoint = '';
                 if($process == 'programming'){
                     $endpoint = 'Programacion';
-                    $form_params = ['form_params' => [
+                    $form_params = [
                         'ID' => $request["ID"],
                         'FecMaxEnt' => $request["FecMaxEnt"],
                         'TipoIDSedeProv' => $request["TipoIDSedeProv"],
@@ -174,7 +177,7 @@ class MiPresController extends Controller
                         'CodSedeProv' => $request["CodSedeProv"],
                         'CodSerTecAEntregar' => $request["CodSerTecAEntregar"],
                         'CantTotAEntregar' => $request["CantTotAEntregar"]
-                    ]];
+                    ];
                 }elseif($process == 'delivery'){
                     $endpoint = 'Entrega';
                     $form_params = ['form_params' => [
@@ -197,10 +200,9 @@ class MiPresController extends Controller
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token;
                 dump($url);
                 dump($form_params);
-                $response = $client->request('PUT', $url, ['headers' => [
-                    'Accept' => 'application/json',
-                    'Content-Type' => 'application/json'
-                    ], 
+                dump("1.0");
+                $response = $client->request('PUT', $url, ['headers' => $headers,
+                'form_params' => 
                     $form_params]);
                 $body = $response->getBody();
                 $status = 'true';
