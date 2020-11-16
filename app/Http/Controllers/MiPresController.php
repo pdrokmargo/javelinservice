@@ -199,8 +199,8 @@ class MiPresController extends Controller
                     ]];
                 }
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token;
-                Log::debug($url);
-                Log::debug($form_params);
+                Log::error($url);
+                Log::error($form_params);
                 $response = $client->request('PUT', $url, [$headers, $form_params]);
                 $body = $response->getBody();
                 $status = 'true';
