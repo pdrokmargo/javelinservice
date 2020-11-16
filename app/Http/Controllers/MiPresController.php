@@ -156,7 +156,6 @@ class MiPresController extends Controller
     public function changePrescriptionState(Request $request, $token, $process){
 
         try{
-            if($process){
                 $object = json_decode($request->data, true);
                 $client = new \GuzzleHttp\Client();
                 $headers = ['Accept' => 'application/json'];
@@ -198,9 +197,6 @@ class MiPresController extends Controller
                 $status = 'true';
                 $message = 'Data found!';
                 $data = json_decode($body);
-            }else{
-                echo 'failed';
-            }   
         }catch(ClientException $ce){
             $status = 'false';
             $message = $ce->getMessage();
