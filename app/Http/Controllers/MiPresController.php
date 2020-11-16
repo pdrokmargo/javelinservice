@@ -205,7 +205,7 @@ class MiPresController extends Controller
                 // dump($form_params);
                 // dump("1.6 form_params encoded");
                 $response = $client->request('PUT', $url, ['headers' => $headers,
-                'form_params' => 
+                'json' => 
                     $form_params]);
                 $body = $response->getBody();
                 $status = 'true';
