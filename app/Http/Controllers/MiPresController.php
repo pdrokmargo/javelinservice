@@ -177,6 +177,11 @@ class MiPresController extends Controller
                         'CodSerTecAEntregar' => $object["CodSerTecAEntregar"],
                         'CantTotAEntregar' => $object["CantTotAEntregar"]
                     ];
+                }elseif($process == 'cancelProgramming'){
+                    $endpoint = 'Programacion';
+                    $form_params = [
+                        'IdProgramacion' => $object["IdProgramacion"]
+                    ];
                 }elseif($process == 'delivery'){
                     $endpoint = 'Entrega';
                     $form_params = ['form_params' => [
@@ -200,6 +205,62 @@ class MiPresController extends Controller
                 $response = $client->request('PUT', $url, ['headers' => $headers,
                 'json' => 
                     $form_params]);
+                $body = $response->getBody();
+                $status = 'true';
+                $message = 'Data found!';
+                $data = json_decode($body);
+                
+        }catch(ClientException $ce){
+            $status = 'false';
+            $message = $ce->getMessage();
+            $data = [];
+        }catch(RequestException $re){
+           $status = 'false';
+           $message = $re->getMessage();
+           $data = [];
+        }catch(Exception $e){
+           $this->status = 'false';
+           $this->message = $e->getMessage();
+           $data = [];
+        }
+        return ['status'=>$status,'message'=>$message,'data'=>$data];        
+    }
+    public function cancelPrescriptionState(Request $request, $token, $process){
+
+        try{    
+            $object = json_decode($request->data,true);
+                $client = new \GuzzleHttp\Client();
+                $headers = [
+                    'Accept' => 'application/json',
+                    'Content-Type' => 'application/json'
+                ];
+                $form_params = [];
+                $endpoint = '';
+                $idToCancel = '';
+                if($process == 'programming'){
+                    $endpoint = 'AnularProgramacion';
+                    $idToCancel = $object["IdProgramacion"];
+                }elseif($process == 'delivery'){
+                    $endpoint = 'Entrega';
+                    $form_params = ['form_params' => [
+                        'foo' => 'bar',
+                        'baz' => ['hi', 'there!']
+                    ]];
+                }elseif($process == 'delivery-report'){
+                    $endpoint = 'ReporteEntrega';
+                    $form_params = ['form_params' => [
+                        'foo' => 'bar',
+                        'baz' => ['hi', 'there!']
+                    ]];
+                }elseif($process == 'billing'){
+                    $endpoint = 'Facturacion';
+                    $form_params = ['form_params' => [
+                        'foo' => 'bar',
+                        'baz' => ['hi', 'there!']
+                    ]];
+                }
+                $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$idToCancel;
+                $response = $client->request('PUT', $url, ['headers' => $headers]);
                 $body = $response->getBody();
                 $status = 'true';
                 $message = 'Data found!';
