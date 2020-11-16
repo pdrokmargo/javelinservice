@@ -160,11 +160,7 @@ class MiPresController extends Controller
         try{
                 // $object = json_decode($request->data, true);
                 $client = new \GuzzleHttp\Client();
-                $headers = ['headers' => [
-                    'Accept' => 'application/json',
-                    'Content-Type' => 'application/json'
-                    ]
-                ];
+                // $headers = 
                 $form_params = [];
                 // dump($request["ID"]);
                 $endpoint = '';
@@ -201,7 +197,11 @@ class MiPresController extends Controller
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token;
                 dump($url);
                 dump($form_params);
-                $response = $client->request('PUT', $url, [$headers, $form_params]);
+                $response = $client->request('PUT', $url, ['headers' => [
+                    'Accept' => 'application/json',
+                    'Content-Type' => 'application/json'
+                    ], 
+                    $form_params]);
                 $body = $response->getBody();
                 $status = 'true';
                 $message = 'Data found!';
