@@ -158,19 +158,17 @@ class MiPresController extends Controller
     public function changePrescriptionState(Request $request, $token, $process){
 
         try{
-                // $object = json_decode($request->data, true);
                 $client = new \GuzzleHttp\Client();
                 $headers = [
                     'Accept' => 'application/json',
                     'Content-Type' => 'application/json'
                 ];
                 $form_params = [];
-                // dump($request["ID"]);
                 $endpoint = '';
                 if($process == 'programming'){
                     $endpoint = 'Programacion';
                     $form_params = [
-                        'ID' => $request["ID"],
+                        'ID' => $request["ID"]+0,
                         'FecMaxEnt' => $request["FecMaxEnt"],
                         'TipoIDSedeProv' => $request["TipoIDSedeProv"],
                         'NoIDSedeProv' => $request["NoIDSedeProv"],
@@ -178,9 +176,6 @@ class MiPresController extends Controller
                         'CodSerTecAEntregar' => $request["CodSerTecAEntregar"],
                         'CantTotAEntregar' => $request["CantTotAEntregar"]
                     ];
-                    // dump('not yet');
-                    // $form_params = json_decode($form_params, true);
-                    // dump('now decoded');
                 }elseif($process == 'delivery'){
                     $endpoint = 'Entrega';
                     $form_params = ['form_params' => [
@@ -201,15 +196,11 @@ class MiPresController extends Controller
                     ]];
                 }
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token;
-                // dump($url);
-                // dump($form_params);
-                // dump("1.6 form_params encoded");
                 $response = $client->request('PUT', $url, ['headers' => $headers,
                 'json' => 
                     $form_params]);
                 $body = $response->getBody();
                 $status = 'true';
-                // dump($body);
                 $message = 'Data found!';
                 $data = json_decode($body);
                 
