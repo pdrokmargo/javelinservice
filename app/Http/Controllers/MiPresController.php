@@ -164,8 +164,13 @@ class MiPresController extends Controller
                 if($process == 'programming'){
                     $endpoint = 'Programacion';
                     $form_params = ['form_params' => [
-                        'foo' => 'bar',
-                        'baz' => ['hi', 'there!']
+                        'ID' => $request->ID,
+                        'FecMaxEnt' => $request->FecMaxEnt,
+                        'TipoIDSedeProv' => $request->TipoIDSedeProv,
+                        'NoIDSedeProv' => $request->NoIDSedeProv,
+                        'CodSedeProv' => $request->CodSedeProv,
+                        'CodSerTecAEntregar' => $request->CodSerTecAEntregar,
+                        'CantTotAEntregar' => $request->CantTotAEntregar,
                     ]];
                 }elseif($process == 'delivery'){
                     $endpoint = 'Entrega';
