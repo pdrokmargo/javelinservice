@@ -170,7 +170,7 @@ class MiPresController extends Controller
                 if($process == 'programming'){
                     $endpoint = 'Programacion';
                     $form_params = [
-                        'ID' => $request["ID"],
+                        'ID' => $request["ID"]+0,
                         'FecMaxEnt' => $request["FecMaxEnt"],
                         'TipoIDSedeProv' => $request["TipoIDSedeProv"],
                         'NoIDSedeProv' => $request["NoIDSedeProv"],
@@ -200,7 +200,7 @@ class MiPresController extends Controller
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token;
                 dump($url);
                 dump($form_params);
-                dump("1.0");
+                dump("1.1");
                 $response = $client->request('PUT', $url, ['headers' => $headers,
                 'form_params' => 
                     $form_params]);
