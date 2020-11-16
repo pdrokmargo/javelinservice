@@ -242,7 +242,6 @@ class MiPresController extends Controller
                     $idToCancel = $object["IdProgramacion"];
                 }
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$idToCancel;
-                dump($url);
                 $response = $client->request('PUT', $url, ['headers' => $headers]);
                 $body = $response->getBody();
                 $status = 'true';
