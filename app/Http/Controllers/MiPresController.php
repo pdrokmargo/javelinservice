@@ -191,7 +191,6 @@ class MiPresController extends Controller
                         'TipoIDRecibe' => $object["TipoIDRecibe"],
                         'NoIDRecibe' => $object["NoIDRecibe"]
                     ];
-                    dump($form_params);
                 }elseif($process == 'delivery-report'){
                     $endpoint = 'ReporteEntrega';
                     $form_params = [
@@ -215,9 +214,8 @@ class MiPresController extends Controller
                         'CantTotAEntregar' => $object["CantTotAEntregar"]
                     ];
                 }
-                dump($form_params);
+                dump("1");
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token;
-                
                 $response = $client->request('PUT', $url, ['headers' => $headers,
                 'json' => 
                     $form_params]);
@@ -225,7 +223,6 @@ class MiPresController extends Controller
                 $status = 'true';
                 $message = 'Data found!';
                 $data = json_decode($body);
-                
         }catch(ClientException $ce){
             $status = 'false';
             $message = $ce->getMessage();
