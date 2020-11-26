@@ -218,8 +218,7 @@ class MiPresController extends Controller
                         'ValorUnitFacturado' => $object["CantTotAEntregar"],
                         'ValorTotFacturado' => $object["CantTotAEntregar"],
                         'CuotaModer' => isset($object["CantTotAEntregar"]) ? $object["CantTotAEntregar"] : '0',
-                        'Copago' => isset($object["Copago"]) ? $object["Copago"] : '0',
-
+                        'Copago' => isset($object["Copago"]) ? $object["Copago"] : '0'
                     ];
                 }
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token;
