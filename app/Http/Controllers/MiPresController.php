@@ -180,17 +180,20 @@ class MiPresController extends Controller
                     ];
                 }elseif($process == 'delivery'){
                     $endpoint = 'Entrega';
-                    $form_params = [
-                        'ID' => $object["ID"],
-                        'CodSerTecEntregado' => $object["CodSerTecEntregado"],
-                        'CantTotEntregada' => $object["CantTotEntregada"],
-                        'EntTotal' => $object["EntTotal"],
-                        'CausaNoEntrega' => $object["CausaNoEntrega"],
-                        // 'FecEntrega' => substr($object["FecEntrega"], 0, 10),
-                        'NoLote' => $object["NoLote"],
-                        'TipoIDRecibe' => $object["TipoIDRecibe"],
-                        'NoIDRecibe' => $object["NoIDRecibe"]
-                    ];
+                    dump($endpoint);
+                    dump($delivery);
+                    dump($object);
+                    // $form_params = [
+                    //     'ID' => $object["ID"],
+                    //     'CodSerTecEntregado' => $object["CodSerTecEntregado"],
+                    //     'CantTotEntregada' => $object["CantTotEntregada"],
+                    //     'EntTotal' => $object["EntTotal"],
+                    //     'CausaNoEntrega' => $object["CausaNoEntrega"],
+                    //     // 'FecEntrega' => substr($object["FecEntrega"], 0, 10),
+                    //     'NoLote' => $object["NoLote"],
+                    //     'TipoIDRecibe' => $object["TipoIDRecibe"],
+                    //     'NoIDRecibe' => $object["NoIDRecibe"]
+                    // ];
                 }elseif($process == 'delivery-report'){
                     $endpoint = 'ReporteEntrega';
                     $form_params = [
@@ -214,7 +217,6 @@ class MiPresController extends Controller
                         'CantTotAEntregar' => $object["CantTotAEntregar"]
                     ];
                 }
-                dump("1");
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token;
                 $response = $client->request('PUT', $url, ['headers' => $headers,
                 'json' => 
