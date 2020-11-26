@@ -203,21 +203,21 @@ class MiPresController extends Controller
                 }elseif($process == 'billing'){
                     $endpoint = 'Facturacion';
                     $form_params = [
-                        'NoPrescripcion' => $object["ID"],
-                        'TipoTec' => substr($object["FecMaxEnt"], 0, 10),
-                        'ConTec' => $object["TipoIDSedeProv"],
-                        'TipoIDPaciente' => $object["NoIDSedeProv"],
-                        'NoIDPaciente' => $object["CodSedeProv"],
-                        'NoEntrega' => $object["CodSerTecAEntregar"],
-                        'NoSubEntrega' => isset($object["CantTotAEntregar"]) ? $object["CantTotAEntregar"] : '0',
-                        'NoFactura' => $object["CantTotAEntregar"],
-                        'NoIDEPS' => $object["CantTotAEntregar"],
-                        'CodEPS' => $object["CantTotAEntregar"],
-                        'CodSerTecAEntregado' => $object["CantTotAEntregar"],
-                        'CantUnMinDis' => $object["CantTotAEntregar"],
-                        'ValorUnitFacturado' => $object["CantTotAEntregar"],
-                        'ValorTotFacturado' => $object["CantTotAEntregar"],
-                        'CuotaModer' => isset($object["CantTotAEntregar"]) ? $object["CantTotAEntregar"] : '0',
+                        'NoPrescripcion' => $object["NoPrescripcion"],
+                        'TipoTec' => $object["TipoTec"],
+                        'ConTec' => $object["ConTec"],
+                        'TipoIDPaciente' => $object["TipoIDPaciente"],
+                        'NoIDPaciente' => $object["NoIDPaciente"],
+                        'NoEntrega' => $object["NoEntrega"],
+                        'NoSubEntrega' => isset($object["NoSubEntrega"]) ? $object["NoSubEntrega"] : '0',
+                        'NoFactura' => $object["NoFactura"],
+                        'NoIDEPS' => $object["NoIDEPS"],
+                        'CodEPS' => $object["CodEPS"],
+                        'CodSerTecAEntregado' => $object["CodSerTecAEntregado"],
+                        'CantUnMinDis' => $object["CantUnMinDis"],
+                        'ValorUnitFacturado' => $object["ValorUnitFacturado"],
+                        'ValorTotFacturado' => $object["ValorTotFacturado"],
+                        'CuotaModer' => isset($object["CuotaModer"]) ? $object["CuotaModer"] : '0',
                         'Copago' => isset($object["Copago"]) ? $object["Copago"] : '0'
                     ];
                 }
