@@ -180,8 +180,6 @@ class MiPresController extends Controller
                     ];
                 }elseif($process == 'delivery'){
                     $endpoint = 'Entrega';
-                    dump($endpoint);
-                    dump($object);
                     $form_params = [
                         'ID' => $object["ID"],
                         'CodSerTecEntregado' => $object["CodSerTecEntregado"],
