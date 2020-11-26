@@ -178,29 +178,41 @@ class MiPresController extends Controller
                         'CodSerTecAEntregar' => $object["CodSerTecAEntregar"],
                         'CantTotAEntregar' => $object["CantTotAEntregar"]
                     ];
-                }elseif($process == 'cancelProgramming'){
-                    $endpoint = 'Programacion';
-                    $form_params = [
-                        'IdProgramacion' => $object["IdProgramacion"]
-                    ];
                 }elseif($process == 'delivery'){
                     $endpoint = 'Entrega';
-                    $form_params = ['form_params' => [
-                        'foo' => 'bar',
-                        'baz' => ['hi', 'there!']
-                    ]];
+                    $form_params = [
+                        'ID' => $object["ID"],
+                        'CodSerTecEntregado' => $object["CodSerTecEntregado"],
+                        'CantTotEntregada' => $object["CantTotEntregada"],
+                        'EntTotal' => $object["EntTotal"],
+                        'CausaNoEntrega' => $object["CausaNoEntrega"],
+                        'FecEntrega' => substr($object["FecEntrega"], 0, 10),
+                        'NoLote' => $object["NoLote"],
+                        'TipoIDRecibe' => $object["TipoIDRecibe"],
+                        'NoIDRecibe' => $object["NoIDRecibe"]
+                    ];
                 }elseif($process == 'delivery-report'){
                     $endpoint = 'ReporteEntrega';
-                    $form_params = ['form_params' => [
-                        'foo' => 'bar',
-                        'baz' => ['hi', 'there!']
-                    ]];
+                    $form_params = [
+                        'ID' => $object["ID"],
+                        'FecMaxEnt' => substr($object["FecMaxEnt"], 0, 10),
+                        'TipoIDSedeProv' => $object["TipoIDSedeProv"],
+                        'NoIDSedeProv' => $object["NoIDSedeProv"],
+                        'CodSedeProv' => $object["CodSedeProv"],
+                        'CodSerTecAEntregar' => $object["CodSerTecAEntregar"],
+                        'CantTotAEntregar' => $object["CantTotAEntregar"]
+                    ];
                 }elseif($process == 'billing'){
                     $endpoint = 'Facturacion';
-                    $form_params = ['form_params' => [
-                        'foo' => 'bar',
-                        'baz' => ['hi', 'there!']
-                    ]];
+                    $form_params = [
+                        'ID' => $object["ID"],
+                        'FecMaxEnt' => substr($object["FecMaxEnt"], 0, 10),
+                        'TipoIDSedeProv' => $object["TipoIDSedeProv"],
+                        'NoIDSedeProv' => $object["NoIDSedeProv"],
+                        'CodSedeProv' => $object["CodSedeProv"],
+                        'CodSerTecAEntregar' => $object["CodSerTecAEntregar"],
+                        'CantTotAEntregar' => $object["CantTotAEntregar"]
+                    ];
                 }
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token;
                 $response = $client->request('PUT', $url, ['headers' => $headers,
@@ -241,6 +253,9 @@ class MiPresController extends Controller
                 if($process == 'programming'){
                     $endpoint = 'AnularProgramacion';
                     $idToCancel = $object["IdProgramacion"];
+                }elseif($process == 'delivery'){
+                    $endpoint = 'AnularEntrega';
+                    $idToCancel = $object["IdEntrega"];
                 }
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$idToCancel;
                 $response = $client->request('PUT', $url, ['headers' => $headers]);
