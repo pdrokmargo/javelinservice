@@ -182,17 +182,17 @@ class MiPresController extends Controller
                     $endpoint = 'Entrega';
                     dump($endpoint);
                     dump($object);
-                    // $form_params = [
-                    //     'ID' => $object["ID"],
-                    //     'CodSerTecEntregado' => $object["CodSerTecEntregado"],
-                    //     'CantTotEntregada' => $object["CantTotEntregada"],
-                    //     'EntTotal' => $object["EntTotal"],
-                    //     'CausaNoEntrega' => $object["CausaNoEntrega"],
-                    //     // 'FecEntrega' => substr($object["FecEntrega"], 0, 10),
-                    //     'NoLote' => $object["NoLote"],
-                    //     'TipoIDRecibe' => $object["TipoIDRecibe"],
-                    //     'NoIDRecibe' => $object["NoIDRecibe"]
-                    // ];
+                    $form_params = [
+                        'ID' => $object["ID"],
+                        'CodSerTecEntregado' => $object["CodSerTecEntregado"],
+                        'CantTotEntregada' => $object["CantTotEntregada"],
+                        'EntTotal' => $object["EntTotal"],
+                        'CausaNoEntrega' => $object["CausaNoEntrega"],
+                        'FecEntrega' => substr($object["FecEntrega"], 0, 10),
+                        'NoLote' => $object["NoLote"],
+                        'TipoIDRecibe' => $object["TipoIDRecibe"],
+                        'NoIDRecibe' => $object["NoIDRecibe"]
+                    ];
                 }elseif($process == 'delivery-report'){
                     $endpoint = 'ReporteEntrega';
                     $form_params = [
@@ -217,10 +217,10 @@ class MiPresController extends Controller
                     ];
                 }
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token;
-                // $response = $client->request('PUT', $url, ['headers' => $headers,
-                // 'json' => 
-                //     $form_params]);
-                // $body = $response->getBody();
+                $response = $client->request('PUT', $url, ['headers' => $headers,
+                'json' => 
+                    $form_params]);
+                $body = $response->getBody();
                 $status = 'true';
                 $message = 'Data found!';
                 $data = json_decode($body);
@@ -237,11 +237,6 @@ class MiPresController extends Controller
            $message = $e->getMessage();
            $data = [];
         }
-        // if($status == null)
-        // {
-        //     $status = 'false';
-        //     $status = 'false';
-        // }
         return ['status'=>$status,'message'=>$message,'data'=>$data];        
     }
     public function cancelPrescriptionState(Request $request, $token, $process){
