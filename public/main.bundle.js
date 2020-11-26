@@ -329,6 +329,7 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_56__smartity_modals_modal_inventory_movement_transfers_modal_inventory_movement_transfers_list_modal_inventory_movement_transfers_list_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-inventory-movement-transfers/modal-inventory-movement-transfers-list/modal-inventory-movement-transfers-list.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_57__smartity_modals_modal_purchase_orders_modal_purchase_orders_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-purchase-orders/modal-purchase-orders.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_58__smartity_modals_modal_purchase_orders_modal_purchase_orders_list_modal_purchase_orders_list_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-purchase-orders/modal-purchase-orders-list/modal-purchase-orders-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_59__smartity_modals_modal_mipres_modal_mipres_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-mipres/modal-mipres.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -368,6 +369,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 // Sub modules
+
 
 
 
@@ -511,7 +513,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_55__smartity_modals_modal_inventory_movement_transfers_modal_inventory_movement_transfers_component__["a" /* ModalInventoryMovementTransfersComponent */],
                 __WEBPACK_IMPORTED_MODULE_56__smartity_modals_modal_inventory_movement_transfers_modal_inventory_movement_transfers_list_modal_inventory_movement_transfers_list_component__["a" /* ModalInventoryMovementTransfersListComponent */],
                 __WEBPACK_IMPORTED_MODULE_57__smartity_modals_modal_purchase_orders_modal_purchase_orders_component__["a" /* ModalPurchaseOrdersComponent */],
-                __WEBPACK_IMPORTED_MODULE_58__smartity_modals_modal_purchase_orders_modal_purchase_orders_list_modal_purchase_orders_list_component__["a" /* ModalPurchaseOrdersListComponent */]
+                __WEBPACK_IMPORTED_MODULE_58__smartity_modals_modal_purchase_orders_modal_purchase_orders_list_modal_purchase_orders_list_component__["a" /* ModalPurchaseOrdersListComponent */],
+                __WEBPACK_IMPORTED_MODULE_59__smartity_modals_modal_mipres_modal_mipres_component__["a" /* ModalMipresComponent */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_41__smartity_pipe_mycurrency_pipe__["a" /* MycurrencyPipe */],
@@ -565,7 +568,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_57__smartity_modals_modal_purchase_orders_modal_purchase_orders_component__["a" /* ModalPurchaseOrdersComponent */],
                 __WEBPACK_IMPORTED_MODULE_58__smartity_modals_modal_purchase_orders_modal_purchase_orders_list_modal_purchase_orders_list_component__["a" /* ModalPurchaseOrdersListComponent */],
                 __WEBPACK_IMPORTED_MODULE_55__smartity_modals_modal_inventory_movement_transfers_modal_inventory_movement_transfers_component__["a" /* ModalInventoryMovementTransfersComponent */],
-                __WEBPACK_IMPORTED_MODULE_56__smartity_modals_modal_inventory_movement_transfers_modal_inventory_movement_transfers_list_modal_inventory_movement_transfers_list_component__["a" /* ModalInventoryMovementTransfersListComponent */]
+                __WEBPACK_IMPORTED_MODULE_56__smartity_modals_modal_inventory_movement_transfers_modal_inventory_movement_transfers_list_modal_inventory_movement_transfers_list_component__["a" /* ModalInventoryMovementTransfersListComponent */],
+                __WEBPACK_IMPORTED_MODULE_59__smartity_modals_modal_mipres_modal_mipres_component__["a" /* ModalMipresComponent */]
             ]
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_core__["c" /* ApplicationRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_core__["c" /* ApplicationRef */]) === "function" ? _a : Object])
@@ -1013,6 +1017,7 @@ var routes = [
             { path: 'pharmaceutical-drug', loadChildren: 'app/smartity/pharmaceutical-drug/pharmaceutical-drug.module#PharmaceuticalDrugModule', canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_guards_privilege_guard__["a" /* PrivilegeGuard */]] },
             { path: 'mipres-supplier', loadChildren: 'app/smartity/mipres/mipres.module.ts#MipresModule', canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_guards_privilege_guard__["a" /* PrivilegeGuard */]] },
             { path: 'mipres-delivery', loadChildren: 'app/smartity/mipres/mipres.module.ts#MipresModule', canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_guards_privilege_guard__["a" /* PrivilegeGuard */]] },
+            { path: 'mipres-admin', loadChildren: 'app/smartity/mipres/mipres.module.ts#MipresModule', canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_guards_privilege_guard__["a" /* PrivilegeGuard */]] },
             { path: 'delivery-contracts', loadChildren: 'app/smartity/delivery-contracts/delivery-contracts.module#DeliveryContractsModule', canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_guards_privilege_guard__["a" /* PrivilegeGuard */]] },
             { path: 'delivery-points', loadChildren: 'app/smartity/delivery-points/delivery-points.module#DeliveryPointsModule', canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_guards_privilege_guard__["a" /* PrivilegeGuard */]] },
             { path: 'affiliates', loadChildren: 'app/smartity/affiliates/affiliates.module#AffiliatesModule', canActivate: [__WEBPACK_IMPORTED_MODULE_3__auth_guards_privilege_guard__["a" /* PrivilegeGuard */]] },
@@ -1132,7 +1137,7 @@ var LayoutModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_3__angular_material__["d" /* MatSelectModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_material__["e" /* MatSidenavModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_material__["f" /* MatSliderModule */],
-                __WEBPACK_IMPORTED_MODULE_3__angular_material__["u" /* NativeDateModule */],
+                __WEBPACK_IMPORTED_MODULE_3__angular_material__["v" /* NativeDateModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_material__["h" /* MatMenuModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_material__["b" /* MatDialogModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_material__["i" /* MatCheckboxModule */],
@@ -1975,9 +1980,6 @@ var HelperService = /** @class */ (function () {
         this.authService = authService;
         this.baseUrl = authService.urlBase;
     }
-    HelperService.prototype.GETRAW = function (url) {
-        return this.http.get('https://wsmipres.sispro.gov.co/WSSUMMIPRESNOPBS/' + url, this.headersRaw());
-    };
     HelperService.prototype.GET = function (url) {
         return this.http.get(this.baseUrl + url, this.headers());
     };
@@ -2000,12 +2002,6 @@ var HelperService = /** @class */ (function () {
         var header = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Headers */]({
             "Accept": "application/json",
             "Authorization": "Bearer " + JSON.parse(localStorage.getItem('currentUser'))["access_token"]
-        });
-        return new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* RequestOptions */]({ headers: header });
-    };
-    HelperService.prototype.headersRaw = function () {
-        var header = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Headers */]({
-            "Accept": "application/json"
         });
         return new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* RequestOptions */]({ headers: header });
     };
@@ -2509,7 +2505,6 @@ var BaseList = /** @class */ (function () {
         this.loaderService = loaderService;
         this.helperService = helperService;
         this.list = [];
-        this.rawData = [];
         this.search = '';
         this.urlApi = '';
         this.key = null;
@@ -2531,22 +2526,12 @@ var BaseList = /** @class */ (function () {
         this.pageSize = data.per_page;
     };
     BaseList.prototype.getRaw = function (url) {
-        var _this = this;
-        this.loaderService.display(true);
+        // this.loaderService.display(true);
         if (url == undefined) {
             url = '';
         }
         this.helperService
-            .GETRAW(url)
-            .map(function (response) {
-            var res = response.json();
-            _this.rawData = res.data;
-        })
-            .subscribe(function (error) {
-            _this.loaderService.display(false);
-        }, function (done) {
-            _this.loaderService.display(false);
-        });
+            .GET(url);
     };
     BaseList.prototype.getAll = function (filter) {
         var _this = this;
@@ -3443,6 +3428,9 @@ var LrvTableComponent = /** @class */ (function () {
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__modal_inventory_movement_transfers_modal_inventory_movement_transfers_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-inventory-movement-transfers/modal-inventory-movement-transfers.component.ts");
 /* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__modal_mipres_modal_mipres_component__ = __webpack_require__("../../../../../src/app/smartity/modals/modal-mipres/modal-mipres.component.ts");
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "A", function() { return __WEBPACK_IMPORTED_MODULE_38__modal_mipres_modal_mipres_component__["a"]; });
+
 
 
 
@@ -5504,6 +5492,310 @@ var ModalIpsNetworkComponent = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=modal-ips-network.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-mipres/modal-mipres.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<!-- <h1  style=\"text-align: center;\" mat-dialog-title>{{ data.title }}</h1>\n<mat-dialog-content style=\"text-align: center;\">\n    {{ data.message }}\n</mat-dialog-content>\n<mat-dialog-actions>\n    <button mat-button mat-dialog-close>{{ data.button_close }}</button>    \n    <button class=\"ml-5\" color=\"primary\" mat-button type=\"button\" (click)=\"acept()\">{{ data.button_confirm }}</button>\n</mat-dialog-actions> -->\n\n<!-- Confirmation form -->\n<div *ngIf=\"data.template == 'confirmation'\">\n  <h1 style=\"text-align: center;\" mat-dialog-title>Anular</h1>\n  <mat-dialog-content style=\"text-align: center;\">\n    Estás seguro que deseas anular la operación?\n  </mat-dialog-content>\n  <mat-dialog-actions>\n    <button mat-button mat-dialog-close>cancelar</button>\n    <button class=\"btn-w-md mat-raised-button mat-warn\" color=\"warn\" mat-button type=\"button\"\n      (click)=\"cancelState(data.process)\">Confirmar</button>\n  </mat-dialog-actions>\n</div>\n\n<!-- Programar entrega template -->\n<div *ngIf=\"data.template == 'programming'\">\n  <h1 style=\"text-align: center;\" mat-dialog-title>Programar Entrega</h1>\n  <br>\n  <form class=\"col-sm-12\" #modelForm=\"ngForm\" autocomplete=\"off\">\n    <div class=\"row\">\n      <div class=\"col-md-3\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"prescriptionID\" [(ngModel)]=\"data.object.ID\" placeholder=\"Identificador\">\n        </mat-form-field>\n      </div>\n      <div class=\"col-md-4\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"supplierID\" [(ngModel)]=\"data.object.CodSerTecAEntregar\"\n            placeholder=\"Servicio/Tecnología a Entregar\">\n        </mat-form-field>\n      </div>\n      <div class=\"col-md-3\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"qtyDeliver\" [(ngModel)]=\"data.object.CantTotAEntregar\"\n            placeholder=\"Cantidad a Entregar\">\n        </mat-form-field>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-md-4 margin-bottom\">\n        <mat-form-field class=\"full-width\">\n          <mat-select class=\"full-width\" placeholder=\"Sede\" name=\"sede\" id=\"sede\" [(ngModel)]=\"data.object.CodSedeProv\">\n            <mat-option *ngFor=\"let sede of sedes\" [value]=\"sede.codsede\">{{sede.descsede}}</mat-option>\n          </mat-select>\n        </mat-form-field>\n      </div>\n      <div class='col-md-3 margin-bottom'>\n        <mat-form-field>\n          <input matInput [matDatepicker]=\"maxDeliveryDate\" placeholder=\"Fecha de Entrega Máxima\" \n            [(ngModel)]=\"data.object.FecMaxEnt\" name=\"maxDeliveryDate\">\n          <mat-datepicker-toggle matSuffix [for]=\"maxDeliveryDate\"></mat-datepicker-toggle>\n          <mat-datepicker #maxDeliveryDate></mat-datepicker>\n        </mat-form-field>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-md-12\" [class.btn-action-container]=\"booActive\">\n        <button mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left btn-right\"\n          (click)=\"performProgramming()\">Programar</button>\n        <button mat-button mat-dialog-close class=\"btn-w-md no-margin-left btn-right\">Cancelar</button>\n      </div>\n    </div>\n\n  </form>\n</div>\n\n<!-- Realizar entrega template -->\n<div *ngIf=\"data.template == 'delivery'\">\n  <h1 style=\"text-align: center;\" mat-dialog-title>Realizar Entrega</h1>\n  <br>\n  <form class=\"col-sm-12\" #modelForm=\"ngForm\" autocomplete=\"off\">\n    <div class=\"row\">\n      <div class=\"col-md-2\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"prescriptionID\" [(ngModel)]=\"data.object.ID\" placeholder=\"Identificador\">\n        </mat-form-field>\n      </div>\n      <div class=\"col-md-3\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"supplierID\" [(ngModel)]=\"data.object.CodSerTecAEntregar\"\n            placeholder=\"Servicio/Tecnología a Entregar\">\n        </mat-form-field>\n      </div>\n      <div class=\"col-md-2\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"qtyDeliver\" [(ngModel)]=\"data.object.CantTotAEntregar\"\n            placeholder=\"Cantidad a Entregar\">\n        </mat-form-field>\n      </div>\n      <div class=\"col-md-2\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"batchNumber\" [(ngModel)]=\"data.object.NoLote\"\n            placeholder=\"Lote\">\n        </mat-form-field>\n      </div>\n      <div class=\"col-md-2\">\n        <mat-form-field>\n          <input matInput [matDatepicker]=\"deliveryDate\" placeholder=\"Fecha de Entrega\" \n            [(ngModel)]=\"data.object.FecEntrega\" name=\"deliveryDate\">\n          <mat-datepicker-toggle matSuffix [for]=\"deliveryDate\"></mat-datepicker-toggle>\n          <mat-datepicker #deliveryDate></mat-datepicker>\n        </mat-form-field>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-md-2 margin-bottom\">\n        <mat-form-field class=\"full-width\">\n          <mat-select class=\"full-width\" placeholder=\"Tipo Doc Recibe\" name=\"tipoID\" id=\"tipoID\" [(ngModel)]=\"data.object.TipoIDRecibe\">\n            <mat-option *ngFor=\"let tipoID of tipoIDs\" [value]=\"tipoID.codTipoID\">{{tipoID.descTipoID}}</mat-option>\n          </mat-select>\n        </mat-form-field>\n      </div>\n      <div class=\"col-md-3\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"noIDRecibe\" [(ngModel)]=\"data.object.NoIDRecibe\"\n            placeholder=\"Número Doc Recibe\">\n        </mat-form-field>\n      </div>\n      <div class=\"col-md-2 margin-bottom\">\n        <mat-form-field class=\"full-width\">\n          <mat-select class=\"full-width\" placeholder=\"Entrega Total\" name=\"entTotal\" id=\"entTotal\" [(ngModel)]=\"data.object.EntTotal\">\n            <mat-option *ngFor=\"let entTotal of entregaTotal\" [value]=\"entTotal.codEntTotal\">{{entTotal.descEntTotal}}</mat-option>\n          </mat-select>\n        </mat-form-field>\n      </div>\n      <div class=\"col-md-3 margin-bottom\">\n        <mat-form-field class=\"full-width\">\n          <mat-select class=\"full-width\" placeholder=\"Causa No Entrega\" name=\"causaNoEntrega\" id=\"causaNoEntrega\" [(ngModel)]=\"data.object.CausaNoEntrega\">\n            <mat-option *ngFor=\"let causaNoEntrega of causasNoEntrega\" [value]=\"causaNoEntrega.codCausaNoEntrega\">{{causaNoEntrega.descCausaNoEntrega}}</mat-option>\n          </mat-select>\n        </mat-form-field>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-md-12\" [class.btn-action-container]=\"booActive\">\n        <button mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left btn-right\"\n          (click)=\"performDelivery()\">Realizar Entrega</button>\n        <button mat-button mat-dialog-close class=\"btn-w-md no-margin-left btn-right\">Cancelar</button>\n      </div>\n    </div>\n\n  </form>\n</div>\n\n\n<!-- Template Delivery Report POST -->\n<div *ngIf=\"data.template == 'delivery-report'\">\n  <h1 style=\"text-align: center;\" mat-dialog-title>Realizar Reporte de Entrega</h1>\n  <br>\n  <form class=\"col-sm-12\" #modelForm=\"ngForm\" autocomplete=\"off\">\n    <div class=\"row\">\n      <div class=\"col-md-3\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"prescriptionID\" [(ngModel)]=\"data.object.ID\" placeholder=\"Identificador\">\n        </mat-form-field>\n      </div>\n      <div class=\"col-md-3 margin-bottom\">\n        <mat-form-field class=\"full-width\">\n          <mat-select class=\"full-width\" placeholder=\"Se entregó?\" name=\"estadoEntrega\" id=\"estadoEntrega\" [(ngModel)]=\"data.object.EstadoEntrega\">\n            <mat-option *ngFor=\"let estadoEntrega of entregaTotal\" [value]=\"estadoEntrega.codEntTotal\">{{estadoEntrega.descEntTotal}}</mat-option>\n          </mat-select>\n        </mat-form-field>\n      </div>\n      <div class=\"col-md-3 margin-bottom\">\n        <mat-form-field class=\"full-width\">\n          <mat-select class=\"full-width\" placeholder=\"Causa No Entrega\" name=\"causaNoEntrega\" id=\"causaNoEntrega\" [(ngModel)]=\"data.object.CausaNoEntrega\">\n            <mat-option *ngFor=\"let causaNoEntrega of causasNoEntrega\" [value]=\"causaNoEntrega.codCausaNoEntrega\">{{causaNoEntrega.descCausaNoEntrega}}</mat-option>\n          </mat-select>\n        </mat-form-field>\n      </div>\n      <div class=\"col-md-3\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"amount\" [(ngModel)]=\"data.object.ValorEntregado\"\n            placeholder=\"Valor Entregado\">\n        </mat-form-field>\n      </div>\n      \n    </div>\n    <div class=\"row\">\n      <div class=\"col-md-12\" [class.btn-action-container]=\"booActive\">\n        <button mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left btn-right\"\n          (click)=\"performDeliveryReport()\">Reportar Entrega</button>\n        <button mat-button mat-dialog-close class=\"btn-w-md no-margin-left btn-right\">Cancelar</button>\n      </div>\n    </div>\n\n  </form>\n</div>\n\n\n<!-- Template Billing POST -->\n<div *ngIf=\"data.template == 'billing'\">\n  <h1 style=\"text-align: center;\" mat-dialog-title>Realizar Facturación</h1>\n  <br>\n  <form class=\"col-sm-12\" #modelForm=\"ngForm\" autocomplete=\"off\">\n    <div class=\"row\">\n      <div class=\"col-md-3\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"prescriptionID\" [(ngModel)]=\"data.object.NoPrescripcion\" placeholder=\"# Prescripción\">\n        </mat-form-field>\n      </div>\n      <div class=\"col-md-2\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"NoIDEPS\" [(ngModel)]=\"data.object.NoIDEPS\"\n            placeholder=\"Identificación EPS\">\n        </mat-form-field>\n      </div>\n      <div class=\"col-md-2\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"CodEPSS\" [(ngModel)]=\"data.object.CodEPS\"\n            placeholder=\"Código EPS\">\n        </mat-form-field>\n      </div>\n      <div class=\"col-md-2\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"NoFactura\" [(ngModel)]=\"data.object.NoFactura\"\n            placeholder=\"# Factura\">\n        </mat-form-field>\n      </div>\n    </div>\n\n    <div class=\"row\">\n      <div class=\"col-md-3 margin-bottom\">\n        <mat-form-field class=\"full-width\">\n          <mat-select class=\"full-width\" placeholder=\"Tipo Tecnología/Servicio\" name=\"tipoTec\" id=\"tipoTec\" [(ngModel)]=\"data.object.TipoTec\">\n            <mat-option *ngFor=\"let tipoTec of tipoTecnologias\" [value]=\"tipoTec.codTipoTec\">{{tipoTec.descTipoTec}}</mat-option>\n          </mat-select>\n        </mat-form-field>\n      </div>\n      <div class=\"col-md-3\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"ConTecC\" [(ngModel)]=\"data.object.ConTec\"\n            placeholder=\"Consecutivo Tecnología/Servicio\">\n        </mat-form-field>\n      </div>\n      \n      <div class=\"col-md-2\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"CodSerTecAEntregadoO\" [(ngModel)]=\"data.object.CodSerTecAEntregado\"\n            placeholder=\"Código Servicio/Tecnología\">\n        </mat-form-field>\n      </div>\n      <div class=\"col-md-2\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"NoEntrega\" [(ngModel)]=\"data.object.NoEntrega\"\n            placeholder=\"# Entrega\">\n        </mat-form-field>\n      </div>\n      <div class=\"col-md-2\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"CantUnMinDis\" [(ngModel)]=\"data.object.CantUnMinDis\"\n            placeholder=\"Cantidad Entregada\">\n        </mat-form-field>\n      </div>\n    </div>\n\n    <div class=\"row\">\n      <div class=\"col-md-3 margin-bottom\">\n        <mat-form-field class=\"full-width\">\n          <mat-select class=\"full-width\" placeholder=\"Tipo Documento\" name=\"tipoIDPac\" id=\"tipoID\" [(ngModel)]=\"data.object.TipoIDPaciente\">\n            <mat-option *ngFor=\"let tipoID of tipoIDs\" [value]=\"tipoID.codTipoID\">{{tipoID.descTipoID}}</mat-option>\n          </mat-select>\n        </mat-form-field>\n      </div>\n      <div class=\"col-md-3\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"NoIDPaciente\" [(ngModel)]=\"data.object.NoIDPaciente\"\n            placeholder=\"# Documento\">\n        </mat-form-field>\n      </div>      \n    </div>\n    <div class=\"row\">\n      <div class=\"col-md-2\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"ValorUnitFacturado\" [(ngModel)]=\"data.object.ValorUnitFacturado\"\n            placeholder=\"Valor Unitario\">\n        </mat-form-field>\n      </div>\n      <div class=\"col-md-2\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"ValorTotFacturado\" [(ngModel)]=\"data.object.ValorTotFacturado\"\n            placeholder=\"Valor Total\">\n        </mat-form-field>\n      </div>\n      <div class=\"col-md-2\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"CuotaModer\" [(ngModel)]=\"data.object.CuotaModer\"\n            placeholder=\"Cuota Moderadora\">\n        </mat-form-field>\n      </div>\n      <div class=\"col-md-2\">\n        <mat-form-field class=\"full-width\">\n          <input matInput name=\"Copago\" [(ngModel)]=\"data.object.Copago\"\n            placeholder=\"Copago\">\n        </mat-form-field>\n      </div>\n    </div>\n    <div class=\"row\">\n      <div class=\"col-md-12\" [class.btn-action-container]=\"booActive\">\n        <button mat-raised-button color=\"primary\" class=\"btn-w-md no-margin-left btn-right\"\n          (click)=\"performBilling()\">Facturación</button>\n        <button mat-button mat-dialog-close class=\"btn-w-md no-margin-left btn-right\">Cancelar</button>\n      </div>\n    </div>\n\n  </form>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-mipres/modal-mipres.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/smartity/modals/modal-mipres/modal-mipres.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalMipresComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+var ModalMipresComponent = /** @class */ (function () {
+    function ModalMipresComponent(loaderService, helperService, snackBar, dialogRef, data) {
+        this.loaderService = loaderService;
+        this.helperService = helperService;
+        this.snackBar = snackBar;
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.sedes = [
+            { "codsede": "PROV004656", "descsede": "MYE BARRANQUILLA" },
+            { "codsede": "PROV004657", "descsede": "MYE CARTAGENA" },
+            { "codsede": "PROV004658", "descsede": "	MYE SANTA MARTA" },
+        ];
+        this.entregaTotal = [
+            { "codEntTotal": "0", "descEntTotal": "NO" },
+            { "codEntTotal": "1", "descEntTotal": "SI" }
+        ];
+        this.tipoTecnologias = [
+            { "codTipoTec": "M", "descTipoTec": "Medicamento" },
+            { "codTipoTec": "P", "descTipoTec": "Procedimiento" },
+            { "codTipoTec": "D", "descTipoTec": "Dispositivo Médico" },
+            { "codTipoTec": "N", "descTipoTec": "Producto Nutricional" },
+            { "codTipoTec": "S", "descTipoTec": "Servicio Complementario" }
+        ];
+        this.causasNoEntrega = [
+            { "codCausaNoEntrega": "0", "descCausaNoEntrega": "Ninguna" },
+            { "codCausaNoEntrega": "7", "descCausaNoEntrega": "No fue posible contactar al paciente" },
+            { "codCausaNoEntrega": "8", "descCausaNoEntrega": "Paciente fallecido" },
+            { "codCausaNoEntrega": "9", "descCausaNoEntrega": "Paciente se niega a recibir el suministro" }
+        ];
+        this.tipoIDs = [
+            { "codTipoID": "CC", "descTipoID": "CC: Cédula de Ciudadanía" },
+            { "codTipoID": "CE", "descTipoID": "CE: Cédula de Extranjería" },
+            { "codTipoID": "PA", "descTipoID": "PA: Pasaporte" },
+            { "codTipoID": "CD", "descTipoID": "CD: Carné Diplomático" },
+            { "codTipoID": "SC", "descTipoID": "SC: Salvoconducto de Permanencia" },
+            { "codTipoID": "PR", "descTipoID": "PR: Pasaporte de la ONU" },
+            { "codTipoID": "PE", "descTipoID": "PE: Permiso Especial de Permanencia" },
+            { "codTipoID": "AS", "descTipoID": "AS: Adulto Mayor Sin Identificar" }
+        ];
+        this.urlApi = '/api/mipres';
+    }
+    ModalMipresComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        console.log(this.data);
+        if (this.data.template == 'delivery') {
+            this.data.object.FecEntrega = new Date();
+        }
+        if (this.data.template == 'billing') {
+            this.data.object.CuotaModer = '0';
+            this.data.object.Copago = '0';
+        }
+        this.data.object.TipoIDRecibe = this.tipoIDs.find(function (x) { return x.codTipoID === _this.data.object.TipoIDPaciente; }).codTipoID;
+        this.data.object.NoIDRecibe = this.data.object.NoIDPaciente;
+    };
+    ModalMipresComponent.prototype.cancelState = function (process) {
+        if (process == 'programming') {
+            this.cancelProgramming();
+        }
+        else if (process == 'delivery') {
+            this.cancelDelivery();
+        }
+        else if (process == 'delivery-report') {
+            this.cancelDeliveryReport();
+        }
+        else if (process == 'billing') {
+            this.cancelBilling();
+        }
+    };
+    ModalMipresComponent.prototype.cancelProgramming = function () {
+        var _this = this;
+        this.loaderService.display(true);
+        console.log("CancelProgramming" + JSON.stringify(this.data));
+        var programming = {
+            "IdProgramacion": this.data.object.IDProgramacion
+        };
+        this.helperService.POST(this.urlApi + "/cancelPrescriptionState/" + this.helperService.secondToken + "/programming", programming).subscribe(function (rs) {
+            var res = rs.json();
+            _this.snackBar.open('Anulación Exitosa', 'Programación anulada.', { duration: 4000 });
+            _this.dialogRef.close(true);
+            _this.loaderService.display(false);
+        }, function (err) {
+            _this.snackBar.open('Error', err.message, { duration: 4000 });
+            console.log(err.message);
+            _this.loaderService.display(false);
+        });
+    };
+    ModalMipresComponent.prototype.performProgramming = function () {
+        var _this = this;
+        this.loaderService.display(true);
+        var programming = {
+            "ID": this.data.object.ID,
+            "FecMaxEnt": this.data.object.FecMaxEnt,
+            "TipoIDSedeProv": this.data.object.TipoIDProv,
+            "NoIDSedeProv": this.data.object.NoIDProv,
+            "CodSedeProv": this.data.object.CodSedeProv,
+            "CodSerTecAEntregar": this.data.object.CodSerTecAEntregar,
+            "CantTotAEntregar": this.data.object.CantTotAEntregar,
+        };
+        this.helperService.POST(this.urlApi + "/changePrescriptionState/" + this.helperService.secondToken + "/programming", programming).subscribe(function (rs) {
+            var res = rs.json();
+            _this.snackBar.open('Programación Exitosa', 'El registro de programación ha sido creado.', { duration: 4000 });
+            _this.dialogRef.close(true);
+            _this.loaderService.display(false);
+        }, function (err) {
+            _this.snackBar.open('Error', err.message, { duration: 4000 });
+            console.log(err.message);
+            _this.loaderService.display(false);
+        });
+    };
+    ModalMipresComponent.prototype.cancelDelivery = function () {
+        var _this = this;
+        this.loaderService.display(true);
+        // console.log("CancelProgramming" + JSON.stringify(this.data) );
+        var delivery = {
+            "IdEntrega": this.data.object.IDEntrega
+        };
+        this.helperService.POST(this.urlApi + "/cancelPrescriptionState/" + this.helperService.secondToken + "/delivery", delivery).subscribe(function (rs) {
+            var res = rs.json();
+            _this.snackBar.open('Anulación Exitosa', 'Entrega anulada.', { duration: 4000 });
+            _this.dialogRef.close(true);
+            _this.loaderService.display(false);
+        }, function (err) {
+            _this.snackBar.open('Error', err.message, { duration: 4000 });
+            console.log(err.message);
+            _this.loaderService.display(false);
+        });
+    };
+    ModalMipresComponent.prototype.performDelivery = function () {
+        var _this = this;
+        this.loaderService.display(true);
+        var delivery = {
+            "ID": this.data.object.ID,
+            "CodSerTecEntregado": this.data.object.CodSerTecAEntregar,
+            "CantTotEntregada": this.data.object.CantTotAEntregar,
+            "EntTotal": this.data.object.EntTotal,
+            "CausaNoEntrega": this.data.object.CausaNoEntrega,
+            "FecEntrega": this.data.object.FecEntrega,
+            "NoLote": this.data.object.NoLote,
+            "TipoIDRecibe": this.data.object.TipoIDRecibe,
+            "NoIDRecibe": this.data.object.NoIDRecibe,
+        };
+        this.helperService.POST(this.urlApi + "/changePrescriptionState/" + this.helperService.secondToken + "/delivery", delivery).subscribe(function (rs) {
+            var res = rs.json();
+            _this.snackBar.open('Entrega Exitosa', 'El registro de entrega ha sido creado.', { duration: 4000 });
+            _this.dialogRef.close(true);
+            _this.loaderService.display(false);
+        }, function (err) {
+            _this.snackBar.open('Error', err.message, { duration: 4000 });
+            console.log(err.message);
+            _this.loaderService.display(false);
+        });
+    };
+    ModalMipresComponent.prototype.performDeliveryReport = function () {
+        var _this = this;
+        this.loaderService.display(true);
+        var delivery_report = {
+            "ID": this.data.object.ID,
+            "EstadoEntrega": this.data.object.EstadoEntrega,
+            "CausaNoEntrega": this.data.object.CausaNoEntrega,
+            "ValorEntregado": this.data.object.ValorEntregado
+        };
+        this.helperService.POST(this.urlApi + "/changePrescriptionState/" + this.helperService.secondToken + "/delivery-report", delivery_report).subscribe(function (rs) {
+            var res = rs.json();
+            _this.snackBar.open('Entrega Exitosa', 'El reporte de entrega ha sido creado.', { duration: 4000 });
+            _this.dialogRef.close(true);
+            _this.loaderService.display(false);
+        }, function (err) {
+            _this.snackBar.open('Error', err.message, { duration: 4000 });
+            console.log(err.message);
+            _this.loaderService.display(false);
+        });
+    };
+    ModalMipresComponent.prototype.cancelDeliveryReport = function () {
+        var _this = this;
+        this.loaderService.display(true);
+        var delivery_report = {
+            "IDReporteEntrega": this.data.object.IDReporteEntrega
+        };
+        this.helperService.POST(this.urlApi + "/cancelPrescriptionState/" + this.helperService.secondToken + "/delivery-report", delivery_report).subscribe(function (rs) {
+            var res = rs.json();
+            _this.snackBar.open('Anulación Exitosa', 'Reporte de Entrega anulado.', { duration: 4000 });
+            _this.dialogRef.close(true);
+            _this.loaderService.display(false);
+        }, function (err) {
+            _this.snackBar.open('Error', err.message, { duration: 4000 });
+            console.log(err.message);
+            _this.loaderService.display(false);
+        });
+    };
+    ModalMipresComponent.prototype.performBilling = function () {
+        var _this = this;
+        this.loaderService.display(true);
+        var billing = {
+            "NoPrescripcion": this.data.object.NoPrescripcion,
+            "TipoTec": this.data.object.TipoTec,
+            "ConTec": this.data.object.ConTec,
+            "TipoIDPaciente": this.data.object.TipoIDPaciente,
+            "NoIDPaciente": this.data.object.NoIDPaciente,
+            "NoEntrega": this.data.object.NoEntrega,
+            "NoSubEntrega": this.data.object.NoSubEntrega,
+            "NoFactura": this.data.object.NoFactura,
+            "NoIDEPS": this.data.object.NoIDEPS,
+            "CodEPS": this.data.object.CodEPS,
+            "CodSerTecAEntregado": this.data.object.CodSerTecAEntregado,
+            "CantUnMinDis": this.data.object.CantUnMinDis,
+            "ValorUnitFacturado": this.data.object.ValorUnitFacturado.replace(".", ","),
+            "ValorTotFacturado": this.data.object.ValorTotFacturado.replace(".", ","),
+            "CuotaModer": this.data.object.CuotaModer,
+            "Copago": this.data.object.Copago
+        };
+        this.helperService.POST(this.urlApi + "/changePrescriptionState/" + this.helperService.secondToken + "/billing", billing).subscribe(function (rs) {
+            var res = rs.json();
+            _this.snackBar.open('Entrega Exitosa', 'El registro de facturación ha sido creado.', { duration: 4000 });
+            _this.dialogRef.close(true);
+            _this.loaderService.display(false);
+        }, function (err) {
+            _this.snackBar.open('Error', err.message, { duration: 4000 });
+            console.log(err.message);
+            _this.loaderService.display(false);
+        });
+    };
+    ModalMipresComponent.prototype.cancelBilling = function () {
+        var _this = this;
+        this.loaderService.display(true);
+        console;
+        var billing = {
+            "idFacturacion": this.data.object.IDFacturacion
+        };
+        this.helperService.POST(this.urlApi + "/cancelPrescriptionState/" + this.helperService.secondToken + "/billing", billing).subscribe(function (rs) {
+            var res = rs.json();
+            _this.snackBar.open('Anulación Exitosa', 'Facturación anulada.', { duration: 4000 });
+            _this.dialogRef.close(true);
+            _this.loaderService.display(false);
+        }, function (err) {
+            _this.snackBar.open('Error', err.message, { duration: 4000 });
+            console.log(err.message);
+            _this.loaderService.display(false);
+        });
+    };
+    var _a, _b, _c, _d;
+    ModalMipresComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Component */])({
+            selector: 'app-modal-mipres',
+            template: __webpack_require__("../../../../../src/app/smartity/modals/modal-mipres/modal-mipres.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/smartity/modals/modal-mipres/modal-mipres.component.scss")]
+        }),
+        __param(4, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* Inject */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["s" /* MAT_DIALOG_DATA */])),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared__["a" /* LoaderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared__["a" /* LoaderService */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__shared__["b" /* HelperService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared__["b" /* HelperService */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["q" /* MatSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["q" /* MatSnackBar */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["t" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["t" /* MatDialogRef */]) === "function" ? _d : Object, Object])
+    ], ModalMipresComponent);
+    return ModalMipresComponent;
+}());
+
+//# sourceMappingURL=modal-mipres.component.js.map
 
 /***/ }),
 

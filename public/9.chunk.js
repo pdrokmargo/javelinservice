@@ -428,7 +428,7 @@ var PharmaceuticalDrugModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_3__shared_shared_module__["a" /* SharedModule */],
                 __WEBPACK_IMPORTED_MODULE_5__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
                 __WEBPACK_IMPORTED_MODULE_8__angular_material__["b" /* MatDialogModule */],
-                __WEBPACK_IMPORTED_MODULE_8__angular_material__["u" /* NativeDateModule */],
+                __WEBPACK_IMPORTED_MODULE_8__angular_material__["v" /* NativeDateModule */],
                 __WEBPACK_IMPORTED_MODULE_8__angular_material__["c" /* MatRippleModule */]
             ],
             declarations: [
