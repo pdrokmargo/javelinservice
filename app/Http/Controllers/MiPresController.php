@@ -217,10 +217,10 @@ class MiPresController extends Controller
                     ];
                 }
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token;
-                $response = $client->request('PUT', $url, ['headers' => $headers,
-                'json' => 
-                    $form_params]);
-                $body = $response->getBody();
+                // $response = $client->request('PUT', $url, ['headers' => $headers,
+                // 'json' => 
+                //     $form_params]);
+                // $body = $response->getBody();
                 $status = 'true';
                 $message = 'Data found!';
                 $data = json_decode($body);
@@ -233,14 +233,21 @@ class MiPresController extends Controller
            $message = $re->getMessage();
            $data = [];
         }catch(Exception $e){
-           $this->status = 'false';
-           $this->message = $e->getMessage();
+           $status = 'false';
+           $message = $e->getMessage();
            $data = [];
         }
+        // if($status == null)
+        // {
+        //     $status = 'false';
+        //     $status = 'false';
+        // }
         return ['status'=>$status,'message'=>$message,'data'=>$data];        
     }
     public function cancelPrescriptionState(Request $request, $token, $process){
-
+        $status = '';
+        $message = '';
+        $data = [];
         try{    
             $object = json_decode($request->data,true);
                 $client = new \GuzzleHttp\Client();
