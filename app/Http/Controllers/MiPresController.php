@@ -185,9 +185,9 @@ class MiPresController extends Controller
                         'CodSerTecEntregado' => $object["CodSerTecEntregado"],
                         'CantTotEntregada' => $object["CantTotEntregada"],
                         'EntTotal' => $object["EntTotal"],
-                        'CausaNoEntrega' => $object["CausaNoEntrega"],
+                        'CausaNoEntrega' => isset($object["CausaNoEntrega"]) ? $object["CausaNoEntrega"] : '0',
                         'FecEntrega' => substr($object["FecEntrega"], 0, 10),
-                        'NoLote' => $object["NoLote"],
+                        'NoLote' => isset($object["NoLote"]) ? $object["NoLote"] : '',
                         'TipoIDRecibe' => $object["TipoIDRecibe"],
                         'NoIDRecibe' => $object["NoIDRecibe"]
                     ];
