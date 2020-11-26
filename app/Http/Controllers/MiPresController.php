@@ -150,8 +150,8 @@ class MiPresController extends Controller
            $message = $re->getMessage();
            $data = [];
         }catch(Exception $e){
-           $this->status = 'false';
-           $this->message = $e->getMessage();
+           $status = 'false';
+           $message = $e->getMessage();
            $data = [];
         }
         return ['status'=>$status,'message'=>$message,'data'=>$finalData];        
@@ -274,8 +274,8 @@ class MiPresController extends Controller
            $message = $re->getMessage();
            $data = [];
         }catch(Exception $e){
-           $this->status = 'false';
-           $this->message = $e->getMessage();
+           $status = 'false';
+           $message = $e->getMessage();
            $data = [];
         }
         return ['status'=>$status,'message'=>$message,'data'=>$data];        
