@@ -202,6 +202,7 @@ class MiPresController extends Controller
                     ];
                 }elseif($process == 'billing'){
                     $endpoint = 'Facturacion';
+                    $this->baseUrl = 'https://wsmipres.sispro.gov.co/WSFACMIPRESNOPBS/api/';
                     $form_params = [
                         'NoPrescripcion' => $object["NoPrescripcion"],
                         'TipoTec' => $object["TipoTec"],
@@ -269,6 +270,7 @@ class MiPresController extends Controller
                     $idToCancel = $object["IdReporteEntrega"];
                 }elseif($process == 'Billing'){
                     $endpoint = 'FacturacionAnular';
+                    $this->baseUrl = 'https://wsmipres.sispro.gov.co/WSFACMIPRESNOPBS/api/';
                     $idToCancel = $object["idFacturacion"];
                 }
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$idToCancel;
