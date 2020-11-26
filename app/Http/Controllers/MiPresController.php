@@ -120,7 +120,7 @@ class MiPresController extends Controller
             foreach ($keys as $k){
                 $headers = ['Accept' => 'application/json'];
                 $endpoint = '';
-                if($k == 'addressing' && $role != 'supplier'){
+                if($k == 'addressing'){
                     $endpoint = 'DireccionamientoXPrescripcion';
                 }else if($k == 'programming' && $role != 'supplier'){
                     $endpoint = 'ProgramacionXPrescripcion';
