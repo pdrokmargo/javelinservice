@@ -254,6 +254,12 @@ class MiPresController extends Controller
                 }elseif($process == 'delivery'){
                     $endpoint = 'AnularEntrega';
                     $idToCancel = $object["IdEntrega"];
+                }elseif($process == 'delivery-report'){
+                    $endpoint = 'AnularReporteEntrega';
+                    $idToCancel = $object["IdReporteEntrega"];
+                }elseif($process == 'Billing'){
+                    $endpoint = 'FacturacionAnular';
+                    $idToCancel = $object["idFacturacion"];
                 }
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$idToCancel;
                 $response = $client->request('PUT', $url, ['headers' => $headers]);
