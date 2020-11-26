@@ -159,7 +159,7 @@ class MiPresController extends Controller
     public function changePrescriptionState(Request $request, $token, $process){
 
         try{    
-            $object = json_decode($request->data,true);
+                $object = json_decode($request->data,true);
                 $client = new \GuzzleHttp\Client();
                 $headers = [
                     'Accept' => 'application/json',
@@ -179,7 +179,6 @@ class MiPresController extends Controller
                         'CantTotAEntregar' => $object["CantTotAEntregar"]
                     ];
                 }elseif($process == 'delivery'){
-                    dump($object);
                     $endpoint = 'Entrega';
                     $form_params = [
                         'ID' => $object["ID"],
@@ -216,6 +215,7 @@ class MiPresController extends Controller
                     ];
                 }
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token;
+                dd($form_params);
                 $response = $client->request('PUT', $url, ['headers' => $headers,
                 'json' => 
                     $form_params]);
