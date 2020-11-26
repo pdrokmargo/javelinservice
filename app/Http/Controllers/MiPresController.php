@@ -179,6 +179,7 @@ class MiPresController extends Controller
                         'CantTotAEntregar' => $object["CantTotAEntregar"]
                     ];
                 }elseif($process == 'delivery'){
+                    dump($objec);
                     $endpoint = 'Entrega';
                     $form_params = [
                         'ID' => $object["ID"],
