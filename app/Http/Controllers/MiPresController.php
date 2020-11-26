@@ -186,7 +186,7 @@ class MiPresController extends Controller
                         'CantTotEntregada' => $object["CantTotEntregada"],
                         'EntTotal' => $object["EntTotal"],
                         'CausaNoEntrega' => $object["CausaNoEntrega"],
-                        'FecEntrega' => substr($object["FecEntrega"], 0, 10),
+                        // 'FecEntrega' => substr($object["FecEntrega"], 0, 10),
                         'NoLote' => $object["NoLote"],
                         'TipoIDRecibe' => $object["TipoIDRecibe"],
                         'NoIDRecibe' => $object["NoIDRecibe"]
