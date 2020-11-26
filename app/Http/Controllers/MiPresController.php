@@ -191,7 +191,7 @@ class MiPresController extends Controller
                         'TipoIDRecibe' => $object["TipoIDRecibe"],
                         'NoIDRecibe' => $object["NoIDRecibe"]
                     ];
-                    dd($form_params);
+                    dump($form_params);
                 }elseif($process == 'delivery-report'){
                     $endpoint = 'ReporteEntrega';
                     $form_params = [
@@ -215,7 +215,7 @@ class MiPresController extends Controller
                         'CantTotAEntregar' => $object["CantTotAEntregar"]
                     ];
                 }
-                dd($form_params);
+                dump($form_params);
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token;
                 
                 $response = $client->request('PUT', $url, ['headers' => $headers,
