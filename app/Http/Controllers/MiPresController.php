@@ -132,13 +132,15 @@ class MiPresController extends Controller
                     $this->baseUrl = 'https://wsmipres.sispro.gov.co/WSFACMIPRESNOPBS/api/';
                     $endpoint = 'FacturacionXPrescripcion';
                 }
-                $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$prescription;
-                $response = $client->request('GET', $url, $headers);
-                $body = $response->getBody();
-                $status = 'true';
-                $message = 'Data found!';
-                $data = json_decode($body);
-                $finalData[$k] = $data;
+                if($endpoint != ''){
+                    $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$prescription;
+                    $response = $client->request('GET', $url, $headers);
+                    $body = $response->getBody();
+                    $status = 'true';
+                    $message = 'Data found!';
+                    $data = json_decode($body);
+                    $finalData[$k] = $data;
+                }
             }
         }catch(ClientException $ce){
             $status = 'false';
