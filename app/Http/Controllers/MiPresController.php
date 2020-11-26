@@ -267,7 +267,7 @@ class MiPresController extends Controller
                     $idToCancel = $object["IdEntrega"];
                 }elseif($process == 'delivery-report'){
                     $endpoint = 'AnularReporteEntrega';
-                    $idToCancel = $object["IdReporteEntrega"];
+                    $idToCancel = $object["IDReporteEntrega"];
                 }elseif($process == 'billing'){
                     $endpoint = 'FacturacionAnular';
                     $this->baseUrl = 'https://wsmipres.sispro.gov.co/WSFACMIPRESNOPBS/api/';
