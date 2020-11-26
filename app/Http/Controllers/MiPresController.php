@@ -195,12 +195,9 @@ class MiPresController extends Controller
                     $endpoint = 'ReporteEntrega';
                     $form_params = [
                         'ID' => $object["ID"],
-                        'FecMaxEnt' => substr($object["FecMaxEnt"], 0, 10),
-                        'TipoIDSedeProv' => $object["TipoIDSedeProv"],
-                        'NoIDSedeProv' => $object["NoIDSedeProv"],
-                        'CodSedeProv' => $object["CodSedeProv"],
-                        'CodSerTecAEntregar' => $object["CodSerTecAEntregar"],
-                        'CantTotAEntregar' => $object["CantTotAEntregar"]
+                        'EstadoEntrega' => $object["EstadoEntrega"],
+                        'CausaNoEntrega' => isset($object["CausaNoEntrega"]) ? $object["CausaNoEntrega"] : '0',
+                        'ValorEntregado' => $object["ValorEntregado"]
                     ];
                 }elseif($process == 'billing'){
                     $endpoint = 'Facturacion';
