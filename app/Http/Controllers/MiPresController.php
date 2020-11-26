@@ -203,13 +203,23 @@ class MiPresController extends Controller
                 }elseif($process == 'billing'){
                     $endpoint = 'Facturacion';
                     $form_params = [
-                        'ID' => $object["ID"],
-                        'FecMaxEnt' => substr($object["FecMaxEnt"], 0, 10),
-                        'TipoIDSedeProv' => $object["TipoIDSedeProv"],
-                        'NoIDSedeProv' => $object["NoIDSedeProv"],
-                        'CodSedeProv' => $object["CodSedeProv"],
-                        'CodSerTecAEntregar' => $object["CodSerTecAEntregar"],
-                        'CantTotAEntregar' => $object["CantTotAEntregar"]
+                        'NoPrescripcion' => $object["ID"],
+                        'TipoTec' => substr($object["FecMaxEnt"], 0, 10),
+                        'ConTec' => $object["TipoIDSedeProv"],
+                        'TipoIDPaciente' => $object["NoIDSedeProv"],
+                        'NoIDPaciente' => $object["CodSedeProv"],
+                        'NoEntrega' => $object["CodSerTecAEntregar"],
+                        'NoSubEntrega' => isset($object["CantTotAEntregar"]) ? $object["CantTotAEntregar"] : '0',
+                        'NoFactura' => $object["CantTotAEntregar"],
+                        'NoIDEPS' => $object["CantTotAEntregar"],
+                        'CodEPS' => $object["CantTotAEntregar"],
+                        'CodSerTecAEntregado' => $object["CantTotAEntregar"],
+                        'CantUnMinDis' => $object["CantTotAEntregar"],
+                        'ValorUnitFacturado' => $object["CantTotAEntregar"],
+                        'ValorTotFacturado' => $object["CantTotAEntregar"],
+                        'CuotaModer' => isset($object["CantTotAEntregar"]) ? $object["CantTotAEntregar"] : '0',
+                        'Copago' => isset($object["Copago"]) ? $object["Copago"] : '0',
+
                     ];
                 }
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token;
