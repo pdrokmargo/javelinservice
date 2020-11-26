@@ -107,7 +107,7 @@ class MiPresController extends Controller
         }
         return ['status'=>$status,'message'=>$message,'data'=>$data]; 
     }
-    public function getPrescriptionStatusByNumber(Request $request, $token, $prescription)
+    public function getPrescriptionStatusByNumber(Request $request, $token, $prescription, $role)
     {   
         $keys = ['addressing', 'programming', 'delivery', 'delivery-report', 'billing'];
         $finalData = ['addressing' => '', 'programming' => '', 'delivery' => '', 'delivery-report' => '', 'billing' => ''];
@@ -116,23 +116,22 @@ class MiPresController extends Controller
         $prescriptions = [];
         
         try {
+            $client = new \GuzzleHttp\Client();
             foreach ($keys as $k){
-                $client = new \GuzzleHttp\Client();
                 $headers = ['Accept' => 'application/json'];
                 $endpoint = '';
-                if($k == 'addressing'){
+                if($k == 'addressing' && $role != 'supplier'){
                     $endpoint = 'DireccionamientoXPrescripcion';
-                }else if($k == 'programming'){
+                }else if($k == 'programming' && $role != 'supplier'){
                     $endpoint = 'ProgramacionXPrescripcion';
                 }else if($k == 'delivery'){
                     $endpoint = 'EntregaXPrescripcion';
-                }else if($k == 'delivery-report'){
+                }else if($k == 'delivery-report' && $role != 'delivery'){
                     $endpoint = 'ReporteEntregaXPrescripcion';
-                }else if($k == 'billing'){
+                }else if($k == 'billing' && $role != 'delivery'){
                     $this->baseUrl = 'https://wsmipres.sispro.gov.co/WSFACMIPRESNOPBS/api/';
                     $endpoint = 'FacturacionXPrescripcion';
                 }
-
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$prescription;
                 $response = $client->request('GET', $url, $headers);
                 $body = $response->getBody();
