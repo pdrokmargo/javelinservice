@@ -66,7 +66,6 @@ class MiPresController extends Controller
     {   
         $keys = ['addressing', 'programming', 'delivery', 'delivery-report', 'billing'];
         $finalData = ['addressing' => '', 'programming' => '', 'delivery' => '', 'delivery-report' => '', 'billing' => ''];
-        // $endpoints = ['DireccionamientoXPrescripcion', 'ProgramacionXPrescripcion', 'EntregaXPrescripcion', 'ReporteEntregaXPrescripcion'];
         $final = [];
         $prescriptions = [];
         

@@ -45,10 +45,10 @@ class PrivilegesTableSeeder extends Seeder
             // ['view_id' => 31,   'user_profile_id' => 1, 'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
             // ['view_id' => 32,   'user_profile_id' => 1, 'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
             // ['view_id' => 33,   'user_profile_id' => 1, 'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
-            ['view_id' => 34,   'user_profile_id' => 1, 'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
-            ['view_id' => 35,   'user_profile_id' => 1, 'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
-            ['view_id' => 36,   'user_profile_id' => 1, 'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
+            // ['view_id' => 34,   'user_profile_id' => 1, 'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
+            // ['view_id' => 35,   'user_profile_id' => 1, 'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
+            // ['view_id' => 36,   'user_profile_id' => 1, 'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
+            ['view_id' => 37,   'user_profile_id' => 1, 'actions' => '[{"action":"Crear", "status":true}, {"action":"Leer", "status":true}, {"action":"Actualizar", "status":true}, {"action":"Eliminar", "status":true}]'],
         ]);
     }
 }
-

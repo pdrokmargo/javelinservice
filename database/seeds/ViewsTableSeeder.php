@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
 
 class ViewsTableSeeder extends Seeder
 {
@@ -11,6 +13,20 @@ class ViewsTableSeeder extends Seeder
      */
     public function run()
     {
+      //Delete views table, then create, then populate.
+      Schema::dropIfExists('views');      
+      Schema::create('views', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title');
+            $table->string('link');
+            $table->string('icon');
+            $table->string('description');
+            $table->integer('view_parent_id')->default(0);
+            $table->boolean('have_child');
+            $table->string('load_children');
+            $table->boolean('show_menu')->default(true);
+        });
+
     DB::table('views')->insert([
     /*01*/['view_parent_id' => 0, 'have_child' => true,     'title' => 'Organización',              'link' => '',                       'icon' => 'business',               'description' => '', 'load_children' => '', 'show_menu' => true ], 
     /*02*/['view_parent_id' => 0, 'have_child' => false,    'title' => 'Terceros',                  'link' => 'stakeholders',           'icon' => 'supervised_user_circle', 'description' => '', 'load_children' => '', 'show_menu' => true ],
@@ -33,6 +49,7 @@ class ViewsTableSeeder extends Seeder
           ['view_parent_id' => 3, 'have_child' => false,    'title' => 'Medicamentos',              'link' => 'pharmaceutical-drug',    'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ],
           ['view_parent_id' => 3, 'have_child' => false,    'title' => 'MiPRES Proveedor',          'link' => 'mipres-supplier',    'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ],
           ['view_parent_id' => 3, 'have_child' => false,    'title' => 'MiPres Dispensación',       'link' => 'mipres-delivery',    'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ],
+          ['view_parent_id' => 3, 'have_child' => false,    'title' => 'MiPres Admin',       'link' => 'mipres-admin',    'icon' => '',                       'description' => '', 'load_children' => '', 'show_menu' => true ],
     /* 05 */
       ['view_parent_id' => 5, 'have_child' => false, 'title' => 'Ingresos',                     'link' => 'inventory-movement-entry',     'icon' => '',     'description' => '', 'load_children' => '', 'show_menu' => true ],
       ['view_parent_id' => 5, 'have_child' => false, 'title' => 'Salidas',                      'link' => 'inventory-movement-out',       'icon' => '',     'description' => '', 'load_children' => '', 'show_menu' => true ],

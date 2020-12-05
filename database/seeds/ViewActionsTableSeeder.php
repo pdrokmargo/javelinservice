@@ -52,10 +52,10 @@ class ViewActionsTableSeeder extends Seeder
             // ['view_id' => 32, 'actions' => '[{"action":"Crear", "status":false}, {"action":"Leer", "status":false}, {"action":"Actualizar", "status":false}, {"action":"Eliminar", "status":false}]'],
             // ['view_id' => 33, 'actions' => '[{"action":"Crear", "status":false}, {"action":"Leer", "status":false}, {"action":"Actualizar", "status":false}, {"action":"Eliminar", "status":false}]'],
 
-            ['view_id' => 34, 'actions' => '[{"action":"Crear", "status":false}, {"action":"Leer", "status":false}, {"action":"Actualizar", "status":false}, {"action":"Eliminar", "status":false}]'],
-            ['view_id' => 35, 'actions' => '[{"action":"Crear", "status":false}, {"action":"Leer", "status":false}, {"action":"Actualizar", "status":false}, {"action":"Eliminar", "status":false}]'],
-            ['view_id' => 36, 'actions' => '[{"action":"Crear", "status":false}, {"action":"Leer", "status":false}, {"action":"Actualizar", "status":false}, {"action":"Eliminar", "status":false}]'],
-
+            // ['view_id' => 34, 'actions' => '[{"action":"Crear", "status":false}, {"action":"Leer", "status":false}, {"action":"Actualizar", "status":false}, {"action":"Eliminar", "status":false}]'],
+            // ['view_id' => 35, 'actions' => '[{"action":"Crear", "status":false}, {"action":"Leer", "status":false}, {"action":"Actualizar", "status":false}, {"action":"Eliminar", "status":false}]'],
+            // ['view_id' => 36, 'actions' => '[{"action":"Crear", "status":false}, {"action":"Leer", "status":false}, {"action":"Actualizar", "status":false}, {"action":"Eliminar", "status":false}]'],
+            ['view_id' => 37, 'actions' => '[{"action":"Crear", "status":false}, {"action":"Leer", "status":false}, {"action":"Actualizar", "status":false}, {"action":"Eliminar", "status":false}]'],
             
         ]);
     }
