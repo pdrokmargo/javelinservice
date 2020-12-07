@@ -94,10 +94,11 @@ class MiPresController extends Controller
                     $message = 'Data found!';
                     $data = json_decode($body);
                     $cums = [];
-                    foreach($data as $d){
-                        $cums[] = $data["CodSerTecAEntregar"];
-                    }
+                    
                     if($endpoint == 'DireccionamientoXPrescripcion'){
+                        foreach($data as $d){
+                            $cums[] = $data["CodSerTecAEntregar"];
+                        }
                         $products = \DB::table('cums_productos_mipres')->select()->whereIn('cums', $cums)->get();
                     }
                     $finalData[$k] = $data;
