@@ -96,8 +96,9 @@ class MiPresController extends Controller
                     $cums = [];
                     
                     if($endpoint == 'DireccionamientoXPrescripcion'){
+                        dump($data);
                         foreach($data as $d){
-                            $cums[] = $data["CodSerTecAEntregar"];
+                            // $cums[] = $data["CodSerTecAEntregar"];
                         }
                         $products = \DB::table('cums_productos_mipres')->select()->whereIn('cums', $cums)->get();
                     }
