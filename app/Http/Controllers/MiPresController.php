@@ -96,11 +96,11 @@ class MiPresController extends Controller
                     $cums = [];
                     
                     if($endpoint == 'DireccionamientoXPrescripcion'){
-                        dump($data);
+                        // dump($data);
                         foreach($data as $d){
                             // $cums[] = $data["CodSerTecAEntregar"];
                         }
-                        $products = \DB::table('cums_productos_mipres')->select()->whereIn('cums', $cums)->get();
+                        // $products = \DB::table('cums_productos_mipres')->select()->whereIn('cums', $cums)->get();
                     }
                     $finalData[$k] = $data;
                 }
