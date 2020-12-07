@@ -68,7 +68,7 @@ class MiPresController extends Controller
         $finalData = ['addressing' => '', 'programming' => '', 'delivery' => '', 'delivery-report' => '', 'billing' => ''];
         $final = [];
         $prescriptions = [];
-        
+        $products = [];
         try {
             $client = new \GuzzleHttp\Client();
             foreach ($keys as $k){
@@ -93,6 +93,13 @@ class MiPresController extends Controller
                     $status = 'true';
                     $message = 'Data found!';
                     $data = json_decode($body);
+                    $cums = [];
+                    foreach($data as $d){
+                        $cums[] = $data["CodSerTecAEntregar"];
+                    }
+                    if($endpoint == 'DireccionamientoXPrescripcion'){
+                        $products = \DB::table('cums_productos_mipres')->select()->whereIn('cums', $cums)->get();
+                    }
                     $finalData[$k] = $data;
                 }
             }
@@ -100,16 +107,19 @@ class MiPresController extends Controller
             $status = 'false';
             $message = $ce->getMessage();
             $data = [];
+            $products = [];
         }catch(RequestException $re){
            $status = 'false';
            $message = $re->getMessage();
            $data = [];
+           $products = [];
         }catch(Exception $e){
            $status = 'false';
            $message = $e->getMessage();
+           $products = [];
            $data = [];
         }
-        return ['status'=>$status,'message'=>$message,'data'=>$finalData];        
+        return ['status'=>$status,'message'=>$message,'data'=>$finalData, 'products' => $products];        
     }
     public function changePrescriptionState(Request $request, $token, $process){
 
