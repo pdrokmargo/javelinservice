@@ -5588,13 +5588,13 @@ var ModalMipresComponent = /** @class */ (function () {
         var _this = this;
         if (this.data.template == 'delivery') {
             this.data.object.FecEntrega = new Date();
+            this.data.object.TipoIDRecibe = this.tipoIDs.find(function (x) { return x.codTipoID === _this.data.object.TipoIDPaciente; }).codTipoID;
+            this.data.object.NoIDRecibe = this.data.object.NoIDPaciente;
         }
         if (this.data.template == 'billing') {
             this.data.object.CuotaModer = '0';
             this.data.object.Copago = '0';
         }
-        this.data.object.TipoIDRecibe = this.tipoIDs.find(function (x) { return x.codTipoID === _this.data.object.TipoIDPaciente; }).codTipoID;
-        this.data.object.NoIDRecibe = this.data.object.NoIDPaciente;
     };
     ModalMipresComponent.prototype.cancelState = function (process) {
         if (process == 'programming') {

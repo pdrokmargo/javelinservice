@@ -530,7 +530,7 @@ var MipresListComponent = /** @class */ (function (_super) {
         var prescriptionNumber = { "prescriptionNumber": this.search };
         this.helperService.POST(this.urlApi + "/prescriptions/" + this.helperService.secondToken, prescriptionNumber).subscribe(function (rs) {
             var res = rs.json();
-            console.log(res);
+            // console.log(res);
             var prescription = { "prescriptionNumber": res.data["NoPrescripcion"], "patient": res.data["TipoIDPaciente"] + res.data["NoIDPaciente"], "EPS": res.data["CodEPS"] };
             _this.list.push(prescription);
             _this.loaderService.display(false);
