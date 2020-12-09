@@ -64,6 +64,7 @@ class MiPresController extends Controller
     }
     public function getPrescriptionStatusByNumber(Request $request, $token, $prescription, $role)
     {   
+        $start_time = microtime(true); 
         $keys = ['addressing', 'programming', 'delivery', 'delivery-report', 'billing'];
         $finalData = ['addressing' => '', 'programming' => '', 'delivery' => '', 'delivery-report' => '', 'billing' => ''];
         $final = [];
@@ -121,7 +122,9 @@ class MiPresController extends Controller
            $products = [];
            $data = [];
         }
-        return ['status'=>$status,'message'=>$message,'data'=>$finalData, 'products' => $products];        
+        $end_time = microtime(true); 
+        $execution_time = ($end_time - $start_time); 
+        return ['status'=>$status,'message'=>$message,'data'=>$finalData, 'products' => $products, 'exec_time' => $execution_time];        
     }
     public function changePrescriptionState(Request $request, $token, $process){
 
