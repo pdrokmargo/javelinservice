@@ -845,7 +845,7 @@ function makeAppConfig() {
         brand: 'Javelin',
         user: 'Lisa',
         year: year,
-        version: 'v1.0.1',
+        version: 'v1.0.2',
         layoutBoxed: false,
         navCollapsed: false,
         navBehind: false,
@@ -5588,7 +5588,13 @@ var ModalMipresComponent = /** @class */ (function () {
         var _this = this;
         if (this.data.template == 'delivery') {
             this.data.object.FecEntrega = new Date();
-            this.data.object.TipoIDRecibe = this.tipoIDs.find(function (x) { return x.codTipoID === _this.data.object.TipoIDPaciente; }).codTipoID;
+            var cod_tipo_id = this.tipoIDs.find(function (x) { return x.codTipoID === _this.data.object.TipoIDPaciente; });
+            if (cod_tipo_id) {
+                this.data.object.TipoIDRecibe = cod_tipo_id.codTipoID;
+            }
+            else {
+                this.data.object.TipoIDRecibe = "CC";
+            }
             this.data.object.NoIDRecibe = this.data.object.NoIDPaciente;
         }
         if (this.data.template == 'billing') {
