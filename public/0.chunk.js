@@ -83,7 +83,7 @@ var MipresActionComponent = /** @class */ (function (_super) {
         _this.sedes = [
             { "codsede": "PROV004656", "descsede": "MYE BARRANQUILLA" },
             { "codsede": "PROV004657", "descsede": "MYE CARTAGENA" },
-            { "codsede": "PROV004658", "descsede": "	MYE SANTA MARTA" },
+            { "codsede": "PROV004658", "descsede": "MYE SANTA MARTA" },
         ];
         _this.addressingList = [];
         _this.epsList = [
@@ -225,7 +225,13 @@ var MipresActionComponent = /** @class */ (function (_super) {
         // });
     };
     MipresActionComponent.prototype.getSede = function (id) {
-        return this.sedes.find(function (x) { return x.codsede === id; }).descsede;
+        var descrip_sede = this.sedes.find(function (x) { return x.codsede === id; });
+        if (descrip_sede) {
+            return descrip_sede.descsede;
+        }
+        else {
+            return id + "(Sede no activa)";
+        }
     };
     MipresActionComponent.prototype.getCUMSDescription = function (cums) {
         var out_cums = this.products.find(function (x) { return x.cums === cums; });

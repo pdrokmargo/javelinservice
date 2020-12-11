@@ -845,7 +845,7 @@ function makeAppConfig() {
         brand: 'Javelin',
         user: 'Lisa',
         year: year,
-        version: 'v1.0.2',
+        version: 'v1.0.3',
         layoutBoxed: false,
         navCollapsed: false,
         navBehind: false,
@@ -5553,7 +5553,7 @@ var ModalMipresComponent = /** @class */ (function () {
         this.sedes = [
             { "codsede": "PROV004656", "descsede": "MYE BARRANQUILLA" },
             { "codsede": "PROV004657", "descsede": "MYE CARTAGENA" },
-            { "codsede": "PROV004658", "descsede": "	MYE SANTA MARTA" },
+            { "codsede": "PROV004658", "descsede": "MYE SANTA MARTA" },
         ];
         this.entregaTotal = [
             { "codEntTotal": "0", "descEntTotal": "NO" },
@@ -5591,11 +5591,12 @@ var ModalMipresComponent = /** @class */ (function () {
             var cod_tipo_id = this.tipoIDs.find(function (x) { return x.codTipoID === _this.data.object.TipoIDPaciente; });
             if (cod_tipo_id) {
                 this.data.object.TipoIDRecibe = cod_tipo_id.codTipoID;
+                this.data.object.NoIDRecibe = this.data.object.NoIDPaciente;
             }
             else {
                 this.data.object.TipoIDRecibe = "CC";
+                this.data.object.NoIDRecibe = "";
             }
-            this.data.object.NoIDRecibe = this.data.object.NoIDPaciente;
         }
         if (this.data.template == 'billing') {
             this.data.object.CuotaModer = '0';
