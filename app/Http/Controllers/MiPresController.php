@@ -57,7 +57,6 @@ class MiPresController extends Controller
                 $status = 'true';
                 $message = 'Data found!';
                 $data = json_decode($body);
-                $data = $data[0];
             }else{
                 $status = 'false';
                 $message = 'Prescription not found!';
