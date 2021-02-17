@@ -36,22 +36,22 @@ class MiPresController extends Controller
         //and last case to fetch prescriptions by patient ID wihtout details.
         $data = json_decode($request->data, true);
         try {
-            if(isset($data["prescriptionDate"])){
+            if(isset($data["prescriptionNumber"])){
                 $client = new \GuzzleHttp\Client();
                 $headers = ['Accept' => 'application/json'];
-                $endpoint = 'DireccionamientoXFecha';
-                $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.substr($data["prescriptionDate"], 0, 10);
+                $endpoint = 'DireccionamientoXPrescripcion';
+                $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$data["prescriptionNumber"];
                 $response = $client->request('GET', $url, $headers);
                 $body = $response->getBody();
                 $status = 'true';
                 $message = 'Data found!';
                 $data = json_decode($body);
             }
-            elseif(isset($data["prescriptionNumber"])){
+            elseif(isset($data["prescriptionDate"])){
                 $client = new \GuzzleHttp\Client();
                 $headers = ['Accept' => 'application/json'];
-                $endpoint = 'DireccionamientoXPrescripcion';
-                $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$data["prescriptionNumber"];
+                $endpoint = 'DireccionamientoXFecha';
+                $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.substr($data["prescriptionDate"], 0, 10);
                 $response = $client->request('GET', $url, $headers);
                 $body = $response->getBody();
                 $status = 'true';
