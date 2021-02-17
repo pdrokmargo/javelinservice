@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Log;
 
 class MiPresController extends Controller
 {
+    // Swagger client: https://wsmipres.sispro.gov.co/WSSUMMIPRESNOPBS/Swagger/ui/index
+    // Billing Swagger client: https://wsmipres.sispro.gov.co/WSFACMIPRESNOPBS/Swagger/ui/index
     private $baseUrl = 'https://wsmipres.sispro.gov.co/WSSUMMIPRESNOPBS/api/';
     private $mainToken = '525FE1ED-00E2-4364-9F5D-7612B8B1E21E';
     private $nit = '802024817';
@@ -33,34 +35,45 @@ class MiPresController extends Controller
         //Next step, is to add 2 more cases to fetch all prescription in date range without details, 
         //and last case to fetch prescriptions by patient ID wihtout details.
         $data = json_decode($request->data, true);
-        if(isset($data["prescriptionNumber"])){
-            try {
-            $client = new \GuzzleHttp\Client();
-            $headers = ['Accept' => 'application/json'];
-            $endpoint = 'DireccionamientoXPrescripcion';
-            $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$data["prescriptionNumber"];
-            $response = $client->request('GET', $url, $headers);
-            $body = $response->getBody();
-            $status = 'true';
-            $message = 'Data found!';
-            $data = json_decode($body);
-            $data = $data[0];
+        try {
+            if(isset($data["prescriptionDate"])){
+                $client = new \GuzzleHttp\Client();
+                $headers = ['Accept' => 'application/json'];
+                $endpoint = 'DireccionamientoXFecha';
+                $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$data["prescriptionDate"];
+                $response = $client->request('GET', $url, $headers);
+                $body = $response->getBody();
+                $status = 'true';
+                $message = 'Data found!';
+                $data = json_decode($body);
+            }
+            elseif(isset($data["prescriptionNumber"])){
+                $client = new \GuzzleHttp\Client();
+                $headers = ['Accept' => 'application/json'];
+                $endpoint = 'DireccionamientoXPrescripcion';
+                $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$data["prescriptionNumber"];
+                $response = $client->request('GET', $url, $headers);
+                $body = $response->getBody();
+                $status = 'true';
+                $message = 'Data found!';
+                $data = json_decode($body);
+                $data = $data[0];
+            }else{
+                $status = 'false';
+                $message = 'Prescription not found!';
+                $data = [];
+            }
         }catch(ClientException $ce){
             $status = 'false';
             $message = $ce->getMessage();
             $data = [];
         }catch(RequestException $re){
-           $status = 'false';
-           $message = $re->getMessage();
-           $data = [];
-        }catch(Exception $e){
-           $status = 'false';
-           $message = $e->getMessage();
-           $data = [];
-        }
-        }else{
             $status = 'false';
-            $message = 'Prescription not found!';
+            $message = $re->getMessage();
+            $data = [];
+        }catch(Exception $e){
+            $status = 'false';
+            $message = $e->getMessage();
             $data = [];
         }
         return ['status'=>$status,'message'=>$message,'data'=>$data]; 
@@ -100,6 +113,70 @@ class MiPresController extends Controller
                     $cums = [];
                     
                     if($endpoint == 'DireccionamientoXPrescripcion'){
+                        // dump($data);
+                        foreach($data as $d){
+                            $cums[] = $d->CodSerTecAEntregar;
+                        }
+                        $products = \DB::table('cums_productos_mipres')->select()->whereIn('cums', $cums)->get();
+                    }
+                    $finalData[$k] = $data;
+                }
+            }
+        }catch(ClientException $ce){
+            $status = 'false';
+            $message = $ce->getMessage();
+            $data = [];
+            $products = [];
+        }catch(RequestException $re){
+           $status = 'false';
+           $message = $re->getMessage();
+           $data = [];
+           $products = [];
+        }catch(Exception $e){
+           $status = 'false';
+           $message = $e->getMessage();
+           $products = [];
+           $data = [];
+        }
+        $end_time = microtime(true); 
+        $execution_time = ($end_time - $start_time); 
+        return ['status'=>$status,'message'=>$message,'data'=>$finalData, 'products' => $products, 'exec_time' => $execution_time];        
+    }
+    public function getPrescriptionStatusByDate(Request $request, $token, $prescription, $date, $role)
+    {   
+        $start_time = microtime(true); 
+        $keys = ['addressing', 'programming', 'delivery', 'delivery-report', 'billing'];
+        $finalData = ['addressing' => '', 'programming' => '', 'delivery' => '', 'delivery-report' => '', 'billing' => ''];
+        $final = [];
+        $prescriptions = [];
+        $products = [];
+        try {
+            $client = new \GuzzleHttp\Client();
+            foreach ($keys as $k){
+                $headers = ['Accept' => 'application/json'];
+                $endpoint = '';
+                if($k == 'addressing'){
+                    $endpoint = 'DireccionamientoXFecha';
+                }else if($k == 'programming' && $role != 'supplier'){
+                    $endpoint = 'ProgramacionXFecha';
+                }else if($k == 'delivery'){
+                    $endpoint = 'EntregaXFecha';
+                }else if($k == 'delivery-report' && $role != 'delivery'){
+                    $endpoint = 'ReporteEntregaXFecha';
+                }else if($k == 'billing' && $role != 'delivery'){
+                    $this->baseUrl = 'https://wsmipres.sispro.gov.co/WSFACMIPRESNOPBS/api/';
+                    $endpoint = 'FacturacionXFecha';
+                }
+                if($endpoint != ''){
+                    $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$date;
+                    $response = $client->request('GET', $url, $headers);
+                    $body = $response->getBody();
+                    $status = 'true';
+                    $message = 'Data found!';
+                    $data = json_decode($body);
+                    $cums = [];
+                    
+                    if($endpoint == 'DireccionamientoXFecha'){
                         // dump($data);
                         foreach($data as $d){
                             $cums[] = $d->CodSerTecAEntregar;

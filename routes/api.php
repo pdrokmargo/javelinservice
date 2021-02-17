@@ -142,6 +142,7 @@ Route::middleware('auth:api')->group(function () {
     // Route::get('mipres/prescription/{token}/{prescription}','MiPresController@prescription');
     Route::post('mipres/prescriptions/{token}','MiPresController@getPrescriptions');
     Route::get('mipres/getPrescriptionStatus/{token}/{prescription}/{role}','MiPresController@getPrescriptionStatusByNumber');
+    Route::get('mipres/getPrescriptionStatusDate/{token}/{prescription}/{date}/{role}','MiPresController@getPrescriptionStatusByNumber');
     Route::post('mipres/changePrescriptionState/{token}/{process}','MiPresController@changePrescriptionState');
     Route::post('mipres/cancelPrescriptionState/{token}/{process}','MiPresController@cancelPrescriptionState');
 
