@@ -40,7 +40,7 @@ class MiPresController extends Controller
                 $client = new \GuzzleHttp\Client();
                 $headers = ['Accept' => 'application/json'];
                 $endpoint = 'DireccionamientoXFecha';
-                $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$data["prescriptionDate"];
+                $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.substr($data["prescriptionDate"], 0, 10);
                 $response = $client->request('GET', $url, $headers);
                 $body = $response->getBody();
                 $status = 'true';
