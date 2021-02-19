@@ -845,7 +845,7 @@ function makeAppConfig() {
         brand: 'Javelin',
         user: 'Lisa',
         year: year,
-        version: 'v1.0.5',
+        version: 'v1.0.6',
         layoutBoxed: false,
         navCollapsed: false,
         navBehind: false,
@@ -5691,8 +5691,18 @@ var ModalMipresComponent = /** @class */ (function () {
         };
         this.helperService.POST(this.urlApi + "/changePrescriptionState/" + this.helperService.secondToken + "/delivery", delivery).subscribe(function (rs) {
             var res = rs.json();
-            _this.snackBar.open('Entrega Exitosa', 'El registro de entrega ha sido creado.', { duration: 4000 });
-            _this.dialogRef.close(true);
+            console.log(res);
+            if (res.code == 422) {
+                console.log(JSON.parse(res.message));
+                _this.snackBar.open(JSON.parse(res.message)['Message'], '', { duration: 4000 });
+            }
+            else if (res.code == 200) {
+                _this.snackBar.open('Entrega Exitosa', 'El registro de entrega ha sido creado.', { duration: 4000 });
+                _this.dialogRef.close(true);
+            }
+            else {
+                _this.snackBar.open(JSON.parse(res.message)['Message'], '', { duration: 4000 });
+            }
             _this.loaderService.display(false);
         }, function (err) {
             _this.snackBar.open('Error', err.message, { duration: 4000 });
