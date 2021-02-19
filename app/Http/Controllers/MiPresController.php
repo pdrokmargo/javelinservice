@@ -275,23 +275,26 @@ class MiPresController extends Controller
                 'json' => 
                     $form_params]);
                 $body = $response->getBody();
+                $code = $response->getStatusCode();
                 $status = 'true';
                 $message = 'Data found!';
                 $data = json_decode($body);
         }catch(ClientException $ce){
             $status = 'false';
-            $message = $ce->getResponse()->getStatusCode();
+            $message = $ce->getResponse();
+            $code = $ce->getResponse()->getStatusCode();
             $data = [];
         }catch(RequestException $re){
            $status = 'false';
-           $message = $re->getResponse()->getStatusCode();
+           $message = $re->getResponse();
+           $code = $re->getResponse()->getStatusCode();
            $data = [];
         }catch(Exception $e){
            $status = 'false';
            $message = $e->getMessage();
            $data = [];
         }
-        return ['status'=>$status,'message'=>$message,'data'=>$data];        
+        return ['status'=>$status,'message'=>$message,'data'=>$data, $code => ''];        
     }
     public function cancelPrescriptionState(Request $request, $token, $process){
         $status = '';
