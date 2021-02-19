@@ -281,17 +281,17 @@ class MiPresController extends Controller
                 $data = json_decode($body);
         }catch(ClientException $ce){
             $status = 'false';
-            $message = $ce->getResponse()->getBody()['message'];
+            $message = (string) $ce->getResponse()->getBody();
             $code = $ce->getResponse()->getStatusCode();
             $data = [];
         }catch(RequestException $re){
            $status = 'false';
-           $message = $re->getMessage();
+           $message = (string) $re->getResponse()->getBody();$re->getMessage();
            $code = $re->getResponse()->getStatusCode();
            $data = [];
         }catch(Exception $e){
            $status = 'false';
-           $message = $e->getMessage();
+           $message = (string) $e->getResponse()->getBody();
            $code = $e->getResponse()->getStatusCode();
            $data = [];
         }
