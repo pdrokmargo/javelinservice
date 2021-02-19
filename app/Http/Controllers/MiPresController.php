@@ -286,12 +286,12 @@ class MiPresController extends Controller
             $data = [];
         }catch(RequestException $re){
            $status = 'false';
-           $message = $re->getResponse()->getBody();
+           $message = $re;
            $code = $re->getResponse()->getStatusCode();
            $data = [];
         }catch(Exception $e){
            $status = 'false';
-           $message = $e->getResponse()->getBody();
+           $message = $e;
            $code = $e->getResponse()->getStatusCode();
            $data = [];
         }
