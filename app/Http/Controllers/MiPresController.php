@@ -76,8 +76,8 @@ class MiPresController extends Controller
             $data = [];
         }catch(Exception $e){
             $status = 'false';
-            $message = (string) $e->getResponse()->getBody();
-            $code = $e->getResponse()->getStatusCode();
+            $message = $e->getMessage();
+            $code = 500;
             $data = [];
         }
         return ['status'=>$status,'message'=>$message,'data'=>$data, 'code' => $code]; 
@@ -141,8 +141,8 @@ class MiPresController extends Controller
            $products = [];
         }catch(Exception $e){
            $status = 'false';
-           $message = (string) $e->getResponse()->getBody();
-           $code = $e->getResponse()->getStatusCode();
+           $message = $e->getMessage();
+           $code = 500;
            $products = [];
            $data = [];
         }
@@ -209,8 +209,8 @@ class MiPresController extends Controller
            $products = [];
         }catch(Exception $e){
            $status = 'false';
-           $message = (string) $e->getResponse()->getBody();
-           $code = $e->getResponse()->getStatusCode();
+           $message = $e->getMessage();
+           $code = 500;
            $products = [];
            $data = [];
         }
@@ -304,8 +304,8 @@ class MiPresController extends Controller
            $data = [];
         }catch(Exception $e){
            $status = 'false';
-           $message = (string) $e->getResponse()->getBody();
-           $code = $e->getResponse()->getStatusCode();
+           $message = $e->getMessage();
+           $code = 500;
            $data = [];
         }
         return ['status'=>$status,'message'=>$message,'data'=>$data, 'code' => $code];        
@@ -357,8 +357,8 @@ class MiPresController extends Controller
            $data = [];
         }catch(Exception $e){
            $status = 'false';
-           $message = (string) $e->getResponse()->getBody();
-           $code = $e->getResponse()->getStatusCode();
+           $message = $e->getMessage();
+           $code = 500;
            $data = [];
         }
         return ['status'=>$status,'message'=>$message,'data'=>$data, 'code' => $code];        
