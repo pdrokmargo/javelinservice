@@ -43,6 +43,7 @@ class MiPresController extends Controller
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$data["prescriptionNumber"];
                 $response = $client->request('GET', $url, $headers);
                 $body = $response->getBody();
+                $code = $response->getStatusCode();
                 $status = 'true';
                 $message = 'Data found!';
                 $data = json_decode($body);
@@ -54,6 +55,7 @@ class MiPresController extends Controller
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.substr($data["prescriptionDate"], 0, 10);
                 $response = $client->request('GET', $url, $headers);
                 $body = $response->getBody();
+                $code = $response->getStatusCode();
                 $status = 'true';
                 $message = 'Data found!';
                 $data = json_decode($body);
@@ -64,18 +66,21 @@ class MiPresController extends Controller
             }
         }catch(ClientException $ce){
             $status = 'false';
-            $message = $ce->getMessage();
+            $message = (string) $ce->getResponse()->getBody();
+            $code = $ce->getResponse()->getStatusCode();
             $data = [];
         }catch(RequestException $re){
             $status = 'false';
-            $message = $re->getMessage();
+            $message = (string) $re->getResponse()->getBody();
+            $code = $re->getResponse()->getStatusCode();
             $data = [];
         }catch(Exception $e){
             $status = 'false';
-            $message = $e->getMessage();
+            $message = (string) $e->getResponse()->getBody();
+            $code = $e->getResponse()->getStatusCode();
             $data = [];
         }
-        return ['status'=>$status,'message'=>$message,'data'=>$data]; 
+        return ['status'=>$status,'message'=>$message,'data'=>$data, 'code' => $code]; 
     }
     public function getPrescriptionStatusByNumber(Request $request, $token, $prescription, $role)
     {   
@@ -106,6 +111,7 @@ class MiPresController extends Controller
                     $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$prescription;
                     $response = $client->request('GET', $url, $headers);
                     $body = $response->getBody();
+                    $code = $responde->getStatusCode();
                     $status = 'true';
                     $message = 'Data found!';
                     $data = json_decode($body);
@@ -123,23 +129,26 @@ class MiPresController extends Controller
             }
         }catch(ClientException $ce){
             $status = 'false';
-            $message = $ce->getMessage();
+            $message = (string) $ce->getResponse()->getBody();
+            $code = $ce->getResponse()->getStatusCode();
             $data = [];
             $products = [];
         }catch(RequestException $re){
            $status = 'false';
-           $message = $re->getMessage();
+           $message = (string) $re->getResponse()->getBody();
+           $code = $re->getResponse()->getStatusCode();
            $data = [];
            $products = [];
         }catch(Exception $e){
            $status = 'false';
-           $message = $e->getMessage();
+           $message = (string) $e->getResponse()->getBody();
+           $code = $e->getResponse()->getStatusCode();
            $products = [];
            $data = [];
         }
         $end_time = microtime(true); 
         $execution_time = ($end_time - $start_time); 
-        return ['status'=>$status,'message'=>$message,'data'=>$finalData, 'products' => $products, 'exec_time' => $execution_time];        
+        return ['status'=>$status,'message'=>$message,'data'=>$finalData, 'products' => $products, 'exec_time' => $execution_time, 'code' => $code];        
     }
     public function getPrescriptionStatusByDate(Request $request, $token, $prescription, $date, $role)
     {   
@@ -170,6 +179,7 @@ class MiPresController extends Controller
                     $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$date;
                     $response = $client->request('GET', $url, $headers);
                     $body = $response->getBody();
+                    $code = $response->getStatusCode();
                     $status = 'true';
                     $message = 'Data found!';
                     $data = json_decode($body);
@@ -187,23 +197,26 @@ class MiPresController extends Controller
             }
         }catch(ClientException $ce){
             $status = 'false';
-            $message = $ce->getMessage();
+            $message = (string) $ce->getResponse()->getBody();
+            $code = $ce->getResponse()->getStatusCode();
             $data = [];
             $products = [];
         }catch(RequestException $re){
            $status = 'false';
-           $message = $re->getMessage();
+           $message = (string) $re->getResponse()->getBody();
+           $code = $re->getResponse()->getStatusCode();
            $data = [];
            $products = [];
         }catch(Exception $e){
            $status = 'false';
-           $message = $e->getMessage();
+           $message = (string) $e->getResponse()->getBody();
+           $code = $e->getResponse()->getStatusCode();
            $products = [];
            $data = [];
         }
         $end_time = microtime(true); 
         $execution_time = ($end_time - $start_time); 
-        return ['status'=>$status,'message'=>$message,'data'=>$finalData, 'products' => $products, 'exec_time' => $execution_time];        
+        return ['status'=>$status,'message'=>$message,'data'=>$finalData, 'products' => $products, 'exec_time' => $execution_time, 'code' => $code];        
     }
     public function changePrescriptionState(Request $request, $token, $process){
 
@@ -331,20 +344,23 @@ class MiPresController extends Controller
                 $status = 'true';
                 $message = 'Data found!';
                 $data = json_decode($body);
-                
+                $code = $response->getStatusCode();
         }catch(ClientException $ce){
             $status = 'false';
-            $message = $ce->getMessage();
+            $message = (string) $ce->getResponse()->getBody();
+            $code = $ce->getResponse()->getStatusCode();
             $data = [];
         }catch(RequestException $re){
            $status = 'false';
-           $message = $re->getMessage();
+           $message = (string) $re->getResponse()->getBody();
+           $code = $re->getResponse()->getStatusCode();
            $data = [];
         }catch(Exception $e){
            $status = 'false';
-           $message = $e->getMessage();
+           $message = (string) $e->getResponse()->getBody();
+           $code = $e->getResponse()->getStatusCode();
            $data = [];
         }
-        return ['status'=>$status,'message'=>$message,'data'=>$data];        
+        return ['status'=>$status,'message'=>$message,'data'=>$data, 'code' => $code];        
     }
 }
