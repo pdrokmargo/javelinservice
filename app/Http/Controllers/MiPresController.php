@@ -111,7 +111,7 @@ class MiPresController extends Controller
                     $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$prescription;
                     $response = $client->request('GET', $url, $headers);
                     $body = $response->getBody();
-                    $code = $responde->getStatusCode();
+                    $code = $response->getStatusCode();
                     $status = 'true';
                     $message = 'Data found!';
                     $data = json_decode($body);
