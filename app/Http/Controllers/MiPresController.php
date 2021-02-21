@@ -131,19 +131,19 @@ class MiPresController extends Controller
             }
         }catch(ClientException $ce){
             $status = 'false';
-            $message = (string) $ce->getResponse()->getBody();
+            $message = 'Cliente exception: '.((string) $ce->getResponse()->getBody());
             $code = $ce->getResponse()->getStatusCode();
             $data = [];
             $products = [];
         }catch(RequestException $re){
            $status = 'false';
-           $message = (string) $re->getResponse()->getBody();
+           $message = 'Request exception: '.((string) $re->getResponse()->getBody());
            $code = $re->getResponse()->getStatusCode();
            $data = [];
            $products = [];
         }catch(Exception $e){
            $status = 'false';
-           $message = $e->getMessage();
+           $message = 'General exception: '.$e->getMessage();
            $code = 500;
            $products = [];
            $data = [];
