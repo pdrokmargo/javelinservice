@@ -141,13 +141,14 @@ class MiPresController extends Controller
            $code = $re->getResponse()->getStatusCode();
            $data = [];
            $products = [];
-        }catch(Exception $e){
-           $status = 'false';
-           $message = 'General exception: '.$e->getMessage();
-           $code = 500;
-           $products = [];
-           $data = [];
         }
+        // }catch(Exception $e){
+        //    $status = 'false';
+        //    $message = 'General exception: '.$e->getMessage();
+        //    $code = 500;
+        //    $products = [];
+        //    $data = [];
+        // }
         $end_time = microtime(true); 
         $execution_time = ($end_time - $start_time); 
         return ['status'=>$status,'message'=>$message,'data'=>$finalData, 'products' => $products, 'exec_time' => $execution_time, 'code' => $code];        
