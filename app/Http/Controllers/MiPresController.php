@@ -143,7 +143,7 @@ class MiPresController extends Controller
                 }
                 if($endpoint != ''){
                     $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$prescription;
-                    $response = $client->request('GET', $url, $headers, ['timeout' => 30]);
+                    $response = $client->request('GET', $url, $headers);
                     $body = $response->getBody();
                     $code = $response->getStatusCode();
                     $status = 'true';
@@ -176,13 +176,13 @@ class MiPresController extends Controller
            $data = [];
            $products = [];
         }
-        // }catch(Exception $e){
-        //    $status = 'false';
-        //    $message = 'General exception: '.$e->getMessage();
-        //    $code = 500;
-        //    $products = [];
-        //    $data = [];
-        // }
+        catch(Exception $e){
+           $status = 'false';
+           $message = 'General exception: '.$e->getMessage();
+           $code = 500;
+           $products = [];
+           $data = [];
+        }
         $end_time = microtime(true); 
         $execution_time = ($end_time - $start_time); 
         return ['status'=>$status,'message'=>$message,'data'=>$finalData, 'products' => $products, 'exec_time' => $execution_time, 'code' => $code];        
