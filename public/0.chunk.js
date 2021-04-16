@@ -411,7 +411,7 @@ var MipresActionComponent = /** @class */ (function (_super) {
 /***/ "../../../../../src/app/smartity/mipres/mipres-list/mipres-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div class='col-md-3'>\n        <mat-form-field>\n          <input matInput [matDatepicker]=\"prescriptionDatePck\" placeholder=\"Fecha de Prescripción\"\n            [(ngModel)]=\"prescriptionDate\" name=\"prescriptionDatePck\">\n          <mat-datepicker-toggle matSuffix [for]=\"prescriptionDatePck\"></mat-datepicker-toggle>\n          <mat-datepicker #prescriptionDatePck></mat-datepicker>\n        </mat-form-field>\n      </div>\n  <div class=\"col-md-6\">\n      <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n          <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\" (keydown)=\"enterRaw($event)\">\n          <div style=\"width: 34px\" class=\"input-group-addon\">\n              <a style=\"cursor:pointer\" (click)=\"getPrescriptions()\">\n                  <i class=\"fa fa-search\"></i>\n              </a>\n          </div>\n      </div>\n  </div>\n  \n  <!-- <div class=\"col-md-6\">\n      <button mat-raised-button  (click)=\"CUD('Guardar')\" color=\"primary\" class=\"btn-w-md no-margin-left btn-right\">\n        <mat-icon>add_circle_outline</mat-icon> Nuevo\n      </button>\n  </div> -->\n  <div class=\"col-sm-12\">\n\n      <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n          <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n              <thead>\n                  <tr>\n                      <!-- <th class=\"noAuto\" (click)=\"sort('w.id')\">ID\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='w.id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th> -->\n                      <th># Prescripción\n                          <span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th>Paciente\n                          <span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <!-- <th>Realizado por\n                          <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th> -->\n                      <th>EPS\n                          <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <!-- <th>Fecha Direccionamiento\n                          <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th> -->\n                      <!-- <th class=\"noAuto\" (click)=\"sort('w.state')\">Estado\n                          <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th> -->\n                      <th *ngIf=\"actions[2].status\" class=\"w-40\"></th>\n                  </tr>\n              </thead>\n              <tbody>\n                  <tr *ngFor=\"let item of list\">\n                      <!-- <td class=\"noAuto\">{{ item.id }}</td> -->\n                      <td>{{item.prescriptionNumber}}</td>\n                      <td>{{item.patient}}</td>\n                      <td>{{item.EPS}}</td>\n                      <!-- <td>{{item.addressingDate}}</td> -->\n                      <td *ngIf=\"actions[2].status\" class=\"w-40\">\n                          <button type=\"button\" mat-icon-button class=\"text-primary\" (click)=\"CUD('Actualizar',item)\">\n                              <mat-icon>search</mat-icon>\n                          </button>\n                      </td>\n                  </tr>\n              </tbody>\n          </table>\n\n      </div>\n\n      <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\n          [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n  </div>\n</div>"
+module.exports = "<!-- LIST -->\n<div class=\"row\">\n    <div *ngIf=\"nationalServiceState\" class=\"col-md-3\">\n        \n        <div class=\"callout callout-success\">\n            <h4>Servicio Nacional Activo</h4>\n          </div>\n      </div>\n      <div *ngIf=\"!nationalServiceState\" class=\"col-md-3\">\n        \n        <div  class=\"callout callout-danger\">\n            <h4>Servicio Nacional Inestable</h4>\n          </div>\n      </div>\n    <div class='col-md-3'>\n        <mat-form-field>\n          <input matInput [matDatepicker]=\"prescriptionDatePck\" placeholder=\"Fecha de Prescripción\"\n            [(ngModel)]=\"prescriptionDate\" name=\"prescriptionDatePck\">\n          <mat-datepicker-toggle matSuffix [for]=\"prescriptionDatePck\"></mat-datepicker-toggle>\n          <mat-datepicker #prescriptionDatePck></mat-datepicker>\n        </mat-form-field>\n      </div>\n      \n  <div class=\"col-md-6\">\n      <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\n          <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\" (keydown)=\"enterRaw($event)\">\n          <div style=\"width: 34px\" class=\"input-group-addon\">\n              <a style=\"cursor:pointer\" (click)=\"getPrescriptions()\">\n                  <i class=\"fa fa-search\"></i>\n              </a>\n          </div>\n      </div>\n  </div>\n  \n  <!-- <div class=\"col-md-6\">\n      <button mat-raised-button  (click)=\"CUD('Guardar')\" color=\"primary\" class=\"btn-w-md no-margin-left btn-right\">\n        <mat-icon>add_circle_outline</mat-icon> Nuevo\n      </button>\n  </div> -->\n  <div class=\"col-sm-12\">\n\n      <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\n\n          <table class=\"mdl-data-table table-bordered table-striped cf no-margin\">\n              <thead>\n                  <tr>\n                      <!-- <th class=\"noAuto\" (click)=\"sort('w.id')\">ID\n                          <span class=\"glyphicon sort-icon\" *ngIf=\"key =='w.id'\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th> -->\n                      <th># Prescripción\n                          <span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <th>Paciente\n                          <span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <!-- <th>Realizado por\n                          <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th> -->\n                      <th>EPS\n                          <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th>\n                      <!-- <th>Fecha Direccionamiento\n                          <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th> -->\n                      <!-- <th class=\"noAuto\" (click)=\"sort('w.state')\">Estado\n                          <span class=\"glyphicon sort-icon\"  [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span>\n                      </th> -->\n                      <th *ngIf=\"actions[2].status\" class=\"w-40\"></th>\n                  </tr>\n              </thead>\n              <tbody>\n                  <tr *ngFor=\"let item of list\">\n                      <!-- <td class=\"noAuto\">{{ item.id }}</td> -->\n                      <td>{{item.prescriptionNumber}}</td>\n                      <td>{{item.patient}}</td>\n                      <td>{{item.EPS}}</td>\n                      <!-- <td>{{item.addressingDate}}</td> -->\n                      <td *ngIf=\"actions[2].status\" class=\"w-40\">\n                          <button type=\"button\" mat-icon-button class=\"text-primary\" (click)=\"CUD('Actualizar',item)\">\n                              <mat-icon>search</mat-icon>\n                          </button>\n                      </td>\n                  </tr>\n              </tbody>\n          </table>\n\n      </div>\n\n      <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\n          [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\n\n  </div>\n</div>"
 
 /***/ }),
 
@@ -423,7 +423,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".callout.callout-success {\n  margin: 0;\n  padding: 0 0 0 10px; }\n\n.callout.callout-danger {\n  margin: 0;\n  padding: 0 0 0 10px; }\n", ""]);
 
 // exports
 
@@ -482,6 +482,7 @@ var MipresListComponent = /** @class */ (function (_super) {
         _this.snackBar = snackBar;
         _this.comp = comp;
         _this.respuesta = 'No';
+        _this.nationalServiceState = true;
         _this.urlApi = '/api/mipres';
         _this.prescriptionDate = new Date();
         return _this;
@@ -494,16 +495,24 @@ var MipresListComponent = /** @class */ (function (_super) {
     };
     MipresListComponent.prototype.getSecondToken = function () {
         var _this = this;
+        this.loaderService.display(true);
         this.helperService
             .GET(this.urlApi + "/generateToken")
             .map(function (response) {
             var res = response.json();
             _this.helperService.secondToken = res;
+            // localStorage.setItem("mipresSecondToken", JSON.stringify({
+            //   token: res
+            // })); 
         })
-            .subscribe(function (error) {
+            .subscribe(function (done) {
             _this.loaderService.display(false);
-        }, function (done) {
+        }, function (error) {
             _this.loaderService.display(false);
+            if (error.status == 500) {
+                _this.nationalServiceState = false;
+            }
+            _this.snackBar.open('Servicio Nacional MiPRES', 'Inestabilidad en el servicio.', { duration: 4000 });
         });
     };
     MipresListComponent.prototype.CUD = function (action, row) {
@@ -532,6 +541,10 @@ var MipresListComponent = /** @class */ (function (_super) {
     };
     MipresListComponent.prototype.getPrescriptions = function () {
         var _this = this;
+        if (this.helperService.secondToken == undefined) {
+            this.getSecondToken();
+        }
+        this.nationalServiceState = this.helperService.secondToken == undefined ? false : true;
         this.loaderService.display(true);
         this.list = [];
         var data = {};
@@ -542,6 +555,12 @@ var MipresListComponent = /** @class */ (function (_super) {
         console.log(data);
         this.helperService.POST(this.urlApi + "/prescriptions/" + this.helperService.secondToken, data).subscribe(function (rs) {
             var res = rs.json();
+            if (res.data.length == 0 && res.status == 200) {
+                _this.snackBar.open('Error en prescripción', 'No existe información asociada.', { duration: 4000 });
+            }
+            if (res.status >= 400) {
+                _this.snackBar.open('Servicio Nacional MiPRES', 'Inestabilidad en el servicio.', { duration: 4000 });
+            }
             res.data.forEach(function (prescription) {
                 var pre = { "prescriptionNumber": prescription["NoPrescripcion"], "patient": prescription["TipoIDPaciente"] + prescription["NoIDPaciente"], "EPS": prescription["CodEPS"] };
                 var exist = _this.list.find(function (x) { return x["prescriptionNumber"] === prescription["NoPrescripcion"]; });
@@ -550,8 +569,10 @@ var MipresListComponent = /** @class */ (function (_super) {
                 }
             });
             _this.loaderService.display(false);
+            _this.nationalServiceState = _this.helperService.secondToken == undefined ? false : true;
         }, function (err) {
-            _this.snackBar.open('Error', err.message, { duration: 4000 });
+            _this.nationalServiceState = false;
+            _this.snackBar.open('Servicio Nacional MiPRES', 'Inestabilidad en el servicio.', { duration: 4000 });
             console.log(err.message);
             _this.loaderService.display(false);
         });
