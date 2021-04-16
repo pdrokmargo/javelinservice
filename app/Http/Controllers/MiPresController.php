@@ -28,7 +28,7 @@ class MiPresController extends Controller
         // }
         try {
             $sectok = \App\Models\Configuration::where('code', 'mipresSecondToken')->first();
-            $secondToken = $sectok == null ? '' : $sectok->value;
+            $secondToken = $sectok == null ? '' : json_decode($sectok->value, true);
         }catch(Exception $e){
             $secondToken = '-1';
         }
@@ -45,12 +45,7 @@ class MiPresController extends Controller
         }catch(Exception $e){
                $secondToken = '-2'; 
         }
-        if($secondToken < 0){
-            return $secondToken;
-        }else{
-            return $secondToken["value"];
-        }
-        
+        return $secondToken;
     }
     public function getPrescriptions(Request $request, $token)
     {   
