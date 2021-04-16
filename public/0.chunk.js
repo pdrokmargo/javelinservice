@@ -500,7 +500,7 @@ var MipresListComponent = /** @class */ (function (_super) {
             .GET(this.urlApi + "/generateToken")
             .map(function (response) {
             var res = response.json();
-            _this.helperService.secondToken = res;
+            _this.helperService.secondToken = res.value;
             // localStorage.setItem("mipresSecondToken", JSON.stringify({
             //   token: res
             // })); 
@@ -508,6 +508,7 @@ var MipresListComponent = /** @class */ (function (_super) {
             .subscribe(function (done) {
             _this.loaderService.display(false);
         }, function (error) {
+            console.log(error);
             _this.loaderService.display(false);
             if (error.status == 500) {
                 _this.nationalServiceState = false;
