@@ -60,7 +60,7 @@ class MiPresController extends Controller
                 $endpoint = 'DireccionamientoXPrescripcion';
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$data["prescriptionNumber"];
                 $client = new \GuzzleHttp\Client();
-                $response = $client->request('GET', $url, $headers, ['timeout' => 15]);
+                $response = $client->request('GET', $url, $headers, ['timeout' => 30]);
                 if($response != null){
                     $body = $response->getBody();
                     $code = $response->getStatusCode();
