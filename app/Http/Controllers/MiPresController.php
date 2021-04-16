@@ -64,6 +64,7 @@ class MiPresController extends Controller
                 $message = 'Prescription not found!';
                 $data = [];
             }
+            $code = 200;
             $data = [];
         }catch(ClientException $ce){
             $status = 'false';
