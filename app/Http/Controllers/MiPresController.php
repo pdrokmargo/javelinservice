@@ -37,33 +37,34 @@ class MiPresController extends Controller
         $data = json_decode($request->data, true);
         try {
             if(isset($data["prescriptionNumber"])){
-                $client = new \GuzzleHttp\Client();
                 $headers = ['Accept' => 'application/json'];
                 $endpoint = 'DireccionamientoXPrescripcion';
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$data["prescriptionNumber"];
-                $response = $client->request('GET', $url, $headers);
-                $body = $response->getBody();
-                $code = $response->getStatusCode();
+                // $client = new \GuzzleHttp\Client();
+                // $response = $client->request('GET', $url, $headers);
+                // $body = $response->getBody();
+                // $code = $response->getStatusCode();
                 $status = 'true';
                 $message = 'Data found!';
-                $data = json_decode($body);
+                // $data = json_decode($body);
             }
-            elseif(isset($data["prescriptionDate"])){
-                $client = new \GuzzleHttp\Client();
+            elseif(isset($data["prescriptionDate"])){                
                 $headers = ['Accept' => 'application/json'];
                 $endpoint = 'DireccionamientoXFecha';
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.substr($data["prescriptionDate"], 0, 10);
-                $response = $client->request('GET', $url, $headers);
-                $body = $response->getBody();
-                $code = $response->getStatusCode();
+                // $client = new \GuzzleHttp\Client();
+                // $response = $client->request('GET', $url, $headers);
+                // $body = $response->getBody();
+                // $code = $response->getStatusCode();
                 $status = 'true';
                 $message = 'Data found!';
-                $data = json_decode($body);
+                // $data = json_decode($body);
             }else{
                 $status = 'false';
                 $message = 'Prescription not found!';
                 $data = [];
             }
+            $data = [];
         }catch(ClientException $ce){
             $status = 'false';
             $message = (string) $ce->getResponse()->getBody();
