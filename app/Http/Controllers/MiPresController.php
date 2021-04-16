@@ -257,6 +257,106 @@ class MiPresController extends Controller
         $execution_time = ($end_time - $start_time); 
         return ['status'=>$status,'message'=>$message,'data'=>$finalData, 'products' => $products, 'exec_time' => $execution_time, 'code' => $code];        
     }
+    public function getPrescriptionStatusByNumber2(Request $request, $token, $prescription, $role)
+    {   
+        $start_time = microtime(true); 
+        $keys = ['addressing', 'programming', 'delivery', 'delivery-report', 'billing'];
+        $finalData = ['addressing' => '', 'programming' => '', 'delivery' => '', 'delivery-report' => '', 'billing' => ''];
+        $final = [];
+        $prescriptions = [];
+        $products = [];
+        try {
+            $client = new \GuzzleHttp\Client();
+            foreach ($keys as $k){
+                $headers = ['Accept' => 'application/json'];
+                $endpoint = '';
+                if($k == 'addressing'){
+                    $endpoint = 'DireccionamientoXPrescripcion';
+                }else if($k == 'programming' && $role != 'supplier'){
+                    $endpoint = 'ProgramacionXPrescripcion';
+                }else if($k == 'delivery'){
+                    $endpoint = 'EntregaXPrescripcion';
+                }else if($k == 'delivery-report' && $role != 'delivery'){
+                    $endpoint = 'ReporteEntregaXPrescripcion';
+                }else if($k == 'billing' && $role != 'delivery'){
+                    $this->baseUrl = 'https://wsmipres.sispro.gov.co/WSFACMIPRESNOPBS/api/';
+                    $endpoint = 'FacturacionXPrescripcion';
+                }
+                if($endpoint != ''){
+                    $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$prescription;
+                    $response = $client->request('GET', $url, $headers);
+                    $body = $response->getBody();
+                    $code = $response->getStatusCode();
+                    $status = 'true';
+                    $message = 'Data found!';
+                    $data = json_decode($body);
+                    $cums = [];
+                    
+                    if($endpoint == 'DireccionamientoXPrescripcion'){
+                        // dump($data);
+                        $products = [];
+                        foreach($data as $d){
+                            $cums[] = $d->CodSerTecAEntregar;
+                            $products[] = \App\Models\CumsProductosMipres::firstOrCreate(['cums' => $d->CodSerTecAEntregar]);
+                        }
+                        // $products = \DB::table('cums_productos_mipres')->select()->whereIn('cums', $cums)->get();
+                    }
+                    $finalData[$k] = $data;
+                }
+            }
+
+
+
+
+            $client = new \GuzzleHttp\Client(['base_uri' => 'https://wsmipres.sispro.gov.co'], ['Accept' => 'application/json']);
+
+            // Initiate each request but do not block
+            $promises = [
+                'DireccionamientoXPrescripcion' => $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+                'ProgramacionXPrescripcion' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ProgramacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+                'EntregaXPrescripcion' => $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+                'DireccionamientoXPrescripcion' => $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+            ];
+
+            // Wait for the requests to complete; throws a ConnectException
+            // if any of the requests fail
+            $responses = Promise\Utils::unwrap($promises);
+
+            // You can access each response using the key of the promise
+            echo $responses['image']->getHeader('Content-Length')[0];
+            echo $responses['png']->getHeader('Content-Length')[0];
+
+            // Wait for the requests to complete, even if some of them fail
+            $responses = Promise\Utils::settle($promises)->wait();
+
+            // Values returned above are wrapped in an array with 2 keys: "state" (either fulfilled or rejected) and "value" (contains the response)
+            echo $responses['image']['state']; // returns "fulfilled"
+            echo $responses['image']['value']->getHeader('Content-Length')[0];
+            echo $responses['png']['value']->getHeader('Content-Length')[0];
+        }catch(ClientException $ce){
+            $status = 'false';
+            $message = 'Cliente exception: '.((string) $ce->getResponse()->getBody());
+            $code = $ce->getResponse()->getStatusCode();
+            $data = [];
+            $products = [];
+        }catch(RequestException $re){
+           $status = 'false';
+           $message = 'Request exception: '.((string) $re->getResponse()->getBody());
+           $code = $re->getResponse()->getStatusCode();
+           $data = [];
+           $products = [];
+        }
+        // }catch(Exception $e){
+        //    $status = 'false';
+        //    $message = 'General exception: '.$e->getMessage();
+        //    $code = 500;
+        //    $products = [];
+        //    $data = [];
+        // }
+        $end_time = microtime(true); 
+        $execution_time = ($end_time - $start_time); 
+        return ['status'=>$status,'message'=>$message,'data'=>$finalData, 'products' => $products, 'exec_time' => $execution_time, 'code' => $code];        
+    }
     public function changePrescriptionState(Request $request, $token, $process){
 
         try{    
