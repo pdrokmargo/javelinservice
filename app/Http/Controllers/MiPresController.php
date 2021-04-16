@@ -20,13 +20,31 @@ class MiPresController extends Controller
     protected $secondToken = '';
     protected $client;
 
-    public function generateToken()
+    public function generateToken(Request $request)
     {
         $client = new Client();
         // if($secondToken == ''){
         //     $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken);
         // }
-        $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 4]);
+        try {
+            $sectok = \App\Models\Configuration::where('code', 'mipresSecondToken')->first();
+            $secondToken = $sectok == null ? '' : $sectok->value;
+        }catch(Exception $e){
+            $secondToken = '-1';
+        }
+        try {
+            if($sectok == null){
+                $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 15]);
+                $insertToken = new \App\Models\Configuration;
+                $insertToken->code = 'mipresSecondToken';
+                $insertToken->display = 'Token Secundario MiPRES';
+                $insertToken->value = $secondToken;
+                $insertToken->company_id = $request->user()->company_default_id;
+                $insertToken->save();
+            }
+        }catch(Exception $e){
+               $secondToken = '-2'; 
+        }
         return $secondToken;
     }
     public function getPrescriptions(Request $request, $token)
@@ -41,7 +59,7 @@ class MiPresController extends Controller
                 $endpoint = 'DireccionamientoXPrescripcion';
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$data["prescriptionNumber"];
                 $client = new \GuzzleHttp\Client();
-                $response = $client->request('GET', $url, $headers, ['timeout' => 10]);
+                $response = $client->request('GET', $url, $headers, ['timeout' => 15]);
                 $body = $response->getBody();
                 $code = $response->getStatusCode();
                 $status = 'true';
@@ -53,7 +71,7 @@ class MiPresController extends Controller
                 $endpoint = 'DireccionamientoXFecha';
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.substr($data["prescriptionDate"], 0, 10);
                 $client = new \GuzzleHttp\Client();
-                $response = $client->request('GET', $url, $headers, ['timeout' => 10]);
+                $response = $client->request('GET', $url, $headers, ['timeout' => 15]);
                 $body = $response->getBody();
                 $code = $response->getStatusCode();
                 $status = 'true';
