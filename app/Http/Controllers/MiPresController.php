@@ -143,7 +143,7 @@ class MiPresController extends Controller
                 }
                 if($endpoint != ''){
                     $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$prescription;
-                    $response = $client->request('GET', $url, $headers);
+                    $response = $client->request('GET', $url, $headers, ['timeout' => 30]);
                     $body = $response->getBody();
                     $code = $response->getStatusCode();
                     $status = 'true';
@@ -214,7 +214,7 @@ class MiPresController extends Controller
                 }
                 if($endpoint != ''){
                     $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$date;
-                    $response = $client->request('GET', $url, $headers);
+                    $response = $client->request('GET', $url, $headers, ['timeout' => 30]);
                     $body = $response->getBody();
                     $code = $response->getStatusCode();
                     $status = 'true';
@@ -284,7 +284,7 @@ class MiPresController extends Controller
                 }
                 if($endpoint != ''){
                     $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$prescription;
-                    $response = $client->request('GET', $url, $headers);
+                    $response = $client->request('GET', $url, $headers, ['timeout' => 30]);
                     $body = $response->getBody();
                     $code = $response->getStatusCode();
                     $status = 'true';
