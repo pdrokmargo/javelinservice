@@ -45,7 +45,12 @@ class MiPresController extends Controller
         }catch(Exception $e){
                $secondToken = '-2'; 
         }
-        return $secondToken;
+        if($secondToken < 0){
+            return $secondToken;
+        }else{
+            return $secondToken["value"];
+        }
+        
     }
     public function getPrescriptions(Request $request, $token)
     {   
