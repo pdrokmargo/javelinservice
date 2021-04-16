@@ -81,11 +81,18 @@ class MiPresController extends Controller
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.substr($data["prescriptionDate"], 0, 10);
                 $client = new \GuzzleHttp\Client();
                 $response = $client->request('GET', $url, $headers, ['timeout' => 15]);
-                $body = $response->getBody();
-                $code = $response->getStatusCode();
-                $status = 'true';
-                $message = 'Data found!';
-                $data = json_decode($body);
+                if($response != null){
+                    $body = $response->getBody();
+                    $code = $response->getStatusCode();
+                    $status = 'true';
+                    $message = 'Data found!';
+                    $data = json_decode($body);    
+                }else{
+                    $code = 501;
+                    $status = 'false';
+                    $message = 'Error on service!';
+                    $data = [];
+                }
             }else{
                 $status = 'false';
                 $message = 'Prescription not found!';
