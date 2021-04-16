@@ -34,7 +34,7 @@ class MiPresController extends Controller
         }
         try {
             if($sectok == null){
-                $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 15]);
+                $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
                 $insertToken = new \App\Models\Configuration;
                 $insertToken->code = 'mipresSecondToken';
                 $insertToken->display = 'Token Secundario MiPRES';
