@@ -26,7 +26,7 @@ class MiPresController extends Controller
         // if($secondToken == ''){
         //     $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken);
         // }
-        $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 10]);
+        $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 4]);
         return $secondToken;
     }
     public function getPrescriptions(Request $request, $token)
