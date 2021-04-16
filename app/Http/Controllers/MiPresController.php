@@ -28,7 +28,8 @@ class MiPresController extends Controller
         // }
         try {
             $sectok = \App\Models\Configuration::where('code', 'mipresSecondToken')->first();
-            $secondToken = $sectok == null ? '' : (string) $sectok->value["value"];
+            $secondToken = $sectok == null ? '' : (string) json_decode($sectok->value, true)['value'];
+            
         }catch(Exception $e){
             $secondToken = '-1';
         }
