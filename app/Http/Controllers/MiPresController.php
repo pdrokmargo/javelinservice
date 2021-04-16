@@ -38,7 +38,7 @@ class MiPresController extends Controller
                 $insertToken = new \App\Models\Configuration;
                 $insertToken->code = 'mipresSecondToken';
                 $insertToken->display = 'Token Secundario MiPRES';
-                $insertToken->value = json_decode($secondToken, true);
+                $insertToken->value = '1';
                 $insertToken->company_id = $request->user()->company_default_id;
                 $insertToken->save();
             }
