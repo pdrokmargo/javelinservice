@@ -264,7 +264,7 @@ class MiPresController extends Controller
         $finalData = ['addressing' => '', 'programming' => '', 'delivery' => '', 'delivery-report' => '', 'billing' => ''];
         try {
             $client = new \GuzzleHttp\Client(['base_uri' => 'https://wsmipres.sispro.gov.co'], ['Accept' => 'application/json']);
-            $promises = [];
+            $promises = ['addressing' => '', 'programming' => '', 'delivery' => '', 'delivery-report' => '', 'billing' => ''];
             // Initiate each request but do not block
             if($role == 'admin'){
                 $promises = [
