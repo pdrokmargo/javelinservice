@@ -265,6 +265,7 @@ class MiPresController extends Controller
         try {
             $client = new \GuzzleHttp\Client(['base_uri' => 'https://wsmipres.sispro.gov.co'], ['Accept' => 'application/json']);
             $promises = ['addressing' => '', 'programming' => '', 'delivery' => '', 'delivery-report' => '', 'billing' => ''];
+            echo $role;
             // Initiate each request but do not block
             if($role == 'admin'){
                 $promises['addressing'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
