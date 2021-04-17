@@ -288,7 +288,7 @@ class MiPresController extends Controller
             // $finalData['billing'] =  json_decode($responses['billing']['value']->getBody(), true);
             $status = 'true';
             $code = 200;
-
+            $message = '';
             $products = [];
                         // foreach($finalData['addressing'] as $d){
                         //     $cums[] = $d->CodSerTecAEntregar;
