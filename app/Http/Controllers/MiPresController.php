@@ -267,25 +267,19 @@ class MiPresController extends Controller
             $promises = ['addressing' => '', 'programming' => '', 'delivery' => '', 'delivery-report' => '', 'billing' => ''];
             // Initiate each request but do not block
             if($role == 'admin'){
-                $promises = [
-                    'addressing' => $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
-                    'programming' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ProgramacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
-                    'delivery' => $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
-                    'delivery-report' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ReporteEntregaXFecha'.'/'.$this->nit.'/'.$token.'/'.$prescription),
-                    'billing' => $client->getAsync('/WSFACMIPRESNOPBS/api/FacturacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription)
-                ];
+                $promises['addressing'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
+                $promises['programming'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/ProgramacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
+                $promises['delivery'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
+                $promises['delivery-report'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/ReporteEntregaXFecha'.'/'.$this->nit.'/'.$token.'/'.$prescription);
+                $promises['billing'] = $client->getAsync('/WSFACMIPRESNOPBS/api/FacturacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
             }else if($role == 'supplier'){
-                $promises = [
-                    'addressing' => $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
-                    'programming' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ProgramacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
-                    'delivery' => $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription)
-                ];
+                $promises['delivery'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
+                $promises['delivery-report'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/ReporteEntregaXFecha'.'/'.$this->nit.'/'.$token.'/'.$prescription);
+                $promises['billing'] = $client->getAsync('/WSFACMIPRESNOPBS/api/FacturacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
             }else if($role == 'delivery'){
-                $promises = [
-                    'delivery' => $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
-                    'delivery-report' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ReporteEntregaXFecha'.'/'.$this->nit.'/'.$token.'/'.$prescription),
-                    'billing' => $client->getAsync('/WSFACMIPRESNOPBS/api/FacturacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription)
-                ];
+                $promises['addressing'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
+                $promises['programming'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/ProgramacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
+                $promises['delivery'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
             }
             
 
