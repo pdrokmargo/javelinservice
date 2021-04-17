@@ -55,7 +55,7 @@ class MiPresController extends Controller
         //Next step, is to add 2 more cases to fetch all prescription in date range without details, 
         //and last case to fetch prescriptions by patient ID wihtout details.
         $data = json_decode($request->data, true);
-
+        $products = [];
         try {
             if(isset($data["prescriptionNumber"])){
                 $headers = ['Accept' => 'application/json'];
@@ -100,7 +100,7 @@ class MiPresController extends Controller
                 $message = 'Prescription not found!';
                 $data = [];
             }
-            $products = [];
+            
             foreach($data as $d){
                 $cums[] = $d->CodSerTecAEntregar;
                 $products[] = \App\Models\CumsProductosMipres::firstOrCreate(['cums' => $d->CodSerTecAEntregar]);
@@ -268,7 +268,7 @@ class MiPresController extends Controller
     public function getPrescriptionStatusByNumber(Request $request, $token, $prescription, $role)
     {   
         $start_time = microtime(true); 
-        $finalData = ['addressing' => '', 'programming' => '', 'delivery' => '', 'delivery-report' => '', 'billing' => ''];
+        $finalData = [/*'addressing' => '', */'programming' => '', 'delivery' => '', 'delivery-report' => '', 'billing' => ''];
         $promises = [];
         try {
             $client = new \GuzzleHttp\Client(['base_uri' => 'https://wsmipres.sispro.gov.co'], ['Accept' => 'application/json']);
@@ -276,7 +276,7 @@ class MiPresController extends Controller
             if($role == 'admin'){
                 // Initiate each request but do not block
                 $promises = [
-                    'addressing' => $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+                    // 'addressing' => $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
                     'programming' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ProgramacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
                     'delivery' => $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
                     'delivery-report' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ReporteEntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
@@ -284,7 +284,7 @@ class MiPresController extends Controller
                 ];
             }else if($role == 'delivery'){
                 $promises = [
-                    'addressing' => $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+                    // 'addressing' => $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
                     'programming' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ProgramacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
                     'delivery' => $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription)
                 ];
@@ -303,8 +303,8 @@ class MiPresController extends Controller
 
             if($role == 'admin'){
                 // You can access each response using the key of the promise
-                $adressing = $responses['addressing']->getBody();
-                $finalData['addressing'] =  json_decode($adressing, true);
+                // $adressing = $responses['addressing']->getBody();
+                // $finalData['addressing'] =  json_decode($adressing, true);
                 $programming = $responses['programming']->getBody();
                 $finalData['programming'] =  json_decode($programming, true);
                 $delivery = $responses['delivery']->getBody();
