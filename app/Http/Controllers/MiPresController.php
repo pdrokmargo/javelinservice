@@ -262,36 +262,23 @@ class MiPresController extends Controller
     {   
         $start_time = microtime(true); 
         $finalData = ['addressing' => '', 'programming' => '', 'delivery' => '', 'delivery-report' => '', 'billing' => ''];
+        
         try {
             $client = new \GuzzleHttp\Client(['base_uri' => 'https://wsmipres.sispro.gov.co'], ['Accept' => 'application/json']);
-            $promises = ['addressing' => '', 'programming' => '', 'delivery' => '', 'delivery-report' => '', 'billing' => ''];
             // Initiate each request but do not block
             if($role == 'admin'){
-                dd('entra en admin');
-                $promises['addressing'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
-                $promises['programming'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/ProgramacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
-                $promises['delivery'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
-                $promises['delivery-report'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/ReporteEntregaXFecha'.'/'.$this->nit.'/'.$token.'/'.$prescription);
-                $promises['billing'] = $client->getAsync('/WSFACMIPRESNOPBS/api/FacturacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
-            }else if($role == 'supplier'){
-                dd('entra en supplier');
-                $promises['delivery'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
-                $promises['delivery-report'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/ReporteEntregaXFecha'.'/'.$this->nit.'/'.$token.'/'.$prescription);
-                $promises['billing'] = $client->getAsync('/WSFACMIPRESNOPBS/api/FacturacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
-            }else if($role == 'delivery'){
-                dd('entra en delivery');
-                $promises['addressing'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
-                $promises['programming'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/ProgramacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
-                $promises['delivery'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
-            }
-            
+                $promises = [
+                    'addressing' => $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+                    'programming' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ProgramacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+                    'delivery' => $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+                    'delivery-report' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ReporteEntregaXFecha'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+                    'billing' => $client->getAsync('/WSFACMIPRESNOPBS/api/FacturacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription)
+                ];
 
-            // Wait for the requests to complete; throws a ConnectException
-            // if any of the requests fail
-            $responses = Promise\unwrap($promises);
+                // Wait for the requests to complete; throws a ConnectException
+                // if any of the requests fail
+                $responses = Promise\unwrap($promises);
 
-
-            if($role == 'admin'){
                 // You can access each response using the key of the promise
                 $adressing = $responses['addressing']->getBody();
                 $finalData['addressing'] =  json_decode($adressing, true);
@@ -304,6 +291,14 @@ class MiPresController extends Controller
                 $billing = $responses['billing']->getBody();
                 $finalData['billing'] =  json_decode($billing, true);
             }else if($role == 'supplier'){
+                $promises = [
+                    'addressing' => $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+                    'programming' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ProgramacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+                    'delivery' => $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription)
+                ];
+
+                $responses = Promise\unwrap($promises);
+
                 // You can access each response using the key of the promise
                 $delivery = $responses['delivery']->getBody();
                 $finalData['delivery'] =  json_decode($delivery, true);
@@ -312,6 +307,14 @@ class MiPresController extends Controller
                 $billing = $responses['billing']->getBody();
                 $finalData['billing'] =  json_decode($billing, true);
             }else if($role == 'delivery'){
+                $promises = [
+                    'delivery' => $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+                    'delivery-report' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ReporteEntregaXFecha'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+                    'billing' => $client->getAsync('/WSFACMIPRESNOPBS/api/FacturacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription)
+                ];
+
+                $responses = Promise\unwrap($promises);
+
                 // You can access each response using the key of the promise
                 $adressing = $responses['addressing']->getBody();
                 $finalData['addressing'] =  json_decode($adressing, true);
@@ -321,6 +324,8 @@ class MiPresController extends Controller
                 $finalData['delivery'] =  json_decode($delivery, true);
             }
             
+
+        
             $status = 'true';
             $code = 200;
             $message = 'Data found!';
