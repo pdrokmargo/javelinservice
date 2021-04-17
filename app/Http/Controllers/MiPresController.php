@@ -276,7 +276,7 @@ class MiPresController extends Controller
 
             // Wait for the requests to complete; throws a ConnectException
             // if any of the requests fail
-            $responses = \GuzzleHttp\Promise\Utils::unwrap($promises);
+            $responses = Promise\unwrap($promises);
 
             // You can access each response using the key of the promise
             $finalData['addressing'] =  json_decode($responses['addressing']['value'], true);
