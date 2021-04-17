@@ -846,7 +846,7 @@ function makeAppConfig() {
         brand: 'Javelin',
         user: 'Lisa',
         year: year,
-        version: 'v1.0.9',
+        version: 'v1.0.10',
         layoutBoxed: false,
         navCollapsed: false,
         navBehind: false,

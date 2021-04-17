@@ -463,10 +463,10 @@ var MipresListComponent = /** @class */ (function (_super) {
         console.log(data);
         this.helperService.POST(this.urlApi + "/prescriptions/" + this.helperService.secondToken, data).subscribe(function (rs) {
             var res = rs.json();
-            if (res.data.length == 0 && res.status == 200) {
+            if (res.data.length == 0 && res.code == 200) {
                 _this.snackBar.open('Error en prescripción', 'No existe información asociada.', { duration: 4000 });
             }
-            if (res.status >= 400) {
+            if (res.code >= 400) {
                 _this.snackBar.open('Servicio Nacional MiPRES', 'Inestabilidad en el servicio.', { duration: 4000 });
             }
             _this.comp.products = res.products;
