@@ -266,17 +266,17 @@ class MiPresController extends Controller
         try {
             $client = new \GuzzleHttp\Client(['base_uri' => 'https://wsmipres.sispro.gov.co'], ['Accept' => 'application/json']);
             // Initiate each request but do not block
-            // $promises = [
-            //     'addressing' => $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
-            //     'programming' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ProgramacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
-            //     'delivery' => $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
-            //     'delivery-report' => $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
-            //     'billing' => $client->getAsync('/WSFACMIPRESNOPBS/api/FacturacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription)
-            // ];
+            $promises = [
+                'addressing' => $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+                'programming' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ProgramacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+                'delivery' => $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+                'delivery-report' => $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+                'billing' => $client->getAsync('/WSFACMIPRESNOPBS/api/FacturacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription)
+            ];
 
             // Wait for the requests to complete; throws a ConnectException
             // if any of the requests fail
-            // $responses = Promise\unwrap($promises);
+            $responses = Promise\unwrap($promises);
 
             // You can access each response using the key of the promise
             // dump($responses['addressing']['value']);
