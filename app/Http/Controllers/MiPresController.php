@@ -314,7 +314,7 @@ class MiPresController extends Controller
                 $finalData['delivery-report'] =  json_decode($delivery_report, true);
                 $billing = $responses['billing']->getBody();
                 $finalData['billing'] =  json_decode($billing, true);
-            }else if($rle == 'delivery'){
+            }else if($role == 'delivery'){
                 // You can access each response using the key of the promise
                 $adressing = $responses['addressing']->getBody();
                 $finalData['addressing'] =  json_decode($adressing, true);
