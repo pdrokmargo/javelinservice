@@ -266,66 +266,31 @@ class MiPresController extends Controller
         try {
             $client = new \GuzzleHttp\Client(['base_uri' => 'https://wsmipres.sispro.gov.co'], ['Accept' => 'application/json']);
             // Initiate each request but do not block
-            if($role == 'admin'){
-                $promises = [
-                    'addressing' => $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
-                    'programming' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ProgramacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
-                    'delivery' => $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
-                    'delivery-report' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ReporteEntregaXFecha'.'/'.$this->nit.'/'.$token.'/'.$prescription),
-                    'billing' => $client->getAsync('/WSFACMIPRESNOPBS/api/FacturacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription)
-                ];
+          
 
-                // Wait for the requests to complete; throws a ConnectException
-                // if any of the requests fail
-                $responses = Promise\unwrap($promises);
+            $promises = [
+                'addressing' => $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+                'programming' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ProgramacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+                'delivery' => $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+                'delivery-report' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ReporteEntregaXFecha'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+                'billing' => $client->getAsync('/WSFACMIPRESNOPBS/api/FacturacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription)
+            ];
 
-                // You can access each response using the key of the promise
-                $adressing = $responses['addressing']->getBody();
-                $finalData['addressing'] =  json_decode($adressing, true);
-                $programming = $responses['programming']->getBody();
-                $finalData['programming'] =  json_decode($programming, true);
-                $delivery = $responses['delivery']->getBody();
-                $finalData['delivery'] =  json_decode($delivery, true);
-                $delivery_report = $responses['delivery-report']->getBody();
-                $finalData['delivery-report'] =  json_decode($delivery_report, true);
-                $billing = $responses['billing']->getBody();
-                $finalData['billing'] =  json_decode($billing, true);
-            }else if($role == 'supplier'){
-                $promises = [
-                    'addressing' => $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
-                    'programming' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ProgramacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
-                    'delivery' => $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription)
-                ];
+            // Wait for the requests to complete; throws a ConnectException
+            // if any of the requests fail
+            $responses = Promise\unwrap($promises);
 
-                $responses = Promise\unwrap($promises);
-
-                // You can access each response using the key of the promise
-                $delivery = $responses['delivery']->getBody();
-                $finalData['delivery'] =  json_decode($delivery, true);
-                $delivery_report = $responses['delivery-report']->getBody();
-                $finalData['delivery-report'] =  json_decode($delivery_report, true);
-                $billing = $responses['billing']->getBody();
-                $finalData['billing'] =  json_decode($billing, true);
-            }else if($role == 'delivery'){
-                $promises = [
-                    'delivery' => $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
-                    'delivery-report' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ReporteEntregaXFecha'.'/'.$this->nit.'/'.$token.'/'.$prescription),
-                    'billing' => $client->getAsync('/WSFACMIPRESNOPBS/api/FacturacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription)
-                ];
-
-                $responses = Promise\unwrap($promises);
-
-                // You can access each response using the key of the promise
-                $adressing = $responses['addressing']->getBody();
-                $finalData['addressing'] =  json_decode($adressing, true);
-                $programming = $responses['programming']->getBody();
-                $finalData['programming'] =  json_decode($programming, true);
-                $delivery = $responses['delivery']->getBody();
-                $finalData['delivery'] =  json_decode($delivery, true);
-            }
-            
-
-        
+            // You can access each response using the key of the promise
+            $adressing = $responses['addressing']->getBody();
+            $finalData['addressing'] =  json_decode($adressing, true);
+            $programming = $responses['programming']->getBody();
+            $finalData['programming'] =  json_decode($programming, true);
+            $delivery = $responses['delivery']->getBody();
+            $finalData['delivery'] =  json_decode($delivery, true);
+            $delivery_report = $responses['delivery-report']->getBody();
+            $finalData['delivery-report'] =  json_decode($delivery_report, true);
+            $billing = $responses['billing']->getBody();
+            $finalData['billing'] =  json_decode($billing, true);
             $status = 'true';
             $code = 200;
             $message = 'Data found!';
