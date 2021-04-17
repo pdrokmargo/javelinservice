@@ -279,7 +279,7 @@ class MiPresController extends Controller
             $responses = Promise\unwrap($promises);
 
             // You can access each response using the key of the promise
-            $adressing = $responses['addressing']['value']->getBody();
+            $adressing = $responses['addressing']->getBody();
             $finalData['addressing'] =  json_decode($adressing, true);
             // $finalData['programming'] =  json_decode($responses['programming']['value']->getBody(), true);
             // $finalData['delivery'] =  json_decode($responses['delivery']['value']->getBody(), true);
