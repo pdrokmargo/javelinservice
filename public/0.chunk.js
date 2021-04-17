@@ -174,7 +174,10 @@ var MipresActionComponent = /** @class */ (function (_super) {
             width: '1000px'
         });
         this.modalMiPRES.afterClosed().subscribe(function (result) {
-            _this.getDataById();
+            console.log(result);
+            if (result != '') {
+                _this.getDataById();
+            }
         });
     };
     MipresActionComponent.prototype.openModalCancelProgramming = function (item) {
