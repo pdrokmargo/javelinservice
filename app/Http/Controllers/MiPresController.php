@@ -265,19 +265,21 @@ class MiPresController extends Controller
         try {
             $client = new \GuzzleHttp\Client(['base_uri' => 'https://wsmipres.sispro.gov.co'], ['Accept' => 'application/json']);
             $promises = ['addressing' => '', 'programming' => '', 'delivery' => '', 'delivery-report' => '', 'billing' => ''];
-            echo $role;
             // Initiate each request but do not block
             if($role == 'admin'){
+                dd('entra en admin');
                 $promises['addressing'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
                 $promises['programming'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/ProgramacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
                 $promises['delivery'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
                 $promises['delivery-report'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/ReporteEntregaXFecha'.'/'.$this->nit.'/'.$token.'/'.$prescription);
                 $promises['billing'] = $client->getAsync('/WSFACMIPRESNOPBS/api/FacturacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
             }else if($role == 'supplier'){
+                dd('entra en supplier');
                 $promises['delivery'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
                 $promises['delivery-report'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/ReporteEntregaXFecha'.'/'.$this->nit.'/'.$token.'/'.$prescription);
                 $promises['billing'] = $client->getAsync('/WSFACMIPRESNOPBS/api/FacturacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
             }else if($role == 'delivery'){
+                dd('entra en delivery');
                 $promises['addressing'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
                 $promises['programming'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/ProgramacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
                 $promises['delivery'] = $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription);
