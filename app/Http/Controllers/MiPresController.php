@@ -55,6 +55,7 @@ class MiPresController extends Controller
         //Next step, is to add 2 more cases to fetch all prescription in date range without details, 
         //and last case to fetch prescriptions by patient ID wihtout details.
         $data = json_decode($request->data, true);
+
         try {
             if(isset($data["prescriptionNumber"])){
                 $headers = ['Accept' => 'application/json'];
@@ -99,6 +100,12 @@ class MiPresController extends Controller
                 $message = 'Prescription not found!';
                 $data = [];
             }
+            $products = [];
+            foreach($data as $d){
+                $cums[] = $d['CodSerTecAEntregar'];
+                $products[] = \App\Models\CumsProductosMipres::firstOrCreate(['cums' => $d['CodSerTecAEntregar']]);
+            }
+            $products = \DB::table('cums_productos_mipres')->select()->whereIn('cums', $cums)->get();
         }catch(ClientException $ce){
             $status = 'false';
             $message = (string) $ce->getResponse()->getBody();
@@ -115,7 +122,7 @@ class MiPresController extends Controller
             $code = 500;
             $data = [];
         }
-        return ['status'=>$status,'message'=>$message,'data'=>$data, 'code' => $code]; 
+        return ['status'=>$status,'message'=>$message,'data'=>$data, 'code' => $code, 'products' => $products]; 
     }
     public function getPrescriptionStatusByNumber2(Request $request, $token, $prescription, $role)
     {   
@@ -326,18 +333,18 @@ class MiPresController extends Controller
             $status = 'true';
             $code = 200;
             $message = 'Data found!';
-            $products = [];
-            $productsToFind = 'addressing';
-            $keyCodTecToFind = 'CodSerTecAEntregar';
-            if($role == 'supplier'){
-                $productsToFind = 'delivery';
-                $keyCodTecToFind = 'CodSerTecEntregado';
-            }
-            foreach($finalData[$productsToFind] as $d){
-                $cums[] = $d[$keyCodTecToFind];
-                $products[] = \App\Models\CumsProductosMipres::firstOrCreate(['cums' => $d[$keyCodTecToFind]]);
-            }
-            $products = \DB::table('cums_productos_mipres')->select()->whereIn('cums', $cums)->get();
+            // $products = [];
+            // $productsToFind = 'addressing';
+            // $keyCodTecToFind = 'CodSerTecAEntregar';
+            // if($role == 'supplier'){
+            //     $productsToFind = 'delivery';
+            //     $keyCodTecToFind = 'CodSerTecEntregado';
+            // }
+            // foreach($finalData[$productsToFind] as $d){
+            //     $cums[] = $d[$keyCodTecToFind];
+            //     $products[] = \App\Models\CumsProductosMipres::firstOrCreate(['cums' => $d[$keyCodTecToFind]]);
+            // }
+            // $products = \DB::table('cums_productos_mipres')->select()->whereIn('cums', $cums)->get();
         }catch(ClientException $ce){
             $status = 'false';
             $message = 'Cliente exception: '.((string) $ce->getResponse()->getBody());
@@ -360,7 +367,7 @@ class MiPresController extends Controller
         // }
         $end_time = microtime(true); 
         $execution_time = ($end_time - $start_time); 
-        return ['status'=>$status,'message'=>$message,'data'=>$finalData, 'products' => $products, 'exec_time' => $execution_time, 'code' => $code];        
+        return ['status'=>$status,'message'=>$message,'data'=>$finalData, /*'products' => $products,*/ 'exec_time' => $execution_time, 'code' => $code];        
     }
     public function changePrescriptionState(Request $request, $token, $process){
 
