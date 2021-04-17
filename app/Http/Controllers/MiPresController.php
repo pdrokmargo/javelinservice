@@ -262,7 +262,7 @@ class MiPresController extends Controller
     {   
         $start_time = microtime(true); 
         $finalData = ['addressing' => '', 'programming' => '', 'delivery' => '', 'delivery-report' => '', 'billing' => ''];
-        
+        echo $role;
         try {
             $client = new \GuzzleHttp\Client(['base_uri' => 'https://wsmipres.sispro.gov.co'], ['Accept' => 'application/json']);
             // Initiate each request but do not block
