@@ -270,7 +270,7 @@ class MiPresController extends Controller
                 'addressing' => $client->getAsync('/WSSUMMIPRESNOPBS/api/DireccionamientoXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
                 'programming' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ProgramacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
                 'delivery' => $client->getAsync('/WSSUMMIPRESNOPBS/api/EntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
-                'delivery-report' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ReporteEntregaXFecha'.'/'.$this->nit.'/'.$token.'/'.$prescription),
+                'delivery-report' => $client->getAsync('/WSSUMMIPRESNOPBS/api/ReporteEntregaXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription),
                 'billing' => $client->getAsync('/WSFACMIPRESNOPBS/api/FacturacionXPrescripcion'.'/'.$this->nit.'/'.$token.'/'.$prescription)
             ];
 
