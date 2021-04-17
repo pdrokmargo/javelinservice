@@ -102,8 +102,8 @@ class MiPresController extends Controller
             }
             $products = [];
             foreach($data as $d){
-                $cums[] = $d['CodSerTecAEntregar'];
-                $products[] = \App\Models\CumsProductosMipres::firstOrCreate(['cums' => $d['CodSerTecAEntregar']]);
+                $cums[] = $d->CodSerTecAEntregar;
+                $products[] = \App\Models\CumsProductosMipres::firstOrCreate(['cums' => $d->CodSerTecAEntregar]);
             }
             $products = \DB::table('cums_productos_mipres')->select()->whereIn('cums', $cums)->get();
         }catch(ClientException $ce){
