@@ -280,21 +280,24 @@ class MiPresController extends Controller
 
             // You can access each response using the key of the promise
             $adressing = $responses['addressing']->getBody();
-            // dump($adressing);
             $finalData['addressing'] =  json_decode($adressing, true);
-            // $finalData['programming'] =  json_decode($responses['programming']['value']->getBody(), true);
-            // $finalData['delivery'] =  json_decode($responses['delivery']['value']->getBody(), true);
-            // $finalData['delivery-report'] =  json_decode($responses['delivery-report']['value']->getBody(), true);
-            // $finalData['billing'] =  json_decode($responses['billing']['value']->getBody(), true);
+            $progamming = $responses['programming']->getBody();
+            $finalData['programming'] =  json_decode($programming, true);
+            $delivery = $responses['delivery']->getBody();
+            $finalData['delivery'] =  json_decode($delivery, true);
+            $delivery_report = $responses['delivery-report']->getBody();
+            $finalData['delivery-report'] =  json_decode($delivery_report, true);
+            $billing = $responses['billing']->getBody();
+            $finalData['billing'] =  json_decode($billing, true);
             $status = 'true';
             $code = 200;
-            $message = '';
+            $message = 'Data found!';
             $products = [];
-                        // foreach($finalData['addressing'] as $d){
-                        //     $cums[] = $d->CodSerTecAEntregar;
-                        //     $products[] = \App\Models\CumsProductosMipres::firstOrCreate(['cums' => $d->CodSerTecAEntregar]);
-                        // }
-                        // $products = \DB::table('cums_productos_mipres')->select()->whereIn('cums', $cums)->get();
+            foreach($finalData['addressing'] as $d){
+                $cums[] = $d->CodSerTecAEntregar;
+                $products[] = \App\Models\CumsProductosMipres::firstOrCreate(['cums' => $d->CodSerTecAEntregar]);
+            }
+            $products = \DB::table('cums_productos_mipres')->select()->whereIn('cums', $cums)->get();
         }catch(ClientException $ce){
             $status = 'false';
             $message = 'Cliente exception: '.((string) $ce->getResponse()->getBody());
