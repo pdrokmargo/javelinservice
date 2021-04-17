@@ -100,12 +100,14 @@ class MiPresController extends Controller
                 $message = 'Prescription not found!';
                 $data = [];
             }
-            
-            foreach($data as $d){
-                $cums[] = $d->CodSerTecAEntregar;
-                $products[] = \App\Models\CumsProductosMipres::firstOrCreate(['cums' => $d->CodSerTecAEntregar]);
+            if($data){
+                foreach($data as $d){
+                    $cums[] = $d->CodSerTecAEntregar;
+                    $products[] = \App\Models\CumsProductosMipres::firstOrCreate(['cums' => $d->CodSerTecAEntregar]);
+                }
+                $products = \DB::table('cums_productos_mipres')->select()->whereIn('cums', $cums)->get();
             }
-            $products = \DB::table('cums_productos_mipres')->select()->whereIn('cums', $cums)->get();
+            
         }catch(ClientException $ce){
             $status = 'false';
             $message = (string) $ce->getResponse()->getBody();
