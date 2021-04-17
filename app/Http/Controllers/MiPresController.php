@@ -293,11 +293,11 @@ class MiPresController extends Controller
             $code = 200;
             $message = 'Data found!';
             $products = [];
-            foreach($finalData['addressing'] as $d){
-                $cums[] = $d->CodSerTecAEntregar;
-                $products[] = \App\Models\CumsProductosMipres::firstOrCreate(['cums' => $d->CodSerTecAEntregar]);
-            }
-            $products = \DB::table('cums_productos_mipres')->select()->whereIn('cums', $cums)->get();
+            // foreach($finalData['addressing'] as $d){
+            //     $cums[] = $d->CodSerTecAEntregar;
+            //     $products[] = \App\Models\CumsProductosMipres::firstOrCreate(['cums' => $d->CodSerTecAEntregar]);
+            // }
+            // $products = \DB::table('cums_productos_mipres')->select()->whereIn('cums', $cums)->get();
         }catch(ClientException $ce){
             $status = 'false';
             $message = 'Cliente exception: '.((string) $ce->getResponse()->getBody());
