@@ -314,8 +314,8 @@ class MiPresController extends Controller
                 $billing = $responses['billing']->getBody();
                 $finalData['billing'] =  json_decode($billing, true);
             }else if($role == 'delivery'){
-                $adressing = $responses['addressing']->getBody();
-                $finalData['addressing'] =  json_decode($adressing, true);
+                // $adressing = $responses['addressing']->getBody();
+                // $finalData['addressing'] =  json_decode($adressing, true);
                 $programming = $responses['programming']->getBody();
                 $finalData['programming'] =  json_decode($programming, true);
                 $delivery = $responses['delivery']->getBody();
