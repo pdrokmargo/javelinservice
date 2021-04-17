@@ -280,7 +280,7 @@ class MiPresController extends Controller
 
             // You can access each response using the key of the promise
             $adressing = $responses['addressing']->getBody();
-            dump($adressing);
+            // dump($adressing);
             $finalData['addressing'] =  json_decode($adressing, true);
             // $finalData['programming'] =  json_decode($responses['programming']['value']->getBody(), true);
             // $finalData['delivery'] =  json_decode($responses['delivery']['value']->getBody(), true);
@@ -290,11 +290,11 @@ class MiPresController extends Controller
             $code = 200;
 
             $products = [];
-                        foreach($finalData['addressing'] as $d){
-                            $cums[] = $d->CodSerTecAEntregar;
-                            $products[] = \App\Models\CumsProductosMipres::firstOrCreate(['cums' => $d->CodSerTecAEntregar]);
-                        }
-                        $products = \DB::table('cums_productos_mipres')->select()->whereIn('cums', $cums)->get();
+                        // foreach($finalData['addressing'] as $d){
+                        //     $cums[] = $d->CodSerTecAEntregar;
+                        //     $products[] = \App\Models\CumsProductosMipres::firstOrCreate(['cums' => $d->CodSerTecAEntregar]);
+                        // }
+                        // $products = \DB::table('cums_productos_mipres')->select()->whereIn('cums', $cums)->get();
         }catch(ClientException $ce){
             $status = 'false';
             $message = 'Cliente exception: '.((string) $ce->getResponse()->getBody());
