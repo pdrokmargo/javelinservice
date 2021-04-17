@@ -327,9 +327,15 @@ class MiPresController extends Controller
             $code = 200;
             $message = 'Data found!';
             $products = [];
-            foreach($finalData['addressing'] as $d){
-                $cums[] = $d['CodSerTecAEntregar'];
-                $products[] = \App\Models\CumsProductosMipres::firstOrCreate(['cums' => $d['CodSerTecAEntregar']]);
+            $productsToFind = 'addressing';
+            $keyCodTecToFind = 'CodSerTecAEntregar';
+            if($role == 'supplier'){
+                $productsToFind = 'delivery';
+                $keyCodTecToFind = 'CodSerTecEntregado';
+            }
+            foreach($finalData[$productsToFind] as $d){
+                $cums[] = $d[$keyCodTecToFind];
+                $products[] = \App\Models\CumsProductosMipres::firstOrCreate(['cums' => $d[$keyCodTecToFind]]);
             }
             $products = \DB::table('cums_productos_mipres')->select()->whereIn('cums', $cums)->get();
         }catch(ClientException $ce){
