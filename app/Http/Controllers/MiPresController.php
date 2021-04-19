@@ -30,7 +30,7 @@ class MiPresController extends Controller
         try {
             $sectok = \App\Models\Configuration::where('code', 'mipresSecondToken')->first();
             $secondToken = $sectok == null ? '' : $sectok->value;
-            
+            $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
         }catch(Exception $e){
             $secondToken = '-1';
         }
@@ -43,6 +43,8 @@ class MiPresController extends Controller
                 $insertToken->value = '1';
                 $insertToken->company_id = $request->user()->company_default_id;
                 $insertToken->save();
+            }else{
+
             }
         }catch(Exception $e){
                $secondToken = '-2'; 
