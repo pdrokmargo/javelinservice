@@ -23,6 +23,12 @@ class MiPresController extends Controller
 
     public function generateToken(Request $request)
     {
+
+//         code: 400
+// data: []
+// message: "{"Message":"EL TOKEN EXPIRÓ"}"
+// products: []
+// status: "false"
         $client = new Client();
         // if($secondToken == ''){
         //     $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken);
@@ -30,7 +36,7 @@ class MiPresController extends Controller
         try {
             $sectok = \App\Models\Configuration::where('code', 'mipresSecondToken')->first();
             $secondToken = $sectok == null ? '' : $sectok->value;
-            $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
+            // $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
         }catch(Exception $e){
             $secondToken = '-1';
         }
