@@ -846,7 +846,7 @@ function makeAppConfig() {
         brand: 'Javelin',
         user: 'Lisa',
         year: year,
-        version: 'v1.0.10',
+        version: 'v1.0.11',
         layoutBoxed: false,
         navCollapsed: false,
         navBehind: false,
@@ -5603,6 +5603,7 @@ var ModalMipresComponent = /** @class */ (function () {
             this.data.object.CuotaModer = '0';
             this.data.object.Copago = '0';
         }
+        console.log(this.data.object);
     };
     ModalMipresComponent.prototype.cancelState = function (process) {
         if (process == 'programming') {

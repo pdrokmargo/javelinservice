@@ -259,8 +259,8 @@ var MipresActionComponent = /** @class */ (function (_super) {
         item.CodEPS = this.prescriptionHeader["CodEPS"];
         item.CodSerTecAEntregado = item.CodTecEntregado;
         item.CantUnMinDis = item.CantTotEntregada;
-        item.ValorUnitFacturado = (item.ValorEntregado / item.CantUnMinDis).toFixed(3);
-        item.ValorTotFacturado = item.ValorEntregado.toFixed(3);
+        item.ValorUnitFacturado = (item.ValorEntregado / item.CantUnMinDis).toFixed(0);
+        item.ValorTotFacturado = item.ValorEntregado.toFixed(0);
         this.modalMiPRES = this.dialog.open(__WEBPACK_IMPORTED_MODULE_6__modals__["A" /* ModalMipresComponent */], {
             data: {
                 template: "billing",
