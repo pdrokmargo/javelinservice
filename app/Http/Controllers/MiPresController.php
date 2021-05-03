@@ -44,6 +44,7 @@ class MiPresController extends Controller
         try {
             $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
             $sectok->value['value'] = $secondToken;
+            $secondToken = $sectok->value;
             // if($secondToken == ''){
             //     $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
             //     $t['token'] = $secondToken;
