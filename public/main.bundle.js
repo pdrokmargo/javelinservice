@@ -846,7 +846,7 @@ function makeAppConfig() {
         brand: 'Javelin',
         user: 'Lisa',
         year: year,
-        version: 'v1.0.11',
+        version: 'v1.0.12',
         layoutBoxed: false,
         navCollapsed: false,
         navBehind: false,
@@ -1979,6 +1979,7 @@ var HelperService = /** @class */ (function () {
     function HelperService(http, authService) {
         this.http = http;
         this.authService = authService;
+        this.expirationSecondToken = new Date();
         this.baseUrl = authService.urlBase;
     }
     HelperService.prototype.GET = function (url) {

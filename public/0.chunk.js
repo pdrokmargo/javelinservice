@@ -393,7 +393,7 @@ var MipresListComponent = /** @class */ (function (_super) {
         return _this;
     }
     MipresListComponent.prototype.ngOnInit = function () {
-        if (this.helperService.secondToken == undefined) {
+        if (this.helperService.secondToken == undefined || new Date().valueOf() > this.helperService.expirationSecondToken.valueOf()) {
             this.getSecondToken();
         }
         // this.search = '20201001192023404869';
@@ -405,7 +405,10 @@ var MipresListComponent = /** @class */ (function (_super) {
             .GET(this.urlApi + "/generateToken")
             .map(function (response) {
             var res = response.json();
-            _this.helperService.secondToken = res.value;
+            _this.helperService.secondToken = res;
+            var dt = new Date();
+            dt.setHours(dt.getHours() + 6);
+            _this.helperService.expirationSecondToken = dt;
             // localStorage.setItem("mipresSecondToken", JSON.stringify({
             //   token: res
             // })); 
@@ -449,7 +452,7 @@ var MipresListComponent = /** @class */ (function (_super) {
     };
     MipresListComponent.prototype.getPrescriptions = function () {
         var _this = this;
-        if (this.helperService.secondToken == undefined) {
+        if (this.helperService.secondToken == undefined || new Date().valueOf() > this.helperService.expirationSecondToken.valueOf()) {
             this.getSecondToken();
         }
         this.nationalServiceState = this.helperService.secondToken == undefined ? false : true;
