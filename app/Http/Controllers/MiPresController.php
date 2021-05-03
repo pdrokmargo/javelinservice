@@ -9,6 +9,7 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\RequestException;
 use Exception;
 use Illuminate\Support\Facades\Log;
+use Carbon\Carbon;
 
 
 class MiPresController extends Controller
@@ -41,16 +42,24 @@ class MiPresController extends Controller
             $secondToken = '-1';
         }
         try {
-            if($sectok == null){
+            if($secondToken == ''){
                 $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
+                $t['token'] = $secondToken->getBody();
+                $t['expiration'] = Carbon::now()->addHours(8);
                 $insertToken = new \App\Models\Configuration;
                 $insertToken->code = 'mipresSecondToken';
                 $insertToken->display = 'Token Secundario MiPRES';
-                $insertToken->value = $secondToken->getBody();
+                $insertToken->value = json_encode($t, true);
                 $insertToken->company_id = $request->user()->company_default_id;
                 $insertToken->save();
+            }else if(json_decode($secondToken, true)['expiration'] < Carbon::now()){
+                $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
+                $t['token'] = $secondToken->getBody();
+                $t['expiration'] = Carbon::now()->addHours(8);
+                $sectok->value = json_encode($t, true);
+                $sectok->save();
             }else{
-
+                $secondToken = json_decode($secondToken, true)['token'];
             }
         }catch(Exception $e){
                $secondToken = '-2'; 
