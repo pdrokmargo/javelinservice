@@ -16,7 +16,7 @@ class Configuration extends Model
         'company_id'
     ];
     protected $casts = [
-        'value' => 'array'
+        'value' => 'json'
     ];
     protected $hidden = [];
 }
