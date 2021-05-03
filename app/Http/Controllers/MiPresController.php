@@ -51,15 +51,19 @@ class MiPresController extends Controller
                 $insertToken->display = 'Token Secundario MiPRES';
                 $insertToken->value = json_encode($t, true);
                 $insertToken->company_id = $request->user()->company_default_id;
+                
                 $insertToken->save();
+                echo '1';
             }else if(json_decode($secondToken, true)['expiration'] < Carbon::now()){
                 $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
                 $t['token'] = $secondToken;
                 $t['expiration'] = Carbon::now()->addHours(8);
                 $sectok->value = json_encode($t, true);
                 $sectok->save();
+                echo '2';
             }else{
                 $secondToken = json_decode($secondToken, true)['token'];
+                echo '3';
             }
         }catch(Exception $e){
                $secondToken = '-2: '.$e.' variable expiration:  '.$secondToken.' &&&&& '.json_decode($secondToken, true); 
