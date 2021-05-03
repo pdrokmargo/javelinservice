@@ -44,7 +44,7 @@ class MiPresController extends Controller
         try {
             if($secondToken == ''){
                 $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
-                $t['token'] = $secondToken->getBody();
+                $t['token'] = $secondToken;
                 $t['expiration'] = Carbon::now()->addHours(8);
                 $insertToken = new \App\Models\Configuration;
                 $insertToken->code = 'mipresSecondToken';
