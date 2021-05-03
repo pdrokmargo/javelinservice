@@ -54,7 +54,7 @@ class MiPresController extends Controller
                 
                 $insertToken->save();
                 echo '1';
-            }else if(json_decode($secondToken, true)['expiration'] < Carbon::now()){
+            }else if($secondToken->expiration < Carbon::now()){
                 $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
                 $t['token'] = $secondToken;
                 $t['expiration'] = Carbon::now()->addHours(8);
