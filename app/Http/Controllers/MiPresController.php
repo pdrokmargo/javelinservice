@@ -35,16 +35,16 @@ class MiPresController extends Controller
         //     $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken);
         // }
         try {
-            $sectok = \App\Models\Configuration::where('code', 'mipresSecondToken')->first();
-            $secondToken = $sectok == null ? '' : $sectok->value;
+            // $sectok = \App\Models\Configuration::where('code', 'mipresSecondToken')->first();
+            // $secondToken = $sectok == null ? '' : $sectok->value;
             // $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
         }catch(Exception $e){
             $secondToken = '-1';
         }
         try {
             $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
-            $sectok->value['value'] = $secondToken;
-            $secondToken = $sectok->value;
+            // $sectok->value['value'] = $secondToken;
+            // $secondToken = $sectok->value;
             // if($secondToken == ''){
             //     $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
             //     $t['token'] = $secondToken;
