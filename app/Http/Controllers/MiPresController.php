@@ -58,7 +58,7 @@ class MiPresController extends Controller
                 $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
                 $t['token'] = $secondToken;
                 $t['expiration'] = Carbon::now()->addHours(8);
-                $sectok->value = json_encode($t, true);
+                $sectok->value = $secondToken;
                 $sectok->save();
             }else{
                 $secondToken = json_decode($secondToken, true)['token'];
