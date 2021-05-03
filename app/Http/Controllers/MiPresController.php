@@ -62,7 +62,7 @@ class MiPresController extends Controller
                 $secondToken = json_decode($secondToken, true)['token'];
             }
         }catch(Exception $e){
-               $secondToken = '-2: '.$e; 
+               $secondToken = '-2: '.$e.' variable expiration:  '.$secondToken.' &&&&& '.json_decode($secondToken, true); 
         }
         return $secondToken;
     }
