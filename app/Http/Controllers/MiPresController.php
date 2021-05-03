@@ -66,7 +66,7 @@ class MiPresController extends Controller
                 echo '3';
             }
         }catch(Exception $e){
-               $secondToken = '-2: '.$e.' variable expiration:  '.$secondToken.' &&&&& '.json_decode($secondToken, true); 
+               $secondToken = '-2: '.$e; 
         }
         return $secondToken;
     }
