@@ -49,7 +49,9 @@ class MiPresController extends Controller
                 $insertToken = new \App\Models\Configuration;
                 $insertToken->code = 'mipresSecondToken';
                 $insertToken->display = 'Token Secundario MiPRES';
-                $insertToken->value = json_encode($t, true);
+                json_decode($secondToken, true)['token'] = $secondToken;
+                json_decode($secondToken, true)['expiration']= Carbon::now()->addHours(8);
+                $insertToken->value = $secondToken;
                 $insertToken->company_id = $request->user()->company_default_id;
                 
                 $insertToken->save();
