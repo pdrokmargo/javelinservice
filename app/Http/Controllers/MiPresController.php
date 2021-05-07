@@ -58,18 +58,19 @@ class MiPresController extends Controller
                 \DB::commit();
                 // $insertToken->save();
                 // echo '1';
-            }else if($secondToken['expiration'] && $secondToken['expiration'] < Carbon::now()){
-                $t = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
-                $secondToken['token'] = $t;
-                $secondToken['expiration']= Carbon::now()->addHours(8);
-                // $sectok->value = json_encode('{"token": "'.$secondToken.', "expiration": "'.Carbon::now()->addHours(8).'"}', true);
-                $sectok->value = $secondToken;
-                $sectok->save();
-            }else{
-                $secondToken = $searchToken;
             }
+            // else if($secondToken['expiration'] && $secondToken['expiration'] < Carbon::now()){
+            //     $t = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
+            //     $secondToken['token'] = $t;
+            //     $secondToken['expiration']= Carbon::now()->addHours(8);
+            //     // $sectok->value = json_encode('{"token": "'.$secondToken.', "expiration": "'.Carbon::now()->addHours(8).'"}', true);
+            //     $sectok->value = $secondToken;
+            //     $sectok->save();
+            // }else{
+            //     $secondToken = $searchToken;
+            // }
         }catch(Exception $e){
-               $secondToken = '-2: '.$e; 
+               $secondToken['token'] = '';
                \DB::rollBack();
         }
         return $secondToken['token'];
