@@ -9,7 +9,7 @@ class Configuration extends Model
     protected $table = 'configurations'; 
     public $timestamps = false;
     protected $casts = [
-        'value' => 'json',
+        'value' => 'array',
     ];
     protected $fillable = [
         'id',

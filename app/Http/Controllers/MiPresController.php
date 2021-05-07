@@ -45,7 +45,7 @@ class MiPresController extends Controller
                 // $insertToken->value->expiration = Carbon::now();
                 // $insertToken->company_id = $request->user()->company_default_id;
                 
-                DB::beginTransaction();
+                \DB::beginTransaction();
 
                 \App\Models\Configuration::create([
                     "code" => 'mipresSecondToken',
@@ -55,7 +55,7 @@ class MiPresController extends Controller
                         "expiration" => Carbon::now()
                     ])
                 ]);
-                DB::commit();
+                \DB::commit();
                 // $insertToken->save();
                 // echo '1';
             }else if($secondToken['expiration'] && $secondToken['expiration'] < Carbon::now()){
@@ -70,7 +70,7 @@ class MiPresController extends Controller
             }
         }catch(Exception $e){
                $secondToken = '-2: '.$e; 
-               DB::rollBack();
+               \DB::rollBack();
         }
         return $secondToken['token'];
         // return (array)'1Q2bo1FZkyzeUaeLiS_mRSqyQ2CejmDwHyTGWER_Eco=';
