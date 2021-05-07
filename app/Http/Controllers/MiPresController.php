@@ -57,6 +57,8 @@ class MiPresController extends Controller
                 $secondToken['token'] = $t;
                 $secondToken['expiration'] = Carbon::now();
                 $insertToken->value = $secondToken;
+                var_dump($insertToken->value);
+                var_dump($secondToken);
                 // $insertToken->value = $secondToken;
                 // $insertToken->value->expiration = Carbon::now();
                 $insertToken->company_id = $request->user()->company_default_id;
