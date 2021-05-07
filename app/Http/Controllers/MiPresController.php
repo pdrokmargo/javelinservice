@@ -72,7 +72,7 @@ class MiPresController extends Controller
             //     $secondToken = $searchToken;
             // }
         }catch(Exception $e){
-               $secondToken['token'] = $e;
+               return $e;
                \DB::rollBack();
         }
         return $secondToken['token'];
