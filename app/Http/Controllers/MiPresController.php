@@ -24,7 +24,7 @@ class MiPresController extends Controller
 
     public function generateToken(Request $request)
     {
-        $secondToken = '';
+        $secondToken = [];
         try {
             $client = new Client();
             $sectok = \App\Models\Configuration::where('code', 'mipresSecondToken')->first();
