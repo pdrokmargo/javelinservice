@@ -32,34 +32,34 @@ class MiPresController extends Controller
             
             if($searchToken == ''){
                 $t = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
-                // $insertToken = new \App\Models\Configuration;
-                // $insertToken->code = 'mipresSecondToken';
-                // $insertToken->display = 'Token Secundario MiPRES';
+                $insertToken = new \App\Models\Configuration;
+                $insertToken->code = 'mipresSecondToken';
+                $insertToken->display = 'Token Secundario MiPRES';
                 // $secondToken['expiration'] = Carbon::now()->addHours(8);
                 // $insertToken->value = '{"token":"'.$secondToken.'", "expiration": "'.Carbon::now().'"}';
-                // $secondToken = $insertToken->value;
+                $secondToken = $insertToken->value;
                 $secondToken['token'] = $t;
-                // $secondToken['expiration'] = Carbon::now();
-                // $insertToken->value = $secondToken;
+                $secondToken['expiration'] = Carbon::now();
+                $insertToken->value = $secondToken;
                 // var_dump($insertToken->value);
                 // var_dump($secondToken);
-                // $insertToken->value = $secondToken;
+                $insertToken->value = $secondToken;
                 // $insertToken->value->expiration = Carbon::now();
-                // $insertToken->company_id = $request->user()->company_default_id;
+                $insertToken->company_id = $request->user()->company_default_id;
                 
-                \DB::beginTransaction();
+                // \DB::beginTransaction();
 
-                \App\Models\Configuration::create([
-                    "code" => 'mipresSecondToken',
-                    "display" => 'Token Secundario MiPRES',
-                    "value" => json_encode([
-                        "token" => $t,
-                        "expiration" => Carbon::now()
-                    ]),
-                    "company_id" => $request->user()->company_default_id
-                ]);
-                \DB::commit();
-                // $insertToken->save();
+                // \App\Models\Configuration::create([
+                //     "code" => 'mipresSecondToken',
+                //     "display" => 'Token Secundario MiPRES',
+                //     "value" => json_encode([
+                //         "token" => $t,
+                //         "expiration" => Carbon::now()
+                //     ]),
+                //     "company_id" => $request->user()->company_default_id
+                // ]);
+                // \DB::commit();
+                $insertToken->save();
                 // echo '1';
             }
             // else if($secondToken['expiration'] && $secondToken['expiration'] < Carbon::now()){
