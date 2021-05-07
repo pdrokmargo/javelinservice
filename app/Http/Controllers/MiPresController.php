@@ -24,46 +24,39 @@ class MiPresController extends Controller
 
     public function generateToken(Request $request)
     {
-
-//         code: 400
-// data: []
-// message: "{"Message":"EL TOKEN EXPIRÓ"}"
-// products: []
-// status: "false"
-        $client = new Client();
-        // if($secondToken == ''){
-        //     $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken);
-        // }
         try {
+            $client = new Client();
             $sectok = \App\Models\Configuration::where('code', 'mipresSecondToken')->first();
             $searchToken = $sectok == null ? '' : $sectok->value;
-
-            // $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
-        }catch(Exception $e){
-            $secondToken = '-1';
-        }
-        try {
-            // $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
-            // $sectok->value['value'] = $secondToken;
-            // $secondToken = $sectok->value;
             if($searchToken == ''){
                 $t = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
-                $insertToken = new \App\Models\Configuration;
-                $insertToken->code = 'mipresSecondToken';
-                $insertToken->display = 'Token Secundario MiPRES';
+                // $insertToken = new \App\Models\Configuration;
+                // $insertToken->code = 'mipresSecondToken';
+                // $insertToken->display = 'Token Secundario MiPRES';
                 // $secondToken['expiration'] = Carbon::now()->addHours(8);
                 // $insertToken->value = '{"token":"'.$secondToken.'", "expiration": "'.Carbon::now().'"}';
-                $secondToken = $insertToken->value;
+                // $secondToken = $insertToken->value;
                 $secondToken['token'] = $t;
-                $secondToken['expiration'] = Carbon::now();
-                $insertToken->value = $secondToken;
-                var_dump($insertToken->value);
-                var_dump($secondToken);
+                // $secondToken['expiration'] = Carbon::now();
+                // $insertToken->value = $secondToken;
+                // var_dump($insertToken->value);
+                // var_dump($secondToken);
                 // $insertToken->value = $secondToken;
                 // $insertToken->value->expiration = Carbon::now();
-                $insertToken->company_id = $request->user()->company_default_id;
+                // $insertToken->company_id = $request->user()->company_default_id;
                 
-                $insertToken->save();
+                DB::beginTransaction();
+
+                \App\Models\Configuration::create([
+                    "code" => 'mipresSecondToken',
+                    "display" => 'Token Secundario MiPRES',
+                    "value" => json_encode([
+                        "token" => $t,
+                        "expiration" => Carbon::now()
+                    ])
+                ]);
+                DB::commit();
+                // $insertToken->save();
                 // echo '1';
             }else if($secondToken['expiration'] && $secondToken['expiration'] < Carbon::now()){
                 $t = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
@@ -77,6 +70,7 @@ class MiPresController extends Controller
             }
         }catch(Exception $e){
                $secondToken = '-2: '.$e; 
+               DB::rollBack();
         }
         return $secondToken['token'];
         // return (array)'1Q2bo1FZkyzeUaeLiS_mRSqyQ2CejmDwHyTGWER_Eco=';
