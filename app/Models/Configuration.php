@@ -8,9 +8,9 @@ class Configuration extends Model
 {
     protected $table = 'configurations'; 
     public $timestamps = false;
-    // protected $casts = [
-    //     'options' => 'json',
-    // ];
+    protected $casts = [
+        'value' => 'json',
+    ];
     protected $fillable = [
         'value',
         'company_id'
