@@ -29,6 +29,7 @@ class MiPresController extends Controller
             $client = new Client();
             $sectok = \App\Models\Configuration::where('code', 'mipresSecondToken')->first();
             $searchToken = $sectok == null ? '' : $sectok->value;
+            
             if($searchToken == ''){
                 $t = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
                 // $insertToken = new \App\Models\Configuration;
@@ -71,7 +72,7 @@ class MiPresController extends Controller
             //     $secondToken = $searchToken;
             // }
         }catch(Exception $e){
-               $secondToken['token'] = '';
+               $secondToken['token'] = $e;
                \DB::rollBack();
         }
         return $secondToken['token'];
