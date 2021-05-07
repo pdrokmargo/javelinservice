@@ -52,9 +52,9 @@ class MiPresController extends Controller
                 $insertToken->code = 'mipresSecondToken';
                 $insertToken->display = 'Token Secundario MiPRES';
                 // $secondToken['expiration'] = Carbon::now()->addHours(8);
-                // $insertToken->value = '{"token":"'.$secondToken.'"}';
-                $insertToken->value->token = $secondToken;
-                $insertToken->value->expiration = Carbon::now();
+                $insertToken->value = '{"token":"'.$secondToken.'", "expiration": "'.Carbon::now().'"}';
+                // $insertToken->value->token = $secondToken;
+                // $insertToken->value->expiration = Carbon::now();
                 $insertToken->company_id = $request->user()->company_default_id;
                 
                 $insertToken->save();
