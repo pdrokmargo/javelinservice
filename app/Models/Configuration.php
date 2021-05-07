@@ -12,6 +12,8 @@ class Configuration extends Model
         'value' => 'json',
     ];
     protected $fillable = [
+        'code',
+        'display',
         'value',
         'company_id'
     ];
