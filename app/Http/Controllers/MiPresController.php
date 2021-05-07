@@ -55,7 +55,8 @@ class MiPresController extends Controller
                     "value" => json_encode([
                         "token" => $t,
                         "expiration" => Carbon::now()
-                    ])
+                    ]),
+                    "company_id" => $request->user()->company_default_id
                 ]);
                 \DB::commit();
                 // $insertToken->save();
