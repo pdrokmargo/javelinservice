@@ -62,7 +62,7 @@ class MiPresController extends Controller
                 $insertToken->company_id = $request->user()->company_default_id;
                 
                 $insertToken->save();
-                echo '1';
+                // echo '1';
             }else if(json_decode($secondToken, true)['expiration'] && json_decode($secondToken, true)['expiration'] < Carbon::now()){
                 $secondToken = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
                 json_decode($secondToken, true)['token'] = $secondToken;
