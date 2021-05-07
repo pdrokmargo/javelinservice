@@ -74,8 +74,8 @@ class MiPresController extends Controller
         }catch(Exception $e){
                $secondToken = '-2: '.$e; 
         }
-        
-        return (array)'1Q2bo1FZkyzeUaeLiS_mRSqyQ2CejmDwHyTGWER_Eco=';
+        return (array)$secondToken;
+        // return (array)'1Q2bo1FZkyzeUaeLiS_mRSqyQ2CejmDwHyTGWER_Eco=';
     }
     public function getPrescriptions(Request $request, $token)
     {   
