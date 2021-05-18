@@ -18,7 +18,7 @@ class MiPresController extends Controller
     // Billing Swagger client: https://wsmipres.sispro.gov.co/WSFACMIPRESNOPBS/Swagger/ui/index
     private $baseUrl = 'https://wsmipres.sispro.gov.co/WSSUMMIPRESNOPBS/api/';
     private $mainToken = '525FE1ED-00E2-4364-9F5D-7612B8B1E21E';
-    private $nit = '802024817';
+    private $nit = '802024817'; 
     protected $secondToken = ''; 
     protected $client;
 
