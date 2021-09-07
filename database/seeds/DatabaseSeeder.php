@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
          $this->call(ViewsTableSeeder::class);
          $this->call(ViewActionsTableSeeder::class);
          $this->call(PrivilegesTableSeeder::class);
-         $this->call(ActivitiesLogTableSeeder::class);
+        //  $this->call(ActivitiesLogTableSeeder::class);
          
          $this->call(GeolocationsTableSeeder::class);
         //  $this->call(NotificationsTableSeeder::class);
@@ -29,11 +29,11 @@ class DatabaseSeeder extends Seeder
          $this->call(ActiveIngredientsPharmaceuticalDrugsTableSeeder::class);
          $this->call(PharmaceuticalDrugsTableSeeder::class);
         //  $this->call(WarehousesTableSeeder::class);
-         $this->call(CustomersTableSeeder::class);
+        //  $this->call(CustomersTableSeeder::class);
         //  $this->call(DeliveryContractsTableSeeder::class);
         //  $this->call(DeliveryPointsTableSeeder::class);
-         $this->call(SalesRepresentativesTableSeeder::class);
-         $this->call(SuppliersTableSeeder::class);
+        //  $this->call(SalesRepresentativesTableSeeder::class);
+        //  $this->call(SuppliersTableSeeder::class);
          $this->call(ConsecutivesTableSeeder::class);
          $this->call(TokenTableSeeder::class);
          $this->call(LaboratoriesTableSeeder::class);

@@ -35,6 +35,12 @@ class ConfigurationsTableSeeder extends Seeder
                 'company_id' => $delivery_point->company_id
             ],
             [
+                'code' => 'role_mode',
+                'display' => 'Rol Aplicativo',
+                'value' => '{"key":"main_global"}', //delivery_point, main_global, main_local
+                'company_id' => $delivery_point->company_id
+            ],
+            [
                 'code' => 'active_delivery_point',
                 'display' => 'Punto de Dispensación Activo',
                 'value' => '{"delivery_point_id":"'.$delivery_point->id.'"}',
