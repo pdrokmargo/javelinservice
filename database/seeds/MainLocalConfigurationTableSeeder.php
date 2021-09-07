@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ConfigurationsTableSeeder extends Seeder
+class MainLocalConfigurationTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -37,7 +37,7 @@ class ConfigurationsTableSeeder extends Seeder
             [
                 'code' => 'role_mode',
                 'display' => 'Rol Aplicativo',
-                'value' => '{"key":"main_global"}', //delivery_point, main_global, main_local
+                'value' => '{"key":"main_local"}', //delivery_point, main_global, main_local
                 'company_id' => 1
             ],
             [
