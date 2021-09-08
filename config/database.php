@@ -81,9 +81,9 @@ return [
         //     ],
          'local' => [
                 'driver' => 'pgsql',
-                'host' => env('DB_HOST', 'localhost'),
+                'host' => env('DB_HOST', 'host.docker.internal'),
                 'port' => env('DB_PORT', '5432'),
-                'database' => env('DB_DATABASE', 'javelin'),
+                'database' => env('DB_DATABASE', 'javelin_db'),
                 'username' => env('DB_USERNAME', 'postgres'),
                 'password' => env('DB_PASSWORD', '123456'),
                 'charset' => 'utf8',
