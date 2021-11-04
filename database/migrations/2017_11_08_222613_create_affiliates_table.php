@@ -20,9 +20,9 @@ class CreateAffiliatesTable extends Migration
             $table->uuid('delivery_contract_id');
             $table->integer('ips_network_id'); // to IPS_NETWORK in collection values
             $table->string('firstname');
-            $table->string('middlename');
+            $table->string('middlename')->nullable();
             $table->string('lastname1');
-            $table->string('lastname2');
+            $table->string('lastname2')->nullable();
             $table->integer('gender_id');// to GENDER in collection_values
             $table->integer('affiliate_type');//to GENDER in collection_values
             $table->date('birthday');

@@ -20,7 +20,7 @@ class CreateComercialStakeholdersInfoTable extends Migration
             $table->uuid('stakeholder_info_id'); 
             $table->json('codes');
             $table->primary('id');
-            $table->integer('tax_regime_id');
+            $table->integer('tax_regime_id')->default(-1);
             $table->date('constitution_date')->nullable();
             
         });

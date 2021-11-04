@@ -12,7 +12,7 @@ class Geolocation extends Model
 
     public function country()
     {
-    	return $this->belongsTo('App\Models\CollectionsValues', 'contry_id'); 
+    	return $this->belongsTo('App\Models\CollectionsValues', 'country_id'); 
     }
 
     public function department()

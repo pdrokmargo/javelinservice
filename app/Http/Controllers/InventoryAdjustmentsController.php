@@ -16,7 +16,7 @@ class InventoryAdjustmentsController extends Controller
     {
         try {
             $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';
-            $ordername = isset($request->ordername) ? $request->ordername : 'consecutive';
+            $ordername = isset($request->ordername) ? $request->ordername : 'adjustment_date';
             $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
             $page = $request->page;
             
