@@ -18,7 +18,7 @@ class InventoryAuditController extends Controller
     {
         try {
             $search     = isset($request->search) ? '%'.strtolower($request->search).'%' : '';
-            $ordername  = isset($request->ordername) ? $request->ordername : 'consecutive';
+            $ordername  = isset($request->ordername) ? $request->ordername : 'date';
             $ordertype  = isset($request->ordertype) ? $request->ordertype : 'DESC';
             $page       = isset($request->page) ? $request->page : 1;
             
