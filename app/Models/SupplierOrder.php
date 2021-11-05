@@ -39,11 +39,11 @@ class SupplierOrder extends Model
         $details_received = \App\Models\InventoryMovementDetail::with(['inventory_movement' => function ($query) {
             $query->where('document_fullfilled_id', $this->id);
         }]);
-        Log::debug($details_received);
         $details = json_decode($this->products,true);
         $details_out = [];
         foreach($details as $d){
-            $d['units'] -= $details_received->where('product_id', $d['product_id'])->where('fraction', false)->sum('units');
+            // $d['units'] -= $details_received->where('product_id', $d['product_id'])->where('fraction', false)->sum('units');
+            $d['units'] = $details_received->where('product_id', $d['product_id'])->where('fraction', false)->sum('units');
             $d['purchase_price'] = $d['product']['averageunitcost'];
             if($d['units'] > 0){
                 $details_out[] = $d;
