@@ -58,7 +58,6 @@ class SupplierOrder extends Model
         $details = json_decode($this->products,true);
         $details_out = [];
         foreach($details as $d){
-            dd($dets_final);
             Log::warning('WARN: {$this->dets_final}');
             Log::warning('WARN: {$this->details}');
             $d['units'] -= $dets_final->where('product_id', $d['product_id'])->where('fraction', 'false')->sum('units');
