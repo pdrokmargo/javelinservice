@@ -37,15 +37,21 @@ class SupplierOrder extends Model
     public function getRemainingAttribute()
     {
         $supplierOrderID = $this->id;
-        $details_received = \App\Models\InventoryMovementDetail::with(['inventory_movement' => function ($query) {
-            $query->where('document_fullfilled_id', '74d63dc0-3e03-11ec-b86b-f170d5ac7199');
-        }])->get();
-        // $entriesMade = \App\Models\InventoryMovement::where('document_fullfilled_id', $supplierOrderID)->;
+        // $details_received = \App\Models\InventoryMovementDetail::with(['inventory_movement' => function ($query) {
+        //     $query->where('document_fullfilled_id', '74d63dc0-3e03-11ec-b86b-f170d5ac7199');
+        // }])->get();
+        $entriesMade = \App\Models\InventoryMovement::where('document_fullfilled_id', $supplierOrderID);
         // $details_received = \App\Models\InventoryMovementDetail::
         $dets_final = [];
-        foreach($details_received as $det){
-            if($det->inventory_movement->document_fullfilled_id == '74d63dc0-3e03-11ec-b86b-f170d5ac7199'){
-                $dets_final[] = $det;
+        // foreach($details_received as $det){
+        //     if($det->inventory_movement->document_fullfilled_id == '74d63dc0-3e03-11ec-b86b-f170d5ac7199'){
+        //         $dets_final[] = $det;
+        //     }
+        // }
+        foreach($entriesMade as $inv){
+            $inv->load('details');
+            foreach($inv->details as $detail){
+                $dets_final[] = $detail;
             }
         }
 
