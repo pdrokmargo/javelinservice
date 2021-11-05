@@ -38,6 +38,7 @@ class SupplierOrder extends Model
         $details_received = \App\Models\InventoryMovementDetail::with(['inventory_movement' => function ($query) {
             $query->where('document_fullfilled_id', $this->id);
         }]);
+        dump($details_received);
         $details = json_decode($this->products,true);
         $details_out = [];
         foreach($details as $d){
