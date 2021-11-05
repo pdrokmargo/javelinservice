@@ -37,8 +37,8 @@ class SupplierOrder extends Model
     public function getRemainingAttribute()
     {
         $supplierOrderID = $this->id;
-        $details_received = \App\Models\InventoryMovementDetail::with(['inventory_movement' => function ($query) use ($supplierOrderID) {
-            $query->where('document_fullfilled_id', $supplierOrderID);
+        $details_received = \App\Models\InventoryMovementDetail::with(["inventory_movement" => function ($query) use ($supplierOrderID) {
+            $query->where("document_fullfilled_id", $supplierOrderID);
         }]);
         $details = json_decode($this->products,true);
         $details_out = [];
