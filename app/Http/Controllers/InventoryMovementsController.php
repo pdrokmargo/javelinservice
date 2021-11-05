@@ -103,7 +103,7 @@ class InventoryMovementsController extends Controller
         try {
             
             $inventory_movement = json_decode($request->data, true);
-            if($inventory_movement['counterpart_transfer_id'] == '-1'){
+            if($inventory_movement['counterpart_transfer_id'] && $inventory_movement['counterpart_transfer_id'] == '-1'){
                 $inventory_movement['counterpart_transfer_id'] = null;   
             }
             $inventory_movement_details = $inventory_movement['details'];
