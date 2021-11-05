@@ -8,7 +8,7 @@ class InventoryMovementDetail extends Model
 {
     use \App\Uuids;
     protected $table = 'inventory_movements_details';
-    protected $with =array('product', 'inventory_movement');
+    protected $with =array('product');
     protected $appends = ['subtotal'];
     public $incrementing = false;
     protected $fillable = [
