@@ -37,9 +37,13 @@ class SupplierOrder extends Model
     public function getRemainingAttribute()
     {
         $supplierOrderID = $this->id;
-        $details_received = \App\Models\InventoryMovementDetail::with(['inventory_movement' => function ($query) use ($supplierOrderID) {
-            $query->where('inventory_movement.document_fullfilled_id', '=', $supplierOrderID);
-        }]);
+        $details_received = \App\Models\InventoryMovementDetail::with(['inventory_movement' => function ($query) {
+            $query->where('document_fullfilled_id', '74d63dc0-3e03-11ec-b86b-f170d5ac7199');
+        }])->get();
+        // $entriesMade = \App\Models\InventoryMovement::where('document_fullfilled_id', $supplierOrderID)->;
+        // $details_received = \App\Models\InventoryMovementDetail::
+        
+        // foreach()
         $details = json_decode($this->products,true);
         $details_out = [];
         foreach($details as $d){
