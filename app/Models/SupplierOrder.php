@@ -39,7 +39,7 @@ class SupplierOrder extends Model
         $supplierOrderID = $this->id;
         $details_received = \App\Models\InventoryMovementDetail::with(["inventory_movement" => function ($query) use ($supplierOrderID) {
             $query->where("document_fullfilled_id", $supplierOrderID);
-        }]);
+        }])->get();
         $details = json_decode($this->products,true);
         $details_out = [];
         foreach($details as $d){
