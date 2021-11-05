@@ -58,8 +58,8 @@ class SupplierOrder extends Model
         $details = json_decode($this->products,true);
         $details_out = [];
         foreach($details as $d){
-            Log::warning('WARN: {$this->dets_final}');
-            Log::warning('WARN: {$this->details}');
+            echo 'WARN: {$this->dets_final}';
+            echo 'WARN: {$this->details}';
             $d['units'] -= $dets_final->where('product_id', $d['product_id'])->where('fraction', 'false')->sum('units');
             $d['purchase_price'] = $d['product']['averageunitcost'];
             if($d['units'] > 0){
