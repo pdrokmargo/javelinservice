@@ -42,12 +42,17 @@ class SupplierOrder extends Model
         }])->get();
         // $entriesMade = \App\Models\InventoryMovement::where('document_fullfilled_id', $supplierOrderID)->;
         // $details_received = \App\Models\InventoryMovementDetail::
-        
-        // foreach()
+        $dets_final = [];
+        foreach($details_received as $det){
+            if($det->inventory_movement->document_fullfilled_id == '74d63dc0-3e03-11ec-b86b-f170d5ac7199'){
+                $dets_final[] = $det;
+            }
+        }
+
         $details = json_decode($this->products,true);
         $details_out = [];
         foreach($details as $d){
-            $d['units'] = $details_received->count();
+            $d['units'] = $dets_final->count();
             $d['purchase_price'] = $d['product']['averageunitcost'];
             if($d['units'] > 0){
                 $details_out[] = $d;
