@@ -149,15 +149,20 @@ var InventoryAuditActionComponent = /** @class */ (function (_super) {
         });
     };
     InventoryAuditActionComponent.prototype.addProduct = function (product) {
+        console.log(product);
+        console.log(this.__product);
         if (this.__product.length == 0) {
             this.__product.push(product);
+            console.log('added at first');
         }
         else {
-            if (!this.__product.map(function (data) { return data.id === product.id; })) {
+            if (!this.__product.find(function (data) { return data.id == product.id; })) {
                 this.__product.push(product);
+                console.log('added more');
             }
             else {
-                this.snackBar.open('El produccto ya se encuentra seleccionado', 'Productos', { duration: 4000 });
+                this.snackBar.open('El producto ya se encuentra seleccionado', 'Productos', { duration: 4000 });
+                console.log('equal');
             }
         }
     };
@@ -306,14 +311,14 @@ var InventoryAuditActionComponent = /** @class */ (function (_super) {
             date: date,
             inventory_movement_entry_out_type_id: 175,
             details: details_entrada,
-            observations: "Ajuste realizando mediante la auditor\u00EDa # realizada por el auditor: " + this.__user.fullname
+            observations: "Ajuste realizando mediante la auditor\u00EDa realizada por el auditor: " + this.__user.fullname
         };
         var cabecera_salida = {
             warehouse_id: warehouse_id,
             date: date,
             inventory_movement_entry_out_type_id: 181,
             details: details_salida,
-            observations: "Ajuste realizando mediante la auditor\u00EDa # realizada por el auditor: " + this.__user.fullname
+            observations: "Ajuste realizando mediante la auditor\u00EDa realizada por el auditor: " + this.__user.fullname
         };
         /*
         
@@ -423,7 +428,7 @@ var InventoryAuditActionComponent = /** @class */ (function (_super) {
 /***/ "../../../../../src/app/smartity/inventory-audit/inventory-audit-list/inventory-audit-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- LIST -->\r\n<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\r\n      <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\"\r\n        (keydown)=\"enter($event)\">\r\n      <div style=\"width: 34px\" class=\"input-group-addon\">\r\n        <a style=\"cursor:pointer\" (click)=\"getAll()\">\r\n          <i class=\"fa fa-search\"></i>\r\n        </a>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <button mat-raised-button (click)=\"CUD('Guardar')\" color=\"primary\" class=\"btn-w-md no-margin-left btn-right\">\r\n      <mat-icon>add_circle_outline</mat-icon> Nuevo\r\n    </button>\r\n  </div>\r\n  <div class=\"col-sm-12\">\r\n\r\n    <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\r\n\r\n      <table class=\"mdl-data-table table-bordered table-striped cf no-margin\" style=\"white-space: normal;\">\r\n        <thead>\r\n          <tr>\r\n            <th># Auditoria Inv<span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span></th>\r\n            <th>Bodega<span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span></th>\r\n            <th>Fecha<span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span></th>\r\n            <th>Auditor<span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span></th>\r\n            <th>Cantidades visibles<span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span></th>\r\n            <th>Estado<span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span></th>\r\n            <th *ngIf=\"actions[2].status\" class=\"w-40\"></th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr *ngFor=\"let item of list.data; let index = index\">\r\n            <td>{{ index+1 }}</td>\r\n            <td>{{ item.warehouse.name }}</td>\r\n            <td>{{ item.date | date:'dd/MM/yyyy'}}</td>\r\n            <td>{{ item.user.firstname }} {{ item.user.lastname }}</td>\r\n            <td>{{ item.blinded_qty ? 'Si' : 'No' }}</td>\r\n            <td>{{ item.status.value }}</td>\r\n            <td *ngIf=\"actions[2].status\" class=\"w-40\">\r\n              <button type=\"button\" mat-icon-button class=\"text-primary\" (click)=\"CUD('Actualizar',item)\">\r\n                <mat-icon>{{ item.audit_state_id > AUDIT.NO_INICIADA ? 'visibility' : 'mode_edit' }}</mat-icon>\r\n              </button>\r\n            </td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n\r\n    </div>\r\n\r\n    <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\r\n      [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\r\n\r\n  </div>\r\n</div>"
+module.exports = "<!-- LIST -->\r\n<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <div class=\"input-group mb-2 mr-sm-2 mb-sm-0\">\r\n      <input type=\"text\" class=\"form-control\" id=\"inlineFormInputGroup\" placeholder=\"Buscar\" [(ngModel)]=\"search\"\r\n        (keydown)=\"enter($event)\">\r\n      <div style=\"width: 34px\" class=\"input-group-addon\">\r\n        <a style=\"cursor:pointer\" (click)=\"getAll()\">\r\n          <i class=\"fa fa-search\"></i>\r\n        </a>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <button mat-raised-button (click)=\"CUD('Guardar')\" color=\"primary\" class=\"btn-w-md no-margin-left btn-right\">\r\n      <mat-icon>add_circle_outline</mat-icon> Nuevo\r\n    </button>\r\n  </div>\r\n  <div class=\"col-sm-12\">\r\n\r\n    <div class=\"box box-default table-box table-responsive mdl-shadow--2dp\">\r\n\r\n      <table class=\"mdl-data-table table-bordered table-striped cf no-margin\" style=\"white-space: normal;\">\r\n        <thead>\r\n          <tr>\r\n            <!-- <th># Auditoria Inv<span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span></th> -->\r\n            <th>Bodega<span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span></th>\r\n            <th>Fecha<span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span></th>\r\n            <th>Auditor<span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span></th>\r\n            <th>Cantidades visibles<span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span></th>\r\n            <th>Estado<span class=\"glyphicon sort-icon\" [ngClass]=\"{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}\"></span></th>\r\n            <th *ngIf=\"actions[2].status\" class=\"w-40\"></th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr *ngFor=\"let item of list.data; let index = index\">\r\n            <!-- <td>{{ index+1 }}</td> -->\r\n            <td>{{ item.warehouse.name }}</td>\r\n            <td>{{ item.date | date:'dd/MM/yyyy'}}</td>\r\n            <td>{{ item.user.firstname }} {{ item.user.lastname }}</td>\r\n            <td>{{ item.blinded_qty ? 'Si' : 'No' }}</td>\r\n            <td>{{ item.status.value }}</td>\r\n            <td *ngIf=\"actions[2].status\" class=\"w-40\">\r\n              <button type=\"button\" mat-icon-button class=\"text-primary\" (click)=\"CUD('Actualizar',item)\">\r\n                <mat-icon>{{ item.audit_state_id > AUDIT.NO_INICIADA ? 'visibility' : 'mode_edit' }}</mat-icon>\r\n              </button>\r\n            </td>\r\n          </tr>\r\n        </tbody>\r\n      </table>\r\n\r\n    </div>\r\n\r\n    <ngb-pagination [pageSize]=\"pageSize\" [collectionSize]=\"paginationSize\" [(page)]=\"advancedPagination\" [maxSize]=\"maxSize\"\r\n      [rotate]=\"true\" [ellipses]=\"false\" [boundaryLinks]=\"true\" (pageChange)=\"getAll()\"></ngb-pagination>\r\n\r\n  </div>\r\n</div>"
 
 /***/ }),
 

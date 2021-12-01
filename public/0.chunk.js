@@ -411,10 +411,14 @@ var MipresListComponent = /** @class */ (function (_super) {
     MipresListComponent.prototype.getSecondToken = function () {
         var _this = this;
         this.loaderService.display(true);
+        if (localStorage.getItem('secondToken') != undefined) {
+            return JSON.parse(localStorage.getItem('secondToken'))['token'];
+        }
         this.helperService
             .GET(this.urlApi + "/generateToken")
             .map(function (response) {
             var res = response.json();
+            console.log(res);
             _this.helperService.secondToken = res;
             var dt = new Date();
             dt.setHours(dt.getHours() + 6);
@@ -426,6 +430,7 @@ var MipresListComponent = /** @class */ (function (_super) {
         })
             .subscribe(function (done) {
             _this.loaderService.display(false);
+            return JSON.parse(localStorage.getItem('secondToken'))['token'];
         }, function (error) {
             console.log(error);
             _this.loaderService.display(false);
@@ -464,7 +469,7 @@ var MipresListComponent = /** @class */ (function (_super) {
     MipresListComponent.prototype.getPrescriptions = function () {
         var _this = this;
         if (this.helperService.secondToken == undefined || new Date().valueOf() > this.helperService.expirationSecondToken.valueOf()) {
-            this.getSecondToken();
+            this.helperService.secondToken = this.getSecondToken();
         }
         this.nationalServiceState = this.helperService.secondToken == undefined ? false : true;
         this.loaderService.display(true);
@@ -474,7 +479,8 @@ var MipresListComponent = /** @class */ (function (_super) {
             data["prescriptionNumber"] = this.search;
         }
         data["prescriptionDate"] = this.prescriptionDate;
-        console.log(data);
+        console.log(this.helperService.secondToken);
+        console.log(JSON.parse(localStorage.getItem('secondToken'))['token']);
         this.helperService.POST(this.urlApi + "/prescriptions/" + this.helperService.secondToken, data).subscribe(function (rs) {
             var res = rs.json();
             if (res.data.length == 0 && res.code == 200) {

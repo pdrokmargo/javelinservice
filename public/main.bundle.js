@@ -6430,6 +6430,7 @@ var ModalPurchaseOrdersComponent = /** @class */ (function () {
     };
     ModalPurchaseOrdersComponent.prototype.select = function (row) {
         this.model = row;
+        console.log(row);
     };
     var _a, _b;
     ModalPurchaseOrdersComponent = __decorate([

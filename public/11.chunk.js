@@ -180,7 +180,7 @@ var InventoryMovementsOutActionComponent = /** @class */ (function (_super) {
         this.warehouses = [];
         this.stocks = [];
         this.inventory_movements_type = [];
-        this.model = { "warehouse": { "name": "" }, "destination_warehouse": { "name": "" }, "details": [], "warehouse_id": -1, "counterpart_transfer_id": -1, "inventory_movement_entry_out_type_id": -1, "date": "" };
+        this.model = { "warehouse": { "name": "" }, "destination_warehouse": { "name": "" }, "details": [], "warehouse_id": -1, "counterpart_transfer_id": null, "inventory_movement_entry_out_type_id": -1, "date": "" };
     };
     InventoryMovementsOutActionComponent.prototype.goList = function () {
         this.comp.openList();
