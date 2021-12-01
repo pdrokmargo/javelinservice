@@ -167,7 +167,7 @@ class MiPresController extends Controller
         try {
             $client = new \GuzzleHttp\Client();
             foreach ($keys as $k){
-                $headers = ['Accept' => 'application/json'];
+                $headers = ['Accept' => 'application/json', 'verify' => false];
                 $endpoint = '';
                 if($k == 'addressing'){
                     $endpoint = 'DireccionamientoXPrescripcion';
@@ -238,7 +238,7 @@ class MiPresController extends Controller
         try {
             $client = new \GuzzleHttp\Client();
             foreach ($keys as $k){
-                $headers = ['Accept' => 'application/json'];
+                $headers = ['Accept' => 'application/json', 'verify' => false];
                 $endpoint = '';
                 if($k == 'addressing'){
                     $endpoint = 'DireccionamientoXFecha';
@@ -303,7 +303,7 @@ class MiPresController extends Controller
         $finalData = [/*'addressing' => '', */'programming' => '', 'delivery' => '', 'delivery-report' => '', 'billing' => ''];
         $promises = [];
         try {
-            $client = new \GuzzleHttp\Client(['base_uri' => 'https://wsmipres.sispro.gov.co'], ['Accept' => 'application/json']);
+            $client = new \GuzzleHttp\Client(['base_uri' => 'https://wsmipres.sispro.gov.co'], ['Accept' => 'application/json', 'verify' => false]);
 
             if($role == 'admin'){
                 // Initiate each request but do not block
@@ -407,7 +407,7 @@ class MiPresController extends Controller
                 $object = json_decode($request->data,true);
                 $client = new \GuzzleHttp\Client();
                 $headers = [
-                    'Accept' => 'application/json',
+                    'Accept' => 'application/json', 'verify' => false,
                     'Content-Type' => 'application/json'
                 ];
                 $form_params = [];
@@ -501,7 +501,7 @@ class MiPresController extends Controller
             $object = json_decode($request->data,true);
                 $client = new \GuzzleHttp\Client();
                 $headers = [
-                    'Accept' => 'application/json',
+                    'Accept' => 'application/json', 'verify' => false,
                     'Content-Type' => 'application/json'
                 ];
                 $form_params = [];
