@@ -29,7 +29,7 @@ class MiPresController extends Controller
             $client = new Client();
             $sectok = \App\Models\Configuration::where('code', 'mipresSecondToken')->first();
             $searchToken = $sectok == null ? '' : $sectok->value;
-            $secondToken['token'] = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
+            $secondToken['token'] = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30, 'verify' => false]);
             // if($searchToken == ''){
             //     $t = $client->request('GET', $this->baseUrl.'GenerarToken/'.$this->nit.'/'.$this->mainToken, ['timeout' => 30]);
             //     // $insertToken = new \App\Models\Configuration;
