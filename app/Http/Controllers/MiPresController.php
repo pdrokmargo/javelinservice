@@ -108,11 +108,11 @@ class MiPresController extends Controller
                 
             }
             elseif(isset($data["prescriptionDate"])){                
-                $headers = ['Accept' => 'application/json', 'verify' => false];
+                $headers = ['Accept' => 'application/json'];
                 $endpoint = 'DireccionamientoXFecha';
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.substr($data["prescriptionDate"], 0, 10);
                 $client = new \GuzzleHttp\Client();
-                $response = $client->request('GET', $url, $headers, ['timeout' => 15]);
+                $response = $client->request('GET', $url, $headers, ['timeout' => 15], ['verify' => false]);
                 if($response != null){
                     $body = $response->getBody();
                     $code = $response->getStatusCode();
