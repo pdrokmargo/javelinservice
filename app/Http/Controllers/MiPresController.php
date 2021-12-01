@@ -303,7 +303,7 @@ class MiPresController extends Controller
         $finalData = [/*'addressing' => '', */'programming' => '', 'delivery' => '', 'delivery-report' => '', 'billing' => ''];
         $promises = [];
         try {
-            $client = new \GuzzleHttp\Client(['base_uri' => 'https://wsmipres.sispro.gov.co'], ['Accept' => 'application/json'], ['verify' => false]);
+            $client = new \GuzzleHttp\Client(['base_uri' => 'https://wsmipres.sispro.gov.co', 'verify' => false], ['Accept' => 'application/json']);
 
             if($role == 'admin'){
                 // Initiate each request but do not block
