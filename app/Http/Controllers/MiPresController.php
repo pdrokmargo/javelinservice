@@ -407,7 +407,7 @@ class MiPresController extends Controller
                 $object = json_decode($request->data,true);
                 $client = new \GuzzleHttp\Client();
                 $headers = [
-                    'Accept' => 'application/json', 'verify' => false,
+                    'Accept' => 'application/json',
                     'Content-Type' => 'application/json'
                 ];
                 $form_params = [];
@@ -469,7 +469,7 @@ class MiPresController extends Controller
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token;
                 $response = $client->request('PUT', $url, ['headers' => $headers,
                 'json' => 
-                    $form_params]);
+                    $form_params, 'verify' => false]);
                 $body = $response->getBody();
                 $code = $response->getStatusCode();
                 $status = 'true';
@@ -501,7 +501,7 @@ class MiPresController extends Controller
             $object = json_decode($request->data,true);
                 $client = new \GuzzleHttp\Client();
                 $headers = [
-                    'Accept' => 'application/json', 'verify' => false,
+                    'Accept' => 'application/json',
                     'Content-Type' => 'application/json'
                 ];
                 $form_params = [];
@@ -522,7 +522,7 @@ class MiPresController extends Controller
                     $idToCancel = $object["idFacturacion"];
                 }
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token.'/'.$idToCancel;
-                $response = $client->request('PUT', $url, ['headers' => $headers]);
+                $response = $client->request('PUT', $url, ['headers' => $headers, 'verify' => false]);
                 $body = $response->getBody();
                 $status = 'true';
                 $message = 'Data found!';
