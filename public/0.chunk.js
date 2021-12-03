@@ -412,6 +412,7 @@ var MipresListComponent = /** @class */ (function (_super) {
         var _this = this;
         this.loaderService.display(true);
         if (localStorage.getItem('secondToken') != undefined) {
+            this.loaderService.display(false);
             return JSON.parse(localStorage.getItem('secondToken'))['token'];
         }
         this.helperService
