@@ -411,10 +411,10 @@ var MipresListComponent = /** @class */ (function (_super) {
     MipresListComponent.prototype.getSecondToken = function () {
         var _this = this;
         this.loaderService.display(true);
-        if (localStorage.getItem('secondToken') != undefined) {
-            this.loaderService.display(false);
-            return JSON.parse(localStorage.getItem('secondToken'))['token'];
-        }
+        // if(localStorage.getItem('secondToken') != undefined){
+        //   this.loaderService.display(false);
+        //   return JSON.parse(localStorage.getItem('secondToken'))['token'];
+        // }
         this.helperService
             .GET(this.urlApi + "/generateToken")
             .map(function (response) {
@@ -439,7 +439,9 @@ var MipresListComponent = /** @class */ (function (_super) {
                 _this.nationalServiceState = false;
             }
             _this.snackBar.open('Servicio Nacional MiPRES', 'Inestabilidad en el servicio.', { duration: 4000 });
+            return 'error';
         });
+        return JSON.parse(localStorage.getItem('secondToken')) != undefined ? JSON.parse(localStorage.getItem('secondToken'))['token'] : 'error';
     };
     MipresListComponent.prototype.CUD = function (action, row) {
         this.comp.strAction = action;
@@ -471,6 +473,8 @@ var MipresListComponent = /** @class */ (function (_super) {
         var _this = this;
         if (this.helperService.secondToken == undefined || new Date().valueOf() > this.helperService.expirationSecondToken.valueOf()) {
             this.helperService.secondToken = this.getSecondToken();
+            console.log(new Date().valueOf());
+            console.log(this.helperService.expirationSecondToken.valueOf());
         }
         this.nationalServiceState = this.helperService.secondToken == undefined ? false : true;
         this.loaderService.display(true);
@@ -482,7 +486,7 @@ var MipresListComponent = /** @class */ (function (_super) {
         data["prescriptionDate"] = this.prescriptionDate;
         console.log(this.helperService.secondToken);
         console.log(JSON.parse(localStorage.getItem('secondToken'))['token']);
-        this.helperService.POST(this.urlApi + "/prescriptions/" + this.helperService.secondToken, data).subscribe(function (rs) {
+        this.helperService.POST(this.urlApi + "/prescriptions/" + JSON.parse(localStorage.getItem('secondToken'))['token'], data).subscribe(function (rs) {
             var res = rs.json();
             if (res.data.length == 0 && res.code == 200) {
                 _this.snackBar.open('Error en prescripción', 'No existe información asociada.', { duration: 4000 });
