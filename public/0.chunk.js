@@ -473,8 +473,6 @@ var MipresListComponent = /** @class */ (function (_super) {
         var _this = this;
         if (this.helperService.secondToken == undefined || new Date().valueOf() > this.helperService.expirationSecondToken.valueOf()) {
             this.helperService.secondToken = this.getSecondToken();
-            console.log(new Date().valueOf());
-            console.log(this.helperService.expirationSecondToken.valueOf());
         }
         this.nationalServiceState = this.helperService.secondToken == undefined ? false : true;
         this.loaderService.display(true);
