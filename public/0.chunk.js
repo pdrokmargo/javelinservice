@@ -419,7 +419,6 @@ var MipresListComponent = /** @class */ (function (_super) {
             .GET(this.urlApi + "/generateToken")
             .map(function (response) {
             var res = response.json();
-            console.log(res);
             _this.helperService.secondToken = res;
             var dt = new Date();
             dt.setHours(dt.getHours() + 6);
@@ -471,7 +470,7 @@ var MipresListComponent = /** @class */ (function (_super) {
     };
     MipresListComponent.prototype.getPrescriptions = function () {
         var _this = this;
-        if (this.helperService.secondToken == undefined || new Date().valueOf() > this.helperService.expirationSecondToken.valueOf()) {
+        if (this.helperService.secondToken == undefined || (this.helperService.expirationSecondToken && new Date().valueOf() > this.helperService.expirationSecondToken.valueOf())) {
             this.helperService.secondToken = this.getSecondToken();
         }
         this.nationalServiceState = this.helperService.secondToken == undefined ? false : true;
@@ -482,8 +481,6 @@ var MipresListComponent = /** @class */ (function (_super) {
             data["prescriptionNumber"] = this.search;
         }
         data["prescriptionDate"] = this.prescriptionDate;
-        console.log(this.helperService.secondToken);
-        console.log(JSON.parse(localStorage.getItem('secondToken'))['token']);
         this.helperService.POST(this.urlApi + "/prescriptions/" + JSON.parse(localStorage.getItem('secondToken'))['token'], data).subscribe(function (rs) {
             var res = rs.json();
             if (res.data.length == 0 && res.code == 200) {
