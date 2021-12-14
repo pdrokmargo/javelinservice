@@ -470,7 +470,7 @@ class MiPresController extends Controller
                 $url = $this->baseUrl.$endpoint.'/'.$this->nit.'/'.$token;
                 $response = $client->request('PUT', $url, ['headers' => $headers,
                 'json' => 
-                    $form_params, 'verify' => false]);
+                    $form_params]);
                 $body = $response->getBody();
                 $code = $response->getStatusCode();
                 $status = 'true';
