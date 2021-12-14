@@ -429,7 +429,6 @@ var MipresListComponent = /** @class */ (function (_super) {
             }));
         })
             .subscribe(function (done) {
-            _this.loaderService.display(false);
             return JSON.parse(localStorage.getItem('secondToken'))['token'];
         }, function (error) {
             console.log(error);
@@ -503,7 +502,6 @@ var MipresListComponent = /** @class */ (function (_super) {
         }, function (err) {
             _this.nationalServiceState = false;
             _this.snackBar.open('Servicio Nacional MiPRES', 'Inestabilidad en el servicio.', { duration: 4000 });
-            console.log(err.message);
             _this.loaderService.display(false);
         });
     };
