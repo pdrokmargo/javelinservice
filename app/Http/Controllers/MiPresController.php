@@ -408,6 +408,7 @@ class MiPresController extends Controller
                 $client = new \GuzzleHttp\Client();
                 $headers = [
                     'Accept' => 'application/json',
+                    'verify' => false,
                     'Content-Type' => 'application/json'
                 ];
                 $form_params = [];
