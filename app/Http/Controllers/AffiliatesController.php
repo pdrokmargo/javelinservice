@@ -79,9 +79,9 @@ class AffiliatesController extends Controller
                 ], 200);
             }else{
                 return response()->json([ 
-                    "store" => true, 
+                    "duplicated" => true, 
                     "message" => "Registro duplicado" 
-                ], 202);
+                ], 200);
             }
             
         } 
