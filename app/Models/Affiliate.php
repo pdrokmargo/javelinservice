@@ -41,6 +41,12 @@ class Affiliate extends Model
     protected $appends = ['display_name'];
     public function getDisplayNameAttribute()
 	{
+        if(!$this->middlename || $this->middlename == null){
+            $this->middlename = '';
+        }
+        if(!$this->lastname2 || $this->lastname2 == null){
+            $this->lastname2 = '';
+        }
         $fullname = $this->firstname;
         if($this->middlename != '' || $this->middlename != null){$fullname .= ' '.$this->middlename;}
         if($this->lastname1 != '' || $this->lastname1 != null){$fullname .= ' '.$this->lastname1;}
