@@ -16,9 +16,9 @@ class CreateAffiliatesTable extends Migration
         Schema::create('affiliates', function (Blueprint $table) {
             $table->uuid('id');
             $table->integer('document_type_id');
-            $table->integer('document_number');
+            $table->integer('document_number')->unique();
             $table->uuid('delivery_contract_id');
-            $table->integer('ips_network_id'); // to IPS_NETWORK in collection values
+            $table->integer('ips_network_id')->nullable(); // to IPS_NETWORK in collection values
             $table->string('firstname');
             $table->string('middlename')->nullable();
             $table->string('lastname1');

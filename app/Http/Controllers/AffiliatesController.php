@@ -67,14 +67,23 @@ class AffiliatesController extends Controller
         try
         {
             $data = json_decode($request->data, true);
-            $af = \App\Models\Affiliate::create($data);
-            $this->CreateLog($request->user()->id, 'affiliates', 1,'');
-            \App\JavelinFriends\feed_syncs::save_sync($af->id, 'affiliates');
-            DB::commit();
-            return response()->json([ 
-                "store" => true, 
-                "message" => "Registro creado correctamente" 
-            ], 200);
+            $exist = \App\Models\Affiliate::where('document_number', $data['document_number'])->first();
+            if(!$exist){
+                $af = \App\Models\Affiliate::create($data);
+                $this->CreateLog($request->user()->id, 'affiliates', 1,'');
+                \App\JavelinFriends\feed_syncs::save_sync($af->id, 'affiliates');
+                DB::commit();
+                return response()->json([ 
+                    "store" => true, 
+                    "message" => "Registro creado correctamente" 
+                ], 200);
+            }else{
+                return response()->json([ 
+                    "store" => true, 
+                    "message" => "Registro duplicado" 
+                ], 202);
+            }
+            
         } 
         catch (Exception $e) 
         { 
