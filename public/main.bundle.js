@@ -628,12 +628,10 @@ var AuthenticationService = /** @class */ (function () {
         var currentUser = JSON.parse(localStorage.getItem("currentUser"));
         // this.urlBase = 'http://javelin.myecolombia.com.co';
         this.urlBase = 'https://javelinservice.herokuapp.com';
+        // this.urlBase = 'https://javelin-punto43b.herokuapp.com/';
         // this.urlBase = 'http://localhost/javelinservice/public';
         var url = window.location.href;
-        if (url.includes('localhost')) {
-            this.urlBase = 'https://javelinservice.herokuapp.com';
-        }
-        else {
+        if (!url.includes('localhost') && !url.includes('myecolombia')) {
             this.urlBase = url;
         }
         if (localStorage.getItem('currentUser') != null) {
@@ -856,7 +854,7 @@ function makeAppConfig() {
         brand: 'Javelin',
         user: 'Lisa',
         year: year,
-        version: 'v1.0.19',
+        version: 'v1.0.20',
         layoutBoxed: false,
         navCollapsed: false,
         navBehind: false,

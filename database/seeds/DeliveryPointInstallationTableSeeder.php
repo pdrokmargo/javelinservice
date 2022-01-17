@@ -131,7 +131,8 @@ class DeliveryPointInstallationTableSeeder extends Seeder
         }
         DB::connection('main')->table('delivery_points')->where('token', $token)->update(['installed' => true]);
         }catch(Exception $e){
-            echo $e;
+            echo $table."<br><br><br>";
+            // echo $e;
         }
     }
 }
