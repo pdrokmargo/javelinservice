@@ -69,7 +69,7 @@ class Product extends Model
 		// 	return $this->product_detail->name;
 		// }
 		$name = '';
-		if($this){
+		if($this && $this->product_detail){
 			$name = $this->product_detail->name;
 		}
 		return $name;
