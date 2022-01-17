@@ -602,9 +602,10 @@ var AUTH_CONFIG = {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs__ = __webpack_require__("../../../../rxjs/Rx.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__auth0_variables__ = __webpack_require__("../../../../../src/app/auth/auth0-variables.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs__ = __webpack_require__("../../../../rxjs/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__auth0_variables__ = __webpack_require__("../../../../../src/app/auth/auth0-variables.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthenticationService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -619,13 +620,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AuthenticationService = /** @class */ (function () {
-    function AuthenticationService(http) {
+    function AuthenticationService(http, router) {
         this.http = http;
+        this.router = router;
         var currentUser = JSON.parse(localStorage.getItem("currentUser"));
         // this.urlBase = 'http://javelin.myecolombia.com.co';
         this.urlBase = 'https://javelinservice.herokuapp.com';
         // this.urlBase = 'http://localhost/javelinservice/public';
+        var url = window.location.href;
+        if (url.includes('localhost')) {
+            this.urlBase = 'https://javelinservice.herokuapp.com';
+        }
+        else {
+            this.urlBase = url;
+        }
         if (localStorage.getItem('currentUser') != null) {
             this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Headers */]({
                 "Accept": "application/json",
@@ -636,12 +646,12 @@ var AuthenticationService = /** @class */ (function () {
     AuthenticationService.prototype.login = function (username, password) {
         var _this = this;
         var body = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["f" /* URLSearchParams */]();
-        body.set("grant_type", __WEBPACK_IMPORTED_MODULE_3__auth0_variables__["a" /* AUTH_CONFIG */].GRANT_TYPE);
-        body.set("client_id", __WEBPACK_IMPORTED_MODULE_3__auth0_variables__["a" /* AUTH_CONFIG */].CLIENT_ID);
-        body.set("client_secret", __WEBPACK_IMPORTED_MODULE_3__auth0_variables__["a" /* AUTH_CONFIG */].CLIENT_SECRET);
+        body.set("grant_type", __WEBPACK_IMPORTED_MODULE_4__auth0_variables__["a" /* AUTH_CONFIG */].GRANT_TYPE);
+        body.set("client_id", __WEBPACK_IMPORTED_MODULE_4__auth0_variables__["a" /* AUTH_CONFIG */].CLIENT_ID);
+        body.set("client_secret", __WEBPACK_IMPORTED_MODULE_4__auth0_variables__["a" /* AUTH_CONFIG */].CLIENT_SECRET);
         body.set("username", username);
         body.set("password", password);
-        body.set("scope", __WEBPACK_IMPORTED_MODULE_3__auth0_variables__["a" /* AUTH_CONFIG */].SCOPE);
+        body.set("scope", __WEBPACK_IMPORTED_MODULE_4__auth0_variables__["a" /* AUTH_CONFIG */].SCOPE);
         return this.http.post(this.urlBase + "/oauth/token", body)
             .map(function (response) {
             var token = response.json() && response.json().access_token;
@@ -687,7 +697,7 @@ var AuthenticationService = /** @class */ (function () {
         console.log(JSON.stringify(data));
         return this.http.post(this.urlBase + "/api/" + url, { data: JSON.stringify(data) }, { headers: this.headers })
             .map(function (res) { return res.json(); })
-            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs__["Observable"].throw(error.json().error || 'Server error'); });
     };
     AuthenticationService.prototype.GET = function (url) {
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Headers */]({
@@ -696,7 +706,7 @@ var AuthenticationService = /** @class */ (function () {
         });
         return this.http.get(this.urlBase + "/api/" + url, { headers: this.headers })
             .map(function (res) { return res.json(); })
-            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs__["Observable"].throw(error.json().error || 'Server error'); });
     };
     AuthenticationService.prototype.PUT = function (url, data) {
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Headers */]({
@@ -705,7 +715,7 @@ var AuthenticationService = /** @class */ (function () {
         });
         return this.http.put(this.urlBase + "/api/" + url, { data: JSON.stringify(data) }, { headers: this.headers })
             .map(function (res) { return res.json(); })
-            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs__["Observable"].throw(error.json().error || 'Server error'); });
     };
     AuthenticationService.prototype.DELETE = function (url) {
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Headers */]({
@@ -714,7 +724,7 @@ var AuthenticationService = /** @class */ (function () {
         });
         return this.http.delete(this.urlBase + "/api/" + url, { headers: this.headers })
             .map(function (res) { return res.json(); })
-            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs__["Observable"].throw(error.json().error || 'Server error'); });
     };
     AuthenticationService.prototype.PRIVILEGE = function (link) {
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Headers */]({
@@ -723,12 +733,12 @@ var AuthenticationService = /** @class */ (function () {
         });
         return this.http.get(this.urlBase + "/api/privilege/" + link, { headers: this.headers })
             .map(function (res) { return res.json(); })
-            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_2_rxjs__["Observable"].throw(error.json().error || 'Server error'); });
+            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_3_rxjs__["Observable"].throw(error.json().error || 'Server error'); });
     };
-    var _a;
+    var _a, _b;
     AuthenticationService = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */]) === "function" ? _a : Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* Http */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" ? _b : Object])
     ], AuthenticationService);
     return AuthenticationService;
 }());
@@ -846,7 +856,7 @@ function makeAppConfig() {
         brand: 'Javelin',
         user: 'Lisa',
         year: year,
-        version: 'v1.0.18',
+        version: 'v1.0.19',
         layoutBoxed: false,
         navCollapsed: false,
         navBehind: false,
