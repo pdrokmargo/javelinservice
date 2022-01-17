@@ -118,7 +118,7 @@ return [
         'main' => [
             'driver' => 'pgsql',
             'host' => 'ec2-3-214-4-151.compute-1.amazonaws.com',
-            'port' => '5432'),
+            'port' => '5432',
             'database' => 'doqc8fbi8s9sp',
             'username' => 'zoncngyypoqqqh',
             'password' => '2951d9603ac8ab65f35e7260e5524f46e7a1a8626b0ab7f5921f7cefd5d35a11',
