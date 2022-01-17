@@ -68,7 +68,11 @@ class Product extends Model
 		// 	// $item = $item[0];
 		// 	return $this->product_detail->name;
 		// }
-		return $this->product_detail->name;
+		$name = '';
+		if($this){
+			$name = $this->product_detail->name;
+		}
+		return $name;
 	}
 
 	public function getAverageunitcostAttribute()
