@@ -43,7 +43,8 @@ class DeliveryPointInstallationTableSeeder extends Seeder
         }
         foreach($syncs->value as $sync){
             $table = $sync['table_name'];
-            if($sync['down'] == true && ($table != 'products' && $table != 'active_ingredients' && $table != 'active_ingredients_pharmaceutical_drugs')){
+            DB::connection($connection)->table($table)->delete();
+            if($sync['down'] == true && ($table != 'products' && $table != 'active_ingredients' && $table != 'active_ingredients_pharmaceutical_drugs' && $table != 'pharmaceutical_drugs' && $table != 'pharmaceutical_drugs_products')){
                 DB::connection($connection)->table($table)->delete();
 
                 // Companies installation: DONE
@@ -90,12 +91,11 @@ class DeliveryPointInstallationTableSeeder extends Seeder
                     foreach($collection as $c){
                         DB::connection($connection)->table($table)->insert((array)$c);
                     }
-
                 }
                 // Contracts installation: DONE
                 else if($table == 'delivery_contracts'){
                     
-                    dump($a_contracts);
+                    
                     DB::connection($connection)->table($table)->insert($a_contracts);
                     // $contracts = DB::connection('main')->table($table)->get();
                     // look what contracts contains this delivery point.
@@ -103,6 +103,8 @@ class DeliveryPointInstallationTableSeeder extends Seeder
 
                 // Users installation: DONE
                 else if($table == 'users'){
+                    // DB::connection($connection)->table('privileges')->delete();
+                    // DB::connection($connection)->table('users_privileges')->delete();
                     DB::connection($connection)->table($table)->insert([
                         [
                             'id'                    => '7ddc0553-0b27-49f1-a1b7-445777a72d0e',
@@ -115,8 +117,8 @@ class DeliveryPointInstallationTableSeeder extends Seeder
                             'company_default_id'    => '1'
                         ]
                     ]);
-                    DB::connection($connection)->table('privileges')->insert(json_decode(DB::connection('main')->table('privileges')->where('user_profile_id', 1)->get(), true));
-                    DB::connection($connection)->table('users_privileges')->insert(json_decode(DB::connection('main')->table('users_privileges')->where('user_profile_id', 1)->where('user_id', '7ddc0553-0b27-49f1-a1b7-445777a72d0e')->where('company_id', $delivery_point->company_id)->get(), true));
+                    // DB::connection($connection)->table('privileges')->insert(json_decode(DB::connection('main')->table('privileges')->where('user_profile_id', 1)->get(), true));
+                    // DB::connection($connection)->table('users_privileges')->insert(json_decode(DB::connection('main')->table('users_privileges')->where('user_profile_id', 1)->where('user_id', '7ddc0553-0b27-49f1-a1b7-445777a72d0e')->where('company_id', $delivery_point->company_id)->get(), true));
                     $users = [];
                     foreach(json_decode($delivery_point->users, true) as $u){
                         $users[] = $u["user_id"];
@@ -128,11 +130,12 @@ class DeliveryPointInstallationTableSeeder extends Seeder
                     DB::connection($connection)->table($table)->insert(json_decode(DB::connection('main')->table($table)->get(), true));
                 }
             }
+            dump($table.' finalizado');
         }
         DB::connection('main')->table('delivery_points')->where('token', $token)->update(['installed' => true]);
         }catch(Exception $e){
-            echo $table."<br><br><br>";
-            // echo $e;
+            echo $table.'\n\n';
+            echo $e;
         }
     }
 }

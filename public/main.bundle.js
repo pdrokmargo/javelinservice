@@ -627,11 +627,14 @@ var AuthenticationService = /** @class */ (function () {
         this.router = router;
         var currentUser = JSON.parse(localStorage.getItem("currentUser"));
         // this.urlBase = 'http://javelin.myecolombia.com.co';
-        this.urlBase = 'https://javelinservice.herokuapp.com';
-        // this.urlBase = 'https://javelin-punto43b.herokuapp.com/';
+        // this.urlBase = 'https://javelinservice.herokuapp.com';
+        // this.urlBase = 'https://javelin-punto43b.herokuapp.com';
         // this.urlBase = 'http://localhost/javelinservice/public';
         var url = window.location.href;
-        if (!url.includes('localhost') && !url.includes('myecolombia')) {
+        if (url.includes('localhost') || url.includes('myecolombia') || url.includes('javelinservice')) {
+            this.urlBase = 'https://javelinservice.herokuapp.com';
+        }
+        else {
             this.urlBase = url;
         }
         if (localStorage.getItem('currentUser') != null) {

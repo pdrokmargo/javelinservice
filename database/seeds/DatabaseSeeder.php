@@ -11,6 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+      if (env('DB_CONNECTION') == 'main'){
+        
+        dump('main');
          $this->call(CollectionsTableSeeder::class);
          $this->call(CollectionsValuesTableSeeder::class);
          $this->call(UsersTableSeeder::class);
@@ -43,6 +46,15 @@ class DatabaseSeeder extends Seeder
         $this->call(ProductsTableSeeder::class);   
           $this->call(PharmaceuticalDrugsProductsTableSeeder::class);   
           $this->call(MedicalDiagnosisTableSeeder::class);  
+      }else{
+        dump('punto');
+        $this->call(ActiveIngredientsTableSeeder::class);
+        $this->call(PharmaceuticalDrugsTableSeeder::class);
+         $this->call(ActiveIngredientsPharmaceuticalDrugsTableSeeder::class);
+        $this->call(ProductsTableSeeder::class);   
+        $this->call(PharmaceuticalDrugsProductsTableSeeder::class);   
+      }
+
 
           // Run this manually using php artisan db:seed --class=ConfigurationsTableSeeder for main
         //   $this->call(ConfigurationsTableSeeder::class);
