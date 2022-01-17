@@ -71,7 +71,7 @@ class InventoryMovementsController extends Controller
                 foreach($inventory_movements as $im){
                     $im->remaining = $im->details;
                 }
-            return response()->json(['status'=>'success', "message"=>'', "data" => $inventory_movements ], 200);
+            return response()->json(['status'=>'success'.$active_delivery_point, "message"=>'', "data" => $inventory_movements ], 200);
 
             } catch (Exception $e) {
                 return 'Error:'.$e->getMessage();
