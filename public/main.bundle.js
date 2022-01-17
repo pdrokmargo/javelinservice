@@ -631,12 +631,11 @@ var AuthenticationService = /** @class */ (function () {
         // this.urlBase = 'https://javelin-punto43b.herokuapp.com';
         // this.urlBase = 'http://localhost/javelinservice/public';
         var url = window.location.href;
-        console.log(url);
         if (url.includes('localhost') || url.includes('myecolombia') || url.includes('javelinservice')) {
             this.urlBase = 'https://javelinservice.herokuapp.com';
         }
         else {
-            this.urlBase = url;
+            this.urlBase = url.replace('#/auth/login', '');
         }
         if (localStorage.getItem('currentUser') != null) {
             this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Headers */]({
@@ -858,7 +857,7 @@ function makeAppConfig() {
         brand: 'Javelin',
         user: 'Lisa',
         year: year,
-        version: 'v1.0.20',
+        version: 'v1.0.21',
         layoutBoxed: false,
         navCollapsed: false,
         navBehind: false,
