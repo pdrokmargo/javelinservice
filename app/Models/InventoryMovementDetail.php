@@ -32,7 +32,11 @@ class InventoryMovementDetail extends Model
     public function getSubtotalAttribute()
     {
         $product = \App\Models\Product::where('id', $this->product_id)->first(); 
-        return $product->averageunitcost*$this->units;
+        $averageunitcost = 0;
+        if($product->averageunitcost){
+            $averageunitcost = $product->averageunitcost;
+        }
+        return $averageunitcost*$this->units;
     }
 
 
