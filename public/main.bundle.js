@@ -630,12 +630,12 @@ var AuthenticationService = /** @class */ (function () {
         // this.urlBase = 'https://javelinservice.herokuapp.com';
         // this.urlBase = 'https://javelin-punto43b.herokuapp.com';
         // this.urlBase = 'http://localhost/javelinservice/public';
-        var url = window.location.href;
+        var url = window.location.hostname;
         if (url.includes('localhost') || url.includes('myecolombia') || url.includes('javelinservice')) {
             this.urlBase = 'https://javelinservice.herokuapp.com';
         }
         else {
-            this.urlBase = url.replace('/#/auth/login', '');
+            this.urlBase = url;
         }
         if (localStorage.getItem('currentUser') != null) {
             this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Headers */]({
