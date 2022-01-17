@@ -17,7 +17,7 @@ class DeliveryPointConfigurationTableSeeder extends Seeder
 
         // Here goes the token assigned when delivery point is created. 
         // $delivery_point = \App\Models\DeliveryPoint::find('203830c0-5e66-11ea-94de-ad04bd0c1d1d');
-        $delivery_point = DB::connection('main')->table('delivery_points')->where('token', 'hZUbaSM2')->first();
+        $delivery_point = DB::connection('main')->table('delivery_points')->where('token', 'OHpHweCH')->first();
         // dump($delivery_point);
 
         $syncs = \App\Models\Configuration::where('code', 'syncs')->first();
@@ -38,6 +38,12 @@ class DeliveryPointConfigurationTableSeeder extends Seeder
                 'code' => 'role_mode',
                 'display' => 'Rol Aplicativo',
                 'value' => '{"key":"delivery_point"}', //delivery_point, main_global, main_local
+                'company_id' => $delivery_point->company_id
+            ],
+            [
+                'code' => 'mipresSecondToken',
+                'display' => 'MiPres',
+                'value' => '{"token":"R_OS94Vv4tVsTs8uJSpTGd8QsHB4SaDouAHcDV_3KE4="}',
                 'company_id' => $delivery_point->company_id
             ],
             [
