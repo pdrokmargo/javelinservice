@@ -66,8 +66,8 @@ class InventoryMovementsController extends Controller
             $active_delivery_point = \App\Models\Configuration::where('code', 'active_delivery_point')->first();
                 $delivery_point = \App\Models\DeliveryPoint::where('id', $active_delivery_point->value['delivery_point_id'])->with('warehouses')->first(); 
                 $inventory_movements = new \App\Models\InventoryMovement();
-                $inventory_movements->setConnection('main');
-                $inventory_movements = \App\Models\InventoryMovement::where('company_id', $company_id)->where('inventory_movement_entry_out_type_id', 182)->where('counterpart_transfer_id', $delivery_point->warehouses->id)->with('details', 'counterpart_transfer')->orderBy($ordername, $ordertype)->paginate(15); 
+                // $inventory_movements->on('main');
+                $inventory_movements = \App\Models\InventoryMovement::on('main')->where('company_id', $company_id)->where('inventory_movement_entry_out_type_id', 182)->where('counterpart_transfer_id', $delivery_point->warehouses->id)->with('details', 'counterpart_transfer')->orderBy($ordername, $ordertype)->paginate(15); 
                 foreach($inventory_movements as $im){
                     $im->remaining = $im->details;
                 }
