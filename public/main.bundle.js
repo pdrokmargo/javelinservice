@@ -635,7 +635,7 @@ var AuthenticationService = /** @class */ (function () {
             this.urlBase = 'https://javelinservice.herokuapp.com';
         }
         else {
-            this.urlBase = url.replace('#/auth/login', '');
+            this.urlBase = url.replace('/#/auth/login', '');
         }
         if (localStorage.getItem('currentUser') != null) {
             this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Headers */]({
