@@ -66,8 +66,8 @@ class BillingController extends Controller
             $data = json_decode($request->data, true);
 
             //Consecutive assignment
-            // $billing['document'] = \App\Models\Consecutive::where('id', $billing['consecutive_id'])->first();
-            // $data['consecutive_id'] = $billing['document']['id'];
+            $billing['document'] = \App\Models\Consecutive::where('document_name', 'sales_billing')->first();
+            $data['consecutive_id'] = $billing['document']['id'];
             $data['consecutive'] = \App\Models\Billing::where('consecutive_id', $data['consecutive_id'])->max('consecutive') + 1;
             if($data['consecutive'] == null){
                 $data['consecutive'] = 1;

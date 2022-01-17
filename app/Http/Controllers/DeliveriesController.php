@@ -17,7 +17,8 @@ class DeliveriesController extends Controller
      */
     public function index(Request $request)
     {
-        $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';
+        try{
+            $search = isset($request->search) ? '%'.strtolower($request->search).'%' : '';
             $ordername = isset($request->ordername) ? $request->ordername : 'consecutive';
             $ordertype = isset($request->ordertype) ? $request->ordertype : 'DESC';
             $page = $request->page;
@@ -26,6 +27,10 @@ class DeliveriesController extends Controller
             $active_delivery_point = \App\Models\Configuration::where('code', 'active_delivery_point')->first();
             $deliveries = \App\Models\Delivery::where('delivery_point_id', json_decode($active_delivery_point->value, true)['delivery_point_id'])->orderBy($ordername, $ordertype)->paginate(15); 
             return response()->json(['status'=>'success', "message"=>'', "data" => $deliveries ], 200);
+        }catch(Exception $e){
+            return 'Error:'.$e->getMessage();
+        }
+       
 
     }
 

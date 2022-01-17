@@ -35,6 +35,12 @@ class ConfigurationsTableSeeder extends Seeder
                 'company_id' => 1
             ],
             [
+                'code' => 'mipresSecondToken',
+                'display' => 'MiPres',
+                'value' => '{"token":"R_OS94Vv4tVsTs8uJSpTGd8QsHB4SaDouAHcDV_3KE4="}',
+                'company_id' => 1
+            ],
+            [
                 'code' => 'role_mode',
                 'display' => 'Rol Aplicativo',
                 'value' => '{"key":"main_global"}', //delivery_point, main_global, main_local
