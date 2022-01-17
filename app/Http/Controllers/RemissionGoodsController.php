@@ -63,6 +63,8 @@ class RemissionGoodsController extends Controller
             }
 
             $remission_goods = \App\Models\RemissionGoods::create($data);
+
+            
             DB::commit();
             return response()->json([ 
                 "store" => true, 
