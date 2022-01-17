@@ -33,7 +33,7 @@ class InventoryMovementDetail extends Model
     {
         $product = \App\Models\Product::where('id', $this->product_id)->first(); 
         $averageunitcost = 0;
-        if($product && $product->averageunitcost){
+        if(isset($product->averageunitcost)){
             $averageunitcost = $product->averageunitcost;
         }
         return $averageunitcost*$this->units;
