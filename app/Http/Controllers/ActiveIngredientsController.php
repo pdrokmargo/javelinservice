@@ -22,11 +22,11 @@ class ActiveIngredientsController extends Controller
 
         // $query = new \App\Models\ActiveIngredient();
 
-        $query = '';
+        
         if ($search!='') {
-            $query = $query->whereRaw("lower(name) like ?", array($search))->orderBy($ordername, $ordertype);
+            $query = \App\Models\ActiveIngredient::whereRaw("lower(name) like ?", array($search))->orderBy($ordername, $ordertype);
         }else{
-            $query=$query->orderBy($ordername, $ordertype);
+            $query= \App\Models\ActiveIngredient::orderBy($ordername, $ordertype);
         } 
 
         $data = [];  
