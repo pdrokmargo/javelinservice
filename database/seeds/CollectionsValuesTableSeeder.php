@@ -1601,12 +1601,20 @@ class CollectionsValuesTableSeeder extends Seeder
             /* CONTENT_UNIT */ 
             // continue: PACKAGING_UNIT
             
-            /*1475*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'vial', 'value' => 'Vial'],
-            /*1476*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'tarro', 'value' => 'Tarro'],
-            /*1477*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'pote', 'value' => 'Pote'],
-            /*1478*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'garrafa', 'value' => 'Garrafa'],
-            /*1479*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'spray', 'value' => 'Spray'],
-            /*1480*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'unidad-content-unit', 'value' => 'Unidad'],
+            /*1473*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'vial', 'value' => 'Vial'],
+            /*1474*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'tarro', 'value' => 'Tarro'],
+            /*1475*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'pote', 'value' => 'Pote'],
+            /*1476*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'garrafa', 'value' => 'Garrafa'],
+            /*1477*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'spray', 'value' => 'Spray'],
+            /*1478*/['collection_id' => 22, 'parent_id' => 0, 'code' => 'unidad-content-unit', 'value' => 'Unidad'],
+
+            //IPS
+            /*1479*/['collection_id' => 28, 'parent_id' => 0, 'code' => 'ips-por-defecto', 'value' => 'IPS por Defecto'],
+
+            /* DOSAGE_FORM */ 
+            // continue: DOSAGE_FORM
+
+            /*1480*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'parche', 'value' => 'Parche'],
 
             
         ]);
