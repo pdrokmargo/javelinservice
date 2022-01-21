@@ -211,7 +211,7 @@ class UsersController extends Controller
         DB::beginTransaction(); 
         try {
             $data = json_decode($request->data, true);    
-            $_user = $data["user"];
+            $_user = $data;
             $userprofile = $data["userprofiles"];
             
             $user = \App\Models\User::find($id);
