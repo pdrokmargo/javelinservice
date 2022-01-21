@@ -212,7 +212,7 @@ class UsersController extends Controller
         try {
             $data = json_decode($request->data, true);    
             $_user = $data;
-            $userprofile = $data["userprofiles"];
+            $userprofile = $data["userprofile"];
             
             $user = \App\Models\User::find($id);
 
