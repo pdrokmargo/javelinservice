@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-      if (env('DB_CONNECTION') == 'main'){
+      if (env('DB_CONNECTION') == 'main' || env('DB_CONNECTION') == 'mainqa'){
         
         dump('main');
          $this->call(CollectionsTableSeeder::class);

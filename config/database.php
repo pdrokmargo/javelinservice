@@ -127,7 +127,18 @@ return [
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
-
+        'mainqa' => [
+            'driver' => 'pgsql',
+            'host' => 'ec2-52-200-188-218.compute-1.amazonaws.com',
+            'port' => '5432',
+            'database' => 'd2kh6uk7n7e43a',
+            'username' => 'gtjlobbzbyiyva',
+            'password' => 'cad9be87d0eae195f73d9879431cc0ffa8700f779a5b8c600a28bf03a3b8d2ad',
+            'charset' => 'utf8',
+            'prefix' => '',
+            'schema' => 'public',
+            'sslmode' => 'prefer',
+        ],
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'host' => env('DB_HOST', 'localhost'),
