@@ -45,7 +45,8 @@ class DatabaseSeeder extends Seeder
          $this->call(ManufacturersTableSeeder::class);   
         $this->call(ProductsTableSeeder::class);   
           $this->call(PharmaceuticalDrugsProductsTableSeeder::class);   
-          $this->call(MedicalDiagnosisTableSeeder::class);  
+          $this->call(MedicalDiagnosisTableSeeder::class);
+          $this->call(MainLocalConfigurationTableSeeder::class);  
       }else{
         dump('punto');
         $this->call(ActiveIngredientsTableSeeder::class);

@@ -54,7 +54,7 @@ class Product extends Model
 
 	public function getLaboratoryNameAttribute()
 	{
-		if($this->product_type_id == 30){
+		if($this->product_type_id == 30 && isset($this->product_detail)){
 			return $this->product_detail->laboratory->stakeholderInfo->fullname;
 		}
 		
