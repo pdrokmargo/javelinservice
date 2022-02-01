@@ -1614,7 +1614,8 @@ class CollectionsValuesTableSeeder extends Seeder
             /* DOSAGE_FORM */ 
             // continue: DOSAGE_FORM
 
-            /*1480*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'parche', 'value' => 'Parche'],
+            /*1480*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'parche', 'value' => 'PARCHE'],
+            /*1481*/['collection_id' => 23, 'parent_id' => 0, 'code' => 'sol-inh', 'value' => 'SOL-INH'],
 
             
         ]);

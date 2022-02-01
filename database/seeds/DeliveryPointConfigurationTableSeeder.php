@@ -17,7 +17,7 @@ class DeliveryPointConfigurationTableSeeder extends Seeder
 
         // Here goes the token assigned when delivery point is created. 
         // $delivery_point = \App\Models\DeliveryPoint::find('203830c0-5e66-11ea-94de-ad04bd0c1d1d');
-        $delivery_point = DB::connection('main')->table('delivery_points')->where('token', 'OHpHweCH')->first();
+        $delivery_point = DB::connection('mainqa')->table('delivery_points')->where('token', 'OHpHweCH')->first();
         // dump($delivery_point);
 
         $syncs = \App\Models\Configuration::where('code', 'syncs')->first();
@@ -31,7 +31,7 @@ class DeliveryPointConfigurationTableSeeder extends Seeder
             [
                 'code' => 'main_source',
                 'display' => 'Fuente Principal',
-                'value' => '{"source":"https://javelinservice.herokuapp.com"}',
+                'value' => '{"source":"https://javelinservice-qa.herokuapp.com"}',
                 'company_id' => $delivery_point->company_id
             ],
             [

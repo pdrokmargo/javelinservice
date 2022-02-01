@@ -18,7 +18,7 @@ class CreateDeliveryContractsTable extends Migration
             $table->uuid('customer_id'); // A customer stakeholder only
             $table->integer('company_id')->default(0);
             $table->string('name');
-            $table->string('description');
+            $table->string('description')->default('');
             $table->integer('population_type_id'); //Tipo de Población: Subsidiado, Contributivo
             $table->json('delivery_points')->nullable();
             // json array
