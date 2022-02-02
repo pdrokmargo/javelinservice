@@ -72,7 +72,7 @@ class DeliveriesController extends Controller
         DB::beginTransaction(); 
         try
         {
-            $data = $request->data;
+            $data = json_decode($request->data, true);
             $data['company_id'] = $request->user()->company_default_id;
             $data_details = $data->details;
             $active_delivery_point = \App\Models\Configuration::where('code', 'active_delivery_point')->first();
