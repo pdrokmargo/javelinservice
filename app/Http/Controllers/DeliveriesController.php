@@ -74,10 +74,10 @@ class DeliveriesController extends Controller
         {
             $data = json_decode($request->data, true);
             $data['company_id'] = $request->user()->company_default_id;
-            $data_details = $data->details;
+            $data_details = $data['details'];
             $active_delivery_point = \App\Models\Configuration::where('code', 'active_delivery_point')->first();
-            $data->delivery_point_id = $active_delivery_point->value['delivery_point_id'];
-            $data->consecutive = \App\Models\Delivery::max('consecutive') + 1;
+            $data['delivery_point_id'] = $active_delivery_point->value['delivery_point_id'];
+            $data['consecutive'] = \App\Models\Delivery::max('consecutive') + 1;
 
             //Create the delivery master
             $delivery = \App\Models\Delivery::create($data);
