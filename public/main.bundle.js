@@ -632,8 +632,8 @@ var AuthenticationService = /** @class */ (function () {
         // this.urlBase = 'http://localhost/javelinservice/public';
         var url = window.location.hostname;
         if (url.includes('localhost') || url.includes('myecolombia') || url.includes('javelinservice')) {
-            // this.urlBase = 'https://javelinservice-qa.herokuapp.com';
-            this.urlBase = 'https://javelin-punto43b.herokuapp.com';
+            this.urlBase = 'https://javelinservice-qa.herokuapp.com';
+            // this.urlBase = 'https://javelin-punto43b.herokuapp.com';
         }
         else {
             this.urlBase = 'https://' + url;
